@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "spkpb"
-version = "0.0.0-beta"
-description = "A module to write programs which have to be verbose about a process on files and directories that have to emit informations, warnings and errors."
+version = "0.0.3-beta"
+description = "A module to write programs which have to be verbose about a process on files and directories, and that have to emit informations, warnings and errors."
 authors = ["Christophe BAL"]
 license = "GNU License Version 3"
 

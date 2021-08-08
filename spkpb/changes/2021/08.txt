@@ -2,4 +2,4 @@
 09
 ==
 
-**First version version::``0.0.0-beta``:** this project proposes tools to simplify the writing of programs which have to be verbose about a process and that can emit warnings and errors.
+**First version version::``0.0.3-beta``:** this project proposes tools to simplify the writing of programs which have to be verbose about a process in a terminal and a log file, and that also want to emit warnings and errors (the strang first number version comes from a rigid behavior of ¨pypi).
