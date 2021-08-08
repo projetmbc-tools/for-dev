@@ -7,11 +7,52 @@
 
 
 from collections import defaultdict
+from functools import wraps
 from pathlib     import Path
 
 from natsort import natsorted
 
-from speaker import *
+from .speaker import *
+
+
+# ------------------------ #
+# -- PROBLEMS DECORATOR -- #
+# ------------------------ #
+
+###
+# This decorator simplifies the managment of the new warnings, criticals
+# and errors.
+###
+
+def problems_deco(method):
+    @wraps(method)
+# what -> any object with a string representation indicating clearly 
+#         what is causing the problem.
+#
+# info -> the info explaining the error.
+#
+# level -> the level of the step indicating the problem.
+    def similar(
+        self,
+        what : Any,
+        info : str,
+        level: int = 0
+    ) -> None:
+        kind = method.__name__.replace('new_', '')
+
+        nb_kind = f'nb_{kind}s'
+
+        lastnb = getattr(self, nb_kind)
+        setattr(self, nb_kind, lastnb + 1)
+
+        self._new_pb(
+            what    = what,
+            context = globals()[f'CONTEXT_{kind.upper()}'],
+            info    = info,
+            level   = level
+        )
+    
+    return similar
 
 
 # -------------- #
@@ -19,14 +60,14 @@ from speaker import *
 # -------------- #
 
 ###
-# This class is used to store ¨infos about errors and warnings emitted 
-# during all the process.
-#
-# warning::
-#     This class must work whatever the context of use is!
+# This class is used to store ¨infos about errors and warnings 
+# emitted during all the process.
 ###
 
 class Problems:
+    PB_INFO_TAG: str = 'info'
+    PB_ID_TAG  : str = 'pbid'
+
 ###
 # prototype::
 #     speaker = ; // See Python typing...  
@@ -43,9 +84,9 @@ class Problems:
 # WARNING !
 # ---------
 # 
-# We use the ordered feature of dict suchas to treat warnings before
-# errors in the summaries.
-        self._problems: dict = {
+# We use the ordered feature of dict such as to treat warnings, criticals and
+# errors in this order when printing the summaries.
+        self.problems: dict = {
             CONTEXT_WARNING : defaultdict(list), # Before ERROR and CRITICAL!
             CONTEXT_CRITICAL: defaultdict(list), # Before ERROR!
             CONTEXT_ERROR   : defaultdict(list),
@@ -137,114 +178,110 @@ class Problems:
 
 ###
 # prototype::
-#     src_relpath = ; // See Python typing...
-#                   the path of the source within the warning has been found.
-#     info        = ; // See Python typing...
-#                   the info explaining the warning.
-#     level       = _ in [0..3] (0); // See Python typing...
-#                   the level of the step indicating the problem.
+#     what  = ; // See Python typing...
+#             any object with a string representation indicating clearly 
+#             what is causing the warning.
+#     info  = ; // See Python typing...
+#             the info explaining the warning.
+#     level = _ in [0..3] (0); // See Python typing...
+#             the level of the step indicating the problem.
 ###
+    @problems_deco
     def new_warning(
         self,
-        src_relpath: Path,
-        info       : str,
-        level      : int = 0
+        what : Any,
+        info : str,
+        level: int = 0
     ) -> None:
-        self.nb_warnings += 1
-
-        self._new_pb(
-            src_relpath = src_relpath,
-            context     = CONTEXT_WARNING,
-            info        = info,
-            level       = level
-        )
+        ...
 
 ###
 # prototype::
-#     src_relpath = ; // See Python typing...
-#                   the path of the source within the warning has been found.
-#     info        = ; // See Python typing...
-#                   the info explaining the "critical".
-#     level       = _ in [0..3] (0); // See Python typing...
-#                   the level of the step indicating the problem.
+#     what  = ; // See Python typing...
+#             any object with a string representation indicating clearly 
+#             what is causing the "critical" which is a dangerous warning.
+#     info  = ; // See Python typing...
+#             the info explaining the "critical".
+#     level = _ in [0..3] (0); // See Python typing...
+#             the level of the step indicating the problem.
 ###
+    @problems_deco
     def new_critical(
         self,
-        src_relpath: Path,
-        info       : str,
-        level      : int = 0
+        what : Any,
+        info : str,
+        level: int = 0
     ) -> None:
-        self.nb_criticals += 1
-
-        self._new_pb(
-            src_relpath = src_relpath,
-            context     = CONTEXT_CRITICAL,
-            info        = info,
-            level       = level
-        )
+        ...
 
 ###
 # prototype::
-#     src_relpath = ; // See Python typing...
-#                   the path of the source within the error has been found.
-#     info        = ; // See Python typing...
-#                   the info explaining the error.
-#     level       = _ in [0..3] (0); // See Python typing...
-#                   the level of the step indicating the problem.
+#     what  = ; // See Python typing...
+#             any object with a string representation indicating clearly 
+#             what is causing the error.
+#     info  = ; // See Python typing...
+#             the info explaining the error.
+#     level = _ in [0..3] (0); // See Python typing...
+#             the level of the step indicating the problem.
 ###
+    @problems_deco
     def new_error(
         self,
-        src_relpath: Path,
-        info       : str,
-        level      : int = 0
+        what : Any,
+        info : str,
+        level: int = 0
     ) -> None:
-        self.nb_errors += 1
-
-        self._new_pb(
-            src_relpath = src_relpath,
-            context     = CONTEXT_ERROR,
-            info        = info,
-            level       = level
-        )
+        ...
 
 ###
 # prototype::
-#     src_relpath = ; // See Python typing...
-#                   the path of the source within the problem has been found.
-#     context     = _ in [speaker.spk_interface.CONTEXT_ERROR, 
-#                         speaker.spk_interface.CONTEXT_WARNING] ; 
-#                   the kind of problem.
-#     info        = ; // See Python typing...
-#                   the info explaining the problem.
-#     level       = _ in [0..3] (0); // See Python typing...
-#                   the level of the step indicating the problem.
+#     what    = ; // See Python typing...
+#               any object with a string representation indicating clearly 
+#               what is causing the problem.
+#     context = _ in [speaker.spk_interface.CONTEXT_ERROR, 
+#                     speaker.spk_interface.CONTEXT_WARNING] ; 
+#               the kind of problem.
+#     info    = ; // See Python typing...
+#               the info explaining the problem.
+#     level   = _ in [0..3] (0); // See Python typing...
+#               the level of the step indicating the problem.
 ###
     def _new_pb(
         self,
-        src_relpath: Path,
-        context    : str,
-        info       : str,
-        level      : int = 2
+        what   : Any,
+        context: str,
+        info   : str,
+        level  : int = 2
     ) -> None:
 # Let's store the problems internally.
         self._pb_id += 1
-        self._problems[context][src_relpath].append(self._pb_id)
-
+        self.problems[context][str(what)].append({
+            self.PB_ID_TAG  : self._pb_id,
+            self.PB_INFO_TAG: info,
+        })
+    
 # Let's talk to the world...
         self.speaker.problem(
-            context     = context,
-            info        = info,
-            level       = level,
-            pb_id       = self._pb_id
+            context = context,
+            info    = info,
+            level   = level,
+            pb_id   = self._pb_id
         )
 
 
 ###
-# This method ask to print two different summaries, one for the terminal
-# and another for the log file.
+# This method prints the summaries for the terminal and the log file.
 ###
     def resume(self) -> None:
-        for context, pbs in self._problems.items():
+# Silent must be switch off here...
+        silent_user         = self.speaker.silent
+        self.speaker.silent = False
+        self.speaker.forall()
+
+# Let's talk...
+        showref = add_NL = not silent_user
+
+        for context, pbs in self.problems.items():
             if not pbs:
                 continue
 
@@ -253,40 +290,150 @@ class Problems:
 
             plurial = "S" if total_nb_pbs > 1 else ""
 
+            if add_NL:
+                self.speaker.NL()
+
+            if silent_user:
+                add_NL = True
+
             self.speaker.recipe(
-                    context,
-                    NL,
-                    {VAR_TITLE:
-                        f'{total_nb_pbs} {context.upper()}{plurial} FOUND',
-                     VAR_LEVEL  : 2,
-                     VAR_WITH_NL: False},
-            #
-                FORTERM,
-                    NL,
-                    'Look at the log file and/or above for details.',
+                context,
+                {VAR_TITLE:
+                    f'{total_nb_pbs} {context.upper()}{plurial} FOUND',
+                 VAR_LEVEL  : 2,
+                 VAR_WITH_NL: False},
             )
 
+# Verbose in the terminal?
+            if not silent_user:
+                self.speaker.recipe(
+                    context,
+                    FORTERM,
+                        NL,
+                        'Look at the log file or above for details.',
+                )
+
 # The problems (cardinality + refs).
-            for onepath_str in natsorted([
+            for what in natsorted([
                 str(p) for p in pbs
             ]):
-                this_ctxt_pb_ids = pbs[Path(onepath_str)]
-                nb_this_ctxt_pbs = len(this_ctxt_pb_ids)
+                if silent_user:
+                    verb_in = [FORTERM, FORLOG]
 
-                plurial = "s" if nb_this_ctxt_pbs > 1 else ""
+                else:
+                    verb_in = [FORLOG]
 
-                self.speaker.recipe(
+                    self._resume_one_pb_short(
+                        what    = what,
+                        whatpbs = pbs[what],
+                        context = context,
+                    )
+
+                self._resume_one_pb_verbose(
+                    what    = what,
+                    whatpbs = pbs[what],
+                    context = context,
+                    verb_in = verb_in,
+                    showref = showref,
+                )
+
+# Let's go back to the silent user's choice.
+        self.speaker.silent = silent_user
+        self.speaker.forall()
+
+###
+# prototype::
+#     what    = ; // See Python typing...
+#               any object with a string representation indicating clearly 
+#               what is causing the problem.
+#     whatpbs = ; // See Python typing...
+#               the list of problems for the same ``what``.
+#     context = _ in [speaker.spk_interface.CONTEXT_ERROR, 
+#                     speaker.spk_interface.CONTEXT_WARNING] ; 
+#               the kind of problem.
+###
+    def _resume_one_pb_short(
+        self,
+        what   : str,
+        whatpbs: List[dict],
+        context: str,
+    ):
+        pbs_ids = [
+            onepb[self.PB_ID_TAG]
+            for onepb in whatpbs
+        ]
+
+        nb_pbs = len(whatpbs)
+
+        plurial = "s" if nb_pbs > 1 else ""
+
+        self.speaker.recipe(
+            FORTERM,
+                context,
+                NL,
+                {VAR_STEP_INFO: what, 
+                VAR_LEVEL    : 1},
+        )
+                
+        self.speaker.recipe(
+            FORTERM,
+                context,
+                    {VAR_STEP_INFO: (
+                        f'{nb_pbs} {context}{plurial}.'
+                        '\n'
+                        f'See #.: {pbs_ids}.'), 
+                    VAR_LEVEL: 2},
+        )
+
+
+###
+# prototype::
+#     what    = ; // See Python typing...
+#               any object with a string representation indicating clearly 
+#               what is causing the problem.
+#     whatpbs = ; // See Python typing...
+#               the list of problems for the same ``what``.
+#     context = _ in [speaker.spk_interface.CONTEXT_ERROR, 
+#                     speaker.spk_interface.CONTEXT_WARNING] ; 
+#               the kind of problem.
+#               the list of problems for the same ``what``.
+#     verb_in = ; // See Python typing...
+#               the list of outputs where to be verbose.
+#     showref = ; // See Python typing...
+#               ``True`` asks to show the references (for a none silent mode)
+#               contrary to ``False``.
+###
+    def _resume_one_pb_verbose(
+        self,
+        what   : str,
+        whatpbs: List[dict],
+        context: str,
+        verb_in: List[str],
+        showref: bool,
+    ):
+        for output in verb_in:
+            self.speaker.recipe(
+                output,
                     context,
                     NL,
-                    {VAR_STEP_INFO: f'"{onepath_str}"', 
+                    {VAR_STEP_INFO: what, 
                      VAR_LEVEL    : 1},
-                )
+            )
+            
+            for onepb in whatpbs:
+                info = onepb[self.PB_INFO_TAG]
+
+                if showref:
+                    pbid = onepb[self.PB_ID_TAG]
+
+                    message = f'See [ #.{pbid} ] : {info}'
                 
+                else:
+                    message = info[0].upper() + info[1:]
+
                 self.speaker.recipe(
-                    context,
-                    {VAR_STEP_INFO: (
-                        f'{nb_this_ctxt_pbs} {context}{plurial}.'
-                        '\n'
-                        f'See #.: {this_ctxt_pb_ids}.'), 
-                     VAR_LEVEL    : 2},
+                    output,
+                        context,
+                        {VAR_STEP_INFO: message, 
+                        VAR_LEVEL    : 2},
                 )

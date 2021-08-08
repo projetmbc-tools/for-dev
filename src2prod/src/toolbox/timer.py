@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
 from datetime import datetime
+from pathlib import Path
 
-from .speaker import *
+from spkpb.speaker import Speaker
 
 
 # ---------------- #

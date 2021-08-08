@@ -4,13 +4,14 @@ from speaker import *
 from problems import *
 
 speaker  = Speaker(
-    logfile = Path('mylog.log')
+    logfile = Path('mylog.log'),
+    style   = GLOBAL_STYLE_COLOR
 )
 
 problems = Problems(speaker)
 
 problems.new_warning(
-    src_relpath = Path('one/strange/file.txt'),
+    what = Path('one/strange/file.txt'),
     info        = "Some strange behaviors."
 )
 

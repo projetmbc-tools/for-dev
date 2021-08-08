@@ -7,10 +7,12 @@ The `Python` module `src2prod`
 > English is not my native language, so be nice if you notice misunderstandings, misspellings, or grammatical errors in my documents and codes.
 
 
-About `TeXfactory`
-------------------
+About `src2prod`
+----------------
 
-This module allows to code `LaTeX` projects using small units of codes. The final product will be produced automatically.
+This module allows to code ???? projects
+
+using small units of codes. The final product will be produced automatically.
 
 
 <!-- :tutorial-START: -->

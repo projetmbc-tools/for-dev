@@ -6,6 +6,7 @@
 ###
 
 
+from functools import wraps
 from pathlib import Path
 
 from mistool.term_use import ALL_FRAMES, withframe
@@ -80,6 +81,27 @@ VAR_WITH_NL   = "with_NL"
 # -- RECIPES - AUTO CODE - END -- #
 
 
+# ---------------------- #
+# -- SILENT DECORATOR -- #
+# ---------------------- #
+
+###
+# This decorator simplifies the managment of the use of ``silent = False``
+# when instanciating the class ``Speaker``.
+###
+
+def silent_or_not_deco(method):
+    @wraps(method)
+    def silent_or_not(self, *args, **kwargs) -> None:
+        if self.silent:
+            self._current_outputs = []
+
+        else:
+            method(self, *args, **kwargs)
+    
+    return silent_or_not
+
+
 # ------------- #
 # -- SPEAKER -- #
 # ------------- #
@@ -95,20 +117,24 @@ VAR_WITH_NL   = "with_NL"
 class Speaker(AbstractSpeaker):
     OUTPUT_LOG  = "log"
     OUTPUT_TERM = "term"
-    OUTPUT_ALL  = [OUTPUT_LOG, OUTPUT_TERM]
+    ALL_OUTPUTS = [OUTPUT_LOG, OUTPUT_TERM]
 
 ###
 # prototype::
 #     logfile = ; // See Python typing...  
 #               the path of the log file.
-#     style   = _ in spk_interface.ALL_GLOBAL_STYLES ( GLOBAL_STYLE_BW ) ; // See Python typing...  
-#               the path of the log file.
+#     style   = _ in spk_interface.ALL_GLOBAL_STYLES ( GLOBAL_STYLE_BW ) ; // See Python typing... 
+#     silent  = ( False ) ; // See Python typing...  
+#               ``True`` idnicates to print and store nothing contrary to ``False``
+#               (this is useful for short processes showing only warning and co
+#               when using the method ``resume`` of the class ``problems.Problems``).
 ###
     def __init__(
         self,
         logfile : Path,
-        style   : str = GLOBAL_STYLE_BW,
-        maxwidth: int = 80
+        style   : str  = GLOBAL_STYLE_BW,
+        maxwidth: int  = 80,
+        silent  : bool = False,
     ) -> None:
 # Here we do not need the use of ``super().__init__()``.
         self._speakers = {
@@ -122,32 +148,41 @@ class Speaker(AbstractSpeaker):
                 maxwidth = maxwidth,
             ),
         }
-    
+
         self.nbsteps = {
             out: 0
-            for out in self.OUTPUT_ALL
+            for out in self.ALL_OUTPUTS
         }
+    
+        self.silent = silent
 
-        self._current_outputs = self.OUTPUT_ALL
+        if self.silent:
+            self._current_outputs = []
+
+        else:
+            self._current_outputs = self.ALL_OUTPUTS
 
 
 ###
 # This method is to use only for a "LOG FILE" output.
 ###
+    @silent_or_not_deco
     def forlog(self) -> None:
         self._current_outputs = [self.OUTPUT_LOG]
 
 ###
 # This method is to use only for a "TERM" output.
 ###
+    @silent_or_not_deco
     def forterm(self) -> None:
         self._current_outputs = [self.OUTPUT_TERM]
 
 ###
 # This method is to use all outputs.
 ###
+    @silent_or_not_deco
     def forall(self) -> None:
-        self._current_outputs = self.OUTPUT_ALL
+        self._current_outputs = self.ALL_OUTPUTS
 
 
 ###

@@ -2,7 +2,8 @@
 
 from typing import *
 
-from .problems import *
+from spkpb import Problems
+
 from .timer import *
 
 
@@ -27,7 +28,7 @@ class BaseCom:
 ###
     def __init__(
         self,
-        monorepo: PPath,
+        monorepo: Path,
         problems: Problems,
     ) -> None:
         self.monorepo         = monorepo

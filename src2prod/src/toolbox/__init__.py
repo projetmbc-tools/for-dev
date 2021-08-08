@@ -1,7 +1,9 @@
 from typing import *
 
-from .speaker  import *
-from .problems import *
+from pathlib import Path
+
+from spkpb import *
+
 from .timer    import *
 
 from .filendir import *
