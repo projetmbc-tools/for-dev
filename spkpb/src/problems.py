@@ -8,7 +8,6 @@
 
 from collections import defaultdict
 from functools import wraps
-from pathlib     import Path
 
 from natsort import natsorted
 

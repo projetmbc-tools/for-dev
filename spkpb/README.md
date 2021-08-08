@@ -155,6 +155,52 @@ The use of the argument ``silent`` asks to prints only the summaries of problems
         + Bad things appear.
 ```
 
+
+3rd example of use (time stamp)
+-------------------------------
+
+The following code show how to use `timestamp` such as to add time stamps in the log file.
+
+```python
+from spkpb import *
+
+speaker  = Speaker(
+    logfile = Path('mylog.log')
+)
+
+timestamp(
+    speaker = speaker,
+    kind    = 'start 1',
+)
+
+timestamp(
+    speaker = speaker,
+    kind    = 'start 2',
+    with_NL = False,
+)
+
+timestamp(
+    speaker = speaker,
+    kind    = 'start 3',
+)
+```
+
+This will add the following lines in the log file `mylog.log`.
+
+```
+-----------------------------------------
+START 1 TIME STAMP: 2021-08-09 (00:40:02)
+-----------------------------------------
+
+-----------------------------------------
+START 2 TIME STAMP: 2021-08-09 (00:40:02)
+-----------------------------------------
+-----------------------------------------
+START 3 TIME STAMP: 2021-08-09 (00:40:02)
+-----------------------------------------
+```
+
+
 <!-- :tutorial-START: -->
 <!-- :tutorial-END: -->
 
