@@ -66,7 +66,7 @@ The final product built from the `src` folder must have the following name and s
 
 #### How to do that?
 
-Here is how to acheive a whole selective copy of `src` folder to `texiteasy` one. We will suppose the use of the `cd` command to go inside `TeXitEasy` before using the following script.
+Here is how to acheive a whole selective copy of the `src` folder to the `texiteasy` one. We will suppose the use of the `cd` command to go inside `TeXitEasy` before using the following script.
 
 ~~~python
 from src2prod import *
@@ -88,9 +88,23 @@ Here are some important points about the code above.
 
   1. The rules follow the `glob` grammar with one rule by line.
 
-  1. Thanks to `usegit = True`, ignored files and folders by `git` will be also ignored for the update of the target.
+  1. Thanks to `usegit = True`, ignored files and folders by `git` will be also ignored when updating the target.
 
-  1. `usegit = True` also allows to only apply real changes comparing to the last commit in the active branch: creation, deletion or update of files and folders will be done only when it is necessary.
+  1. `usegit = True` also allows to only apply real changes comparing to the last commit in the active branch: creation, deletion or update of files and folders are done only when it is necessary.
+
+
+
+
+  1. Pour source et target : pathlib.Path ok ! partique dans les applis
+
+
+### Just know the files to be updated
+
+???
+
+`changes` : attribut avec la liste brute de ce qu'il faut mettre à jour
+
+`build` utiliser en coulisse par `update` aussi 
 
 
 <!-- :tutorial-START: -->
