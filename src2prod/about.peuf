@@ -1,6 +1,6 @@
 general::
     project = python
-    desc    = ???
+    desc    = This module allows to work within a source folder to develop projects but at the same time to publish the final product in another folder, this directory being a "thin" version of the source folder.
     author  = Christophe BAL
     licence = gnu 3
     need    = python3 ;

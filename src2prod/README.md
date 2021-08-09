@@ -10,14 +10,14 @@ The `Python` module `src2prod`
 About `src2prod`
 ----------------
 
-This module is useful for people who like to use directly a `src` folder to develop projects and to publish the final product in another folder wich is a "thin" version of the `src` folder. If you use `git`, this module will talk with it to do a precise job. 
+This module is useful for people who likes to work within a `src` folder to develop projects but at the same time wants to publish the final product in another folder, this directory being a "thin" version of the `src` folder. If you use `git`, this module can talk with it to do a better job. 
 
 
 ### One example - A `Python` project
 
 #### What we have...
 
-Let's consider a project of the author named [`TeXitEsay`](https://github.com/projetmbc/tools-for-latex/tree/master/TeXitEasy) which had the more or less following tree structure on August 8, 2021 (this was the very begining of the project).
+Let's consider [`TeXitEasy`](https://github.com/projetmbc/tools-for-latex/tree/master/TeXitEasy) a project of the author named  which had the more or less following tree structure on August 9, 2021 (this was the very begining of the project).
 
 ~~~
 + changes
@@ -25,6 +25,7 @@ Let's consider a project of the author named [`TeXitEsay`](https://github.com/pr
         * 08.txt
     * LICENSE.txt
     * x-todo-x.txt
+
 + src
     * __init__.py
     * escape.py
@@ -33,6 +34,7 @@ Let's consider a project of the author named [`TeXitEsay`](https://github.com/pr
         * escape.peuf
     * tool_debug.py
     * tool_escape.py
+
 + tests
     + escape
         * escape.peuf
@@ -47,7 +49,7 @@ Let's consider a project of the author named [`TeXitEsay`](https://github.com/pr
 
 #### What we want...
 
-In the tree above, we just use some files when developping the code.
+In the tree above, there are some files just when developping the code.
 
   1. Names using the pattern `x-...-x` indicate files or folders to be ignored by `git` (there are no such file or folder in the `src` folder but we could imagine using it).
 
@@ -66,7 +68,7 @@ The final product built from the `src` folder must have the following name and s
 
 #### How to do that?
 
-Here is how to acheive a whole selective copy of the `src` folder to the `texiteasy` one. We will suppose the use of the `cd` command to go inside `TeXitEasy` before using the following script.
+Here is how to acheive a selective copy of the `src` folder to the `texiteasy` one. We will suppose the use of the `cd` command to go inside `TeXitEasy` before launching the following script.
 
 ~~~python
 from src2prod import *
@@ -90,21 +92,30 @@ Here are some important points about the code above.
 
   1. Thanks to `usegit = True`, ignored files and folders by `git` will be also ignored when updating the target.
 
-  1. `usegit = True` also allows to only apply real changes comparing to the last commit in the active branch: creation, deletion or update of files and folders are done only when it is necessary.
+  1. The values of `source` and `target` are "stringified". So you can use instances of `pathlib.Path` if you need it.
 
 
+### Just the files not ignored
 
+Sometimes the final product is not just a "selective clone" of the `src` folder. In such a case, you can use the method `build` and then the attribut `lof` such as to only have the list of all files to keep in the `src` folder. Here is a fictive example of code printing the list.
 
-  1. Pour source et target : pathlib.Path ok ! partique dans les applis
+~~~python
+from src2prod import *
 
+builder = Builder(
+    source = 'src'
+    target = 'texiteasy'
+    ignore = '''
+        tool_*/
+        tool*.*
+    ''',
+    usegit = True
+)
 
-### Just know the files to be updated
+builder.build()
 
-???
-
-`changes` : attribut avec la liste brute de ce qu'il faut mettre à jour
-
-`build` utiliser en coulisse par `update` aussi 
+print(builder.lof)
+~~~
 
 
 <!-- :tutorial-START: -->
