@@ -7,7 +7,6 @@
 
 
 from collections import defaultdict
-from functools import wraps
 
 from natsort import natsorted
 
@@ -24,7 +23,6 @@ from .speaker import *
 ###
 
 def problems_deco(method):
-    @wraps(method)
 # what -> any object with a string representation indicating clearly 
 #         what is causing the problem.
 #
@@ -275,7 +273,6 @@ class Problems:
 # Silent must be switch off here...
         silent_user         = self.speaker.silent
         self.speaker.silent = False
-        self.speaker.forall()
 
 # Let's talk...
         showref = add_NL = not silent_user
@@ -338,7 +335,6 @@ class Problems:
 
 # Let's go back to the silent user's choice.
         self.speaker.silent = silent_user
-        self.speaker.forall()
 
 ###
 # prototype::

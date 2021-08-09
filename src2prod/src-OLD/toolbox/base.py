@@ -4,7 +4,7 @@ from typing import *
 
 from spkpb import Problems
 
-from .timer import *
+from pathlib import Path
 
 
 # ------------------------------ #

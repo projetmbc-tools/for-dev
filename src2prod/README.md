@@ -10,9 +10,11 @@ The `Python` module `src2prod`
 About `src2prod`
 ----------------
 
-This module allows to code ???? projects
+This module is useful for people who like to use directly a `src` folder to develop projects and to publish the final product with a "thin" version of the `src` folder. 
 
-using small units of codes. The final product will be produced automatically.
+
+1st exampkeFor python projects
+
 
 
 <!-- :tutorial-START: -->

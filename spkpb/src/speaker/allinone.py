@@ -164,6 +164,19 @@ class Speaker(AbstractSpeaker):
 
 
 ###
+# We use ``getter`` and ``setter`` for the boolean attribute ``silent``.
+###
+    @property
+    def silent(self):
+        return self._silent
+
+    @silent.setter
+    def silent(self, value: bool):
+        self._silent = value
+        self.forall()
+
+
+###
 # This method is to use only for a "LOG FILE" output.
 ###
     @silent_or_not_deco
