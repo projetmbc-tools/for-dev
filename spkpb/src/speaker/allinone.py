@@ -171,7 +171,7 @@ class Speaker(AbstractSpeaker):
         return self._silent
 
     @silent.setter
-    def silent(self, value: bool):
+    def silent(self, value: bool) -> None:
         self._silent = value
         self.forall()
 

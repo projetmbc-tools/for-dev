@@ -1,6 +1,6 @@
 general::
-    monorepo = python
-    desc     = ???
-    author   = Christophe BAL
-    licence  = gnu 3
-    need     = python3 ;
+    project = python
+    desc    = ???
+    author  = Christophe BAL
+    licence = gnu 3
+    need    = python3 ;

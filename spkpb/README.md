@@ -23,7 +23,7 @@ There is also a function `timestamp` to add time stamps in a log file without pr
 1st example - Default mode
 --------------------------
 
-#### `Python` code
+### `Python` code
 
 Let's consider the following `Python` file where `Path` is a class proposed by the module `pathlib`. You have to know that the values of the arguments ``what`` are "stringified" (this allows to use either standard strings or advanced classes by defining your own ``__str__`` method for the resume output of problems if you need it).
 
@@ -60,7 +60,7 @@ speaker.recipe(
 problems.resume()
 ```
 
-#### The terminal output
+### The terminal output
 
 Launching our `Python` code from a terminal, we will see the following output.
 
@@ -93,7 +93,7 @@ Look at the log file and/or above for details.
 ```
 
 
-#### The content of the log file `mylog.log`
+### The content of the log file `mylog.log`
 
 Launching our `Python` code, `mylog.log` will have the following content (just note that the resume is more verbose than the one in a terminal).
 
@@ -198,6 +198,7 @@ START 2 TIME STAMP: 2021-08-09 (00:40:02)
 -----------------------------------------
 START 3 TIME STAMP: 2021-08-09 (00:40:02)
 -----------------------------------------
+
 ```
 
 
