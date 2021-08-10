@@ -99,10 +99,12 @@ Here are some important points about the code above.
 
   1. `usegit = False` imply to always update the `texiteasy` folder. This the default behavior.
 
+  1. Errors and warnings are printed in the terminal and written verbosely in the file `TeXitEasy.src2prod.log`.
+
 
 ### All the files to copy
 
-Sometimes the final product is not just a "selective clone" of the `src` folder: for example, it can be a physicial merge of several source file in a single final product file (the author of src2prod uses this technic to develop his `LaTeX` projects). In such a case, you can use the following the method and attributs.
+Sometimes the final product is not just a "selective clone" of the `src` folder: for example, it can be a physicial merge of several source file in a single final product file (the author of `src2prod` uses this technic to develop his `LaTeX` projects). In such a case, you can use the following method and attributs.
 
   1. The method `build` just looks for the files to keep for the `texiteasy` folder, and the changes made in the `src` folder.
 

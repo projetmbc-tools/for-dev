@@ -45,3 +45,10 @@ project = Project(
     ''',
     usegit = True
 )
+
+project.build()
+
+input('?')
+
+project.build()
+

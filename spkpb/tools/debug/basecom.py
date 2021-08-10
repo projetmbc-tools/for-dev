@@ -35,23 +35,16 @@ sys.path.append(str(MODULE_DIR))
 
 from src import *
 
-
-class Project(BaseCom):
-    def __init__(
-        self,
-        problems
-    ):
-        super().__init__(problems)
-
-
-speaker  = Speaker(
-    logfile = Path('mylog.log'),
-    style   = GLOBAL_STYLE_COLOR,
+project = BaseCom(
+    Problems(
+        Speaker(
+            logfile = Path('mylog.log'),
+            style   = GLOBAL_STYLE_COLOR,
+        )
+    )
 )
 
-problems = Problems(speaker)
-
-project = Project(problems)
+project.timestamp(kind = 'start')
 
 project.new_warning(
     what = Path('one/strange/file.txt'),
@@ -79,3 +72,6 @@ project.recipe(
 )
     
 project.resume()
+
+project.recipe(NL)
+project.timestamp(kind = 'end')

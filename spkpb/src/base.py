@@ -26,10 +26,10 @@ class BaseCom:
 #
 # info::
 #     This class uses the attribut ``success`` to indicate if
-#     at least one error has been emitted (siometimes we want
-#     to continue to worik even if one error has been foun,
-#     for example when working on severl projects in the same
-#     monorepo)
+#     at least one "critical" or error has been emitted (sometimes
+#     we want to continue to work even if something bad has been
+#     found, for example when working on several projects in the
+#     same monorepo)
 ###
     def __init__(
         self,
@@ -90,3 +90,29 @@ class BaseCom:
 ###
     def recipe(self, *args, **kwargs) -> None:
         self.problems.speaker.recipe(*args, **kwargs)
+
+
+
+###
+# prototype::
+#     kind    = ; // See Python typing...
+#               the kind of time stamp ("start" and "end" for example). 
+#               This string will be always "upperized".
+#     with_NL = (True); // See Python typing...
+#               ``True`` asks to add a new line after the title and
+#               ``False`` to not do this.
+#
+#     :see: = timer.timestamp
+# 
+# This method is just an easy-to-use wrapper.
+###
+    def timestamp(
+        self,
+        kind   : str,
+        with_NL: bool = True
+    ):
+        timestamp(
+            speaker = self.problems.speaker,
+            kind    = kind,
+            with_NL = with_NL,
+        )

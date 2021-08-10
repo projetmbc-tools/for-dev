@@ -2,6 +2,23 @@
 10
 ==
 
+**New sub minor version version::``0.0.8-beta``:** here are the useful changes made.
+
+    1) ???
+    The method of ``speaker.log.LogSpeaker`` is accessible directly from the class . 
+    
+    1) path::``README.md`` has a simpler example of use of ``BaseCom`` and 
+    ??? 
+    also talks about the new method ``reset_logfile``.
+
+
+**New sub minor version version::``0.0.7-beta``:** here are the little changes made.
+
+    1) The class ``BaseCom`` also allows the use of time stamps. That was omitted. 
+
+    1) path::``README.md`` has been updated with a small example of use of ``BaseCom``.
+
+
 **New sub minor version version::``0.0.6-beta``:** a class ``BaseCom`` has been added such as to work easily with instances of ``Speaker`` and ``Problems``.
 
 

@@ -7,8 +7,6 @@
 
 from spkpb import *
 
-from .base import *
-
 
 # ----------------------- #
 # -- PROJECT MANAGMENT -- #
@@ -22,34 +20,45 @@ class Project(BaseCom):
 ###
 # prototype::
 #     name   = ; // See Python typing...
-#              ???
+#              the name of the project that will be used to communicate 
+#              during the analysis.
 #     source = ; // See Python typing...
-#              ???
+#              the path of the source dir.
 #     target = ; // See Python typing...
-#              ???
+#              the path of the final product dir.
 #     ignore = ; // See Python typing...
-#              ???
-#     usegit = ; // See Python typing...
-#              ???
+#              the rules for ignoring files in addition to what ¨git does.
+#     usegit = ( False ) ; // See Python typing...
+#              ''True'' aksks to use git contrary to ``False``.
 #
-# info::
-#     Problems and Speaker à changer à la dur si besoin !
+# warning::
+#     The target folder is totaly remove and reconstruct at each new
+#     update.
 ###
     def __init__(
         self,
         name  : str,
-        source: Path,
-        target: Path,
+        source: Union[str, Path],
+        target: Union[str, Path],
         ignore: str  = '',
         usegit: bool = False,
     ):
 # To communicate.
-        self.speaker  = Speaker(
-            logfile = Path(f'{name}.src2prod.log'),
-            style   = GLOBAL_STYLE_COLOR,
+        self._logfilename = f'{name}.src2prod.log'
+
+        super().__init__(
+            Problems(
+                Speaker(
+                    logfile = Path(self._logfilename),
+                    style   = GLOBAL_STYLE_COLOR,
+                )
+            )
         )
 
-        super().__init__(problems = Problems(self.speaker))
+        self.recipe(
+            FORLOG,
+                {VAR_TITLE: f'SOURCE TO FINAL PRODUCT: "{name}".'},
+        )
 
 # User's choices.
         self.name   = name
@@ -84,7 +93,23 @@ class Project(BaseCom):
 ###
 # This method ...
 ###
-    def build(self) -> bool:
-# Does the source file exist?
-        ...
+    def build(self) -> None:
+# Say "Hello!".
+        self.timestamp("build - start")
+        
+        self.recipe(
+            FORTERM,
+                {VAR_STEP_INFO: 
+                    f'The log file used will be "{self._logfilename}".'},
+            FORALL,
+                {VAR_STEP_INFO: 
+                    'Start the analysis of the source folder.'},
+        )
 
+# Does the source file exist?
+
+
+
+
+# Say "Good bye!".
+        self.timestamp("build - end")
