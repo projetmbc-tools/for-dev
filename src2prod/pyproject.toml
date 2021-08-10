@@ -1,14 +1,14 @@
 [tool.poetry]
 name        = "src2prod"
 version     = "0.0.0-beta"
-description = 'This module allows to work within a source folder to develop a project and to publish the final product in another folder, this directory being a "thin" version of the source one.'
+description = 'This module allows to work within a source folder where a project is developped, and to publish the final product in another folder, this directory being a "thin" version of the source one.'
 readme      = "README.md"
 authors     = ["Christophe BAL"]
 license     = "GNU License Version 3"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-spkpb  = "^0.0.5-beta.0"
+spkpb  = "^0.0.10-beta.0"
 
 [tool.poetry.dev-dependencies]
 

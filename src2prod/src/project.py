@@ -57,10 +57,46 @@ class Project(BaseCom):
 
 # User's choices.
         self.name   = name
-        self.source = self.str2path(source)
-        self.target = self.str2path(target)
+        self.source = self.cv2path(source)
+        self.target = self.cv2path(target)
         self.ignore = ignore
         self.usegit = usegit
+
+
+###
+# prototype::
+#     value = ; // See Python typing...
+#             a path.
+#
+#     :return: = ; // See Python typing...
+#                the path converted to an instance of ``pathlib.Path``.
+###
+    def cv2path(self, value: Union[str, Path]) -> Path:
+        valtype = type(value)
+
+        if valtype == str:
+            value = Path(value)
+
+        elif not isinstance(value, Path):
+            raise ValueError(
+                f'type {valtype} unsupported to indicate '
+                 'the source and the target.'
+            )
+
+        return value
+
+
+###
+# This method ...
+###
+    def reset(self) -> None:
+# ????
+        super().reset()
+
+        self.recipe(
+            FORLOG,
+                {VAR_TITLE: f'"{self.name}": SOURCE --> FINAL PRODUCT'},
+        )
 
 # Extra attributs.
         self.toupdate: bool       = True
@@ -70,37 +106,14 @@ class Project(BaseCom):
 ###
 # This method ...
 ###
-    def str2path(self, val: Union[str, Path]) -> Path:
-        valtype = type(val)
-
-        if valtype == str:
-            val = Path(val)
-
-        elif not isinstance(val, Path):
-            raise ValueError(
-                f'type {valtype} unsupported to indcate '
-                 'the source and the target.'
-            )
-
-        return val
-
-
-    def reset_logfile(self) -> None:
-        super().reset_logfile()
-
-        self.recipe(
-            FORLOG,
-                {VAR_TITLE: f'SOURCE TO FINAL PRODUCT: "{self.name}".'},
-        )
-###
-# This method ...
-###
     def build(self) -> None:
-# Say "Hello!".
-        self.reset_logfile()
-        
+# Time is... time.
         self.timestamp("build - start")
+
+# New start...
+        self.reset()
         
+# Say "Hello!".
         self.recipe(
             FORTERM,
                 {VAR_STEP_INFO: 
@@ -115,5 +128,5 @@ class Project(BaseCom):
 
 
 
-# Say "Good bye!".
+# Time is... time.
         self.timestamp("build - end")

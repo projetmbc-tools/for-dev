@@ -55,3 +55,5 @@ project.new_error(
     what = Path('one/bad/file.txt'),
     info = "bad things appear."
 )
+
+project.resume()

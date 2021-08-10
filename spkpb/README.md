@@ -30,10 +30,7 @@ Let's consider the following `Python` file where `Path` is a class proposed by t
 ```python
 from spkpb import *
 
-speaker = Speaker(
-    logfile = Path('mylog.log')
-)
-
+speaker  = Speaker(logfile = Path('mylog.log'))
 problems = Problems(speaker)
 
 problems.new_warning(
@@ -164,9 +161,7 @@ The following code show how to use `timestamp` such as to add time stamps in the
 ```python
 from spkpb import *
 
-speaker = Speaker(
-    logfile = Path('mylog.log')
-)
+speaker = Speaker(logfile = Path('mylog.log'))
 
 timestamp(
     speaker = speaker,
@@ -215,9 +210,7 @@ from spkpb import *
 
 project = BaseCom(
     Problems(
-        Speaker(
-            logfile = Path('mylog.log')
-        )
+        Speaker(logfile = Path('mylog.log'))
     )
 )
 
@@ -335,9 +328,7 @@ from spkpb import *
 
 project = BaseCom(
     Problems(
-        Speaker(
-            logfile = Path('mylog.log')
-        )
+        Speaker(logfile = Path('mylog.log'))
     )
 )
 
@@ -352,6 +343,8 @@ project.new_error(
     what = Path('one/bad/file.txt'),
     info = "bad things appear."
 )
+
+project.resume()
 ~~~
 
 
@@ -360,6 +353,16 @@ project.new_error(
 ~~~
 1) [ #1 ] WARNING: some strange behaviors.
 1) [ #1 ] ERROR: bad things appear.
+
+-------------
+1 ERROR FOUND
+-------------
+
+Look at the log file or above for details.
+
+    * one/bad/file.txt
+        + 1 error.
+          See #.: [1].
 ~~~
 
 Who has chosen this stupid example? :-)
@@ -369,6 +372,13 @@ Who has chosen this stupid example? :-)
 
 ~~~
 1) [ #1 ] ERROR: bad things appear.
+
+-------------
+1 ERROR FOUND
+-------------
+
+    * one/bad/file.txt
+        + See [ #.1 ] : bad things appear.
 ~~~
 
 
