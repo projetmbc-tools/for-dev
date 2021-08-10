@@ -1,16 +1,24 @@
 ==
+10
+==
+
+**New sub minor version version::``0.0.6-beta``:** a class ``BaseCom`` has been added such as to work easily with instances of ``Speaker`` and ``Problems``.
+
+
+==
 09
 ==
 
 **New sub minor version version::``0.0.5-beta``:** better path::``README.md``.
 
+
 **New sub minor version version::``0.0.4-beta``:** here are the little changes made.
 
-    1) path::``README.md`` and link added in the path::``pyproject.toml``.
+    1) path::``README.md`` and link added in the path::``pyproject.toml`` for ``poetry``.
 
-    1) Class ``speaker.allinone.Speaker``: ``getter`` and ``setter`` for the boolean attribute ``silent``.
+    1) Class ``speaker.allinone.Speaker``: ``getter`` and ``setter`` for the boolean attribute ``silent`` (the ``setter`` automatically call the ``forall`` method).
 
-    1) Class ``problems.Problems``: the ``wraps`` decorator from ``functools`` has been removed.
+    1) Class ``problems.Problems``: the ``wraps`` decorator from ``functools`` has been removed because it was unuseful.
 
 
 **First version version::``0.0.3-beta``:** this project proposes tools to simplify the writing of programs which have to be verbose about a process in a terminal and a log file, and that also want to emit warnings and errors (the strange first number version comes from a rigid behavior of ¨pypi).

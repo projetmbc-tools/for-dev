@@ -1,5 +1,5 @@
 ==
-??
+10   ??
 ==
 
-**First version version::``0.0.0-beta``:** this module allows to work within a `src` folder to develop projects but at the same time to publish the final product in another folder, this directory being a "thin" version of the `src` folder.
+**First version version::``0.0.0-beta``:** this module allows to work within a source folder to develop a project and to publish the final product in another folder, this directory being a "thin" version of the source one..
