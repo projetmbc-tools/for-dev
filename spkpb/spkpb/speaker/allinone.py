@@ -136,7 +136,9 @@ class Speaker(AbstractSpeaker):
         maxwidth: int  = 80,
         silent  : bool = False,
     ) -> None:
-# Here we do not need the use of ``super().__init__()``.
+# Here we do not need the use of ``super().__init__()``.   
+        self.silent = silent
+
         self._speakers = {
             self.OUTPUT_LOG : LogSpeaker(
                 logfile  = logfile,
@@ -149,32 +151,27 @@ class Speaker(AbstractSpeaker):
             ),
         }
 
-        self.nbsteps = {
-            out: 0
-            for out in self.ALL_OUTPUTS
-        }
-    
-        self.silent = silent
+        self.reset()
 
-        if self.silent:
-            self._current_outputs = []
-
-        else:
-            self._current_outputs = self.ALL_OUTPUTS
 
 ###
 # prototype::
 #     :see: = speaker.log.LogSpeaker
 #
-# This method is just an easy-to-use wrapper producing 
-# a new empty log file.
+# This method resets the log file and the numbering of steps.
 ###
-    def reset_logfile(self) -> None:
+    def reset(self) -> None:
         self._speakers[self.OUTPUT_LOG].reset_logfile()
 
+        self.nbsteps = {
+            out: 0
+            for out in self.ALL_OUTPUTS
+        }
+
 
 ###
-# We use ``getter`` and ``setter`` for the boolean attribute ``silent``.
+# We use ``getter`` and ``setter`` for the boolean attribute ``silent`` 
+# to automatically update the list of outputs expected.
 ###
     @property
     def silent(self):
@@ -183,7 +180,12 @@ class Speaker(AbstractSpeaker):
     @silent.setter
     def silent(self, value: bool) -> None:
         self._silent = value
-        self.forall()
+        
+        if value:
+            self._current_outputs = []
+
+        else:
+            self._current_outputs = self.ALL_OUTPUTS
 
 
 ###

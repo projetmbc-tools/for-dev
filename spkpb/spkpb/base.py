@@ -42,13 +42,15 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: = speaker.log.LogSpeaker
+#     :see: = problems.Problems.reset ,
+#             speaker.allinone.Speaker.reset
 #
-# This method is just an easy-to-use wrapper producing 
-# a new empty log file.
+# This method is just an easy-to-use wrapper to reset the log file,
+# the attributs used to manage the problems and also the numbering
+# of steps.
 ###
-    def reset_logfile(self):
-        self.problems.reset_logfile()
+    def reset(self) -> None:
+        self.problems.reset()
 
 
 ###

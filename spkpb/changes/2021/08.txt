@@ -2,6 +2,20 @@
 10
 ==
 
+**New sub minor version version::``0.0.10-beta``:** path::``README.md`` was partially updated. It should be good now.
+
+
+**New sub minor version version::``0.0.9-beta``:** two important and needed changes have been made.
+
+    1) ``BaseCom``, ``Problems`` and ``Speaker``: the method ``reset_logfile`` has been removed.
+
+    1) ``BaseCom``, ``Problems`` and ``Speaker``: a new method ``reset`` resets the management of problems and consequently the log file.
+
+    1) path::``README.md`` updated.
+
+    1) One bug found in ``Speaker``: the way used to set the attribut `silent` was wrong.
+
+
 **New sub minor version version::``0.0.8-beta``:** here are the useful changes made.
 
     1) The method ``reset_logfile`` of ``speaker.log.LogSpeaker`` is accessible directly from the classes ``BaseCom``, ``Problems`` and ``Speaker``. 

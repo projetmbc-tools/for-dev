@@ -49,7 +49,7 @@ project.new_warning(
     info = "some strange behaviors."
 )
 
-project.reset_logfile()
+project.reset()
 
 project.new_error(
     what = Path('one/bad/file.txt'),

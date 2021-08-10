@@ -321,10 +321,14 @@ END TIME STAMP: 2021-08-10 (11:40:02)
 ~~~
 
 
-Reset the log file
-------------------
+Reset the management of problems
+--------------------------------
 
-The classes `BaseCom`, `Problems` and `Speaker` all have a method `reset_logfile` to reset the log file. Here is a relly weird example of use even if the method is indeed very useful each time the communicating process restarts.
+### What we want...
+
+A communicating process can be restarted several times. This needs to reset every informations stored and displayed. To acheive that, the classes `BaseCom`, `Problems` and `Speaker` all have a method `reset`. The following weird example shows how this method works.
+
+### `Python` code
 
 ~~~python
 from spkpb import *
@@ -342,7 +346,7 @@ project.new_warning(
     info = "some strange behaviors."
 )
 
-project.reset_logfile()
+project.reset()
 
 project.new_error(
     what = Path('one/bad/file.txt'),
@@ -351,10 +355,20 @@ project.new_error(
 ~~~
 
 
-In that case, the log file will be the following one with the 1st warning missing. Who has chosen this excellent example? :-)
+### The terminal output
 
 ~~~
-2) [ #2 ] ERROR: bad things appear.
+1) [ #1 ] WARNING: some strange behaviors.
+1) [ #1 ] ERROR: bad things appear.
+~~~
+
+Who has chosen this stupid example? :-)
+
+
+### The content of the log file `mylog.log`
+
+~~~
+1) [ #1 ] ERROR: bad things appear.
 ~~~
 
 

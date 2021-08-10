@@ -77,12 +77,27 @@ class Problems:
     ) -> None:
         self.speaker = speaker
 
+        self.reset()
+
+###
+# prototype::
+#     :see: = problems.Problems.reset ,
+#             speaker.allinone.Speaker.reset
+#
+# This method is just an easy-to-use wrapper to reset the log file,
+# the attributs used to manage the problems and also the numbering
+# of steps.
+###
+    def reset(self) -> None:
+# Reset the numbering of steps.
+        self.speaker.reset()
+
 # ---------
 # WARNING !
 # ---------
 # 
-# We use the ordered feature of dict such as to treat warnings, criticals and
-# errors in this order when printing the summaries.
+# We use the ordered feature of dict such as to treat warnings, criticals
+# and errors in this order when printing the summaries.
         self.problems_found : dict = {
             CONTEXT_WARNING : defaultdict(list), # Before ERROR and CRITICAL!
             CONTEXT_CRITICAL: defaultdict(list), # Before ERROR!
@@ -95,15 +110,6 @@ class Problems:
 
         self._pb_id = 0
 
-###
-# prototype::
-#     :see: = speaker.log.LogSpeaker
-#
-# This method is just an easy-to-use wrapper producing 
-# a new empty log file.
-###
-    def reset_logfile(self) -> None:
-        self.speaker.reset_logfile()
 
 ###
 # prototype::
