@@ -20,8 +20,8 @@ This module proposes two classes that simplify the writing of programs which hav
 There is also a function `timestamp` to add time stamps in a log file without printing anything in the terminal.
 
 
-1st example - Default mode
---------------------------
+Using directly the API - Default mode
+-------------------------------------
 
 ### `Python` code
 
@@ -121,8 +121,8 @@ One basic showcase.
 ```
 
 
-2nd example - Silent mode
--------------------------
+Using directly the API - Silent mode
+------------------------------------
 
 Let's modify a little our first code (the ellipsis indicate lines unchanged).
 
@@ -156,15 +156,15 @@ The use of the argument ``silent`` asks to prints only the summaries of problems
 ```
 
 
-3rd example - Time stamp
-------------------------
+Time stamp in the log file
+--------------------------
 
 The following code show how to use `timestamp` such as to add time stamps in the log file.
 
 ```python
 from spkpb import *
 
-speaker  = Speaker(
+speaker = Speaker(
     logfile = Path('mylog.log')
 )
 
@@ -202,8 +202,8 @@ START 3 TIME STAMP: 2021-08-09 (00:40:02)
 ```
 
 
-4th example - A ready-to-use communicating class
-------------------------------------------------
+A ready-to-use communicating class
+----------------------------------
 
 We have seen hard use of the API of `spkpb`. Indeed you can heritate the class `BaseCom` to do things easily: see the following code and outputs.
 
@@ -213,22 +213,13 @@ We have seen hard use of the API of `spkpb`. Indeed you can heritate the class `
 ~~~python
 from spkpb import *
 
-
-class Project(BaseCom):
-    def __init__(
-        self,
-        problems
-    ):
-        super().__init__(problems)
-
-
-speaker  = Speaker(
-    logfile = Path('mylog.log'),
-    style   = GLOBAL_STYLE_COLOR,
+project = BaseCom(
+    Problems(
+        Speaker(
+            logfile = Path('mylog.log')
+        )
+    )
 )
-
-project = Project(problems = Problems(speaker))
-
 
 project.timestamp(kind = 'start')
 
@@ -327,6 +318,43 @@ One basic showcase.
 -------------------------------------
 END TIME STAMP: 2021-08-10 (11:40:02)
 -------------------------------------
+~~~
+
+
+Reset the log file
+------------------
+
+The classes `BaseCom`, `Problems` and `Speaker` all have a method `reset_logfile` to reset the log file. Here is a relly weird example of use even if the method is indeed very useful each time the communicating process restarts.
+
+~~~python
+from spkpb import *
+
+project = BaseCom(
+    Problems(
+        Speaker(
+            logfile = Path('mylog.log')
+        )
+    )
+)
+
+project.new_warning(
+    what = Path('one/strange/file.txt'),
+    info = "some strange behaviors."
+)
+
+project.reset_logfile()
+
+project.new_error(
+    what = Path('one/bad/file.txt'),
+    info = "bad things appear."
+)
+~~~
+
+
+In that case, the log file will be the following one with the 1st warning missing. Who has chosen this excellent example? :-)
+
+~~~
+2) [ #2 ] ERROR: bad things appear.
 ~~~
 
 

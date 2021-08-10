@@ -15,7 +15,7 @@ THIS_DIR = Path(__file__).parent
 # -- MODULES IMPORTED FROM SOURCES! -- #
 # ------------------------------------ #
 
-PROJECT_NAME = 'src2prod'
+PROJECT_NAME = 'spkpb'
 MODULE_DIR   = THIS_DIR
 
 if not PROJECT_NAME in str(MODULE_DIR):
@@ -35,17 +35,23 @@ sys.path.append(str(MODULE_DIR))
 
 from src import *
 
-project = Project(
-    name   = 'TeXitEasy',
-    source = 'src',
-    target = Path('MODULE_DIR') / 'tools' / 'debug' / 'fakefinalprod',
-    ignore = '''
-        tool_*/
-        tool_*.*
-    ''',
-    usegit = True
+project = BaseCom(
+    Problems(
+        Speaker(
+            logfile = Path('mylog.log'),
+            style   = GLOBAL_STYLE_COLOR,
+        )
+    )
 )
 
-project.build()
+project.new_warning(
+    what = Path('one/strange/file.txt'),
+    info = "some strange behaviors."
+)
 
-project.build()
+project.reset_logfile()
+
+project.new_error(
+    what = Path('one/bad/file.txt'),
+    info = "bad things appear."
+)

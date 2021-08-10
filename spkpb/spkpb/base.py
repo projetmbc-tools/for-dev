@@ -2,9 +2,10 @@
 
 from typing import *
 
-from spkpb import *
-
 from pathlib import Path
+
+from .problems import *
+from .timer    import *
 
 
 # ------------------------------ #
@@ -37,6 +38,18 @@ class BaseCom:
     ) -> None:
         self.problems = problems
         self.success  = True
+
+
+###
+# prototype::
+#     :see: = speaker.log.LogSpeaker
+#
+# This method is just an easy-to-use wrapper producing 
+# a new empty log file.
+###
+    def reset_logfile(self):
+        self.problems.reset_logfile()
+
 
 ###
 # prototype::

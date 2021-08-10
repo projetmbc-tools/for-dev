@@ -35,7 +35,7 @@ sys.path.append(str(MODULE_DIR))
 
 from src import *
 
-speaker  = Speaker(
+speaker = Speaker(
     logfile = Path('mylog.log'),
     style   = GLOBAL_STYLE_COLOR,
     silent  = True,

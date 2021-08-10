@@ -4,12 +4,9 @@
 
 **New sub minor version version::``0.0.8-beta``:** here are the useful changes made.
 
-    1) ???
-    The method of ``speaker.log.LogSpeaker`` is accessible directly from the class . 
+    1) The method ``reset_logfile`` of ``speaker.log.LogSpeaker`` is accessible directly from the classes ``BaseCom``, ``Problems`` and ``Speaker``. 
     
-    1) path::``README.md`` has a simpler example of use of ``BaseCom`` and 
-    ??? 
-    also talks about the new method ``reset_logfile``.
+    1) path::``README.md`` has a simpler example of use of ``BaseCom`` and it also talks about the new methods ``reset_logfile``.
 
 
 **New sub minor version version::``0.0.7-beta``:** here are the little changes made.

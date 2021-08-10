@@ -83,7 +83,7 @@ class Problems:
 # 
 # We use the ordered feature of dict such as to treat warnings, criticals and
 # errors in this order when printing the summaries.
-        self.problems: dict = {
+        self.problems_found : dict = {
             CONTEXT_WARNING : defaultdict(list), # Before ERROR and CRITICAL!
             CONTEXT_CRITICAL: defaultdict(list), # Before ERROR!
             CONTEXT_ERROR   : defaultdict(list),
@@ -95,6 +95,15 @@ class Problems:
 
         self._pb_id = 0
 
+###
+# prototype::
+#     :see: = speaker.log.LogSpeaker
+#
+# This method is just an easy-to-use wrapper producing 
+# a new empty log file.
+###
+    def reset_logfile(self) -> None:
+        self.speaker.reset_logfile()
 
 ###
 # prototype::
@@ -252,7 +261,7 @@ class Problems:
     ) -> None:
 # Let's store the problems internally.
         self._pb_id += 1
-        self.problems[context][str(what)].append({
+        self.problems_found[context][str(what)].append({
             self.PB_ID_TAG  : self._pb_id,
             self.PB_INFO_TAG: info,
         })
@@ -277,7 +286,7 @@ class Problems:
 # Let's talk...
         showref = add_NL = not silent_user
 
-        for context, pbs in self.problems.items():
+        for context, pbs in self.problems_found.items():
             if not pbs:
                 continue
 

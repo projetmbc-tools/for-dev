@@ -162,6 +162,16 @@ class Speaker(AbstractSpeaker):
         else:
             self._current_outputs = self.ALL_OUTPUTS
 
+###
+# prototype::
+#     :see: = speaker.log.LogSpeaker
+#
+# This method is just an easy-to-use wrapper producing 
+# a new empty log file.
+###
+    def reset_logfile(self) -> None:
+        self._speakers[self.OUTPUT_LOG].reset_logfile()
+
 
 ###
 # We use ``getter`` and ``setter`` for the boolean attribute ``silent``.

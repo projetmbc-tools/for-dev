@@ -1,6 +1,6 @@
 [tool.poetry]
 name         = "spkpb"
-version      = "0.0.7-beta"
+version      = "0.0.8-beta"
 description  = "A module to write programs which have to be verbose about a process on files and directories, and that have to emit informations, warnings and errors."
 readme       = "README.md"
 authors      = ["Christophe BAL"]

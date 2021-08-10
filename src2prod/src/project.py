@@ -55,11 +55,6 @@ class Project(BaseCom):
             )
         )
 
-        self.recipe(
-            FORLOG,
-                {VAR_TITLE: f'SOURCE TO FINAL PRODUCT: "{name}".'},
-        )
-
 # User's choices.
         self.name   = name
         self.source = self.str2path(source)
@@ -90,11 +85,20 @@ class Project(BaseCom):
         return val
 
 
+    def reset_logfile(self) -> None:
+        super().reset_logfile()
+
+        self.recipe(
+            FORLOG,
+                {VAR_TITLE: f'SOURCE TO FINAL PRODUCT: "{self.name}".'},
+        )
 ###
 # This method ...
 ###
     def build(self) -> None:
 # Say "Hello!".
+        self.reset_logfile()
+        
         self.timestamp("build - start")
         
         self.recipe(
