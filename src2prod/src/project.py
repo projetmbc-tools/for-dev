@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 ###
-# This module ???
+# This module implements all the logic needed to manage one project.
 ###
 
 from spkpb import *
@@ -9,38 +9,28 @@ from spkpb import *
 from .lowlevel import *
 
 
-# ----------------------- #
-# -- PROJECT MANAGMENT -- #
-# ----------------------- #
+# ------------------------ #
+# -- PROJECT MANAGEMENT -- #
+# ------------------------ #
 
 ###
-# This class ????
+# This class is the main one to use such as to easily to manage a project using 
+# the "source-to-final-product" workflow.
 ###
 
 class Project(LowLevel):
 ###
 # prototype::
-#     :see: = lowlevel.LowLevel
-###
-    def __init__(
-        self,
-        project: Union[str, Path],
-        source : Union[str, Path],
-        target : Union[str, Path],
-        ignore : str  = '',
-        usegit : bool = False,
-    ):
-        super().__init__(
-            project = project,
-            source  = source,
-            target  = target,
-            ignore  = ignore,
-            usegit  = usegit,
-        )
-
-
-###
-# This method builds the list of file to copy from source to target.
+#     opensession  = ; // See Python typing...
+#                    ``True`` is to open the communication and 
+#                    ``False`` starts directly the work.
+#     closesession = ; // See Python typing...
+#                    ``True`` is to close the communication and 
+#                    ``False`` is to no do it.
+#              
+#
+# This method is the great bandleader building the list of files to be copied to
+# the target final dir.
 ###
     def build(
         self,
@@ -75,7 +65,15 @@ class Project(LowLevel):
             self.close_session()
 
 ###
-# This method ...
+# This method does three things.
+#
+#     1) Indirecty it checks that ¨git can be used.   
+#     2) It finds the branch on which we are working.
+#     3) It verifies that there isn't any uncommitted changes in the source files.
+#
+# warning::
+#     We do not want any uncommitted changes even on the ignored files because this
+#     could imply some changes in the final product. 
 ###
     def check_git(self) -> None:
         self.recipe(
@@ -140,7 +138,10 @@ class Project(LowLevel):
 
 
 ###
-# This method ...
+# This method builds the list of files to keep just by using the ignore rules.
+#
+# info::
+#     ¨git is not used here.
 ###
     def files_without_git(self) -> None:
 # Let's talk.
@@ -195,11 +196,11 @@ class Project(LowLevel):
 
 
 ###
-# This method ...
+# This method shrinks the list of files by using the ignore rules knwon by ¨git.
 #
 # info::
-#     Because the method ``rungit`` fails with ``options = ['check-ignore', '**/*'])``, 
-#     we must test directly each path.
+#     The method ``rungit`` fails with ``options = ['check-ignore', '**/*'])``, 
+#     so we must test directly each path.
 ###
     def removed_by_git(self) -> None:
         len_lof_before = len(self.lof)
@@ -250,7 +251,15 @@ class Project(LowLevel):
 
 
 ###
-# This method ...
+# prototype::
+#     output   = _ in [FORTERM, FORLOG, FORALL]; // See Python typing...
+#                the output(s) where we want to communicate.
+#     whatused = ; // See Python typing...
+#                the method used to shrink the list of files.
+#     extra    = ( '' ); // See Python typing...
+#                a small extra text.
+#
+# This method is just a factorization.
 ###
     def _indicating_lof_found(
         self,
