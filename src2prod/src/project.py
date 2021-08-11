@@ -105,7 +105,7 @@ class Project(LowLevel):
         )
 
 # Uncommitted changes in our source?
-        tosearch = f'{self.project}/{self.source.name}/'
+        tosearch = f'{self.project.name}/{self.source.name}/'
 
         if (
             "Changes to be committed" in infos['uncommitted']
