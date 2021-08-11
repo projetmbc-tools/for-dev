@@ -35,12 +35,12 @@ sys.path.append(str(MODULE_DIR))
 
 from src import *
 
-PROJECT_DIR  = Path("/Users/projetmbc/Google Drive/git[NEW]/tools/tools-for-latex/")
+PROJECT_DIR = MODULE_DIR.parent
 
 project = Project(
     project = PROJECT_DIR,
-    source  = Path('TeXitEasy') / 'src',
-    target  = Path('TeXitEasy') / 'tools' / 'debug' / 'fakefinalprod',
+    source  = Path('spkpb') / 'src',
+    target  = Path('spkpb') / 'tools' / 'debug' / 'fakefinalprod',
     ignore  = '''
         tool_*/
         tool_*.*
@@ -48,8 +48,4 @@ project = Project(
     usegit = True
 )
 
-project.build()
-
-for f in project.lof:
-    print(f)
-
+project.update()

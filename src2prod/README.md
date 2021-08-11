@@ -17,7 +17,7 @@ This module is useful for people who likes to work within a `src` folder to deve
 
 #### What we have...
 
-Let's consider [`TeXitEasy`](https://github.com/projetmbc/tools-for-latex/tree/master/TeXitEasy)  which had merly the following tree structure on August 9, 2021 (this was the very begining of that project).
+Let's consider [`TeXitEasy`](https://github.com/projetmbc/tools-for-latex/tree/master/TeXitEasy)  which had merly the following tree structure on August 9, 2021 (this was the very begining of this project).
 
 ~~~
 + changes
@@ -68,16 +68,16 @@ The final product built from the `src` folder must have the following name and s
 
 #### How to do that?
 
-Here is how to acheive a selective copy of the `src` folder to the `texiteasy` one. We will suppose the use of the `cd` command to go inside `TeXitEasy` before launching the following script where we use instances of `Path` from `pathlib`.
+Here is how to acheive a selective copy of the `src` folder to the `texiteasy` one. We will suppose the use of the `cd` command to go inside the parent folder of `TeXitEasy` before launching the following script where we use instances of `Path` from `pathlib`.
 
 ~~~python
 from src2prod import *
 
 project = Project(
-    name   = 'TeXitEasy',
-    source = Path('src'),
-    target = Path('texiteasy'),
-    ignore = '''
+    project = Path('TeXitEasy'),
+    source  = Path('src'),
+    target  = Path('texiteasy'),
+    ignore  = '''
         tool_*/
         tool_*.*
     ''',
@@ -91,28 +91,22 @@ Here are some important points about the code above.
 
   1. The values of `source` and `target` can also be string (that will be converted to instances of `Path`).
 
-  1. The rules for the argument `ignore` follow the `glob` grammar with one rule by line (empty lines are allowed). The first winning rule will be the only one applied.
+  1. The rules for the argument `ignore` follow the `gitignore` syntax. You can use this argument even if you don't work with `git`.
 
-  1. `usegit = True` asks to ignore files and folders like `git`.
-
-  1. `usegit = True` also indicates to update the `texiteasy` folder only if some changes have been made on some kept `files` in the `src` folder.
-
-  1. `usegit = False` implies to always update the `texiteasy` folder. This the default behavior.
+  1. `usegit = True` asks to ignore files and folders as `git` does. This also implies that there are no uncommited files in the `src` folder.
 
   1. Errors and warnings are printed in the terminal and written verbosely in the file `TeXitEasy.src2prod.log`.
 
 
 ### All the files to copy
 
-Sometimes the final product is not just a "selective clone" of the `src` folder: for example, it can be a physicial merge of several source file in a single final product file (the author of `src2prod` uses this technic to develop his `LaTeX` projects). In such a case, you can use the following method and attributs.
+Sometimes the final product is not just a "selective clone" of the `src` folder: for example, it can be a physicial merge of several source files in a single final one (the author of `src2prod` uses this technic to develop his `LaTeX` projects). In such a case, you can use the following method and attribut.
 
-  1. The method `build` just looks for the files to keep for the `texiteasy` folder, and the changes made in the `src` folder.
+  1. The method `build` just looks for the files to keep for the `texiteasy` folder.
 
-  1. The attribut `toupdate` is a boolean value indicating if the `texiteasy` folder must be updated.
+  1. The attribut `lof` is the list of all the files to keep in the `src` folder (`lof` is for `list of files`). 
 
-  1. The attribut `lof` is the list of all kept files in the `src` folder (`lof` is for `list of files`). 
-
-Here is an example of code printing the list of files kept in the `src` folder only if some changes have been made regarding the very last `git` commit.
+Here is an example of code printing the list of files kept in the `src` folder.
 
 ~~~python
 from src2prod import *
@@ -130,8 +124,16 @@ project = Project(
 
 project.build()
 
-if project.toupdate:
-    print(project.lof)
+for f in project.lof:
+    print(f)
+~~~
+
+This script gives the following output in a terminal.
+
+~~~
+/full/path/to/TeXitEasy/src/__init__.py
+/full/path/to/TeXitEasy/src/escape.py
+/full/path/to/TeXitEasy/src/LICENSE.txt
 ~~~
 
 

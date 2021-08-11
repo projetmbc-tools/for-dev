@@ -4,9 +4,12 @@
 # This module ???
 ###
 
+from os import getcwd, popen
 from subprocess import run
 
 from spkpb import *
+
+from .lowlevel import *
 
 
 # ----------------------- #
@@ -17,158 +20,133 @@ from spkpb import *
 # This class ????
 ###
 
-class Project(BaseCom):
+class Project(LowLevel):
 ###
 # prototype::
-#     name   = ; // See Python typing...
-#              the name of the project that will be used to communicate 
-#              during the analysis.
-#     source = ; // See Python typing...
-#              the path of the source dir.
-#     target = ; // See Python typing...
-#              the path of the final product dir.
-#     ignore = ; // See Python typing...
-#              the rules for ignoring files in addition to what ¨git does.
-#     usegit = ( False ) ; // See Python typing...
-#              ''True'' aksks to use git contrary to ``False``.
-#
-# warning::
-#     The target folder is totally removed and reconstructed at each new
-#     update.
-#
-# info::
-#     Additional attributes are reseted in the method ``reset``.
+#     :see: = lowlevel.LowLevel
 ###
     def __init__(
         self,
-        name  : str,
-        source: Union[str, Path],
-        target: Union[str, Path],
-        ignore: str  = '',
-        usegit: bool = False,
+        project: Union[str, Path],
+        source : Union[str, Path],
+        target : Union[str, Path],
+        ignore : str  = '',
+        usegit : bool = False,
     ):
-# To communicate.
-        self.logfile_name = f'{name}.src2prod.log'
-
         super().__init__(
-            Problems(
-                Speaker(
-                    logfile = Path(self.logfile_name),
-                    style   = GLOBAL_STYLE_COLOR,
-                )
-            )
+            project = project,
+            source  = source,
+            target  = target,
+            ignore  = ignore,
+            usegit  = usegit,
         )
 
-# User's choices.
-        self.name   = name
-        self.source = self.cv2path(source)
-        self.target = self.cv2path(target)
-        self.ignore = ignore
-        self.usegit = usegit      
-
 
 ###
-# prototype::
-#     value = ; // See Python typing...
-#             a path.
-#
-#     :return: = ; // See Python typing...
-#                the path converted to an instance of ``pathlib.Path``.
-###
-    def cv2path(self, value: Union[str, Path]) -> Path:
-        valtype = type(value)
-
-        if valtype == str:
-            value = Path(value)
-
-        elif not isinstance(value, Path):
-            raise ValueError(
-                f'type {valtype} unsupported to indicate '
-                 'the source and the target.'
-            )
-
-        return value
-
-
-###
-# This method ...
-###
-    def reset(self) -> None:
-# ????
-        super().reset()
-
-        self.recipe(
-            FORLOG,
-                {VAR_TITLE: f'"{self.name}": SOURCE --> FINAL PRODUCT'},
-        )
-
-# Extra attributs.
-        self.toupdate   : bool       = True
-        self.lof        : List[Path] = []
-        self.lof_ignored: List[Path] = []
-
-###
-# This method builds the list of file to copy from source to target and also
-# the value of the attribute ``toupdate``.
+# This method builds the list of file to copy from source to target.
 ###
     def build(
         self,
         opensession : bool = True,
-        closesession: bool = True,) -> None:
-# Reset fo a new start.
-        self.reset()
+        closesession: bool = True,
+    ) -> None:
+# List of methods called.
+        methodenames = ['reset']
 
-# Open a session?
         if opensession:
-            self.open_session()
+            methodenames.append('open_session')
+
+        if self.usegit:
+            methodenames.append('check_git')
+
+        methodenames += [
+            'files_without_git',
+        ]
+
+        if self.usegit:
+            methodenames.append('removed_by_git')
 
 # Let's work.
-        for methodname in [
-            'build_lof'
-        ]:
-            getattr(self, methodname)()
+        for name in methodenames:
+            getattr(self, name)()
 
             if not self.success:
                 break
 
-# Cose a session?
+# We always close the session.
         if closesession:
             self.close_session()
 
 ###
 # This method ...
 ###
-    def open_session(self):
-        self.timestamp("build - start")
+    def check_git(self) -> None:
+        self.recipe(
+            {VAR_STEP_INFO: f'Checking "git".'}
+        )
+
+# Let's go
+        infos = {}
+
+        for kind, options in [
+# Current branch.
+            ('branch', ['branch']),
+# We don't want uncommitted files in our source folder!
+            ('uncommitted', ['a']),
+        ]:
+            infos[kind] = self.rungit(options)
+    
+            if not self.success:
+                return
+
+# Branch used.
+        for onebranch in infos['branch'].split('\n'):
+            if onebranch.startswith('*'):
+                branch = onebranch[1:].strip()
+                break
 
         self.recipe(
-                {VAR_TITLE: 'L.O.F + UPDATE OR NOT.'},
-            FORTERM,
-                {VAR_STEP_INFO: 
-                    f'The log file used will be "{self.logfile_name}".'},
+            {VAR_STEP_INFO: f'Working in the branch "{branch}".'}
         )
+
+# Uncommitted changes in our source?
+        tosearch = f'{self.project}/{self.source.name}/'
+
+        if (
+            "Changes to be committed" in infos['uncommitted']
+            and
+            tosearch in infos['uncommitted']
+        ):
+            gitinfos = [
+                x.strip()
+                for x in infos['uncommitted'].split('\n')
+                if tosearch in x
+            ]
+
+            nb_changes = len(gitinfos)
+            howmany    = 'one' if nb_changes == 1 else 'several'
+            plurial    = ''    if nb_changes == 1 else 's'
+
+            fictive_tab = '\n    + '
+            gitinfos    = fictive_tab.join(gitinfos)
+
+            self.new_error(
+                what = self.source,
+                info = (
+                    f'{howmany} uncommitted file{plurial} found in the source folder. '
+                     'See below.'
+                    f'{fictive_tab}{gitinfos}'
+                ),
+                level = 1
+            )
+            return
+
 
 ###
 # This method ...
 ###
-    def close_session(self):
-        self.resume()
-        
-        self.recipe(
-            FORLOG,
-                NL
-        )
-        
-        self.timestamp("build - end")
-
-###
-# This method ...
-#
-# info::
-#     The method ``reset`` has been used just before the call of this method.
-###
-    def build_lof(self):
-# Say "Hello!".
+    def files_without_git(self) -> None:
+# Let's talk.
         self.recipe(
             {VAR_STEP_INFO: 
                  'Start the analysis of the source folder:'
@@ -188,81 +166,51 @@ class Project(BaseCom):
             )
             return
 
-# Do we have to use git?
-        if not self.usegit:
-            self.toupdate = True
+# List all the files.
+        self.lof = [
+            f for f in self.iterfiles(self.source)
+        ]
 
-        else:
-            self.infos_from_git()
-
-            if not self.success:
-                return
-
-# What must be ignored?
-        if self.usegit:
-            ...
-
-###
-# This method ...
-###
-    def infos_from_git(self):
-        infos = {}
-
-        for kind, options in [
-# Current branch.
-            ('branchused', ['branch']),
-# We don't want uncommitted files in our source folder!
-            ('uncommitted', ['a']),
-        ]:
-            infos[kind] =  self.rungit(options)
-    
-            if not self.success:
-                return
-
-        from pprint import pprint;pprint(infos)
-
-
-###
-# This method ...
-###
-    def rungit(self, options: str) -> None:
-        cmd = ['git'] + options
-
-# Launch the command.
-        try:
-            output = run(
-                cmd, 
-                capture_output = True
-            )
-
-# Can't launch the command.
-        except FileNotFoundError as e:
-            cmd = " ".join(cmd)
-    
-            self.new_error(
+# An empty list stops the process.
+        if not self.lof:
+            self.new_critical(
                 what = self.source,
-                info = f'can\'t use "{cmd}".',
+                info = 'empty source folder.',
             )
             return
 
-# Command launched thorwis an error.
-        if output.stderr:
-            self.new_error(
-                what = self.source,
-                info = (
-                    f'error throwed by "{cmd}":'
-                     '\n'
-                    f'"{self.decode(output.stderr)}".'
-                ),
-            )
-            return
+# Let's be proud of our first list.
+        len_lof = len(self.lof)
+        plurial = '' if len_lof == 1 else 's'
 
-# The work has been done.
-        return self.decode(output.stdout)
+        self.recipe(
+            {VAR_STEP_INFO: 
+                f'{len_lof} file{plurial} found using the value of "ignore".'},
+        )
+
 
 ###
 # This method ...
+#
+# info::
+#     Because the method ``rungit`` fails with ``options = ['check-ignore', '**/*'])``, 
+#     we must test directly each path.
 ###
-    def decode(self, bytedatas: bytes) -> str:
-        return bytedatas.decode('utf-8').strip()
+    def removed_by_git(self) -> None:
+# Let's talk.
+        self.recipe(
+            {VAR_STEP_INFO: 
+                 'Removing unwanted files using "git".'},
+        )
 
+        self.lof = [
+            onefile
+            for onefile in self.lof
+            if not self.rungit(
+                options = [
+                    'check-ignore',
+                    onefile.relative_to(self._cwd)
+                ]
+            )
+        ]
+        
