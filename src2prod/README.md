@@ -10,7 +10,7 @@ The `Python` module `src2prod`
 About `src2prod`
 ----------------
 
-This module is useful for people who likes to work within a `src` folder to develop projects but at the same time wants to publish the final product in another folder, this directory being a "thin" version of the `src` folder. If you use `git`, this module can talk with it to do a better job. 
+This module allows to develop a project within a source folder and to publish the final product in another folder, this last directory being a "thin" version of the source one. If you use `git`, this module can talk with it to do a better job. 
 
 
 ### One example - A `Python` project

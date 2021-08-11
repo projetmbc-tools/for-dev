@@ -209,7 +209,7 @@ class Project(LowLevel):
             if not self.rungit(
                 options = [
                     'check-ignore',
-                    onefile.relative_to(self._cwd)
+                    onefile.relative_to(self.project)
                 ]
             )
         ]

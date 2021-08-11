@@ -4,7 +4,6 @@
 # This module ???
 ###
 
-from os import getcwd, popen
 from subprocess import run
 
 from spkpb import *
@@ -111,9 +110,6 @@ class LowLevel(BaseCom):
 # Extra attributs.
         self.lof: List[Path] = []
 
-        self._cwd            = getcwd()
-        self._source_rel_cwd = self.source.relative_to(self._cwd)
-        
 
 ###
 # This method ...
@@ -207,12 +203,12 @@ class LowLevel(BaseCom):
     def rungit(self, options: str) -> None:
         cmd = ['git'] + options
 
-# Launch the command.
+# Launch the command in the project folder.
         try:
             output = run(
                 cmd, 
                 capture_output = True,
-                cwd            = self._cwd
+                cwd            = self.project
             )
 
 # Can't launch the command.

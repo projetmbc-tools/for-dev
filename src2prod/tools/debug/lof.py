@@ -50,6 +50,8 @@ project = Project(
 
 project.build()
 
+print('---')
+
 for f in project.lof:
     print(f)
 
