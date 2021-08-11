@@ -55,6 +55,8 @@ In the tree above, there are some files just useful for the development of the c
 
   1. Names using the pattern `tool_...` are for files and folders to not copy into the final product, but at the same time to be kept by `git`.
 
+  1. The `README.md` file used for `git` servers must also be used for the final product.
+
 
 The final product built from the `src` folder must have the following name and structure. 
 
@@ -63,6 +65,7 @@ The final product built from the `src` folder must have the following name and s
     * __init__.py
     * escape.py
     * LICENSE.txt
+    * README.md
 ~~~
 
 
@@ -81,7 +84,8 @@ project = Project(
         tool_*/
         tool_*.*
     ''',
-    usegit = True
+    usegit = True,
+    readme = Path('README.md')
 )
 
 project.update()
@@ -89,24 +93,26 @@ project.update()
 
 Here are some important points about the code above.
 
-  1. The values of `source` and `target` can also be string (that will be converted to instances of `Path`).
+  1. The values of `project`, `source`, `target` and `readme` can also be strings (that will be converted to instances of `Path`).
+
+  1. The argument `readme` is optional contrary to `project`, `source` and `target`.
 
   1. The rules for the argument `ignore` follow the `gitignore` syntax. You can use this argument even if you don't work with `git`.
 
-  1. `usegit = True` asks to ignore files and folders as `git` does. This also implies that there are no uncommited files in the `src` folder.
+  1. `usegit = True` asks to ignore files and folders as `git` does. This also implies that there isn't any uncommited files in the `src` folder.
 
   1. Errors and warnings are printed in the terminal and written verbosely in the file `TeXitEasy.src2prod.log`.
 
 
-### All the files to copy
+### All the source files to copy
 
-Sometimes the final product is not just a "selective clone" of the `src` folder: for example, it can be a physicial merge of several source files in a single final one (the author of `src2prod` uses this technic to develop his `LaTeX` projects). In such a case, you can use the following method and attribut.
+Sometimes the final product is not just a "selective clone" of the `src` folder: for example, it can be a melting of several source files in a single final one (the author of `src2prod` uses this technic to develop his `LaTeX` projects). In such a case, you can use the following method and attribut.
 
   1. The method `build` just looks for the files to keep for the `texiteasy` folder.
 
-  1. The attribut `lof` is the list of all the files to keep in the `src` folder (`lof` is for `list of files`). 
+  1. The attribut `lof` is the list of all files to keep in the `src` folder (`lof` is for `list of files`).
 
-Here is an example of code printing the list of files kept in the `src` folder.
+Here is an example of code printing the list of only the source files to keep.
 
 ~~~python
 from src2prod import *
@@ -119,7 +125,8 @@ project = Project(
         tool_*/
         tool_*.*
     ''',
-    usegit = True
+    usegit = True,
+    readme = Path('README.md')
 )
 
 project.build()
@@ -128,7 +135,7 @@ for f in project.lof:
     print(f)
 ~~~
 
-This script gives the following output in a terminal.
+This script gives the following output in a terminal. Note that the list doesn't contain the path of the `README` file, this last one must be manage by hand (see the methods `check_readme` and `copy_readme` of the class `Project`). 
 
 ~~~
 /full/path/to/TeXitEasy/src/__init__.py

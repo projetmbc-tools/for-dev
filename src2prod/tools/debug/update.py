@@ -35,17 +35,21 @@ sys.path.append(str(MODULE_DIR))
 
 from src import *
 
-PROJECT_DIR = MODULE_DIR.parent
+MONOREPO_DIR = MODULE_DIR.parent
+
+projectname = 'src2prod'
+# projectname = 'spkpb'
 
 project = Project(
-    project = PROJECT_DIR,
-    source  = Path('src2prod') / 'src',
-    target  = Path('src2prod') / 'src2prod',
+    project = MONOREPO_DIR,
+    source  = Path(projectname) / 'src',
+    target  = Path(projectname) / projectname,
     ignore  = '''
         tool_*/
         tool_*.*
     ''',
-    usegit = True
+    usegit = True,
+    readme = Path(projectname) / 'README.md'
 )
 
 project.update(safemode = False)

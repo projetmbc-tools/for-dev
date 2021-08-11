@@ -6,6 +6,7 @@
 ###
 
 
+from shutil import copyfile
 from subprocess import run
 
 from spkpb import *
@@ -34,10 +35,15 @@ class LowLevel(BaseCom):
 #     target  = ; // See Python typing...
 #               the **relative** path of the final product dir (regarding the
 #               project folder).
-#     ignore  = ; // See Python typing...
-#               the rules for ignoring files in addition to what ¨git does.
+#     ignore  = ( '' ) ; // See Python typing...
+#               the ¨gitingore like rules for ignoring files in addition to what
+#               ¨git does. You can use this argument even if you don't work with 
+#               ¨git.
 #     usegit  = ( False ) ; // See Python typing...
 #               ''True'' asks to use ¨git contrary to ``False``.
+#     readme  = ( None ) ; // See Python typing...
+#               ''None'' is if you don't need to import an external 
+#               path::``README`` file, otherwise give a **relative** path.
 #
 # warning::
 #     The target folder is totally removed and reconstructed at each new
@@ -51,8 +57,9 @@ class LowLevel(BaseCom):
         project: Union[str, Path],
         source : Union[str, Path],
         target : Union[str, Path],
-        ignore : str  = '',
-        usegit : bool = False,
+        ignore : str                    = '',
+        usegit : bool                   = False,
+        readme : Union[None, str, Path] = False,
     ):
 # To communicate.
         self.logfile = project / f'{project.name}.src2prod.log'
@@ -70,9 +77,15 @@ class LowLevel(BaseCom):
         self.project = self.pathify(project)
         self.source  = self.project / self.pathify(source)
         self.target  = self.project / self.pathify(target)
+
         self.usegit  = usegit
         
         self.build_ignore(ignore)
+
+        if not readme is None:
+            readme = self.project / self.pathify(readme)
+
+        self.readme = readme
 
 
 ###
@@ -238,6 +251,26 @@ class LowLevel(BaseCom):
 
 # The job has been done.
         return nothingfound
+
+
+###
+# prototype::
+#     source = ; // See Python typing...
+#              the path of the source file to copy.
+#     target = ; // See Python typing...
+#              the path of the target file that will be the copy.
+###
+    def copyfile(
+        self,
+        source: Path,
+        target: Path,
+    ) -> None:
+        target.parent.mkdir(
+            parents  = True,
+            exist_ok = True
+        )
+
+        copyfile(source, target)
 
 
 ###

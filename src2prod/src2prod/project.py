@@ -5,7 +5,7 @@
 ###
 
 
-from shutil import rmtree, copyfile
+from shutil import rmtree
 
 from spkpb import *
 
@@ -46,6 +46,10 @@ class Project(LowLevel):
             closesession = False,
         )
 
+        if not self.success:
+            self._close_one_session(timer_title = 'update')
+            return
+
 # Safe mode?
         if (
             safemode
@@ -66,10 +70,17 @@ class Project(LowLevel):
 
 # We can update the target folder. 
         for name in [
-            'emptytarget',
-            'copysrc2target',
+            'empty_target',
+            'copy_src2target',
+            'copy_readme',
         ]:
             getattr(self, name)()
+
+# Every copies has been made.
+        self.recipe(
+            {VAR_STEP_INFO: 
+                f'Target folder updated.'}
+        )
 
 # Say "Good bye!".
         self._close_one_session(timer_title = 'update')
@@ -77,7 +88,7 @@ class Project(LowLevel):
 ###
 # This method creates or empties the target folder.
 ###
-    def emptytarget(self) -> None:
+    def empty_target(self) -> None:
 # The target folder must be deletted.
         if self.target.is_dir():
             action = 'emptied'
@@ -101,7 +112,7 @@ class Project(LowLevel):
 ###
 # This method copies the files kept from the source to the target.
 ###
-    def copysrc2target(self) -> None:
+    def copy_src2target(self) -> None:
 # Indicating the start of the copying.
         nb_files = len(self.lof)
         plurial  = '' if nb_files == 1 else 's'
@@ -115,17 +126,30 @@ class Project(LowLevel):
         for srcfile in self.lof:
             targetfile = self.target / srcfile.relative_to(self.source)
 
-            targetfile.parent.mkdir(
-                parents  = True,
-                exist_ok = True
+            self.copyfile(
+                source = srcfile,
+                target = targetfile
             )
 
-            copyfile(srcfile, targetfile)
+###
+# This method copies an external path::``README`` file if it is necessary.
+###
+    def copy_readme(self) -> None:
+# No README to copy.
+        if self.readme is None:
+            return
 
-# The copies have been made.
+# Just copy the external README.
+        readme_rel = self.readme.relative_to(self.project)
+
+        self.copyfile(
+            source = self.readme,
+            target = self.target / self.readme.name
+        )
+        
         self.recipe(
             {VAR_STEP_INFO: 
-                f'Target folder updated.'}
+                f'"{readme_rel}" added to the target.'}
         )
 
 
@@ -155,7 +179,7 @@ class Project(LowLevel):
             )
 
 # List of methods called.
-        methodenames = []
+        methodenames = ['check_readme']
 
         if self.usegit:
             methodenames.append('check_git')
@@ -169,6 +193,7 @@ class Project(LowLevel):
         for name in methodenames:
             getattr(self, name)()
 
+            print(name, self.success)
             if not self.success:
                 break
 
@@ -176,6 +201,31 @@ class Project(LowLevel):
         if closesession:
             self._close_one_session(timer_title = 'build')
 
+
+###
+# This method checks the existence of a path::``README`` file if the user
+# has given suche one.
+###
+    def check_readme(self) -> None:
+# No external README.
+        if self.readme is None:
+            return
+
+# An external README.
+        if not self.readme.is_file():
+            self.new_error(
+                what  = self.readme,
+                info  = '"README" file not found.',
+                level = 1
+            )
+            return
+
+        self.recipe(
+            {VAR_STEP_INFO: 
+                 'External "README" file to use.'
+                 '\n'
+                 f'"{self.readme}".'}
+        )
 
 
 ###
@@ -261,7 +311,7 @@ class Project(LowLevel):
 # Let's talk.
         self.recipe(
             {VAR_STEP_INFO: 
-                 'Start the analysis of the source folder:'
+                 'Starting the analysis of the source folder:'
                  '\n'
                 f'"{self.source}".'},
         )

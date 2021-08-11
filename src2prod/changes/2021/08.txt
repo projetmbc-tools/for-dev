@@ -1,4 +1,11 @@
 ==
+12
+==
+
+**New sub minor version version::``0.1.0-beta``:** an external ``README`` can be used.
+
+
+==
 11
 ==
 
