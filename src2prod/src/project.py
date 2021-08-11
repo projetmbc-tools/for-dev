@@ -179,13 +179,9 @@ class Project(LowLevel):
             )
             return
 
-# Let's be proud of our first list.
-        len_lof = len(self.lof)
-        plurial = '' if len_lof == 1 else 's'
-
-        self.recipe(
-            {VAR_STEP_INFO: 
-                f'{len_lof} file{plurial} found using the value of "ignore".'},
+# Let's be proud of our 1st list.
+        self._indicating_lof_found(
+            whatused = 'the value of "ignore"'
         )
 
 
@@ -197,6 +193,8 @@ class Project(LowLevel):
 #     we must test directly each path.
 ###
     def removed_by_git(self) -> None:
+        len_lof_before = len(self.lof)
+
 # Let's talk.
         self.recipe(
             {VAR_STEP_INFO: 
@@ -214,3 +212,39 @@ class Project(LowLevel):
             )
         ]
         
+# Let's be proud of our 2nd list.
+        len_lof = len(self.lof)
+        
+        if len_lof_before == len_lof:
+            extra = ' No new file ignored.'
+
+        else:
+            nb_new_ignored = len_lof_before - len_lof
+            plurial        = '' if nb_new_ignored == 1 else 's'
+
+            extra = (
+                f' {nb_new_ignored} new file{plurial} '
+                 'ignored thanks to "git".'
+            )
+
+        self._indicating_lof_found(
+            whatused = '"git"',
+            extra    = extra
+        )
+
+
+###
+# This method ...
+###
+    def _indicating_lof_found(
+        self,
+        whatused: str,
+        extra   : str = ''
+    ) -> None: 
+        len_lof = len(self.lof)
+        plurial = '' if len_lof == 1 else 's'
+
+        self.recipe(
+            {VAR_STEP_INFO: 
+                f'{len_lof} file{plurial} found using {whatused}.{extra}'},
+        )

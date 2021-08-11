@@ -58,16 +58,16 @@ class LowLevel(BaseCom):
         super().__init__(
             Problems(
                 Speaker(
-                    logfile = Path(self.logfile_name),
+                    logfile = project / self.logfile_name,
                     style   = GLOBAL_STYLE_COLOR,
                 )
             )
         )
 
 # User's choices.
-        self.project = self.cv2path(project)
-        self.source  = self.project / self.cv2path(source)
-        self.target  = self.project / self.cv2path(target)
+        self.project = self.pathify(project)
+        self.source  = self.project / self.pathify(source)
+        self.target  = self.project / self.pathify(target)
         self.usegit  = usegit
         
         self.build_ignore(ignore)
@@ -81,7 +81,7 @@ class LowLevel(BaseCom):
 #     :return: = ; // See Python typing...
 #                the path converted to an instance of ``pathlib.Path``.
 ###
-    def cv2path(self, value: Union[str, Path]) -> Path:
+    def pathify(self, value: Union[str, Path]) -> Path:
         valtype = type(value)
 
         if valtype == str:
