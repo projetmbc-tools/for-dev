@@ -97,7 +97,7 @@ Here are some important points about the code above.
 
   1. `usegit = True` also indicates to update the `texiteasy` folder only if some changes have been made on some kept `files` in the `src` folder.
 
-  1. `usegit = False` imply to always update the `texiteasy` folder. This the default behavior.
+  1. `usegit = False` implies to always update the `texiteasy` folder. This the default behavior.
 
   1. Errors and warnings are printed in the terminal and written verbosely in the file `TeXitEasy.src2prod.log`.
 

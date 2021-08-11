@@ -37,15 +37,13 @@ from src import *
 
 project = Project(
     name   = 'TeXitEasy',
-    source = 'src',
-    target = Path('MODULE_DIR') / 'tools' / 'debug' / 'fakefinalprod',
+    source = MODULE_DIR / 'src',
+    target = MODULE_DIR / 'tools' / 'debug' / 'fakefinalprod',
     ignore = '''
         tool_*/
         tool_*.*
     ''',
     usegit = True
 )
-
-project.build()
 
 project.build()
