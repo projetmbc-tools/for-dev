@@ -4,9 +4,6 @@
 # This module ???
 ###
 
-from os import getcwd, popen
-from subprocess import run
-
 from spkpb import *
 
 from .lowlevel import *
@@ -180,8 +177,20 @@ class Project(LowLevel):
             return
 
 # Let's be proud of our 1st list.
-        self._indicating_lof_found(
+        if self.usegit:
             whatused = 'the value of "ignore"'
+        
+        else:
+            whatused = 'only the value of "ignore"'
+
+            self._indicating_lof_found(
+                output   = FORLOG,
+                whatused = whatused
+            )
+
+        self._indicating_lof_found(
+            output   = FORTERM,
+            whatused = whatused
         )
 
 
@@ -197,8 +206,9 @@ class Project(LowLevel):
 
 # Let's talk.
         self.recipe(
-            {VAR_STEP_INFO: 
-                 'Removing unwanted files using "git".'},
+            FORTERM,
+                {VAR_STEP_INFO: 
+                    'Removing unwanted files using "git".'},
         )
 
         self.lof = [
@@ -228,8 +238,14 @@ class Project(LowLevel):
             )
 
         self._indicating_lof_found(
+            output   = FORTERM,
             whatused = '"git"',
             extra    = extra
+        )
+
+        self._indicating_lof_found(
+            output   = FORLOG,
+            whatused = '"git" and the value of "ignore"',
         )
 
 
@@ -238,6 +254,7 @@ class Project(LowLevel):
 ###
     def _indicating_lof_found(
         self,
+        output  : str,
         whatused: str,
         extra   : str = ''
     ) -> None: 
@@ -245,6 +262,7 @@ class Project(LowLevel):
         plurial = '' if len_lof == 1 else 's'
 
         self.recipe(
-            {VAR_STEP_INFO: 
-                f'{len_lof} file{plurial} found using {whatused}.{extra}'},
+            output,
+                {VAR_STEP_INFO: 
+                    f'{len_lof} file{plurial} found using {whatused}.{extra}'},
         )

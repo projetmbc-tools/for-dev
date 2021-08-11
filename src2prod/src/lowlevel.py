@@ -53,12 +53,12 @@ class LowLevel(BaseCom):
         usegit : bool = False,
     ):
 # To communicate.
-        self.logfile_name = f'{project.name}.src2prod.log'
+        self.logfile = project / f'{project.name}.src2prod.log'
 
         super().__init__(
             Problems(
                 Speaker(
-                    logfile = project / self.logfile_name,
+                    logfile = self.logfile,
                     style   = GLOBAL_STYLE_COLOR,
                 )
             )
@@ -121,7 +121,7 @@ class LowLevel(BaseCom):
                 {VAR_TITLE: 'L.O.F + UPDATE OR NOT.'},
             FORTERM,
                 {VAR_STEP_INFO: 
-                    f'The log file used will be "{self.logfile_name}".'},
+                    f'The log file used will be "{self.logfile.name}".'},
         )
 
 ###
