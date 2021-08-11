@@ -40,7 +40,7 @@ PROJECT_DIR = Path("/Users/projetmbc/Google Drive/git[NEW]/tools/tools-for-latex
 project = Project(
     project = PROJECT_DIR,
     source  = Path('TeXitEasy') / 'src',
-    target  = Path('TeXitEasy') / 'tools' / 'debug' / 'fakefinalprod',
+    target  = '',
     ignore  = '''
         tool_*/
         tool_*.*

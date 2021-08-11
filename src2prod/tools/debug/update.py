@@ -39,8 +39,8 @@ PROJECT_DIR = MODULE_DIR.parent
 
 project = Project(
     project = PROJECT_DIR,
-    source  = Path('spkpb') / 'src',
-    target  = Path('spkpb') / 'tools' / 'debug' / 'fakefinalprod',
+    source  = Path('src2prod') / 'src',
+    target  = Path('src2prod') / 'src2prod',
     ignore  = '''
         tool_*/
         tool_*.*
@@ -48,4 +48,4 @@ project = Project(
     usegit = True
 )
 
-project.update()
+project.update(safemode = False)
