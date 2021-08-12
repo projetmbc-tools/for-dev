@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ###
-# This module simplifies the uimport of the dev source of a project. 
+# This module simplifies the import of the dev source of a project. 
 ###
 
 
@@ -12,15 +12,16 @@ import sys
 ###
 # prototype::
 #     file    = ; // See Python typing...
-#               ???
+#               just use the magic constant ``__file__`` when calling
+#               this function.
 #     project = ; // See Python typing...
-#               ???
+#               the name of the project
 #
-# This function does two things.
+#     :return: = ; // See Python typing...
+#                the path of the project dir.
 #
-#     1) ????
-#
-#     2) ????
+# This function adds the source folder path::``project/src`` to the path 
+# such as to allow the import of the "source" project via ``import src``.
 ###
 
 def addfindsrc(

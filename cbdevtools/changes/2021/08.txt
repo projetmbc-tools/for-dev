@@ -1,5 +1,5 @@
 ==
-????
+13
 ==
 
-**First version version::``0.0.0-beta``:** ???
+**First version version::``0.0.7-beta``:** this project is "Common Box of Dev Tools" proposing small scripts that can be helpful (the strange first number version comes from a rigid behavior of ¨pypi).
