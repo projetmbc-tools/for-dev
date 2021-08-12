@@ -2,13 +2,21 @@
 12
 ==
 
+?????  **New sub minor version version::``0.0.3-beta``:** here are the changes made.
+
+    1) ??? One ¨cli has been added.
+    
+    1) ``README.md``: the syntax for ``ignore`` rules has been explained.
+
+
 **New sub minor version version::``0.0.2-beta``:** three important things done.
 
-    1) The module ``lowlevel`` and ``LowLevel`` the class have been renamed ``baseproj`` and ``BaseProj``.
+    1) The module ``lowlevel`` and the class ``LowLevel`` have been renamed ``baseproj`` and ``BaseProj``.
 
-    1) A stupid bug fixed: the default value of ``readme`` when instanciating ``baseproj.BaseProj`` was ``False`` instead of ``None``.
-    
+    1) ``baseproj.BaseProj`` previously ``lowlevel.LowLevel``: one stupid bug fixed. Instantiation used the default value ``False`` instead of ``None`` for the argument ``readme``.
+
     1) ``README.md``: the use of relative paths has been indicated.
+
 
 **New sub minor version version::``0.0.1-beta``:** an external ``README`` can be used.
 

@@ -23,25 +23,25 @@ Let's consider [`TeXitEasy`](https://github.com/projetmbc/tools-for-latex/tree/m
 + TeXitEasy
     + changes
         + 2021
-            * 08.txt
-        * LICENSE.txt
-        * x-todo-x.txt
+          * 08.txt
+      * LICENSE.txt
+      * x-todo-x.txt
 
     + src
-        * __init__.py
-        * escape.py
-        * LICENSE.txt
+      * __init__.py
+      * escape.py
+      * LICENSE.txt
         + tool_config
-            * escape.peuf
-        * tool_debug.py
-        * tool_escape.py
+          * escape.peuf
+      * tool_debug.py
+      * tool_escape.py
 
     + tests
         + escape
-            * escape.peuf
-            * fstringit.peuf
-            * test_fstringit.py
-            * test_escape.py
+          * escape.peuf
+          * fstringit.peuf
+          * test_fstringit.py
+          * test_escape.py
     * about.peuf
     * pyproject.toml
     * README.md
@@ -96,15 +96,23 @@ Here are some important points about the code above.
 
   1. `project`, `source`, `target` and `readme` follows the rules below.
 
-        * The values of this arguments can also be strings (that will be converted to instances of `Path`).
+      * The values of this arguments can also be strings (that will be converted to instances of `Path`).
         
-        * The argument `readme` is optional contrary to `project`, `source` and `target`.
+      * The argument `readme` is optional contrary to `project`, `source` and `target`.
 
-        * `project` is a complete path regarding the working directory when launching the file, but `source`, `target` and `readme` are relative to `project`.
+      * `project` is a complete path regarding the working directory when launching the file, but `source`, `target` and `readme` are relative to `project`.
 
-  1. The rules for the argument `ignore` follow the `gitignore` syntax. You can use this argument even if you don't work with `git`.
+  1. The argument `ignore` can be used even if the project doesn't use `git`. Let's explain how to define rules for `ignore`.
 
-  1. `usegit = True` asks to ignore files and folders as `git` does. This also implies that there isn't any uncommited files in the `src` folder.
+      * Empty lines are ignored (this allows a basic formatting of rules).
+
+      * Each none empty line is internally stripped. This will indicate one rule for either a file or a folder.
+
+      * A rule finishing by `/` is for a folder: internally the last `/` is removed such as to store the rule only for folders.
+
+      * Each rule will be used with the method `match` of `pathlib.Path` (this is very basic but it will be enhanced later to allow the use of `regex`).
+
+  1. `usegit = True` asks also to ignore files and folders as `git` does (this action completes the rules defined in `ignore`). This setting implies that there isn't any uncommited file in the `src` folder (even if that files must be ignored).
 
   1. Errors and warnings are printed in the terminal and written verbosely in the file `TeXitEasy.src2prod.log` where `TeXitEasy` is the name extracted from the path `project`.
 
