@@ -4,9 +4,16 @@
 
 ?????  **New sub minor version version::``0.0.3-beta``:** here are the changes made.
 
-    1) ??? One ¨cli has been added.
+    1) ??? 
+            One ¨cli has been added.
     
-    1) ``README.md``: the syntax for ``ignore`` rules has been explained.
+    1) ??? 
+            Attribut ``ignore``: it can be either a string or a relative ``pathib.Path`` containing the rules (that feature is needed for the ¨cli but it can also be useful in a none ¨cli context)
+    
+    1) ``README.md``: the syntax for ``ignore`` rules has been explained and ¨infos have been added about the new ¨cli features.
+
+    1) ??? 
+            Some unit tests have been created.
 
 
 **New sub minor version version::``0.0.2-beta``:** three important things done.

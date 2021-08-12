@@ -36,13 +36,13 @@ class BaseProj(BaseCom):
 #               the **relative** path of the final product dir (regarding the
 #               project folder).
 #     ignore  = ( '' ) ; // See Python typing...
-#               the ¨gitingore like rules for ignoring files in addition to what
-#               ¨git does. You can use this argument even if you don't work with 
+#               the rules for ignoring files in addition to what ¨git does.
+#               You can use this argument even if you don't work with 
 #               ¨git.
 #     usegit  = ( False ) ; // See Python typing...
-#               ''True'' asks to use ¨git contrary to ``False``.
+#               ``True`` asks to use ¨git contrary to ``False``.
 #     readme  = ( None ) ; // See Python typing...
-#               ''None'' is if you don't need to import an external 
+#               ``None`` is if you don't need to import an external 
 #               path::``README`` file, otherwise give a **relative** path.
 #
 # warning::
