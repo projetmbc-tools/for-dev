@@ -33,7 +33,7 @@ from .project import *
 #               ``''`` is if you don't need to import an external 
 #               path::``README`` file, otherwise give a **relative** path.
 #
-# This function...
+# This function is to update a project from a terminal.
 ###
 @click.command()
 @click.argument('project')
@@ -83,8 +83,12 @@ def update(
         target  = project.name.lower()
 
 # readme: '' --> None
-    if readme == '':
+    if not readme:
         readme = None
+
+# Do we have an "ignore" path?
+    if ignore:
+        ignore = Path(ignore)
 
 # Let the class Project does the job.
     Project(

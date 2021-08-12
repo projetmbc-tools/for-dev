@@ -36,9 +36,10 @@ class BaseProj(BaseCom):
 #               the **relative** path of the final product dir (regarding the
 #               project folder).
 #     ignore  = ( '' ) ; // See Python typing...
-#               the rules for ignoring files in addition to what ¨git does.
-#               You can use this argument even if you don't work with 
-#               ¨git.
+#               if a string is used then this gives the rules for ignoring
+#               files in addition to what ¨git does.
+#               If an instance of ``Path`` is used, thent we have a file
+#               containing the rules.
 #     usegit  = ( False ) ; // See Python typing...
 #               ``True`` asks to use ¨git contrary to ``False``.
 #     readme  = ( None ) ; // See Python typing...
@@ -57,7 +58,7 @@ class BaseProj(BaseCom):
         project: Union[str, Path],
         source : Union[str, Path],
         target : Union[str, Path],
-        ignore : str                    = '',
+        ignore : Union[str, Path]       = '',
         usegit : bool                   = False,
         readme : Union[None, str, Path] = None,
     ):
@@ -78,9 +79,8 @@ class BaseProj(BaseCom):
         self.source  = self.project / self.pathify(source)
         self.target  = self.project / self.pathify(target)
 
-        self.usegit  = usegit
-        
-        self.build_ignore(ignore)
+        self.ignore = ignore
+        self.usegit      = usegit
 
         if not readme is None:
             readme = self.project / self.pathify(readme)
@@ -132,11 +132,7 @@ class BaseProj(BaseCom):
 
 
 ###
-# prototype::
-#     ignore = ; // See Python typing...
-#              the ``gitignore`` like rules.
-#
-# This method builds ``self.ignore`` which is a dictinnary looking like
+# This method builds ``self.ignore_rules`` which is a dictionary looking like
 # the following one.
 #
 # python::
@@ -153,13 +149,45 @@ class BaseProj(BaseCom):
 #         ],
 #     }
 ###
-    def build_ignore(self, ignore: str) -> None:
-        self.ignore = {
+    def build_ignore(self) -> None:
+# A file to read?
+        if not isinstance(self.ignore, Path):
+            ignorerules = self.ignore
+
+        else:
+            full_ignore = self.project / self.ignore
+
+            self.recipe(
+                {VAR_STEP_INFO: 
+                    f'Ignore rules in the file:'
+                     '\n'
+                    f'"{full_ignore}"'},
+            )
+
+            if not self.ignore.is_file():
+                self.new_error(
+                    what = ignore,
+                    info = f'file with ignore rules not found.'
+                            '\n'
+                           f'"{full_ignore}"',
+                )
+
+                self.ignore_rules = None
+                return
+
+            with self.ignore.open(
+                encoding = 'utf-8',
+                mode     = 'r',
+            ) as f:
+                ignorerules = f.read()
+
+# Let's build our internal dictionary.
+        self.ignore_rules = {
             self.DIR_TAG : [],
             self.FILE_TAG: [],
         }
 
-        for rule in ignore.split('\n'):
+        for rule in ignorerules.split('\n'):
             if not(shortrule := rule.strip()):
                 continue
 
@@ -172,7 +200,7 @@ class BaseProj(BaseCom):
             else:
                 context = self.FILE_TAG
             
-            self.ignore[context].append(shortrule)
+            self.ignore_rules[context].append(shortrule)
 
 ###
 # prototype::
@@ -193,7 +221,7 @@ class BaseProj(BaseCom):
         fileordir: Path,
         kind     : str
     ) -> bool:            
-        for onerule in self.ignore[kind]:
+        for onerule in self.ignore_rules[kind]:
             if fileordir.match(onerule):
                 return False
 

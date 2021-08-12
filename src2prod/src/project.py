@@ -104,7 +104,7 @@ class Project(BaseProj):
 # We are so happy to talk about our exploit...
         self.recipe(
             {VAR_STEP_INFO: 
-                f'Target folder has been {action}.'
+                f'Target folder has been {action}:'
                  '\n'
                 f'"{self.target}".'},
         )
@@ -179,7 +179,10 @@ class Project(BaseProj):
             )
 
 # List of methods called.
-        methodenames = ['check_readme']
+        methodenames = [
+            'check_readme',
+            'build_ignore',
+        ]
 
         if self.usegit:
             methodenames.append('check_git')
@@ -193,7 +196,6 @@ class Project(BaseProj):
         for name in methodenames:
             getattr(self, name)()
 
-            print(name, self.success)
             if not self.success:
                 break
 
@@ -222,7 +224,7 @@ class Project(BaseProj):
 
         self.recipe(
             {VAR_STEP_INFO: 
-                 'External "README" file to use.'
+                 'External "README" file to use:'
                  '\n'
                  f'"{self.readme}".'}
         )
@@ -343,10 +345,10 @@ class Project(BaseProj):
 
 # Let's be proud of our 1st list.
         if self.usegit:
-            whatused = 'the value of "ignore"'
+            whatused = 'the rules from "ignore"'
         
         else:
-            whatused = 'only the value of "ignore"'
+            whatused = 'only the rules from "ignore"'
 
             self._indicating_lof_found(
                 output   = FORLOG,
@@ -410,7 +412,7 @@ class Project(BaseProj):
 
         self._indicating_lof_found(
             output   = FORLOG,
-            whatused = '"git" and the value of "ignore"',
+            whatused = '"git" and the rules from "ignore"',
         )
 
 
