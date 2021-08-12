@@ -28,11 +28,11 @@ PROJECT_DIR  = Path(projectname)
 
 project = Project(
     project = MONOREPO_DIR,
-    source  = PROJECT_DIR / 'src',
-    target  = PROJECT_DIR / projectname.lower(),
+    source  = PROJECT_DIR  / 'src',
+    target  = PROJECT_DIR  / projectname.lower(),
     ignore  = MONOREPO_DIR / 'ignore-for-prod.txt',
     usegit  = True,
-    readme  = PROJECT_DIR / 'README.md'
+    readme  = PROJECT_DIR  / 'README.md'
 )
 
 project.update(safemode = False)

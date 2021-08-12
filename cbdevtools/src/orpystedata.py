@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 
+###
+# This module . 
+###
+
+
 from typing import *
 
 from pathlib import Path
@@ -11,6 +16,8 @@ from orpyste.data import Read, ReadBlock
 # prototype::
 #     file = ; // See Python typing...
 #            ???
+1
+#     :see: = _build_datas
 #
 # This function ???
 ###
@@ -28,6 +35,8 @@ def build_datas_block(
 # prototype::
 #     file = ; // See Python typing...
 #            ???
+1
+#     :see: = _build_datas
 #
 # This function ???
 ###
@@ -53,9 +62,10 @@ def _build_datas(
     file: str,
     clss: Union[Read, ReadBlock],
 ) -> Union[Read, ReadBlock]:
-    thisdir = Path(file).parent
+    file    = Path(file)
+    thisdir = file.parent
 
-    whatistested = Path(file).stem
+    whatistested = file.stem
     whatistested = whatistested.replace('test_', '')
 
     return clss(

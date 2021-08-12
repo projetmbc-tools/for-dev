@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ###
-# This module simplifies the uimport of the dev source of a project. 
+# This module simplifies the import of the dev source of a project. 
 ###
 
 
