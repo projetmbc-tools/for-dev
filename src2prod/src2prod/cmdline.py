@@ -53,24 +53,26 @@ from .project import *
                         'The default value "", an empty string, indicates '
                         'to not use any rule.')
 @click.option('--usegit',
-              is_flag = True,
-              help    = 'This flag is to use git.')
+              default = False,
+              help    = 'Contrary to True, the default value False asks to '
+                        'not use git.')
 @click.option('--readme',
               default = '',
               help    = 'Relative path of an external README file. '
                         'The default value "", an empty string, indicates '
                         'to not use any external README file.')
-@click.option('--notsafe',
-              is_flag = True,
-              help    = 'This flag allows to remove a none empty target folder.')
+@click.option('--safemode',
+              default = True,
+              help    = 'Contrary to False, the default value True asks '
+                        'to never remove a none empty target folder.')
 def update(
-    project: str,
-    src    : str,
-    target : str,
-    ignore : str,
-    usegit : bool,
-    readme : str,
-    notsafe: bool,
+    project : str,
+    src     : str,
+    target  : str,
+    ignore  : str,
+    usegit  : bool,
+    readme  : str,
+    safemode: bool,
 ):
     """
     Update your "source-to-product" like projects using the Python module src2prod.
@@ -94,4 +96,4 @@ def update(
         ignore  = ignore,
         usegit  = usegit,
         readme  = readme,
-    ).update(safemode = not notsafe)
+    ).update(safemode = safemode)
