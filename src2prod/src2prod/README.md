@@ -157,9 +157,9 @@ This script gives the following output in a terminal. Note that the list doesn't
 ~~~
 
 
-### Using a `CLI` without `poetry`
+### Using a `CLI`
 
-The project proposes one `CLI`, aka one Command Line Interface, to update a project. Let's consider the following script `mycli.py`.
+The project proposes one `CLI`, aka one "Command Line Interface", to update a project. Let's consider the following script `mycli.py`.
 
 ~~~python
 from src2prod import cmdline
@@ -268,10 +268,6 @@ Options:
   --help         Show this message and exit
 ~~~
 
-
-### Using the `CLI` via `poetry`
-
-If you have installed `poetry`, you can directly use the `CLI` via `poetry run src2prod`.
 
 <!-- :tutorial-START: -->
 <!-- :tutorial-END: -->

@@ -2,6 +2,9 @@
 12
 ==
 
+**New sub minor version version::``0.0.5-beta``:** indeed terminal::``poetry run src2prod`` does not work... 
+
+
 **New sub minor version version::``0.0.4-beta``:** the ¨cli can be launched via terminal::``poetry run src2prod``.
 
 
