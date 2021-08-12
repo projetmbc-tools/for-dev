@@ -39,7 +39,7 @@ from .project import *
 @click.argument('project')
 @click.option('--src',
               default = 'src',
-              help    = 'Relative path of the source folder of the project.'
+              help    = 'Relative path of the source folder of the project. '
                         'The default value is "src".')
 @click.option('--target',
               default = '',
@@ -48,8 +48,8 @@ from .project import *
                         'to use the name, in lower case, of the project.')
 @click.option('--ignore',
               default = '',
-              help    = 'Relative path to a file with the rules for ignoring '
-                        'files in addition to what git does.'
+              help    = 'Path to a file with the rules for ignoring '
+                        'files in addition to what git does. '
                         'The default value "", an empty string, indicates '
                         'to not use any rule.')
 @click.option('--usegit',
