@@ -80,7 +80,7 @@ class BaseProj(BaseCom):
         self.target  = self.project / self.pathify(target)
 
         self.ignore = ignore
-        self.usegit      = usegit
+        self.usegit = usegit
 
         if not readme is None:
             readme = self.project / self.pathify(readme)
@@ -132,8 +132,8 @@ class BaseProj(BaseCom):
 
 
 ###
-# This method builds ``self.ignore_rules`` which is a dictionary looking like
-# the following one.
+# This method builds ``self.ignore_rules`` which is a dictionary looking
+# like the following one.
 #
 # python::
 #     {
@@ -166,10 +166,8 @@ class BaseProj(BaseCom):
 
             if not self.ignore.is_file():
                 self.new_error(
-                    what = ignore,
-                    info = f'file with ignore rules not found.'
-                            '\n'
-                           f'"{full_ignore}"',
+                    what = full_ignore,
+                    info = f'file with ignore rules not found.',
                 )
 
                 self.ignore_rules = None

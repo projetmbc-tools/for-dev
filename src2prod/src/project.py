@@ -288,14 +288,21 @@ class Project(BaseProj):
             howmany    = 'one' if nb_changes == 1 else 'several'
             plurial    = ''    if nb_changes == 1 else 's'
 
+            if len(gitinfos) <= 5:
+                whichuncommitted = ''
+
+            else:
+                whichuncommitted = ' the 5 first ones'
+                gitinfos         = gitinfos[:5] + '...'
+
             fictive_tab = '\n    + '
-            gitinfos    = fictive_tab.join(gitinfos)
+            gitinfos    = fictive_tab.join()
 
             self.new_error(
                 what = self.source,
                 info = (
                     f'{howmany} uncommitted file{plurial} found in the source folder. '
-                     'See below.'
+                    f'See{whichuncommitted} below.'
                     f'{fictive_tab}{gitinfos}'
                 ),
                 level = 1
@@ -322,11 +329,7 @@ class Project(BaseProj):
         if not self.source.is_dir():
             self.new_error(
                 what = self.source,
-                info = (
-                     'source folder not found:'
-                     '\n'
-                    f'"{self.source}"'
-                ),
+                info = 'source folder not found.',
             )
             return
 
@@ -465,7 +468,9 @@ class Project(BaseProj):
                 {VAR_TITLE: title},
             FORTERM,
                 {VAR_STEP_INFO: 
-                    f'The log file used will be "{self.logfile.name}".'},
+                     'The log file used will be :'
+                     '\n'
+                    f'"{self.logfile}".'},
         )
 
 ###
