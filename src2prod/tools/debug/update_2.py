@@ -2,12 +2,16 @@
 
 from cbdevtools import *
 
+projectname = 'src2prod'
+projectname = 'spkpb'
+projectname = 'cbdevtools'
+
 
 # ------------------------------------ #
 # -- MODULES IMPORTED FROM SOURCES! -- #
 # ------------------------------------ #
 
-MODULE_DIR = addfindsrc(
+MODULE_DIR = addsrc(
     file    = __file__,
     project = 'src2prod',
 )
@@ -20,34 +24,15 @@ MODULE_DIR = addfindsrc(
 from src import *
 
 MONOREPO_DIR = MODULE_DIR.parent
-
-projectname = 'src2prod'
-# projectname = 'spkpb'
+PROJECT_DIR  = Path(projectname)
 
 project = Project(
     project = MONOREPO_DIR,
-    source  = Path(projectname) / 'src',
-    target  = '',
-    ignore  = '''
-        tool_*/
-        tools_*/
-
-        tool_*.*
-        tools_*.*
-
-        test_*/
-        tests_*/
-
-        test_*.*
-        tests_*.*
-    ''',
-    usegit = True
+    source  = PROJECT_DIR / 'src',
+    target  = PROJECT_DIR / projectname.lower(),
+    ignore  = MONOREPO_DIR / 'ignore-for-prod.txt',
+    usegit  = True,
+    readme  = PROJECT_DIR / 'README.md'
 )
 
-project.build()
-
-print('---')
-
-for f in project.lof:
-    print(f)
-
+project.update(safemode = False)
