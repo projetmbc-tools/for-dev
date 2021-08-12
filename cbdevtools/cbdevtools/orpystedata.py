@@ -30,7 +30,7 @@ def build_datas_block(
     file: str,
 ) -> ReadBlock:
     return _build_datas(
-        file = str,
+        file = file,
         clss = ReadBlock
     )
 
@@ -52,7 +52,7 @@ def build_datas(
     file: str,
 ) -> Read:
     return _build_datas(
-        file = str,
+        file = file,
         clss = Read
     )
 

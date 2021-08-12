@@ -1,6 +1,6 @@
 [tool.poetry]
 name         = "cbdevtools"
-version      = "0.0.7-beta"
+version      = "0.0.8-beta"
 description  = '"Common Box of Dev Tools" proposing small scripts that can be helpful.'
 readme       = "README.md"
 authors      = ["Christophe BAL"]

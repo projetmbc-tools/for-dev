@@ -11,7 +11,7 @@ projectname = 'cbdevtools'
 # -- MODULES IMPORTED FROM SOURCES! -- #
 # ------------------------------------ #
 
-MODULE_DIR = addsrc(
+MODULE_DIR = addfindsrc(
     file    = __file__,
     project = 'src2prod',
 )
