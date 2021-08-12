@@ -2,6 +2,10 @@
 
 from cbdevtools import *
 
+projectname = 'src2prod'
+projectname = 'spkpb'
+projectname = 'cbdevtools'
+
 
 # ------------------------------------ #
 # -- MODULES IMPORTED FROM SOURCES! -- #
@@ -19,12 +23,13 @@ MODULE_DIR = addfindsrc(
 
 from src import *
 
-PROJECT_DIR = Path("/Users/projetmbc/Google Drive/git[NEW]/tools/tools-for-latex/")
+MONOREPO_DIR = MODULE_DIR.parent
+PROJECT_DIR  = Path(projectname)
 
 project = Project(
-    project = PROJECT_DIR,
-    source  = Path('TeXitEasy') / 'src',
-    target  = '',
+    project = MONOREPO_DIR,
+    source  = PROJECT_DIR / 'src',
+    target  = PROJECT_DIR / projectname.lower(),
     ignore  = '''
         tool_*/
         tool_*.*
@@ -32,13 +37,8 @@ project = Project(
         test_*/
         test_*.*
     ''',
-    usegit = True
+    usegit = True,
+    readme = PROJECT_DIR / 'README.md'
 )
 
-project.build()
-
-print('---')
-
-for f in project.lof:
-    print(f)
-
+project.update(safemode = False)
