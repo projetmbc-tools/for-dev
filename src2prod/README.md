@@ -20,30 +20,31 @@ This module allows to develop a project within a source folder and to publish th
 Let's consider [`TeXitEasy`](https://github.com/projetmbc/tools-for-latex/tree/master/TeXitEasy)  which had merly the following tree structure on August 9, 2021 (this was the very begining of this project).
 
 ~~~
-+ changes
-    + 2021
-        * 08.txt
-    * LICENSE.txt
-    * x-todo-x.txt
++ TeXitEasy
+    + changes
+        + 2021
+            * 08.txt
+        * LICENSE.txt
+        * x-todo-x.txt
 
-+ src
-    * __init__.py
-    * escape.py
-    * LICENSE.txt
-    + tool_config
-        * escape.peuf
-    * tool_debug.py
-    * tool_escape.py
+    + src
+        * __init__.py
+        * escape.py
+        * LICENSE.txt
+        + tool_config
+            * escape.peuf
+        * tool_debug.py
+        * tool_escape.py
 
-+ tests
-    + escape
-        * escape.peuf
-        * fstringit.peuf
-        * test_fstringit.py
-        * test_escape.py
-* about.peuf
-* pyproject.toml
-* README.md
+    + tests
+        + escape
+            * escape.peuf
+            * fstringit.peuf
+            * test_fstringit.py
+            * test_escape.py
+    * about.peuf
+    * pyproject.toml
+    * README.md
 ~~~
 
 
@@ -93,15 +94,19 @@ project.update()
 
 Here are some important points about the code above.
 
-  1. The values of `project`, `source`, `target` and `readme` can also be strings (that will be converted to instances of `Path`).
+  1. `project`, `source`, `target` and `readme` follows the rules below.
 
-  1. The argument `readme` is optional contrary to `project`, `source` and `target`.
+        * The values of this arguments can also be strings (that will be converted to instances of `Path`).
+        
+        * The argument `readme` is optional contrary to `project`, `source` and `target`.
+
+        * `project` is a complete path regarding the working directory when launching the file, but `source`, `target` and `readme` are relative to `project`.
 
   1. The rules for the argument `ignore` follow the `gitignore` syntax. You can use this argument even if you don't work with `git`.
 
   1. `usegit = True` asks to ignore files and folders as `git` does. This also implies that there isn't any uncommited files in the `src` folder.
 
-  1. Errors and warnings are printed in the terminal and written verbosely in the file `TeXitEasy.src2prod.log`.
+  1. Errors and warnings are printed in the terminal and written verbosely in the file `TeXitEasy.src2prod.log` where `TeXitEasy` is the name extracted from the path `project`.
 
 
 ### All the source files to copy

@@ -2,7 +2,15 @@
 12
 ==
 
-**New sub minor version version::``0.1.0-beta``:** an external ``README`` can be used.
+**New sub minor version version::``0.0.2-beta``:** three important things done.
+
+    1) The module ``lowlevel`` and ``LowLevel`` the class have been renamed ``baseproj`` and ``BaseProj``.
+
+    1) A stupid bug fixed: the default value of ``readme`` when instanciating ``baseproj.BaseProj`` was ``False`` instead of ``None``.
+    
+    1) ``README.md``: the use of relative paths has been indicated.
+
+**New sub minor version version::``0.0.1-beta``:** an external ``README`` can be used.
 
 
 ==

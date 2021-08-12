@@ -9,7 +9,7 @@ from shutil import rmtree
 
 from spkpb import *
 
-from .lowlevel import *
+from .baseproj import *
 
 
 # ------------------------ #
@@ -21,7 +21,7 @@ from .lowlevel import *
 # following the "source-to-final-product" workflow.
 ###
 
-class Project(LowLevel):
+class Project(BaseProj):
 ###
 # prototype::
 #     safemode = ( True ) ; // See Python typing...

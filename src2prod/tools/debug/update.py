@@ -47,6 +47,9 @@ project = Project(
     ignore  = '''
         tool_*/
         tool_*.*
+
+        test_*/
+        test_*.*
     ''',
     usegit = True,
     readme = Path(projectname) / 'README.md'

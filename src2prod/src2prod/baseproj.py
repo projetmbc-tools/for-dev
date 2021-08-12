@@ -20,7 +20,7 @@ from spkpb import *
 # This class contains technical methods used by the class ``project.Project``.
 ###
 
-class LowLevel(BaseCom):
+class BaseProj(BaseCom):
     DIR_TAG  = 'dir'
     FILE_TAG = 'file'
 
@@ -59,7 +59,7 @@ class LowLevel(BaseCom):
         target : Union[str, Path],
         ignore : str                    = '',
         usegit : bool                   = False,
-        readme : Union[None, str, Path] = False,
+        readme : Union[None, str, Path] = None,
     ):
 # To communicate.
         self.logfile = project / f'{project.name}.src2prod.log'
