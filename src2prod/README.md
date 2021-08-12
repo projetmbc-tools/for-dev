@@ -169,15 +169,27 @@ cmdline.update()
 
 The following `Unix` terminal session shows how to use this basic script to update a project.
 
+
+#### What we have before
+
 ~~~
 > ls
 spkpb         src2prod
 ignore.txt    mycli.py
 
+> cat ignore.txt
+tool_*/
+tool_*.*
+
 > ls spkpb
 README.md     src
 changes       tools
+~~~
 
+
+#### How to use the tiny script
+
+~~~
 > python mycli.py --usegit --notsafe --readme='README.md' 
 --ignore='ignore.txt' spkpb
 ---------------
@@ -202,7 +214,12 @@ changes       tools
 11) Copying 10 files from source to target.
 12) "README.md" added to the target.
 13) Target folder updated.
+~~~
 
+
+#### What we obtain after
+
+~~~
 > ls spkpb
 README.md     spkpb.src2prod.log
 src           changes
@@ -219,7 +236,11 @@ term.py             allinone.py
 spk_interface.py
 ~~~
 
-You can have an help as usual.
+
+#### Help
+
+You can have an help as usual in the `Unix` command line world.
+
 
 ~~~
 > python mycli.py --help
