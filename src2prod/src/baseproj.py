@@ -155,18 +155,16 @@ class BaseProj(BaseCom):
             ignorerules = self.ignore
 
         else:
-            full_ignore = self.project / self.ignore
-
             self.recipe(
                 {VAR_STEP_INFO: 
                     f'Ignore rules in the file:'
                      '\n'
-                    f'"{full_ignore}"'},
+                    f'"{self.ignore}"'},
             )
 
             if not self.ignore.is_file():
                 self.new_error(
-                    what = full_ignore,
+                    what = self.ignore,
                     info = f'file with ignore rules not found.',
                 )
 

@@ -36,7 +36,7 @@ class Project(BaseProj):
     def update(self, safemode: bool = True) -> None:
 # Say "Hello!".
         self._start_one_session(
-            title       = 'UPDATE',
+            title       = f'"{self.project.name}": UPDATE',
             timer_title = 'update'
         )
 
@@ -174,7 +174,7 @@ class Project(BaseProj):
 # Do we close the session?
         if opensession:
             self._start_one_session(
-                title       = 'LIST OF FILES',
+                title       = f'"{self.project.name}": LIST OF FILES',
                 timer_title = 'build'
             )
 

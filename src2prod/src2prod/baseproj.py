@@ -47,6 +47,9 @@ class BaseProj(BaseCom):
 #               path::``README`` file, otherwise give a **relative** path.
 #
 # warning::
+#     The paths for ``project`` and ``ignore`` are absolute ones!
+#
+# warning::
 #     The target folder is totally removed and reconstructed at each new
 #     update.
 #

@@ -102,7 +102,7 @@ Here are some important points about the code above.
 
       * `project` is a complete path regarding the working directory when launching the file, but `source`, `target` and `readme` are relative to `project`.
 
-  1. The argument `ignore` can be used even if the project doesn't use `git`. Let's explain how to define rules for `ignore`.
+  1. The argument `ignore` can be used even if the project doesn't use `git`. It can be either a string containing rules, or an absolute `Path` to a file containg rules (an absolute path allows to use the same rules for several projects). Let's see now how to define rules.
 
       * Empty lines are ignored (this allows a basic formatting of rules).
 
@@ -110,7 +110,7 @@ Here are some important points about the code above.
 
       * A rule finishing by `/` is for a folder: internally the last `/` is removed such as to store the rule only for folders.
 
-      * Each rule will be used with the method `match` of `pathlib.Path` (this is very basic but it will be enhanced later to allow the use of `regex`).
+      * Each rule will be used with the method `match` of `pathlib.Path` (this is very basic).
 
   1. `usegit = True` asks also to ignore files and folders as `git` does (this action completes the rules defined in `ignore`). This setting implies that there isn't any uncommited file in the `src` folder (even if that files must be ignored).
 
@@ -156,6 +156,45 @@ This script gives the following output in a terminal. Note that the list doesn't
 /full/path/to/TeXitEasy/src/LICENSE.txt
 ~~~
 
+
+### ???? Using the `CLI`
+
+The project proposes one `CLI`, aka one Command Line Interface, to update a project.
+
+???
+
+~~~
+> ls
+spkpb       src2prod
+ignore.txt
+> ls spkpb
+README.md   src
+changes     tools
+> ???? python cmdline.py --usegit --notsafe --readme='README.md'
+  --ignore='ignore.txt' spkpb
+---------------
+"spkpb": UPDATE
+---------------
+
+1) The log file used will be :
+   "spkpb/spkpb.src2prod.log".
+2) External "README" file to use:
+   "spkpb/README.md".
+3) Ignore rules in the file:
+   "ignore.txt"
+4) Checking "git".
+5) Working in the branch "master".
+6) Starting the analysis of the source folder:
+   "spkpb/src".
+7) 21 files found using the rules from "ignore".
+8) Removing unwanted files using "git".
+9) 10 files found using "git". 11 new files ignored thanks to "git".
+10) Target folder has been emptied:
+    "spkpb/spkpb".
+11) Copying 10 files from source to target.
+12) "README.md" added to the target.
+13) Target folder updated.
+~~~
 
 <!-- :tutorial-START: -->
 <!-- :tutorial-END: -->
