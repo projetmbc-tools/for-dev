@@ -1,6 +1,6 @@
 general::
     project = python
-    desc    = ???
+    desc    = This project makes it possible to write different pieces of "MD" files separately and then produce a single "MD" file by merging all the contents.
     author  = Christophe BAL
     licence = gnu 3
     need    = python3 ;
