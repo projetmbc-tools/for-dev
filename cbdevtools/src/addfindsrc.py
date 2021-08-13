@@ -20,17 +20,34 @@ import sys
 #     :return: = ; // See Python typing...
 #                the path of the project dir.
 #
-# This function adds the project folder path::``project`` to the path 
-# such as to allow for example the import of the "source" project via 
-# ``import src`` if we have the following tree.
+# This function adds the project folder path::``project`` to the path.
+# 
+# 
+# Let's see a fictive example with the following tree structure.
 #
 # tree-dir::
-#     + project
+#     + mymod
 #         + doc
 #         + dist
 #         + src
 #             * __init__.py
 #             * ...
+#         + tools
+#             + debug 
+#                 * cli.py
+#
+# The ¨python script path::``tools/debug/cli.py`` can easily load the local
+# ¨python module ``src``. The code to use is the following one.
+#
+# python::
+#     from cbdevtools import addfindsrc
+#
+#     MODULE_DIR = addfindsrc(
+#         file    = __file__,
+#         project = 'mymod',
+#     )
+#
+#     from src import *
 ###
 
 def addfindsrc(

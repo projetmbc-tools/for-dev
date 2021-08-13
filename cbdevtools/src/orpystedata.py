@@ -54,7 +54,7 @@ from orpyste.data import ReadBlock
 #    * https://docs.pytest.org/en/6.2.x/fixture.html#factories-as-fixtures
 
 @fixture(scope = "session")
-def peuf_fixture():
+def peuf_fixture() -> None:
     datas_build = []
 
 ###
@@ -63,7 +63,7 @@ def peuf_fixture():
 #            just use the magic constant ``__file__`` when calling
 #            this function from a testing file.
 ###
-    def _make_peuf_datas(file):
+    def _make_peuf_datas(file: str) -> None:
         datas_build.append(datas := build_datas_block(file))
         
         datas.build()
