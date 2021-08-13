@@ -16,39 +16,6 @@ from orpyste.data import ReadBlock
 
 ###
 # prototype::
-#     file = ; // See Python typing...
-#            just use the magic constant ``__file__`` when calling
-#            this function from a testing file.
-#
-#     :return: = ; // See Python typing...
-#                an object containing the datas defined in a 
-#                path::``PEUF`` file (see the ¨info below).
-#
-# This function returns an instance of ``ReadBlock`` obtained after 
-# analyzing a path::``peuf`` file automatically named. 
-# 
-# info::
-#     The name of the path::``peuf`` file is obtained by removing the prefix
-#     path::``test_`` of the name of the testing file (see ``file``).
-###
-
-def build_datas_block(
-    file: str,
-) -> ReadBlock:
-    file    = Path(file)
-    thisdir = file.parent
-
-    whatistested = file.stem
-    whatistested = whatistested.replace('test_', '')
-
-    return ReadBlock(
-        content = thisdir / f'{whatistested}.peuf',
-        mode    = {"keyval:: =": ":default:"}
-    )
-
-
-###
-# prototype::
 #     :see: = build_datas_block
 #
 # This fixture yields a ready-to-use data dictionary used to acheive the tests.
@@ -59,12 +26,13 @@ def build_datas_block(
 #     See ¨orpyste.
 # 
 # 
-# Here is a real example of use.
+# Here is a real example of use where we also use the function 
+# ``addfindsrc.addfindsrc``.
 #
 # python::
 #     from cbdevtools import *
 #
-#     addsrc(
+#     MODULE_DIR = addfindsrc(
 #         file    = __file__,
 #         project = 'TeXitEasy',
 #     )
@@ -106,3 +74,36 @@ def peuf_fixture():
 
     for datas in datas_build:
         datas.remove_extras()
+
+
+###
+# prototype::
+#     file = ; // See Python typing...
+#            just use the magic constant ``__file__`` when calling
+#            this function from a testing file.
+#
+#     :return: = ; // See Python typing...
+#                an object containing the datas defined in a 
+#                path::``PEUF`` file (see the ¨info below).
+#
+# This function returns an instance of ``ReadBlock`` obtained after 
+# analyzing a path::``peuf`` file automatically named. 
+# 
+# info::
+#     The name of the path::``peuf`` file is obtained by removing the prefix
+#     path::``test_`` of the name of the testing file (see ``file``).
+###
+
+def build_datas_block(
+    file: str,
+) -> ReadBlock:
+    file    = Path(file)
+    thisdir = file.parent
+
+    whatistested = file.stem
+    whatistested = whatistested.replace('test_', '')
+
+    return ReadBlock(
+        content = thisdir / f'{whatistested}.peuf',
+        mode    = {"keyval:: =": ":default:"}
+    )
