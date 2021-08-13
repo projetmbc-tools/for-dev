@@ -9,6 +9,7 @@
 from typing import *
 
 from pathlib import Path
+from pytest import fixture
 
 from orpyste.data import ReadBlock
 

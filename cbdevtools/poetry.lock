@@ -1,8 +1,18 @@
-package = []
+[[package]]
+name = "orpyste"
+version = "1.3.2b0"
+description = "orPyste is a tool to store and read simple structured datas in TXT files using a human efficient syntax."
+category = "main"
+optional = false
+python-versions = "*"
 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "fafb334cb038533f851c23d0b63254223abf72ce4f02987e7064b0c95566699a"
+content-hash = "9047914a4c38ba3f3d64166ffc4247b801ac4ecdea3886e15323e4af7acbea82"
 
 [metadata.files]
+orpyste = [
+    {file = "orpyste-1.3.2b0-py3-none-any.whl", hash = "sha256:80794c9f9445e0c8e640e64d0cbaeecf83c28de022128e56223ca0a3c5dd5b11"},
+    {file = "orpyste-1.3.2b0.tar.gz", hash = "sha256:93485a505c03bee2a62ef6ade063af23a2bd152059c6426c81c54c3dbe33ddc9"},
+]
