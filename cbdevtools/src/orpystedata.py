@@ -10,6 +10,7 @@ from typing import *
 
 from pathlib import Path
 
+
 from orpyste.data import Read, ReadBlock
 
 
@@ -66,14 +67,16 @@ def build_datas(
 #            the class to use to analyze the path::``PEUF`` file.
 #
 #     :return: = ; // See Python typing...
-#                an instance obtained by analyzing a path::``PEUF`` file.
+#                an instance obtained by analyzing a path::``PEUF`` 
+#                file.
 #
-# This function returns an instance of either ``Read``, or ``ReadBlock`` 
-# obtained after analyzing a path::``peuf`` file. 
+# This function returns an instance of either ``Read`` or ``ReadBlock`` 
+# obtained after analyzing a path::``PEUF`` file. 
 # 
 # info::
-#     The name of the path::``peuf`` file must be obtained by removing
-#     path::``test_`` at the beginning of the name of the testing file.
+#     The name of the path::``PEUF`` file is obtained by removing    
+#     path::``test_`` at the beginning of the name of the testing file 
+#     using either ``build_datas`` or ``build_datas_block``.
 ###
 
 def _build_datas(

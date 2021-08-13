@@ -20,8 +20,17 @@ import sys
 #     :return: = ; // See Python typing...
 #                the path of the project dir.
 #
-# This function adds the source folder path::``project/src`` to the path 
-# such as to allow the import of the "source" project via ``import src``.
+# This function adds the project folder path::``project`` to the path 
+# such as to allow for example the import of the "source" project via 
+# ``import src`` if we have the following tree.
+#
+# tree-dir::
+#     + project
+#         + doc
+#         + dist
+#         + src
+#             * __init__.py
+#             * ...
 ###
 
 def addfindsrc(
