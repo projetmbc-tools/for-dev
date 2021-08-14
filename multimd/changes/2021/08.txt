@@ -2,4 +2,4 @@
 ????
 ==
 
-**First version version::``0.0.0-beta``:** this project makes it possible to write different pieces of path::``MD`` files separately and then produce a single path::``MD`` file by merging all the contents.
+**First version version::``0.0.0-beta``:** this project makes it possible to write separated pieces of path::``MD`` files that will be merged to produce one single path::``MD`` file.

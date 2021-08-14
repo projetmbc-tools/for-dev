@@ -7,37 +7,27 @@ from cbdevtools import *
 # -- FUNCTION(S) / CLASS(ES) TESTED -- #
 # ------------------------------------ #
 
+THIS_DIR = Path(__file__).parent
+
 MODULE_DIR = addfindsrc(
     file    = __file__,
-    project = 'TeXitEasy',
+    project = 'multimd',
 )
 
-from src.escape import escape
+from src import *
 
 
-# ------------------- #
-# -- GOOD ESCAPING -- #
-# ------------------- #
+# ------------------------ #
+# -- MERGING - NO ABOUT -- #
+# ------------------------ #
 
-def test_latex_use_escape(peuf_fixture):
-    datas = peuf_fixture(__file__)
+def test_merge_no_about():
+    ...
 
-    for infos in datas.values():
-        source  = infos['source']
 
-        for mode in ['text', 'math']:
-            found = escape(
-                text = source,
-                mode = mode
-            )
+# -------------------------- #
+# -- MERGING - WITH ABOUT -- #
+# -------------------------- #
 
-            if 'both' in infos:
-                wanted = infos['both']
-
-            elif not mode in infos:
-                continue
-
-            else:
-                wanted = infos[mode]
-
-            assert wanted == found
+def test_merge_with_about():
+    ...

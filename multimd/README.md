@@ -10,7 +10,8 @@ The `Python` module `multimd`
 About `multimd`
 ---------------
 
-Working with documents of moderate size in a single file quickly becomes painful. This project makes it possible to write different pieces of `MD` files separately and then produce a single  `MD` file by merging all the contents.
+Working with `MD` documents of moderate size in a single file can becomes quickly painful. This project makes it possible to write separated pieces of `MD` files that will be merged to produce one single  `MD` file.
+
 
 <!-- :tutorial-START: -->
 <!-- :tutorial-END: -->

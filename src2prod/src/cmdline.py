@@ -71,7 +71,7 @@ def update(
     usegit : bool,
     readme : str,
     notsafe: bool,
-):
+) -> None:
     """
     Update your "source-to-product" like projects using the Python module src2prod.
 

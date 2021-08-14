@@ -19,8 +19,8 @@ from .term import *
 # -- DECORATE -- #
 # -------------- #
 
-# The zero level item will never be used but it simplifies 
-# the coding of the API.
+# The zero level item will never be used but it simplifies the coding 
+# of the API.
 ITEM = [
     f'{" "*(4*i)}{deco}'
     if deco != ' ' else

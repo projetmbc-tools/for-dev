@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
 
-from .addfindsrc  import *
-from .orpystedata import *
+from typing import *
+
+from .merge import *
+from .toc   import *

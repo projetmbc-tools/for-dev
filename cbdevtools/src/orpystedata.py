@@ -22,8 +22,8 @@ from orpyste.data import ReadBlock
 # It also finalizes the cleaning of ¨orpyste extra files in case of problem.
 #
 # info::
-#     The "intuitive" dictionary is build via ``mydict("std nosep nonb")``.
-#     See ¨orpyste.
+#     The "intuitive" dictionary is build via ``mydict("std nosep nonb")``
+#     (see ¨orpyste).
 # 
 # 
 # Here is a real example of use with the following partial tree structure.
@@ -38,10 +38,11 @@ from orpyste.data import ReadBlock
 #                 + fstringit.peuf
 #                 + test_fstringit.py
 #
-# The ¨python testing file path::``test_fstringit.py`` is associated to 
-# the path::``PEUF`` file path::``fstringit.peuf`` where the prefix 
+# The ¨python testing file path::``test_fstringit.py`` is associated 
+# to the path::``PEUF`` file path::``fstringit.peuf`` where the prefix 
 # path::``test_`` has been removed. Using the datas stored in this 
-# path::``PEUF`` file becomes very easy: here is the code used.
+# path::``PEUF`` file becomes very easy: here is the code used where 
+# ``tests`` is an intuitive ¨dict version of the path::``PEUF`` file.
 #
 # python::
 #     from cbdevtools import *
@@ -72,13 +73,13 @@ def peuf_fixture() -> None:
     datas_build = []
 
 ###
-# prototype::
-#     file = ; // See Python typing...
-#            just use the magic constant ``__file__`` when calling
-#            this function from a testing file.
+# This internal function always has the same signature as the function 
+# ``build_datas_block``.
 ###
-    def _make_peuf_datas(file: str) -> None:
-        datas_build.append(datas := build_datas_block(file))
+    def _make_peuf_datas(*args, **kwargs) -> None:
+        datas_build.append(
+            datas := build_datas_block(*args, **kwargs)
+        )
         
         datas.build()
 
@@ -113,12 +114,12 @@ def build_datas_block(
     file: str,
 ) -> ReadBlock:
     file    = Path(file)
-    thisdir = file.parent
+    filedir = file.parent
 
     whatistested = file.stem
     whatistested = whatistested.replace('test_', '')
 
     return ReadBlock(
-        content = thisdir / f'{whatistested}.peuf',
+        content = filedir / f'{whatistested}.peuf',
         mode    = {"keyval:: =": ":default:"}
     )

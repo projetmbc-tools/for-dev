@@ -1,7 +1,7 @@
 [tool.poetry]
 name         = "multimd"
 version      = "0.0.0-beta"
-description  = 'This project makes it possible to write different pieces of "MD" files separately and then produce a single "MD" file by merging all the contents.'
+description  = 'This project makes it possible to write separated pieces of ``MD`` files that will be merged to produce one single ``MD`` file.'
 readme       = "README.md"
 authors      = ["Christophe BAL"]
 maintainers  = ["Christophe BAL"]
