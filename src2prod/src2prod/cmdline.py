@@ -1,8 +1,9 @@
-#! /usr/bin/env python3
+#!/usr/bin/env python3
 
 ###
 # This module implements a Comand Line Interface.
 ###
+
 
 import click
 
@@ -57,7 +58,7 @@ from .project import *
               help    = 'This flag is to use git.')
 @click.option('--readme',
               default = '',
-              help    = 'Relative path of an external README file or a readme folder. '
+              help    = 'Relative path of an external README file. '
                         'The default value "", an empty string, indicates '
                         'to not use any external README file.')
 @click.option('--notsafe',
@@ -71,7 +72,7 @@ def update(
     usegit : bool,
     readme : str,
     notsafe: bool,
-):
+) -> None:
     """
     Update your "source-to-product" like projects using the Python module src2prod.
 

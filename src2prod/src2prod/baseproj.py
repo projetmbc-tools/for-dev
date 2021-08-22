@@ -1,12 +1,12 @@
-#! /usr/bin/env python3
+#!/usr/bin/env python3
 
 ###
-# This module is just a factorization gathering all the technical and stupid
-# methods.
+# This module is just a factorization gathering all the technical and 
+# stupid methods.
 ###
 
 
-from shutil import copyfile
+from shutil     import copyfile
 from subprocess import run
 
 from spkpb import *
@@ -61,7 +61,7 @@ class BaseProj(BaseCom):
         ignore : Union[str, Path]       = '',
         usegit : bool                   = False,
         readme : Union[None, str, Path] = None,
-    ):
+    ) -> None:
 # To communicate.
         self.logfile = project / f'{project.name}.src2prod.log'
 

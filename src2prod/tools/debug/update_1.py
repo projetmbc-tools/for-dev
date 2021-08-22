@@ -28,8 +28,8 @@ PROJECT_DIR  = Path(projectname)
 
 project = Project(
     project = PROJECT_DIR,
-    source  = PROJECT_DIR / 'src',
-    target  = PROJECT_DIR / projectname.lower(),
+    source  = 'src',
+    target  = projectname.lower(),
     ignore  = '''
         tool_*/
         tool_*.*

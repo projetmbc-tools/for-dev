@@ -380,11 +380,3 @@ Who has chosen this stupid example? :-)
     * one/bad/file.txt
         + See [ #.1 ] : bad things appear.
 ~~~
-
-
-<!-- :tutorial-START: -->
-<!-- :tutorial-END: -->
-
-
-<!-- :version-START: -->
-<!-- :version-END: -->
