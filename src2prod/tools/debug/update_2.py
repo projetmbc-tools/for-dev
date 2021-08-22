@@ -4,10 +4,10 @@ from cbdevtools import *
 
 
 projectname = 'spkpb'
-# projectname = 'cbdevtools'
-projectname = 'multimd'
+projectname = 'cbdevtools'
+# projectname = 'multimd'
 
-projectname = 'src2prod'
+# projectname = 'src2prod'
 
 
 # ------------------------------------ #
@@ -35,7 +35,8 @@ project = Project(
     target  = projectname.lower(),
     ignore  = MONOREPO_DIR / 'ignore-for-prod.txt',
     usegit  = True,
-    readme  = 'readme'
+    # readme  = 'readme',
+    readme  = 'README.md',
 )
 
 project.update(safemode = False)
