@@ -190,8 +190,7 @@ changes       tools
 #### How to use the tiny script
 
 ~~~
-> python mycli.py --usegit --notsafe --readme='README.md' 
---ignore='ignore.txt' spkpb
+> python mycli.py --usegit --notsafe --readme='README.md' --ignore='ignore.txt' spkpb
 ---------------
 "spkpb": UPDATE
 ---------------

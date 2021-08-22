@@ -1,4 +1,4 @@
-#! /usr/bin/env python3
+#!/usr/bin/env python3
 
 ###
 # This module defines the class ``Speaker`` that manages easy-to-use recipes
@@ -7,7 +7,7 @@
 
 
 from functools import wraps
-from pathlib import Path
+from pathlib   import Path
 
 from mistool.term_use import ALL_FRAMES, withframe
 

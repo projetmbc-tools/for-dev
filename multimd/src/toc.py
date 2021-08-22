@@ -1,193 +1,85 @@
-#! /usr/bin/env python3
+#!/usr/bin/env python3
 
-from spkpb import *
+###
+# This module is for extracting paths inside the TOC block of an existing 
+# path::``about.peuf`` file of one directory.
+###
 
 
+from typing import *
 
+from pathlib import Path
 
+from orpyste.data      import ReadBlock
+from orpyste.parse.ast import ASTError
 
 
 # ----------- #
 # -- ABOUT -- #
 # ----------- #
 
-ABOUT_NAME   =  "about.peuf"
-SRC_DIR_NAME =  "src"
+ABOUT_NAME      = "about.peuf"
+TOC_TAG         = "toc"
+PLACEHOLDER     = "+"
+ABOUT_PEUF_MODE = {"verbatim": TOC_TAG}
 
-TOC_TAG  = "toc"
-GENE_TAG = "general"
-
-ABOUT_PEUF_MODE = {
-    "keyval:: =": GENE_TAG,
-    "verbatim"  : TOC_TAG,
-}
-
-GENE_MONOREPO_TAG = "monorepo"
-GENE_DESC_TAG     = "desc"
-GENE_AUTHOR_TAG   = "author"
-GENE_LICENCE_TAG  = "licence"
-GENE_NEED_TAG     = "need"
-
-GENE_ALL_TAGS = set([
-    GENE_MONOREPO_TAG,
-    GENE_DESC_TAG    ,
-    GENE_AUTHOR_TAG  ,
-    GENE_LICENCE_TAG ,
-    GENE_NEED_TAG    ,
-])
-
-TEX_MONOREPO_TAG = "tex"
+MD_FILE_EXT = "md"
 
 
-# ----------------------------------------- #
-# -- LOOK FOR A TOC INSIDE AN ABOUT FILE -- #
-# ----------------------------------------- #
+# -------------------------------------------------- #
+# -- LOOK FOR A TOC INSIDE AN EXISTING ABOUT FILE -- #
+# -------------------------------------------------- #
 
 ###
-# This class extracts ¨infos from a toc inside an ``about.peuf`` file 
-# of a onedir.
+# This class extracts the TOC from an existing path::``about.peuf`` file
+# of one directory.
+#
+# warning::
+#     This is not the responsability of this class to test the existance 
+#     of the path::``about.peuf`` file.
 ###
 
-class TOC(BaseCom):
-    ITEM_DIR : str = "+"
-    ITEM_FILE: str = "*"
-    ITEM_PACK: str = ">"
-
-    KIND_DIR  : str = DIR_TAG
-    KIND_FILE : str = FILE_TAG
-    KIND_PACK : str = "pack"
-    KIND_PB   : str = "illegal"
-    KIND_EMPTY: str = "empty"
-
-    ALL_PHYSICAL_KINDS: List[str] = [
-        KIND_DIR,
-        KIND_FILE
-    ]
-
-    ALL_USER_KINDS: List[str] = ALL_PHYSICAL_KINDS + [
-        KIND_PACK,
-    ]
-
-    ALL_KINDS: List[str] = ALL_USER_KINDS + [
-        KIND_PB,
-        KIND_EMPTY,
-    ]
+class TOC():
 
 ###
 # prototype::
-#     monorepo = ; // See Python typing...  
-#                the path of the directory of the monorepo.
-#     onedir   = ; // See Python typing...
-#                the p
-#     level    = _ in [0..3] (0); // See Python typing...
-#                the level of step indicating where ``0`` is for automatic 
-#                numbered enumerations.ath of one onedir to analyze.
-#     problems = ; // See Python typing...
-#                an instance of ``toolbox.Problems`` that manages 
-#                a basic history of the problems found.
-#     infos    = _ in self.ALL_USER_KINDS ; // See Python typing... 
-#                a dict returned by the method 
-#                ``search.SearchDirFile.about_content``.
-#     kind     = _ in self.ALL_USER_KINDS ; // See Python typing... 
-#                the kind of ¨infos expected to be in the TOC.
+#     onedir = ; // See Python typing...
+#              the path of the directory with the path::``about.peuf`` file.
 ###
     def __init__(
         self,
-        monorepo: Path,
-        onedir  : Path,
-        problems: Problems,
-        infos   : dict,
-        kind    : str,
-        level   : int
+        onedir: Path,
     ) -> None:
-        super().__init__(
-            monorepo = monorepo,
-            problems = problems,
-        )
-
         self.onedir = onedir
-        
-        self.infos = infos
-        self.kind  = kind
-       
-        self.level = level
+
+        self._lines: List[str] = []
 
 
 ###
 # prototype::
 #     :return: = ; // See Python typing...
-#                ``True`` if a key ``toc`` exits and ``False`` otherwise.
-###
-    def has_toc(self) -> bool:
-        return TOC_TAG in self.infos
-
-###
-# prototype::
-#     :return: = ; // See Python typing...
-#                the list of "string" paths of the sources to analyze.
-#
-# info::
-#     We know that the TOC block exists (this has been treated before using 
-#     this method).
+#                the list of "string" paths found in the TOC.
 ###
     def extract(self) -> List[str]:
-# TOC block exists.
+# Lines in the TOC block.
+        self.readlines()
+
+# Paths from the lines of the TOC block.
         pathsfound: List[str] = []
 
-        for nbline, oneinfo in enumerate(
-            self.infos[TOC_TAG],
-            1
-        ):
-            kindfound, path = self.kindof(oneinfo)
+        for nbline, oneline in enumerate(self._lines[TOC_TAG], 1):
+            path = self.pathfound(nbline, oneline)
 
-            if kindfound == self.KIND_EMPTY:
+# Empty line?
+            if not path:
                 continue
 
-# Bad TOC: wrong kind for an ¨io object.
-            if self.kind != kindfound:
-                message = "problem with the about file. "
-                
-                if kindfound in self.ALL_USER_KINDS:
-                    message += f'Only {self.kind}s allowed.'
-
-                else:
-                    message += f'Illegal line.'
-
-                message += (
-                    "\n" 
-                    f"See the line {nbline} (rel. nb) with the following content:"
-                    "\n" 
-                    f'" {oneinfo} "'
-                )
-
-                self.new_error(
-                    src_relpath = self.onedir - self.monorepo,
-                    info        = message,
-                    level       = self.level
-                )
-
-                return
-
-# Complete short names for STY files.
-            if (
-                self.kind == self.KIND_FILE 
-                and
-                not '.' in path
-            ):
-                path = f'{path}.{STY_FILE_EXT}'
+# Complete short names.
+            if not '.' in path:
+                path = f'{path}.{MD_FILE_EXT}'
 
 # A new path found.
             pathsfound.append(path)
-
-# Empty TOC.
-        if not pathsfound:
-            self.new_error(
-                src_relpath = self.onedir - self.monorepo,
-                info        = 'about file: empty TOC!',
-                level       = self.level
-            )
-
-            return
 
 # Everything seems ok.
         return pathsfound
@@ -195,26 +87,61 @@ class TOC(BaseCom):
 
 ###
 # prototype::
+#     nbline  = ; // See Python typing...
+#               the number of the line read (for message error).
+#     oneline = ; // See Python typing...
+#               one line to analyze.
+#
 #     :return: = ; // See Python typing...
-#                ``[kind, info]`` where ``kind`` belongs to ``self.ALL_KINDS`` and 
-#                info can be ``None`` in case of problem, or the text after
-#                the placeholder.
+#                the stripped text after the placeholder peuf::``+`` 
+#                or an empty string for an empty line.
 ###
-    def kindof(self, oneinfo: str):# -> List[str, str]:
-        oneinfo = oneinfo.strip()
+    def pathfound(
+        self, 
+        nbline : int, 
+        oneline: str
+    ) -> str:
+        oneline = oneline.strip()
 
-        if not oneinfo:
-            return self.KIND_EMPTY, None
+        if not oneline:
+            return ""
         
-        if len(oneinfo) == 1:
-            return self.KIND_PB, None
+# We are lazzy... :-)
+        if len(oneline) == 1:
+            oneline += " "
 
-        firstchar, otherchars = oneinfo[0], oneinfo[1:].lstrip()
+        firstchar, otherchars = oneline[0], oneline[1:].lstrip()
 
-        for kind in self.ALL_USER_KINDS:
-            kind = kind.upper()
+        if firstchar != PLACEHOLDER:
+            raise ValueError(
+                f'missing ``{PLACEHOLDER}`` to indicate a path. '
+                f'See line {nbline} (number relative to the block).'
+            )
 
-            if firstchar == getattr(self, f"ITEM_{kind}"):
-                return getattr(self, f"KIND_{kind}"), otherchars
+        if otherchars == "":
+            raise ValueError(
+                f'an empty path after ``{PLACEHOLDER}``. '
+                f'See line {nbline} (number relative to the block).'
+            )
             
-        return self.KIND_PB, None
+        return otherchars
+
+
+###
+# This method builds ``self._lines`` the list of lines stored in 
+# the path::``about.peuf`` file.
+###
+    def readlines(self) -> None:
+        try:
+            with ReadBlock(
+                content = self.onedir / ABOUT_NAME,
+                mode    = ABOUT_PEUF_MODE
+            ) as datas:
+                self._lines = datas.mydict("std nosep nonb")
+    
+        except ASTError:
+            raise ValueError(
+                f'invalid ``{ABOUT_NAME}`` found ine the following dir:'
+                 '\n'
+                f'{self.onedir}'
+            )
