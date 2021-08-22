@@ -313,18 +313,22 @@ Usage: cmdline.py [OPTIONS] PROJECT
   PROJECT: the path of the project to update.
 
 Options:
-  --src TEXT     Relative path of the source folder of the project. The default
-                 value is "src".
+  --src TEXT     Relative path of the source folder of the project. The
+                 default value is "src".
+
   --target TEXT  Relative path of the targer folder of the project. The
                  default value "", an empty string, indicates to use the name,
                  in lower case, of the project.
+
   --ignore TEXT  Path to a file with the rules for ignoring files in addition
                  to what git does. The default value "", an empty string,
                  indicates to not use any rule.
+
   --usegit       This flag is to use git.
-  --readme TEXT  Relative path of an external README file. The default value
-                 "", an empty string, indicates to not use any external README
-                 file.
+  --readme TEXT  Relative path of an external "README" file or "readme"
+                 folder. The default value "", an empty string, indicates to
+                 not use any external "README" file.
+
   --notsafe      This flag allows to remove a none empty target folder.
-  --help         Show this message and exit
+  --help         Show this message and exit.
 ~~~
