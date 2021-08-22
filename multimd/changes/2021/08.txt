@@ -2,4 +2,6 @@
 22
 ==
 
+**New sub minor version version::``0.0.1-beta``:** a real path::``README`` file has been written.
+
 **First version version::``0.0.0-beta``:** this project makes it possible to write separated pieces of path::``MD`` files that will be merged to produce one single final path::``MD`` file.
