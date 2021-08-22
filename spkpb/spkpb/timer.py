@@ -14,10 +14,9 @@ from .speaker import *
 #     speaker = speaker.allinone.Speaker ;  
 #               the class used to speak in the log file (no time stamp printed
 #               in a terminal).
-#     kind    = ; // See Python typing...
-#               the kind of time stamp ("start" and "end" for example). 
+#     kind    = the kind of time stamp ("start" and "end" for example). 
 #               This string will be always "upperized".
-#     with_NL = (True); // See Python typing...
+#     with_NL = (True) ;
 #               ``True`` asks to add a new line after the title and
 #               ``False`` to not do this.
 ###

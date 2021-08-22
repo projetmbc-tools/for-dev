@@ -121,10 +121,9 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     logfile = ; // See Python typing...  
-#               the path of the log file.
-#     style   = _ in spk_interface.ALL_GLOBAL_STYLES ( GLOBAL_STYLE_BW ) ; // See Python typing... 
-#     silent  = ( False ) ; // See Python typing...  
+#     logfile = the path of the log file.
+#     style   = _ in spk_interface.ALL_GLOBAL_STYLES ( GLOBAL_STYLE_BW ) ;
+#     silent  = ( False ) ;
 #               ``True`` idnicates to print and store nothing contrary to ``False``
 #               (this is useful for short processes showing only warning and co
 #               when using the method ``resume`` of the class ``problems.Problems``).
@@ -212,7 +211,7 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     repeat = (1) ; // See Python typing...
+#     repeat = ( 1 ) ;
 #              the numebr of empty lines wanted.
 #
 # This method simply prints ``repeat`` empty new lines in all the 
@@ -224,8 +223,7 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     text = ; // See Python typing...
-#            a text to communicate.
+#     text = a text to communicate.
 ###
     def print(self, text: str) -> None:
         for out in self._current_outputs:
@@ -234,7 +232,7 @@ class Speaker(AbstractSpeaker):
 ###
 # prototype::
 #     context = _ in spk_interface.ALL_CONTEXTS 
-#               (interface.CONTEXT_NORMAL) ; // See Python typing...
+#               (interface.CONTEXT_NORMAL) ;
 #               a context for formatting ¨infos.
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
@@ -244,11 +242,10 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     title   = ; // See Python typing...
-#               the content of the title.
-#     level   = _ in [1,2] (1); // See Python typing...
+#     title   = the content of the title.
+#     level   = _ in [1,2] ( 1 ) ;
 #               the level of the title.
-#     with_NL = (True); // See Python typing...
+#     with_NL = ( True ) ;
 #               ``True`` asks to add a new line after the title and
 #               ``False`` to not do this 
 #
@@ -268,9 +265,8 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     step_info = ; // See Python typing...
-#                 one short info.
-#     level     = _ in [0..3] (0); // See Python typing...
+#     step_info = one short info.
+#     level     = _ in [0..3] ( 0 ) ;
 #                 the level of step indicating where ``0`` is for automatic 
 #                 numbered enumerations.
 ###
@@ -300,9 +296,8 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     out   = ; // See Python typing...
-#             the kind of speaker.
-#     level = _ in [0..3] (0); // See Python typing...
+#     out   = the kind of speaker.
+#     level = _ in [0..3] ( 0  ) ;
 #             the level of step indicating where ``0`` is for automatic 
 #             numbered enumerations.
 ###
@@ -323,13 +318,10 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     context = ; // See Python typing...
-#               the context of a problem.
-#     pb_id   = ; // See Python typing...
-#               the number of the problem.
-#     message = ; // See Python typing...
-#               the message to print.
-#     level   = _ in [0..3] (0); // See Python typing...
+#     context = the context of a problem.
+#     pb_id   = the number of the problem.
+#     message = the message to print.
+#     level   = _ in [0..3] ( 0 ) ;
 #               the level of the step indicating the problem.
 ###
     def problem(

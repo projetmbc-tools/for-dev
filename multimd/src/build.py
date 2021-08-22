@@ -28,10 +28,8 @@ class Builder():
 
 ###
 # prototype::
-#     output  = ; // See Python typing...
-#               the path of the single final path::``MD`` file.
-#     content = ; // See Python typing...
-#               the path of the directory with the path::``MD`` files.
+#     output  = the path of the single final path::``MD`` file.
+#     content = the path of the directory with the path::``MD`` files.
 ###
     def __init__(
         self,

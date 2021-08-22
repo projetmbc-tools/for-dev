@@ -2,10 +2,11 @@
 
 from cbdevtools import *
 
-projectname = 'src2prod'
-projectname = 'spkpb'
-projectname = 'cbdevtools'
+# projectname = 'cbdevtools'
 projectname = 'multimd'
+# projectname = 'spkpb'
+
+# projectname = 'src2prod'
 
 
 # ------------------------------------ #

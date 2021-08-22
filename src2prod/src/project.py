@@ -24,7 +24,7 @@ from .baseproj import *
 class Project(BaseProj):
 ###
 # prototype::
-#     safemode = ( True ) ; // See Python typing...
+#     safemode = ( True ) ;
 #                ``True`` asks to never remove a none empty target folder
 #                contrary to ``False``.
 #
@@ -155,11 +155,9 @@ class Project(BaseProj):
 
 ###
 # prototype::
-#     opensession  = ; // See Python typing...
-#                    ``True`` is to reset eveything and open the communication 
+#     opensession  = ``True`` is to reset eveything and open the communication 
 #                    and ``False`` starts directly the work.
-#     closesession = ; // See Python typing...
-#                    ``True`` is to close the communication and 
+#     closesession = ``True`` is to close the communication and 
 #                    ``False`` otherwise.
 #              
 #
@@ -421,11 +419,10 @@ class Project(BaseProj):
 
 ###
 # prototype::
-#     output   = _ in [FORTERM, FORLOG, FORALL]; // See Python typing...
+#     output   = _ in [FORTERM, FORLOG, FORALL] ;
 #                the output(s) where we want to communicate.
-#     whatused = ; // See Python typing...
-#                the method used to shrink the list of files.
-#     extra    = ( '' ); // See Python typing...
+#     whatused = the method used to shrink the list of files.
+#     extra    = ( '' ) ;
 #                a small extra text.
 #
 # This method is just a factorization.
@@ -448,10 +445,8 @@ class Project(BaseProj):
 
 ###
 # prototype::
-#     title       = ; // See Python typing...
-#                   the title of the session.
-#     timer_title = ; // See Python typing...
-#                   the title for the time stamp.
+#     title       = the title of the session.
+#     timer_title = the title for the time stamp.
 #
 # This method is just a factorization.
 ###
@@ -475,8 +470,7 @@ class Project(BaseProj):
 
 ###
 # prototype::
-#     timer_title = ; // See Python typing...
-#                   the title for the time stamp.
+#     timer_title = the title for the time stamp.
 #
 # This method is just a factorization.
 ###

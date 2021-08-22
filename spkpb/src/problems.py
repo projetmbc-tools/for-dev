@@ -67,9 +67,8 @@ class Problems:
 
 ###
 # prototype::
-#     speaker = ; // See Python typing...  
-#               an instance of ``toolbox.speaker.allinone.Speaker`` 
-#               is used to communicate small ¨infos.
+#     speaker = an instance of ``speaker.allinone.Speaker`` that is used
+#               to communicate small ¨infos.
 ###
     def __init__(
         self,
@@ -113,8 +112,7 @@ class Problems:
 
 ###
 # prototype::
-#     :return: = ; // See Python typing...
-#                ``True`` if at least one warning has been found and
+#     :return: = ``True`` if at least one warning has been found and
 #                ``False` otherwise.
 ###
     @property
@@ -123,8 +121,7 @@ class Problems:
 
 ###
 # prototype::
-#     :return: = ; // See Python typing...
-#                ``True`` if at least one "critical" has been found and
+#     :return: = ``True`` if at least one "critical" has been found and
 #                ``False` otherwise.
 ###
     @property
@@ -133,8 +130,7 @@ class Problems:
 
 ###
 # prototype::
-#     :return: = ; // See Python typing...
-#                ``True`` if at least one error has been found and
+#     :return: = ``True`` if at least one error has been found and
 #                ``False` otherwise.
 ###
     @property
@@ -143,8 +139,7 @@ class Problems:
 
 ###
 # prototype::
-#     :return: = ; // See Python typing...
-#                ``True`` if at least on error or one warning has been found and
+#     :return: = ``True`` if at least on error or one warning has been found and
 #                ``False` otherwise.
 ###
     @property
@@ -159,8 +154,7 @@ class Problems:
 
 ###
 # prototype::
-#     :return: = ; // See Python typing...
-#                ``True`` if there are several warnings and
+#     :return: = ``True`` if there are several warnings and
 #                ``False`` otherwise.
 ###
     @property
@@ -169,8 +163,7 @@ class Problems:
 
 ###
 # prototype::
-#     :return: = ; // See Python typing...
-#                ``True`` if there are several "criticals" and
+#     :return: = ``True`` if there are several "criticals" and
 #                ``False`` otherwise.
 ###
     @property
@@ -179,8 +172,7 @@ class Problems:
 
 ###
 # prototype::
-#     :return: = ; // See Python typing...
-#                ``True`` if there are several erros and
+#     :return: = ``True`` if there are several erros and
 #                ``False`` otherwise.
 ###
     @property
@@ -190,12 +182,10 @@ class Problems:
 
 ###
 # prototype::
-#     what  = ; // See Python typing...
-#             any object with a string representation indicating clearly 
+#     what  = any object with a string representation indicating clearly 
 #             what is causing the warning.
-#     info  = ; // See Python typing...
-#             the info explaining the warning.
-#     level = _ in [0..3] (0); // See Python typing...
+#     info  = the info explaining the warning.
+#     level = _ in [0..3] ( 0 ) ;
 #             the level of the step indicating the problem.
 ###
     @problems_deco
@@ -209,12 +199,10 @@ class Problems:
 
 ###
 # prototype::
-#     what  = ; // See Python typing...
-#             any object with a string representation indicating clearly 
+#     what  = any object with a string representation indicating clearly 
 #             what is causing the "critical" which is a dangerous warning.
-#     info  = ; // See Python typing...
-#             the info explaining the "critical".
-#     level = _ in [0..3] (0); // See Python typing...
+#     info  = the info explaining the "critical".
+#     level = _ in [0..3] ( 0 ) ;
 #             the level of the step indicating the problem.
 ###
     @problems_deco
@@ -228,12 +216,10 @@ class Problems:
 
 ###
 # prototype::
-#     what  = ; // See Python typing...
-#             any object with a string representation indicating clearly 
+#     what  = any object with a string representation indicating clearly 
 #             what is causing the error.
-#     info  = ; // See Python typing...
-#             the info explaining the error.
-#     level = _ in [0..3] (0); // See Python typing...
+#     info  = the info explaining the error.
+#     level = _ in [0..3] ( 0 ) ;
 #             the level of the step indicating the problem.
 ###
     @problems_deco
@@ -247,15 +233,13 @@ class Problems:
 
 ###
 # prototype::
-#     what    = ; // See Python typing...
-#               any object with a string representation indicating clearly 
+#     what    = any object with a string representation indicating clearly 
 #               what is causing the problem.
 #     context = _ in [speaker.spk_interface.CONTEXT_ERROR, 
 #                     speaker.spk_interface.CONTEXT_WARNING] ; 
 #               the kind of problem.
-#     info    = ; // See Python typing...
-#               the info explaining the problem.
-#     level   = _ in [0..3] (0); // See Python typing...
+#     info    = the info explaining the problem.
+#     level   = _ in [0..3] ( 0 ) ;
 #               the level of the step indicating the problem.
 ###
     def _new_pb(
@@ -353,11 +337,9 @@ class Problems:
 
 ###
 # prototype::
-#     what    = ; // See Python typing...
-#               any object with a string representation indicating clearly 
+#     what    = any object with a string representation indicating clearly 
 #               what is causing the problem.
-#     whatpbs = ; // See Python typing...
-#               the list of problems for the same ``what``.
+#     whatpbs = the list of problems for the same ``what``.
 #     context = _ in [speaker.spk_interface.CONTEXT_ERROR, 
 #                     speaker.spk_interface.CONTEXT_WARNING] ; 
 #               the kind of problem.
@@ -398,19 +380,15 @@ class Problems:
 
 ###
 # prototype::
-#     what    = ; // See Python typing...
-#               any object with a string representation indicating clearly 
+#     what    = any object with a string representation indicating clearly 
 #               what is causing the problem.
-#     whatpbs = ; // See Python typing...
-#               the list of problems for the same ``what``.
+#     whatpbs = the list of problems for the same ``what``.
 #     context = _ in [speaker.spk_interface.CONTEXT_ERROR, 
 #                     speaker.spk_interface.CONTEXT_WARNING] ; 
 #               the kind of problem.
 #               the list of problems for the same ``what``.
-#     verb_in = ; // See Python typing...
-#               the list of outputs where to be verbose.
-#     showref = ; // See Python typing...
-#               ``True`` asks to show the references (for a none silent mode)
+#     verb_in = the list of outputs where to be verbose.
+#     showref = ``True`` asks to show the references (for a none silent mode)
 #               contrary to ``False``.
 ###
     def _resume_one_pb_verbose(

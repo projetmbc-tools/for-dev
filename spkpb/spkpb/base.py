@@ -21,8 +21,7 @@ class BaseCom:
 
 ###
 # prototype::
-#     problems = ; // See Python typing...  
-#                an instance of ``toolbox.Problems`` that manages 
+#     problems = an instance of ``toolbox.Problems`` that manages 
 #                a basic history of the problems found.
 #
 # info::
@@ -110,10 +109,9 @@ class BaseCom:
 
 ###
 # prototype::
-#     kind    = ; // See Python typing...
-#               the kind of time stamp ("start" and "end" for example). 
+#     kind    = the kind of time stamp ("start" and "end" for example). 
 #               This string will be always "upperized".
-#     with_NL = (True); // See Python typing...
+#     with_NL = ( True ) ;
 #               ``True`` asks to add a new line after the title and
 #               ``False`` to not do this.
 #

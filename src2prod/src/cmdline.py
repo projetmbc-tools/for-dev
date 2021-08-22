@@ -16,21 +16,18 @@ from .project import *
 
 ###
 # prototype::
-#     project = ; // See Python typing...
-#               the folder project that will be used to communicate during 
+#     project = the folder project that will be used to communicate during 
 #               the analysis.
-#     src     = ; // See Python typing...
-#               the **relative** path of the source dir (regarding the project
+#     src     = the **relative** path of the source dir (regarding the project
 #               folder).
-#     target  = ; // See Python typing...
-#               the **relative** path of the final product dir (regarding the
+#     target  = the **relative** path of the final product dir (regarding the
 #               project folder).
-#     ignore  = ( '' ) ; // See Python typing...
+#     ignore  = ( '' ) ;
 #               the rules for ignoring files in addition to what ¨git does.
 #               You can use this argument even if you don't work with 
-#     usegit  = ( False ) ; // See Python typing...
+#     usegit  = ( False ) ;
 #               ``True`` asks to use ¨git contrary to ``False``.
-#     readme  = ( '' ) ; // See Python typing...
+#     readme  = ( '' ) ;
 #               ``''`` is if you don't need to import an external 
 #               path::``README`` file, otherwise give a **relative** path.
 #

@@ -93,12 +93,10 @@ def peuf_fixture() -> None:
 
 ###
 # prototype::
-#     file = ; // See Python typing...
-#            just use the magic constant ``__file__`` when calling
+#     file = just use the magic constant ``__file__`` when calling
 #            this function from a testing file.
 #
-#     :return: = ; // See Python typing...
-#                an object containing the datas defined in a 
+#     :return: = an object containing the datas defined in a 
 #                path::``PEUF`` file (see the ¨info below).
 #
 # This function returns an instance of ``ReadBlock`` associated to 

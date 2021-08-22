@@ -22,12 +22,10 @@ from .spk_interface import *
 class LogSpeaker(AbstractSpeaker):
 ###
 # prototype::
-#     logfile  = ; // See Python typing...  
-#                the path of the log file.
-#     style    = _ in spk_interface.ALL_GLOBAL_STYLES; // See Python typing...
+#     logfile  = the path of the log file.
+#     style    = _ in spk_interface.ALL_GLOBAL_STYLES ;
 #                a global style for the outputs.
-#     maxwidth = ; // See Python typing...
-#                the maw width expected for hard wrapped contents.
+#     maxwidth = the maw width expected for hard wrapped contents.
 ###
     def __init__(
         self,
@@ -63,8 +61,7 @@ class LogSpeaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     text = ; // See Python typing...
-#            a text to print as it in the log file.
+#     text = a text to print as it in the log file.
 ###
     def print(
         self, text  : str,
@@ -79,7 +76,7 @@ class LogSpeaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     repeat = (1) ; // See Python typing...
+#     repeat = (1) ;
 #              the numebr of empty lines wanted.
 #
 # This method simply append ``repeat`` empty new lines to the log file.

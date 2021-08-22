@@ -21,13 +21,10 @@ from .spk_interface import *
 
 ###
 # prototype::
-#     value    = ; // See Python typing...
-#                the style code choosen.
-#     codetemp = ; // See Python typing...
-#                a template that will be updated with the value of 
+#     value    = the style code choosen.
+#     codetemp = a template that will be updated with the value of 
 #                the style code.
-#     normcode = ; // See Python typing...
-#                the code for the normal style.
+#     normcode = the code for the normal style.
 #
 # This function is just a basic factorization for coding the stylists.
 ###
@@ -98,10 +95,9 @@ class BWStylist(Enum):
 class TermSpeaker(AbstractSpeaker):
 ###
 # prototype::
-#     style    = _ in spk_interface.ALL_GLOBAL_STYLES; // See Python typing...
+#     style    = _ in spk_interface.ALL_GLOBAL_STYLES ;
 #                a global style for the outputs.
-#     maxwidth = ; // See Python typing...
-#                the maw width expected for hard wrapped contents.
+#     maxwidth = the maw width expected for hard wrapped contents.
 ###
     def __init__(
         self,
@@ -121,7 +117,7 @@ class TermSpeaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     repeat = (1) ; // See Python typing...
+#     repeat = (1) ;
 #              the numebr of empty lines wanted.
 #
 # This method simply prints ``repeat`` empty lines on the terminal.
@@ -131,15 +127,14 @@ class TermSpeaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     text = ; // See Python typing...
-#            a text to print as it on the terminal.
+#     text = a text to print as it on the terminal.
 ###
     def print(self, text: str) -> None:
         print(text)
 
 ###
 # prototype::
-#     context = _ in spk_interface.CONTEXTS (interface.CONTEXT_NORMAL) ; // See Python typing...
+#     context = _ in spk_interface.CONTEXTS (interface.CONTEXT_NORMAL) ;
 #               a context to format some outputs
 #
 #     :see: = ``ColorStylist`` and ``BWStylist``.
@@ -150,13 +145,11 @@ class TermSpeaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     text = ; // See Python typing...
-#            a text to be hard wrapped.
-#     tab  = (""); // See Python typing...
+#     text = a text to be hard wrapped.
+#     tab  = ("") ;
 #            a possible tabulation to use for each new line created.
 #
-#     :return: = ; // See Python typing...
-#                a wrapped message of maximal width ``self.maxwidth``.
+#     :return: = a wrapped message of maximal width ``self.maxwidth``.
 #
 # info::
 #     We redefine the method ``hardwrap`` because in a terminal, the

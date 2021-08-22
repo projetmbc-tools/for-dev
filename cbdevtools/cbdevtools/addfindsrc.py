@@ -11,14 +11,11 @@ import sys
 
 ###
 # prototype::
-#     file    = ; // See Python typing...
-#               just use the magic constant ``__file__`` when calling
+#     file    = just use the magic constant ``__file__`` when calling
 #               this function.
-#     project = ; // See Python typing...
-#               the name of the project
+#     project = the name of the project
 #
-#     :return: = ; // See Python typing...
-#                the path of the project dir.
+#     :return: = the path of the project dir.
 #
 # This function adds the project folder path::``project`` to the path 
 # such as to allow for example the import of the "source" project via 
