@@ -1,12 +1,4 @@
 ==
-22
-==
-
-**New minor version version::``0.0.11-beta``:** an optional argument added to build_datas_block sucha as to not use the autonmaing of the peuf ule analyzed.
-
-
-
-==
 13
 ==
 

@@ -19,16 +19,17 @@ THIS_DIR = Path(__file__).parent
 # -- LET'S GO -- #
 # -------------- #
 
-from src.toc import TOC
+from src import *
 
 for kind in [
-    'all-files',
+    'auto',
+    'reverse',
 ]:
     print(f'-- {kind} --')
 
-    for onepath in TOC(
-        THIS_DIR / f'about-{kind}'
-    ).extract():
-        print(onepath)
+    Builder(
+        output  = THIS_DIR / f'build-{kind}-final.md',
+        content = THIS_DIR / f'build-{kind}',
+    ).build()
 
     print()

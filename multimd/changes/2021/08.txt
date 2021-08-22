@@ -1,5 +1,5 @@
 ==
-????
+22
 ==
 
-**First version version::``0.0.0-beta``:** this project makes it possible to write separated pieces of path::``MD`` files that will be merged to produce one single path::``MD`` file.
+**First version version::``0.0.0-beta``:** this project makes it possible to write separated pieces of path::``MD`` files that will be merged to produce one single final path::``MD`` file.

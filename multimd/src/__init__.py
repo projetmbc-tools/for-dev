@@ -2,5 +2,5 @@
 
 from typing import *
 
-from .merge import *
+from .build import *
 from .toc   import *
