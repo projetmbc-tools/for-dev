@@ -7,7 +7,8 @@
 
 from shutil import rmtree
 
-from spkpb import *
+from multimd import *
+from spkpb   import *
 
 from .baseproj import *
 
@@ -22,6 +23,8 @@ from .baseproj import *
 ###
 
 class Project(BaseProj):
+    MD_SUFFIX = '.md'
+
 ###
 # prototype::
 #     safemode = ( True ) ; // See Python typing...
@@ -131,32 +134,41 @@ class Project(BaseProj):
                 target = targetfile
             )
 
+
 ###
-# This method copies an external path::``README`` file if it is necessary.
+# This method writes the content into the final path::``README`` file.
 ###
     def build_readme(self) -> None:
 # No README to copy.
         if self.readme is None:
             return
 
-# Just a file to copy.
-        if self.readme.is_file():
-            readme_rel = self.readme.relative_to(self.project)
+# A folder with small `MD` files or a single file?
+        if self._readme_is_file:
+            readme_src = self.readme
 
-            self.copyfile(
-                source = self.readme,
-                target = self.target / self.readme.name
-            )
-            
-            self.recipe(
-                {VAR_STEP_INFO: 
-                    f'"{readme_rel}" added to the target.'}
-            )
+        else:
+            readme_src = self.project / 'README.md'
 
-            return
+# Let ``multimd.buil.Builder`` does all the thankless job...
+            Builder(
+                output  = readme_src,
+                content = self.readme,
+            ).build()
 
-# A folder has been used.
-        KO
+# Now we just have a file to copy.
+        self.copyfile(
+            source = readme_src,
+            target = self._readme_target
+        )
+
+# Let's talk...
+        readme_rel = readme_src.relative_to(self.project)
+        
+        self.recipe(
+            {VAR_STEP_INFO: 
+                f'"{readme_rel}" added to the target.'}
+        )
 
 
 ###
@@ -212,14 +224,14 @@ class Project(BaseProj):
 
 ###
 # This method checks the existence of a path::``README`` file if the user
-# has given suche one.
+# has given such one, or a path::``readme`` folder.
 ###
     def check_readme(self) -> None:
 # No external README.
         if self.readme is None:
             return
 
-# An external README.
+# Do we have an external README file?
         if self.readme.suffix:
             if not self.readme.is_file():
                 self.new_error(
@@ -228,22 +240,23 @@ class Project(BaseProj):
                     level = 1
                 )
                 return
-        
-        elif not self.readme.is_dir():
-            print(self.readme)
-            self.new_error(
-                what  = self.readme,
-                info  = '"readme" folder not found.',
-                level = 1
-            )
-            return
 
+            self._readme_is_file = True
 
-        if self.readme.suffix:
-            kind = '"README" file'
-
+# Do we have an external readme dir?
         else:
-            kind = '"readme" dir'
+            if not self.readme.is_dir():
+                self.new_error(
+                    what  = self.readme,
+                    info  = '"readme" folder not found.',
+                    level = 1
+                )
+                return
+            
+            self._readme_is_file = False
+
+# Let's talk...
+        kind = '"README" file' if self._readme_is_file else '"readme" dir'
 
         self.recipe(
             {VAR_STEP_INFO: 

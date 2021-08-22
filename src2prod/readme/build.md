@@ -1,5 +1,5 @@
-Building a thin opy of the source folder
-----------------------------------------
+Building a thin copy of the source folder
+-----------------------------------------
 
 ### What we want...
 

@@ -85,7 +85,9 @@ class BaseProj(BaseCom):
         if not readme is None:
             readme = self.project / self.pathify(readme)
 
-        self.readme = readme
+        self.readme                = readme
+        self._readme_is_file: bool = True
+        self._readme_target : Path = self.target / 'README.md'
 
 
 ###
@@ -216,7 +218,7 @@ class BaseProj(BaseCom):
         self,
         fileordir: Path,
         kind     : str
-    ) -> bool:            
+    ) -> bool:       
         for onerule in self.ignore_rules[kind]:
             if fileordir.match(onerule):
                 return False
