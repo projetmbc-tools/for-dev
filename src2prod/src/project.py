@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#! /usr/bin/env python3
 
 ###
 # This module implements all the logic needed to manage one project.
@@ -72,7 +72,7 @@ class Project(BaseProj):
         for name in [
             'empty_target',
             'copy_src2target',
-            'copy_readme',
+            'build_readme',
         ]:
             getattr(self, name)()
 
@@ -134,23 +134,29 @@ class Project(BaseProj):
 ###
 # This method copies an external path::``README`` file if it is necessary.
 ###
-    def copy_readme(self) -> None:
+    def build_readme(self) -> None:
 # No README to copy.
         if self.readme is None:
             return
 
-# Just copy the external README.
-        readme_rel = self.readme.relative_to(self.project)
+# Just a file to copy.
+        if self.readme.is_file():
+            readme_rel = self.readme.relative_to(self.project)
 
-        self.copyfile(
-            source = self.readme,
-            target = self.target / self.readme.name
-        )
-        
-        self.recipe(
-            {VAR_STEP_INFO: 
-                f'"{readme_rel}" added to the target.'}
-        )
+            self.copyfile(
+                source = self.readme,
+                target = self.target / self.readme.name
+            )
+            
+            self.recipe(
+                {VAR_STEP_INFO: 
+                    f'"{readme_rel}" added to the target.'}
+            )
+
+            return
+
+# A folder has been used.
+        KO
 
 
 ###
@@ -214,17 +220,34 @@ class Project(BaseProj):
             return
 
 # An external README.
-        if not self.readme.is_file():
+        if self.readme.suffix:
+            if not self.readme.is_file():
+                self.new_error(
+                    what  = self.readme,
+                    info  = '"README" file not found.',
+                    level = 1
+                )
+                return
+        
+        elif not self.readme.is_dir():
+            print(self.readme)
             self.new_error(
                 what  = self.readme,
-                info  = '"README" file not found.',
+                info  = '"readme" folder not found.',
                 level = 1
             )
             return
 
+
+        if self.readme.suffix:
+            kind = '"README" file'
+
+        else:
+            kind = '"readme" dir'
+
         self.recipe(
             {VAR_STEP_INFO: 
-                 'External "README" file to use:'
+                f'External {kind} to use:'
                  '\n'
                  f'"{self.readme}".'}
         )
@@ -293,10 +316,10 @@ class Project(BaseProj):
 
             else:
                 whichuncommitted = ' the 5 first ones'
-                gitinfos         = gitinfos[:5] + '...'
+                gitinfos         = gitinfos[:5] + ['...']
 
             fictive_tab = '\n    + '
-            gitinfos    = fictive_tab.join()
+            gitinfos    = fictive_tab.join(gitinfos)
 
             self.new_error(
                 what = self.source,

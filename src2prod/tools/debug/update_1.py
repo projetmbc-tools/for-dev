@@ -27,7 +27,7 @@ MONOREPO_DIR = MODULE_DIR.parent
 PROJECT_DIR  = Path(projectname)
 
 project = Project(
-    project = MONOREPO_DIR,
+    project = PROJECT_DIR,
     source  = PROJECT_DIR / 'src',
     target  = PROJECT_DIR / projectname.lower(),
     ignore  = '''

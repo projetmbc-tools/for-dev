@@ -1,4 +1,11 @@
 ==
+22 
+==
+
+**New sub minor version version::``0.0.6-beta``:** it is now powwible to use a dir path::``readme`` where to write the path::``README.md`` file piece by piece. 
+
+
+==
 12
 ==
 

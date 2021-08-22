@@ -3,9 +3,9 @@
 from cbdevtools import *
 
 projectname = 'src2prod'
-projectname = 'spkpb'
-projectname = 'cbdevtools'
-projectname = 'multimd'
+# projectname = 'spkpb'
+# projectname = 'cbdevtools'
+# projectname = 'multimd'
 
 
 # ------------------------------------ #
@@ -28,12 +28,12 @@ MONOREPO_DIR = MODULE_DIR.parent
 PROJECT_DIR  = Path(projectname)
 
 project = Project(
-    project = MONOREPO_DIR,
+    project = PROJECT_DIR,
     source  = PROJECT_DIR  / 'src',
     target  = PROJECT_DIR  / projectname.lower(),
     ignore  = MONOREPO_DIR / 'ignore-for-prod.txt',
     usegit  = True,
-    readme  = PROJECT_DIR  / 'README.md'
+    readme  = 'readme'
 )
 
 project.update(safemode = False)

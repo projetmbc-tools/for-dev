@@ -9,10 +9,10 @@ license      = "GNU License Version 3"
 repository   = "https://github.com/projetmbc/tools-for-dev/tree/master/src2prod"
 
 [tool.poetry.dependencies]
-python = "^3.8"
-click  = "^7.1.2"
-spkpb  = "^0.0.0-beta.0"
-
+python  = "^3.8"
+click   = "^7.1.2"
+multimd = "^0.0.0-beta.0"
+spkpb   = "^0.0.10-beta.0"
 
 [tool.poetry.dev-dependencies]
 

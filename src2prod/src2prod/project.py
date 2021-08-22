@@ -139,18 +139,24 @@ class Project(BaseProj):
         if self.readme is None:
             return
 
-# Just copy the external README.
-        readme_rel = self.readme.relative_to(self.project)
+# Just a file to copy.
+        if self.readme.is_file():
+            readme_rel = self.readme.relative_to(self.project)
 
-        self.copyfile(
-            source = self.readme,
-            target = self.target / self.readme.name
-        )
-        
-        self.recipe(
-            {VAR_STEP_INFO: 
-                f'"{readme_rel}" added to the target.'}
-        )
+            self.copyfile(
+                source = self.readme,
+                target = self.target / self.readme.name
+            )
+            
+            self.recipe(
+                {VAR_STEP_INFO: 
+                    f'"{readme_rel}" added to the target.'}
+            )
+
+            return
+
+# A folder has been used.
+        KO
 
 
 ###
@@ -214,6 +220,8 @@ class Project(BaseProj):
             return
 
 # An external README.
+        print(self.readme.suffix)
+        exit()
         if not self.readme.is_file():
             self.new_error(
                 what  = self.readme,
