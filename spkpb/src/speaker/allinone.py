@@ -121,10 +121,10 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     logfile = the path of the log file.
-#     style   = _ in spk_interface.ALL_GLOBAL_STYLES ( GLOBAL_STYLE_BW ) ;
-#     silent  = ( False ) ;
-#               ``True`` idnicates to print and store nothing contrary to ``False``
+#     logfile : the path of the log file.
+#     style   : the style to use in the terminal.
+#             @ :in: spk_interface.ALL_GLOBAL_STYLES
+#     silent  : ``True`` idnicates to print and store nothing contrary to ``False``
 #               (this is useful for short processes showing only warning and co
 #               when using the method ``resume`` of the class ``problems.Problems``).
 ###
@@ -155,7 +155,7 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     :see: = speaker.log.LogSpeaker
+#     :see: speaker.log.LogSpeaker
 #
 # This method resets the log file and the numbering of steps.
 ###
@@ -211,8 +211,7 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     repeat = ( 1 ) ;
-#              the numebr of empty lines wanted.
+#     repeat : the number of empty lines wanted.
 #
 # This method simply prints ``repeat`` empty new lines in all the 
 # ouputs wanted.
@@ -223,7 +222,7 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     text = a text to communicate.
+#     text : a text to communicate.
 ###
     def print(self, text: str) -> None:
         for out in self._current_outputs:
@@ -231,9 +230,8 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     context = _ in spk_interface.ALL_CONTEXTS 
-#               (interface.CONTEXT_NORMAL) ;
-#               a context for formatting ¨infos.
+#     context : a context for formatting ¨infos.
+#             @ :in: spk_interface.ALL_CONTEXTS 
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
         for out in self._current_outputs:
@@ -242,11 +240,10 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     title   = the content of the title.
-#     level   = _ in [1,2] ( 1 ) ;
-#               the level of the title.
-#     with_NL = ( True ) ;
-#               ``True`` asks to add a new line after the title and
+#     title   : the content of the title.
+#     level   : the level of the title.
+#             @ :in: 1..2
+#     with_NL : ``True`` asks to add a new line after the title and
 #               ``False`` to not do this 
 #
 # info::
@@ -265,10 +262,10 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     step_info = one short info.
-#     level     = _ in [0..3] ( 0 ) ;
-#                 the level of step indicating where ``0`` is for automatic 
+#     step_info : one short info.
+#     level     : the level of step indicating where ``0`` is for automatic 
 #                 numbered enumerations.
+#               @ :in: 0..3
 ###
     def step(self, 
         step_info: str,
@@ -296,10 +293,10 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     out   = the kind of speaker.
-#     level = _ in [0..3] ( 0  ) ;
-#             the level of step indicating where ``0`` is for automatic 
+#     out   : the kind of speaker.
+#     level : the level of step indicating where ``0`` is for automatic 
 #             numbered enumerations.
+#           @ :in: 0..3
 ###
     def _stepitem(
         self,
@@ -318,11 +315,11 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     context = the context of a problem.
-#     pb_id   = the number of the problem.
-#     message = the message to print.
-#     level   = _ in [0..3] ( 0 ) ;
-#               the level of the step indicating the problem.
+#     context : the context of a problem.
+#     pb_id   : the number of the problem.
+#     message : the message to print.
+#     level   : the level of the step indicating the problem.
+#             @ in 0..3
 ###
     def problem(
         self,
@@ -343,8 +340,7 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     *args = ;
-#             the classical list of args allowed by Python.
+#     *args : the classical list of args allowed by Python.
 # 
 # This method allows to indicate recipes to apply suchas to simplify 
 # the "speaking". Here is an exemple of use followed by the actions 

@@ -44,7 +44,7 @@ class TOC():
 
 ###
 # prototype::
-#     onedir = the path of the directory with the path::``about.peuf`` file.
+#     onedir : the path of the directory with the path::``about.peuf`` file.
 ###
     def __init__(
         self,
@@ -57,7 +57,7 @@ class TOC():
 
 ###
 # prototype::
-#     :return: = the list of paths found in the peuf::``toc`` block.
+#     :return: the list of paths found in the peuf::``toc`` block.
 ###
     def extract(self) -> List[Path]:
 # Lines in the TOC block.
@@ -86,10 +86,10 @@ class TOC():
 
 ###
 # prototype::
-#     nbline  = the relative number of the line read (for message error).
-#     oneline = one line to analyze.
+#     nbline  : the relative number of the line read (for message error).
+#     oneline : one line to analyze.
 #
-#     :return: = the stripped text after the placeholder peuf::``+`` 
+#     :return: the stripped text after the placeholder peuf::``+`` 
 #                or an empty string for an empty line.
 ###
     def pathfound(

@@ -41,7 +41,7 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: = problems.Problems.reset ,
+#     :see:  problems.Problems.reset ,
 #             speaker.allinone.Speaker.reset
 #
 # This method is just an easy-to-use wrapper to reset the log file,
@@ -54,7 +54,7 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: = problems.Problems.new_warning
+#     :see:  problems.Problems.new_warning
 # 
 # This method is just an easy-to-use wrapper.
 ###
@@ -63,7 +63,7 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: = problems.Problems.new_warning
+#     :see:  problems.Problems.new_warning
 # 
 # This method is just an easy-to-use wrapper.
 #
@@ -78,7 +78,7 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: = problems.Problems.new_error
+#     :see:  problems.Problems.new_error
 # 
 # This method is just an easy-to-use wrapper.
 ###
@@ -88,7 +88,7 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: = problems.Problems.resume
+#     :see:  problems.Problems.resume
 # 
 # This method is just an easy-to-use wrapper.
 ###
@@ -98,7 +98,7 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: = speaker.allinone.Speaker.recipe
+#     :see:  speaker.allinone.Speaker.recipe
 # 
 # This method is just an esay-to-use wrapper.
 ###
@@ -115,7 +115,7 @@ class BaseCom:
 #               ``True`` asks to add a new line after the title and
 #               ``False`` to not do this.
 #
-#     :see: = timer.timestamp
+#     :see:  timer.timestamp
 # 
 # This method is just an easy-to-use wrapper.
 ###

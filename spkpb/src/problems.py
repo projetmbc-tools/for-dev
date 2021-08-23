@@ -23,12 +23,14 @@ from .speaker import *
 ###
 
 def problems_deco(method):
-# what -> any object with a string representation indicating clearly 
-#         what is causing the problem.
-#
-# info -> the info explaining the error.
-#
-# level -> the level of the step indicating the problem.
+###
+# prototype::
+#     what  : any object with a string representation indicating clearly 
+#             what is causing the warning.
+#     info  : the info explaining the warning.
+#     level : the level of the step indicating the problem.
+#           @ :in: 0..3
+###
     def similar(
         self,
         what : Any,
@@ -67,7 +69,7 @@ class Problems:
 
 ###
 # prototype::
-#     speaker = an instance of ``speaker.allinone.Speaker`` that is used
+#     speaker : an instance of ``speaker.allinone.Speaker`` that is used
 #               to communicate small ¨infos.
 ###
     def __init__(
@@ -80,8 +82,8 @@ class Problems:
 
 ###
 # prototype::
-#     :see: = problems.Problems.reset ,
-#             speaker.allinone.Speaker.reset
+#     :see: problems.Problems.reset ,
+#           speaker.allinone.Speaker.reset
 #
 # This method is just an easy-to-use wrapper to reset the log file,
 # the attributs used to manage the problems and also the numbering
@@ -112,8 +114,8 @@ class Problems:
 
 ###
 # prototype::
-#     :return: = ``True`` if at least one warning has been found and
-#                ``False` otherwise.
+#     :return: ``True`` if at least one warning has been found and
+#              ``False` otherwise.
 ###
     @property
     def warningfound(self) -> bool:
@@ -121,8 +123,8 @@ class Problems:
 
 ###
 # prototype::
-#     :return: = ``True`` if at least one "critical" has been found and
-#                ``False` otherwise.
+#     :return: ``True`` if at least one "critical" has been found and
+#              ``False` otherwise.
 ###
     @property
     def criticalfound(self) -> bool:
@@ -130,8 +132,8 @@ class Problems:
 
 ###
 # prototype::
-#     :return: = ``True`` if at least one error has been found and
-#                ``False` otherwise.
+#     :return: ``True`` if at least one error has been found and
+#              ``False` otherwise.
 ###
     @property
     def errorfound(self) -> bool:
@@ -139,8 +141,8 @@ class Problems:
 
 ###
 # prototype::
-#     :return: = ``True`` if at least on error or one warning has been found and
-#                ``False` otherwise.
+#     :return: ``True`` if at least on error or one warning has been found and
+#              ``False` otherwise.
 ###
     @property
     def pbfound(self) -> bool:
@@ -154,8 +156,8 @@ class Problems:
 
 ###
 # prototype::
-#     :return: = ``True`` if there are several warnings and
-#                ``False`` otherwise.
+#     :return: ``True`` if there are several warnings and
+#              ``False`` otherwise.
 ###
     @property
     def several_warnings(self) -> bool:
@@ -163,8 +165,8 @@ class Problems:
 
 ###
 # prototype::
-#     :return: = ``True`` if there are several "criticals" and
-#                ``False`` otherwise.
+#     :return: ``True`` if there are several "criticals" and
+#              ``False`` otherwise.
 ###
     @property
     def several_criticals(self) -> bool:
@@ -172,8 +174,8 @@ class Problems:
 
 ###
 # prototype::
-#     :return: = ``True`` if there are several erros and
-#                ``False`` otherwise.
+#     :return: ``True`` if there are several erros and
+#              ``False`` otherwise.
 ###
     @property
     def several_errors(self) -> bool:
@@ -182,11 +184,11 @@ class Problems:
 
 ###
 # prototype::
-#     what  = any object with a string representation indicating clearly 
+#     what  : any object with a string representation indicating clearly 
 #             what is causing the warning.
-#     info  = the info explaining the warning.
-#     level = _ in [0..3] ( 0 ) ;
-#             the level of the step indicating the problem.
+#     info  : the info explaining the warning.
+#     level : the level of the step indicating the problem.
+#           @ :in: 0..3
 ###
     @problems_deco
     def new_warning(
@@ -199,11 +201,11 @@ class Problems:
 
 ###
 # prototype::
-#     what  = any object with a string representation indicating clearly 
+#     what  : any object with a string representation indicating clearly 
 #             what is causing the "critical" which is a dangerous warning.
-#     info  = the info explaining the "critical".
-#     level = _ in [0..3] ( 0 ) ;
-#             the level of the step indicating the problem.
+#     info  : the info explaining the "critical".
+#     level : the level of the step indicating the problem.
+#           @ :in: 0..3
 ###
     @problems_deco
     def new_critical(
@@ -216,11 +218,11 @@ class Problems:
 
 ###
 # prototype::
-#     what  = any object with a string representation indicating clearly 
+#     what  : any object with a string representation indicating clearly 
 #             what is causing the error.
-#     info  = the info explaining the error.
-#     level = _ in [0..3] ( 0 ) ;
-#             the level of the step indicating the problem.
+#     info  : the info explaining the error.
+#     level : the level of the step indicating the problem.
+#           @ :in: 0..3
 ###
     @problems_deco
     def new_error(
@@ -233,14 +235,14 @@ class Problems:
 
 ###
 # prototype::
-#     what    = any object with a string representation indicating clearly 
+#     what    : any object with a string representation indicating clearly 
 #               what is causing the problem.
-#     context = _ in [speaker.spk_interface.CONTEXT_ERROR, 
-#                     speaker.spk_interface.CONTEXT_WARNING] ; 
-#               the kind of problem.
-#     info    = the info explaining the problem.
-#     level   = _ in [0..3] ( 0 ) ;
-#               the level of the step indicating the problem.
+#     context : the kind of problem.
+#             @ :in: [speaker.spk_interface.CONTEXT_ERROR, 
+#                     speaker.spk_interface.CONTEXT_WARNING]
+#     info    : the info explaining the problem.
+#     level   : the level of the step indicating the problem.
+#             @ :in: 0..3
 ###
     def _new_pb(
         self,
@@ -337,12 +339,12 @@ class Problems:
 
 ###
 # prototype::
-#     what    = any object with a string representation indicating clearly 
+#     what    : any object with a string representation indicating clearly 
 #               what is causing the problem.
-#     whatpbs = the list of problems for the same ``what``.
-#     context = _ in [speaker.spk_interface.CONTEXT_ERROR, 
-#                     speaker.spk_interface.CONTEXT_WARNING] ; 
-#               the kind of problem.
+#     whatpbs : the list of problems for the same ``what``.
+#     context : the kind of problem.
+#             @ :in: [speaker.spk_interface.CONTEXT_ERROR, 
+#                     speaker.spk_interface.CONTEXT_WARNING] 
 ###
     def _resume_one_pb_short(
         self,
@@ -380,15 +382,14 @@ class Problems:
 
 ###
 # prototype::
-#     what    = any object with a string representation indicating clearly 
+#     what    : any object with a string representation indicating clearly 
 #               what is causing the problem.
-#     whatpbs = the list of problems for the same ``what``.
-#     context = _ in [speaker.spk_interface.CONTEXT_ERROR, 
-#                     speaker.spk_interface.CONTEXT_WARNING] ; 
-#               the kind of problem.
-#               the list of problems for the same ``what``.
-#     verb_in = the list of outputs where to be verbose.
-#     showref = ``True`` asks to show the references (for a none silent mode)
+#     whatpbs : the list of problems for the same ``what``.
+#     context : the kind of problem.
+#             @ :in: [speaker.spk_interface.CONTEXT_ERROR, 
+#                     speaker.spk_interface.CONTEXT_WARNING]
+#     verb_in : the list of outputs where to be verbose.
+#     showref : ``True`` asks to show the references (for a none silent mode)
 #               contrary to ``False``.
 ###
     def _resume_one_pb_verbose(

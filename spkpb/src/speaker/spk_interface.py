@@ -66,10 +66,10 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
 ###
 # prototype::
-#     style    = _ in ALL_GLOBAL_STYLES ;
-#                a global style for the output. Internally this style is  
+#     style    : a global style for the output. Internally this style is  
 #                stored in the attribut ``global_style``.
-#     maxwidth = the maw width expected for hard wrapped contents.
+#              @ :in: ALL_GLOBAL_STYLES
+#     maxwidth : the maw width expected for hard wrapped contents.
 ###
     def __init__(
         self,
@@ -84,7 +84,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
 ###
 # prototype::
-#     text = a text to add as it.
+#     text : a text to add as it.
 ###
     @abstractmethod
     def print(self, text: str,) -> None:
@@ -92,8 +92,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
 ###
 # prototype::
-#     repeat = ( 1 ) ;
-#              the numebr of empty lines wanted.
+#     repeat : the number of empty lines wanted.
 ###
     @abstractmethod
     def NL(self, repeat: int = 1) -> None:
@@ -102,8 +101,8 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
 ###
 # prototype::
-#     context = _ in ALL_CONTEXTS (CONTEXT_NORMAL) ;
-#               a context for formatting ¨infos.
+#     context : a context for formatting ¨infos.
+#             @ :in: ALL_CONTEXTS
 #
 #
 # info::
@@ -118,11 +117,10 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
 ###
 # prototype::
-#     text = a text to be hard wrapped.
-#     tab  = ( "" ) ;
-#            a possible tabulation to use for each new line created.
+#     text : a text to be hard wrapped.
+#     tab  : a possible tabulation to use for each new line created.
 #
-#     :return: = a wrapped message of maximal width ``self.maxwidth``.
+#     :return: a wrapped message of maximal width ``self.maxwidth``.
 ###
     def hardwrap(
         self,

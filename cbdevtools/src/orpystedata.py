@@ -16,7 +16,7 @@ from orpyste.data import ReadBlock
 
 ###
 # prototype::
-#     :see: = build_datas_block
+#     :see: build_datas_block
 #
 # This fixture yields a ready-to-use data dictionary used to acheive the tests.
 # It also finalizes the cleaning of ¨orpyste extra files in case of problem.
@@ -93,11 +93,11 @@ def peuf_fixture() -> None:
 
 ###
 # prototype::
-#     file = just use the magic constant ``__file__`` when calling
+#     file : just use the magic constant ``__file__`` when calling
 #            this function from a testing file.
 #
-#     :return: = an object containing the datas defined in a 
-#                path::``PEUF`` file (see the ¨info below).
+#     :return: an object containing the datas defined in a 
+#              path::``PEUF`` file (see the ¨info below).
 #
 # This function returns an instance of ``ReadBlock`` associated to 
 # a path::``peuf`` file automatically named. 

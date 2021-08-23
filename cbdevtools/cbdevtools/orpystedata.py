@@ -16,7 +16,7 @@ from orpyste.data import ReadBlock
 
 ###
 # prototype::
-#     :see: = build_datas_block
+#     :see:  build_datas_block
 #
 # This fixture yields a ready-to-use data dictionary used to acheive the tests.
 # It also finalizes the cleaning of ¨orpyste extra files in case of problem. 

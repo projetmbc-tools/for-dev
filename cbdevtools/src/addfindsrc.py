@@ -11,11 +11,11 @@ import sys
 
 ###
 # prototype::
-#     file    = just use the magic constant ``__file__`` when calling
+#     file    : just use the magic constant ``__file__`` when calling
 #               this function.
-#     project = the name of the project
+#     project : the name of the project
 #
-#     :return: = the path of the project dir.
+#     :return: the path of the project dir.
 #
 # This function adds the project folder path::``project`` to the sys path.
 # Let's see a fictive example with the following tree structure.

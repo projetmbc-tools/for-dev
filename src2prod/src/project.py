@@ -24,14 +24,13 @@ from .baseproj import *
 class Project(BaseProj):
 ###
 # prototype::
-#     safemode = ( True ) ;
-#                ``True`` asks to never remove a none empty target folder
-#                contrary to ``False``.
+#     safemode : ``True`` asks to never remove a none empty target folder
+#                 contrary to ``False``.
 #
 # info::
 #     The argument ``safemode`` is here to leave the responsability of
 #     removing a none empty folder to the user (my lawyers forced me to
-#     make that choice).
+#     add this feature).
 ###
     def update(self, safemode: bool = True) -> None:
 # Say "Hello!".
@@ -155,9 +154,9 @@ class Project(BaseProj):
 
 ###
 # prototype::
-#     opensession  = ``True`` is to reset eveything and open the communication 
+#     opensession  : ``True`` is to reset eveything and open the communication 
 #                    and ``False`` starts directly the work.
-#     closesession = ``True`` is to close the communication and 
+#     closesession : ``True`` is to close the communication and 
 #                    ``False`` otherwise.
 #              
 #
@@ -419,11 +418,10 @@ class Project(BaseProj):
 
 ###
 # prototype::
-#     output   = _ in [FORTERM, FORLOG, FORALL] ;
-#                the output(s) where we want to communicate.
-#     whatused = the method used to shrink the list of files.
-#     extra    = ( '' ) ;
-#                a small extra text.
+#     output   : the output(s) where we want to communicate.
+#              @ :in: [FORTERM, FORLOG, FORALL]
+#     whatused : the method used to shrink the list of files.
+#     extra    : a small extra text.
 #
 # This method is just a factorization.
 ###
@@ -445,8 +443,8 @@ class Project(BaseProj):
 
 ###
 # prototype::
-#     title       = the title of the session.
-#     timer_title = the title for the time stamp.
+#     title       : the title of the session.
+#     timer_title : the title for the time stamp.
 #
 # This method is just a factorization.
 ###
@@ -470,7 +468,7 @@ class Project(BaseProj):
 
 ###
 # prototype::
-#     timer_title = the title for the time stamp.
+#     timer_title : the title for the time stamp.
 #
 # This method is just a factorization.
 ###
