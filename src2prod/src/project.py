@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#! /usr/bin/env python3
 
 ###
 # This module implements all the logic needed to manage one project.
@@ -7,7 +7,8 @@
 
 from shutil import rmtree
 
-from spkpb import *
+from multimd import *
+from spkpb   import *
 
 from .baseproj import *
 
@@ -22,6 +23,8 @@ from .baseproj import *
 ###
 
 class Project(BaseProj):
+    MD_SUFFIX = '.md'
+
 ###
 # prototype::
 #     safemode : ``True`` asks to never remove a none empty target folder
@@ -71,7 +74,7 @@ class Project(BaseProj):
         for name in [
             'empty_target',
             'copy_src2target',
-            'copy_readme',
+            'build_readme',
         ]:
             getattr(self, name)()
 
@@ -130,21 +133,36 @@ class Project(BaseProj):
                 target = targetfile
             )
 
+
 ###
-# This method copies an external path::``README`` file if it is necessary.
+# This method writes the content into the final path::``README`` file.
 ###
-    def copy_readme(self) -> None:
+    def build_readme(self) -> None:
 # No README to copy.
         if self.readme is None:
             return
 
-# Just copy the external README.
-        readme_rel = self.readme.relative_to(self.project)
+# A folder with small `MD` files or a single file?
+        if self._readme_is_file:
+            readme_src = self.readme
 
+        else:
+            readme_src = self.project / 'README.md'
+
+# Let ``multimd.buil.Builder`` does all the thankless job...
+            Builder(
+                output  = readme_src,
+                content = self.readme,
+            ).build()
+
+# Now we just have a file to copy.
         self.copyfile(
-            source = self.readme,
-            target = self.target / self.readme.name
+            source = readme_src,
+            target = self._readme_target
         )
+
+# Let's talk...
+        readme_rel = readme_src.relative_to(self.project)
         
         self.recipe(
             {VAR_STEP_INFO: 
@@ -203,25 +221,43 @@ class Project(BaseProj):
 
 ###
 # This method checks the existence of a path::``README`` file if the user
-# has given suche one.
+# has given such one, or a path::``readme`` folder.
 ###
     def check_readme(self) -> None:
 # No external README.
         if self.readme is None:
             return
 
-# An external README.
-        if not self.readme.is_file():
-            self.new_error(
-                what  = self.readme,
-                info  = '"README" file not found.',
-                level = 1
-            )
-            return
+# Do we have an external README file?
+        if self.readme.suffix:
+            if not self.readme.is_file():
+                self.new_error(
+                    what  = self.readme,
+                    info  = '"README" file not found.',
+                    level = 1
+                )
+                return
+
+            self._readme_is_file = True
+
+# Do we have an external readme dir?
+        else:
+            if not self.readme.is_dir():
+                self.new_error(
+                    what  = self.readme,
+                    info  = '"readme" folder not found.',
+                    level = 1
+                )
+                return
+            
+            self._readme_is_file = False
+
+# Let's talk...
+        kind = '"README" file' if self._readme_is_file else '"readme" dir'
 
         self.recipe(
             {VAR_STEP_INFO: 
-                 'External "README" file to use:'
+                f'External {kind} to use:'
                  '\n'
                  f'"{self.readme}".'}
         )
@@ -290,10 +326,10 @@ class Project(BaseProj):
 
             else:
                 whichuncommitted = ' the 5 first ones'
-                gitinfos         = gitinfos[:5] + '...'
+                gitinfos         = gitinfos[:5] + ['...']
 
             fictive_tab = '\n    + '
-            gitinfos    = fictive_tab.join()
+            gitinfos    = fictive_tab.join(gitinfos)
 
             self.new_error(
                 what = self.source,

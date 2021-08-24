@@ -1,4 +1,4 @@
-#! /usr/bin/env python3
+#!/usr/bin/env python3
 
 ###
 # This module defines the class ``Problems`` to indicate warnings,

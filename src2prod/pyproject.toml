@@ -1,6 +1,6 @@
 [tool.poetry]
 name        = "src2prod"
-version     = "0.0.5-beta"
+version     = "0.0.6-beta"
 description = 'This module allows to develop a project within a source folder and to publish the final product in another folder, this last directory being a "thin" version of the source one.'
 readme       = "README.md"
 authors      = ["Christophe BAL"]
@@ -9,9 +9,10 @@ license      = "GNU License Version 3"
 repository   = "https://github.com/projetmbc/tools-for-dev/tree/master/src2prod"
 
 [tool.poetry.dependencies]
-python = "^3.8"
-click  = "^7.1.2"
-spkpb  = "^0.0.10-beta.0"
+python  = "^3.8"
+click   = "^7.1.2"
+multimd = "^0.0.0-beta.0"
+spkpb   = "^0.0.10-beta.0"
 
 [tool.poetry.dev-dependencies]
 

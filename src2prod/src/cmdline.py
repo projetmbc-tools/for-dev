@@ -52,9 +52,9 @@ from .project import *
               help    = 'This flag is to use git.')
 @click.option('--readme',
               default = '',
-              help    = 'Relative path of an external README file. '
+              help    = 'Relative path of an external "README" file or "readme" folder. '
                         'The default value "", an empty string, indicates '
-                        'to not use any external README file.')
+                        'to not use any external "README" file.')
 @click.option('--notsafe',
               is_flag = True,
               help    = 'This flag allows to remove a none empty target folder.')

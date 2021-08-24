@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ###
-# This module simplifies the import of the dev source of a project. 
+# This module simplifies the import of the dev source dir of a project. 
 ###
 
 
@@ -17,17 +17,35 @@ import sys
 #
 #     :return: = the path of the project dir.
 #
-# This function adds the project folder path::``project`` to the path 
-# such as to allow for example the import of the "source" project via 
-# ``import src`` if we have the following tree.
+# This function adds the project folder path::``project`` to the sys path.
+# 
+# 
+# Let's see a fictive example with the following tree structure.
 #
 # tree-dir::
-#     + project
+#     + mymod
 #         + doc
 #         + dist
 #         + src
 #             * __init__.py
 #             * ...
+#         + tools
+#             + debug 
+#                 * cli.py
+#
+# The ¨python script path::``tools/debug/cli.py`` can easily load the local
+# ¨python module ``src``. The code to use is the following one where the value 
+# returned by ``addfindsrc`` is not used.
+#
+# python::
+#     from cbdevtools import *
+#
+#     addfindsrc(
+#         file    = __file__,
+#         project = 'mymod',
+#     )
+#
+#     from src import *
 ###
 
 def addfindsrc(
@@ -39,7 +57,7 @@ def addfindsrc(
     if not project in str(project_dir):
         raise Exception(
             'call the script from a working directory '
-            'containing the project.'
+            'containing the project dir.'
         )
 
     while(not project_dir.name.startswith(project)):

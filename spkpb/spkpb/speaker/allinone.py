@@ -1,4 +1,4 @@
-#! /usr/bin/env python3
+#!/usr/bin/env python3
 
 ###
 # This module defines the class ``Speaker`` that manages easy-to-use recipes
@@ -7,7 +7,7 @@
 
 
 from functools import wraps
-from pathlib import Path
+from pathlib   import Path
 
 from mistool.term_use import ALL_FRAMES, withframe
 
@@ -19,8 +19,8 @@ from .term import *
 # -- DECORATE -- #
 # -------------- #
 
-# The zero level item will never be used but it simplifies 
-# the coding of the API.
+# The zero level item will never be used but it simplifies the coding 
+# of the API.
 ITEM = [
     f'{" "*(4*i)}{deco}'
     if deco != ' ' else

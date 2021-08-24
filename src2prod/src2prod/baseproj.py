@@ -1,12 +1,12 @@
-#! /usr/bin/env python3
+#!/usr/bin/env python3
 
 ###
-# This module is just a factorization gathering all the technical and stupid
-# methods.
+# This module is just a factorization gathering all the technical and 
+# stupid methods.
 ###
 
 
-from shutil import copyfile
+from shutil     import copyfile
 from subprocess import run
 
 from spkpb import *
@@ -61,7 +61,7 @@ class BaseProj(BaseCom):
         ignore : Union[str, Path]       = '',
         usegit : bool                   = False,
         readme : Union[None, str, Path] = None,
-    ):
+    ) -> None:
 # To communicate.
         self.logfile = project / f'{project.name}.src2prod.log'
 
@@ -85,7 +85,9 @@ class BaseProj(BaseCom):
         if not readme is None:
             readme = self.project / self.pathify(readme)
 
-        self.readme = readme
+        self.readme                = readme
+        self._readme_is_file: bool = True
+        self._readme_target : Path = self.target / 'README.md'
 
 
 ###
@@ -216,7 +218,7 @@ class BaseProj(BaseCom):
         self,
         fileordir: Path,
         kind     : str
-    ) -> bool:            
+    ) -> bool:       
         for onerule in self.ignore_rules[kind]:
             if fileordir.match(onerule):
                 return False
