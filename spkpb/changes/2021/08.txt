@@ -2,7 +2,7 @@
 27
 ==
 
-**New minor version version::``0.1.0-beta``:** two changes made.
+**New minor version version::``0.1.0-beta``:** see the changes below.
 
 **Changes in the class ``Speaker``.**
 
