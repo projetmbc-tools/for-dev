@@ -24,8 +24,8 @@ from orpyste.data import ReadBlock
 # info::
 #     The "intuitive" dictionary is build via ``mydict("std nosep nonb")``
 #     (see ¨orpyste).
-# 
-# 
+#
+#
 # Here is a real example of use with the following partial tree structure.
 #
 # tree-dir::
@@ -38,10 +38,10 @@ from orpyste.data import ReadBlock
 #                 + fstringit.peuf
 #                 + test_fstringit.py
 #
-# The ¨python testing file path::``test_fstringit.py`` is associated 
-# to the path::``PEUF`` file path::``fstringit.peuf`` where the prefix 
-# path::``test_`` has been removed. Using the datas stored in this 
-# path::``PEUF`` file becomes very easy: here is the code used where 
+# The ¨python testing file path::``test_fstringit.py`` is associated
+# to the path::``PEUF`` file path::``fstringit.peuf`` where the prefix
+# path::``test_`` has been removed. Using the datas stored in this
+# path::``PEUF`` file becomes very easy: here is the code used where
 # ``tests`` is an intuitive ¨dict version of the path::``PEUF`` file.
 #
 # python::
@@ -73,14 +73,14 @@ def peuf_fixture() -> None:
     datas_build = []
 
 ###
-# This internal function always has the same signature as the function 
+# This internal function always has the same signature as the function
 # ``build_datas_block``.
 ###
     def _make_peuf_datas(*args, **kwargs) -> None:
         datas_build.append(
             datas := build_datas_block(*args, **kwargs)
         )
-        
+
         datas.build()
 
         return datas.mydict("std nosep nonb")
@@ -96,12 +96,12 @@ def peuf_fixture() -> None:
 #     file : just use the magic constant ``__file__`` when calling
 #            this function from a testing file.
 #
-#     :return: an object containing the datas defined in a 
+#     :return: an object containing the datas defined in a
 #              path::``PEUF`` file (see the ¨info below).
 #
-# This function returns an instance of ``ReadBlock`` associated to 
-# a path::``peuf`` file automatically named. 
-# 
+# This function returns an instance of ``ReadBlock`` associated to
+# a path::``peuf`` file automatically named.
+#
 # info::
 #     The name of the path::``peuf`` file is obtained by removing the prefix
 #     path::``test_`` from the name of the testing file (see the ¨tech ¨doc

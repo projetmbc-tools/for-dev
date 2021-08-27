@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ###
-# This module is just a factorization gathering all the technical and 
+# This module is just a factorization gathering all the technical and
 # stupid methods.
 ###
 
@@ -26,7 +26,7 @@ class BaseProj(BaseCom):
 
 ###
 # prototype::
-#     project : the folder project that will be used to communicate during 
+#     project : the folder project that will be used to communicate during
 #               the analysis.
 #     source  : the **relative** path of the source dir (regarding the project
 #               folder).
@@ -37,7 +37,7 @@ class BaseProj(BaseCom):
 #               If an instance of ``Path`` is used, thent we have a file
 #               containing the rules.
 #     usegit  : ``True`` asks to use ¨git contrary to ``False``.
-#     readme  : ``None`` is if you don't need to import an external 
+#     readme  : ``None`` is if you don't need to import an external
 #               path::``README`` file, otherwise give a **relative** path.
 #
 # warning::
@@ -116,11 +116,11 @@ class BaseProj(BaseCom):
 
         self.recipe(
             FORLOG,
-                {VAR_TITLE: 
+                {VAR_TITLE:
                     f'"{self.project.name}": SOURCE --> FINAL PRODUCT'},
         )
 
-# Extra attributs.    
+# Extra attributs.
         self.success         = True
         self.lof: List[Path] = []
 
@@ -150,7 +150,7 @@ class BaseProj(BaseCom):
 
         else:
             self.recipe(
-                {VAR_STEP_INFO: 
+                {VAR_STEP_INFO:
                     f'Ignore rules in the file:'
                      '\n'
                     f'"{self.ignore}"'},
@@ -189,7 +189,7 @@ class BaseProj(BaseCom):
 # A file rule.
             else:
                 context = self.FILE_TAG
-            
+
             self.ignore_rules[context].append(shortrule)
 
 ###
@@ -208,7 +208,7 @@ class BaseProj(BaseCom):
         self,
         fileordir: Path,
         kind     : str
-    ) -> bool:       
+    ) -> bool:
         for onerule in self.ignore_rules[kind]:
             if fileordir.match(onerule):
                 return False
@@ -219,7 +219,7 @@ class BaseProj(BaseCom):
 # prototype::
 #     onedir : a dir to analyze.
 #
-#     :yield: the files in the folder ``onedir`` kept after the application 
+#     :yield: the files in the folder ``onedir`` kept after the application
 #             of the ignore rules.
 #
 # info::
@@ -298,7 +298,7 @@ class BaseProj(BaseCom):
 # Launch the command in the project folder.
         try:
             output = run(
-                cmd, 
+                cmd,
                 capture_output = True,
                 cwd            = self.project
             )
@@ -306,7 +306,7 @@ class BaseProj(BaseCom):
 # Can't launch the command.
         except FileNotFoundError as e:
             cmd = " ".join(cmd)
-    
+
             self.new_error(
                 what = self.source,
                 info = f'can\'t use "{cmd}".',

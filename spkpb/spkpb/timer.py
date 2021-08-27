@@ -11,10 +11,10 @@ from .speaker import *
 
 ###
 # prototype::
-#     speaker = speaker.allinone.Speaker ;  
+#     speaker = speaker.allinone.Speaker ;
 #               the class used to speak in the log file (no time stamp printed
 #               in a terminal).
-#     kind    = the kind of time stamp ("start" and "end" for example). 
+#     kind    = the kind of time stamp ("start" and "end" for example).
 #               This string will be always "upperized".
 #     with_NL = (True) ;
 #               ``True`` asks to add a new line after the title and
@@ -32,7 +32,7 @@ def timestamp(
 
     speaker.recipe(
         FORLOG,
-            {VAR_TITLE  : timeTXT, 
-             VAR_LEVEL  : 2, 
+            {VAR_TITLE  : timeTXT,
+             VAR_LEVEL  : 2,
              VAR_WITH_NL: with_NL},
     )

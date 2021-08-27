@@ -19,7 +19,7 @@ from .term import *
 # -- DECORATE -- #
 # -------------- #
 
-# The zero level item will never be used but it simplifies the coding 
+# The zero level item will never be used but it simplifies the coding
 # of the API.
 ITEM = [
     f'{" "*(4*i)}{deco}'
@@ -98,7 +98,7 @@ def silent_or_not_deco(method):
 
         else:
             method(self, *args, **kwargs)
-    
+
     return silent_or_not
 
 
@@ -107,7 +107,7 @@ def silent_or_not_deco(method):
 # ------------- #
 
 ###
-# This class is used to "speak": the ¨infos are printed on the terminal 
+# This class is used to "speak": the ¨infos are printed on the terminal
 # and in a log file.
 #
 # warning::
@@ -123,7 +123,7 @@ class Speaker(AbstractSpeaker):
 # prototype::
 #     logfile = the path of the log file.
 #     style   = _ in spk_interface.ALL_GLOBAL_STYLES ( GLOBAL_STYLE_BW ) ;
-#     silent  = ( False ) ;  
+#     silent  = ( False ) ;
 #               ``True`` idnicates to print and store nothing contrary to ``False``
 #               (this is useful for short processes showing only warning and co
 #               when using the method ``resume`` of the class ``problems.Problems``).
@@ -135,7 +135,7 @@ class Speaker(AbstractSpeaker):
         maxwidth: int  = 80,
         silent  : bool = False,
     ) -> None:
-# Here we do not need the use of ``super().__init__()``.   
+# Here we do not need the use of ``super().__init__()``.
         self.silent = silent
 
         self._speakers = {
@@ -169,7 +169,7 @@ class Speaker(AbstractSpeaker):
 
 
 ###
-# We use ``getter`` and ``setter`` for the boolean attribute ``silent`` 
+# We use ``getter`` and ``setter`` for the boolean attribute ``silent``
 # to automatically update the list of outputs expected.
 ###
     @property
@@ -179,7 +179,7 @@ class Speaker(AbstractSpeaker):
     @silent.setter
     def silent(self, value: bool) -> None:
         self._silent = value
-        
+
         if value:
             self._current_outputs = []
 
@@ -214,7 +214,7 @@ class Speaker(AbstractSpeaker):
 #     repeat = (1) ;
 #              the numebr of empty lines wanted.
 #
-# This method simply prints ``repeat`` empty new lines in all the 
+# This method simply prints ``repeat`` empty new lines in all the
 # ouputs wanted.
 ###
     def NL(self, repeat: int = 1) -> None:
@@ -231,7 +231,7 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     context = _ in spk_interface.ALL_CONTEXTS 
+#     context = _ in spk_interface.ALL_CONTEXTS
 #               (interface.CONTEXT_NORMAL) ;
 #               a context for formatting ¨infos.
 ###
@@ -245,15 +245,15 @@ class Speaker(AbstractSpeaker):
 #     title   = the content of the title.
 #     level   = _ in [1,2] ( 1 ) ;
 #               the level of the title.
-#     with_NL = ( True ) ; 
+#     with_NL = ( True ) ;
 #               ``True`` asks to add a new line after the title and
-#               ``False`` to not do this 
+#               ``False`` to not do this
 #
 # info::
-#     ``with_NL`` is used to resume problems found, or to print 
+#     ``with_NL`` is used to resume problems found, or to print
 #     the very last time stamps in the log file.
 ###
-    def title(self, 
+    def title(self,
         title  : str,
         level  : int  = 1,
         with_NL: bool = True,
@@ -267,10 +267,10 @@ class Speaker(AbstractSpeaker):
 # prototype::
 #     step_info = one short info.
 #     level     = _ in [0..3] (0) ;
-#                 the level of step indicating where ``0`` is for automatic 
+#                 the level of step indicating where ``0`` is for automatic
 #                 numbered enumerations.
 ###
-    def step(self, 
+    def step(self,
         step_info: str,
         level    : int = 0,
     ) -> None:
@@ -298,7 +298,7 @@ class Speaker(AbstractSpeaker):
 # prototype::
 #     out   = the kind of speaker.
 #     level = _ in [0..3] (0) ;
-#             the level of step indicating where ``0`` is for automatic 
+#             the level of step indicating where ``0`` is for automatic
 #             numbered enumerations.
 ###
     def _stepitem(
@@ -345,9 +345,9 @@ class Speaker(AbstractSpeaker):
 # prototype::
 #     *args = ;
 #             the classical list of args allowed by Python.
-# 
-# This method allows to indicate recipes to apply suchas to simplify 
-# the "speaking". Here is an exemple of use followed by the actions 
+#
+# This method allows to indicate recipes to apply suchas to simplify
+# the "speaking". Here is an exemple of use followed by the actions
 # actualy done (some actions have short version expressions).
 #
 # python::
@@ -355,7 +355,7 @@ class Speaker(AbstractSpeaker):
 #         SPEAKER_FOR_TERM,
 #         SPEAKER_NL,
 #         (SPEAKER_TITLE, f'MONOREPO "{self.monorepo.name}"'),
-#         {VAR_TITLE: "STARTING THE ANALYSIS", 
+#         {VAR_TITLE: "STARTING THE ANALYSIS",
 #          VAR_LEVEL: 2}, # A short version here!
 #     )
 #
@@ -372,15 +372,15 @@ class Speaker(AbstractSpeaker):
 #
 #
 # info::
-#     One recipe always start and finishes in an "for all" normal context. 
+#     One recipe always start and finishes in an "for all" normal context.
 #     This is not optimal but simplifies the writting of recipes.
 ###
     def recipe(self, *args) -> None:
-# Default "for all" normal context.  
+# Default "for all" normal context.
         self.forall()
         self.style()
 
-# In most cases, to call the good action with its good arguments we will use: 
+# In most cases, to call the good action with its good arguments we will use:
 # ``getattr(self, action)(*action_args, **action_kwargs)``.
         for action in args:
 # An action with no arg.
@@ -391,8 +391,8 @@ class Speaker(AbstractSpeaker):
 # Just a context.
             elif action in ALL_CONTEXTS:
                 action_args   = [action]
-                action_kwargs = {}  
-                action        = STYLE    
+                action_kwargs = {}
+                action        = STYLE
 
 # A "string short version" that is not a context: this will just be printed.
             elif type(action) == str:
@@ -402,7 +402,7 @@ class Speaker(AbstractSpeaker):
 # A "dict short version": we have to guess the action.
             elif type(action) == dict:
                 action_args   = []
-                action_kwargs = action   
+                action_kwargs = action
 
                 if VAR_TITLE in action:
                     action = TITLE
@@ -428,8 +428,8 @@ class Speaker(AbstractSpeaker):
 
 # ``extras`` is just on dict.
                 if (
-                    len(extras) == 1 
-                    and 
+                    len(extras) == 1
+                    and
                     type(extras[0]) == dict
                 ):
                     action_kwargs = extras[0]
@@ -443,6 +443,6 @@ class Speaker(AbstractSpeaker):
 # We can call the good action with the good args.
             getattr(self, action)(*action_args, **action_kwargs)
 
-# Default "for all" normal context.  
+# Default "for all" normal context.
         self.forall()
         self.style()

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ###
-# This module simplifies the import of the dev source dir of a project. 
+# This module simplifies the import of the dev source dir of a project.
 ###
 
 
@@ -28,11 +28,11 @@ import sys
 #             * __init__.py
 #             * ...
 #         + tools
-#             + debug 
+#             + debug
 #                 * cli.py
 #
 # The ¨python script path::``tools/debug/cli.py`` can easily load the local
-# ¨python module ``src``. The code to use is the following one where the value 
+# ¨python module ``src``. The code to use is the following one where the value
 # returned by ``addfindsrc`` is not used.
 #
 # python::

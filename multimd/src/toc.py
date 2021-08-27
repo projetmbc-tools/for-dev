@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ###
-# This module is for extracting paths inside the peuf::``toc`` block of 
+# This module is for extracting paths inside the peuf::``toc`` block of
 # an existing path::``about.peuf`` file of one directory.
 ###
 
@@ -36,7 +36,7 @@ MD_FILE_SUFFIX = f'.{MD_FILE_EXT}'
 # file of one directory.
 #
 # warning::
-#     This is not the responsability of this class to test the existence 
+#     This is not the responsability of this class to test the existence
 #     of the path::``about.peuf`` file.
 ###
 
@@ -89,19 +89,19 @@ class TOC():
 #     nbline  : the relative number of the line read (for message error).
 #     oneline : one line to analyze.
 #
-#     :return: the stripped text after the placeholder peuf::``+`` 
+#     :return: the stripped text after the placeholder peuf::``+``
 #                or an empty string for an empty line.
 ###
     def pathfound(
-        self, 
-        nbline : int, 
+        self,
+        nbline : int,
         oneline: str,
     ) -> str:
         oneline = oneline.strip()
 
         if not oneline:
             return ""
-        
+
 # We are lazzy... :-)
         if len(oneline) == 1:
             oneline += " "
@@ -119,12 +119,12 @@ class TOC():
                 f'an empty path after ``{PLACEHOLDER}``. '
                 f'See line {nbline} (number relative to the block).'
             )
-            
+
         return otherchars
 
 
 ###
-# This method builds ``self._lines`` the list of lines stored in 
+# This method builds ``self._lines`` the list of lines stored in
 # the path::``about.peuf`` file.
 ###
     def readlines(self) -> None:
@@ -134,7 +134,7 @@ class TOC():
                 mode    = ABOUT_PEUF_MODE
             ) as datas:
                 self._lines = datas.mydict("std nosep nonb")
-    
+
         except ASTError:
             raise ValueError(
                 f'invalid ``{ABOUT_NAME}`` found ine the following dir:'

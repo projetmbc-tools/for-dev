@@ -23,7 +23,7 @@ from .speaker import *
 ###
 
 def problems_deco(method):
-# what -> any object with a string representation indicating clearly 
+# what -> any object with a string representation indicating clearly
 #         what is causing the problem.
 #
 # info -> the info explaining the error.
@@ -48,7 +48,7 @@ def problems_deco(method):
             info    = info,
             level   = level
         )
-    
+
     return similar
 
 
@@ -57,7 +57,7 @@ def problems_deco(method):
 # -------------- #
 
 ###
-# This class is used to store ¨infos about errors and warnings 
+# This class is used to store ¨infos about errors and warnings
 # emitted during all the process.
 ###
 
@@ -67,7 +67,7 @@ class Problems:
 
 ###
 # prototype::
-#     speaker = an instance of ``toolbox.speaker.allinone.Speaker`` 
+#     speaker = an instance of ``toolbox.speaker.allinone.Speaker``
 #               is used to communicate small ¨infos.
 ###
     def __init__(
@@ -94,7 +94,7 @@ class Problems:
 # ---------
 # WARNING !
 # ---------
-# 
+#
 # We use the ordered feature of dict such as to treat warnings, criticals
 # and errors in this order when printing the summaries.
         self.problems_found : dict = {
@@ -182,7 +182,7 @@ class Problems:
 
 ###
 # prototype::
-#     what  = any object with a string representation indicating clearly 
+#     what  = any object with a string representation indicating clearly
 #             what is causing the warning.
 #     info  = the info explaining the warning.
 #     level = _ in [0..3] ( 0 ) ;
@@ -199,7 +199,7 @@ class Problems:
 
 ###
 # prototype::
-#     what  = any object with a string representation indicating clearly 
+#     what  = any object with a string representation indicating clearly
 #             what is causing the "critical" which is a dangerous warning.
 #     info  = the info explaining the "critical".
 #     level = _ in [0..3] ( 0 ) ;
@@ -216,7 +216,7 @@ class Problems:
 
 ###
 # prototype::
-#     what  = any object with a string representation indicating clearly 
+#     what  = any object with a string representation indicating clearly
 #             what is causing the error.
 #     info  = the info explaining the error.
 #     level = _ in [0..3] ( 0 ) ;
@@ -233,10 +233,10 @@ class Problems:
 
 ###
 # prototype::
-#     what    = any object with a string representation indicating clearly 
+#     what    = any object with a string representation indicating clearly
 #               what is causing the problem.
-#     context = _ in [speaker.spk_interface.CONTEXT_ERROR, 
-#                     speaker.spk_interface.CONTEXT_WARNING] ; 
+#     context = _ in [speaker.spk_interface.CONTEXT_ERROR,
+#                     speaker.spk_interface.CONTEXT_WARNING] ;
 #               the kind of problem.
 #     info    = the info explaining the problem.
 #     level   = _ in [0..3] ( 0 ) ;
@@ -255,7 +255,7 @@ class Problems:
             self.PB_ID_TAG  : self._pb_id,
             self.PB_INFO_TAG: info,
         })
-    
+
 # Let's talk to the world...
         self.speaker.problem(
             context = context,
@@ -337,11 +337,11 @@ class Problems:
 
 ###
 # prototype::
-#     what    = any object with a string representation indicating clearly 
+#     what    = any object with a string representation indicating clearly
 #               what is causing the problem.
 #     whatpbs = the list of problems for the same ``what``.
-#     context = _ in [speaker.spk_interface.CONTEXT_ERROR, 
-#                     speaker.spk_interface.CONTEXT_WARNING] ; 
+#     context = _ in [speaker.spk_interface.CONTEXT_ERROR,
+#                     speaker.spk_interface.CONTEXT_WARNING] ;
 #               the kind of problem.
 ###
     def _resume_one_pb_short(
@@ -363,28 +363,28 @@ class Problems:
             FORTERM,
                 context,
                 NL,
-                {VAR_STEP_INFO: what, 
+                {VAR_STEP_INFO: what,
                 VAR_LEVEL    : 1},
         )
-                
+
         self.speaker.recipe(
             FORTERM,
                 context,
                     {VAR_STEP_INFO: (
                         f'{nb_pbs} {context}{plurial}.'
                         '\n'
-                        f'See #.: {pbs_ids}.'), 
+                        f'See #.: {pbs_ids}.'),
                     VAR_LEVEL: 2},
         )
 
 
 ###
 # prototype::
-#     what    = any object with a string representation indicating clearly 
+#     what    = any object with a string representation indicating clearly
 #               what is causing the problem.
 #     whatpbs = the list of problems for the same ``what``.
-#     context = _ in [speaker.spk_interface.CONTEXT_ERROR, 
-#                     speaker.spk_interface.CONTEXT_WARNING] ; 
+#     context = _ in [speaker.spk_interface.CONTEXT_ERROR,
+#                     speaker.spk_interface.CONTEXT_WARNING] ;
 #               the kind of problem.
 #               the list of problems for the same ``what``.
 #     verb_in = the list of outputs where to be verbose.
@@ -404,10 +404,10 @@ class Problems:
                 output,
                     context,
                     NL,
-                    {VAR_STEP_INFO: what, 
+                    {VAR_STEP_INFO: what,
                      VAR_LEVEL    : 1},
             )
-            
+
             for onepb in whatpbs:
                 info = onepb[self.PB_INFO_TAG]
 
@@ -415,13 +415,13 @@ class Problems:
                     pbid = onepb[self.PB_ID_TAG]
 
                     message = f'See [ #.{pbid} ] : {info}'
-                
+
                 else:
                     message = info[0].upper() + info[1:]
 
                 self.speaker.recipe(
                     output,
                         context,
-                        {VAR_STEP_INFO: message, 
+                        {VAR_STEP_INFO: message,
                         VAR_LEVEL    : 2},
                 )

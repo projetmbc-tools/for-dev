@@ -49,13 +49,13 @@ ALL_GLOBAL_STYLES = [
 ###
 
 class AbstractSpeaker(metaclass=ABCMeta):
-# Source to have a real interface: 
-#     * https://realpython.com/python-interface/#using-abcabcmeta 
+# Source to have a real interface:
+#     * https://realpython.com/python-interface/#using-abcabcmeta
     @classmethod
     def __subclasshook__(cls, subclass) -> None:
         goodinterface = all(
-            hasattr(subclass, methodname) and 
-            callable(getattr(subclass, methodname)) 
+            hasattr(subclass, methodname) and
+            callable(getattr(subclass, methodname))
             for methodname in [
                 'print',
                 'NL',
@@ -67,7 +67,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 ###
 # prototype::
 #     style    = _ in ALL_GLOBAL_STYLES ;
-#                a global style for the output. Internally this style is  
+#                a global style for the output. Internally this style is
 #                stored in the attribut ``global_style``.
 #     maxwidth = the maw width expected for hard wrapped contents.
 ###
@@ -92,7 +92,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
 ###
 # prototype::
-#     repeat = (1) ; 
+#     repeat = (1) ;
 #              the numebr of empty lines wanted.
 ###
     @abstractmethod
@@ -107,7 +107,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 #
 #
 # info::
-#     This method doesn't need to be implemented (some speaker has no style 
+#     This method doesn't need to be implemented (some speaker has no style
 #     like the log like ones).
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
@@ -136,7 +136,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
             if shortlines:
                 lastline = tab
-            
+
             else:
                 lastline = ""
 
@@ -155,7 +155,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
                 else:
                     lastline += " "
-                    
+
                 lastline += oneword
 
             shortlines.append(lastline)
