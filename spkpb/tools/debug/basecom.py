@@ -22,8 +22,8 @@ from src import *
 project = BaseCom(
     Problems(
         Speaker(
-            logfile = Path('mylog.log'),
-            style   = GLOBAL_STYLE_COLOR,
+            logfile   = Path('mylog.log'),
+            termstyle = GLOBAL_STYLE_COLOR,
         )
     )
 )
@@ -54,7 +54,7 @@ project.recipe(
         {VAR_STEP_INFO: 'ONLY IN THE LOG FILE!',
          VAR_LEVEL    : 1},
 )
-    
+
 project.resume()
 
 project.recipe(NL)

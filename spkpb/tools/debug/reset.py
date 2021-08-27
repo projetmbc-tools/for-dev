@@ -22,8 +22,8 @@ from src import *
 project = BaseCom(
     Problems(
         Speaker(
-            logfile = Path('mylog.log'),
-            style   = GLOBAL_STYLE_COLOR,
+            logfile   = Path('mylog.log'),
+            termstyle = GLOBAL_STYLE_COLOR,
         )
     )
 )

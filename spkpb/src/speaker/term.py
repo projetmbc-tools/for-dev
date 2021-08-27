@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 ###
-# This module defines the internal class ``TermSpeaker`` to "speak" on 
+# This module defines the internal class ``TermSpeaker`` to "speak" on
 # a terminal.
-# 
+#
 # info::
 #     There are also two classes ``BWStylist`` and ``ColorStylist`` to
 #     produce the style wanted.
@@ -22,7 +22,7 @@ from .spk_interface import *
 ###
 # prototype::
 #     value    : the style code choosen.
-#     codetemp : a template that will be updated with the value of 
+#     codetemp : a template that will be updated with the value of
 #                the style code.
 #     normcode : the code for the normal style.
 #
@@ -105,14 +105,14 @@ class TermSpeaker(AbstractSpeaker):
         maxwidth: int = 80
     ) -> None:
         super().__init__(
-            style    = style,
+            termstyle    = style,
             maxwidth = maxwidth
         )
 
         self.stylist = {
             GLOBAL_STYLE_COLOR: ColorStylist,
             GLOBAL_STYLE_BW   : BWStylist
-        }[self.global_style]
+        }[self.termstyle]
 
 
 ###

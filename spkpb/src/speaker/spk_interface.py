@@ -49,13 +49,13 @@ ALL_GLOBAL_STYLES = [
 ###
 
 class AbstractSpeaker(metaclass=ABCMeta):
-# Source to have a real interface: 
-#     * https://realpython.com/python-interface/#using-abcabcmeta 
+# Source to have a real interface:
+#     * https://realpython.com/python-interface/#using-abcabcmeta
     @classmethod
     def __subclasshook__(cls, subclass) -> None:
         goodinterface = all(
-            hasattr(subclass, methodname) and 
-            callable(getattr(subclass, methodname)) 
+            hasattr(subclass, methodname) and
+            callable(getattr(subclass, methodname))
             for methodname in [
                 'print',
                 'NL',
@@ -66,20 +66,18 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
 ###
 # prototype::
-#     style    : a global style for the output. Internally this style is  
+#     style    : a global style for the output. Internally this style is
 #                stored in the attribut ``global_style``.
 #              @ :in: ALL_GLOBAL_STYLES
 #     maxwidth : the maw width expected for hard wrapped contents.
 ###
     def __init__(
         self,
-        style   : str,
+        termstyle   : str,
         maxwidth: int = 80
     ) -> None:
-        assert(style in ALL_GLOBAL_STYLES)
-
-        self.maxwidth     = maxwidth
-        self.global_style = style
+        self.maxwidth  = maxwidth
+        self.termstyle = termstyle
 
 
 ###
@@ -106,7 +104,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 #
 #
 # info::
-#     This method doesn't need to be implemented (some speaker has no style 
+#     This method doesn't need to be implemented (some speaker has no style
 #     like the log like ones).
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
@@ -134,7 +132,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
             if shortlines:
                 lastline = tab
-            
+
             else:
                 lastline = ""
 
@@ -153,7 +151,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
                 else:
                     lastline += " "
-                    
+
                 lastline += oneword
 
             shortlines.append(lastline)

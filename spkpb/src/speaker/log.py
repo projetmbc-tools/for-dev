@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ###
-# This module defines the internal class ``LogSpeaker`` to "speak" in 
+# This module defines the internal class ``LogSpeaker`` to "speak" in
 # a log file.
 ###
 
@@ -34,7 +34,7 @@ class LogSpeaker(AbstractSpeaker):
         maxwidth: int,
     ) -> None:
         super().__init__(
-            style    = style,
+            termstyle    = style,
             maxwidth = maxwidth
         )
 

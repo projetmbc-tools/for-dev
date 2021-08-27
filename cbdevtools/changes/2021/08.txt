@@ -2,13 +2,13 @@
 13
 ==
 
-**New sub minor version version::``0.0.10-beta``:** the line ``from pytest import fixture`` was missing... Do not laugh please!
+**New sub minor version version::``0.0.10-beta``:** the line ``from pytest import fixture`` was missing in the test file... Do not laugh please!
 
 
 **New sub minor version version::``0.0.9-beta``:** two things have been done.
 
-    1) One fixture added to build and use path::``PEUF`` files very easily. 
-    
+    1) One fixture added to build and use path::``PEUF`` files very easily.
+
     1) ``orpystedatas.build_datas`` has been removed (it was wrong and unuseful for the moment).
 
 

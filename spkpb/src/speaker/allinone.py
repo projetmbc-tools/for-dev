@@ -6,6 +6,8 @@
 ###
 
 
+from typing import Union
+
 from functools import wraps
 from pathlib   import Path
 
@@ -19,7 +21,7 @@ from .term import *
 # -- DECORATE -- #
 # -------------- #
 
-# The zero level item will never be used but it simplifies the coding 
+# The zero level item will never be used but it simplifies the coding
 # of the API.
 ITEM = [
     f'{" "*(4*i)}{deco}'
@@ -90,16 +92,16 @@ VAR_WITH_NL   = "with_NL"
 # when instanciating the class ``Speaker``.
 ###
 
-def silent_or_not_deco(method):
+def only_resume_or_not_deco(method):
     @wraps(method)
-    def silent_or_not(self, *args, **kwargs) -> None:
-        if self.silent:
+    def only_resume_or_not(self, *args, **kwargs) -> None:
+        if self.onlyresume:
             self._current_outputs = []
 
         else:
             method(self, *args, **kwargs)
-    
-    return silent_or_not
+
+    return only_resume_or_not
 
 
 # ------------- #
@@ -107,7 +109,7 @@ def silent_or_not_deco(method):
 # ------------- #
 
 ###
-# This class is used to "speak": the ¨infos are printed on the terminal 
+# This class is used to "speak": the ¨infos are printed on the terminal
 # and in a log file.
 #
 # warning::
@@ -117,39 +119,58 @@ def silent_or_not_deco(method):
 class Speaker(AbstractSpeaker):
     OUTPUT_LOG  = "log"
     OUTPUT_TERM = "term"
-    ALL_OUTPUTS = [OUTPUT_LOG, OUTPUT_TERM]
 
 ###
 # prototype::
-#     logfile : the path of the log file.
-#     style   : the style to use in the terminal.
-#             @ :in: spk_interface.ALL_GLOBAL_STYLES
-#     silent  : ``True`` idnicates to print and store nothing contrary to ``False``
-#               (this is useful for short processes showing only warning and co
-#               when using the method ``resume`` of the class ``problems.Problems``).
+#     logfile   : ``None`` to not use a log file, or the path of the log file.
+#     style     : ``None`` to not use the terminal, or the style to use in
+#                 the terminal.
+#               @ :in: GLOBAL_STYLE_BW, GLOBAL_STYLE_COLOR]
+#     onlyresume: ``True`` indicates to only print a resume of the errors found
+#                 contrary to ``False`` (this is useful for short processes showing
+#                 only warning and co when using the method ``resume`` of the class
+#                 ``problems.Problems``).
 ###
     def __init__(
         self,
-        logfile : Path,
-        style   : str  = GLOBAL_STYLE_BW,
-        maxwidth: int  = 80,
-        silent  : bool = False,
+        termstyle : Union[None, str]  = None,
+        logfile   : Union[None, Path] = None,
+        maxwidth  : int  = 80,
+        onlyresume: bool = False,
     ) -> None:
-# Here we do not need the use of ``super().__init__()``.   
-        self.silent = silent
+# At least one output is needed.
+        if logfile is None and termstyle is None:
+            raise ValueError(
+                'you must use at least one of the arguments '
+                '"termstyle" and "logfile".'
+            )
 
-        self._speakers = {
-            self.OUTPUT_LOG : LogSpeaker(
+        if termstyle:
+            assert termstyle in ALL_GLOBAL_STYLES
+
+# Here we do not need the use of ``super().__init__()``.
+        self._speakers   = {}
+        self._all_outputs = []
+
+        if termstyle:
+            self._all_outputs.append(self.OUTPUT_TERM)
+
+            self._speakers[self.OUTPUT_TERM] = TermSpeaker(
+                style    = termstyle,
+                maxwidth = maxwidth,
+            )
+
+        if logfile:
+            self._all_outputs.append(self.OUTPUT_LOG)
+
+            self._speakers[self.OUTPUT_LOG] = LogSpeaker(
                 logfile  = logfile,
-                style    = style,
+                style    = termstyle,
                 maxwidth = maxwidth,
-            ),
-            self.OUTPUT_TERM: TermSpeaker(
-                style    = style,
-                maxwidth = maxwidth,
-            ),
-        }
+            )
 
+# Reset.
+        self.onlyresume = onlyresume
         self.reset()
 
 
@@ -160,61 +181,72 @@ class Speaker(AbstractSpeaker):
 # This method resets the log file and the numbering of steps.
 ###
     def reset(self) -> None:
-        self._speakers[self.OUTPUT_LOG].reset_logfile()
+        if self.OUTPUT_LOG in self._speakers:
+            self._speakers[self.OUTPUT_LOG].reset_logfile()
 
         self.nbsteps = {
             out: 0
-            for out in self.ALL_OUTPUTS
+            for out in self._all_outputs
         }
 
 
 ###
-# We use ``getter`` and ``setter`` for the boolean attribute ``silent`` 
+# We use ``getter`` and ``setter`` for the boolean attribute ``silent``
 # to automatically update the list of outputs expected.
 ###
     @property
-    def silent(self):
-        return self._silent
+    def onlyresume(self):
+        return self._onlyresume
 
-    @silent.setter
-    def silent(self, value: bool) -> None:
-        self._silent = value
-        
+    @onlyresume.setter
+    def onlyresume(self, value: bool) -> None:
+        self._onlyresume = value
+
         if value:
             self._current_outputs = []
 
         else:
-            self._current_outputs = self.ALL_OUTPUTS
+            self._current_outputs = self._all_outputs
 
 
 ###
 # This method is to use only for a "LOG FILE" output.
 ###
-    @silent_or_not_deco
+    @only_resume_or_not_deco
     def forlog(self) -> None:
+        if self.OUTPUT_LOG not in self._all_outputs:
+            raise ValueError(
+                'the "logfile" output can\'t be used with this instance of "Speaker".'
+            )
+
         self._current_outputs = [self.OUTPUT_LOG]
 
 ###
 # This method is to use only for a "TERM" output.
 ###
-    @silent_or_not_deco
+    @only_resume_or_not_deco
     def forterm(self) -> None:
+        if self.OUTPUT_TERM not in self._all_outputs:
+            raise ValueError(
+                'the "term" output can\'t be used with this instance of "Speaker".'
+            )
+
         self._current_outputs = [self.OUTPUT_TERM]
 
 ###
 # This method is to use all outputs.
 ###
-    @silent_or_not_deco
+    @only_resume_or_not_deco
     def forall(self) -> None:
-        self._current_outputs = self.ALL_OUTPUTS
+        self._current_outputs = self._all_outputs
 
 
 ###
 # prototype::
 #     repeat : the number of empty lines wanted.
 #
-# This method simply prints ``repeat`` empty new lines in all the 
-# ouputs wanted.
+# This method simply prints ``repeat`` empty new lines in all the
+# outputs wanted.
 ###
     def NL(self, repeat: int = 1) -> None:
         for out in self._current_outputs:
@@ -231,7 +263,7 @@ class Speaker(AbstractSpeaker):
 ###
 # prototype::
 #     context : a context for formatting ¨infos.
-#             @ :in: spk_interface.ALL_CONTEXTS 
+#             @ :in: spk_interface.ALL_CONTEXTS
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
         for out in self._current_outputs:
@@ -244,13 +276,13 @@ class Speaker(AbstractSpeaker):
 #     level   : the level of the title.
 #             @ :in: 1..2
 #     with_NL : ``True`` asks to add a new line after the title and
-#               ``False`` to not do this 
+#               ``False`` to not do this
 #
 # info::
-#     ``with_NL`` is used to resume problems found, or to print 
+#     ``with_NL`` is used to resume problems found, or to print
 #     the very last time stamps in the log file.
 ###
-    def title(self, 
+    def title(self,
         title  : str,
         level  : int  = 1,
         with_NL: bool = True,
@@ -263,11 +295,11 @@ class Speaker(AbstractSpeaker):
 ###
 # prototype::
 #     step_info : one short info.
-#     level     : the level of step indicating where ``0`` is for automatic 
+#     level     : the level of step indicating where ``0`` is for automatic
 #                 numbered enumerations.
 #               @ :in: 0..3
 ###
-    def step(self, 
+    def step(self,
         step_info: str,
         level    : int = 0,
     ) -> None:
@@ -294,7 +326,7 @@ class Speaker(AbstractSpeaker):
 ###
 # prototype::
 #     out   : the kind of speaker.
-#     level : the level of step indicating where ``0`` is for automatic 
+#     level : the level of step indicating where ``0`` is for automatic
 #             numbered enumerations.
 #           @ :in: 0..3
 ###
@@ -341,9 +373,9 @@ class Speaker(AbstractSpeaker):
 ###
 # prototype::
 #     *args : the classical list of args allowed by Python.
-# 
-# This method allows to indicate recipes to apply suchas to simplify 
-# the "speaking". Here is an exemple of use followed by the actions 
+#
+# This method allows to indicate recipes to apply suchas to simplify
+# the "speaking". Here is an exemple of use followed by the actions
 # actualy done (some actions have short version expressions).
 #
 # python::
@@ -351,7 +383,7 @@ class Speaker(AbstractSpeaker):
 #         SPEAKER_FOR_TERM,
 #         SPEAKER_NL,
 #         (SPEAKER_TITLE, f'MONOREPO "{self.monorepo.name}"'),
-#         {VAR_TITLE: "STARTING THE ANALYSIS", 
+#         {VAR_TITLE: "STARTING THE ANALYSIS",
 #          VAR_LEVEL: 2}, # A short version here!
 #     )
 #
@@ -368,15 +400,15 @@ class Speaker(AbstractSpeaker):
 #
 #
 # info::
-#     One recipe always start and finishes in an "for all" normal context. 
+#     One recipe always start and finishes in an "for all" normal context.
 #     This is not optimal but simplifies the writting of recipes.
 ###
     def recipe(self, *args) -> None:
-# Default "for all" normal context.  
+# Default "for all" normal context.
         self.forall()
         self.style()
 
-# In most cases, to call the good action with its good arguments we will use: 
+# In most cases, to call the good action with its good arguments we will use:
 # ``getattr(self, action)(*action_args, **action_kwargs)``.
         for action in args:
 # An action with no arg.
@@ -387,8 +419,8 @@ class Speaker(AbstractSpeaker):
 # Just a context.
             elif action in ALL_CONTEXTS:
                 action_args   = [action]
-                action_kwargs = {}  
-                action        = STYLE    
+                action_kwargs = {}
+                action        = STYLE
 
 # A "string short version" that is not a context: this will just be printed.
             elif type(action) == str:
@@ -398,7 +430,7 @@ class Speaker(AbstractSpeaker):
 # A "dict short version": we have to guess the action.
             elif type(action) == dict:
                 action_args   = []
-                action_kwargs = action   
+                action_kwargs = action
 
                 if VAR_TITLE in action:
                     action = TITLE
@@ -424,8 +456,8 @@ class Speaker(AbstractSpeaker):
 
 # ``extras`` is just on dict.
                 if (
-                    len(extras) == 1 
-                    and 
+                    len(extras) == 1
+                    and
                     type(extras[0]) == dict
                 ):
                     action_kwargs = extras[0]
@@ -439,6 +471,6 @@ class Speaker(AbstractSpeaker):
 # We can call the good action with the good args.
             getattr(self, action)(*action_args, **action_kwargs)
 
-# Default "for all" normal context.  
+# Default "for all" normal context.
         self.forall()
         self.style()

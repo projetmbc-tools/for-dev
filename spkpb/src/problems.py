@@ -25,7 +25,7 @@ from .speaker import *
 def problems_deco(method):
 ###
 # prototype::
-#     what  : any object with a string representation indicating clearly 
+#     what  : any object with a string representation indicating clearly
 #             what is causing the warning.
 #     info  : the info explaining the warning.
 #     level : the level of the step indicating the problem.
@@ -50,7 +50,7 @@ def problems_deco(method):
             info    = info,
             level   = level
         )
-    
+
     return similar
 
 
@@ -59,7 +59,7 @@ def problems_deco(method):
 # -------------- #
 
 ###
-# This class is used to store ¨infos about errors and warnings 
+# This class is used to store ¨infos about errors and warnings
 # emitted during all the process.
 ###
 
@@ -96,7 +96,7 @@ class Problems:
 # ---------
 # WARNING !
 # ---------
-# 
+#
 # We use the ordered feature of dict such as to treat warnings, criticals
 # and errors in this order when printing the summaries.
         self.problems_found : dict = {
@@ -184,7 +184,7 @@ class Problems:
 
 ###
 # prototype::
-#     what  : any object with a string representation indicating clearly 
+#     what  : any object with a string representation indicating clearly
 #             what is causing the warning.
 #     info  : the info explaining the warning.
 #     level : the level of the step indicating the problem.
@@ -201,7 +201,7 @@ class Problems:
 
 ###
 # prototype::
-#     what  : any object with a string representation indicating clearly 
+#     what  : any object with a string representation indicating clearly
 #             what is causing the "critical" which is a dangerous warning.
 #     info  : the info explaining the "critical".
 #     level : the level of the step indicating the problem.
@@ -218,7 +218,7 @@ class Problems:
 
 ###
 # prototype::
-#     what  : any object with a string representation indicating clearly 
+#     what  : any object with a string representation indicating clearly
 #             what is causing the error.
 #     info  : the info explaining the error.
 #     level : the level of the step indicating the problem.
@@ -235,10 +235,10 @@ class Problems:
 
 ###
 # prototype::
-#     what    : any object with a string representation indicating clearly 
+#     what    : any object with a string representation indicating clearly
 #               what is causing the problem.
 #     context : the kind of problem.
-#             @ :in: [speaker.spk_interface.CONTEXT_ERROR, 
+#             @ :in: [speaker.spk_interface.CONTEXT_ERROR,
 #                     speaker.spk_interface.CONTEXT_WARNING]
 #     info    : the info explaining the problem.
 #     level   : the level of the step indicating the problem.
@@ -257,7 +257,7 @@ class Problems:
             self.PB_ID_TAG  : self._pb_id,
             self.PB_INFO_TAG: info,
         })
-    
+
 # Let's talk to the world...
         self.speaker.problem(
             context = context,
@@ -272,11 +272,11 @@ class Problems:
 ###
     def resume(self) -> None:
 # Silent must be switch off here...
-        silent_user         = self.speaker.silent
-        self.speaker.silent = False
+        onlyresume_user         = self.speaker.onlyresume
+        self.speaker.onlyresume = False
 
 # Let's talk...
-        showref = add_NL = not silent_user
+        showref = add_NL = not onlyresume_user
 
         for context, pbs in self.problems_found.items():
             if not pbs:
@@ -290,7 +290,7 @@ class Problems:
             if add_NL:
                 self.speaker.NL()
 
-            if silent_user:
+            if onlyresume_user:
                 add_NL = True
 
             self.speaker.recipe(
@@ -302,7 +302,7 @@ class Problems:
             )
 
 # Verbose in the terminal?
-            if not silent_user:
+            if not onlyresume_user:
                 self.speaker.recipe(
                     context,
                     FORTERM,
@@ -314,7 +314,7 @@ class Problems:
             for what in natsorted([
                 str(p) for p in pbs
             ]):
-                if silent_user:
+                if onlyresume_user:
                     verb_in = [FORTERM, FORLOG]
 
                 else:
@@ -335,16 +335,16 @@ class Problems:
                 )
 
 # Let's go back to the silent user's choice.
-        self.speaker.silent = silent_user
+        self.speaker.onlyresume = onlyresume_user
 
 ###
 # prototype::
-#     what    : any object with a string representation indicating clearly 
+#     what    : any object with a string representation indicating clearly
 #               what is causing the problem.
 #     whatpbs : the list of problems for the same ``what``.
 #     context : the kind of problem.
-#             @ :in: [speaker.spk_interface.CONTEXT_ERROR, 
-#                     speaker.spk_interface.CONTEXT_WARNING] 
+#             @ :in: [speaker.spk_interface.CONTEXT_ERROR,
+#                     speaker.spk_interface.CONTEXT_WARNING]
 ###
     def _resume_one_pb_short(
         self,
@@ -365,28 +365,28 @@ class Problems:
             FORTERM,
                 context,
                 NL,
-                {VAR_STEP_INFO: what, 
+                {VAR_STEP_INFO: what,
                 VAR_LEVEL    : 1},
         )
-                
+
         self.speaker.recipe(
             FORTERM,
                 context,
                     {VAR_STEP_INFO: (
                         f'{nb_pbs} {context}{plurial}.'
                         '\n'
-                        f'See #.: {pbs_ids}.'), 
+                        f'See #.: {pbs_ids}.'),
                     VAR_LEVEL: 2},
         )
 
 
 ###
 # prototype::
-#     what    : any object with a string representation indicating clearly 
+#     what    : any object with a string representation indicating clearly
 #               what is causing the problem.
 #     whatpbs : the list of problems for the same ``what``.
 #     context : the kind of problem.
-#             @ :in: [speaker.spk_interface.CONTEXT_ERROR, 
+#             @ :in: [speaker.spk_interface.CONTEXT_ERROR,
 #                     speaker.spk_interface.CONTEXT_WARNING]
 #     verb_in : the list of outputs where to be verbose.
 #     showref : ``True`` asks to show the references (for a none silent mode)
@@ -405,10 +405,10 @@ class Problems:
                 output,
                     context,
                     NL,
-                    {VAR_STEP_INFO: what, 
+                    {VAR_STEP_INFO: what,
                      VAR_LEVEL    : 1},
             )
-            
+
             for onepb in whatpbs:
                 info = onepb[self.PB_INFO_TAG]
 
@@ -416,13 +416,13 @@ class Problems:
                     pbid = onepb[self.PB_ID_TAG]
 
                     message = f'See [ #.{pbid} ] : {info}'
-                
+
                 else:
                     message = info[0].upper() + info[1:]
 
                 self.speaker.recipe(
                     output,
                         context,
-                        {VAR_STEP_INFO: message, 
+                        {VAR_STEP_INFO: message,
                         VAR_LEVEL    : 2},
                 )
