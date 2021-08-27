@@ -1,7 +1,8 @@
 toc::
     + prologue
-    + default
-    + silent
-    + timestamp
+    + hardway-all-outputs
+    + hardway-one-output
+    + hardway-onlyresume
+    + hardway-timestamp
     + basecom
     + reset

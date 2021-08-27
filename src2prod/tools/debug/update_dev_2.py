@@ -3,8 +3,8 @@
 from cbdevtools import *
 
 # projectname = 'cbdevtools'
-projectname = 'multimd'
-# projectname = 'spkpb'
+# projectname = 'multimd'
+projectname = 'spkpb'
 
 # projectname = 'src2prod'
 
@@ -26,15 +26,17 @@ MODULE_DIR = addfindsrc(
 from src import *
 
 MONOREPO_DIR = MODULE_DIR.parent
+
+print(MONOREPO_DIR)
 PROJECT_DIR  = Path(projectname)
 
 project = Project(
-    project = MONOREPO_DIR,
-    source  = PROJECT_DIR  / 'src',
-    target  = PROJECT_DIR  / projectname.lower(),
+    project = MONOREPO_DIR / PROJECT_DIR,
+    source  = 'src',
+    target  = projectname.lower(),
     ignore  = MONOREPO_DIR / 'ignore-for-prod.txt',
     usegit  = True,
-    readme  = PROJECT_DIR  / 'README.md'
+    readme  = 'readme'
 )
 
 project.update(safemode = False)

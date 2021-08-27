@@ -2,6 +2,9 @@
 27
 ==
 
+**New sub minor version version::``0.0.1.1-beta``:** path::``README.md`` has been updated.
+
+
 **New minor version version::``0.1.0-beta``:** see the changes below.
 
 **Changes in the class ``Speaker``.**

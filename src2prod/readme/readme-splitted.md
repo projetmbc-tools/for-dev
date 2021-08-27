@@ -1,7 +1,7 @@
 `README.md` part by part
 ------------------------
 
-You can write you `README.md` typing small section like parts as it is the case for the `README.md` you are reading. The `src2prod` project had merly the following partial tree structure on August 22, 2021.
+You can write you `README.md` typing small section like parts as it is the case for the `README.md` you are reading (that is both in the repository and the final project to be distributed). The `src2prod` project had merly the following partial tree structure on August 22, 2021.
 
 ~~~
 + src2prod
@@ -19,7 +19,7 @@ You can write you `README.md` typing small section like parts as it is the case 
 
     + src
         * ...
-    
+
     * README.md
     * ...
 ~~~

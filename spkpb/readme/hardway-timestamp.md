@@ -1,12 +1,15 @@
-Time stamp in the log file
---------------------------
+Using directly the API - Time stamp in the log file
+---------------------------------------------------
 
-The following code show how to use `timestamp` such as to add time stamps in the log file.
+The following code shows how to use `timestamp` such as to add time stamps in the log file.
 
 ```python
 from spkpb import *
 
-speaker = Speaker(logfile = Path('mylog.log'))
+speaker = Speaker(
+    logfile   = Path('mylog.log'),
+    termstyle = GLOBAL_STYLE_COLOR
+)
 
 timestamp(
     speaker = speaker,

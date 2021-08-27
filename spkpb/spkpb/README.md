@@ -13,7 +13,7 @@ About `spkpb`
 This module proposes two classes and one function that simplify the writing of programs which have to be verbose about a process on files and directories, and that have to emit informations, warnings and errors.
 
   1. `Speaker`, the `spk` of `spkpb`, has methods tho print informations on a terminal and/or in a log file.
-  
+
   1. `Problems`, the `pb` of `spkpb`, allows to indicate and store warnings, "criticals" and errors.
 
   1. The function `timestamp` adds time stamps in a log file without printing anything in the terminal.
@@ -22,17 +22,21 @@ This module proposes two classes and one function that simplify the writing of p
 The following tutorial will starts with the hard way to work with the `spkpb` tools and finishes with more programmer-friendly tools.
 
 
-Using directly the API - Default mode
--------------------------------------
+Using directly the API - All the outputs
+----------------------------------------
 
 ### `Python` code
 
-Let's consider the following `Python` file where `Path` is a class proposed by the module `pathlib`. You have to know that the values of the arguments ``what`` are "stringified" (this allows to use either standard strings or advanced classes by defining your own ``__str__`` method for the resume output of problems if you need it).
+Let's consider the following `Python` file where `Path` is the class proposed by the module `pathlib`. You have to know that the values of the arguments ``what`` are "stringified" (this allows to use either standard strings or advanced classes by defining your own ``__str__`` method for the resume output of problems, if you need it).
 
 ```python
 from spkpb import *
 
-speaker  = Speaker(logfile = Path('mylog.log'))
+speaker = Speaker(
+    logfile   = Path('mylog.log'),
+    termstyle = GLOBAL_STYLE_COLOR
+)
+
 problems = Problems(speaker)
 
 problems.new_warning(
@@ -55,7 +59,7 @@ speaker.recipe(
         {VAR_STEP_INFO: 'ONLY IN THE LOG FILE!',
          VAR_LEVEL    : 1},
 )
-    
+
 problems.resume()
 ```
 
@@ -120,23 +124,30 @@ One basic showcase.
 ```
 
 
-Using directly the API - Silent mode
-------------------------------------
+Using directly the API - Just one output
+----------------------------------------
 
-Let's modify a little our first code (the ellipsis indicate lines unchanged).
+You can either use only a log file or the terminal by omitting either `termstyle` or `logfile` when instanciating the class `Speaker`.
+
+
+Using directly the API - Only a resume
+--------------------------------------
+
+Let's modify a little our first code (the ellipsis indicate the lines unchanged).
 
 ```python
 from spkpb import *
 
 speaker = Speaker(
-    logfile = Path('mylog.log'),
-    silent  = True
+    logfile    = Path('mylog.log'),
+    termstyle  = GLOBAL_STYLE_COLOR,
+    onlyresume = True
 )
 
 ...
 ```
 
-The use of the argument ``silent`` asks to prints only the summaries of problems (that is useful for short processes with no need to be verbose). The terminal and the log file will show the following same verbose resume.
+The use of ``onlyresume = True`` asks to print only the summaries of problems (that is useful for short processes with no need to be verbose). The terminal and the log file will show the following same verbose resume.
 
 ```
 ---------------
@@ -155,15 +166,18 @@ The use of the argument ``silent`` asks to prints only the summaries of problems
 ```
 
 
-Time stamp in the log file
---------------------------
+Using directly the API - Time stamp in the log file
+---------------------------------------------------
 
-The following code show how to use `timestamp` such as to add time stamps in the log file.
+The following code shows how to use `timestamp` such as to add time stamps in the log file.
 
 ```python
 from spkpb import *
 
-speaker = Speaker(logfile = Path('mylog.log'))
+speaker = Speaker(
+    logfile   = Path('mylog.log'),
+    termstyle = GLOBAL_STYLE_COLOR
+)
 
 timestamp(
     speaker = speaker,
@@ -202,7 +216,7 @@ START 3 TIME STAMP: 2021-08-09 (00:40:02)
 A ready-to-use communicating class
 ----------------------------------
 
-We have seen hard use of the API of `spkpb`. Indeed you can heritate the class `BaseCom` to do things easily: see the following code and outputs.
+We have seen the hard use of the API of `spkpb`. Indeed you can heritate the class `BaseCom` to do things easily: see the following code and outputs.
 
 
 ### `Python` code
@@ -212,7 +226,10 @@ from spkpb import *
 
 project = BaseCom(
     Problems(
-        Speaker(logfile = Path('mylog.log'))
+        Speaker(
+            logfile   = Path('mylog.log'),
+            termstyle = GLOBAL_STYLE_COLOR
+        )
     )
 )
 
@@ -242,7 +259,7 @@ project.recipe(
         {VAR_STEP_INFO: 'ONLY IN THE LOG FILE!',
          VAR_LEVEL    : 1},
 )
-    
+
 project.resume()
 
 project.recipe(NL)
@@ -330,7 +347,10 @@ from spkpb import *
 
 project = BaseCom(
     Problems(
-        Speaker(logfile = Path('mylog.log'))
+        Speaker(
+            logfile   = Path('mylog.log'),
+            termstyle = GLOBAL_STYLE_COLOR
+        )
     )
 )
 
@@ -352,6 +372,8 @@ project.resume()
 
 ### The terminal output
 
+Everything is printed but the summary only keeps what is after the use of the method `reset`.
+
 ~~~
 1) [ #1 ] WARNING: some strange behaviors.
 1) [ #1 ] ERROR: bad things appear.
@@ -371,6 +393,8 @@ Who has chosen this stupid example? :-)
 
 
 ### The content of the log file `mylog.log`
+
+Everything before the use of the method `reset` is lost for ever.
 
 ~~~
 1) [ #1 ] ERROR: bad things appear.

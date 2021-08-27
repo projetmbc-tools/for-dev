@@ -21,10 +21,10 @@ from .spk_interface import *
 
 ###
 # prototype::
-#     value    = the style code choosen.
-#     codetemp = a template that will be updated with the value of
+#     value    : the style code choosen.
+#     codetemp : a template that will be updated with the value of
 #                the style code.
-#     normcode = the code for the normal style.
+#     normcode : the code for the normal style.
 #
 # This function is just a basic factorization for coding the stylists.
 ###
@@ -95,9 +95,9 @@ class BWStylist(Enum):
 class TermSpeaker(AbstractSpeaker):
 ###
 # prototype::
-#     style    = _ in spk_interface.ALL_GLOBAL_STYLES ;
-#                a global style for the outputs.
-#     maxwidth = the maw width expected for hard wrapped contents.
+#     style    : a global style for the outputs.
+#              @ :in: spk_interface.ALL_GLOBAL_STYLES
+#     maxwidth : the maw width expected for hard wrapped contents.
 ###
     def __init__(
         self,
@@ -105,20 +105,19 @@ class TermSpeaker(AbstractSpeaker):
         maxwidth: int = 80
     ) -> None:
         super().__init__(
-            style    = style,
+            termstyle    = style,
             maxwidth = maxwidth
         )
 
         self.stylist = {
             GLOBAL_STYLE_COLOR: ColorStylist,
             GLOBAL_STYLE_BW   : BWStylist
-        }[self.global_style]
+        }[self.termstyle]
 
 
 ###
 # prototype::
-#     repeat = (1) ;
-#              the numebr of empty lines wanted.
+#     repeat : the numebr of empty lines wanted.
 #
 # This method simply prints ``repeat`` empty lines on the terminal.
 ###
@@ -127,15 +126,15 @@ class TermSpeaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     text = a text to print as it on the terminal.
+#     text : a text to print as it on the terminal.
 ###
     def print(self, text: str) -> None:
         print(text)
 
 ###
 # prototype::
-#     context = _ in spk_interface.CONTEXTS (interface.CONTEXT_NORMAL) ;
-#               a context to format some outputs
+#     context : a context to format some outputs
+#             @ :in: spk_interface.CONTEXTS
 #
 #     :see: = ``ColorStylist`` and ``BWStylist``.
 ###
@@ -145,11 +144,10 @@ class TermSpeaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     text = a text to be hard wrapped.
-#     tab  = ("") ;
-#            a possible tabulation to use for each new line created.
+#     text : a text to be hard wrapped.
+#     tab  : a possible tabulation to use for each new line created.
 #
-#     :return: = a wrapped message of maximal width ``self.maxwidth``.
+#     :return: a wrapped message of maximal width ``self.maxwidth``.
 #
 # info::
 #     We redefine the method ``hardwrap`` because in a terminal, the

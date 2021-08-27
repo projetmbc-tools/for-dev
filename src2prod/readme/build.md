@@ -12,7 +12,7 @@ In our project above, there are some files only useful for the development of th
   1. The `README.md` file used for `git` servers must also be used for the final product.
 
 
-The final product built from the `src` folder must have the following name and structure. 
+The final product built from the `src` folder must have the following name and structure.
 
 ~~~
 + texiteasy
@@ -50,7 +50,7 @@ Here are some important points about the code above.
   1. `project`, `source`, `target` and `readme` follows the rules below.
 
       * The values of this arguments can also be strings (that will be converted to instances of `Path`).
-        
+
       * The argument `readme` is optional contrary to `project`, `source` and `target`.
 
       * `project` is a complete path regarding the working directory when launching the file, but `source`, `target` and `readme` are relative to `project`.
@@ -68,5 +68,3 @@ Here are some important points about the code above.
   1. `usegit = True` asks also to ignore files and folders as `git` does (this action completes the rules defined in `ignore`). This setting implies that there isn't any uncommited file in the `src` folder (even if that files must be ignored).
 
   1. Errors and warnings are printed in the terminal and written verbosely in the file `TeXitEasy.src2prod.log` where `TeXitEasy` is the name extracted from the path `project`.
-
-

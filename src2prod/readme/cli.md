@@ -67,7 +67,7 @@ src           changes
 spkpb         tools
 
 > ls spkpb/spkpb/*
-spkpb/spkpb/LICENSE.txt        spkpb/spkpb/__init__.py        
+spkpb/spkpb/LICENSE.txt        spkpb/spkpb/__init__.py
 spkpb/spkpb/problems.py        spkpb/spkpb/README.md
 spkpb/spkpb/base.py            spkpb/spkpb/timer.py
 
