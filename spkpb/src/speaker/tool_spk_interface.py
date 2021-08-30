@@ -25,8 +25,8 @@ COMMENT_TAG_START = f'# -- {COMMENT_TAG} - START -- #'
 COMMENT_TAG_END   = f'# -- {COMMENT_TAG} - END -- #'
 
 
-CONTEXTS     = []           
-ALL_CONTEXTS = []           
+CONTEXTS     = []
+ALL_CONTEXTS = []
 
 
 with ReadBlock(
@@ -53,7 +53,7 @@ for onename in allnames:
     spaces  = " "*(maxlen - len(onename))
 
     CONTEXTS.append(f'{varname}{spaces} = "{onename}"')
-            
+
     ALL_CONTEXTS.append(varname)
 
 
@@ -85,7 +85,7 @@ with FILE_PY.open(
 
 
 before, _ , after = between(
-    text = content, 
+    text = content,
     seps = [
         COMMENT_TAG_START,
         COMMENT_TAG_END

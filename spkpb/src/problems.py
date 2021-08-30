@@ -26,8 +26,8 @@ def problems_deco(method):
 ###
 # prototype::
 #     what  : any object with a string representation indicating clearly
-#             what is causing the warning.
-#     info  : the info explaining the warning.
+#             what is causing the problem.
+#     info  : the info explaining the problem.
 #     level : the level of the step indicating the problem.
 #           @ :in: 0..3
 ###
@@ -59,8 +59,8 @@ def problems_deco(method):
 # -------------- #
 
 ###
-# This class is used to store ¨infos about errors and warnings
-# emitted during all the process.
+# This class is used to store ¨infos about errors and warnings emitted
+# during all the process.
 ###
 
 class Problems:
@@ -424,5 +424,5 @@ class Problems:
                     output,
                         context,
                         {VAR_STEP_INFO: message,
-                        VAR_LEVEL    : 2},
+                         VAR_LEVEL    : 2},
                 )

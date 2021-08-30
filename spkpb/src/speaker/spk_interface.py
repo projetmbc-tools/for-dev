@@ -45,7 +45,7 @@ ALL_GLOBAL_STYLES = [
 # -------------------------------- #
 
 ###
-# This abtract/interface class defines the common ¨api of the speakers.
+# This abstract class / interface defines the common ¨api of the speakers.
 ###
 
 class AbstractSpeaker(metaclass=ABCMeta):
