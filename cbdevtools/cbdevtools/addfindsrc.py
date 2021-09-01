@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ###
-# This module simplifies the import of the dev source dir of a project. 
+# This module simplifies the import of the dev source dir of a project.
 ###
 
 
@@ -11,15 +11,13 @@ import sys
 
 ###
 # prototype::
-#     file    = just use the magic constant ``__file__`` when calling
+#     file    : just use the magic constant ``__file__`` when calling
 #               this function.
-#     project = the name of the project
+#     project : the name of the project
 #
-#     :return: = the path of the project dir.
+#     :return: the path of the project dir.
 #
 # This function adds the project folder path::``project`` to the sys path.
-# 
-# 
 # Let's see a fictive example with the following tree structure.
 #
 # tree-dir::
@@ -30,11 +28,11 @@ import sys
 #             * __init__.py
 #             * ...
 #         + tools
-#             + debug 
+#             + debug
 #                 * cli.py
 #
 # The ¨python script path::``tools/debug/cli.py`` can easily load the local
-# ¨python module ``src``. The code to use is the following one where the value 
+# ¨python module ``src``. The code to use is the following one where the value
 # returned by ``addfindsrc`` is not used.
 #
 # python::
