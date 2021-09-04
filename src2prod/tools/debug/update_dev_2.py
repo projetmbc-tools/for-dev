@@ -2,11 +2,11 @@
 
 from cbdevtools import *
 
-projectname = 'cbdevtools'
+# projectname = 'cbdevtools'
 # projectname = 'multimd'
 # projectname = 'spkpb'
 
-# projectname = 'src2prod'
+projectname = 'src2prod'
 
 
 # ------------------------------------ #
@@ -26,8 +26,6 @@ MODULE_DIR = addfindsrc(
 from src import *
 
 MONOREPO_DIR = MODULE_DIR.parent
-
-print(MONOREPO_DIR)
 PROJECT_DIR  = Path(projectname)
 
 project = Project(
