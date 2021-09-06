@@ -268,11 +268,12 @@ class Project(BaseProj):
 #
 #     1) Indirecty it checks that ¨git can be used.
 #     2) It finds the branch on which we are working.
-#     3) It verifies that there isn't any uncommitted changes in the source files.
+#     3) It verifies that there isn't any uncommitted changes in
+#        the source files.
 #
 # warning::
-#     We do not want any uncommitted changes even on the ignored files because this
-#     could imply some changes in the final product.
+#     We do not want any uncommitted changes even on the ignored files
+#     because this could imply some changes in the final product.
 ###
     def check_git(self) -> None:
         self.recipe(
@@ -455,7 +456,7 @@ class Project(BaseProj):
 ###
 # prototype::
 #     output   : the output(s) where we want to communicate.
-#              @ :in: [FORTERM, FORLOG, FORALL]
+#              @ output in [FORTERM, FORLOG, FORALL]
 #     whatused : the method used to shrink the list of files.
 #     extra    : a small extra text.
 #

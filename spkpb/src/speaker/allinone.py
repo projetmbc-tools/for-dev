@@ -125,7 +125,7 @@ class Speaker(AbstractSpeaker):
 #     logfile   : ``None`` to not use a log file, or the path of the log file.
 #     style     : ``None`` to not use the terminal, or the style to use in
 #                 the terminal.
-#               @ :in: GLOBAL_STYLE_BW, GLOBAL_STYLE_COLOR]
+#               @ style in GLOBAL_STYLE_BW, GLOBAL_STYLE_COLOR]
 #     onlyresume: ``True`` indicates to only print a resume of the errors found
 #                 contrary to ``False`` (this is useful for short processes showing
 #                 only warning and co when using the method ``resume`` of the class
@@ -263,7 +263,7 @@ class Speaker(AbstractSpeaker):
 ###
 # prototype::
 #     context : a context for formatting ¨infos.
-#             @ :in: spk_interface.ALL_CONTEXTS
+#             @ context in spk_interface.ALL_CONTEXTS
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
         for out in self._current_outputs:
@@ -274,7 +274,7 @@ class Speaker(AbstractSpeaker):
 # prototype::
 #     title   : the content of the title.
 #     level   : the level of the title.
-#             @ :in: 1..2
+#             @ level in 1..2
 #     with_NL : ``True`` asks to add a new line after the title and
 #               ``False`` to not do this
 #
@@ -297,7 +297,7 @@ class Speaker(AbstractSpeaker):
 #     step_info : one short info.
 #     level     : the level of step indicating where ``0`` is for automatic
 #                 numbered enumerations.
-#               @ :in: 0..3
+#               @ level in 0..3
 ###
     def step(self,
         step_info: str,
@@ -328,7 +328,7 @@ class Speaker(AbstractSpeaker):
 #     out   : the kind of speaker.
 #     level : the level of step indicating where ``0`` is for automatic
 #             numbered enumerations.
-#           @ :in: 0..3
+#           @ level in 0..3
 ###
     def _stepitem(
         self,
@@ -351,7 +351,7 @@ class Speaker(AbstractSpeaker):
 #     pb_id   : the number of the problem.
 #     message : the message to print.
 #     level   : the level of the step indicating the problem.
-#             @ in 0..3
+#             @ level in 0..3
 ###
     def problem(
         self,

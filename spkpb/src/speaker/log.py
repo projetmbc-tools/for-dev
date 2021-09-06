@@ -24,7 +24,7 @@ class LogSpeaker(AbstractSpeaker):
 # prototype::
 #     logfile  : the path of the log file.
 #     style    : a global style for the outputs.
-#              @ :in: spk_interface.ALL_GLOBAL_STYLES
+#              @ style in spk_interface.ALL_GLOBAL_STYLES
 #     maxwidth : the max width expected for hard wrapped contents.
 ###
     def __init__(

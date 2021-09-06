@@ -68,7 +68,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 # prototype::
 #     style    : a global style for the output. Internally this style is
 #                stored in the attribut ``global_style``.
-#              @ :in: ALL_GLOBAL_STYLES
+#              @ style in ALL_GLOBAL_STYLES
 #     maxwidth : the maw width expected for hard wrapped contents.
 ###
     def __init__(
@@ -100,7 +100,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 ###
 # prototype::
 #     context : a context for formatting ¨infos.
-#             @ :in: ALL_CONTEXTS
+#             @ context in ALL_CONTEXTS
 #
 #
 # info::

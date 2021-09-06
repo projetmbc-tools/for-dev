@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
 ###
-# This module is just a factorization gathering all the technical and
-# stupid methods.
+# This module is just a factorization of technical and stupid methods.
 ###
 
 
@@ -196,7 +195,7 @@ class BaseProj(BaseCom):
 # prototype::
 #     fileordir : the path of a file or a dir.
 #     kind      : the kind of ¨io object.
-#               @ :in: [self.DIR_TAG, self.FILE_TAG]
+#               @ kind in [self.DIR_TAG, self.FILE_TAG]
 #
 #     :return: ``True`` if the ¨io object must be kept regarding the ignore
 #              rules, and ``False`` otherwise.

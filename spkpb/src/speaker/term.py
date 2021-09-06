@@ -21,9 +21,9 @@ from .spk_interface import *
 
 ###
 # prototype::
-#     value    : the style code choosen.
+#     value    : the style choosen.
 #     codetemp : a template that will be updated with the value of
-#                the style code.
+#                the style.
 #     normcode : the code for the normal style.
 #
 # This function is just a basic factorization for coding the stylists.
@@ -96,7 +96,7 @@ class TermSpeaker(AbstractSpeaker):
 ###
 # prototype::
 #     style    : a global style for the outputs.
-#              @ :in: spk_interface.ALL_GLOBAL_STYLES
+#              @ style in spk_interface.ALL_GLOBAL_STYLES
 #     maxwidth : the maw width expected for hard wrapped contents.
 ###
     def __init__(
@@ -134,7 +134,7 @@ class TermSpeaker(AbstractSpeaker):
 ###
 # prototype::
 #     context : a context to format some outputs
-#             @ :in: spk_interface.CONTEXTS
+#             @ context in spk_interface.CONTEXTS
 #
 #     :see: = ``ColorStylist`` and ``BWStylist``.
 ###

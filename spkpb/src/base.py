@@ -13,8 +13,8 @@ from .timer    import *
 # ------------------------------ #
 
 ###
-# This class gives the common interface for classes working with "speakers"
-# and "problems".
+# This class gives the common interface for classes working with
+# "speakers" and "problems".
 ###
 
 class BaseCom:

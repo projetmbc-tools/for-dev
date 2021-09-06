@@ -29,7 +29,7 @@ def problems_deco(method):
 #             what is causing the problem.
 #     info  : the info explaining the problem.
 #     level : the level of the step indicating the problem.
-#           @ :in: 0..3
+#           @ level in 0..3
 ###
     def similar(
         self,
@@ -188,7 +188,7 @@ class Problems:
 #             what is causing the warning.
 #     info  : the info explaining the warning.
 #     level : the level of the step indicating the problem.
-#           @ :in: 0..3
+#           @ level in 0..3
 ###
     @problems_deco
     def new_warning(
@@ -205,7 +205,7 @@ class Problems:
 #             what is causing the "critical" which is a dangerous warning.
 #     info  : the info explaining the "critical".
 #     level : the level of the step indicating the problem.
-#           @ :in: 0..3
+#           @ level in 0..3
 ###
     @problems_deco
     def new_critical(
@@ -222,7 +222,7 @@ class Problems:
 #             what is causing the error.
 #     info  : the info explaining the error.
 #     level : the level of the step indicating the problem.
-#           @ :in: 0..3
+#           @ level in 0..3
 ###
     @problems_deco
     def new_error(
@@ -238,11 +238,11 @@ class Problems:
 #     what    : any object with a string representation indicating clearly
 #               what is causing the problem.
 #     context : the kind of problem.
-#             @ :in: [speaker.spk_interface.CONTEXT_ERROR,
-#                     speaker.spk_interface.CONTEXT_WARNING]
+#             @ context in [speaker.spk_interface.CONTEXT_ERROR,
+#                           speaker.spk_interface.CONTEXT_WARNING]
 #     info    : the info explaining the problem.
 #     level   : the level of the step indicating the problem.
-#             @ :in: 0..3
+#             @ level in 0..3
 ###
     def _new_pb(
         self,
@@ -343,8 +343,8 @@ class Problems:
 #               what is causing the problem.
 #     whatpbs : the list of problems for the same ``what``.
 #     context : the kind of problem.
-#             @ :in: [speaker.spk_interface.CONTEXT_ERROR,
-#                     speaker.spk_interface.CONTEXT_WARNING]
+#             @ context in [speaker.spk_interface.CONTEXT_ERROR,
+#                           speaker.spk_interface.CONTEXT_WARNING]
 ###
     def _resume_one_pb_short(
         self,
@@ -386,8 +386,8 @@ class Problems:
 #               what is causing the problem.
 #     whatpbs : the list of problems for the same ``what``.
 #     context : the kind of problem.
-#             @ :in: [speaker.spk_interface.CONTEXT_ERROR,
-#                     speaker.spk_interface.CONTEXT_WARNING]
+#             @ context in [speaker.spk_interface.CONTEXT_ERROR,
+#                           speaker.spk_interface.CONTEXT_WARNING]
 #     verb_in : the list of outputs where to be verbose.
 #     showref : ``True`` asks to show the references (for a none silent mode)
 #               contrary to ``False``.
