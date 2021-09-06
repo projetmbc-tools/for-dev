@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
 ###
-# This module is just a factorization gathering all the technical and 
-# stupid methods.
+# This module is just a factorization of technical and stupid methods.
 ###
 
 
@@ -26,24 +25,18 @@ class BaseProj(BaseCom):
 
 ###
 # prototype::
-#     project = ; // See Python typing...
-#               the folder project that will be used to communicate during 
+#     project : the folder project that will be used to communicate during
 #               the analysis.
-#     source  = ; // See Python typing...
-#               the **relative** path of the source dir (regarding the project
+#     source  : the **relative** path of the source dir (regarding the project
 #               folder).
-#     target  = ; // See Python typing...
-#               the **relative** path of the final product dir (regarding the
+#     target  : the **relative** path of the final product dir (regarding the
 #               project folder).
-#     ignore  = ( '' ) ; // See Python typing...
-#               if a string is used then this gives the rules for ignoring
+#     ignore  : if a string is used then this gives the rules for ignoring
 #               files in addition to what ¨git does.
 #               If an instance of ``Path`` is used, thent we have a file
 #               containing the rules.
-#     usegit  = ( False ) ; // See Python typing...
-#               ``True`` asks to use ¨git contrary to ``False``.
-#     readme  = ( None ) ; // See Python typing...
-#               ``None`` is if you don't need to import an external 
+#     usegit  : ``True`` asks to use ¨git contrary to ``False``.
+#     readme  : ``None`` is if you don't need to import an external
 #               path::``README`` file, otherwise give a **relative** path.
 #
 # warning::
@@ -92,11 +85,9 @@ class BaseProj(BaseCom):
 
 ###
 # prototype::
-#     value = ; // See Python typing...
-#             a path.
+#     value : a path.
 #
-#     :return: = ; // See Python typing...
-#                the path converted to an instance of ``pathlib.Path``.
+#     :return: the path converted to an instance of ``pathlib.Path``.
 ###
     def pathify(self, value: Union[str, Path]) -> Path:
         valtype = type(value)
@@ -115,7 +106,7 @@ class BaseProj(BaseCom):
 
 ###
 # prototype::
-#     :see: = spkpb.problems.Problems.reset
+#     :see: spkpb.problems.Problems.reset
 #
 # This method resets everything.
 ###
@@ -124,11 +115,11 @@ class BaseProj(BaseCom):
 
         self.recipe(
             FORLOG,
-                {VAR_TITLE: 
+                {VAR_TITLE:
                     f'"{self.project.name}": SOURCE --> FINAL PRODUCT'},
         )
 
-# Extra attributs.    
+# Extra attributs.
         self.success         = True
         self.lof: List[Path] = []
 
@@ -158,7 +149,7 @@ class BaseProj(BaseCom):
 
         else:
             self.recipe(
-                {VAR_STEP_INFO: 
+                {VAR_STEP_INFO:
                     f'Ignore rules in the file:'
                      '\n'
                     f'"{self.ignore}"'},
@@ -197,19 +188,17 @@ class BaseProj(BaseCom):
 # A file rule.
             else:
                 context = self.FILE_TAG
-            
+
             self.ignore_rules[context].append(shortrule)
 
 ###
 # prototype::
-#     fileordir = ; // See Python typing...
-#                 the path of a file or a dir.
-#     kind      = _ in [self.DIR_TAG, self.FILE_TAG]; // See Python typing...
-#                 the kind of ¨io object.
+#     fileordir : the path of a file or a dir.
+#     kind      : the kind of ¨io object.
+#               @ kind in [self.DIR_TAG, self.FILE_TAG]
 #
-#     :return: = ; // See Python typing...
-#                ``True`` if the ¨io object must be kept regarding the ignore
-#                 rules, and ``False`` otherwise.
+#     :return: ``True`` if the ¨io object must be kept regarding the ignore
+#              rules, and ``False`` otherwise.
 #
 # info::
 #     ¨git is not used here.
@@ -218,7 +207,7 @@ class BaseProj(BaseCom):
         self,
         fileordir: Path,
         kind     : str
-    ) -> bool:       
+    ) -> bool:
         for onerule in self.ignore_rules[kind]:
             if fileordir.match(onerule):
                 return False
@@ -227,12 +216,10 @@ class BaseProj(BaseCom):
 
 ###
 # prototype::
-#     onedir = ; // See Python typing...
-#              a dir to analyze.
+#     onedir : a dir to analyze.
 #
-#     :yield: = ; // See Python typing...
-#               the files in the folder ``onedir`` kept after the application 
-#               of the ignore rules.
+#     :yield: the files in the folder ``onedir`` kept after the application
+#             of the ignore rules.
 #
 # info::
 #     ¨git is not used here.
@@ -256,12 +243,10 @@ class BaseProj(BaseCom):
 
 ###
 # prototype::
-#     onedir = ; // See Python typing...
-#              a dir.
+#     onedir : a dir.
 #
-#     :return: = ; // See Python typing...
-#                ``True`` if the folder doesn't exist yet or is empty and
-#                ``False`` otherwise.
+#     :return: ``True`` if the folder doesn't exist yet or is empty and
+#              ``False`` otherwise.
 ###
     def isempty(self, onedir: Path) -> bool:
 # The folder doesn't exist.
@@ -281,10 +266,8 @@ class BaseProj(BaseCom):
 
 ###
 # prototype::
-#     source = ; // See Python typing...
-#              the path of the source file to copy.
-#     target = ; // See Python typing...
-#              the path of the target file that will be the copy.
+#     source : the path of the source file to copy.
+#     target : the path of the target file that will be the copy.
 ###
     def copyfile(
         self,
@@ -301,11 +284,9 @@ class BaseProj(BaseCom):
 
 ###
 # prototype::
-#     options = ; // See Python typing...
-#              a list of options.
+#     options : a list of options.
 #
-#     :return: = ; // See Python typing...
-#                the stripped standard output sent by the command.
+#     :return: the stripped standard output sent by the command.
 #
 # This method launches the command terminal::``git`` with the options given
 # in the list ``options``.
@@ -316,7 +297,7 @@ class BaseProj(BaseCom):
 # Launch the command in the project folder.
         try:
             output = run(
-                cmd, 
+                cmd,
                 capture_output = True,
                 cwd            = self.project
             )
@@ -324,7 +305,7 @@ class BaseProj(BaseCom):
 # Can't launch the command.
         except FileNotFoundError as e:
             cmd = " ".join(cmd)
-    
+
             self.new_error(
                 what = self.source,
                 info = f'can\'t use "{cmd}".',
@@ -348,11 +329,9 @@ class BaseProj(BaseCom):
 
 ###
 # prototype::
-#     bytedatas = ; // See Python typing...
-#                 a byte content.
+#     bytedatas : a byte content.
 #
-#     :return: = ; // See Python typing...
-#                the string obtained by decoding with the ¨utf8 encoding.
+#     :return: the string obtained by decoding with the ¨utf8 encoding.
 ###
     def decode(self, bytedatas: bytes) -> str:
         return bytedatas.decode('utf-8')

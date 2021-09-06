@@ -20,8 +20,8 @@ MODULE_DIR = addfindsrc(
 from src import *
 
 speaker = Speaker(
-    logfile = Path('mylog.log'),
-    style   = GLOBAL_STYLE_COLOR
+    logfile   = Path('mylog.log'),
+    termstyle = GLOBAL_STYLE_COLOR
 )
 
 problems = Problems(speaker)
@@ -46,5 +46,5 @@ speaker.recipe(
         {VAR_STEP_INFO: 'ONLY IN THE LOG FILE!',
          VAR_LEVEL    : 1},
 )
-    
+
 problems.resume()

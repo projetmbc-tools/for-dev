@@ -1,14 +1,18 @@
-Using directly the API - Default mode
--------------------------------------
+Using directly the API - All the outputs
+----------------------------------------
 
 ### `Python` code
 
-Let's consider the following `Python` file where `Path` is a class proposed by the module `pathlib`. You have to know that the values of the arguments ``what`` are "stringified" (this allows to use either standard strings or advanced classes by defining your own ``__str__`` method for the resume output of problems if you need it).
+Let's consider the following `Python` file where `Path` is the class proposed by the module `pathlib`. You have to know that the values of the arguments ``what`` are "stringified" (this allows to use either standard strings or advanced classes by defining your own ``__str__`` method for the resume output of problems, if you need it).
 
 ```python
 from spkpb import *
 
-speaker  = Speaker(logfile = Path('mylog.log'))
+speaker = Speaker(
+    logfile   = Path('mylog.log'),
+    termstyle = GLOBAL_STYLE_COLOR
+)
+
 problems = Problems(speaker)
 
 problems.new_warning(
@@ -31,7 +35,7 @@ speaker.recipe(
         {VAR_STEP_INFO: 'ONLY IN THE LOG FILE!',
          VAR_LEVEL    : 1},
 )
-    
+
 problems.resume()
 ```
 

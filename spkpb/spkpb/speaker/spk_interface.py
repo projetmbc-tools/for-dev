@@ -45,17 +45,17 @@ ALL_GLOBAL_STYLES = [
 # -------------------------------- #
 
 ###
-# This abtract/interface class defines the common ¨api of the speakers.
+# This abstract class / interface defines the common ¨api of the speakers.
 ###
 
 class AbstractSpeaker(metaclass=ABCMeta):
-# Source to have a real interface: 
-#     * https://realpython.com/python-interface/#using-abcabcmeta 
+# Source to have a real interface:
+#     * https://realpython.com/python-interface/#using-abcabcmeta
     @classmethod
     def __subclasshook__(cls, subclass) -> None:
         goodinterface = all(
-            hasattr(subclass, methodname) and 
-            callable(getattr(subclass, methodname)) 
+            hasattr(subclass, methodname) and
+            callable(getattr(subclass, methodname))
             for methodname in [
                 'print',
                 'NL',
@@ -66,27 +66,23 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
 ###
 # prototype::
-#     style    = _ in ALL_GLOBAL_STYLES; // See Python typing...
-#                a global style for the output. Internally this style is  
+#     style    : a global style for the output. Internally this style is
 #                stored in the attribut ``global_style``.
-#     maxwidth = ; // See Python typing...
-#                the maw width expected for hard wrapped contents.
+#              @ :in: ALL_GLOBAL_STYLES
+#     maxwidth : the maw width expected for hard wrapped contents.
 ###
     def __init__(
         self,
-        style   : str,
+        termstyle   : str,
         maxwidth: int = 80
     ) -> None:
-        assert(style in ALL_GLOBAL_STYLES)
-
-        self.maxwidth     = maxwidth
-        self.global_style = style
+        self.maxwidth  = maxwidth
+        self.termstyle = termstyle
 
 
 ###
 # prototype::
-#     text = ; // See Python typing...
-#            a text to add as it.
+#     text : a text to add as it.
 ###
     @abstractmethod
     def print(self, text: str,) -> None:
@@ -94,8 +90,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
 ###
 # prototype::
-#     repeat = (1) ; // See Python typing...
-#              the numebr of empty lines wanted.
+#     repeat : the number of empty lines wanted.
 ###
     @abstractmethod
     def NL(self, repeat: int = 1) -> None:
@@ -104,12 +99,12 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
 ###
 # prototype::
-#     context = _ in ALL_CONTEXTS (CONTEXT_NORMAL) ; // See Python typing...
-#               a context for formatting ¨infos.
+#     context : a context for formatting ¨infos.
+#             @ :in: ALL_CONTEXTS
 #
 #
 # info::
-#     This method doesn't need to be implemented (some speaker has no style 
+#     This method doesn't need to be implemented (some speaker has no style
 #     like the log like ones).
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
@@ -120,13 +115,10 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
 ###
 # prototype::
-#     text = ; // See Python typing...
-#            a text to be hard wrapped.
-#     tab  = (""); // See Python typing...
-#            a possible tabulation to use for each new line created.
+#     text : a text to be hard wrapped.
+#     tab  : a possible tabulation to use for each new line created.
 #
-#     :return: = ; // See Python typing...
-#                a wrapped message of maximal width ``self.maxwidth``.
+#     :return: a wrapped message of maximal width ``self.maxwidth``.
 ###
     def hardwrap(
         self,
@@ -140,7 +132,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
             if shortlines:
                 lastline = tab
-            
+
             else:
                 lastline = ""
 
@@ -159,7 +151,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
                 else:
                     lastline += " "
-                    
+
                 lastline += oneword
 
             shortlines.append(lastline)

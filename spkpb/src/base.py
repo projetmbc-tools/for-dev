@@ -13,16 +13,15 @@ from .timer    import *
 # ------------------------------ #
 
 ###
-# This class gives the common interface for classes working with "speakers" 
-# and "problems".
+# This class gives the common interface for classes working with
+# "speakers" and "problems".
 ###
 
 class BaseCom:
 
 ###
 # prototype::
-#     problems = ; // See Python typing...  
-#                an instance of ``toolbox.Problems`` that manages 
+#     problems : an instance of ``toolbox.Problems`` that manages
 #                a basic history of the problems found.
 #
 # info::
@@ -42,8 +41,8 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: = problems.Problems.reset ,
-#             speaker.allinone.Speaker.reset
+#     :see: problems.Problems.reset ,
+#           speaker.allinone.Speaker.reset
 #
 # This method is just an easy-to-use wrapper to reset the log file,
 # the attributs used to manage the problems and also the numbering
@@ -55,8 +54,8 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: = problems.Problems.new_warning
-# 
+#     :see: problems.Problems.new_warning
+#
 # This method is just an easy-to-use wrapper.
 ###
     def new_warning(self, *args, **kwargs):
@@ -64,12 +63,12 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: = problems.Problems.new_warning
-# 
+#     :see: problems.Problems.new_warning
+#
 # This method is just an easy-to-use wrapper.
 #
 # info::
-#     The difference between a warning and a critical is that a critical is 
+#     The difference between a warning and a critical is that a critical is
 #     a warning that blocks one part of the process but not all the process.
 #     It is a kind of weak error or very strong warning.
 ###
@@ -79,8 +78,8 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: = problems.Problems.new_error
-# 
+#     :see: problems.Problems.new_error
+#
 # This method is just an easy-to-use wrapper.
 ###
     def new_error(self, *args, **kwargs):
@@ -89,8 +88,8 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: = problems.Problems.resume
-# 
+#     :see: problems.Problems.resume
+#
 # This method is just an easy-to-use wrapper.
 ###
     def resume(self, *args, **kwargs):
@@ -99,26 +98,23 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: = speaker.allinone.Speaker.recipe
-# 
+#     :see: speaker.allinone.Speaker.recipe
+#
 # This method is just an esay-to-use wrapper.
 ###
     def recipe(self, *args, **kwargs) -> None:
         self.problems.speaker.recipe(*args, **kwargs)
 
 
-
 ###
 # prototype::
-#     kind    = ; // See Python typing...
-#               the kind of time stamp ("start" and "end" for example). 
+#     kind    : the kind of time stamp ("start" and "end" for example).
 #               This string will be always "upperized".
-#     with_NL = (True); // See Python typing...
-#               ``True`` asks to add a new line after the title and
+#     with_NL : ``True`` asks to add a new line after the title and
 #               ``False`` to not do this.
 #
-#     :see: = timer.timestamp
-# 
+#     :see: timer.timestamp
+#
 # This method is just an easy-to-use wrapper.
 ###
     def timestamp(

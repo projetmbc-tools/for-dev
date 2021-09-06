@@ -2,9 +2,7 @@
 
 from cbdevtools import *
 
-projectname = 'src2prod'
-projectname = 'spkpb'
-projectname = 'cbdevtools'
+projectname = 'TeXitEasy'
 
 
 # ------------------------------------ #
@@ -23,22 +21,16 @@ MODULE_DIR = addfindsrc(
 
 from src import *
 
-MONOREPO_DIR = MODULE_DIR.parent
-PROJECT_DIR  = Path(projectname)
+MONOREPO_DIR = MODULE_DIR.parent.parent / 'tools-for-latex'
+PROJECT_DIR  = MONOREPO_DIR / Path(projectname)
 
 project = Project(
     project = PROJECT_DIR,
     source  = 'src',
     target  = projectname.lower(),
-    ignore  = '''
-        tool_*/
-        tool_*.*
-
-        test_*/
-        test_*.*
-    ''',
-    usegit = True,
-    readme = PROJECT_DIR / 'README.md'
+    ignore  = MONOREPO_DIR / 'ignore-for-prod.txt',
+    usegit  = True,
+    readme  = 'readme'
 )
 
 project.update(safemode = False)

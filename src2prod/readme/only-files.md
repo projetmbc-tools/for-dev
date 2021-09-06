@@ -30,7 +30,7 @@ for f in project.lof:
     print(f)
 ~~~
 
-This script gives the following output in a terminal. Note that the list doesn't contain the path of the `README` file, this last one must be manage by hand (see the methods `check_readme` and `copy_readme` of the class `Project`). 
+This script gives the following output in a terminal. Note that the list doesn't contain the path of the `README` file, this last one must be manage by hand (see the methods `check_readme` and `copy_readme` of the class `Project`).
 
 ~~~
 /full/path/to/TeXitEasy/src/__init__.py

@@ -1,4 +1,22 @@
 ==
+27
+==
+
+**New sub minor version version::``0.1.1-beta``:** path::``README.md`` has been updated.
+
+
+**New minor version version::``0.1.0-beta``:** see the changes below.
+
+**Changes in the class ``Speaker``.**
+
+    1) The way to init the class has changed such as to choose easily the outputs (instead of imposing both the terminal and the log file).
+
+    1) The argument ``silent`` has been changed to ``onlyresume`` (this is easier to understand).
+
+    1) The argument ``style`` has been renamed to ``termstyle``.
+
+
+==
 10
 ==
 
@@ -18,14 +36,14 @@
 
 **New sub minor version version::``0.0.8-beta``:** here are the useful changes made.
 
-    1) The method ``reset_logfile`` of ``speaker.log.LogSpeaker`` is accessible directly from the classes ``BaseCom``, ``Problems`` and ``Speaker``. 
-    
+    1) The method ``reset_logfile`` of ``speaker.log.LogSpeaker`` is accessible directly from the classes ``BaseCom``, ``Problems`` and ``Speaker``.
+
     1) path::``README.md`` has a simpler example of use of ``BaseCom`` and it also talks about the new methods ``reset_logfile``.
 
 
 **New sub minor version version::``0.0.7-beta``:** here are the little changes made.
 
-    1) The class ``BaseCom`` also allows the use of time stamps. That was omitted. 
+    1) The class ``BaseCom`` also allows the use of time stamps. That was omitted.
 
     1) path::``README.md`` has been updated with a small example of use of ``BaseCom``.
 

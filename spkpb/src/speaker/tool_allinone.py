@@ -46,9 +46,9 @@ SRC_ACTIONS_NO_ARG = []
 with ReadBlock(
     content = FILE_PEUF,
     mode    = "verbatim"
-) as datas: 
+) as datas:
     config = {}
-    
+
     for kind, names in datas.mydict("std nosep nonb").items():
         config[kind] = []
 
@@ -60,12 +60,12 @@ with ReadBlock(
 
             if kind == VAR_TAG:
                 thistype =  VAR_TAG
-            
+
             else:
                 thistype = ACTION_TAG
-            
+
             lenname = len(onename)
-            
+
             if lenname > SRC_MAXLEN_ACTIONS_OR_VARS[thistype]:
                 SRC_MAXLEN_ACTIONS_OR_VARS[thistype] = lenname
 
@@ -124,7 +124,7 @@ with FILE_PY.open(
 
 
 before, _ , after = between(
-    text = content, 
+    text = content,
     seps = [
         COMMENT_TAG_START,
         COMMENT_TAG_END

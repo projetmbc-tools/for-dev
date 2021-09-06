@@ -1,7 +1,7 @@
 A ready-to-use communicating class
 ----------------------------------
 
-We have seen hard use of the API of `spkpb`. Indeed you can heritate the class `BaseCom` to do things easily: see the following code and outputs.
+We have seen the hard use of the API of `spkpb`. Indeed you can heritate the class `BaseCom` to do things easily: see the following code and outputs.
 
 
 ### `Python` code
@@ -11,7 +11,10 @@ from spkpb import *
 
 project = BaseCom(
     Problems(
-        Speaker(logfile = Path('mylog.log'))
+        Speaker(
+            logfile   = Path('mylog.log'),
+            termstyle = GLOBAL_STYLE_COLOR
+        )
     )
 )
 
@@ -41,7 +44,7 @@ project.recipe(
         {VAR_STEP_INFO: 'ONLY IN THE LOG FILE!',
          VAR_LEVEL    : 1},
 )
-    
+
 project.resume()
 
 project.recipe(NL)

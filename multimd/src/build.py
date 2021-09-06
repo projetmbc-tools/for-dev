@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ###
-# This module allows to make a single path::``MD`` file from several single 
+# This module allows to make a single path::``MD`` file from several single
 # ones (using or not an "automatic" merging).
 ###
 
@@ -28,10 +28,8 @@ class Builder():
 
 ###
 # prototype::
-#     output  = ; // See Python typing...
-#               the path of the single final path::``MD`` file.
-#     content = ; // See Python typing...
-#               the path of the directory with the path::``MD`` files.
+#     output  : the path of the single final path::``MD`` file.
+#     content : the path of the directory with the path::``MD`` files.
 ###
     def __init__(
         self,
@@ -40,7 +38,7 @@ class Builder():
     ) -> None:
         self.output  = output
         self.content = content
-        
+
         self._lof: List[Path] = []
 
 

@@ -12,7 +12,10 @@ from spkpb import *
 
 project = BaseCom(
     Problems(
-        Speaker(logfile = Path('mylog.log'))
+        Speaker(
+            logfile   = Path('mylog.log'),
+            termstyle = GLOBAL_STYLE_COLOR
+        )
     )
 )
 
@@ -34,6 +37,8 @@ project.resume()
 
 ### The terminal output
 
+Everything is printed but the summary only keeps what is after the use of the method `reset`.
+
 ~~~
 1) [ #1 ] WARNING: some strange behaviors.
 1) [ #1 ] ERROR: bad things appear.
@@ -54,6 +59,8 @@ Who has chosen this stupid example? :-)
 
 ### The content of the log file `mylog.log`
 
+Everything before the use of the method `reset` is lost for ever.
+
 ~~~
 1) [ #1 ] ERROR: bad things appear.
 
@@ -64,4 +71,3 @@ Who has chosen this stupid example? :-)
     * one/bad/file.txt
         + See [ #.1 ] : bad things appear.
 ~~~
-

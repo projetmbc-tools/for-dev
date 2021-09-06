@@ -60,7 +60,7 @@ In our project above, there are some files only useful for the development of th
   1. The `README.md` file used for `git` servers must also be used for the final product.
 
 
-The final product built from the `src` folder must have the following name and structure. 
+The final product built from the `src` folder must have the following name and structure.
 
 ~~~
 + texiteasy
@@ -98,7 +98,7 @@ Here are some important points about the code above.
   1. `project`, `source`, `target` and `readme` follows the rules below.
 
       * The values of this arguments can also be strings (that will be converted to instances of `Path`).
-        
+
       * The argument `readme` is optional contrary to `project`, `source` and `target`.
 
       * `project` is a complete path regarding the working directory when launching the file, but `source`, `target` and `readme` are relative to `project`.
@@ -150,7 +150,7 @@ for f in project.lof:
     print(f)
 ~~~
 
-This script gives the following output in a terminal. Note that the list doesn't contain the path of the `README` file, this last one must be manage by hand (see the methods `check_readme` and `copy_readme` of the class `Project`). 
+This script gives the following output in a terminal. Note that the list doesn't contain the path of the `README` file, this last one must be manage by hand (see the methods `check_readme` and `copy_readme` of the class `Project`).
 
 ~~~
 /full/path/to/TeXitEasy/src/__init__.py
@@ -162,7 +162,7 @@ This script gives the following output in a terminal. Note that the list doesn't
 `README.md` part by part
 ------------------------
 
-You can write you `README.md` typing small section like parts as it is the case for the `README.md` you are reading. The `src2prod` project had merly the following partial tree structure on August 22, 2021.
+You can write you `README.md` typing small section like parts as it is the case for the `README.md` you are reading (that is both in the repository and the final project to be distributed). The `src2prod` project had merly the following partial tree structure on August 22, 2021.
 
 ~~~
 + src2prod
@@ -180,7 +180,7 @@ You can write you `README.md` typing small section like parts as it is the case 
 
     + src
         * ...
-    
+
     * README.md
     * ...
 ~~~
@@ -287,7 +287,7 @@ src           changes
 spkpb         tools
 
 > ls spkpb/spkpb/*
-spkpb/spkpb/LICENSE.txt        spkpb/spkpb/__init__.py        
+spkpb/spkpb/LICENSE.txt        spkpb/spkpb/__init__.py
 spkpb/spkpb/problems.py        spkpb/spkpb/README.md
 spkpb/spkpb/base.py            spkpb/spkpb/timer.py
 

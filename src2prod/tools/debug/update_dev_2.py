@@ -2,7 +2,6 @@
 
 from cbdevtools import *
 
-
 # projectname = 'spkpb'
 # projectname = 'cbdevtools'
 projectname = 'monorepo'
@@ -32,7 +31,7 @@ MONOREPO_DIR = MODULE_DIR.parent
 PROJECT_DIR  = Path(projectname)
 
 project = Project(
-    project = PROJECT_DIR,
+    project = MONOREPO_DIR / PROJECT_DIR,
     source  = 'src',
     target  = projectname.lower(),
     ignore  = MONOREPO_DIR / 'ignore-for-prod.txt',

@@ -18,7 +18,7 @@ from .baseproj import *
 # ------------------------ #
 
 ###
-# This class is the main one to use such as to easily manage a project 
+# This class is the main one to use such as to easily manage a project
 # following the "source-to-final-product" workflow.
 ###
 
@@ -27,14 +27,13 @@ class Project(BaseProj):
 
 ###
 # prototype::
-#     safemode = ( True ) ; // See Python typing...
-#                ``True`` asks to never remove a none empty target folder
-#                contrary to ``False``.
+#     safemode : ``True`` asks to never remove a none empty target folder
+#                 contrary to ``False``.
 #
 # info::
 #     The argument ``safemode`` is here to leave the responsability of
 #     removing a none empty folder to the user (my lawyers forced me to
-#     make that choice).
+#     add this feature).
 ###
     def update(self, safemode: bool = True) -> None:
 # Say "Hello!".
@@ -71,7 +70,7 @@ class Project(BaseProj):
 
             return
 
-# We can update the target folder. 
+# We can update the target folder.
         for name in [
             'empty_target',
             'copy_src2target',
@@ -81,7 +80,7 @@ class Project(BaseProj):
 
 # Every copies has been made.
         self.recipe(
-            {VAR_STEP_INFO: 
+            {VAR_STEP_INFO:
                 f'Target folder updated.'}
         )
 
@@ -106,7 +105,7 @@ class Project(BaseProj):
 
 # We are so happy to talk about our exploit...
         self.recipe(
-            {VAR_STEP_INFO: 
+            {VAR_STEP_INFO:
                 f'Target folder has been {action}:'
                  '\n'
                 f'"{self.target}".'},
@@ -121,7 +120,7 @@ class Project(BaseProj):
         plurial  = '' if nb_files == 1 else 's'
 
         self.recipe(
-            {VAR_STEP_INFO: 
+            {VAR_STEP_INFO:
                 f'Copying {nb_files} file{plurial} from source to target.'}
         )
 
@@ -164,22 +163,20 @@ class Project(BaseProj):
 
 # Let's talk...
         readme_rel = readme_src.relative_to(self.project)
-        
+
         self.recipe(
-            {VAR_STEP_INFO: 
+            {VAR_STEP_INFO:
                 f'"{readme_rel}" added to the target.'}
         )
 
 
 ###
 # prototype::
-#     opensession  = ; // See Python typing...
-#                    ``True`` is to reset eveything and open the communication 
+#     opensession  : ``True`` is to reset eveything and open the communication
 #                    and ``False`` starts directly the work.
-#     closesession = ; // See Python typing...
-#                    ``True`` is to close the communication and 
+#     closesession : ``True`` is to close the communication and
 #                    ``False`` otherwise.
-#              
+#
 #
 # This method is the great bandleader building the list of files to be copied to
 # the target dir.
@@ -252,14 +249,14 @@ class Project(BaseProj):
                     level = 1
                 )
                 return
-            
+
             self._readme_is_file = False
 
 # Let's talk...
         kind = '"README" file' if self._readme_is_file else '"readme" dir'
 
         self.recipe(
-            {VAR_STEP_INFO: 
+            {VAR_STEP_INFO:
                 f'External {kind} to use:'
                  '\n'
                  f'"{self.readme}".'}
@@ -269,13 +266,14 @@ class Project(BaseProj):
 ###
 # This method does three things.
 #
-#     1) Indirecty it checks that ¨git can be used.   
+#     1) Indirecty it checks that ¨git can be used.
 #     2) It finds the branch on which we are working.
-#     3) It verifies that there isn't any uncommitted changes in the source files.
+#     3) It verifies that there isn't any uncommitted changes in
+#        the source files.
 #
 # warning::
-#     We do not want any uncommitted changes even on the ignored files because this
-#     could imply some changes in the final product. 
+#     We do not want any uncommitted changes even on the ignored files
+#     because this could imply some changes in the final product.
 ###
     def check_git(self) -> None:
         self.recipe(
@@ -292,7 +290,7 @@ class Project(BaseProj):
             ('uncommitted', ['a']),
         ]:
             infos[kind] = self.rungit(options)
-    
+
             if not self.success:
                 return
 
@@ -355,7 +353,7 @@ class Project(BaseProj):
     def files_without_git(self) -> None:
 # Let's talk.
         self.recipe(
-            {VAR_STEP_INFO: 
+            {VAR_STEP_INFO:
                  'Starting the analysis of the source folder:'
                  '\n'
                 f'"{self.source}".'},
@@ -385,7 +383,7 @@ class Project(BaseProj):
 # Let's be proud of our 1st list.
         if self.usegit:
             whatused = 'the rules from "ignore"'
-        
+
         else:
             whatused = 'only the rules from "ignore"'
 
@@ -404,7 +402,7 @@ class Project(BaseProj):
 # This method shrinks the list of files by using the ignore rules used by ¨git.
 #
 # info::
-#     The method ``rungit`` fails with ``options = ['check-ignore', '**/*'])``, 
+#     The method ``rungit`` fails with ``options = ['check-ignore', '**/*'])``,
 #     so we must test directly each path.
 ###
     def removed_by_git(self) -> None:
@@ -413,7 +411,7 @@ class Project(BaseProj):
 # Let's talk.
         self.recipe(
             FORTERM,
-                {VAR_STEP_INFO: 
+                {VAR_STEP_INFO:
                     'Removing unwanted files using "git".'},
         )
 
@@ -427,10 +425,10 @@ class Project(BaseProj):
                 ]
             )
         ]
-        
+
 # Let's be proud of our 2nd list.
         len_lof = len(self.lof)
-        
+
         if len_lof_before == len_lof:
             extra = ' No new file ignored.'
 
@@ -457,12 +455,10 @@ class Project(BaseProj):
 
 ###
 # prototype::
-#     output   = _ in [FORTERM, FORLOG, FORALL]; // See Python typing...
-#                the output(s) where we want to communicate.
-#     whatused = ; // See Python typing...
-#                the method used to shrink the list of files.
-#     extra    = ( '' ); // See Python typing...
-#                a small extra text.
+#     output   : the output(s) where we want to communicate.
+#              @ output in [FORTERM, FORLOG, FORALL]
+#     whatused : the method used to shrink the list of files.
+#     extra    : a small extra text.
 #
 # This method is just a factorization.
 ###
@@ -471,39 +467,37 @@ class Project(BaseProj):
         output  : str,
         whatused: str,
         extra   : str = ''
-    ) -> None: 
+    ) -> None:
         len_lof = len(self.lof)
         plurial = '' if len_lof == 1 else 's'
 
         self.recipe(
             output,
-                {VAR_STEP_INFO: 
+                {VAR_STEP_INFO:
                     f'{len_lof} file{plurial} found using {whatused}.{extra}'},
         )
 
 
 ###
 # prototype::
-#     title       = ; // See Python typing...
-#                   the title of the session.
-#     timer_title = ; // See Python typing...
-#                   the title for the time stamp.
+#     title       : the title of the session.
+#     timer_title : the title for the time stamp.
 #
 # This method is just a factorization.
 ###
     def _start_one_session(
-        self, 
+        self,
         title      : str,
         timer_title: str
     ) -> None:
         self.reset()
-        
+
         self.timestamp(f'{timer_title} - start')
-        
+
         self.recipe(
                 {VAR_TITLE: title},
             FORTERM,
-                {VAR_STEP_INFO: 
+                {VAR_STEP_INFO:
                      'The log file used will be :'
                      '\n'
                     f'"{self.logfile}".'},
@@ -511,20 +505,19 @@ class Project(BaseProj):
 
 ###
 # prototype::
-#     timer_title = ; // See Python typing...
-#                   the title for the time stamp.
+#     timer_title : the title for the time stamp.
 #
 # This method is just a factorization.
 ###
     def _close_one_session(
-        self, 
+        self,
         timer_title: str
     ) -> None:
         self.resume()
-        
+
         self.recipe(
             FORLOG,
                 NL
         )
-        
+
         self.timestamp(f'{timer_title} - end')
