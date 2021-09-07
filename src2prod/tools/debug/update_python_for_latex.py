@@ -3,6 +3,7 @@
 from cbdevtools import *
 
 projectname = 'TeXitEasy'
+projectname = 'TeXfactory'
 
 
 # ------------------------------------ #
@@ -21,7 +22,7 @@ MODULE_DIR = addfindsrc(
 
 from src import *
 
-MONOREPO_DIR = MODULE_DIR.parent.parent / 'tools-for-latex'
+MONOREPO_DIR = MODULE_DIR.parent.parent / 'for-latex'
 PROJECT_DIR  = MONOREPO_DIR / Path(projectname)
 
 project = Project(
