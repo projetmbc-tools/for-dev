@@ -1,7 +1,7 @@
 [tool.poetry]
-name         = "multimd"
-version      = "0.0.1-beta"
-description  = 'This project makes it possible to write separated pieces of `MD` files that will be merged to produce one single final `MD` file.'
+name         = "aabout"
+version      = "0.0.0-beta"
+description  = 'This project allows to define and use very easy-to-write `ASCII` files containing customizable metadatas about projects.'
 readme       = "README.md"
 authors      = ["Christophe BAL"]
 maintainers  = ["Christophe BAL"]

@@ -1,0 +1,77 @@
+[[package]]
+name = "click"
+version = "7.1.2"
+description = "Composable command line interface toolkit"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[[package]]
+name = "mistool"
+version = "1.2.6b0"
+description = "Miscellaneous missing tools that can help the py-developper."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "multimd"
+version = "0.0.0b0"
+description = "This project makes it possible to write separated pieces of ``MD`` files that will be merged to produce one single final ``MD`` file."
+category = "main"
+optional = false
+python-versions = ">=3.8,<4.0"
+
+[package.dependencies]
+natsort = ">=7.1.1,<8.0.0"
+
+[[package]]
+name = "natsort"
+version = "7.1.1"
+description = "Simple yet flexible natural sorting in Python."
+category = "main"
+optional = false
+python-versions = ">=3.4"
+
+[package.extras]
+fast = ["fastnumbers (>=2.0.0)"]
+icu = ["PyICU (>=1.0.0)"]
+
+[[package]]
+name = "spkpb"
+version = "0.0.10b0"
+description = "A module to write programs which have to be verbose about a process on files and directories, and that have to emit informations, warnings and errors."
+category = "main"
+optional = false
+python-versions = ">=3.8,<4.0"
+
+[package.dependencies]
+mistool = ">=1.2.6-beta.0,<2.0.0"
+natsort = ">=7.1.1,<8.0.0"
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.8"
+content-hash = "a4627d87a758e916b86978c10dbeab72d7baee695d63b36ce87433c2dbc3bc6e"
+
+[metadata.files]
+click = [
+    {file = "click-7.1.2-py2.py3-none-any.whl", hash = "sha256:dacca89f4bfadd5de3d7489b7c8a566eee0d3676333fbb50030263894c38c0dc"},
+    {file = "click-7.1.2.tar.gz", hash = "sha256:d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"},
+]
+mistool = [
+    {file = "mistool-1.2.6b0-py3-none-any.whl", hash = "sha256:53fa64ca00fe6b825558066a1753c418b41a4be12f6b73578e4dcbb9f6cd084f"},
+    {file = "mistool-1.2.6b0.tar.gz", hash = "sha256:21afd96c7fd34b988078c566e5bc050d3c1cd97cfc4089ddbc0d1e7367dd67c1"},
+]
+multimd = [
+    {file = "multimd-0.0.0b0-py3-none-any.whl", hash = "sha256:50f82b6f36818157b3ff50432d745db6392b53ec66990bc9e48c649e5d7c70a9"},
+    {file = "multimd-0.0.0b0.tar.gz", hash = "sha256:4f6da907705c0fdbf851804e109d2a7f3459ce41d094e1da97e6123ef59b68f4"},
+]
+natsort = [
+    {file = "natsort-7.1.1-py3-none-any.whl", hash = "sha256:d0f4fc06ca163fa4a5ef638d9bf111c67f65eedcc7920f98dec08e489045b67e"},
+    {file = "natsort-7.1.1.tar.gz", hash = "sha256:00c603a42365830c4722a2eb7663a25919551217ec09a243d3399fa8dd4ac403"},
+]
+spkpb = [
+    {file = "spkpb-0.0.10b0-py3-none-any.whl", hash = "sha256:7917609c5531275f5c71f50ead60172e11646a859c2d26bd0c6311512e8b4f19"},
+    {file = "spkpb-0.0.10b0.tar.gz", hash = "sha256:952e1950dfe760531ea1319a8aef3dedc360ac8e57a0adb5c61bad4c58f41e95"},
+]

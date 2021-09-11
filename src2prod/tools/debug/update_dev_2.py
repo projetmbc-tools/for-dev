@@ -8,7 +8,7 @@ projectname = 'monorepo'
 
 # projectname = 'multimd'
 
-# projectname = 'src2prod'
+projectname = 'src2prod'
 
 
 # ------------------------------------ #
