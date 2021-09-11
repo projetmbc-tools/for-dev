@@ -2,8 +2,10 @@
 
 from cbdevtools import *
 
-projectname = 'TeXitEasy'
-projectname = 'TeXfactory'
+projectname = 'bdoc'
+
+# projectname = 'TeXfactory'
+# projectname = 'TeXitEasy'
 
 
 # ------------------------------------ #

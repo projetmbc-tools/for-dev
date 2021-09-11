@@ -1,0 +1,5 @@
+==
+11
+==
+
+**New sub minor version version::``0.0.7-beta``:** the method ``Project.update`` has two new arguments ``opensession`` and ``closesession``.

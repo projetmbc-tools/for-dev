@@ -27,20 +27,30 @@ class Project(BaseProj):
 
 ###
 # prototype::
-#     safemode : ``True`` asks to never remove a none empty target folder
-#                 contrary to ``False``.
+#     opensession  : ``True`` is to reset eveything and open the communication
+#                    and ``False`` starts directly the work.
+#     closesession : ``True`` is to close the communication and
+#                    ``False`` otherwise.
+#     safemode     : ``True`` asks to never remove a none empty target folder
+#                    contrary to ``False``.
 #
 # info::
 #     The argument ``safemode`` is here to leave the responsability of
 #     removing a none empty folder to the user (my lawyers forced me to
 #     add this feature).
 ###
-    def update(self, safemode: bool = True) -> None:
+    def update(
+        self,
+        opensession : bool = True,
+        closesession: bool = True,
+        safemode    : bool = True
+    ) -> None:
 # Say "Hello!".
-        self._start_one_session(
-            title       = f'"{self.project.name}": UPDATE',
-            timer_title = 'update'
-        )
+        if opensession:
+            self._start_one_session(
+                title       = f'"{self.project.name}": UPDATE',
+                timer_title = 'update'
+            )
 
 # Build the l.o.f.
         self.build(
@@ -85,7 +95,8 @@ class Project(BaseProj):
         )
 
 # Say "Good bye!".
-        self._close_one_session(timer_title = 'update')
+        if closesession:
+            self._close_one_session(timer_title = 'update')
 
 ###
 # This method creates or empties the target folder.

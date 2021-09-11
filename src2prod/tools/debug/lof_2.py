@@ -19,11 +19,11 @@ MODULE_DIR = addfindsrc(
 
 from src import *
 
-PROJECT_DIR = Path("/Users/projetmbc/Google Drive/git[NEW]/tools/tools-for-latex/")
+PROJECT_DIR = Path("/Users/projetmbc/Google Drive/git[NEW]/coding/tools/for-latex") / 'bdoc'
 
 project = Project(
     project = PROJECT_DIR,
-    source  = Path('TeXitEasy') / 'src',
+    source  = PROJECT_DIR / 'src',
     target  = '',
     ignore  = '''
         tool_*/
@@ -41,4 +41,3 @@ print('---')
 
 for f in project.lof:
     print(f)
-
