@@ -2,4 +2,4 @@
 
 from typing import *
 
-from .dialect import *
+from .toc   import *
