@@ -1,4 +1,11 @@
 ==
+??
+==
+
+**New sub minor version version::``0.0.8-beta``:** the method ``BaseProj.reset`` has a mandatory argument ``???`` to indicate the kind of method used to build the project (this is used by ¨texfactory).
+
+
+==
 11
 ==
 
