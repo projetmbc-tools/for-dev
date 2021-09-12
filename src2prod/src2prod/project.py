@@ -45,7 +45,7 @@ class Project(BaseProj):
         closesession: bool = True,
         safemode    : bool = True
     ) -> None:
-# Say "Hello!".
+# Do we open the session?
         if opensession:
             self._start_one_session(
                 title       = f'"{self.project.name}": UPDATE',
@@ -94,7 +94,7 @@ class Project(BaseProj):
                 f'Target folder updated.'}
         )
 
-# Say "Good bye!".
+# Do we clode the session?
         if closesession:
             self._close_one_session(timer_title = 'update')
 
@@ -197,7 +197,7 @@ class Project(BaseProj):
         opensession : bool = True,
         closesession: bool = True,
     ) -> None:
-# Do we close the session?
+# Do we open the session?
         if opensession:
             self._start_one_session(
                 title       = f'"{self.project.name}": LIST OF FILES',

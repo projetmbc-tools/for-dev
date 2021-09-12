@@ -106,17 +106,22 @@ class BaseProj(BaseCom):
 
 ###
 # prototype::
+#     kind : the kind of making made
+#
 #     :see: spkpb.problems.Problems.reset
 #
 # This method resets everything.
 ###
-    def reset(self) -> None:
+    def reset(
+        self,
+        kind: str = 'SOURCE --> FINAL PRODUCT'
+    ) -> None:
         super().reset()
 
         self.recipe(
             FORLOG,
                 {VAR_TITLE:
-                    f'"{self.project.name}": SOURCE --> FINAL PRODUCT'},
+                    f'"{self.project.name}": {kind}'},
         )
 
 # Extra attributs.
