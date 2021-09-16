@@ -1,18 +1,53 @@
 ==
-13
+13  (0.0.10-beta)
 ==
 
-**New sub minor version version::``0.0.10-beta``:** the line ``from pytest import fixture`` was missing in the test file... Do not laugh please!
+--------
+:fordev:
+--------
+
+[[:bug:]]
+The line ``from pytest import fixture`` was missing in the test file... Do not laugh please!
 
 
-**New sub minor version version::``0.0.9-beta``:** two things have been done.
-
-    1) One fixture added to build and use path::``PEUF`` files very easily.
-
-    1) ``orpystedatas.build_datas`` has been removed (it was wrong and unuseful for the moment).
+// ---------- //
 
 
-**New sub minor version version::``0.0.8-beta``:** a very stupid bug fixed in path::``orpystedata.py``.
+==
+13  (0.0.9-beta)
+==
+
+------
+:news:
+------
+
+[[:api:]]
+One fixture added to build and use path::``PEUF`` files very easily.
+
+[[:api:]]
+``orpystedatas.build_datas`` has been removed (it was wrong and is unuseful for the moment).
 
 
-**First version version::``0.0.7-beta``:** this project is "Common Box of Dev Tools" proposing small scripts that can be helpful (the strange first number version comes from a rigid behavior of ¨pypi).
+// ---------- //
+
+
+==
+13  (0.0.8-beta)
+==
+
+--------
+:fordev:
+--------
+
+[[:bug:]]
+A very stupid bug fixed in path::``orpystedata.py``.
+
+
+// ---------- //
+
+
+==
+13  (0.0.7-beta)
+==
+
+This project is "Common Box of Dev Tools" proposing small scripts that can be helpful (the strange first number version comes from a rigid behavior of ¨pypi).

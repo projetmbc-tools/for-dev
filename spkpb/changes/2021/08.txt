@@ -1,13 +1,28 @@
 ==
-27
+27  (0.1.1-beta)
 ==
 
-**New sub minor version version::``0.1.1-beta``:** path::``README.md`` has been updated.
+--------
+:update:
+--------
+
+[[:docu:]]
+path::``README.md`` has been updated.
 
 
-**New minor version version::``0.1.0-beta``:** see the changes below.
+// ---------- //
 
-**Changes in the class ``Speaker``.**
+
+==
+27  (0.1.0-beta)
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+``Speaker`` has been modified.
 
     1) The way to init the class has changed such as to choose easily the outputs (instead of imposing both the terminal and the log file).
 
@@ -16,55 +31,162 @@
     1) The argument ``style`` has been renamed to ``termstyle``.
 
 
-==
-10
-==
-
-**New sub minor version version::``0.0.10-beta``:** path::``README.md`` was partially updated. It should be good now.
-
-
-**New sub minor version version::``0.0.9-beta``:** two important and needed changes have been made.
-
-    1) ``BaseCom``, ``Problems`` and ``Speaker``: the method ``reset_logfile`` has been removed.
-
-    1) ``BaseCom``, ``Problems`` and ``Speaker``: a new method ``reset`` resets the management of problems and consequently the log file.
-
-    1) path::``README.md`` updated.
-
-    1) One bug found in ``Speaker``: the way used to set the attribut `silent` was wrong.
-
-
-**New sub minor version version::``0.0.8-beta``:** here are the useful changes made.
-
-    1) The method ``reset_logfile`` of ``speaker.log.LogSpeaker`` is accessible directly from the classes ``BaseCom``, ``Problems`` and ``Speaker``.
-
-    1) path::``README.md`` has a simpler example of use of ``BaseCom`` and it also talks about the new methods ``reset_logfile``.
-
-
-**New sub minor version version::``0.0.7-beta``:** here are the little changes made.
-
-    1) The class ``BaseCom`` also allows the use of time stamps. That was omitted.
-
-    1) path::``README.md`` has been updated with a small example of use of ``BaseCom``.
-
-
-**New sub minor version version::``0.0.6-beta``:** a class ``BaseCom`` has been added such as to work easily with instances of ``Speaker`` and ``Problems``.
+// ---------- //
 
 
 ==
-09
+10  (0.0.10-beta)
 ==
 
-**New sub minor version version::``0.0.5-beta``:** better path::``README.md``.
+--------
+:update:
+--------
+
+[[:docu:]]
+path::``README.md`` was partially updated. It should be good now.
 
 
-**New sub minor version version::``0.0.4-beta``:** here are the little changes made.
-
-    1) path::``README.md`` and link added in the path::``pyproject.toml`` for ``poetry``.
-
-    1) Class ``speaker.allinone.Speaker``: ``getter`` and ``setter`` for the boolean attribute ``silent`` (the ``setter`` automatically call the ``forall`` method).
-
-    1) Class ``problems.Problems``: the ``wraps`` decorator from ``functools`` has been removed because it was unuseful.
+// ---------- //
 
 
-**First version version::``0.0.3-beta``:** this project proposes tools to simplify the writing of programs which have to be verbose about a process in a terminal and a log file, and that also want to emit warnings and errors (the strange first number version comes from a rigid behavior of ¨pypi).
+==
+10  (0.0.9-beta)
+==
+
+-------
+:break:
+-------
+
+[[:api:]]
+``BaseCom``, ``Problems`` and ``Speaker``: the method ``reset_logfile`` has been removed.
+
+
+-----
+:new:
+-----
+
+[[:api:]]
+``BaseCom``, ``Problems`` and ``Speaker``: a new method ``reset`` resets the management of problems and consequently the log file.
+
+
+--------
+:update:
+--------
+
+[[:docu:]]
+path::``README.md`` updated.
+
+
+--------
+:fordev:
+--------
+
+[[:bug:]]
+``Speaker``: the way used to set the attribut `silent` was wrong.
+
+
+// ---------- //
+
+
+==
+10  (0.0.8-beta)
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+The method ``reset_logfile`` of ``speaker.log.LogSpeaker`` is accessible directly from the classes ``BaseCom``, ``Problems`` and ``Speaker``.
+
+
+--------
+:update:
+--------
+
+[[:docu:]]
+path::``README.md`` has a simpler example of use of ``BaseCom`` and it also talks about the new methods ``reset_logfile``.
+
+
+// ---------- //
+
+
+==
+10  (0.0.7-beta)
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+The class ``BaseCom`` also allows the use of time stamps. That was omitted.
+
+
+--------
+:update:
+--------
+
+[[:docu:]]
+path::``README.md`` has been updated with a small example of use of ``BaseCom``.
+
+
+// ---------- //
+
+
+==
+10  (0.0.6-beta)
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+A class ``BaseCom`` has been added such as to work easily with instances of ``Speaker`` and ``Problems``.
+
+
+// ---------- //
+
+
+==
+09  (0.0.5-beta)
+==
+
+--------
+:update:
+--------
+
+[[:docu:]]
+Better path::``README.md``.
+
+
+// ---------- //
+
+
+==
+09  (0.0.4-beta)
+==
+
+--------
+:fordev:
+--------
+
+[[:tech:]]
+path::``README.md`` and link added in the path::``pyproject.toml`` for ``poetry``.
+
+[[:api:]]
+Class ``speaker.allinone.Speaker``: ``getter`` and ``setter`` for the boolean attribute ``silent`` (the ``setter`` automatically call the ``forall`` method).
+
+[[:tech:]]
+``problems.Problems``: the ``wraps`` decorator from ``functools`` has been removed because it was unuseful.
+
+
+// ---------- //
+
+
+==
+09  (0.0.3-beta)
+==
+
+This project proposes tools to simplify the writing of programs which have to be verbose about a process in a terminal and a log file, and that also want to emit warnings and errors (the strange first number version comes from a rigid behavior of ¨pypi).

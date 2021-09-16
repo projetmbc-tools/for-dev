@@ -1,5 +1,5 @@
 ==
-???
+??  (0.0.0-beta)
 ==
 
-**First version version::``0.0.0-beta``:** this project allows to define and use very easy-to-write ¨ascii files containing customisable metadatas about projects.
+This project allows to define and use very easy-to-write ¨ascii files containing customisable metadatas about projects.
