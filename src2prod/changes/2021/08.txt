@@ -7,7 +7,7 @@
 -----
 
 [[:api:]]
-It is now powwible to use a dir path::``readme`` where the path::``README.md`` file is written piece by piece.
+It is now possible to use a dir path::``readme`` where the path::``README.md`` file is written piece by piece.
 
 
 // ---------- //
@@ -57,6 +57,11 @@ Attribut ``ignore``: it can be either a string or an absolute ``pathib.Path`` of
 [[:api:]]
 One ¨cli has been added to update projects.
 
+
+--------
+:update:
+--------
+
 [[:doc:]]
 ``README.md``: the syntax for ``ignore`` rules has been explained and ¨infos about the new ¨cli features have been added.
 
@@ -75,11 +80,16 @@ One ¨cli has been added to update projects.
 [[:api:]]
 The module ``lowlevel`` and the class ``LowLevel`` have been renamed ``baseproj`` and ``BaseProj``.
 
-[[:bug:]]
-``baseproj.BaseProj`` previously ``lowlevel.LowLevel``: one stupid bug fixed. Instantiation used the default value ``False`` instead of ``None`` for the argument ``readme``.
-
 [[:docu:]]
 ``README.md``: the use of relative paths has been indicated.
+
+
+--------
+:fordev:
+--------
+
+[[:bug:]]
+``baseproj.BaseProj`` previously ``lowlevel.LowLevel``: one stupid bug fixed. Instantiation used the default value ``False`` instead of ``None`` for the argument ``readme``.
 
 
 // ---------- //
