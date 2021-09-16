@@ -21,7 +21,7 @@ from orpyste.data import ReadBlock
 # This fixture yields a ready-to-use data dictionary used to acheive the tests.
 # It also finalizes the cleaning of ¨orpyste extra files in case of problem.
 #
-# info::
+# note::
 #     The "intuitive" dictionary is build via ``mydict("std nosep nonb")``
 #     (see ¨orpyste).
 #
@@ -102,7 +102,7 @@ def peuf_fixture() -> None:
 # This function returns an instance of ``ReadBlock`` associated to
 # a path::``peuf`` file automatically named.
 #
-# info::
+# note::
 #     The name of the path::``peuf`` file is obtained by removing the prefix
 #     path::``test_`` from the name of the testing file (see the ¨tech ¨doc
 #     of ``peuf_fixture`` for a concrete example).

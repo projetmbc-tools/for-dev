@@ -48,7 +48,7 @@ ALL_GLOBAL_STYLES = [
 # This abstract class / interface defines the common ¨api of the speakers.
 ###
 
-class AbstractSpeaker(metaclass=ABCMeta):
+class AbstractSpeaker(metaclass = ABCMeta):
 # Source to have a real interface:
 #     * https://realpython.com/python-interface/#using-abcabcmeta
     @classmethod
@@ -103,7 +103,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 #             @ context in ALL_CONTEXTS
 #
 #
-# info::
+# note::
 #     This method doesn't need to be implemented (some speaker has no style
 #     like the log like ones).
 ###

@@ -1,7 +1,7 @@
 [tool.poetry]
 name         = "aabout"
 version      = "0.0.0-beta"
-description  = 'This project allows to define and use very easy-to-write `ASCII` files containing customizable metadatas about projects.'
+description  = 'This project allows to define and use very easy-to-write `ASCII` files containing customisable metadatas about projects.'
 readme       = "README.md"
 authors      = ["Christophe BAL"]
 maintainers  = ["Christophe BAL"]

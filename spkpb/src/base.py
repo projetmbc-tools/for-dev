@@ -24,7 +24,7 @@ class BaseCom:
 #     problems : an instance of ``toolbox.Problems`` that manages
 #                a basic history of the problems found.
 #
-# info::
+# note::
 #     This class uses the attribut ``success`` to indicate if
 #     at least one "critical" or error has been emitted (sometimes
 #     we want to continue to work even if something bad has been
@@ -67,7 +67,7 @@ class BaseCom:
 #
 # This method is just an easy-to-use wrapper.
 #
-# info::
+# note::
 #     The difference between a warning and a critical is that a critical is
 #     a warning that blocks one part of the process but not all the process.
 #     It is a kind of weak error or very strong warning.

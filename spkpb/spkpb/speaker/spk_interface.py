@@ -103,7 +103,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 #             @ :in: ALL_CONTEXTS
 #
 #
-# info::
+# note::
 #     This method doesn't need to be implemented (some speaker has no style
 #     like the log like ones).
 ###

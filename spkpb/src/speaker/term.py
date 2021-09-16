@@ -4,7 +4,7 @@
 # This module defines the internal class ``TermSpeaker`` to "speak" on
 # a terminal.
 #
-# info::
+# note::
 #     There are also two classes ``BWStylist`` and ``ColorStylist`` to
 #     produce the style wanted.
 ###
@@ -149,7 +149,7 @@ class TermSpeaker(AbstractSpeaker):
 #
 #     :return: a wrapped message of maximal width ``self.maxwidth``.
 #
-# info::
+# note::
 #     We redefine the method ``hardwrap`` because in a terminal, the
 #     hard wrapping consists only to add tabulations "to" each new line.
 ###

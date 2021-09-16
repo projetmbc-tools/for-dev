@@ -43,7 +43,7 @@ class BaseProj(BaseCom):
 #     The target folder is totally removed and reconstructed at each new
 #     update.
 #
-# info::
+# note::
 #     Additional attributes are created/reseted by the method ``reset``.
 ###
     def __init__(
@@ -205,7 +205,7 @@ class BaseProj(BaseCom):
 #     :return: ``True`` if the ¨io object must be kept regarding the ignore
 #              rules, and ``False`` otherwise.
 #
-# info::
+# note::
 #     ¨git is not used here.
 ###
     def keepthis(
@@ -226,7 +226,7 @@ class BaseProj(BaseCom):
 #     :yield: the files in the folder ``onedir`` kept after the application
 #             of the ignore rules.
 #
-# info::
+# note::
 #     ¨git is not used here.
 ###
     def iterfiles(self, onedir: Path) -> Path:

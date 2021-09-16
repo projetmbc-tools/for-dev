@@ -34,7 +34,7 @@ class Project(BaseProj):
 #     safemode     : ``True`` asks to never remove a none empty target folder
 #                    contrary to ``False``.
 #
-# info::
+# note::
 #     The argument ``safemode`` is here to leave the responsability of
 #     removing a none empty folder to the user (my lawyers forced me to
 #     add this feature).
@@ -357,7 +357,7 @@ class Project(BaseProj):
 ###
 # This method builds the list of files to keep just by using the ignore rules.
 #
-# info::
+# note::
 #     ¨git is not used here.
 ###
     def files_without_git(self) -> None:
@@ -411,7 +411,7 @@ class Project(BaseProj):
 ###
 # This method shrinks the list of files by using the ignore rules used by ¨git.
 #
-# info::
+# note::
 #     The method ``rungit`` fails with ``options = ['check-ignore', '**/*'])``,
 #     so we must test directly each path.
 ###

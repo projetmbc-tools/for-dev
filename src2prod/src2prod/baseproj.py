@@ -31,20 +31,22 @@ class BaseProj(BaseCom):
 #               folder).
 #     target  : the **relative** path of the final product dir (regarding the
 #               project folder).
-#     ignore  : if a string is used then this gives the rules for ignoring
-#               files in addition to what ¨git does.
-#               If an instance of ``Path`` is used, thent we have a file
-#               containing the rules.
+#     ignore  : if a string is used, this gives the rules for ignoring files
+#               in addition to what ¨git does.
+#               If an instance of ``Path`` is used, we have a file containing
+#               the rules.
 #     usegit  : ``True`` asks to use ¨git contrary to ``False``.
 #     readme  : ``None`` is if you don't need to import an external
 #               path::``README`` file, otherwise give a **relative** path.
+#
+#     :see: reset
 #
 # warning::
 #     The target folder is totally removed and reconstructed at each new
 #     update.
 #
-# info::
-#     Additional attributes are created/reseted by the method ``reset``.
+# note::
+#     Some additional attributes are created/reseted by the method ``reset``.
 ###
     def __init__(
         self,
@@ -106,11 +108,11 @@ class BaseProj(BaseCom):
 
 ###
 # prototype::
-#     kind : the kind of making made
+#     kind : the kind of making made indicated in the log file
 #
 #     :see: spkpb.problems.Problems.reset
 #
-# This method resets everything.
+# This method resets everything with a customisable main title in the log file.
 ###
     def reset(
         self,
@@ -205,7 +207,7 @@ class BaseProj(BaseCom):
 #     :return: ``True`` if the ¨io object must be kept regarding the ignore
 #              rules, and ``False`` otherwise.
 #
-# info::
+# note::
 #     ¨git is not used here.
 ###
     def keepthis(
@@ -226,7 +228,7 @@ class BaseProj(BaseCom):
 #     :yield: the files in the folder ``onedir`` kept after the application
 #             of the ignore rules.
 #
-# info::
+# note::
 #     ¨git is not used here.
 ###
     def iterfiles(self, onedir: Path) -> Path:

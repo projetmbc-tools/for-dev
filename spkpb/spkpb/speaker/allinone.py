@@ -278,7 +278,7 @@ class Speaker(AbstractSpeaker):
 #     with_NL : ``True`` asks to add a new line after the title and
 #               ``False`` to not do this
 #
-# info::
+# note::
 #     ``with_NL`` is used to resume problems found, or to print
 #     the very last time stamps in the log file.
 ###
@@ -399,7 +399,7 @@ class Speaker(AbstractSpeaker):
 #     )
 #
 #
-# info::
+# note::
 #     One recipe always start and finishes in an "for all" normal context.
 #     This is not optimal but simplifies the writting of recipes.
 ###
