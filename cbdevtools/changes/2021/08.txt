@@ -17,12 +17,17 @@ The line ``from pytest import fixture`` was missing in the test file... Do not l
 13  (0.0.9-beta)
 ==
 
-------
-:news:
-------
+-----
+:new:
+-----
 
 [[:api:]]
 One fixture added to build and use path::``PEUF`` files very easily.
+
+
+-------
+:break:
+-------
 
 [[:api:]]
 ``orpystedatas.build_datas`` has been removed (it was wrong and is unuseful for the moment).

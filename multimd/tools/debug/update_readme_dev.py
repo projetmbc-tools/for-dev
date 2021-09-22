@@ -3,6 +3,7 @@
 from cbdevtools import *
 
 projectname = 'about'
+projectname = 'cleanit'
 
 
 # ------------------------------------ #

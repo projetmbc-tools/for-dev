@@ -6,7 +6,7 @@
 :new:
 -----
 
-[[:docu:]]
+[[:doc:]]
 A real path::``README`` file has been written.
 
 

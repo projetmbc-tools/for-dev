@@ -6,7 +6,7 @@
 :update:
 --------
 
-[[:docu:]]
+[[:doc:]]
 path::``README.md`` has been updated.
 
 
@@ -17,9 +17,9 @@ path::``README.md`` has been updated.
 27  (0.1.0-beta)
 ==
 
------
-:new:
------
+-------
+:break:
+-------
 
 [[:api:]]
 ``Speaker`` has been modified.
@@ -42,7 +42,7 @@ path::``README.md`` has been updated.
 :update:
 --------
 
-[[:docu:]]
+[[:doc:]]
 path::``README.md`` was partially updated. It should be good now.
 
 
@@ -73,7 +73,7 @@ path::``README.md`` was partially updated. It should be good now.
 :update:
 --------
 
-[[:docu:]]
+[[:doc:]]
 path::``README.md`` updated.
 
 
@@ -104,7 +104,7 @@ The method ``reset_logfile`` of ``speaker.log.LogSpeaker`` is accessible directl
 :update:
 --------
 
-[[:docu:]]
+[[:doc:]]
 path::``README.md`` has a simpler example of use of ``BaseCom`` and it also talks about the new methods ``reset_logfile``.
 
 
@@ -120,14 +120,14 @@ path::``README.md`` has a simpler example of use of ``BaseCom`` and it also talk
 -----
 
 [[:api:]]
-The class ``BaseCom`` also allows the use of time stamps. That was omitted.
+The class ``BaseCom`` allows now the use of time stamps (that was omitted).
 
 
 --------
 :update:
 --------
 
-[[:docu:]]
+[[:doc:]]
 path::``README.md`` has been updated with a small example of use of ``BaseCom``.
 
 
@@ -157,7 +157,7 @@ A class ``BaseCom`` has been added such as to work easily with instances of ``Sp
 :update:
 --------
 
-[[:docu:]]
+[[:doc:]]
 Better path::``README.md``.
 
 
