@@ -54,7 +54,8 @@ class AbstractSpeaker(metaclass = ABCMeta):
     @classmethod
     def __subclasshook__(cls, subclass) -> None:
         goodinterface = all(
-            hasattr(subclass, methodname) and
+            hasattr(subclass, methodname)
+            and
             callable(getattr(subclass, methodname))
             for methodname in [
                 'print',
