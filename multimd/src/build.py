@@ -43,8 +43,9 @@ class Builder():
 
 
 ###
-# This method is the great bandleader building the final path::``MD`` file
-# from several single ones.
+# prototype::
+#     :action: this method is the great bandleader building the final
+#              path::``MD`` file from several single ones.
 ###
     def build(self) -> None:
         for name in [
@@ -55,7 +56,8 @@ class Builder():
 
 
 ###
-# This method builds the list of the single path::``MD`` files.
+# prototype::
+#     :action: this method builds the list of the single path::``MD`` files.
 ###
     def build_lof(self) -> None:
 # Do we have an about.peuf file?
@@ -78,7 +80,9 @@ class Builder():
 
 
 ###
-# This method simply merges all the ¨md codes in a sigle path::``MD`` file.
+# prototype::
+#     :action: this method simply merges all the ¨md codes in
+#              a single path::``MD`` file.
 ###
     def merge(self) -> None:
 # All the MD code.

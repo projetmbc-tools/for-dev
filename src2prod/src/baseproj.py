@@ -108,9 +108,9 @@ class BaseProj(BaseCom):
 # prototype::
 #     kind : the kind of making made
 #
-#     :see: spkpb.problems.Problems.reset
+#     :action: this method resets everything.
 #
-# This method resets everything.
+#     :see: spkpb.problems.Problems.reset
 ###
     def reset(
         self,
@@ -130,8 +130,10 @@ class BaseProj(BaseCom):
 
 
 ###
-# This method builds ``self.ignore_rules`` which is a dictionary looking
-# like the following one.
+# prototype::
+#     :action: this method builds ``self.ignore_rules`` which is a dictionary.
+#
+# Here is how the dictionary looks like.
 #
 # python::
 #     {
@@ -273,6 +275,8 @@ class BaseProj(BaseCom):
 # prototype::
 #     source : the path of the source file to copy.
 #     target : the path of the target file that will be the copy.
+#
+#     :action: this method copies one file.
 ###
     def copyfile(
         self,

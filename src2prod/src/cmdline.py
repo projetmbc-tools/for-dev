@@ -28,7 +28,7 @@ from .project import *
 #     readme  : ``''`` is if you don't need to import an external
 #               path::``README`` file, otherwise give a **relative** path.
 #
-# This function is to update a project from a terminal.
+#     :action: this function allows to update a project from a terminal.
 ###
 @click.command()
 @click.argument('project')

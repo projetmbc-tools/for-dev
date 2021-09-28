@@ -95,9 +95,7 @@ class BWStylist(Enum):
 class TermSpeaker(AbstractSpeaker):
 ###
 # prototype::
-#     style    : a global style for the outputs.
-#              @ style in spk_interface.ALL_GLOBAL_STYLES
-#     maxwidth : the maw width expected for hard wrapped contents.
+#     :api: speaker.spk_interface.AbstractSpeaker
 ###
     def __init__(
         self,
@@ -105,8 +103,8 @@ class TermSpeaker(AbstractSpeaker):
         maxwidth: int = 80
     ) -> None:
         super().__init__(
-            termstyle    = style,
-            maxwidth = maxwidth
+            termstyle = style,
+            maxwidth  = maxwidth
         )
 
         self.stylist = {
@@ -117,26 +115,29 @@ class TermSpeaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     repeat : the numebr of empty lines wanted.
+#     :api: speaker.spk_interface.AbstractSpeaker
 #
-# This method simply prints ``repeat`` empty lines on the terminal.
+#     :action: this method prints `repeat` empty lines on the terminal.
 ###
     def NL(self, repeat: int = 1) -> None:
         print("\n"*(repeat - 1))
 
 ###
 # prototype::
-#     text : a text to print as it on the terminal.
+#     text : a text to print in the terminal.
+#
+#     :action: this method prints `text` in the terminal.
 ###
     def print(self, text: str) -> None:
         print(text)
 
 ###
 # prototype::
-#     context : a context to format some outputs
-#             @ context in spk_interface.CONTEXTS
+#     :api: speaker.spk_interface.AbstractSpeaker
 #
-#     :see: = ``ColorStylist`` and ``BWStylist``.
+#     :action: this methods activates the style given.
+#
+#     :see: ``ColorStylist`` and ``BWStylist``.
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
         getattr(self.stylist, context).colorit()
@@ -144,14 +145,11 @@ class TermSpeaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     text : a text to be hard wrapped.
-#     tab  : a possible tabulation to use for each new line created.
-#
-#     :return: a wrapped message of maximal width ``self.maxwidth``.
+#     :api: speaker.spk_interface.AbstractSpeaker
 #
 # note::
-#     We redefine the method ``hardwrap`` because in a terminal, the
-#     hard wrapping consists only to add tabulations "to" each new line.
+#     We redefine the method ``hardwrap`` because in a terminal, the hard
+#     wrapping consists only to add tabulations "to" each new line.
 ###
     def hardwrap(
         self,

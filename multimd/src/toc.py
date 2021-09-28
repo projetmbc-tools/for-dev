@@ -124,8 +124,9 @@ class TOC():
 
 
 ###
-# This method builds ``self._lines`` the list of lines stored in
-# the path::``about.peuf`` file.
+# prototype::
+#     :action: this method builds ``self._lines`` the list of lines stored
+#              in the path::``about.peuf`` file.
 ###
     def readlines(self) -> None:
         try:

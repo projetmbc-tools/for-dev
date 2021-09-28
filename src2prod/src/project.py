@@ -34,6 +34,8 @@ class Project(BaseProj):
 #     safemode     : ``True`` asks to never remove a none empty target folder
 #                    contrary to ``False``.
 #
+#     :action: this method updates the ¨src code of the final product.
+#
 # note::
 #     The argument ``safemode`` is here to leave the responsability of
 #     removing a none empty folder to the user (my lawyers forced me to
@@ -99,7 +101,8 @@ class Project(BaseProj):
             self._close_one_session(timer_title = 'update')
 
 ###
-# This method creates or empties the target folder.
+# prototype::
+#     :action: this method creates or empties the target folder.
 ###
     def empty_target(self) -> None:
 # The target folder must be deletted.
@@ -123,7 +126,9 @@ class Project(BaseProj):
         )
 
 ###
-# This method copies the files kept from the source to the target.
+# prototype::
+#     :action: this method copies the files kept from the source
+#              to the target.
 ###
     def copy_src2target(self) -> None:
 # Indicating the start of the copying.
@@ -146,7 +151,9 @@ class Project(BaseProj):
 
 
 ###
-# This method writes the content into the final path::``README`` file.
+# prototype::
+#     :action: this method writes the content into the final
+#              path::``README`` file.
 ###
     def build_readme(self) -> None:
 # No README to copy.
@@ -188,9 +195,8 @@ class Project(BaseProj):
 #     closesession : ``True`` is to close the communication and
 #                    ``False`` otherwise.
 #
-#
-# This method is the great bandleader building the list of files to be copied to
-# the target dir.
+#     :action: this method is the great bandleader building the list of files
+#              to be copied to the target dir.
 ###
     def build(
         self,
@@ -231,8 +237,9 @@ class Project(BaseProj):
 
 
 ###
-# This method checks the existence of a path::``README`` file if the user
-# has given such one, or a path::``readme`` folder.
+# prototype::
+#     :action: this method checks the existence of a path::``README`` file
+#              if the user has given such one, or a path::``readme`` folder.
 ###
     def check_readme(self) -> None:
 # No external README.
@@ -275,11 +282,11 @@ class Project(BaseProj):
 
 
 ###
-# This method does three things.
-#
-#     1) Indirecty it checks that ¨git can be used.
-#     2) It finds the branch on which we are working.
-#     3) It verifies that there isn't any uncommitted changes in the source files.
+# prototype::
+#     :action: this method checks that ¨git can be used,
+#              finds the branch on which we are working,
+#              and verifies that there isn't any uncommitted changes in
+#              the ¨src files.
 #
 # warning::
 #     We do not want any uncommitted changes even on the ignored files because this
@@ -355,7 +362,9 @@ class Project(BaseProj):
 
 
 ###
-# This method builds the list of files to keep just by using the ignore rules.
+# prototype::
+#     :action: this method builds the list of files to keep just by using
+#              the ignore rules.
 #
 # note::
 #     ¨git is not used here.
@@ -409,7 +418,9 @@ class Project(BaseProj):
 
 
 ###
-# This method shrinks the list of files by using the ignore rules used by ¨git.
+# prototype::
+#     :action: this method shrinks the list of files by using the ignore
+#              rules used by ¨git.
 #
 # note::
 #     The method ``rungit`` fails with ``options = ['check-ignore', '**/*'])``,
@@ -470,7 +481,8 @@ class Project(BaseProj):
 #     whatused : the method used to shrink the list of files.
 #     extra    : a small extra text.
 #
-# This method is just a factorization.
+# note::
+#     This method is just a factorization.
 ###
     def _indicating_lof_found(
         self,
@@ -493,7 +505,8 @@ class Project(BaseProj):
 #     title       : the title of the session.
 #     timer_title : the title for the time stamp.
 #
-# This method is just a factorization.
+# note::
+#     This method is just a factorization.
 ###
     def _start_one_session(
         self,
@@ -517,7 +530,8 @@ class Project(BaseProj):
 # prototype::
 #     timer_title : the title for the time stamp.
 #
-# This method is just a factorization.
+# note::
+#     This method is just a factorization.
 ###
     def _close_one_session(
         self,

@@ -34,8 +34,8 @@ class LogSpeaker(AbstractSpeaker):
         maxwidth: int,
     ) -> None:
         super().__init__(
-            termstyle    = style,
-            maxwidth = maxwidth
+            termstyle = style,
+            maxwidth  = maxwidth
         )
 
         self.logfile = logfile
@@ -43,7 +43,8 @@ class LogSpeaker(AbstractSpeaker):
         self.reset_logfile()
 
 ###
-# This method produces a new empty log file.
+# prototype::
+#     :action: this method produces a new empty log file.
 ###
     def reset_logfile(self) -> None:
 # Empty an existing log file.
@@ -62,6 +63,8 @@ class LogSpeaker(AbstractSpeaker):
 ###
 # prototype::
 #     text : a text to print as it in the log file.
+#
+#     :action: this method prints `text` in the log file.
 ###
     def print(
         self, text  : str,
@@ -76,9 +79,9 @@ class LogSpeaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     repeat : the number of empty lines wanted.
+#     :api: speaker.spk_interface.AbstractSpeaker
 #
-# This method simply append ``repeat`` empty new lines to the log file.
+#     :action: this method adds `repeat` empty lines to the log file.
 ###
     def NL(self, repeat: int = 1) -> None:
         self.print("\n"*(repeat - 1))

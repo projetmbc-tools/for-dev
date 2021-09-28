@@ -67,15 +67,14 @@ class AbstractSpeaker(metaclass = ABCMeta):
 
 ###
 # prototype::
-#     style    : a global style for the output. Internally this style is
-#                stored in the attribut ``global_style``.
+#     style    : a global style for the output.
 #              @ style in ALL_GLOBAL_STYLES
-#     maxwidth : the maw width expected for hard wrapped contents.
+#     maxwidth : the max width expected for hard wrapped contents.
 ###
     def __init__(
         self,
-        termstyle   : str,
-        maxwidth: int = 80
+        termstyle: str,
+        maxwidth : int = 80
     ) -> None:
         self.maxwidth  = maxwidth
         self.termstyle = termstyle
@@ -84,6 +83,8 @@ class AbstractSpeaker(metaclass = ABCMeta):
 ###
 # prototype::
 #     text : a text to add as it.
+#
+#     :action: this method must print `text` in the output wanted.
 ###
     @abstractmethod
     def print(self, text: str,) -> None:
@@ -92,6 +93,8 @@ class AbstractSpeaker(metaclass = ABCMeta):
 ###
 # prototype::
 #     repeat : the number of empty lines wanted.
+#
+#     :action: this method must print `repeat` empty lines in the output wanted.
 ###
     @abstractmethod
     def NL(self, repeat: int = 1) -> None:
@@ -103,6 +106,8 @@ class AbstractSpeaker(metaclass = ABCMeta):
 #     context : a context for formatting ¨infos.
 #             @ context in ALL_CONTEXTS
 #
+#     :action: this methods must activate the style given when instantiating
+#              the class.
 #
 # note::
 #     This method doesn't need to be implemented (some speaker has no style

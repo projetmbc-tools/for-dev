@@ -41,12 +41,12 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: problems.Problems.reset ,
-#           speaker.allinone.Speaker.reset
+#     :api: problems.Problems.reset
 #
-# This method is just an easy-to-use wrapper to reset the log file,
-# the attributs used to manage the problems and also the numbering
-# of steps.
+# note::
+#     This method is just an easy-to-use wrapper to reset the log file,
+#     the attributs used to manage the problems and also the numbering
+#     of steps.
 ###
     def reset(self) -> None:
         self.problems.reset()
@@ -54,18 +54,20 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: problems.Problems.new_warning
+#     :api: problems.Problems.new_warning
 #
-# This method is just an easy-to-use wrapper.
+# note::
+#     This method is just an easy-to-use wrapper.
 ###
     def new_warning(self, *args, **kwargs):
         self.problems.new_warning(*args, **kwargs)
 
 ###
 # prototype::
-#     :see: problems.Problems.new_warning
+#     :see: problems.Problems.new_critical
 #
-# This method is just an easy-to-use wrapper.
+# note::
+#     This method is just an easy-to-use wrapper.
 #
 # note::
 #     The difference between a warning and a critical is that a critical is
@@ -78,9 +80,10 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: problems.Problems.new_error
+#     :api: problems.Problems.new_error
 #
-# This method is just an easy-to-use wrapper.
+# note::
+#     This method is just an easy-to-use wrapper.
 ###
     def new_error(self, *args, **kwargs):
         self.success = False
@@ -88,9 +91,10 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: problems.Problems.resume
+#     :api: problems.Problems.resume
 #
-# This method is just an easy-to-use wrapper.
+# note::
+#     This method is just an easy-to-use wrapper.
 ###
     def resume(self, *args, **kwargs):
         self.problems.resume(*args, **kwargs)
@@ -100,7 +104,8 @@ class BaseCom:
 # prototype::
 #     :see: speaker.allinone.Speaker.recipe
 #
-# This method is just an esay-to-use wrapper.
+# note::
+#     This method is just an esay-to-use wrapper.
 ###
     def recipe(self, *args, **kwargs) -> None:
         self.problems.speaker.recipe(*args, **kwargs)
@@ -115,13 +120,14 @@ class BaseCom:
 #
 #     :see: timer.timestamp
 #
-# This method is just an easy-to-use wrapper.
+# note::
+#     This method is just an easy-to-use wrapper.
 ###
     def timestamp(
         self,
         kind   : str,
         with_NL: bool = True
-    ):
+    ) -> None:
         timestamp(
             speaker = self.problems.speaker,
             kind    = kind,

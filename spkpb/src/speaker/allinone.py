@@ -128,7 +128,7 @@ class Speaker(AbstractSpeaker):
 #               @ style in GLOBAL_STYLE_BW, GLOBAL_STYLE_COLOR]
 #     onlyresume: ``True`` indicates to only print a resume of the errors found
 #                 contrary to ``False`` (this is useful for short processes showing
-#                 only warning and co when using the method ``resume`` of the class
+#                 only warning and co. when using the method ``resume`` of the class
 #                 ``problems.Problems``).
 ###
     def __init__(
@@ -176,9 +176,9 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     :see: speaker.log.LogSpeaker
+#     :action: this method resets the log file and the numbering of steps.
 #
-# This method resets the log file and the numbering of steps.
+#     :see: speaker.log.LogSpeaker
 ###
     def reset(self) -> None:
         if self.OUTPUT_LOG in self._speakers:
@@ -210,7 +210,9 @@ class Speaker(AbstractSpeaker):
 
 
 ###
-# This method is to use only for a "LOG FILE" output.
+# prototype::
+#     :action: this method sets ``self._current_outputs`` to use only
+#              a "LOG FILE" output.
 ###
     @only_resume_or_not_deco
     def forlog(self) -> None:
@@ -222,7 +224,9 @@ class Speaker(AbstractSpeaker):
         self._current_outputs = [self.OUTPUT_LOG]
 
 ###
-# This method is to use only for a "TERM" output.
+# prototype::
+#     :action: this method sets ``self._current_outputs`` to use only
+#              a "TERM" output.
 ###
     @only_resume_or_not_deco
     def forterm(self) -> None:
@@ -234,7 +238,9 @@ class Speaker(AbstractSpeaker):
         self._current_outputs = [self.OUTPUT_TERM]
 
 ###
-# This method is to use all outputs.
+# prototype::
+#     :action: this method sets ``self._current_outputs`` to use only
+#              all outputs.
 ###
     @only_resume_or_not_deco
     def forall(self) -> None:
@@ -243,10 +249,10 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     repeat : the number of empty lines wanted.
+#     :api: speaker.spk_interface.AbstractSpeaker
 #
-# This method simply prints ``repeat`` empty new lines in all the
-# outputs wanted.
+#     :action: this method simply adds ``repeat`` empty new lines in
+#              all the outputs wanted.
 ###
     def NL(self, repeat: int = 1) -> None:
         for out in self._current_outputs:
@@ -254,7 +260,9 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     text : a text to communicate.
+#     :api: speaker.spk_interface.AbstractSpeaker
+#
+#     :action: this method prints `text` in all the outputs wanted.
 ###
     def print(self, text: str) -> None:
         for out in self._current_outputs:
@@ -262,8 +270,10 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     context : a context for formatting ¨infos.
-#             @ context in spk_interface.ALL_CONTEXTS
+#     :api: speaker.spk_interface.AbstractSpeaker
+#
+#     :action: this method activates the style given in all the outputs
+#              wanted.
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
         for out in self._current_outputs:
@@ -277,6 +287,9 @@ class Speaker(AbstractSpeaker):
 #             @ level in 1..2
 #     with_NL : ``True`` asks to add a new line after the title and
 #               ``False`` to not do this
+#
+#     :action: this method adds an ¨ascii decorated title in all
+#              the outputs wanted.
 #
 # note::
 #     ``with_NL`` is used to resume problems found, or to print
@@ -298,6 +311,8 @@ class Speaker(AbstractSpeaker):
 #     level     : the level of step indicating where ``0`` is for automatic
 #                 numbered enumerations.
 #               @ level in 0..3
+#
+#     :action: this method prints a new step in all the ouputs.
 ###
     def step(self,
         step_info: str,
@@ -317,7 +332,8 @@ class Speaker(AbstractSpeaker):
             self._speakers[out].print(text)
 
 ###
-# This method simpliy resets to `0` the number of numbered steps.
+# prototype::
+#     :action: this method resets to `0` the number of numbered steps.
 ###
     def _reset_nbstep(self) -> None:
         for out in self._current_outputs:
@@ -329,6 +345,8 @@ class Speaker(AbstractSpeaker):
 #     level : the level of step indicating where ``0`` is for automatic
 #             numbered enumerations.
 #           @ level in 0..3
+#
+#     :action: this method just prints the symbol for one step.
 ###
     def _stepitem(
         self,
@@ -352,6 +370,8 @@ class Speaker(AbstractSpeaker):
 #     message : the message to print.
 #     level   : the level of the step indicating the problem.
 #             @ level in 0..3
+#
+#     :action: this method prints one problem in all the ouputs.
 ###
     def problem(
         self,
@@ -374,9 +394,11 @@ class Speaker(AbstractSpeaker):
 # prototype::
 #     *args : the classical list of args allowed by Python.
 #
-# This method allows to indicate recipes to apply suchas to simplify
-# the "speaking". Here is an exemple of use followed by the actions
-# actualy done (some actions have short version expressions).
+#     :action: this method allows to indicate recipes to apply suchas
+#              to simplify a "multi-speaking".
+#
+# Here is an exemple of use followed by the actions actualy done (some actions
+# have short version expressions).
 #
 # python::
 #     self.speaker.receipe(
@@ -398,10 +420,9 @@ class Speaker(AbstractSpeaker):
 #         level = 2
 #     )
 #
-#
 # note::
-#     One recipe always start and finishes in an "for all" normal context.
-#     This is not optimal but simplifies the writting of recipes.
+#     One recipe always start and finishes in a "for all" normal context.
+#     This is not optimal but it simplifies the writting of recipes.
 ###
     def recipe(self, *args) -> None:
 # Default "for all" normal context.

@@ -82,12 +82,12 @@ class Problems:
 
 ###
 # prototype::
-#     :see: problems.Problems.reset ,
-#           speaker.allinone.Speaker.reset
+#     :api: speaker.allinone.Speaker.reset
 #
-# This method is just an easy-to-use wrapper to reset the log file,
-# the attributs used to manage the problems and also the numbering
-# of steps.
+# note::
+#     This method is just an easy-to-use wrapper to reset the log file,
+#     the attributs used to manage the problems and also the numbering
+#     of steps.
 ###
     def reset(self) -> None:
 # Reset the numbering of steps.
@@ -189,6 +189,8 @@ class Problems:
 #     info  : the info explaining the warning.
 #     level : the level of the step indicating the problem.
 #           @ level in 0..3
+#
+#     :action: this method stores a new warning.
 ###
     @problems_deco
     def new_warning(
@@ -206,6 +208,8 @@ class Problems:
 #     info  : the info explaining the "critical".
 #     level : the level of the step indicating the problem.
 #           @ level in 0..3
+#
+#     :action: this method stores a new critical.
 ###
     @problems_deco
     def new_critical(
@@ -223,6 +227,8 @@ class Problems:
 #     info  : the info explaining the error.
 #     level : the level of the step indicating the problem.
 #           @ level in 0..3
+#
+#     :action: this method stores a new error.
 ###
     @problems_deco
     def new_error(
@@ -243,6 +249,11 @@ class Problems:
 #     info    : the info explaining the problem.
 #     level   : the level of the step indicating the problem.
 #             @ level in 0..3
+#
+#     :action: this method stores a new problem.
+#
+# note::
+#     This method is just a factorization.
 ###
     def _new_pb(
         self,
@@ -268,7 +279,9 @@ class Problems:
 
 
 ###
-# This method prints the summaries for the terminal and the log file.
+# prototype::
+#     :action: this method prints the summaries for the terminal and
+#              the log file.
 ###
     def resume(self) -> None:
 # Silent must be switch off here...
@@ -345,13 +358,15 @@ class Problems:
 #     context : the kind of problem.
 #             @ context in [speaker.spk_interface.CONTEXT_ERROR,
 #                           speaker.spk_interface.CONTEXT_WARNING]
+#
+#     :action: this methods resumes shortly all the problems.
 ###
     def _resume_one_pb_short(
         self,
         what   : str,
         whatpbs: List[dict],
         context: str,
-    ):
+    ) -> None:
         pbs_ids = [
             onepb[self.PB_ID_TAG]
             for onepb in whatpbs
@@ -391,6 +406,8 @@ class Problems:
 #     verb_in : the list of outputs where to be verbose.
 #     showref : ``True`` asks to show the references (for a none silent mode)
 #               contrary to ``False``.
+#
+#     :action: this methods resumes verbosely all the problems.
 ###
     def _resume_one_pb_verbose(
         self,

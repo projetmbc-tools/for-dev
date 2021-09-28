@@ -8,6 +8,11 @@ from typing import *
 
 from abc import ABCMeta, abstractmethod
 
+from pathlib import Path
+
+from orpyste.data      import ReadBlock
+from orpyste.parse.ast import ASTError
+
 
 ###
 # This class contains technical methods used by the class ``????``.
@@ -29,20 +34,31 @@ class AbstractDialect(metaclass = ABCMeta):
 
         return goodinterface
 
-###
-# prototype::
-#     ???
-###
-    def __init__(
-        self,
-    ) -> None:
-        ...
-
 
 ###
 # prototype::
-#     text : a text to add as it.
+#     aboutfile : ???
 ###
     @abstractmethod
-    def print(self, text: str,) -> None:
+    def extract(self, aboutfile: Path,) -> Any:
         raise NotImplementedError
+
+
+###
+# This method builds ``self._lines`` the list of lines stored in
+# the path::``about.peuf`` file.
+###
+    def readlines(self) -> None:
+        try:
+            with ReadBlock(
+                content = self.onedir / ABOUT_NAME,
+                mode    = ABOUT_PEUF_MODE
+            ) as datas:
+                self._lines = datas.mydict("std nosep nonb")
+
+        except ASTError:
+            raise ValueError(
+                f'invalid ``{ABOUT_NAME}`` found ine the following dir:'
+                 '\n'
+                f'{self.onedir}'
+            )

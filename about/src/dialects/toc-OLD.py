@@ -8,10 +8,7 @@
 
 from typing import *
 
-from pathlib import Path
 
-from orpyste.data      import ReadBlock
-from orpyste.parse.ast import ASTError
 
 
 # ----------- #
@@ -121,23 +118,3 @@ class TOC():
             )
 
         return otherchars
-
-
-###
-# This method builds ``self._lines`` the list of lines stored in
-# the path::``about.peuf`` file.
-###
-    def readlines(self) -> None:
-        try:
-            with ReadBlock(
-                content = self.onedir / ABOUT_NAME,
-                mode    = ABOUT_PEUF_MODE
-            ) as datas:
-                self._lines = datas.mydict("std nosep nonb")
-
-        except ASTError:
-            raise ValueError(
-                f'invalid ``{ABOUT_NAME}`` found ine the following dir:'
-                 '\n'
-                f'{self.onedir}'
-            )

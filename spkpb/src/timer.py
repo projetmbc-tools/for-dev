@@ -17,6 +17,8 @@ from .speaker import *
 #               This string will be always "upperized".
 #     with_NL : ``True`` asks to add a new line after the title and
 #               ``False`` to not do this.
+#
+#     :action: this function adds a time stamp in a log file.
 ###
 
 def timestamp(
