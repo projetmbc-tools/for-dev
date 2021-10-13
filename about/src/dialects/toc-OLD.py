@@ -1,14 +1,4 @@
-#!/usr/bin/env python3
-
-###
-# This module is for extracting paths inside the peuf::``toc`` block of
-# an existing path::``about.peuf`` file of one directory.
-###
-
-
 from typing import *
-
-
 
 
 # ----------- #

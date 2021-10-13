@@ -20,7 +20,7 @@ MODULE_DIR = addfindsrc(
 from src import *
 
 speaker = Speaker(
-    logfile    = Path('mylog.log'),
+    logfile    = Path('spkpb-debug.log'),
     termstyle  = GLOBAL_STYLE_COLOR,
     onlyresume = True,
 )

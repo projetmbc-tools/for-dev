@@ -22,7 +22,7 @@ from src import *
 project = BaseCom(
     Problems(
         Speaker(
-            logfile   = Path('mylog.log'),
+            logfile   = Path('spkpb-debug.log'),
             termstyle = GLOBAL_STYLE_COLOR,
         )
     )

@@ -9,4 +9,4 @@ The `Python` module `cleanit`
 About `cleanit`
 ---------------
 
-The project simply removes files that are indicated via a file using the git ingore syntax. This allows to use the web API [gitignore.io](https://www.toptal.com/developers/gitignore). 
+The project simply removes files that are indicated via a file using the `gitignore` syntax (this allows to use the web API [gitignore.io](https://www.toptal.com/developers/gitignore) to clean unwanted files after the end of a process).

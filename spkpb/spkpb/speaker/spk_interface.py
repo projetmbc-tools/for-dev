@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
 ###
-# This module defines constants and the interface like class ``AbstractSpeaker``
-# that defines a minimal contract for speakers and also some common methods.
+# This module defines some constants and the interface like class
+# ``AbstractSpeaker`` which defines a minimal contract for speakers
+# but also some common methods.
 ###
 
 
@@ -48,7 +49,7 @@ ALL_GLOBAL_STYLES = [
 # This abstract class / interface defines the common ¨api of the speakers.
 ###
 
-class AbstractSpeaker(metaclass=ABCMeta):
+class AbstractSpeaker(metaclass = ABCMeta):
 # Source to have a real interface:
 #     * https://realpython.com/python-interface/#using-abcabcmeta
     @classmethod

@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 ###
-# This module ????
+# This module defines the interface like class ``AbstractDialect`` which
+# defines a minimal contract for dialects but also some common methods.
 ###
+
 
 from typing import *
 
@@ -14,8 +16,12 @@ from orpyste.data      import ReadBlock
 from orpyste.parse.ast import ASTError
 
 
+# -------------------------------- #
+# -- ABSTRACT / INTERFACE CLASS -- #
+# -------------------------------- #
+
 ###
-# This class contains technical methods used by the class ``????``.
+# This abstract class / interface defines the common ¨api of the dialects.
 ###
 
 class AbstractDialect(metaclass = ABCMeta):
@@ -28,7 +34,7 @@ class AbstractDialect(metaclass = ABCMeta):
             and
             callable(getattr(subclass, methodname))
             for methodname in [
-
+                'extract',
             ]
         )
 
@@ -37,28 +43,37 @@ class AbstractDialect(metaclass = ABCMeta):
 
 ###
 # prototype::
-#     aboutfile : ???
+#     file : the path of the file to analyze.
+#
+#     :return: a specific structure proposed by one dialect.
 ###
     @abstractmethod
-    def extract(self, aboutfile: Path,) -> Any:
+    def extract(self, file: Path) -> Any:
         raise NotImplementedError
 
 
 ###
-# This method builds ``self._lines`` the list of lines stored in
-# the path::``about.peuf`` file.
+# prototype::
+#     file : the path of the file to analyze.
+#     mode : the ¨orpyste mode of the file to analyze.
+#
+#     :return: the standard dict returned by the module ¨orpyste.
 ###
-    def readlines(self) -> None:
+    def stddict(
+        self,
+        file: Path,
+        mode: Union[str, dict]
+    ) -> Dict:
         try:
             with ReadBlock(
-                content = self.onedir / ABOUT_NAME,
-                mode    = ABOUT_PEUF_MODE
+                content = file,
+                mode    = mode
             ) as datas:
-                self._lines = datas.mydict("std nosep nonb")
+                return datas.mydict("std nosep nonb")
 
         except ASTError:
             raise ValueError(
-                f'invalid ``{ABOUT_NAME}`` found ine the following dir:'
+                f'invalid file:'
                  '\n'
-                f'{self.onedir}'
+                f'{file}'
             )
