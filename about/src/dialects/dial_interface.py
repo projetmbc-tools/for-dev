@@ -57,7 +57,8 @@ class AbstractDialect(metaclass = ABCMeta):
 #     file : the path of the file to analyze.
 #     mode : the ¨orpyste mode of the file to analyze.
 #
-#     :return: the standard dict returned by the module ¨orpyste.
+#     :return: a standard dict build by the class ``ReadBlock`` from
+#              the module ¨orpyste.
 ###
     def stddict(
         self,

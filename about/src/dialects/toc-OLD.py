@@ -1,5 +1,20 @@
 from typing import *
 
+# toc::
+#     + prologue
+#     + hardway-all-outputs
+#     + hardway-one-output
+#     + hardway-onlyresume
+#     + hardway-timestamp
+#     + basecom
+#     + reset
+
+
+# toc::
+#     * listing.sty
+#     * listing-direct-FR.tex
+#     * listing-input-FR.tex
+
 
 # ----------- #
 # -- ABOUT -- #
