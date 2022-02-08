@@ -11,3 +11,4 @@ About `about`... `:-)`
 ----------------------
 
 This project allows to define and use very easy-to-write `ASCII` files containing customizable metadatas about numerical projects (codes and writings).
+ 
