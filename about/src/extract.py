@@ -39,7 +39,6 @@ MD_FILE_SUFFIX = f'.{MD_FILE_EXT}'
 #     This is not the responsability of this class to test the existence
 #     of the path::``about.peuf`` file.
 ###
-
 class TOC():
 
 ###

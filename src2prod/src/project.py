@@ -21,7 +21,6 @@ from .baseproj import *
 # This class is the main one to use such as to easily manage a project
 # following the "source-to-final-product" workflow.
 ###
-
 class Project(BaseProj):
     MD_SUFFIX = '.md'
 
@@ -100,6 +99,7 @@ class Project(BaseProj):
         if closesession:
             self._close_one_session(timer_title = 'update')
 
+
 ###
 # prototype::
 #     :action: this method creates or empties the target folder.
@@ -124,6 +124,7 @@ class Project(BaseProj):
                  '\n'
                 f'"{self.target}".'},
         )
+
 
 ###
 # prototype::
@@ -525,6 +526,7 @@ class Project(BaseProj):
                      '\n'
                     f'"{self.logfile}".'},
         )
+
 
 ###
 # prototype::

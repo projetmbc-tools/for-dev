@@ -18,7 +18,6 @@ from spkpb import *
 ###
 # This class contains technical methods used by the class ``project.Project``.
 ###
-
 class BaseProj(BaseCom):
     DIR_TAG  = 'dir'
     FILE_TAG = 'file'
@@ -198,6 +197,7 @@ class BaseProj(BaseCom):
 
             self.ignore_rules[context].append(shortrule)
 
+
 ###
 # prototype::
 #     fileordir : the path of a file or a dir.
@@ -220,6 +220,7 @@ class BaseProj(BaseCom):
                 return False
 
         return True
+
 
 ###
 # prototype::
@@ -335,6 +336,7 @@ class BaseProj(BaseCom):
 
 # The work has been done correctly.
         return self.decode(output.stdout).strip()
+
 
 ###
 # prototype::

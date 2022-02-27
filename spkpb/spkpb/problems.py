@@ -21,8 +21,8 @@ from .speaker import *
 # This decorator simplifies the managment of the new warnings, criticals
 # and errors.
 ###
-
 def problems_deco(method):
+
 ###
 # prototype::
 #     what  : any object with a string representation indicating clearly
@@ -62,7 +62,6 @@ def problems_deco(method):
 # This class is used to store ¨infos about errors and warnings emitted
 # during all the process.
 ###
-
 class Problems:
     PB_INFO_TAG: str = 'info'
     PB_ID_TAG  : str = 'pbid'
@@ -79,6 +78,7 @@ class Problems:
         self.speaker = speaker
 
         self.reset()
+
 
 ###
 # prototype::
@@ -121,6 +121,7 @@ class Problems:
     def warningfound(self) -> bool:
         return self.nb_warnings != 0
 
+
 ###
 # prototype::
 #     :return: ``True`` if at least one "critical" has been found and
@@ -130,6 +131,7 @@ class Problems:
     def criticalfound(self) -> bool:
         return self.nb_warnings != 0
 
+
 ###
 # prototype::
 #     :return: ``True`` if at least one error has been found and
@@ -138,6 +140,7 @@ class Problems:
     @property
     def errorfound(self) -> bool:
         return self.nb_errors != 0
+
 
 ###
 # prototype::
@@ -154,6 +157,7 @@ class Problems:
             self.errorfound
         )
 
+
 ###
 # prototype::
 #     :return: ``True`` if there are several warnings and
@@ -163,6 +167,7 @@ class Problems:
     def several_warnings(self) -> bool:
         return self.nb_warnings > 1
 
+
 ###
 # prototype::
 #     :return: ``True`` if there are several "criticals" and
@@ -171,6 +176,7 @@ class Problems:
     @property
     def several_criticals(self) -> bool:
         return self.nb_criticals > 1
+
 
 ###
 # prototype::
@@ -199,6 +205,7 @@ class Problems:
     ) -> None:
         ...
 
+
 ###
 # prototype::
 #     what  : any object with a string representation indicating clearly
@@ -216,6 +223,7 @@ class Problems:
     ) -> None:
         ...
 
+
 ###
 # prototype::
 #     what  : any object with a string representation indicating clearly
@@ -232,6 +240,7 @@ class Problems:
         level: int = 0
     ) -> None:
         ...
+
 
 ###
 # prototype::

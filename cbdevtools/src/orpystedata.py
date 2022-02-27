@@ -107,7 +107,6 @@ def peuf_fixture() -> None:
 #     path::``test_`` from the name of the testing file (see the ¨tech ¨doc
 #     of ``peuf_fixture`` for a concrete example).
 ###
-
 def build_datas_block(
     file: str,
 ) -> ReadBlock:

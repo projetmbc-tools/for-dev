@@ -23,7 +23,6 @@ from .toc import *
 # This class finds all the single path::``MD`` files and then builds a final
 # single one.
 ###
-
 class Builder():
 
 ###

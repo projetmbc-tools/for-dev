@@ -45,7 +45,6 @@ import sys
 #
 #     from src import *
 ###
-
 def addfindsrc(
     file   : str,
     project: str,

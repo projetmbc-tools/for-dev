@@ -20,7 +20,6 @@ from .speaker import *
 #
 #     :action: this function adds a time stamp in a log file.
 ###
-
 def timestamp(
     speaker: Speaker,
     kind   : str,

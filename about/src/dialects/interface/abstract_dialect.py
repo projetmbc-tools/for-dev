@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ###
-# This module defines the interface like class ``AbstractDialect`` which
+# This file implements the interface like class ``AbstractDialect`` which
 # defines a minimal contract for dialects but also some common methods.
 ###
 
@@ -23,9 +23,8 @@ from orpyste.parse.ast import ASTError
 ###
 # This abstract class / interface defines the common ¨api of the dialects.
 ###
-
 class AbstractDialect(metaclass = ABCMeta):
-# Source to have a real interface:
+# Source to have a "real" interface in Python:
 #     * https://realpython.com/python-interface/#using-abcabcmeta
     @classmethod
     def __subclasshook__(cls, subclass) -> None:

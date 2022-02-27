@@ -16,7 +16,6 @@ from .timer    import *
 # This class gives the common interface for classes working with
 # "speakers" and "problems".
 ###
-
 class BaseCom:
 
 ###
@@ -62,6 +61,7 @@ class BaseCom:
     def new_warning(self, *args, **kwargs):
         self.problems.new_warning(*args, **kwargs)
 
+
 ###
 # prototype::
 #     :see: problems.Problems.new_critical
@@ -78,6 +78,7 @@ class BaseCom:
         self.success = False
         self.problems.new_critical(*args, **kwargs)
 
+
 ###
 # prototype::
 #     :api: problems.Problems.new_error
@@ -88,6 +89,7 @@ class BaseCom:
     def new_error(self, *args, **kwargs):
         self.success = False
         self.problems.new_error(*args, **kwargs)
+
 
 ###
 # prototype::

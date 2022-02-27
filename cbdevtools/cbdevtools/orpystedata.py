@@ -72,10 +72,12 @@ from orpyste.data import ReadBlock
 def peuf_fixture() -> None:
     datas_build = []
 
+
 ###
 # This internal function always has the same signature as the function
 # ``build_datas_block``.
 ###
+
     def _make_peuf_datas(*args, **kwargs) -> None:
         datas_build.append(
             datas := build_datas_block(*args, **kwargs)

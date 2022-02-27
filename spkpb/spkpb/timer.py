@@ -18,7 +18,6 @@ from .speaker import *
 #     with_NL : ``True`` asks to add a new line after the title and
 #               ``False`` to not do this.
 ###
-
 def timestamp(
     speaker: Speaker,
     kind   : str,
