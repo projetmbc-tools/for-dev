@@ -1,5 +1,0 @@
-==
-??  (0.0.0-beta)
-==
-
-This project allows to define and use very easy-to-write ¨ascii files containing customisable metadatas about numerical projects (codes and writings).
