@@ -55,4 +55,4 @@ A very stupid bug fixed in path::``orpystedata.py``.
 13  (0.0.7-beta)
 ==
 
-This project is "Common Box of Dev Tools" proposing small scripts that can be helpful (the strange first number version comes from a rigid behavior of ¨pypi).
+This project is a "Common Box of Dev Tools" proposing small scripts that can be helpful (the strange first number version comes from a rigid behavior of ¨pypi).

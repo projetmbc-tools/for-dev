@@ -16,7 +16,7 @@ Working with `MD` documents of moderate size in a single file can becomes quickl
 `README.md` part by part
 ------------------------
 
-Thanks to `multimd`, you can write a `MD` document typing small section like parts that are easy to maintain. Let's consider the `README.md` of the `src2prod` project that was written using the following tree structure on August 22, 2021. Just note that there are only `MD` files directly inside the same folder (the purpose of `multimd` is to ease the writting of realtively small documents and not books). 
+Thanks to `multimd`, you can write a `MD` document typing small section like parts that are easy to maintain. Let's consider the `README.md` of the `src2prod` project that was written using the following tree structure on August 22, 2021. Just note that there are only `MD` files directly inside the same folder (the purpose of `multimd` is to ease the writting of realtively small documents and not books).
 
 ~~~
 + src2prod
@@ -28,7 +28,7 @@ Thanks to `multimd`, you can write a `MD` document typing small section like par
         * only-files.md
         * prologue.md
         * readme-splitted.md
-    
+
     * README.md
 ~~~
 
@@ -61,4 +61,4 @@ mybuilder.build()
 Without the special `about.peuf` file
 -------------------------------------
 
-If you don't use the `about.peuf` file, the class `Builder` looks for all the `MD` files and then merges. The ordred used is the one givent by `natsorted` from the package `natsort`.
+If you don't use the `about.peuf` file, the class `Builder` looks for all the `MD` files and then merges. The ordred used is the one given by `natsorted` from the package `natsort`.
