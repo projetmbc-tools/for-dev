@@ -1,46 +1,43 @@
-XXX
------------------------
+Using `orpyste` datas with `pytest`
+----------------------------------
 
-    :return: an instance of ``ReadBlock`` associated to a path::``peuf``
-             file automatically named.
-warning::
-    The name of the path::``peuf`` file is obtained by removing the prefix
-    path::``test_`` from the name of the testing file (see the ¨tech ¨doc
-    of ``peuf_fixture`` for a concrete example).
+The author of this package uses [orpyste](https://github.com/bc-python-OLD-IT-WILL-BE-REMOVED/orpyste) to work with ready-to-make `PEUF` data files in his tests.
 
-Here is a real example of use with the following partial tree structure.
+To avoid problem with `pytest`, a fixture `peuf_fixture` is proposed wich follows the convention that the name of the `PEUF` file is obtained by removing the prefix `test_` from the name of the testing file Here is a real example of use with the following partial tree structure.
 
-tree-dir::
-    + TeXitEasy
-        + src
-            * __init__.py
-            * escape.py
-        + tests
-            + escape
-                + fstringit.peuf
-                + test_fstringit.py
+~~~
++ TeXitEasy
+    + src
+        * __init__.py
+        * escape.py
+    + tests
+        + escape
+            + fstringit.peuf
+            + test_fstringit.py
 
-The ¨python testing file path::``test_fstringit.py`` is associated
-to the path::``PEUF`` file path::``fstringit.peuf`` where the prefix
-path::``test_`` has been removed. Using the datas stored in this
-path::``PEUF`` file becomes very easy: here is the code used where
-``tests`` is an intuitive ¨dict version of the path::``PEUF`` file.
+~~~
 
-python::
-    from cbdevtools import *
 
-    addfindsrc(
-        file    = __file__,
-        project = 'TeXitEasy',
-    )
+The `Python` testing file `test_fstringit.py` is associated to the `PEUF` file `fstringit.peuf` where the prefix
+`test_` has been removed. Using the datas stored in this `PEUF` file becomes very easy: here is the code used where
+`tests` is an intuitive dictionary version of the `PEUF` file.
 
-    from src.escape import fstringit
+~~~python
+from cbdevtools import *
 
-    def test_latex_use_fstringit(peuf_fixture):
-        tests = peuf_fixture(__file__)
+addfindsrc(
+    file    = __file__,
+    project = 'TeXitEasy',
+)
 
-        for infos in tests.values():
-            found  = fstringit(infos['source'])
-            wanted = infos['fstring']
+from src.escape import fstringit
 
-            assert wanted == found
+def test_latex_use_fstringit(peuf_fixture):
+    tests = peuf_fixture(__file__)
+
+    for infos in tests.values():
+        found  = fstringit(infos['source'])
+        wanted = infos['fstring']
+
+        assert wanted == found
+~~~

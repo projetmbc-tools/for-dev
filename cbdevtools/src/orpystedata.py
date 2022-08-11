@@ -16,8 +16,8 @@ from orpyste.data import ReadBlock
 
 ###
 # prototype::
-#     :action: This function is fixture for ¨pytest that yields a ready-to-use
-#              data dictionary used to acheive the tests.
+#     :action: this function is a fixture for ¨pytest yielding a ready-to-use
+#              data dictionary used to acheive some tests.
 #              It also finalizes the cleaning of ¨orpyste extra files in case
 #              of problem.
 #
