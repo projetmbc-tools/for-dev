@@ -1,0 +1,7 @@
+# Modification made at 2022-08-11.
+
+### cbdev coding style ###
+
+## Hiden files and folders:
+x-*-x.*
+x-*-x/

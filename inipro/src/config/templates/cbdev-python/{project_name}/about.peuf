@@ -7,5 +7,6 @@ general::
     repository  = {repo}
     publish     = {publish}
     website     = {website}
+    os-dev      = {os_dev}
     deps        = {deps}
     dev-deps    = {dev_deps}

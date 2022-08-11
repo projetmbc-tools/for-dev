@@ -1,1 +1,11 @@
 // ---------- //
+
+==
+11
+==
+
+This project will propose a simplified flow to init new projects in several contexts (¨cookiecutter is used in backstage). Here are the two features available.
+
+    1) `gitignore` rules as configuration files. Moste of the job is done by the website ¨gitignore_io (this makes a dependency to the last vesrion of ¨inipro, but this also avoids to always use the web ¨api of ¨gitignore_io, and to propose very specific rules).
+
+    1) Common licenses as configuration files. Most of the job is done by the website ¨XXXX (same kinds of remarks as before).
