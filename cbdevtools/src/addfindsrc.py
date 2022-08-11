@@ -26,15 +26,20 @@ def addfindsrc(
     project: str,
 ) -> Path:
     project_dir = Path(file).parent
+    rootdir     = Path('/')
 
-    if not project in str(project_dir):
-        raise Exception(
+    while(
+        project_dir != rootdir
+        and
+        project_dir.name != project
+    ):
+        project_dir = project_dir.parent
+
+    assert project_dir.name == project, \
+          (
             'call the script from a working directory '
             'containing the project dir.'
-        )
-
-    while(not project_dir.name.startswith(project)):
-        project_dir = project_dir.parent
+          )
 
     sys.path.append(str(project_dir))
 

@@ -2,26 +2,35 @@
 
 
 ==
-11
+11  (0.0.11-beta)
 ==
 
 -----
-:new:    ???????
+:new:
 -----
 
 [[:api:]]
 New features.
 
-    1)
-    ???????
-    Building easy signatures of methods of classes, or of functions.
+    1) Building easy signatures of methods of instanciated classes, or of functions.
 
-    1)
-    ???????
-    Obtaining a short cleaned version of the standard ``dir(cls)``.
+    1) Obtaining a selective version of the standard ``dir(obj)`` of any ¨python object.
+
 
 [[:doc:]]
-The technical ¨doc has been moved into the path::``README.md`` file.
+All the technical ¨doc has been moved to appear in the final path::``README.md`` file, and the ¨doc of the new functions has been added.
+
+
+--------
+:update:
+--------
+
+[[:bugs:]]
+Find sources: two bugs found and fixed.
+
+    1) Giving a name of a non-existing project made the function ``addfindsrc`` go inside an infinite loop.
+
+    1) The selection of the folder for the source code was not strict enough.
 
 
 --------
@@ -29,4 +38,4 @@ The technical ¨doc has been moved into the path::``README.md`` file.
 --------
 
 [[:flow:]]
-A path::``tools/publish`` folder has been added.
+A path::``tools/publish`` folder has been added with tools to automatically upadte the source before publishing the project.

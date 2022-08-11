@@ -1,4 +1,4 @@
-Last version: 0.0.10-beta
+Last version: 0.0.11-beta
 -------------------------
 
-This version **0.0.10-beta** was made on **2021-08-13** .
+This version **0.0.11-beta** was made on **2022-08-11** .

@@ -33,5 +33,5 @@ from src import *
 
 If you need to have the path of the project added, just use the value returned by `addfindsrc.addfindsrc`.
 
----
+
 ***WARNING!*** *The directory of the project to add must contain the file `__file__`.*
