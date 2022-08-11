@@ -1,17 +1,17 @@
 [tool.poetry]
-name         = "multimd"
-version      = "0.0.1-beta"
-description  = 'This project makes it possible to write separated pieces of `MD` files that will be merged to produce one single final `MD` file.'
+name         = "cbdevtools"
+version      = "0.0.11-beta"
+description  = '"Common Box of Dev Tools" proposing small scripts that can be helpful.'
 readme       = "README.md"
 authors      = ["Christophe BAL"]
 maintainers  = ["Christophe BAL"]
 license      = "GNU License Version 3"
-repository   = "https://github.com/bc-tools/for-dev/tree/main/multimd"
+repository   = "https://github.com/bc-tools/for-dev/tree/main/cbdevtools"
 
 [tool.poetry.dependencies]
 python  = "^3.8"
-natsort = "^7.1.1"
-orpyste = "^1.3.2-beta"
+orpyste = "^1.3.2-beta.0"
+pytest  = "^6.2.4"
 
 [tool.poetry.dev-dependencies]
 

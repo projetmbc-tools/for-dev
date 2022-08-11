@@ -6,7 +6,7 @@ readme       = "README.md"
 authors      = ["Christophe BAL"]
 maintainers  = ["Christophe BAL"]
 license      = "GNU License Version 3"
-repository   = "https://github.com/projetmbc/tools-for-dev/tree/master/spkpb"
+repository   = "https://github.com/bc-tools/for-dev/tree/main/spkpb"
 
 [tool.poetry.dependencies]
 python  = "^3.8"
