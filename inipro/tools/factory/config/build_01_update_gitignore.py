@@ -5,6 +5,7 @@ from operator import is_
 from pathlib  import Path
 from requests import get as getfile
 
+
 # --------------- #
 # -- CONSTANTS -- #
 # --------------- #
@@ -37,7 +38,7 @@ while(SRC_DIR.name != 'inipro'):
 
 SRC_DIR /= 'src'
 
-GITIGNORE_DIR = SRC_DIR / 'config' / 'gitignore' / 'io'
+GITIGNORE_DIR = SRC_DIR / 'config' / 'gitignore' / 'online'
 
 
 TAB_1 = ' '*4
@@ -64,6 +65,7 @@ def rulesfrom(content: str) -> set:
 
     return rules
 
+
 # ----------------------------------- #
 # -- UPDATES FROM ``gitignore.io`` -- #
 # ----------------------------------- #
@@ -72,6 +74,7 @@ def rulesfrom(content: str) -> set:
 # Clear the terminal.
 print("\033c", end = "")
 # ! -- DEBUGGING -- ! #
+
 
 print(f"{TAB_1}* Rules on ``gitignore.io``...")
 
@@ -109,12 +112,14 @@ for filename, urlparams in GITIGNORE_IO_WEBSITE.items():
         continue
 
 # ! -- DEBUGGING -- ! #
-    print(f"{web_rules - project_rules = }")
+    # print(f"{web_rules - project_rules = }")
 # ! -- DEBUGGING -- ! #
+
 
     plurial = "" if nb_newrules == 1 else "s"
 
     print(f"{TAB_3}- {nb_newrules} new rule{plurial} found.")
+
 
     print(f"{TAB_3}- Updating the file ``{filename}.txt``.")
 
