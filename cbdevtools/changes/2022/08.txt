@@ -1,0 +1,18 @@
+==
+11
+==
+
+-----
+:new:
+-----
+
+[[:doc:]]
+The technical ¨doc has been moved into the path::``README.md`` file.
+
+
+--------
+:fordev:
+--------
+
+[[:flow:]]
+A path::``tools/publish`` folder has been added.

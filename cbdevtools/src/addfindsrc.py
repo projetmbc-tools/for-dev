@@ -15,35 +15,11 @@ import sys
 #               this function.
 #     project : the name of the project
 #
-#     :return: the path of the project dir.
+#     :return: the path of the project ¨dir.
 #
-# This function adds the project folder path::``project`` to the sys path.
-# Let's see a fictive example with the following tree structure.
 #
-# tree-dir::
-#     + mymod
-#         + doc
-#         + dist
-#         + src
-#             * __init__.py
-#             * ...
-#         + tools
-#             + debug
-#                 * cli.py
-#
-# The ¨python script path::``tools/debug/cli.py`` can easily load the local
-# ¨python module ``src``. The code to use is the following one where the value
-# returned by ``addfindsrc`` is not used.
-#
-# python::
-#     from cbdevtools import *
-#
-#     addfindsrc(
-#         file    = __file__,
-#         project = 'mymod',
-#     )
-#
-#     from src import *
+# warning::
+#     The ¨dir of the project must contain the file path::``__file__``.
 ###
 def addfindsrc(
     file   : str,

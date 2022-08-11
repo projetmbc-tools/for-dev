@@ -16,57 +16,23 @@ from orpyste.data import ReadBlock
 
 ###
 # prototype::
+#     :action: This function is fixture for ¨pytest that yields a ready-to-use
+#              data dictionary used to acheive the tests.
+#              It also finalizes the cleaning of ¨orpyste extra files in case
+#              of problem.
+#
 #     :see: build_datas_block
 #
-# This fixture yields a ready-to-use data dictionary used to acheive the tests.
-# It also finalizes the cleaning of ¨orpyste extra files in case of problem.
 #
 # note::
-#     The "intuitive" dictionary is build via ``mydict("std nosep nonb")``
-#     (see ¨orpyste).
+#     The "intuitive" ready-to-use dictionary is build via the call of
+#     ``mydict("std nosep nonb")`` (see ¨orpyste).
 #
 #
-# Here is a real example of use with the following partial tree structure.
-#
-# tree-dir::
-#     + TeXitEasy
-#         + src
-#             * __init__.py
-#             * escape.py
-#         + tests
-#             + escape
-#                 + fstringit.peuf
-#                 + test_fstringit.py
-#
-# The ¨python testing file path::``test_fstringit.py`` is associated
-# to the path::``PEUF`` file path::``fstringit.peuf`` where the prefix
-# path::``test_`` has been removed. Using the datas stored in this
-# path::``PEUF`` file becomes very easy: here is the code used where
-# ``tests`` is an intuitive ¨dict version of the path::``PEUF`` file.
-#
-# python::
-#     from cbdevtools import *
-#
-#     addfindsrc(
-#         file    = __file__,
-#         project = 'TeXitEasy',
-#     )
-#
-#     from src.escape import fstringit
-#
-#     def test_latex_use_fstringit(peuf_fixture):
-#         tests = peuf_fixture(__file__)
-#
-#         for infos in tests.values():
-#             found  = fstringit(infos['source'])
-#             wanted = infos['fstring']
-#
-#             assert wanted == found
-###
-
-# Refs
+# refs::
 #    * https://docs.pytest.org/en/6.2.x/fixture.html#scope-sharing-fixtures-across-classes-modules-packages-or-session
 #    * https://docs.pytest.org/en/6.2.x/fixture.html#factories-as-fixtures
+###
 
 @fixture(scope = "session")
 def peuf_fixture() -> None:
@@ -93,16 +59,14 @@ def peuf_fixture() -> None:
 
 ###
 # prototype::
-#     file : just use the magic constant ``__file__`` when calling
-#            this function from a testing file.
+#     file : just use the magic constant ``__file__`` when calling this
+#            function from a testing file.
 #
-#     :return: an object containing the datas defined in a
-#              path::``PEUF`` file (see the ¨info below).
+#     :return: an instance of ``ReadBlock`` associated to a path::``peuf``
+#              file automatically named.
 #
-# This function returns an instance of ``ReadBlock`` associated to
-# a path::``peuf`` file automatically named.
 #
-# note::
+# warning::
 #     The name of the path::``peuf`` file is obtained by removing the prefix
 #     path::``test_`` from the name of the testing file (see the ¨tech ¨doc
 #     of ``peuf_fixture`` for a concrete example).
