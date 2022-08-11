@@ -6,8 +6,19 @@
 ==
 
 -----
-:new:
+:new:    ???????
 -----
+
+[[:api:]]
+New features.
+
+    1)
+    ???????
+    Building easy signatures of methods of classes, or of functions.
+
+    1)
+    ???????
+    Obtaining a short cleaned version of the standard ``dir(cls)``.
 
 [[:doc:]]
 The technical ¨doc has been moved into the path::``README.md`` file.

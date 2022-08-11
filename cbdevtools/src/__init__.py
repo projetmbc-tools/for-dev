@@ -3,4 +3,6 @@
 __version__ = "0.0.10-beta"
 
 from .addfindsrc  import *
+from .easysign    import *
 from .orpystedata import *
+from .shortdir    import *

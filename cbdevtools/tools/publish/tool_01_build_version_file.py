@@ -42,7 +42,16 @@ def isbigger(version_1, version_2):
         if version_1[m] > version_2[m]:
             return True
 
-    return False
+        elif version_1[m] < version_2[m]:
+            return False
+
+        if m == 'prerelease':
+            raise Exception(
+                 'no support of comparisons based on '
+                 '"prerelease part " for the moment.'
+                f'\n{version_1 = }'
+                f'\n{version_2 = }'
+            )
 
 
 # ---------------------- #
@@ -62,7 +71,7 @@ chge_files = [
 chge_files.sort()
 chge_files.reverse()
 
-nb_versions_found = set()
+nb_versions_found = {}
 
 for path in chge_files:
     with path.open(
@@ -111,14 +120,26 @@ for path in chge_files:
         version = version[:-1].strip()
         version = Version(version)
 
-        fullversion = str(version)
-
-        assert not fullversion in nb_versions_found
-
-        nb_versions_found.add(fullversion)
 
         day  = day.strip()
         date = (year, month, day)
+
+# ! -- DEBUGGING -- ! #
+        # print(f"{date = }")
+# ! -- DEBUGGING -- ! #
+
+
+        fullversion = str(version)
+
+        assert not fullversion in nb_versions_found, \
+               (
+                 '{fullversion} already used.'
+                 '\n' + allnbsversion +
+                 '\nSee the most recent date '
+                f'``{"-".join(nb_versions_found[fullversion])}``.'
+               )
+
+        nb_versions_found[fullversion] = date
 
         about = {
             m: version.__getattribute__(m)
