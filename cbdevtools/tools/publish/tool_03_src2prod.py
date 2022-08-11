@@ -16,18 +16,18 @@ print("\033c", end="")
 
 SRC_DIR = Path(__file__).parent
 
-while SRC_DIR.name != "cvnum":
+while SRC_DIR.name != "cbdevtools":
     SRC_DIR = SRC_DIR.parent
 
 README_DIR = 'readme'
 SOURCE_DIR = 'src'
-TARGET_DIR = 'cvnum'
+TARGET_DIR = 'cbdevtools'
 
 project = Project(
     # safemode = False,
     project  = SRC_DIR,
     source   = 'src',
-    target   = 'cvnum',
+    target   = 'cbdevtools',
     ignore   = '''
         tool_*/
         tool_*.*

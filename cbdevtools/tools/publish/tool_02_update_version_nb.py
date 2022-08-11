@@ -16,7 +16,7 @@ print("\033c", end="")
 
 SRC_DIR = PPath(__file__)
 
-while SRC_DIR.name != "cvnum":
+while SRC_DIR.name != "cbdevtools":
     SRC_DIR = SRC_DIR.parent
 
 

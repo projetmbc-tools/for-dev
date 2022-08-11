@@ -1,5 +1,4 @@
-Append one package to `sys.path`
---------------------------------
+### Append one package to `sys.path`
 
 The function `addfindsrc.addfindsrc` adds one project folder to the system path.
 
