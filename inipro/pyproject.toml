@@ -1,17 +1,17 @@
 [tool.poetry]
-name         = "cbdevtools"
-version      = "0.0.11-beta"
-description  = '"Common Box of Dev Tools" proposing small scripts that can be helpful.'
+name         = "inipro"
+version      = ""
+description  = 'XXX'
 readme       = "README.md"
 authors      = ["Christophe BAL"]
 maintainers  = ["Christophe BAL"]
 license      = "GNU License Version 3"
-repository   = "https://github.com/bc-tools/for-dev/tree/main/cbdevtools"
+repository   = "https://github.com/bc-tools/for-dev/tree/main/inipro"
 
 [tool.poetry.dependencies]
 python  = "^3.8"
-orpyste = "^1.3.2-beta.0"
-pytest  = "^6.2.4"
+natsort = "^7.1.1"
+orpyste = "^1.3.2-beta"
 
 [tool.poetry.dev-dependencies]
 

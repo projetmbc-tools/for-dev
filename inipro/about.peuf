@@ -1,0 +1,19 @@
+general::
+    project     = python
+    desc        =
+    authors     = Christophe BAL
+// Optional
+//    maintainers = Christophe BAL
+    licence     = gnu 3
+    repository  = https://github.com/bc-tools/for-dev/tree/main/inipro
+    dep         = python ^3.8
+// Optional
+//    dev-dep     =
+
+structure::
+    + contribute
+        + templates
+
+    + src
+        + config
+            + templates
