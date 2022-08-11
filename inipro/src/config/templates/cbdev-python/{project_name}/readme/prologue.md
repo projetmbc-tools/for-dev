@@ -1,5 +1,5 @@
-The `Python` module `cbdevtools`
-================================
+The `Python` module `{project_name}`
+====================================
 
 
 > **I beg your pardon for my english...**

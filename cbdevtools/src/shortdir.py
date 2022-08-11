@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 ###
-# This module allows to work with selective version of the standard ``dir(obj)``
-# of an object.
+# This module allows to work with selective version of the standard
+# ``dir(obj)`` of an object.
 ###
 
 

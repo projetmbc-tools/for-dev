@@ -1,4 +1,4 @@
-About `{projetc_name}`
+About `{project_name}`
 ---------------------
 
 TODO.
