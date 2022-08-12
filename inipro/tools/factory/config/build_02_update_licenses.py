@@ -15,7 +15,7 @@ from scraping import *
 # --------------- #
 
 UPDATE_CREATIVE = UPDATE_OPENSOURCE = True
-UPDATE_OPENSOURCE = False # Debug mode.
+# UPDATE_OPENSOURCE = False # Debug mode.
 UPDATE_CREATIVE   = False # Debug mode.
 
 

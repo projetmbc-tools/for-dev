@@ -13,25 +13,27 @@ class CreativeCommons(ScrapingBase):
 #
 # Names and IDs.
         bs = self.get_BS_of(
-            "https://creativecommons.org/2014/01/07/plaintext-versions-of-creative-commons-4-0-licenses/"
+            "https://creativecommons.org/2014/01/07/"
+            "plaintext-versions-of-creative-commons-4-0-licenses/"
         )
 
         for elt in bs.select('a'):
             href = elt['href']
 
-            if not elt['href'].endswith('/4.0/legalcode.txt'):
+            if not href.endswith('/4.0/legalcode.txt'):
                 continue
 
-            name = elt.getText()
-            name = name.replace('(plaintext)', '')
-            name = name.strip()
+            license_name = elt.getText()
+            license_name = license_name.replace('(plaintext)', '')
+            license_name = license_name.strip()
 
-            pyid =self.idof(name)
+            file_name =self.idof(license_name)
 
+# Easy access to the TXT version of the license.
             content = self.get_webtxt(href)
 
             self.add_licence(
-                license_name    = name,
-                file_name    = pyid,
-                content = content
+                fullname = license_name,
+                shortid    = file_name,
+                content      = content
             )

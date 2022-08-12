@@ -67,12 +67,14 @@ class ScrapingBase:
 
     def add_licence(
         self,
-        license_name: str,
-        file_name   : str,
-        content     : str,
+        fullname: str,
+        shortid : str,
+        url     : str,
+        content : str,
     ) -> None:
+        TODO
         self._licences.append(
-            (license_name, file_name, content.strip())
+            (fullname, shortid, content.strip())
         )
 
 
