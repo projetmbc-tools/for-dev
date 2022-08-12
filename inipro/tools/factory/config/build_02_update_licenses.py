@@ -20,13 +20,16 @@ UPDATE_CREATIVE = UPDATE_OPENSOURCE = True
 UPDATE_OPENSOURCE = False # Debug mode.
 UPDATE_CREATIVE   = False # Debug mode.
 
+FAILED_LICENSES = []
+
 
 TODAY = date.today()
 
 
 THIS_FILE = Path(__file__)
+THIS_DIR  = Path(THIS_FILE).parent
 
-PROJECT_DIR = Path(THIS_FILE).parent
+PROJECT_DIR = THIS_DIR
 
 while(PROJECT_DIR.name != 'inipro'):
    PROJECT_DIR = PROJECT_DIR.parent
@@ -37,11 +40,29 @@ THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
 LICENSE_DIR        = PROJECT_DIR / 'src' / 'config' / 'license'
 LICENSE_ONLINE_DIR = LICENSE_DIR / 'online'
 PYFILE             = LICENSE_DIR / 'license.py'
+FAIL_JSON_FILE     = THIS_DIR / 'failed_licenses.json'
 
 
 TAB_1 = ' '*4
 TAB_2 = TAB_1*2
 TAB_3 = TAB_1*3
+
+
+# ----------- #
+# -- TOOLS -- #
+# ----------- #
+
+def tagfrom(shortid):
+    tag = ''
+
+    for c in shortid:
+        if c in '. -':
+            tag += '_'
+
+        else:
+            tag += c.upper()
+
+    return tag
 
 
 # --------------- #
@@ -68,6 +89,8 @@ if UPDATE_CREATIVE:
     )
     myCC.build()
 
+    FAILED_LICENSES += myCC.failed_licences
+
 
 # ------------------------------------- #
 # -- UPDATES FROM ``opensource.org`` -- #
@@ -83,6 +106,24 @@ if UPDATE_OPENSOURCE:
     )
     myOpenSrc.build()
 
+    FAILED_LICENSES += myOpenSrc.failed_licences
+
+
+# ------------------------------------- #
+# -- UPDATE ``failed_licenses.json`` -- #
+# ------------------------------------- #
+
+if UPDATE_CREATIVE or UPDATE_OPENSOURCE:
+    print(f"{TAB_1}* Updating ``failed_licenses.json``.")
+
+    with FAIL_JSON_FILE.open(
+        encoding = 'utf-8',
+        mode     = 'w',
+    ) as f:
+        f.write(
+            dumps(FAILED_LICENSES)
+        )
+
 
 # --------------------------- #
 # -- UPDATE ``licence.py`` -- #
@@ -90,14 +131,10 @@ if UPDATE_OPENSOURCE:
 
 print(f"{TAB_1}* Updating ``licence.py``.")
 
-exit()
 license_found   = set()
 license_by_kind = defaultdict(list)
 
 for f in LICENSE_DIR.walk("file::**.txt"):
-    if f.ext == 'json':
-        continue
-
     lic_file_TXT_name = f.stem
 
     kind = f'__{f.parent.name}__'
@@ -116,6 +153,11 @@ for f in LICENSE_DIR.walk("file::**.txt"):
         mode     = 'r',
     ) as sf:
         specs = load(sf)
+
+# ! -- DEBUGGING -- ! #
+    # print(specs)
+    # exit()
+# ! -- DEBUGGING -- ! #
 
     license_found.add(lic_file_TXT_name)
 
@@ -137,19 +179,25 @@ ALL_TAGS = [
 ]
 
 for kind in ALL_TAGS:
-    sortednames = sorted(license_by_kind[kind])
+    sortednames = sorted(
+        (tagfrom(specs['shortid']), specs)
+        for _ , specs in license_by_kind[kind]
+    )
+
+    if not sortednames:
+        continue
 
     ALL_LICENSES.append(kind)
-    ALL_LICENSES += [n for n, _ in sortednames]
+    ALL_LICENSES += [t for t, _ in sortednames]
 
     code_EACH_TAG.append(kind)
 
-    code_EACH_TAG = []
-
-    for (n, hn) in sortednames:
-        code_EACH_TAG.append(
-            f'TAG_LICENSE_{n.replace("-", "_")} = "{hn}"'
-        )
+    for (tag, specs) in sortednames:
+        code_EACH_TAG += [
+            f"# {specs['fullname']}",
+            f"#     + See: {specs['url']}",
+            f"TAG_LICENSE_{tag} = \"{specs['shortid']}\""
+        ]
 
     code_EACH_TAG.append('')
 
@@ -169,13 +217,13 @@ code_EACH_TAG = '\n'.join(code_EACH_TAG)
 for kind in ALL_TAGS:
     ctitle = kind.replace('_', '').title()
 
-    code_ALL_TAGS = code_ALL_TAGS.replace(
-        ' '*4 + f'"{kind}",',
-        f"# {ctitle}"
-    )
-
     code_EACH_TAG = code_EACH_TAG.replace(
         kind,
+        f"# {ctitle}\n#"
+    )
+
+    code_ALL_TAGS = code_ALL_TAGS.replace(
+        ' '*4 + f'"{kind}",',
         f"# {ctitle}"
     )
 

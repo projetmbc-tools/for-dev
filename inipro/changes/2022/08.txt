@@ -15,6 +15,12 @@ Here are the new features.
 
     1) `gitignore` rules: all the rules are given in the constant ``ALL_GITIGNORES`` inside the file path::``config/gitignore/gitignore.py``.
 
+    1) Licenses as configuration files (same kinds of remarks as the ones made for `gitignore` rules as configuration files can be made).**Useful: see ref::``https://choosealicense.com/`` and ref::``https://creativecommons.org/choose/`` to help you to choose your licenses.**
+
+        * ¨opensource_org and ¨choosealicense are used for coding oriented licenses: see ref::``https://opensource.org/licenses``.
+
+        * ¨creativecommons_org is used for "creative" licenses: see ref::``https://creativecommons.org/2014/01/07/plaintext-versions-of-creative-commons-4-0-licenses/``.
+
 
 // ---------- //
 
