@@ -1,9 +1,23 @@
 // ---------- //
 
 ==
+12
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+Templates: the licenses use in a template must be specified in the file path::``config/templates/specs.py`` (this allows to change, or ignore them dynamically when initiating a new project from one template).
+
+
+// ---------- //
+
+==
 11
 ==
 
-This project will propose a simplified way to init diffrent kinds of coding like projects. Fot the moment there is only one feature.
+This project will propose a simplified way to init different kinds of coding like projects. Fot the moment there is only one feature.
 
     * `gitignore` rules as configuration files: most of the job is done by the website ¨gitignore_io (this makes a dependency to the last version of ¨inipro, but this avoids to always use the web ¨api of ¨gitignore_io, and also to propose very specific rules).
