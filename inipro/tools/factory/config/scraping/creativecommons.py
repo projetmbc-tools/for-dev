@@ -18,22 +18,61 @@ class CreativeCommons(ScrapingBase):
         )
 
         for elt in bs.select('a'):
-            href = elt['href']
+            a_href = elt['href']
 
-            if not href.endswith('/4.0/legalcode.txt'):
+            if not a_href.endswith('/4.0/legalcode.txt'):
                 continue
 
-            license_name = elt.getText()
-            license_name = license_name.replace('(plaintext)', '')
-            license_name = license_name.strip()
+            shortid = elt.getText()
+            shortid = shortid.strip()
 
-            file_name =self.idof(license_name)
+            for old, new in [
+                ('(plaintext)', ''),
+                (' ', '-'),
+            ]:
+                shortid = shortid.replace(old, new)
+
+                if not new:
+                    shortid = shortid.strip()
+
+            print(
+                f"{self.decotab_2} Extracting content of "
+                f"``Creative Commons {shortid}``"
+            )
+
+
+# ! -- DEBUGGING -- ! #
+            # print()
+            # print(f"{a_href   = }")
+            # print(f"{fullname = }")
+            # print(f"{shortid  = }")
+            # input('?')
+            # exit()
+# ! -- DEBUGGING -- ! #
 
 # Easy access to the TXT version of the license.
-            content = self.get_webtxt(href)
+            content = self.get_webtxt(a_href)
 
+# Full name is inside the content of the license.
+            nb_equals_line = 0
+
+            for line in content.split('\n'):
+                line = line.strip()
+
+                if not line:
+                    continue
+
+                if set(line) == set('='):
+                    nb_equals_line += 1
+
+                elif nb_equals_line == 2:
+                    fullname = line
+                    break
+
+# Just add this new license.
             self.add_licence(
-                fullname = license_name,
-                shortid    = file_name,
-                content      = content
+                fullname = fullname,
+                shortid  = shortid,
+                url      = a_href,
+                content  = content
             )

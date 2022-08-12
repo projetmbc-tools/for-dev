@@ -6,7 +6,9 @@ from typing import (
     Tuple,
 )
 
-from requests import get as getwebcontent
+from json                import dumps
+from requests            import get as getwebcontent
+from requests.exceptions import ConnectionError
 
 from bs4 import BeautifulSoup
 
@@ -32,10 +34,23 @@ class ScrapingBase:
 
 
     def build(self) -> None:
-        self._licences = []
+        self.licences        = []
+        self.failed_licences = []
 
         print(f"{self.decotab_1} Extracting infos about licenses.")
         self.extract_licences()
+
+        nb_failures = len(self.failed_licences)
+        nb_success  = len(self.licences)
+
+        if nb_failures:
+            percent_failures  = nb_failures / (nb_failures + nb_success)
+            percent_failures *= 100
+
+            print(f"{self.decotab_1} Failures: {percent_failures:.2f}%.")
+
+        else:
+            print(f"{self.decotab_1} No failure.")
 
         print(f"{self.decotab_1} Updating license files.")
         self.update_licences()
@@ -58,11 +73,13 @@ class ScrapingBase:
         return getwebcontent(url).text
 
 
-    def idof(self, name: str) -> str:
+    def filenamefrom(self, shortid: str) -> str:
         for old in ' _.':
-            name = name.replace(old, self.STD_SEP)
+            shortid = shortid.replace(old, self.STD_SEP)
 
-        return name
+        shortid = shortid.upper()
+
+        return shortid
 
 
     def add_licence(
@@ -72,25 +89,41 @@ class ScrapingBase:
         url     : str,
         content : str,
     ) -> None:
-        TODO
-        self._licences.append(
-            (fullname, shortid, content.strip())
+        self.licences.append(
+            (fullname, shortid, url, content)
+        )
+
+
+    def add_failed_licence(
+        self,
+        fullname: str,
+        shortid : str,
+    ) -> None:
+        self.failed_licences.append(
+            (fullname, shortid)
         )
 
 
     def update_licences(self) -> None:
-        for license_name, file_name, content in self._licences:
-            lic_file      = self.license_dir / f"{file_name}.txt"
-            lic_name_file = self.license_dir / f"{file_name}-[name].txt"
+        for fullname, shortid, url, content in self.licences:
+            file_name = self.filenamefrom(shortid)
+
+# ! -- DEBUGGING -- ! #
+            # print(file_name)
+            # continue
+# ! -- DEBUGGING -- ! #
+
+            lic_file_TXT  = self.license_dir / f"{file_name}.txt"
+            lic_file_JSON = self.license_dir / f"{file_name}.json"
 
 # License in the project.
-            if lic_file.is_file():
-                with lic_file.open(
+            if lic_file_TXT.is_file():
+                with lic_file_TXT.open(
                     encoding = 'utf-8',
                     mode     = 'r',
                 ) as f:
                     content_stored = f.read()
-                    content_stored = content_stored.strip()
+                    content_stored = content_stored
 
             else:
                 content_stored = ''
@@ -98,28 +131,37 @@ class ScrapingBase:
 # New license?
             if content_stored == content:
                 print(
-                    f"{self.decotab_2 } No new content "
-                    f"for the license ``{license_name}``."
+                    f"{self.decotab_2} No new content "
+                    f"for the license ``Creative Commons {shortid}``."
                 )
                 continue
 
+
             print(
-                f"{self.decotab_2 } Updating the file "
+                f"{self.decotab_2} Updating the file "
                 f"``{file_name}.txt``."
             )
 
-            with lic_file.open(
+            with lic_file_TXT.open(
                 encoding = 'utf-8',
                 mode     = 'w',
             ) as f:
                 f.write(content)
 
 
-            with lic_name_file.open(
+            print(
+                f"{self.decotab_2} Updating the file "
+                f"``{file_name}.json``."
+            )
+
+            with lic_file_JSON.open(
                 encoding = 'utf-8',
                 mode     = 'w',
             ) as f:
-                license_name = license_name.upper()
-                license_name = license_name.replace('-', ' ')
-
-                f.write(license_name)
+                f.write(
+                    dumps({
+                        'fullname': fullname,
+                        'shortid' : shortid,
+                        'url'     : url,
+                    })
+                )

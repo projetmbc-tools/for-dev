@@ -14,7 +14,7 @@ from mistool.os_use import PPath as Path
 # --------------- #
 
 UPDATE_ONLINE = True
-UPDATE_ONLINE = False # Debug mode.
+# UPDATE_ONLINE = False # Debug mode.
 
 GITIGNORE_IO_BASE_URL = "https://www.gitignore.io/api/{urlparams}"
 
@@ -95,7 +95,7 @@ if UPDATE_ONLINE:
     print(f"{TAB_1}* Rules on ``gitignore.io``.")
 
     for filename, urlparams in GITIGNORE_IO_WEBSITE.items():
-        print(f"{TAB_2}+ Looking for ``{filename}`` with ``urlparams = {urlparams}``.")
+        print(f"{TAB_2}+ ``{filename}``")
 
         project_file = GITIGNORE_ONLINE_DIR / f"{filename}.txt"
 
@@ -127,7 +127,7 @@ if UPDATE_ONLINE:
             or
             (nb_newrules == 1 and newrules == set(['Icon\r\r']))
         ):
-            print(f"{TAB_3}- No new new rule found.")
+            print(f"{TAB_3}- No new rule found.")
             continue
 
 # ! -- DEBUGGING -- ! #

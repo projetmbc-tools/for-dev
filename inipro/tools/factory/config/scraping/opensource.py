@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import re
 from typing import (
     Set,
     Union,
@@ -55,7 +56,7 @@ class OpenSource(ScrapingBase):
             if not 'href' in a.attrs:
                 continue
 
-            a_href = self.href_to_keep(
+            a_href = self._href_to_keep(
                 a_txt         = a.getText().lower(),
                 a_href        = a['href'],
                 hrefs_visited = hrefs_visited
@@ -68,8 +69,8 @@ class OpenSource(ScrapingBase):
 # with Creative Commmons... Why such a violence?
             lic_bs = self.get_BS_of(a_href)
 
-# Not recommanded.
-            if not self.license_recommanded(lic_bs):
+# License no more recommanded.
+            if not self._license_recommanded(lic_bs):
                 continue
 
 # Short ID.
@@ -79,32 +80,50 @@ class OpenSource(ScrapingBase):
                 continue
 
 # Full name.
-            fullname = self.build_fullname(lic_bs)
+            fullname = self._build_fullname(lic_bs)
 
             assert fullname, \
                    f"no name found at {a_href}."
 
-# Everything looks OK.
+# Everything seems OK.
             hrefs_visited.add(a_href)
 
 # ! -- DEBUGGING -- ! #
-            print()
-            print(f"{a_href   = }")
-            print(f"{fullname = }")
-            print(f"{shortid  = }")
+            # print()
+            # print(f"{a_href   = }")
+            # print(f"{fullname = }")
+            # print(f"{shortid  = }")
             # input('?')
             # exit()
 # ! -- DEBUGGING -- ! #
 
-# We have to fins the TXT version of the licences!
+# We have to find the TXT version of the licences!
+            content_url = self._find_content(
+                fullname = fullname,
+                shortid  = shortid,
+                a_href   = a_href,
+                lic_bs   = lic_bs
+            )
 
-            # self.add_licence(
-            #     license_name = license_name,
-            #     file_name    = file_name,
-            #     content      = content
-            # )
+            if content_url is None:
+                self.add_failed_licence(
+                    fullname = fullname,
+                    shortid  = shortid,
+                )
+                continue
 
-    def build_fullname(self, lic_bs: BeautifulSoup) -> str:
+            content, url = content_url
+
+# Just add this new license.
+            self.add_licence(
+                fullname = fullname,
+                shortid  = shortid,
+                url      = url,
+                content  = content
+            )
+
+
+    def _build_fullname(self, lic_bs: BeautifulSoup) -> str:
         fullname = ''
 
         for h1 in lic_bs.select('h1'):
@@ -117,7 +136,8 @@ class OpenSource(ScrapingBase):
 
         return fullname
 
-    def href_to_keep(
+
+    def _href_to_keep(
         self,
         a_txt        : str,
         a_href       : str,
@@ -143,7 +163,7 @@ class OpenSource(ScrapingBase):
         return a_href
 
 
-    def license_recommanded(self, lic_bs: BeautifulSoup) -> bool:
+    def _license_recommanded(self, lic_bs: BeautifulSoup) -> bool:
         for font in lic_bs.select('font'):
             if(
                 'color' in font.attrs
@@ -153,3 +173,42 @@ class OpenSource(ScrapingBase):
                 return False
 
         return True
+
+
+    def _find_content(
+        self,
+        fullname: str,
+        shortid : str,
+        a_href  : str,
+        lic_bs  : BeautifulSoup,
+    ) -> Union[None, Tuple[str, str]]:
+
+# We only keep license founded on ``choosealicense.com``.
+        url = f"https://choosealicense.com/licenses/{shortid.lower()}"
+
+        response = getwebcontent(url)
+
+        if response.status_code != 200:
+            print(
+                f"{self.decotab_2} No content online for "
+                f"``{fullname}`` [{shortid}]"
+            )
+
+            return None
+
+        print(               # No content online for
+            f"{self.decotab_2} Extracting content of "
+            f"``{fullname}`` [{shortid}]"
+        )
+
+        bs = self.get_BS_of(url)
+
+        for p in bs.select('pre'):
+            if (
+                'id' in p.attrs
+                and
+                p['id'] == "license-text"
+            ):
+                content = p.getText()
+
+        return content, url

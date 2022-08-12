@@ -2,6 +2,7 @@
 
 from datetime    import date
 from collections import defaultdict
+from json        import load
 
 import black
 
@@ -15,7 +16,8 @@ from scraping import *
 # --------------- #
 
 UPDATE_CREATIVE = UPDATE_OPENSOURCE = True
-# UPDATE_OPENSOURCE = False # Debug mode.
+
+UPDATE_OPENSOURCE = False # Debug mode.
 UPDATE_CREATIVE   = False # Debug mode.
 
 
@@ -60,8 +62,8 @@ if UPDATE_CREATIVE:
     print(f"{TAB_1}* Licenses on ``creativecommons.org``.")
 
     myCC = CreativeCommons(
-        decotab_1    = f"{TAB_2}+",
-        decotab_2    = f"{TAB_3}-",
+        decotab_1   = f"{TAB_2}+",
+        decotab_2   = f"{TAB_3}-",
         license_dir = LICENSE_ONLINE_DIR,
     )
     myCC.build()
@@ -75,49 +77,50 @@ if UPDATE_OPENSOURCE:
     print(f"{TAB_1}* Licenses on ``opensource.org``.")
 
     myOpenSrc = OpenSource(
-        decotab_1 = f"{TAB_2}+",
-        decotab_2 = f"{TAB_3}-",
+        decotab_1   = f"{TAB_2}+",
+        decotab_2   = f"{TAB_3}-",
         license_dir = LICENSE_ONLINE_DIR,
     )
     myOpenSrc.build()
 
 
-# ----------------------------- #
+# --------------------------- #
 # -- UPDATE ``licence.py`` -- #
-# ----------------------------- #
+# --------------------------- #
 
 print(f"{TAB_1}* Updating ``licence.py``.")
 
+exit()
 license_found   = set()
 license_by_kind = defaultdict(list)
 
 for f in LICENSE_DIR.walk("file::**.txt"):
-    lic_file = f.stem
-
-    if lic_file.endswith('-[name]'):
+    if f.ext == 'json':
         continue
+
+    lic_file_TXT_name = f.stem
 
     kind = f'__{f.parent.name}__'
 
-    assert not lic_file in license_found, \
+    assert not lic_file_TXT_name in license_found, \
            (
-            f"name ``{lic_file}`` already used somewhere."
+            f"name ``{lic_file_TXT_name}`` already used somewhere."
              "\n"
             f"See the folder ``{kind.replace('_', '')}``."
            )
 
-    lic_name_file = f.parent / f"{lic_file}-[name].txt"
+    lic_file_JSON = f.parent / f"{lic_file_TXT_name}.json"
 
-    with lic_name_file.open(
+    with lic_file_JSON.open(
         encoding = 'utf8',
         mode     = 'r',
-    ) as hf:
-        human_name = hf.read().strip()
+    ) as sf:
+        specs = load(sf)
 
-    license_found.add(lic_file)
+    license_found.add(lic_file_TXT_name)
 
     license_by_kind[kind].append(
-        (lic_file, human_name)
+        (lic_file_TXT_name, specs)
     )
 
 
@@ -126,10 +129,14 @@ code_EACH_TAG = []
 ALL_LICENSES = []
 
 TAG_ONLINE  = '__online__'
+TAG_SPECIAL = '__special__'
 
-for kind in [
+ALL_TAGS = [
     TAG_ONLINE,
-]:
+    TAG_SPECIAL,
+]
+
+for kind in ALL_TAGS:
     sortednames = sorted(license_by_kind[kind])
 
     ALL_LICENSES.append(kind)
@@ -159,9 +166,7 @@ code_ALL_TAGS = black.format_file_contents(
 code_EACH_TAG = '\n'.join(code_EACH_TAG)
 
 
-for kind in [
-    TAG_ONLINE,
-]:
+for kind in ALL_TAGS:
     ctitle = kind.replace('_', '').title()
 
     code_ALL_TAGS = code_ALL_TAGS.replace(
