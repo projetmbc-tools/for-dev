@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
 
-from datetime import date
-from re import A
+from datetime    import date
+from collections import defaultdict
 
 import black
 from   requests import get as getwebcontent
 
 from mistool.os_use import PPath as Path
 
+
 # --------------- #
 # -- CONSTANTS -- #
 # --------------- #
 
 UPDATE_ONLINE = True
-# UPDATE_ONLINE = False # Debug mode.
+UPDATE_ONLINE = False # Debug mode.
 
 GITIGNORE_IO_BASE_URL = "https://www.gitignore.io/api/{urlparams}"
 
@@ -38,15 +39,15 @@ TODAY = date.today()
 
 THIS_FILE = Path(__file__)
 
-SRC_DIR = Path(THIS_FILE).parent
+PROJECT_DIR = Path(THIS_FILE).parent
 
-while(SRC_DIR.name != 'inipro'):
-   SRC_DIR = SRC_DIR.parent
+while(PROJECT_DIR.name != 'inipro'):
+   PROJECT_DIR = PROJECT_DIR.parent
 
 
-THIS_FILE_REL_SRC_PATH = THIS_FILE - SRC_DIR
+THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
 
-GITIGNORE_DIR        = SRC_DIR / 'src' / 'config' / 'gitignore'
+GITIGNORE_DIR        = PROJECT_DIR / 'src' / 'config' / 'gitignore'
 GITIGNORE_ONLINE_DIR = GITIGNORE_DIR / 'online'
 PYFILE               = GITIGNORE_DIR / 'gitignore.py'
 
@@ -91,7 +92,7 @@ print("\033c", end = "")
 # ----------------------------------- #
 
 if UPDATE_ONLINE:
-    print(f"{TAB_1}* Rules on ``gitignore.io``...")
+    print(f"{TAB_1}* Rules on ``gitignore.io``.")
 
     for filename, urlparams in GITIGNORE_IO_WEBSITE.items():
         print(f"{TAB_2}+ Looking for ``{filename}`` with ``urlparams = {urlparams}``.")
@@ -118,8 +119,11 @@ if UPDATE_ONLINE:
         web_rules   = rulesfrom(web_content)
 
 # New rules?
+        newrules    = web_rules - project_rules
+        nb_newrules = len(newrules)
+
         if (
-            (nb_newrules := len(newrules :=web_rules - project_rules)) == 0
+            (nb_newrules) == 0
             or
             (nb_newrules == 1 and newrules == set(['Icon\r\r']))
         ):
@@ -155,19 +159,85 @@ if UPDATE_ONLINE:
 
 print(f"{TAB_1}* Updating ``gitignore.py``.")
 
-ALL_GITIGNORE = [
-    f.stem
-    for f in GITIGNORE_DIR.walk("file::**.txt")
-]
-ALL_GITIGNORE.sort()
+gitignores_found   = set()
+gitignores_by_kind = defaultdict(list)
 
-code = f"{ALL_GITIGNORE = }"
+for f in GITIGNORE_DIR.walk("file::**.txt"):
+    name = f.stem
+    kind = f'__{f.parent.name}__'
 
-code = black.format_file_contents(
-    code,
+    assert not name in gitignores_found, \
+           (
+            f"name ``{name}`` already used in another kind."
+             "\n"
+            f"See the folder ``{kind.replace('_', '')}``."
+           )
+
+    gitignores_found.add(name)
+
+    gitignores_by_kind[kind].append(name)
+
+
+code_EACH_TAG = []
+
+ALL_GITIGNORES = []
+
+TAG_ONLINE  = '__online__'
+TAG_SPECIAL = '__special__'
+
+for kind in [
+    TAG_ONLINE,
+    TAG_SPECIAL,
+]:
+    sortednames = sorted(gitignores_by_kind[kind])
+
+    ALL_GITIGNORES.append(kind)
+    ALL_GITIGNORES += sortednames
+
+    code_EACH_TAG.append(kind)
+
+    code_EACH_TAG += [
+        f'TAG_GITIGNORE_{n.upper()} = "{n}"'
+        for n in sortednames
+    ]
+
+    code_EACH_TAG.append('')
+
+
+code_ALL_TAGS = f"{ALL_GITIGNORES = }"
+
+code_ALL_TAGS = black.format_file_contents(
+    code_ALL_TAGS,
     fast = False,
     mode = black.FileMode()
 )
+
+
+code_EACH_TAG = '\n'.join(code_EACH_TAG)
+
+
+for kind in [
+    TAG_ONLINE,
+    TAG_SPECIAL,
+]:
+    ctitle = kind.replace('_', '').title()
+
+    code_ALL_TAGS = code_ALL_TAGS.replace(
+        ' '*4 + f'"{kind}",',
+        f"# {ctitle}"
+    )
+
+    code_EACH_TAG = code_EACH_TAG.replace(
+        kind,
+        f"# {ctitle}"
+    )
+
+for n in ALL_GITIGNORES:
+    code_ALL_TAGS = code_ALL_TAGS.replace(
+        f'"{n}"',
+        f'TAG_GITIGNORE_{n.upper()}'
+    )
+
 
 with PYFILE.open(
     encoding = 'utf8',
@@ -179,9 +249,15 @@ with PYFILE.open(
 
 # This code was automatically build by the following file.
 #
-#     + ``{THIS_FILE_REL_SRC_PATH}``
+#     + ``{THIS_FILE_REL_PROJECT_DIR}``
 
-{code}
+# EACH TAG
+
+{code_EACH_TAG}
+
+# ALL THE TAGS
+
+{code_ALL_TAGS}
         """.strip()
         +
         '\n'

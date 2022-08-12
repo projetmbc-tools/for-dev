@@ -9,11 +9,11 @@
 -----
 
 [[:api:]]
-Gere are the new fetatures.
+Here are the new features.
 
-    1) Templates: the licenses used in a template must be specified in the file path::``config/templates/specs.py`` (this allows to change, or ignore them dynamically when initiating a new project from one template).
+    1) Templates: the licenses used in a template will be specified in the special file path::``__meta__/about.peuf`` and not in the template structure (this will allow to change, or ignore some licenses dynamically when initiating a new project from one template).
 
-    1) `gitignore` rules: all the rules are given in the constants ``ALL_GITIGNORE`` from the file path::``config/gitignore/gitignore.py``.
+    1) `gitignore` rules: all the rules are given in the constant ``ALL_GITIGNORES`` inside the file path::``config/gitignore/gitignore.py``.
 
 
 // ---------- //

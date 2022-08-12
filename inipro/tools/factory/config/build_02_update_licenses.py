@@ -1,25 +1,40 @@
 #!/usr/bin/env python3
 
-from datetime import date
-from pathlib  import Path
-from requests import get as getfile
+from datetime    import date
+from collections import defaultdict
+
+import black
+
+from mistool.os_use import PPath as Path
+
+from scraping import *
 
 
 # --------------- #
 # -- CONSTANTS -- #
 # --------------- #
 
+UPDATE_CREATIVE = UPDATE_OPENSOURCE = True
+UPDATE_OPENSOURCE = False # Debug mode.
+UPDATE_CREATIVE   = False # Debug mode.
+
+
 TODAY = date.today()
 
 
-SRC_DIR = Path(__file__).parent
+THIS_FILE = Path(__file__)
 
-while(SRC_DIR.name != 'inipro'):
-   SRC_DIR = SRC_DIR.parent
+PROJECT_DIR = Path(THIS_FILE).parent
 
-SRC_DIR /= 'src'
+while(PROJECT_DIR.name != 'inipro'):
+   PROJECT_DIR = PROJECT_DIR.parent
 
-LICENSES_DIR = SRC_DIR / 'config' / 'licenses' / 'online'
+
+THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
+
+LICENSE_DIR        = PROJECT_DIR / 'src' / 'config' / 'license'
+LICENSE_ONLINE_DIR = LICENSE_DIR / 'online'
+PYFILE             = LICENSE_DIR / 'license.py'
 
 
 TAB_1 = ' '*4
@@ -27,11 +42,165 @@ TAB_2 = TAB_1*2
 TAB_3 = TAB_1*3
 
 
-# --------------------------- #
-# -- UPDATES FROM WEBSITES -- #
-# --------------------------- #
+# --------------- #
+# -- LET'S GO! -- #
+# --------------- #
 
 # ! -- DEBUGGING -- ! #
 # Clear the terminal.
 print("\033c", end = "")
 # ! -- DEBUGGING -- ! #
+
+
+# ------------------------------------------ #
+# -- UPDATES FROM ``creativecommons.org`` -- #
+# ------------------------------------------ #
+
+if UPDATE_CREATIVE:
+    print(f"{TAB_1}* Licenses on ``creativecommons.org``.")
+
+    myCC = CreativeCommons(
+        decotab_1    = f"{TAB_2}+",
+        decotab_2    = f"{TAB_3}-",
+        license_dir = LICENSE_ONLINE_DIR,
+    )
+    myCC.build()
+
+
+# ------------------------------------- #
+# -- UPDATES FROM ``opensource.org`` -- #
+# ------------------------------------- #
+
+if UPDATE_OPENSOURCE:
+    print(f"{TAB_1}* Licenses on ``opensource.org``.")
+
+    myOpenSrc = OpenSource(
+        decotab_1 = f"{TAB_2}+",
+        decotab_2 = f"{TAB_3}-",
+        license_dir = LICENSE_ONLINE_DIR,
+    )
+    myOpenSrc.build()
+
+
+# ----------------------------- #
+# -- UPDATE ``licence.py`` -- #
+# ----------------------------- #
+
+print(f"{TAB_1}* Updating ``licence.py``.")
+
+license_found   = set()
+license_by_kind = defaultdict(list)
+
+for f in LICENSE_DIR.walk("file::**.txt"):
+    lic_file = f.stem
+
+    if lic_file.endswith('-[name]'):
+        continue
+
+    kind = f'__{f.parent.name}__'
+
+    assert not lic_file in license_found, \
+           (
+            f"name ``{lic_file}`` already used somewhere."
+             "\n"
+            f"See the folder ``{kind.replace('_', '')}``."
+           )
+
+    lic_name_file = f.parent / f"{lic_file}-[name].txt"
+
+    with lic_name_file.open(
+        encoding = 'utf8',
+        mode     = 'r',
+    ) as hf:
+        human_name = hf.read().strip()
+
+    license_found.add(lic_file)
+
+    license_by_kind[kind].append(
+        (lic_file, human_name)
+    )
+
+
+code_EACH_TAG = []
+
+ALL_LICENSES = []
+
+TAG_ONLINE  = '__online__'
+
+for kind in [
+    TAG_ONLINE,
+]:
+    sortednames = sorted(license_by_kind[kind])
+
+    ALL_LICENSES.append(kind)
+    ALL_LICENSES += [n for n, _ in sortednames]
+
+    code_EACH_TAG.append(kind)
+
+    code_EACH_TAG = []
+
+    for (n, hn) in sortednames:
+        code_EACH_TAG.append(
+            f'TAG_LICENSE_{n.replace("-", "_")} = "{hn}"'
+        )
+
+    code_EACH_TAG.append('')
+
+
+code_ALL_TAGS = f"{ALL_LICENSES = }"
+
+code_ALL_TAGS = black.format_file_contents(
+    code_ALL_TAGS,
+    fast = False,
+    mode = black.FileMode()
+)
+
+
+code_EACH_TAG = '\n'.join(code_EACH_TAG)
+
+
+for kind in [
+    TAG_ONLINE,
+]:
+    ctitle = kind.replace('_', '').title()
+
+    code_ALL_TAGS = code_ALL_TAGS.replace(
+        ' '*4 + f'"{kind}",',
+        f"# {ctitle}"
+    )
+
+    code_EACH_TAG = code_EACH_TAG.replace(
+        kind,
+        f"# {ctitle}"
+    )
+
+for n in ALL_LICENSES:
+    code_ALL_TAGS = code_ALL_TAGS.replace(
+        f'"{n}"',
+        f'TAG_LICENSE_{n.replace("-", "_")}'
+    )
+
+
+with PYFILE.open(
+    encoding = 'utf8',
+    mode     = 'w',
+) as f:
+    f.write(
+        f"""
+#!/usr/bin/env python3
+
+# This code was automatically build by the following file.
+#
+#     + ``{THIS_FILE_REL_PROJECT_DIR}``
+
+# EACH TAG
+
+{code_EACH_TAG}
+
+# ALL THE TAGS
+
+{code_ALL_TAGS}
+        """.strip()
+        +
+        '\n'
+    )
