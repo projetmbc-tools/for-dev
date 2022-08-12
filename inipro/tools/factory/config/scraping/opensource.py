@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 
+from typing import (
+    Set,
+    Union,
+)
+
 from .scrapingbase import *
 
 
@@ -50,27 +55,13 @@ class OpenSource(ScrapingBase):
             if not 'href' in a.attrs:
                 continue
 
-            a_href = a['href']
+            a_href = self.href_to_keep(
+                a_txt         = a.getText().lower(),
+                a_href        = a['href'],
+                hrefs_visited = hrefs_visited
+            )
 
-            if not '/licenses/' in a_href:
-                continue
-
-            if a_href.startswith('/licenses/'):
-                a_href = f'https://opensource.org{a_href}'
-
-            if a_href in hrefs_visited:
-                continue
-
-            a_txt = a.getText().lower()
-
-            if (
-                not 'license' in a_txt
-                or
-                any(
-                    s in a_txt
-                    for s in self.TO_IGNORE
-                )
-            ):
+            if a_href is None:
                 continue
 
 # Access to the TXT version makes us work more than
@@ -78,18 +69,7 @@ class OpenSource(ScrapingBase):
             lic_bs = self.get_BS_of(a_href)
 
 # Not recommanded.
-            not_recommanded = False
-
-            for font in lic_bs.select('font'):
-                if(
-                    'color' in font.attrs
-                    and
-                    font['color'] == 'red'
-                ):
-                    not_recommanded = True
-                    break
-
-            if not_recommanded:
+            if not self.license_recommanded(lic_bs):
                 continue
 
 # Short ID.
@@ -99,32 +79,77 @@ class OpenSource(ScrapingBase):
                 continue
 
 # Full name.
-            for h1 in lic_bs.select('h1'):
-                if 'class' in h1.attrs:
-                    name, _, _ = h1.text.partition('(')
+            fullname = self.build_fullname(lic_bs)
 
-                    name = name.strip()
-
-                    break
-
-
-            assert name, \
+            assert fullname, \
                    f"no name found at {a_href}."
 
 # Everything looks OK.
             hrefs_visited.add(a_href)
+
 # ! -- DEBUGGING -- ! #
             print()
-            print(f"{a_href  = }")
-            print(f"{name    = }")
-            print(f"{shortid = }")
+            print(f"{a_href   = }")
+            print(f"{fullname = }")
+            print(f"{shortid  = }")
             # input('?')
             # exit()
 # ! -- DEBUGGING -- ! #
 
+# We have to fins the TXT version of the licences!
 
             # self.add_licence(
             #     license_name = license_name,
             #     file_name    = file_name,
             #     content      = content
             # )
+
+    def build_fullname(self, lic_bs: BeautifulSoup) -> str:
+        fullname = ''
+
+        for h1 in lic_bs.select('h1'):
+            if 'class' in h1.attrs:
+                fullname, _ , _ = h1.text.partition('(')
+
+                fullname = fullname.strip()
+
+                break
+
+        return fullname
+
+    def href_to_keep(
+        self,
+        a_txt        : str,
+        a_href       : str,
+        hrefs_visited: Set[str]
+    ) -> Union[None, str]:
+        if a_href.startswith('/licenses/'):
+            a_href = f'https://opensource.org{a_href}'
+
+        if (
+            a_href in hrefs_visited
+            or
+            not '/licenses/' in a_href
+            or
+            not 'license' in a_txt
+            or
+            any(
+                s in a_txt
+                for s in self.TO_IGNORE
+            )
+        ):
+            return None
+
+        return a_href
+
+
+    def license_recommanded(self, lic_bs: BeautifulSoup) -> bool:
+        for font in lic_bs.select('font'):
+            if(
+                'color' in font.attrs
+                and
+                font['color'] == 'red'
+            ):
+                return False
+
+        return True
