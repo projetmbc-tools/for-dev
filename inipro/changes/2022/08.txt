@@ -13,13 +13,15 @@ Here are the new features.
 
     1) Templates: the licenses used in a template will be specified in the special file path::``__meta__/about.peuf`` and not in the template structure (this will allow to change, or ignore some licenses dynamically when initiating a new project from one template).
 
-    1) `gitignore` rules: all the rules are given in the constant ``ALL_GITIGNORES`` inside the file path::``config/gitignore/gitignore.py``.
+    1) ``gitignore`` rules: all the ¨python names of rules are given in the constant ``ALL_GITIGNORES`` inside the file path::``config/gitignore/gitignore.py``.
 
-    1) Licenses as configuration files (same kinds of remarks as the ones made for `gitignore` rules as configuration files can be made).**Useful: see ref::``https://choosealicense.com/`` and ref::``https://creativecommons.org/choose/`` to help you to choose your licenses.**
+    1) Licenses as configuration files (use of special licenses will be also possible).
 
-        * ¨opensource_org and ¨choosealicense are used for coding oriented licenses: see ref::``https://opensource.org/licenses``.
+        * ¨opensource_org and ¨choosealicense are used for the coding oriented licenses: see ref::``https://opensource.org/licenses``.
 
-        * ¨creativecommons_org is used for "creative" licenses: see ref::``https://creativecommons.org/2014/01/07/plaintext-versions-of-creative-commons-4-0-licenses/``.
+        * ¨creativecommons_org is used for the "creative" licenses: see ref::``https://creativecommons.org/2014/01/07/plaintext-versions-of-creative-commons-4-0-licenses/``.
+
+    **Useful: see ref::``https://choosealicense.com/`` and ref::``https://creativecommons.org/choose/`` to help you to choose your licenses.**
 
 
 // ---------- //
@@ -28,6 +30,6 @@ Here are the new features.
 11
 ==
 
-This project will propose a simplified way to init different kinds of coding like projects. Fot the moment there is only one feature.
+This project will try to propose a simplified way to init different kinds of coding like projects. Here is the starting feature.
 
-    * `gitignore` rules as configuration files: most of the job is done by the website ¨gitignore_io (this makes a dependency to the last version of ¨inipro, but this avoids to always use the web ¨api of ¨gitignore_io, and also to propose very specific rules).
+    * ``gitignore`` rules as configuration files: most of the job is done by the website ¨gitignore_io (use of personal rules will be also possible).
