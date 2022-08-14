@@ -4,6 +4,12 @@
 15
 ==
 
+-------
+:break:
+-------
+The project has been renamed ¨justcode for "[ju]st [s]tart [t]o [code]".
+
+
 --------
 :fordev:
 --------

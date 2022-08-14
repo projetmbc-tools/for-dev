@@ -116,7 +116,7 @@ if UPDATE_OPENSOURCE:
 if UPDATE_CREATIVE or UPDATE_OPENSOURCE:
     print(f"{TAB_1}* Updating ``failed_licenses.json``.")
 
-# We want to have a deterlinistic output!
+# We want a deterministic output!
     FAILED_LICENSES.sort()
 
     with FAIL_JSON_FILE.open(

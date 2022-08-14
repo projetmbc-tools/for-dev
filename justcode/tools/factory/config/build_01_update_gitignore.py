@@ -16,22 +16,20 @@ from mistool.os_use import PPath as Path
 UPDATE_ONLINE = True
 # UPDATE_ONLINE = False # Debug mode.
 
-GITIGNORE_IO_BASE_URL = "https://www.gitignore.io/api/{urlparams}"
+GITIGNORE_IO_BASE_URL = "https://www.gitignore.io/api/{urlparam}"
 
-GITIGNORE_IO_WEBSITE = {
-    n: n
-    for n in [
+GITIGNORE_IO_WEBSITE = [
 # LaTeX
-        'latex',
+    'latex',
 # Python
-        'python',
-        'jupyternotebooks',
+    'python',
+    'jupyternotebooks',
 # OS
-        'windows',
-        'osx',
-        'linux',
-    ]
-}
+    'windows',
+    'osx',
+    'linux',
+]
+
 
 
 TODAY = date.today()
@@ -94,10 +92,10 @@ print("\033c", end = "")
 if UPDATE_ONLINE:
     print(f"{TAB_1}* Rules on ``gitignore.io``.")
 
-    for filename, urlparams in GITIGNORE_IO_WEBSITE.items():
-        print(f"{TAB_2}+ ``{filename}``")
+    for urlparam in GITIGNORE_IO_WEBSITE:
+        print(f"{TAB_2}+ ``{urlparam}``")
 
-        project_file = GITIGNORE_ONLINE_DIR / f"{filename}.txt"
+        project_file = GITIGNORE_ONLINE_DIR / f"{urlparam}.txt"
 
 # Rules in the project.
         if project_file.is_file():
@@ -112,7 +110,7 @@ if UPDATE_ONLINE:
 
 # Rules on ``gitignore.io``.
         web_content = getwebcontent(
-            GITIGNORE_IO_BASE_URL.format(urlparams = urlparams)
+            GITIGNORE_IO_BASE_URL.format(urlparam = urlparam)
         )
 
         web_content = web_content.text
@@ -140,7 +138,7 @@ if UPDATE_ONLINE:
         print(f"{TAB_3}- {nb_newrules} new rule{plurial} found.")
 
 
-        print(f"{TAB_3}- Updating the file ``{filename}.txt``.")
+        print(f"{TAB_3}- Updating the file ``{urlparam}.txt``.")
 
         web_content = f"""
 # Modification made at {TODAY}.
