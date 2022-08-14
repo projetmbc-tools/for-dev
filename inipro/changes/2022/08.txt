@@ -9,8 +9,7 @@
 --------
 
 [[:tech:]]
-
-Licenses from ¨opensource_org and ¨choosealicense: significant accelerations of the web scraping thanks to ``ThreadPoolExecutor`` from ``concurrent.futures``.
+Licenses from ¨opensource_org and ¨choosealicense: significant acceleration of the downloading thanks to ``ThreadPoolExecutor`` from ``concurrent.futures``.
 
 
 // ---------- //

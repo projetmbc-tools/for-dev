@@ -44,16 +44,16 @@ class OpenSource(ScrapingBase):
     }
 
     def extract_licences(self) -> Dict[str, str]:
-# Just for formattings messages.
+# Just to format messages.
         self.__xtraspaces = " "*(
             len(f"{self.decotab_2} Extracting content of ")
         )
 
-# hrefs of licenses proposed quickly!
+# hrefs of licenses proposed. Fast to do.
         hrefs = self._find_hrefs_proposed()
 
 # Licenses kept for our project. Slow, but we use multiprocessing.
-        with ThreadPoolExecutor(max_workers=5) as exe:
+        with ThreadPoolExecutor(max_workers = 5) as exe:
             exe.map(self._select_licenses, hrefs)
 
 
