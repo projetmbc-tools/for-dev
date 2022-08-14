@@ -1,6 +1,22 @@
 // ---------- //
 
 ==
+15
+==
+
+--------
+:fordev:
+--------
+
+[[:tech:]]
+
+Licenses from ¨opensource_org and ¨choosealicense: significant accelerations of the web scraping thanks to ``ThreadPoolExecutor`` from ``concurrent.futures``.
+
+
+// ---------- //
+
+
+==
 12
 ==
 
@@ -25,6 +41,7 @@ Here are the new features.
 
 
 // ---------- //
+
 
 ==
 11
