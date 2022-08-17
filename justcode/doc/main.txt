@@ -1,0 +1,21 @@
+﻿this::
+    title   = Dméarrer rapidment un projet avec ¨justcode
+    author  = Christophe, BAL
+    mail    = projetmbc@gmail.com
+    lang    = fr
+
+    licence = cc by nc sa 4.0
+    out     = html | pdf
+
+    lexic   = ???
+
+
+abrev::
+    cvnum = cf::``justcode ;
+                  https://github.com/bc-tools/for-dev/tree/dev/justcode``
+
+    content = content
+
+
+content::
+    ¨content/intro.txt

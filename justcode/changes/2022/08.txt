@@ -38,9 +38,9 @@ Here are the new features.
 
     1) Licenses as configuration files (use of special licenses will be also possible).
 
-        * ¨opensource_org and ¨choosealicense are used for the coding oriented licenses: see ref::``https://opensource.org/licenses``.
+        * ¨opensource_org and ¨choosealicense are used: see ref::``https://opensource.org/licenses``.
 
-        * ¨creativecommons_org is used for the "creative" licenses: see ref::``https://creativecommons.org/2014/01/07/plaintext-versions-of-creative-commons-4-0-licenses/``.
+        * ¨creativecommons_org is also used: see ref::``https://creativecommons.org/2014/01/07/plaintext-versions-of-creative-commons-4-0-licenses/``.
 
     **Useful: see ref::``https://choosealicense.com/`` and ref::``https://creativecommons.org/choose/`` to help you to choose your licenses.**
 
@@ -52,6 +52,6 @@ Here are the new features.
 11
 ==
 
-This project will try to propose a simplified way to init different kinds of coding like projects. Here is the starting feature.
+This project aims to provide a simplified and modular method of starting up different types of coding and writing projects. Only one feature at this moment.
 
     * ``gitignore`` rules as configuration files: most of the job is done by the website ¨gitignore_io (use of personal rules will be also possible).

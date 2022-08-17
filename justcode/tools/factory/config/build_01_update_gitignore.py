@@ -3,7 +3,7 @@
 from datetime    import date
 from collections import defaultdict
 
-import black
+import                 black
 from   requests import get as getwebcontent
 
 from mistool.os_use import PPath as Path
@@ -131,7 +131,6 @@ if UPDATE_ONLINE:
 # ! -- DEBUGGING -- ! #
         # print(f"{web_rules - project_rules = }")
 # ! -- DEBUGGING -- ! #
-
 
         plurial = "" if nb_newrules == 1 else "s"
 
