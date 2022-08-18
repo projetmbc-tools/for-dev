@@ -1,12 +1,21 @@
-﻿av-brev::
+﻿abrev::
     content = /modularity
 
 
-===========================================
-???
-===========================================
+=========================
+Des squelettes modulables
+=========================
+
+warning::
+    Là où ¨cookiecutter parle de "template", nous emploierons le terme de "squelette". L'expression "patron de conception" est une meilleure ¨trad, mais c'est plus long à lire, et à taper.
+
 
 content::
-    ¨content/XXX.txt
-    ¨content/XXX.txt
-    ¨content/XXX.txt
+    ¨content/basic.txt
+    ¨content/XXX.txt        ??????
+    ¨content/XXX.txt        ??????
+    ¨content/XXX.txt        ??????
+    ¨content/XXX.txt        ??????
+    ¨content/XXX.txt        ??????
+    ¨content/XXX.txt        ??????
+    ¨content/XXX.txt        ??????

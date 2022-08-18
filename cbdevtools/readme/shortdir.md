@@ -8,7 +8,7 @@ Lets' consider the following code where the use of regexes allows enough flexibi
 from pprint              import pprint
 from cbdevtools.shortdir import (
     shortdir,
-    re_compile, # Just an alias for ``re_compile(``.
+    re_compile, # Just an alias for ``re.compile``.
     PATTERN_UNDERSCORE # Pattern matching ``-...``.
 )
 
