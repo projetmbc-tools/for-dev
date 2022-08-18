@@ -12,7 +12,7 @@
 [[:api:]]
 New features.
 
-    1) Building easy signatures of methods of instanciated classes, or of functions.
+    1) Building easy signatures of functions, or methods of instanciated classes.
 
     1) Obtaining a selective version of the standard ``dir(obj)`` of any ¨python object.
 

@@ -1,10 +1,10 @@
 ﻿this::
-    title   = Dméarrer rapidment un projet avec ¨justcode
-    author  = Christophe, BAL
-    mail    = projetmbc@gmail.com
-    lang    = fr
+    title  = Démarrer rapidement ses projets informatiques,
+             ou d'écriture
+    author = Christophe, BAL [projetmbc@gmail.com]
+    lang   = fr
 
-    licence = cc by nc sa 4.0
+    licence = by nc sa 4.0
     out     = html | pdf
 
     lexic   = ???
@@ -19,3 +19,4 @@ abrev::
 
 content::
     ¨content/intro.txt
+    ¨content/modularity.txt   ????

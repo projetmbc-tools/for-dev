@@ -1,9 +1,16 @@
 ﻿this::
-    date = ???
+    date = 2022-08-18
 
 
-===========================
-¨justcode pour quoi faire ?
-===========================
+===========================================
+¨justcode, un ¨cookiecutter sous régime bio
+===========================================
 
-????
+¨justcode vient compléter l'excellent ¨cookiecutter avec les fonctionnalités suivantes.
+
+    1) **Mixer différents squelettes pour un proposer un nouveau.**
+    Typiquement, on peut avoir différentes structures de projets qui utilisent toutes la même façon d'écrire les évolutions dans un dossier dédié nommé path::``changes`` par exemple.
+    Avec ¨justcode, on peut fabriquer un squelette spécialisé pour l'écriture de ces évolutions, puis ensuite intégérer facilement ce squelette dans d'autres.
+
+    1) **Valider ¨etou compléter la structure d'un projet existant vis à vis d'un squelette.**
+    Lorsque l'on crée un projet à partir d'un squelette, et que ce projet évolue, et qu'ensuite certaines ¨majs sont faites dans le squelette initalement utilisé, il devient nécessaire de vérifier que le projet répond bien aux nouveautés du nouveau squelette. ¨justcode permet ceci, et, si besoin, une ¨maj du projet peut être fait de façon ciblée, ou non (par exemple, on peut ne vouloir mettre à jour que des scripts proposés par le squelette).

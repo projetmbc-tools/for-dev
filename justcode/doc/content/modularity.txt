@@ -1,0 +1,12 @@
+﻿av-brev::
+    content = /modularity
+
+
+===========================================
+???
+===========================================
+
+content::
+    ¨content/XXX.txt
+    ¨content/XXX.txt
+    ¨content/XXX.txt
