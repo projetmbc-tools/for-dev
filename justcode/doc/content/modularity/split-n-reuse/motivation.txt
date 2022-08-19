@@ -1,0 +1,45 @@
+﻿this::
+    date = 2022-08-???
+
+
+===========================================
+???
+===========================================
+
+dir-tree::
+    + cvnum
+        + changes
+            * LICENSE.txt
+            * x-todo-x.txt
+        + contribute
+            + doc
+                * LICENSE.txt
+                * README.md
+                + changes
+                    * LICENSE.txt
+                    * x-todo-x.txt
+        + doc
+            * LICENSE.txt
+            * main.txt
+        + readme
+            * LICENSE.txt
+            * about.md
+            * about.peuf
+            * last.md
+            * prologue.md
+        + src
+            * LICENSE.txt
+        + tests
+            * README.md
+            + unit
+        + tools
+            * LICENSE.txt
+            + debug
+                * README.md
+            + factory
+                * README.md
+            + publish
+                * README.md
+                * tool_01_build_version_file.py
+                * tool_02_update_version_nb.py
+                * tool_03_src2prod.py

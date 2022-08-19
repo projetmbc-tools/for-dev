@@ -1,0 +1,11 @@
+﻿abrev::
+    content = /split-n-reuse
+
+
+========================================
+Scinder un squelette en plusieurs autres
+========================================
+
+content::
+    ¨content/motivation.txt         ??????
+    ¨content/how-to.txt             ??????

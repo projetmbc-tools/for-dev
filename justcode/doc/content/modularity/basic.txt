@@ -1,13 +1,22 @@
 ﻿this::
-    date = 2022-08-18
+    date = 2022-08-20 ??????
 
 
-================================
-Usage basique à la ¨cookiecutter
-================================
+========================
+Usage à la ¨cookiecutter
+========================
 
-Comme c'est ¨cookiecutter qui est utilisé en bout de chaîne de conception pour bâtir la structure initiale d'un projet, tout squelette fonctionnant avec ¨cookiecutter est utilisable avec ¨justcode.
+Comme ¨cookiecutter est utilisé en bout de chaîne de conception pour bâtir la structure initiale d'un projet, tout squelette fonctionnant avec ¨cookiecutter est facilement utilisable sans modification avec ¨justcode.
+Par contre, le processus de création diffère un peu de celui de ¨cookiecutter par les apsects suivants.
+
+    1) ????
+
+    1) ????
+
+    1) ????
+
+    1) ????
 
 
 note::
-    Les exemples proposés dans cette ¨doc sont tous expliqués de façon détaillée. Pour un usage avancé des squelettes, se reporter à la ¨cookiecutter_doc.
+    Les exemples proposés dans cette ¨doc sont tous expliqués de façon détaillée. Pour d'autres usages avancés des squelettes, se reporter à la ¨cookiecutter_doc.
