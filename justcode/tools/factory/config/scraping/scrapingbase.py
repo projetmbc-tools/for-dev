@@ -66,24 +66,24 @@ class ScrapingBase:
             f"{self.decotab_2} Looking for refs proposed."
         )
 
-        hrefs = self.find_hrefs_proposed()
+        href_elts = self.find_href_elts_proposed()
 
         print(
-            f"{self.decotab_2} {len(hrefs)} refs proposed."
+            f"{self.decotab_2} {len(href_elts)} refs proposed."
         )
 
 # Licenses kept for our project. Slow, but we use multiprocessing.
         with ThreadPoolExecutor(max_workers = 5) as exe:
-            exe.map(self.select_licenses, hrefs)
+            exe.map(self.select_one_license, href_elts)
 
 
-    def find_hrefs_proposed(self):
+    def find_href_elts_proposed(self):
         raise NotImplementedError(
             'code the build of the list of HTML href elements for the licenses'
         )
 
 
-    def select_licenses(self, elt):
+    def select_one_license(self, href_elt):
         raise NotImplementedError(
             'code the selection of one license indicated by an HTML href element'
         )

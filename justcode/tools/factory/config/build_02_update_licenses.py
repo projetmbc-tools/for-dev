@@ -260,3 +260,6 @@ with PYFILE.open(
         +
         '\n'
     )
+
+
+print(f"{TAB_1}* {len(ALL_LICENSES)} licenses proposed.")

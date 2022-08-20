@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-from concurrent.futures import ThreadPoolExecutor
-
 from .scrapingbase import *
 
 
@@ -10,7 +8,7 @@ from .scrapingbase import *
 # ---------------------------- #
 
 class CreativeCommons(ScrapingBase):
-    def find_hrefs_proposed(self):
+    def find_href_elts_proposed(self):
 # We only take care of the 4.0 versions.
 #
 # Names and IDs.
@@ -30,10 +28,10 @@ class CreativeCommons(ScrapingBase):
         return hrefs
 
 
-    def select_licenses(self, elt):
-        a_href = elt['href']
+    def select_one_license(self, href_elt):
+        a_href = href_elt['href']
 
-        shortid = elt.getText()
+        shortid = href_elt.getText()
         shortid = shortid.strip()
 
         for old, new in [

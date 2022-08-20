@@ -10,7 +10,7 @@
 --------
 
 [[:tech:]]
-Licenses: the use of ``ThreadPoolExecutor`` from ``concurrent.futures`` is done for any kind of license.
+Licenses & ``gitignore`` rules: the use of ``ThreadPoolExecutor`` from ``concurrent.futures`` is done for any download.
 
 
 // ---------- //

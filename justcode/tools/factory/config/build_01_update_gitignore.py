@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-from datetime    import date
-from collections import defaultdict
-
-import                 black
-from   requests import get as getwebcontent
+import                          black
+from collections         import defaultdict
+from concurrent.futures  import ThreadPoolExecutor
+from datetime            import date
+from requests            import get as getwebcontent
 
 from mistool.os_use import PPath as Path
 
@@ -75,6 +75,70 @@ def rulesfrom(content: str) -> set:
     return rules
 
 
+def extractrules(urlparam):
+    whichrules = f"{TAB_2}+ ``{urlparam}``"
+
+    project_file = GITIGNORE_ONLINE_DIR / f"{urlparam}.txt"
+
+# Rules in the project.
+    if project_file.is_file():
+        with project_file.open(
+            encoding = 'utf-8',
+            mode     = 'r',
+        ) as f:
+            project_rules = rulesfrom(f.read())
+
+    else:
+        project_rules = set()
+
+# Rules on ``gitignore.io``.
+    web_content = getwebcontent(
+        GITIGNORE_IO_BASE_URL.format(urlparam = urlparam)
+    )
+
+    web_content = web_content.text
+    web_rules   = rulesfrom(web_content)
+
+# New rules?
+    newrules    = web_rules - project_rules
+    nb_newrules = len(newrules)
+
+    if (
+        (nb_newrules) == 0
+        or
+        (nb_newrules == 1 and newrules == set(['Icon\r\r']))
+    ):
+        print(
+            whichrules,
+            f"{TAB_3}- No new rule found.",
+            sep = "\n"
+        )
+        return
+
+# ! -- DEBUGGING -- ! #
+    # print(f"{web_rules - project_rules = }")
+# ! -- DEBUGGING -- ! #
+
+    plurial = "" if nb_newrules == 1 else "s"
+
+    print(
+        whichrules,
+        f"{TAB_3}- {nb_newrules} new rule{plurial} found.",
+        f"{TAB_3}- Updating the file ``{urlparam}.txt``.",
+        sep = "\n"
+    )
+
+    web_content = f"""
+# Modification made at {TODAY}.
+{web_content}
+    """.strip() + "\n"
+    with project_file.open(
+        encoding = 'utf-8',
+        mode     = 'w',
+    ) as f:
+        project_rules = f.write(web_content)
+
+
 # --------------- #
 # -- LET'S GO! -- #
 # --------------- #
@@ -92,62 +156,8 @@ print("\033c", end = "")
 if UPDATE_ONLINE:
     print(f"{TAB_1}* Rules on ``gitignore.io``.")
 
-    for urlparam in GITIGNORE_IO_WEBSITE:
-        print(f"{TAB_2}+ ``{urlparam}``")
-
-        project_file = GITIGNORE_ONLINE_DIR / f"{urlparam}.txt"
-
-# Rules in the project.
-        if project_file.is_file():
-            with project_file.open(
-                encoding = 'utf-8',
-                mode     = 'r',
-            ) as f:
-                project_rules = rulesfrom(f.read())
-
-        else:
-            project_rules = set()
-
-# Rules on ``gitignore.io``.
-        web_content = getwebcontent(
-            GITIGNORE_IO_BASE_URL.format(urlparam = urlparam)
-        )
-
-        web_content = web_content.text
-        web_rules   = rulesfrom(web_content)
-
-# New rules?
-        newrules    = web_rules - project_rules
-        nb_newrules = len(newrules)
-
-        if (
-            (nb_newrules) == 0
-            or
-            (nb_newrules == 1 and newrules == set(['Icon\r\r']))
-        ):
-            print(f"{TAB_3}- No new rule found.")
-            continue
-
-# ! -- DEBUGGING -- ! #
-        # print(f"{web_rules - project_rules = }")
-# ! -- DEBUGGING -- ! #
-
-        plurial = "" if nb_newrules == 1 else "s"
-
-        print(f"{TAB_3}- {nb_newrules} new rule{plurial} found.")
-
-
-        print(f"{TAB_3}- Updating the file ``{urlparam}.txt``.")
-
-        web_content = f"""
-# Modification made at {TODAY}.
-{web_content}
-        """.strip() + "\n"
-        with project_file.open(
-            encoding = 'utf-8',
-            mode     = 'w',
-        ) as f:
-            project_rules = f.write(web_content)
+    with ThreadPoolExecutor(max_workers = 5) as exe:
+        exe.map(extractrules, GITIGNORE_IO_WEBSITE)
 
 
 # ----------------------------- #

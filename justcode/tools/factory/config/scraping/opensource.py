@@ -46,7 +46,7 @@ class OpenSource(ScrapingBase):
         )
 
 
-    def find_hrefs_proposed(self):
+    def find_href_elts_proposed(self):
         bs = self.get_BS_of(
             "https://opensource.org/licenses/alphabetical"
         )
@@ -67,8 +67,8 @@ class OpenSource(ScrapingBase):
         return hrefs
 
 
-    def select_licenses(self, elt):
-        a_href = a_href = self._normalize_href(elt['href'])
+    def select_one_license(self, href_elt):
+        a_href = self._normalize_href(href_elt['href'])
 
 # Access to the TXT version makes us work more than
 # with Creative Commmons... Why such a violence?
