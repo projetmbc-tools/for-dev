@@ -99,31 +99,56 @@ def extractrules(urlparam):
     web_content = web_content.text
     web_rules   = rulesfrom(web_content)
 
-# New rules?
-    newrules    = web_rules - project_rules
+# New rules or removed ones?
+    weird_rules = set(['Icon\r\r'])
+    newrules    = web_rules - project_rules - weird_rules
     nb_newrules = len(newrules)
 
+    weird_rules  = set(['Icon'])
+    lostrules    = project_rules - web_rules - weird_rules
+    nb_lostrules = len(lostrules)
+
+# Nothing has changed.
     if (
-        (nb_newrules) == 0
-        or
-        (nb_newrules == 1 and newrules == set(['Icon\r\r']))
+        nb_newrules == 0
+        and
+        nb_lostrules == 0
     ):
         print(
             whichrules,
             f"{TAB_3}- No new rule found.",
+            f"{TAB_3}- No rule removed.",
             sep = "\n"
         )
         return
 
-# ! -- DEBUGGING -- ! #
-    # print(f"{web_rules - project_rules = }")
-# ! -- DEBUGGING -- ! #
+# Something has changed...
+    infos = []
 
-    plurial = "" if nb_newrules == 1 else "s"
+    for (nb, xtra, kind) in [
+        (nb_newrules, "new", "found"),
+        (nb_lostrules, "", "removed"),
+    ]:
+        if xtra:
+            xtra += " "
+
+        if nb == 0:
+            infos.append(
+                f"{TAB_3}- No {xtra}rule {kind}."
+            )
+
+        else:
+            plurial   = "" if nb == 1 else "s"
+
+            infos.append(
+                f"{TAB_3}- {nb} {xtra} rule{plurial} {kind}."
+            )
+
+    infos = "\n".join(infos)
 
     print(
         whichrules,
-        f"{TAB_3}- {nb_newrules} new rule{plurial} found.",
+        infos,
         f"{TAB_3}- Updating the file ``{urlparam}.txt``.",
         sep = "\n"
     )
@@ -132,6 +157,7 @@ def extractrules(urlparam):
 # Modification made at {TODAY}.
 {web_content}
     """.strip() + "\n"
+
     with project_file.open(
         encoding = 'utf-8',
         mode     = 'w',

@@ -9,6 +9,10 @@
 :fordev:
 --------
 
+[[:new:]]
+``gitignore`` rules: the case of voluntarily removed rules has been implemented.
+
+
 [[:tech:]]
 Licenses & ``gitignore`` rules: the use of ``ThreadPoolExecutor`` from ``concurrent.futures`` is done for any download.
 
