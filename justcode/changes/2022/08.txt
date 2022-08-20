@@ -9,7 +9,7 @@
 :fordev:
 --------
 
-[[:new:]]
+[[:update:]]
 ``gitignore`` rules: the case of voluntarily removed rules has been implemented.
 
 

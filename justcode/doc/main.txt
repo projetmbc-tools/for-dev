@@ -18,5 +18,5 @@ abrev::
 
 
 content::
-    ¨content/intro.txt
-    ¨content/modularity.txt     ????
+    ¨content/intro.txt          ????
+    ¨content/starting.txt       ????

@@ -126,8 +126,8 @@ def extractrules(urlparam):
     infos = []
 
     for (nb, xtra, kind) in [
-        (nb_newrules, "new", "found"),
-        (nb_lostrules, "", "removed"),
+        (nb_newrules , "new", "found"  ),
+        (nb_lostrules, ""   , "removed"),
     ]:
         if xtra:
             xtra += " "
@@ -138,7 +138,7 @@ def extractrules(urlparam):
             )
 
         else:
-            plurial   = "" if nb == 1 else "s"
+            plurial = "" if nb == 1 else "s"
 
             infos.append(
                 f"{TAB_3}- {nb} {xtra} rule{plurial} {kind}."
