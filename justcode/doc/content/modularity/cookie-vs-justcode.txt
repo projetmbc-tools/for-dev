@@ -2,9 +2,12 @@
     date = 2022-08-20 ??????
 
 
-========================
-Usage à la ¨cookiecutter
-========================
+==========================
+¨cookiecutter vs ¨justcode
+==========================
+
+????
+
 
 Comme ¨cookiecutter est utilisé en bout de chaîne de conception pour bâtir la structure initiale d'un projet, tout squelette fonctionnant avec ¨cookiecutter est facilement utilisable sans modification avec ¨justcode.
 Par contre, le processus de création diffère un peu de celui de ¨cookiecutter par les apsects suivants.

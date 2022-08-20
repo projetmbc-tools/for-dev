@@ -8,6 +8,8 @@
 
 dir-tree::
     + cvnum
+        * about.peuf
+        * pyproject.toml
         + changes
             * LICENSE.txt
             * x-todo-x.txt
@@ -28,6 +30,7 @@ dir-tree::
             * last.md
             * prologue.md
         + src
+            * __init__.py
             * LICENSE.txt
         + tests
             * README.md
@@ -43,3 +46,25 @@ dir-tree::
                 * tool_01_build_version_file.py
                 * tool_02_update_version_nb.py
                 * tool_03_src2prod.py
+
+
+
+dir-tree::
+    + math-objects
+        * about.peuf
+        * LICENSES-USED.md
+        + changes
+            * LICENSE.txt
+            * x-todo-x.txt
+        + readme
+            * projects.md
+            * prologue.md
+            * about.peuf
+        + tools
+            * LICENSE.txt
+            + debug
+                * README.md
+            + factory
+                * README.md
+            + publish
+                * README.md

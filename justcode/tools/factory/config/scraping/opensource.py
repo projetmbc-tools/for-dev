@@ -5,8 +5,6 @@ from typing import (
     Union,
 )
 
-from concurrent.futures import ThreadPoolExecutor
-
 from .scrapingbase import *
 
 
@@ -39,57 +37,39 @@ class OpenSource(ScrapingBase):
         'ZPL-2.0',
     ]
 
-    TXT_FILES = {
-        '': "",
-    }
 
-    def extract_licences(self) -> Dict[str, str]:
-# Just to format messages.
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+
         self.__xtraspaces = " "*(
             len(f"{self.decotab_2} Extracting content of ")
         )
 
-# hrefs of licenses proposed. Fast to do.
-        hrefs = self._find_hrefs_proposed()
 
-# Licenses kept for our project. Slow, but we use multiprocessing.
-        with ThreadPoolExecutor(max_workers = 5) as exe:
-            exe.map(self._select_licenses, hrefs)
-
-
-    def _find_hrefs_proposed(self):
-        print(
-            f"{self.decotab_2} Looking for refs proposed."
-        )
-
+    def find_hrefs_proposed(self):
         bs = self.get_BS_of(
             "https://opensource.org/licenses/alphabetical"
         )
 
-        hrefs = list()
+        hrefs = []
 
-        for a in bs.select('a'):
-            for a in bs.select('a'):
-                if not 'href' in a.attrs:
-                    continue
+        for elt in bs.select('a'):
+            if not 'href' in elt.attrs:
+                continue
 
-                a_href = self._href_to_keep(
-                    a_txt  = a.getText().lower(),
-                    a_href = a['href'],
-                    hrefs  = hrefs
-                )
-
-                if not a_href is None:
-                    hrefs.append(a_href)
-
-        print(
-            f"{self.decotab_2} {len(hrefs)} refs proposed."
-        )
+            if self._href_to_keep(
+                a_txt  = elt.getText().lower(),
+                a_href = elt['href'],
+                hrefs  = hrefs
+            ):
+                hrefs.append(elt)
 
         return hrefs
 
 
-    def _select_licenses(self, a_href):
+    def select_licenses(self, elt):
+        a_href = a_href = self._normalize_href(elt['href'])
+
 # Access to the TXT version makes us work more than
 # with Creative Commmons... Why such a violence?
         lic_bs = self.get_BS_of(a_href)
@@ -161,14 +141,20 @@ class OpenSource(ScrapingBase):
         return fullname
 
 
+    def _normalize_href(self, a_href):
+        if a_href.startswith('/licenses/'):
+            a_href = f'https://opensource.org{a_href}'
+
+        return a_href
+
+
     def _href_to_keep(
         self,
         a_txt         : str,
         a_href        : str,
         hrefs: Set[str]
     ) -> Union[None, str]:
-        if a_href.startswith('/licenses/'):
-            a_href = f'https://opensource.org{a_href}'
+        a_href = self._normalize_href(a_href)
 
         if (
             a_href in hrefs
@@ -182,9 +168,9 @@ class OpenSource(ScrapingBase):
                 for s in self.TO_IGNORE
             )
         ):
-            return None
+            return False
 
-        return a_href
+        return True
 
 
     def _license_recommanded(self, lic_bs: BeautifulSoup) -> bool:

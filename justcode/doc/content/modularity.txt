@@ -11,6 +11,6 @@ warning::
 
 
 content::
-    ¨content/basic.txt
-    ¨content/split-n-reuse.txt        ??????
-    ¨content/validate-n-update.txt    ??????
+    ¨content/cookie-vs-justcode.txt     ??????
+    ¨content/split-n-reuse.txt          ??????
+    ¨content/validate-n-update.txt      ??????

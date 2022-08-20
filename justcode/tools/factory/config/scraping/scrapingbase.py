@@ -6,6 +6,7 @@ from typing import (
     Tuple,
 )
 
+from concurrent.futures  import ThreadPoolExecutor
 from json                import dumps
 from requests            import get as getwebcontent
 from requests.exceptions import ConnectionError
@@ -53,12 +54,38 @@ class ScrapingBase:
             print(f"{self.decotab_1} No failure.")
 
         print(f"{self.decotab_1} Updating license files.")
+
         self.update_licences()
+
+        print(f"{self.decotab_1} {nb_success} licenses found with success.")
 
 
     def extract_licences(self) -> Dict[str, str]:
+# hrefs of licenses proposed. Fast to do.
+        print(
+            f"{self.decotab_2} Looking for refs proposed."
+        )
+
+        hrefs = self.find_hrefs_proposed()
+
+        print(
+            f"{self.decotab_2} {len(hrefs)} refs proposed."
+        )
+
+# Licenses kept for our project. Slow, but we use multiprocessing.
+        with ThreadPoolExecutor(max_workers = 5) as exe:
+            exe.map(self.select_licenses, hrefs)
+
+
+    def find_hrefs_proposed(self):
         raise NotImplementedError(
-            'specific extraction must be implemented.'
+            'code the build of the list of HTML href elements for the licenses'
+        )
+
+
+    def select_licenses(self, elt):
+        raise NotImplementedError(
+            'code the selection of one license indicated by an HTML href element'
         )
 
 

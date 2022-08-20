@@ -39,7 +39,7 @@ THIS_FILE = Path(__file__)
 
 PROJECT_DIR = Path(THIS_FILE).parent
 
-while(PROJECT_DIR.name != 'inipro'):
+while(PROJECT_DIR.name != 'justcode'):
    PROJECT_DIR = PROJECT_DIR.parent
 
 
