@@ -1,9 +1,20 @@
 ﻿this::
-    date = 2022-08-???
+    date = 2022-08-24
 
 
-===========================================
-???
-===========================================
+abrev::
+    content = /create
 
-???
+
+===============================
+Créer des squelettes modulables
+===============================
+
+note::
+    Comme ¨cookiecutter, et par conséquent ¨jinja2 sont utilisés en bout de chaîne de conception, tout ce qui utilisable avec ces projets le sera aussi avec ¨justcode (modulo le processus de création propre à ¨justcode).
+    Cette ¨doc n'ayant pas vocation à reproduire celles de ¨cookiecutter et ¨jinja2, si les exemples proposées dans ce ¨docu ne repondent pas à vos besoins, vous êtes invité à vous reporter aux ¨docs de ¨cookiecutter et ¨jinja2.
+
+
+content::
+    ¨content/XXXXX.txt             ??????
+    ¨content/XXXXX.txt             ??????

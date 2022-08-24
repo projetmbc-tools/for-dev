@@ -1,10 +1,10 @@
 ﻿abrev::
-    content = /split-n-reuse
+    content = /validate-n-update
 
 
-========================================
-????
-========================================
+===========================================
+Validation ou ¨maj vis à vis d'un squelette
+===========================================
 
 content::
     ¨content/validate.txt           ??????

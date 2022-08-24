@@ -1,4 +1,8 @@
-﻿abrev::
+﻿this::
+    date = 2022-08-24
+
+
+abrev::
     content = /split-n-reuse
 
 
@@ -11,6 +15,6 @@ warning::
 
 
 content::
-    ¨content/motivation.txt         ??????
+    ¨content/motivate.txt
     ¨content/create.txt             ??????
     ¨content/initiate.txt           ??????
