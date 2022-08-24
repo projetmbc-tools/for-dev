@@ -1,0 +1,10 @@
+===
+{{project_name}} - TODO
+===
+
+VERSION = MAJOR.MINOR.PATCH
+
+
+> ---------------------------- <
+
+Something to do?

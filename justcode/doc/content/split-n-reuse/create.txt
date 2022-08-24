@@ -16,9 +16,9 @@ note::
 
 
 note::
-    Dans cf::``?/api.txt`` sont présentés des squelettes fournis directement par ¨justcode. Ne réinventez donc par la roue. Vous pouvez aussi contribuer : voir cf::``?/conribute.txt``.
+    Dans cf::``?/api.txt`` sont présentés des squelettes fournis directement par ¨justcode. Ne réinventez donc par la roue. Si besoin, vous pouvez aussi contribuer : voir cf::``?/contribute/templates.txt``.
 
 
 content::
-    ¨content/changes.txt            ??????
-    ¨content/XXXXX.txt              ??????
+    ¨content/single.txt
+    ¨content/several.txt      ??????

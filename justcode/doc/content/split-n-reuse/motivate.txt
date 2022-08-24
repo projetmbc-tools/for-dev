@@ -10,7 +10,7 @@ Considérons la structure de base suivante du projet ¨cvnum où le contenu du d
 
 dir-tree::
     ---
-    path = examples/dirtree/cvnum.txt
+    path = examples/templates/cvnum.txt
     date = 2022-08-24
     ---
 
@@ -23,7 +23,7 @@ où le contenu du dossier path::``cvnum`` est celui donné ci-dessus, ce dossier
 
 dir-tree::
     ---
-    path = examples/dirtree/mathobj.txt
+    path = examples/templates/mathobj.txt
     date = 2022-08-24
     ---
 
@@ -57,8 +57,7 @@ Les explications précédentes permettent de comprendre la nécessité d'hérite
 
     dir-tree::
         ---
-        path = examples/dirtree/readme.txt
-        date = 2022-08-24
+        path = examples/templates/readme.txt
         ---
 
     Cette structure est complétée suivant les besoins de ¨cvnum et ¨mathobj.
@@ -67,8 +66,7 @@ Les explications précédentes permettent de comprendre la nécessité d'hérite
 
     dir-tree::
         ---
-        path = examples/dirtree/tools.txt
-        date = 2022-08-24
+        path = examples/templates/tools.txt
         ---
 
     Suivant ce qui est attendu, des dossiers sont ignorés, et d'autres complétés pour créer deux nouveaux squelettes, l'un pour les projets de type ¨python, et l'autre pour les dépôts uniques.
