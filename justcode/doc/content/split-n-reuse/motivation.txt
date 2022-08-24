@@ -2,9 +2,14 @@
     date = 2022-08-???
 
 
-===========================================
-???
-===========================================
+============================================
+Des squelettes modulaires, pour quoi faire ?
+============================================
+
+Considérons la structure de base suivante du projet ¨cvnum
+((
+    Cette structure date du date::``2022-08-24``.
+)).
 
 dir-tree::
     + cvnum
@@ -48,6 +53,14 @@ dir-tree::
                 * tool_03_src2prod.py
 
 
+Passons maintenant à la structure de base suivante du dépôt unique
+((
+    Un dépôt unique, ou "monorepo" en anglais, est un dépôt réunissant divers projets. Ceci est très utile pour des projets avec un champ d'action commun.
+))
+¨mathobj où le contenu du dossier path::``cvnum`` est celui donné ci-dessus
+((
+    Cette structure date du date::``2022-08-24``.
+)).
 
 dir-tree::
     + math-objects
@@ -56,6 +69,7 @@ dir-tree::
         + changes
             * LICENSE.txt
             * x-todo-x.txt
+        + cvnum [...]
         + readme
             * projects.md
             * prologue.md
@@ -68,3 +82,9 @@ dir-tree::
                 * README.md
             + publish
                 * README.md
+
+
+
+????
+
+tools en commun asuf publish + changes

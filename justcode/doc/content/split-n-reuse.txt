@@ -1,0 +1,16 @@
+﻿abrev::
+    content = /split-n-reuse
+
+
+=========================
+Des squelettes modulables
+=========================
+
+warning::
+    Là où ¨cookiecutter parle de "template", nous emploierons le terme de "squelette". L'expression "patron de conception" est une meilleure ¨trad, mais ceci est plus long à lire, et à taper.
+
+
+content::
+    ¨content/motivation.txt         ??????
+    ¨content/create.txt             ??????
+    ¨content/initiate.txt           ??????
