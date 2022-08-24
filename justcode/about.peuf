@@ -1,13 +1,13 @@
 general::
-    project     = python   <- NON !
+    project     =
     about-name  = justcode is for "[ju]st [s]tart [t]o [code]"
-    desc        = A simplified and modular way to init different kinds of coding like projects.
+    desc        = A modular way to init different kinds of coding like projects.
     authors     = Christophe BAL
 // Optional
 //    maintainers = Christophe BAL
-    licence     = gnu 3
+    licence     = gpl
     repository  = https://github.com/bc-tools/for-dev/tree/main/justcode
-    publish     = https://pypi.org/project/inipro
+    publish     = https://pypi.org/project/justcode
     dep         = python ^3.8
 // Optional
 //    dev-dep     =

@@ -1,5 +1,5 @@
 ﻿this::
-    title  = Démarrer rapidement ses projets informatiques,
+    title  = Démarrer rapidement des projets informatiques,
              ou d'écriture
     author = Christophe, BAL [projetmbc@gmail.com]
     lang   = fr
@@ -18,5 +18,6 @@ abrev::
 
 
 content::
-    ¨content/intro.txt          ????
+    ¨content/intro.txt
+    ¨content/cookie-vs-justcode.txt
     ¨content/starting.txt       ????
