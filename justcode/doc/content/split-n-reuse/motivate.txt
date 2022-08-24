@@ -6,7 +6,7 @@
 Des squelettes modulaires, pour quoi faire ?
 ============================================
 
-Considérons la structure de base suivante du projet ¨cvnum.
+Considérons la structure de base suivante du projet ¨cvnum où le contenu du dossier path::``templates`` a été omis.
 
 dir-tree::
     ---
@@ -73,7 +73,7 @@ Les explications précédentes permettent de comprendre la nécessité d'hérite
 
     Suivant ce qui est attendu, des dossiers sont ignorés, et d'autres complétés pour créer deux nouveaux squelettes, l'un pour les projets de type ¨python, et l'autre pour les dépôts uniques.
 
-    1) Pour finir, les dossiers path::``contribute`` et path::``doc`` sont obtenus via deux squelettes importés.
+    1) Pour finir, les dossiers path::``contribute`` et path::``doc`` sont obtenus via deux squelettes importés (excepté le dossier path::``templates`` qui a été créé "à la main").
 
 
 Voilà pour les grandes lignes de la création de squelettes à la sauce ¨justcode. Les sections suivantes vont expliquer comment créer de tels squelettes modulables, et ensuite comment les utiliser.

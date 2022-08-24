@@ -5,6 +5,13 @@
         * LICENSE.txt
         * x-todo-x.txt
     + contribute
+        + api
+            * LICENSE.txt
+            * README.md
+            + changes
+                * LICENSE.txt
+                * x-todo-x.txt
+            + templates [...]
         + doc
             * LICENSE.txt
             * README.md

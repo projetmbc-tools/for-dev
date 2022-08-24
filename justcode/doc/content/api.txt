@@ -1,0 +1,15 @@
+﻿abrev::
+    content = /api
+
+
+==================================
+Des squelettes "cuillères en main"
+==================================
+
+convention + liste template auto doc
+content::
+    ¨content/XXXX.txt            ??????
+    ¨content/XXXX.txt            ??????
+    ¨content/XXXX.txt            ??????
+    ¨content/XXXX.txt            ??????
+    ¨content/XXXX.txt            ??????

@@ -1,0 +1,9 @@
+﻿this::
+    date = 2022-08-???
+
+
+============================
+Un squelette pour les ¨chgts
+============================
+
+Voyons comment
