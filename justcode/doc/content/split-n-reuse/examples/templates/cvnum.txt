@@ -1,5 +1,5 @@
 ﻿+ cvnum
-    * about.peuf
+    * justcode.peuf
     * pyproject.toml
     + changes
         * LICENSE.txt

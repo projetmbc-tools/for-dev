@@ -34,7 +34,7 @@ Expliquons ce contenu.
         ---
 
 
-Il reste à voir comment initier un projet à partir de notre squelette. Nous allons supposer que le chemin absolu du dossier définissant le squelette est path::``mes_squelettes/changes``. Pour initier partiellement le projet ¨cvnum, il faut suivre les étapes suivantes.
+Il reste à voir comment initier un projet à partir de notre squelette. Nous allons supposer que le chemin absolu du dossier définissant le squelette est path::``~/mes_squelettes/changes`` où path::``~`` est un raccourci pour le chemin du dossier de l'utilisateur principal. Pour initier partiellement le projet ¨cvnum, il faut suivre les étapes suivantes.
 
     1) On crée un dossier path::``cvnum`` avec le contenu minimal suivant.
 
@@ -43,13 +43,13 @@ Il reste à voir comment initier un projet à partir de notre squelette. Nous al
         path = examples/templates/cvnum/step-1.txt
         ---
 
-    Le nom du projet est automatiquement celui du dossier, soit ici ``cvnum``, et le fichier path::``about.peuf`` sert à indiquer les paramètres attendus pour spécialiser le squelette. Dans notre cas, ce fichier a le contenu suivant.
+    Le nom du projet est automatiquement celui du dossier, soit ici ``cvnum``, et le fichier path::``about.peuf`` sert à indiquer les paramètres attendus pour spécialiser le squelette. Dans notre cas, ce fichier a le contenu suivant où l'on indique en premier le squelette utilisé en associant un nom libre suivi du chemin vers le dossier local path::``~/mes_squelettes/changes``.
 
     peuf::
         ---
-        path = examples/templates/cvnum/about-1.peuf
+        path = examples/templates/cvnum/justcode-1.peuf
         ---
 
     On note ici que le nom du squelette est employé pour indiquer la licence "Creative Commons Attribution - Non Commercial - Share Alike 4.0 International", une licence gérée par défaut par ¨justcode. Il est possible d'indiquer directement un fichier licence stocké soit localement, soit en ligne : voir cf::``?/create/license.txt``.
 
-    1) On lance ¨justcode sur notre dossier path::``cvnum``. Voilà, c'est tout !
+    1) Pour finir, on lance ¨justcode en ligne de commandes avec pour uniquement argument le chemin de notre dossier path::``cvnum``. Voilà, c'est tout !

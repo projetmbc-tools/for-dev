@@ -3,7 +3,7 @@
 
 
 ========================
-Assembker des squelettes
+Assembler des squelettes
 ========================
 
 ???

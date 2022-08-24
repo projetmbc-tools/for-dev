@@ -6,6 +6,8 @@
 Initier un projet à partir d'un squelette
 =========================================
 
+parler ici de ce qui est rpoposé par défaut
+
 content::
     ¨content/XXXXX.txt             ??????
     ¨content/XXXXX.txt             ??????

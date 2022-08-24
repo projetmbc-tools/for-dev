@@ -21,4 +21,5 @@ note::
 
 content::
     ¨content/single.txt
-    ¨content/several.txt      ??????
+    ¨content/several.txt        ??????
+    ¨content/license.txt        ??????
