@@ -43,7 +43,7 @@ Il reste à voir comment initier un projet à partir de notre squelette. Nous al
         path = examples/templates/cvnum/step-1.txt
         ---
 
-    Le nom du projet est automatiquement celui du dossier, soit ici ``cvnum``, et le fichier path::``about.peuf`` sert à indiquer les paramètres attendus pour spécialiser le squelette. Dans notre cas, ce fichier a le contenu suivant où l'on indique en premier le squelette utilisé en associant un nom libre suivi du chemin vers le dossier local path::``~/mes_squelettes/changes``.
+    Le nom du projet est automatiquement celui du dossier, soit ici ``cvnum``, et le fichier path::``about.peuf`` sert à indiquer les paramètres attendus pour spécialiser le squelette. Dans notre cas, ce fichier a le contenu suivant où l'on indique en premier le squelette utilisé en associant un nom libre au chemin du dossier local, soit ici path::``~/mes_squelettes/changes``.
 
     peuf::
         ---
