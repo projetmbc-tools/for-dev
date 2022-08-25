@@ -9,12 +9,12 @@ De l'utilité de ¨justcode...
 Lorsque l'on code souvent dans un language donné, comme ¨python ou ¨latex par exemple, l'utilisation d'une structure commune par language s'impose vite ; on parle de patron, ou squelette de départ. Comme structure de départ, on peut imaginer un dossier pour la ¨doc, un autre pour le code ¨src, et un dernier pour le journal des ¨chgts.
 Il existe un très bon outil pour définir, et utiliser de tels squelettes, à savoir ¨cookicutter
 ((
-    Ce projet s'appuie sur le très flexible ¨jinja2.
+    Ce projet s'appuie sur le très flexible ¨jinja.
 )).
 Bien que très intuitif et complet, ce projet souffre de quelques manques que ¨justcode se propose de combler.
 Voici les fonctionnalités proposées par ¨justcode
 ((
-    En coulisse, ¨cookicutter et ¨jinja2 feront le gros du travail.
+    En coulisse, ¨cookicutter et ¨jinja feront le gros du travail.
 )).
 
     1) **Mixer différents squelettes pour un proposer un nouveau.**

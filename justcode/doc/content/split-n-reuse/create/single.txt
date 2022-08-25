@@ -6,7 +6,7 @@
 Un ¨1er squelette pour les ¨chgts
 =================================
 
-Voici comment définir un squelette paramétrable du dossier des ¨chgts pour les projets ¨cvnum et ¨mathobj
+Voici comment définir un squelette minimaliste, et paramétrable du dossier des ¨chgts pour les projets ¨cvnum et ¨mathobj
 ((
     En réalité, ces projets utilisent une version compatible avec le projet ¨tnschges via un squelette proposé par défaut par ¨justcode.
 )).
@@ -17,16 +17,20 @@ dir-tree::
     ---
 
 
-Expliquons ce contenu.
+Expliquons le contenu du squelette.
 
-    1) Le fichier path::``x-todo-x.txt`` possède le contenu suivant où jinja2::``{{project_name}}`` est une commande ¨jinja2 qui sera remplacé par le nom du projet à initier.
+    1) Le fichier path::``x-todo-x.txt`` possède le contenu suivant où jinja::``{{project_name}}`` est une commande ¨jinja qui sera remplacée par le nom du projet à initier.
 
-    jinja2::
+    jinja::
         ---
         path = examples/templates/changes/xtodox.txt
         ---
 
-    1) L'absence du fichier path::``LICENSE.txt`` vient de ce que l'ajout d'une licence est indiqué dans le fichier path::``specs.peuf`` du dossier path::``__meta__`` propre au fonctionnement de ¨justcode. Ce fichier admet le contenu suivant.
+    1) L'absence du fichier path::``LICENSE.txt`` vient de ce que l'ajout d'une licence est indiqué dans le fichier path::``specs.peuf`` du dossier path::``__jscmeta__``
+    ((
+        Le préfixe "jsc" est pour "Just Start (To) Code", soit ¨justcode.
+    )),
+    un dossier utilisé par ¨justcode pour connaître des ¨infos sur le squelette. Le fichier path::``specs.peuf`` admet le contenu suivant très court, et immédiat à comprendre.
 
     peuf::
         ---
@@ -36,14 +40,14 @@ Expliquons ce contenu.
 
 Il reste à voir comment initier un projet à partir de notre squelette. Nous allons supposer que le chemin absolu du dossier définissant le squelette est path::``~/mes_squelettes/changes`` où path::``~`` est un raccourci pour le chemin du dossier de l'utilisateur principal. Pour initier partiellement le projet ¨cvnum, il faut suivre les étapes suivantes.
 
-    1) On crée un dossier path::``cvnum`` avec le contenu minimal suivant.
+    1) On crée un dossier path::``cvnum`` avec le contenu minimaliste suivant.
 
     dir-tree::
         ---
         path = examples/templates/cvnum/step-1.txt
         ---
 
-    Le nom du projet est automatiquement celui du dossier, soit ici ``cvnum``, et le fichier path::``about.peuf`` sert à indiquer les paramètres attendus pour spécialiser le squelette. Dans notre cas, ce fichier a le contenu suivant où l'on indique en premier le squelette utilisé en associant un nom libre au chemin du dossier local, soit ici path::``~/mes_squelettes/changes``.
+    Le nom du projet est automatiquement celui du dossier, soit ici ``cvnum``, et le fichier path::``justcode.peuf`` sert à indiquer un squelette, et les paramètres qui lui sont nécessaires. Dans notre cas, ce fichier a le contenu suivant où l'on donne en premier le squelette utilisé en associant un nom libre ``changes`` au chemin du dossier local, soit ici path::``~/mes_squelettes/changes``.
 
     peuf::
         ---
@@ -53,3 +57,7 @@ Il reste à voir comment initier un projet à partir de notre squelette. Nous al
     On note ici que le nom du squelette est employé pour indiquer la licence "Creative Commons Attribution - Non Commercial - Share Alike 4.0 International", une licence gérée par défaut par ¨justcode. Il est possible d'indiquer directement un fichier licence stocké soit localement, soit en ligne : voir cf::``?/create/license.txt``.
 
     1) Pour finir, on lance ¨justcode en ligne de commandes avec pour uniquement argument le chemin de notre dossier path::``cvnum``. Voilà, c'est tout !
+
+
+warning::
+    La liberté a ses limites... En effet, les noms de squelettes définis dans le fichier path::``justcode.peuf`` via peuf::``templates-used`` ne peuvent utiliser que des lettres latines non accentuéees, des chiffres, le ¨_ ``_``, et le signe ``-``.

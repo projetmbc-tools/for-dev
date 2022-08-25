@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-08-24
+    date = 2022-08-25
 
 
 abrev::
@@ -11,12 +11,12 @@ Créer des squelettes modulables
 ===============================
 
 note::
-    Comme ¨cookiecutter, et par conséquent ¨jinja2 sont utilisés en bout de chaîne de conception, tout ce qui utilisable avec ces projets le sera aussi avec ¨justcode (modulo le processus de création propre à ¨justcode).
-    Cette ¨doc n'ayant pas vocation à reproduire celles de ¨cookiecutter et ¨jinja2, si les exemples proposées dans ce ¨docu ne repondent pas à vos besoins, vous êtes invité à vous reporter aux ¨docs de ¨cookiecutter et ¨jinja2.
+    Comme ¨cookiecutter, et par conséquent ¨jinja sont utilisés en bout de chaîne de conception, tout ce qui utilisable avec ces projets le sera aussi avec ¨justcode (modulo le processus de création propre à ¨justcode).
+    Cette ¨doc n'ayant pas vocation à reproduire celles de ¨cookiecutter et ¨jinja, si les exemples proposées dans ce ¨docu ne repondent pas à vos besoins, vous êtes invité à vous reporter aux ¨docs de ¨cookiecutter et ¨jinja.
 
 
 note::
-    Dans cf::``?/api.txt`` sont présentés des squelettes fournis directement par ¨justcode. Ne réinventez donc par la roue. Si besoin, vous pouvez aussi contribuer : voir cf::``?/contribute/templates.txt``.
+    Dans cf::``?/api.txt`` sont présentés des squelettes fournis directement par ¨justcode. Ne réinventez donc par la roue. Si besoin, vous pouvez même contribuer en proposant de nouveaux squelettes : voir cf::``?/contribute/templates.txt``.
 
 
 content::

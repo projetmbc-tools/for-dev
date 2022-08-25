@@ -1,4 +1,4 @@
 ﻿+ changes
     * x-todo-x.txt
-    + __meta__
+    + __jscmeta__
         * specs.peuf
