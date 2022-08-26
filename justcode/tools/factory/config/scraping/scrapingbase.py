@@ -8,8 +8,10 @@ from typing import (
 
 from concurrent.futures  import ThreadPoolExecutor
 from json                import dumps
-from requests            import get as getwebcontent
-from requests.exceptions import ConnectionError
+from requests            import (
+    ConnectionError,
+    get as getwebcontent
+)
 
 from bs4 import BeautifulSoup
 

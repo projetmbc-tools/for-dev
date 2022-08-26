@@ -4,7 +4,10 @@ import                          black
 from collections         import defaultdict
 from concurrent.futures  import ThreadPoolExecutor
 from datetime            import date
-from requests            import get as getwebcontent
+from requests            import (
+    ConnectionError,
+    get as getwebcontent
+)
 
 from mistool.os_use import PPath as Path
 
@@ -16,7 +19,8 @@ from mistool.os_use import PPath as Path
 UPDATE_ONLINE = True
 # UPDATE_ONLINE = False # Debug mode.
 
-GITIGNORE_IO_BASE_URL = "https://www.gitignore.io/api/{urlparam}"
+GITIGNORE_IO_URL      = "https://www.gitignore.io"
+GITIGNORE_IO_BASE_URL = GITIGNORE_IO_URL + "/api/{urlparam}"
 
 GITIGNORE_IO_WEBSITE = [
 # LaTeX
@@ -174,6 +178,17 @@ def extractrules(urlparam):
 print("\033c", end = "")
 # ! -- DEBUGGING -- ! #
 
+
+# ----------------------- #
+# -- ARE WE CONNECTED? -- #
+# ----------------------- #
+
+try:
+    getwebcontent("https://www.google.com/")
+
+except ConnectionError:
+    print(f"{TAB_1}* No internet connection.")
+    exit()
 
 # ----------------------------------- #
 # -- UPDATES FROM ``gitignore.io`` -- #

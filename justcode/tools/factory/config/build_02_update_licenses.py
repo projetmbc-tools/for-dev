@@ -75,6 +75,18 @@ print("\033c", end = "")
 # ! -- DEBUGGING -- ! #
 
 
+# ----------------------- #
+# -- ARE WE CONNECTED? -- #
+# ----------------------- #
+
+try:
+    getwebcontent("https://www.google.com/")
+
+except ConnectionError:
+    print(f"{TAB_1}* No internet connection.")
+    exit()
+
+
 # ------------------------------------------ #
 # -- UPDATES FROM ``creativecommons.org`` -- #
 # ------------------------------------------ #
