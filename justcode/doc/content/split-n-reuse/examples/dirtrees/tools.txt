@@ -1,8 +1,5 @@
 ﻿+ tools
     * LICENSE.txt
     + debug
-        * README.md
     + factory
-        * README.md
     + publish
-        * README.md

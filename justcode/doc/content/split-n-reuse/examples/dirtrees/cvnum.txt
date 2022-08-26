@@ -6,14 +6,14 @@
         * x-todo-x.txt
     + contribute
         + api
-            * LICENSE.txt
             * README.md
+            * LICENSE.txt
             + changes
                 * LICENSE.txt
                 * x-todo-x.txt
         + doc
-            * LICENSE.txt
             * README.md
+            * LICENSE.txt
             + changes
                 * LICENSE.txt
                 * x-todo-x.txt
@@ -21,10 +21,10 @@
         * LICENSE.txt
         * main.txt
     + readme
-        * LICENSE.txt
-        * about.md
         * last.md
         * prologue.md
+        * about.peuf
+        * LICENSE.txt
     + src
         * __init__.py
         * LICENSE.txt
@@ -34,11 +34,8 @@
     + tools
         * LICENSE.txt
         + debug
-            * README.md
         + factory
-            * README.md
         + publish
-            * README.md
             * tool_01_build_version_file.py
             * tool_02_update_version_nb.py
             * tool_03_src2prod.py

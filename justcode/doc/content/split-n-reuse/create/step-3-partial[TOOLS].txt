@@ -1,0 +1,34 @@
+﻿this::
+    date = 2022-08-27
+
+
+abrev::
+    currentstep = ¨exatempl/step-3
+
+
+=============================================================
+Un morceau de squelette - Le cas des dossiers path::``tools``
+=============================================================
+
+Pour les dossiers path::``tools`` des projets ¨cvnum et ¨mathobj, on part du squelette suivant où les deux dossiers path::``debug`` et path::``factory`` ne devront pas être gardés dans le cas du projet ¨mathobj.
+
+dirtree::
+    ---
+    path = ¨exatempl/dir-tools.txt
+    ---
+
+
+L'initialisation du projet ¨mathobj s'appuie maintenant sur la structure de départ ci-dessous.
+
+dirtree::
+    ---
+    path = ¨currentstep/dir-mathobj.txt
+    ---
+
+
+Pour ignorer les dossiers path::``debug`` et path::``factory``, on utilise la clé peuf::``ignore`` comme ci-après où sont donnés après le signe `=` des chemins relatifs séparés par des points-virgules. Pratique !
+
+peuf::
+    ---
+    path = ¨currentstep/justcode-mathobj.peuf
+    ---

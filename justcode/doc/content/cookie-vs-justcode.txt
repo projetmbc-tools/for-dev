@@ -23,7 +23,7 @@ Avant de présenter avec délices les saveurs propres à ¨justcode, il est impo
 
     1) Le fichier peuf::``about.peuf`` devient utile pour comparer un projet existant vis à vis d'un squelette donné. Ceci permet d'avoir un ensemble de projet toujours structurés de la même façon, mais aussi d'intégrer un projet existant à un ensemble d'autres fabriqués via un squelette
     ((
-        Dans ce deuxième cas, il suffit d'ajouter un fichier peuf::``about.peuf`` pour ensuite demander à ¨justcode de valider le projet vis à vis d'un squellete donné.
+        Dans ce deuxième cas, il suffit d'ajouter un fichier peuf::``about.peuf`` pour ensuite demander à ¨justcode de valider le projet vis à vis d'un squelette donné.
     )).
 
 

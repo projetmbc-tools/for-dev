@@ -1,18 +1,17 @@
 ﻿+ math-objects
     * .gitignore
-    * about.peuf
     * LICENSES-USED.md
+    * about.peuf
     + changes
         * LICENSE.txt
         * x-todo-x.txt
     + cvnum [...]
     + readme
-        * LICENSE.txt
         * projects.md
         * prologue.md
         * about.peuf
+        * LICENSE.txt
     + tools
         * LICENSE.txt
         + publish
-            * README.md
             * tool_update_README.py

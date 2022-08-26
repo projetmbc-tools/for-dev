@@ -2,17 +2,13 @@
     date = 2022-08-26
 
 
-abrev::
-    exadir = /examples/dirtrees
-
-
 ============================================
 Des squelettes modulaires, pour quoi faire ?
 ============================================
 
 Considérons la structure de base suivante du projet ¨cvnum.
 
-dir-tree::
+dirtree::
     ---
     path = ¨exadir/cvnum.txt
     date = 2022-08-24
@@ -25,7 +21,7 @@ Passons maintenant au cas du dépôt unique ¨mathobj
 ))
 où le contenu du dossier path::``cvnum`` est celui donné ci-dessus, ce dossier ne faisant pas partie du squelette initial de ¨mathobj.
 
-dir-tree::
+dirtree::
     ---
     path = ¨exadir/mathobj.txt
     date = 2022-08-24
@@ -42,7 +38,7 @@ Ces deux squelettes ont certaines caractérisques communes, et d'autres très si
         Ceci est indiqué dans le fichier path::``.gitignore`` du dossier path::``math-objects``.
     )).
 
-    1) Pour rédiger un fichier path::``README.md`` morceaux par morceaux, un dossier path::``readme`` est utilisé. On note que dans le dossier path::``cvnum`` se trouve en plus un fichier path::``last.md`` faisant partie du squelette utilisé pour ¨cvnum, et enfin on notera que path::``projects.md`` est propre au squelette de ¨mathobj.
+    1) Pour rédiger un fichier path::``README.md`` morceaux par morceaux, un dossier path::``readme`` est utilisé. On note que dans le dossier path::``cvnum`` se trouve en plus un fichier path::``last.md`` faisant partie du squelette utilisé pour ¨cvnum, tandis que path::``projects.md`` est propre au squelette de ¨mathobj.
 
     1) Un dossier path::``tools`` utilisé pour des codes nécessaires au développement, et non au produit fini, est utilisé dans ¨cvnum et ¨mathobj. Dans le cas du dépôt unique, ce dossier ne contient pas les dossiers path::``debug`` et path::``factory``. De plus, le contenu du dossier path::``publish`` n'est pas le même dans chacun des deux projets.
 
@@ -59,7 +55,7 @@ Les explications précédentes permettent de comprendre la nécessité d'hérite
 
     1) Les dossiers path::``readme`` s'appuient sur un autre squelette commun produisant la structure suivante.
 
-    dir-tree::
+    dirtree::
         ---
         path = ¨exadir/readme.txt
         ---
@@ -68,7 +64,7 @@ Les explications précédentes permettent de comprendre la nécessité d'hérite
 
     1) Pour les dossiers path::``tools``, le squelette commun employé produit la structure minimale ci-dessous.
 
-    dir-tree::
+    dirtree::
         ---
         path = ¨exadir/tools.txt
         ---

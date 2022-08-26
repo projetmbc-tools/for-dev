@@ -5,6 +5,9 @@
 abrev::
     content = /create
 
+    exadir   = /examples/dirtrees
+    exatempl = /examples/templates
+
 
 ===============================
 Créer des squelettes modulables
@@ -20,6 +23,8 @@ note::
 
 
 content::
-    ¨content/single.txt
-    ¨content/several.txt        ??????
-    ¨content/license.txt        ??????
+    ¨content/step-1-single[CHANGES].txt
+    ¨content/step-2-complete[README].txt
+    ¨content/step-3-partial[TOOLS].txt
+    ¨content/step-4-subuse[CONTRIBUTE].txt      ??????
+    ¨content/homemade-license.txt               ??????

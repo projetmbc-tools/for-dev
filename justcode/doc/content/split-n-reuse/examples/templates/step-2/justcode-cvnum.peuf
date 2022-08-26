@@ -1,0 +1,10 @@
+templates-used::
+    import::
+        changes = ~/mes_squelettes/changes
+        readme  = ~/mes_squelettes/readme
+
+changes::
+    licence = by nc sa 4.0
+
+readme::
+    licence = by nc sa 4.0

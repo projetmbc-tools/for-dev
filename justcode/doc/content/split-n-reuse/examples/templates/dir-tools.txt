@@ -2,8 +2,5 @@
     + __jscmeta__
         * specs.peuf
     + debug
-        * README.md
     + factory
-        * README.md
     + publish
-        * README.md
