@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-08-26
+    date = 2022-08-27
 
 
 abrev::
@@ -72,3 +72,5 @@ note::
 
 warning::
     La liberté a ses limites... En effet, les noms des dossiers des squelettes importés ne peuvent utiliser que des lettres latines non accentuéees, des chiffres, le ¨_ ``_``, et le signe ``-``. Ne portez pas plainte, ceci ne changera jamais.
+    De plus, il est aussi interdit d'utiliser les mots clés du mini-langage des fichiers path::``justcode.peuf``.
+    Dans tous les cas, si un ¨pb survient, ¨justcode râlera gentiement en stoppant tout.
