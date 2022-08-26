@@ -3,7 +3,7 @@
 
 
 abrev::
-    content = /create
+    content = /create-n-use
 
     exadir   = /examples/dirtrees
     exatempl = /examples/templates

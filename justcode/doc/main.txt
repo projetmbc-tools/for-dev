@@ -22,5 +22,4 @@ content::
     ¨content/cookie-vs-justcode.txt
     ¨content/split-n-reuse.txt              ????
     ¨content/validate-n-update.txt          ????
-    ¨content/api.txt                        ????
     ¨content/contribute.txt                 ????
