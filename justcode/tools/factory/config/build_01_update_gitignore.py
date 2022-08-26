@@ -190,6 +190,7 @@ except ConnectionError:
     print(f"{TAB_1}* No internet connection.")
     exit()
 
+
 # ----------------------------------- #
 # -- UPDATES FROM ``gitignore.io`` -- #
 # ----------------------------------- #

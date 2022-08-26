@@ -11,7 +11,6 @@
             + changes
                 * LICENSE.txt
                 * x-todo-x.txt
-            + templates [...]
         + doc
             * LICENSE.txt
             * README.md
@@ -24,7 +23,6 @@
     + readme
         * LICENSE.txt
         * about.md
-        * about.peuf
         * last.md
         * prologue.md
     + src

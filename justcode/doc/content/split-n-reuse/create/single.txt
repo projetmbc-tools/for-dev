@@ -3,7 +3,7 @@
 
 
 abrev::
-    exadir = /examples/templates
+    exatempl = /examples/templates
 
 
 =================================
@@ -18,7 +18,7 @@ Commençons par voir comment définir un squelette minimaliste, et paramétrable
 
 dir-tree::
     ---
-    path = ¨exadir/changes.txt
+    path = ¨exatempl/changes.txt
     ---
 
 
@@ -28,18 +28,18 @@ Expliquons le contenu du squelette.
 
     jinja::
         ---
-        path = ¨exadir/changes/xtodox.txt
+        path = ¨exatempl/changes/xtodox.txt
         ---
 
     1) L'absence du fichier path::``LICENSE.txt`` vient de ce que l'ajout d'une licence est indiqué dans le fichier path::``specs.peuf`` du dossier path::``__jscmeta__``
     ((
         Le préfixe "jsc" est pour "Just Start (To) Code", soit ¨justcode.
     )),
-    un dossier utilisé par ¨justcode pour connaître des ¨infos sur le squelette. Le fichier path::``specs.peuf`` admet le contenu suivant très court, et immédiat à comprendre.
+    un dossier utilisé par ¨justcode pour obtenir des métas ¨infos sur le squelette. Le fichier path::``specs.peuf`` admet le contenu suivant très court, et immédiat à comprendre.
 
     peuf::
         ---
-        path = ¨exadir/changes/specs.peuf
+        path = ¨exatempl/changes/specs.peuf
         ---
 
 
@@ -49,14 +49,14 @@ Il reste à voir comment initier un projet à partir de notre squelette. Nous al
 
     dir-tree::
         ---
-        path = ¨exadir/cvnum/step-1.txt
+        path = ¨exatempl/step-1/cvnum.txt
         ---
 
     Le nom du projet est automatiquement celui du dossier, soit ici ``cvnum``, et le fichier path::``justcode.peuf`` sert à indiquer un squelette, et les paramètres qui lui sont nécessaires. Dans notre cas, ce fichier a le contenu suivant où l'on donne en premier le squelette utilisé en associant un nom libre ``changes`` au chemin du dossier local, soit ici path::``~/mes_squelettes/changes``.
 
     peuf::
         ---
-        path = ¨exadir/cvnum/justcode-1.peuf
+        path = ¨exatempl/step-1/cvnum-justcode.peuf
         ---
 
     On note ici que le nom du squelette est employé pour indiquer la licence "Creative Commons Attribution - Non Commercial - Share Alike 4.0 International", une licence gérée par défaut par ¨justcode. Il est possible d'indiquer directement un fichier licence stocké soit localement, soit en ligne : voir cf::``?/create/license.txt``.
