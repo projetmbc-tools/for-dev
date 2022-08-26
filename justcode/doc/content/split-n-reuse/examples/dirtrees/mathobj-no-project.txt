@@ -4,7 +4,6 @@
     + changes
         * LICENSE.txt
         * x-todo-x.txt
-    + cvnum [...]
     + readme
         * projects.md
         * prologue.md

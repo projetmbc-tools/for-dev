@@ -26,5 +26,7 @@ content::
     ¨content/step-1-single[CHANGES].txt
     ¨content/step-2-complete[README].txt
     ¨content/step-3-partial[TOOLS].txt
-    ¨content/step-4-subuse[CONTRIBUTE].txt      ??????
+    ¨content/step-final-aggregate
+
+.txt
     ¨content/homemade-license.txt               ??????

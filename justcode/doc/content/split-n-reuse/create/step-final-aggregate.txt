@@ -1,0 +1,52 @@
+﻿this::
+    date = 2022-08-27
+
+
+abrev::
+    currentstep = ¨exatempl/step-final
+    examono     = ¨exatempl/monorepo
+
+
+=======================================
+Un squelette composé de sous-squelettes
+=======================================
+
+L'agrégation de plusieurs squelettes pour en former un nouveau est maintenant très simple à comprendre. Imaginons que la structure suivante de type dépôt "unique" ¨mathobj soit souvent utilisée.
+
+dirtree::
+    ---
+    path = ¨exadir/mathobj-no-project.txt
+    ---
+
+
+Il est alors utile de créer, puis d'utiliser un squelette que nous nommerons path::``monorepo``. Voici les étapes à suivre.
+
+    1) On crée le dossier suivant supposé stocké à l'emplacement path::``~/mes_squelettes/monorepo``.
+
+    dirtree::
+        ---
+        path = ¨examono/dirtree.txt
+        ---
+
+    1) L'importation de squelettes pour notre nouveau squelette se fait très simplement dans le fichier path::``sepcs.peuf`` comme suit (on pourrait utiliser si besoin le bloc path::``gene::...`` pour des réglages généraux).
+
+    peuf::
+        ---
+        path = ¨examono/specs.peuf
+        ---
+
+    1) On crée le dossier minimal suivant avant de lancer l'initialisation.
+
+    dirtree::
+        ---
+        path = ¨currentstep/dir-mathobj.txt
+        ---
+
+    Dans ce dossier, l'unique fichier path::``justcode.peuf`` possède le contenu minimaliste ci-après indiquant d'utiliser un squelette sur notre dossier, et non sur un sous-dossier, via le sous-bloc peuf::``main::...``.
+
+    peuf::
+        ---
+        path = ¨currentstep/justcode-mathobj.peuf
+        ---
+
+    1) Il ne reste plus qu'à lancer la génération comme cela a été expliqué à la fin de cf::``step-1-single[CHANGES].txt``.

@@ -1,4 +1,4 @@
-﻿+ changes
+﻿+ monorepo
+    * LICENSES-USED.md
     + __jscmeta__
         * specs.peuf
-    * x-todo-x.txt

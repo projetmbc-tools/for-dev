@@ -17,7 +17,7 @@ L'initialisation des dossiers path::``readme`` des projets ¨cvnum et ¨mathobj 
 
 dirtree::
     ---
-    path = ¨exatempl/dir-readme.txt
+    path = ¨exatempl/readme/dirtree.txt
     ---
 
 

@@ -14,7 +14,7 @@ Pour les dossiers path::``tools`` des projets ¨cvnum et ¨mathobj, on part du s
 
 dirtree::
     ---
-    path = ¨exatempl/dir-tools.txt
+    path = ¨exatempl/tools/dirtree.txt
     ---
 
 
