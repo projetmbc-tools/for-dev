@@ -2,14 +2,11 @@
     content = /api
 
 
-==================================
-Des squelettes "cuillères en main"
-==================================
-
-convention + liste template auto doc
+======================================
+Des friandises proposées par ¨justcode
+======================================
 
 content::
-    ¨content/specs.txt              ??????
+    ¨content/gitignore.txt          ??????
     ¨content/licenses.txt           ??????
     ¨content/templates.txt          ??????
-    ¨content/gitignore.txt          ??????

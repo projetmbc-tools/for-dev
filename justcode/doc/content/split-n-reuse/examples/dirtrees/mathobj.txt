@@ -6,6 +6,7 @@
         * x-todo-x.txt
     + cvnum [...]
     + readme
+        * about.md
         * projects.md
         * prologue.md
         * about.peuf

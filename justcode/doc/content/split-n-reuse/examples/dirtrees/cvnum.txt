@@ -21,6 +21,7 @@
         * LICENSE.txt
         * main.txt
     + readme
+        * about.md
         * last.md
         * prologue.md
         * about.peuf

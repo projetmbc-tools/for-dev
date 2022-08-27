@@ -2,5 +2,5 @@ templates-used::
     import::
         changes = ~/mes_squelettes/changes
 
-changes::
-    licence = by nc sa 4.0
+    changes::
+        licence = by nc sa 4.0

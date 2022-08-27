@@ -7,3 +7,8 @@
 ===============================
 
 ???
+
+content::
+    ¨content/specs.txt              ??????
+
+convention + liste template auto doc

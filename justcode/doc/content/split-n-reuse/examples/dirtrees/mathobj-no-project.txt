@@ -5,6 +5,7 @@
         * LICENSE.txt
         * x-todo-x.txt
     + readme
+        * about.md
         * projects.md
         * prologue.md
         * about.peuf

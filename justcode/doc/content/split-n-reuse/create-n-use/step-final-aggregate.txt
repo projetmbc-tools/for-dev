@@ -3,7 +3,7 @@
 
 
 abrev::
-    currentstep = ¨exatempl/final-step
+    currentstep = ¨exatempl/step-final
     examono     = ¨exatempl/monorepo
 
 
@@ -11,7 +11,7 @@ abrev::
 Un squelette composé de sous-squelettes
 =======================================
 
-L'agrégation de plusieurs squelettes pour en former un nouveau est maintenant très simple à comprendre. Imaginons que la structure suivante de type dépôt "unique" ¨mathobj soit souvent utilisée.
+L'agrégation de plusieurs squelettes pour en former un nouveau est maintenant très simple à comprendre. Imaginons que la structure suivante de type dépôt "unique" soit souvent utilisée.
 
 dirtree::
     ---

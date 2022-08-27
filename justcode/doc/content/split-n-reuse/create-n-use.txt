@@ -25,6 +25,7 @@ note::
 content::
     ¨content/step-1-single[CHANGES].txt
     ¨content/step-2-complete[README].txt
-    ¨content/step-3-partial[TOOLS].txt
-    ¨content/final-step-aggregate.txt
-    ¨content/homemade-license.txt               ??????
+    ¨content/step-3-modify[README].txt
+    ¨content/step-4-partial[TOOLS].txt
+    ¨content/step-final-aggregate.txt
+    ¨content/licenses-more.txt                  ??????

@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-08-27
+    date = 2022-08-28
 
 
 abrev::
@@ -13,8 +13,7 @@ Un ¨1er squelette - Le cas des ¨chgts
 
 Commençons par voir comment définir un squelette minimaliste, et paramétrable pour le dossier des ¨chgts des projets ¨cvnum et ¨mathobj
 ((
-    En réalité, ces projets utilisent une version compatible avec le projet ¨tnschges via un squelette proposé par défaut par ¨justcode.
-    Nous reparlerons de ceci plus tard...
+    En réalité, ces projets utilisent une version compatible avec le projet ¨tnschges via un squelette proposé par défaut par ¨justcode. Nous reparlerons de ceci plus tard...
 )).
 
 dirtree::
@@ -70,7 +69,7 @@ note::
     Pour utiliser un squelette pour tout un projet, et non juste un sous-dossier, il suffit d'utiliser le sous-bloc peuf::``main::...`` du bloc peuf::``templates-used::...``. Nous verrons ceci un peu plus tard.
 
 
-warning::
-    La liberté a ses limites... En effet, les noms des dossiers des squelettes importés ne peuvent utiliser que des lettres latines non accentuéees, des chiffres, le ¨_ ``_``, et le signe ``-``. Ne portez pas plainte, ceci ne changera jamais.
-    De plus, il est aussi interdit d'utiliser les mots clés du mini-langage des fichiers path::``justcode.peuf``.
+tip::
+    Les noms des dossiers où initier un squelette importé ne peuve utiliser que des lettres latines non accentuéees, des chiffres, le ¨_ ``_``, et le signe ``-``. Ne portez pas plainte, ceci ne changera jamais.
+    De plus, il est aussi interdit d'utiliser les mots clés du mini-langage des fichiers path::``justcode.peuf``. On peut tout de même initier un squelette dans un dossier path::``import`` par exemple via peuf::``./import = ...`` car le chemin indiqué est toujours suppposé relatif.
     Dans tous les cas, si un ¨pb survient, ¨justcode râle gentiement en stoppant tout.

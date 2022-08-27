@@ -1,13 +1,9 @@
-﻿abrev::
-    content = /special-uses
+﻿this::
+    date = 2022-08-???
 
 
-=========================================
-Initier un projet à partir d'un squelette
-=========================================
+================================
+Des squelettes depuis l'internet
+================================
 
-parler ici de ce qui est rpoposé par défaut
-
-content::
-    ¨content/remote.txt     ??????
-    ¨content/api.txt        ??????
+????
