@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-08-25
+    date = 2022-08-28
 
 
 abrev::
@@ -19,7 +19,7 @@ note::
 
 
 note::
-    Dans cf::``?/api.txt`` sont présentés des squelettes fournis directement par ¨justcode. Ne réinventez donc par la roue. Si besoin, vous pouvez même contribuer en proposant de nouveaux squelettes : voir cf::``?/contribute/templates.txt``.
+    Dans cf::``?/api.txt`` sont présentés des squelettes fournis directement par ¨justcode, ainsi que les licences supportées nativement, et certaines règles ¨gitignore prêtes à l'emploi. Ne réinventez donc par la roue. Si besoin, vous pouvez même contribuer en proposant de nouveaux squelettes : voir cf::``?/contribute/templates.txt``.
 
 
 content::
@@ -28,4 +28,3 @@ content::
     ¨content/step-3-modify[README].txt
     ¨content/step-4-partial[TOOLS].txt
     ¨content/step-final-aggregate.txt
-    ¨content/licenses-more.txt                  ??????

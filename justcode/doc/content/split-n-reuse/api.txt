@@ -7,6 +7,6 @@ Des friandises proposées par ¨justcode
 ======================================
 
 content::
-    ¨content/gitignore.txt          ??????
-    ¨content/licenses.txt           ??????
     ¨content/templates.txt          ??????
+    ¨content/licenses.txt           ??????
+    ¨content/gitignore.txt          ??????

@@ -12,5 +12,5 @@ templates-used::
 
     tools::
         licence = gpl 3.0
-        ignore  = debug ;
+        remove  = debug ;
                   factory

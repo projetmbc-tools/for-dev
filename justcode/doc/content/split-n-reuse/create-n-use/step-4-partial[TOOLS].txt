@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-08-27
+    date = 2022-08-28
 
 
 abrev::
@@ -26,7 +26,7 @@ dirtree::
     ---
 
 
-Pour ignorer les dossiers path::``debug`` et path::``factory``, on utilise la clé peuf::``ignore`` comme ci-après où sont donnés après le signe `=` des chemins relatifs séparés par des points-virgules. Pratique !
+Pour ignorer les dossiers path::``debug`` et path::``factory``, on utilise la clé peuf::``remove`` comme ci-après où sont donnés après le signe `=` des chemins relatifs séparés par des points-virgules. Pratique !
 
 peuf::
     ---

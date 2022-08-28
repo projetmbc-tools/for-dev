@@ -53,23 +53,24 @@ Il reste à voir comment initier un projet à partir de notre squelette. Nous al
         ---
 
     Le nom du projet est automatiquement celui du dossier, soit ici ``cvnum``, et le fichier path::``justcode.peuf`` permet d'indiquer des squelettes, ainsi que des paramètres attendus.
-    Dans notre cas, ce fichier admet le contenu suivant où l'on donne un squelette pour initier un sous-dossier path::``changes`` : voir peuf::``changes = ...`` dans le sous-bloc peuf::``import::...`` du bloc peuf::``templates-used::...``.
+    Dans notre cas, ce fichier admet le contenu suivant où l'on donne un squelette pour initier un sous-dossier path::``changes`` via son chemin : voir peuf::``changes = ...`` dans le sous-bloc peuf::``import::...`` du bloc peuf::``templates-used::...``.
 
     peuf::
         ---
         path = ¨currentstep/justcode-cvnum.peuf
         ---
 
-    Noter que dans le bloc peuf::``changes::...`` est indiqué la licence "Creative Commons Attribution - Non Commercial - Share Alike 4.0 International", une licence gérée par défaut par ¨justcode. Il est aussi possible de fournir directement un fichier licence stocké soit localement, soit en ligne : voir cf::``?/create/homemade-license.txt``.
+    Noter que dans le bloc peuf::``changes::...`` est indiqué la licence "Creative Commons Attribution - Non Commercial - Share Alike 4.0 International", une licence gérée par défaut par ¨justcode. Il est aussi possible de fournir directement un fichier licence stocké soit localement, soit en ligne : voir cf::``?/api/licenses.txt``.
 
     1) Pour finir, on lance ¨justcode en ligne de commandes avec pour unique argument le chemin de notre dossier path::``cvnum``. Voilà, c'est tout !
 
 
-note::
-    Pour utiliser un squelette pour tout un projet, et non juste un sous-dossier, il suffit d'utiliser le sous-bloc peuf::``main::...`` du bloc peuf::``templates-used::...``. Nous verrons ceci un peu plus tard.
+Voici quelques précisions sur les chemins des dossiers initialisables via un squelette.
+
+    1) Les noms des dossiers où initier un squelette importé ne peuvent utiliser que des lettres latines non accentuéees, des chiffres, le point ``.``, le ¨_ ``_``, et le signe ``-``. Ne portez pas plainte, ceci ne changera jamais.
+
+    1) Il est interdit d'utiliser les mots clés du mini-langage des fichiers path::``justcode.peuf`` propres au bloc peuf::``templates-used::...``, mais cette limitation est facilement contournable. Par exempl, pour initier un squelette dans un dossier path::``import``, il suffit d'indiquer et utiliser le chemin peuf::``./import``.
 
 
 tip::
-    Les noms des dossiers où initier un squelette importé ne peuve utiliser que des lettres latines non accentuéees, des chiffres, le ¨_ ``_``, et le signe ``-``. Ne portez pas plainte, ceci ne changera jamais.
-    De plus, il est aussi interdit d'utiliser les mots clés du mini-langage des fichiers path::``justcode.peuf``. On peut tout de même initier un squelette dans un dossier path::``import`` par exemple via peuf::``./import = ...`` car le chemin indiqué est toujours suppposé relatif.
-    Dans tous les cas, si un ¨pb survient, ¨justcode râle gentiement en stoppant tout.
+    Pour utiliser un squelette pour tout un projet, et non juste un sous-dossier, il suffit d'utiliser le sous-bloc peuf::``main::...`` du bloc peuf::``templates-used::...``. Nous verrons ceci un peu plus tard.
