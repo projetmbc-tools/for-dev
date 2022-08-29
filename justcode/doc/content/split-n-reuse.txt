@@ -5,6 +5,9 @@
 abrev::
     content = /split-n-reuse
 
+    exadir   = /examples/dirtrees
+    exatempl = /examples/templates
+
 
 =========================
 Des squelettes modulables

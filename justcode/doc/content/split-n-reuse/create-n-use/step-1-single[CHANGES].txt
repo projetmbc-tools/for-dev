@@ -67,9 +67,9 @@ Il reste à voir comment initier un projet à partir de notre squelette. Nous al
 
 Voici quelques précisions sur les chemins des dossiers initialisables via un squelette.
 
-    1) Les noms des dossiers où initier un squelette importé ne peuvent utiliser que des lettres latines non accentuéees, des chiffres, le point ``.``, le ¨_ ``_``, et le signe ``-``. Ne portez pas plainte, ceci ne changera jamais.
+    1) Les noms des dossiers où initier un squelette ne peuvent utiliser que des lettres latines non accentuéees, des chiffres, le point ``.``, le ¨_ ``_``, et le signe ``-``. Ne portez pas plainte, ceci ne changera jamais.
 
-    1) Il est interdit d'utiliser les mots clés du mini-langage des fichiers path::``justcode.peuf`` propres au bloc peuf::``templates-used::...``, mais cette limitation est facilement contournable. Par exempl, pour initier un squelette dans un dossier path::``import``, il suffit d'indiquer et utiliser le chemin peuf::``./import``.
+    1) Il est interdit d'utiliser les mots clés du mini-langage des fichiers path::``justcode.peuf`` propres au bloc peuf::``templates-used::...``, mais cette limitation est facilement contournable. Par exemple, pour initier un squelette dans un dossier path::``import``, il suffit d'indiquer et utiliser le chemin peuf::``./import``.
 
 
 tip::

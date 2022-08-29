@@ -1,0 +1,30 @@
+﻿this::
+    date = 2022-08-28
+
+
+abrev::
+    apitempl = ¨exatempl/api
+
+
+===============
+Comment faire ?
+===============
+
+Pour employer un squelette proposé par ¨justcode, il suffit d'utiliser un nom du type peuf::``api::nom-du-squelette`` au lieu d'un chemin comme cela était proposé dans tous les exemples de la section cf::``?/create-n-use.txt``. Voici un premier exemple en lien avec ¨cvnum.
+
+peuf::
+    ---
+    path = ¨apitempl/justcode-cvnum.peuf
+    ---
+
+
+Voici un autre exemple faisant ¨ref à ¨mathobj.
+
+peuf::
+    ---
+    path = ¨apitempl/justcode-mathobj.peuf
+    ---
+
+
+info::
+    La section cf::``?/contribute/templates.txt``explique comment contribuer en proposant de nouveaux squelettes.

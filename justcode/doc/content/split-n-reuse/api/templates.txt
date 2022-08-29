@@ -1,9 +1,10 @@
-﻿this::
-    date = 2022-08-???
+﻿abrev::
+    content = /templates
 
 
 =================================
 Les squelettes fournis par défaut
 =================================
 
-???
+content::
+    ¨content/howto.txt

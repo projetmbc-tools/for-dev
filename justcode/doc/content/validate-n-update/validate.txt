@@ -7,3 +7,22 @@
 ===========================================
 
 ???
+
+
+placholder pour le quelette indiquant ce qui n'est pas à retrouver, via 3 modes
+
+    regex pour truc come =========
+    line pour une ligne  come Something to do?
+    paragrph pour multiligne  pour par exemple:
+
+                VERSION = MAJOR.MINOR.PATCH
+
+                big catego
+
+                    + :new: , :news:
+                    + :update: , :updates:
+                    + :break:
+                    + :fordev:
+
+
+garder idé de match à trouver suivant le même prinvcipe mais pour + tard si besoin !
