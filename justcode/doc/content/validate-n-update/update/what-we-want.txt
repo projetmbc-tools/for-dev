@@ -18,6 +18,6 @@ dirtree::
     ---
 
 
-On suppose que le ¨skeltools est utilisé pour construire le sous-dossier path::``tools``. Imaginons que le fichier path::``publish/tool_update_all.py`` est fourni "clé en main", et que le ¨dev est un simple consommateur de ce script.
-Imaginons ensuite que ce fichier ¨python ait subi une ¨maj dans le squelette. Il devient alors utile de pouvoir indiquer au projet path::``myproject_3`` de ce ¨chgt, voire même de mettre à jour le fichier.
-Le concepteur du ¨skeltools peut faire que ¨justcide fasse tout ceci.
+On suppose que le ¨skeltools ait été utilisé pour construire le sous-dossier path::``tools``. Imaginons que le fichier path::``publish/tool_update_all.py`` est fourni "clé en main", et que le ¨dev est un simple consommateur de ce script.
+Imaginons ensuite que ce fichier ¨python ait subi une ¨maj dans le squelette. Il devient alors utile de pouvoir indiquer ce ¨chgt au projet path::``myproject_3``, voire même de mettre à jour le fichier.
+Le concepteur du ¨skeltools peut permettre à ¨justcode de faire tout ceci.

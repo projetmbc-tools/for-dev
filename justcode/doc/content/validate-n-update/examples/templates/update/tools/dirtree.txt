@@ -1,5 +1,7 @@
 ﻿+ tools
     + __jscmeta__
         * specs.peuf
+    + debug
+    + factory
     + publish
         * tool_update_all.py
