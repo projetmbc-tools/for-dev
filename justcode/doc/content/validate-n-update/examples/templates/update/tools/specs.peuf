@@ -1,0 +1,6 @@
+gene::
+    license = yes
+
+
+same-contents::
+    publish/tool_update_all.py

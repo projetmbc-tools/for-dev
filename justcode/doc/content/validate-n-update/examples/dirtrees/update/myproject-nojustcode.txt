@@ -1,0 +1,10 @@
+﻿+ myproject_3
+    + changes [...]
+    + src [...]
+    + tests [...]
+    + tools
+        * LICENSE.txt
+        + debug
+        + factory
+        + publish
+            * tool_update_all.py

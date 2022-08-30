@@ -2,9 +2,9 @@
     content = /update
 
 
-================
-Mettre à jour...
-================
+=============
+Mettre à jour
+=============
 
 content::
     ¨content/what-we-want.txt    ??????

@@ -1,20 +1,23 @@
 ﻿this::
-    date = 2022-08-30    ???
+    date = 2022-08-30
+
+
+abrev::
+    skeltools = squelette path::``tools``
 
 
 ===================
 Que souhaite-t-on ?
 ===================
 
-???
-
-
-Reprenons le squelette path::``changes`` proposé dans cf::``?/create-n-use/step-1-single[CHANGES].txt`` qui a le contenu suivant.
+Intéressons-nous au sous-dossier path::``tools`` du projet ci-dessous.
 
 dirtree::
     ---
-    path = ¨exatempl/changes/dirtree.txt
+    path = ¨exadir/update/myproject-nojustcode.txt
     ---
 
 
-Ce squelette est une base minimaliste pour indiquer des ¨chgts en suivant la méthodologie de son choix. Imaginons que vous ayez initié un projet ¨cvnum avec, mais qu'un jour vous décidiez de changer la méthode de rédaction des ¨chgts pour
+On suppose que le ¨skeltools est utilisé pour construire le sous-dossier path::``tools``. Imaginons que le fichier path::``publish/tool_update_all.py`` est fourni "clé en main", et que le ¨dev est un simple consommateur de ce script.
+Imaginons ensuite que ce fichier ¨python ait subi une ¨maj dans le squelette. Il devient alors utile de pouvoir indiquer au projet path::``myproject_3`` de ce ¨chgt, voire même de mettre à jour le fichier.
+Le concepteur du ¨skeltools peut faire que ¨justcide fasse tout ceci.
