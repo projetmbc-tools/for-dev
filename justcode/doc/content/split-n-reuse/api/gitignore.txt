@@ -1,9 +1,10 @@
-﻿this::
-    date = 2022-08-28    ???
+﻿abrev::
+    content = /gitignore
 
 
 ============================================
 Des règles ¨gitignore facilement utilisables
 ============================================
 
-???
+content::
+    ¨content/how-to.txt

@@ -1,3 +1,6 @@
 templates-used::
     main::
-        monorepo = ~/mes_squelettes/monorepo
+        monorepo  = ~/mes_squelettes/monorepo
+        gitignore = python ;
+                    osx ;
+                    ~/mes_gitignores/cbdev.txt

@@ -7,4 +7,4 @@ Les squelettes fournis par défaut
 =================================
 
 content::
-    ¨content/howto.txt
+    ¨content/how-to.txt

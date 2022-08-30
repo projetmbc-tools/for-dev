@@ -1,0 +1,16 @@
+﻿this::
+    date = 2022-08-30
+
+
+===============
+Comment faire ?
+===============
+
+Ceci a déjà été évoqué dans la section cf::``?/create-n-use/step-1-single[CHANGES].txt``.
+Pour mémoire, nous redonnons ci-dessous le code du fichier path::``justcode.peuf`` qui est proposée dans la dite section.
+Retenez l'utilisation de peuf::``licence = ...`` où ce qui est après est un identifiant de licence (sans avoir besoin ici d'utiliser le préfixe peuf::``api::...``).
+
+peuf::
+    ---
+    path = ¨exatempl/step-1/justcode-cvnum.peuf
+    ---
