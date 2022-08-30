@@ -1,0 +1,11 @@
+﻿abrev::
+    content = /how-to
+
+
+===============
+Comment faire ?
+===============
+
+content::
+    ¨content/structure.txt          ??????
+    ¨content/content.txt            ??????

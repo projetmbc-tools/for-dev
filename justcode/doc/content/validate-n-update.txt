@@ -1,6 +1,9 @@
 ﻿abrev::
     content = /validate-n-update
 
+    exadir   = /examples/dirtrees
+    exatempl = /examples/templates
+
 
 ============================================
 Validation, ou ¨maj vis à vis d'un squelette

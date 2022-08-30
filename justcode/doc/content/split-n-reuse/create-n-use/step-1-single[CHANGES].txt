@@ -18,7 +18,7 @@ Commençons par voir comment définir un squelette minimaliste, et paramétrable
 
 dirtree::
     ---
-    path = ¨exatempl/changes/dirtree.txt
+    path = ¨exachges/dirtree.txt
     ---
 
 
@@ -28,7 +28,7 @@ Expliquons le contenu du squelette.
 
     jinja::
         ---
-        path = ¨exatempl/changes/xtodox.txt
+        path = ¨exachges/xtodox.txt
         ---
 
     1) L'absence du fichier path::``LICENSE.txt`` vient de ce que l'ajout d'une licence est indiqué dans le fichier path::``specs.peuf`` du dossier path::``__jscmeta__``
@@ -39,7 +39,7 @@ Expliquons le contenu du squelette.
 
     peuf::
         ---
-        path = ¨exatempl/changes/specs.peuf
+        path = ¨exachges/specs.peuf
         ---
 
 

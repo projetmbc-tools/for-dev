@@ -8,12 +8,12 @@
 
 Avant de présenter avec délices les saveurs propres à ¨justcode, il est important d'indiquer les différences vis à vis de ¨cookiecutter.
 
-    1) Là où ¨cookiecutter ajoute un dossier dans un endroit donné, ¨justcode travaille directement dans un dossier donné (¨justcode va automatiquement attribuer le nom du dit dossier à la variable jinja::``project_name``, c'est une affectation implicite).
+    1) Là où ¨cookiecutter ajoute un dossier dans un endroit donné, ¨justcode travaille directement depuis un dossier donné (¨justcode va automatiquement attribuer le nom du dit dossier à la variable jinja::``project_name``, c'est une affectation implicite).
 
-    1) Même si ¨justcode s'utilise en ligne de commandes, chaque squelette de projet contiendra toujours un fichier peuf::``justcode.peuf`` contenant à minima toutes les ¨infos utiles à la conception via un squelette.
-    Bien entendu, un fichier factice avec toutes les variables attendues peut être produit via ¨justcode.
-    Ceci étant dit, pour plus de productivité, il vaut mieux taper directement ces ¨infos sans passer via le terminal.
-    Si un tel fichier existe déjà, ¨justcode indiquera d'éventuelles variables manquantes, tout en laissant la responsabilité de l'ajout de ces oublis à l'utilisateur.
+    1) Même si ¨justcode s'utilise en ligne de commandes, chaque projet initié par un squelette contiendra toujours un fichier peuf::``justcode.peuf`` contenant toutes les ¨infos utiles à la conception via un squelette.
+    Bien entendu, un fichier factice peuf::``justcode.peuf`` avec toutes les variables attendues peut être produit via ¨justcode.
+    Il est aussi possible de passer via le terminal pour renseigner chaque paramètre attendu.
+    Enfin si un fichier peuf::``justcode.peuf`` existe déjà, ¨justcode indiquera d'éventuelles valeurs manquantes, tout en laissant la responsabilité de la gestion de ces oublis à l'utilisateur.
 
     1) Le fichier peuf::``justcode.peuf`` est utile pour deux choses.
 
@@ -21,7 +21,7 @@ Avant de présenter avec délices les saveurs propres à ¨justcode, il est impo
 
         * Pour comparer un projet existant vis à vis d'un squelette donné, ¨justcode récupère dans peuf::``justcode.peuf``
         tous les paramètres utilisés lors de l'utilisation du dit squelette.
-        Cette fonctinnalité permet d'avoir un ensemble de projets toujours structurés de la même façon, mais aussi d'intégrer un projet existant à un ensemble d'autres fabriqués via un squelette
+        Cette fonctinnalité permet d'avoir un ensemble de projets toujours structurés de la même façon, mais aussi d'intégrer un projet existant à un ensemble d'autres fabriqués via le même squelette
         ((
             Dans ce deuxième cas, il suffit d'ajouter un fichier peuf::``justcode.peuf`` pour ensuite demander à ¨justcode de valider le projet vis à vis d'un squelette donné.
         )).

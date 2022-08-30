@@ -1,0 +1,20 @@
+﻿this::
+    date = 2022-08-30    ???
+
+
+===================
+Que souhaite-t-on ?
+===================
+
+???
+
+
+Reprenons le squelette path::``changes`` proposé dans cf::``?/create-n-use/step-1-single[CHANGES].txt`` qui a le contenu suivant.
+
+dirtree::
+    ---
+    path = ¨exatempl/changes/dirtree.txt
+    ---
+
+
+Ce squelette est une base minimaliste pour indiquer des ¨chgts en suivant la méthodologie de son choix. Imaginons que vous ayez initié un projet ¨cvnum avec, mais qu'un jour vous décidiez de changer la méthode de rédaction des ¨chgts pour
