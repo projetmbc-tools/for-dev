@@ -9,5 +9,5 @@ x-todo-x.txt::
     multilines::
         title::
             ^===
-            \{\{project_name\}\} - TODO
+            {{project_name}} - TODO
             ===

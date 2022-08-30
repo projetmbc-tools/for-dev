@@ -13,7 +13,7 @@ L'analyse de contenu est à l'initiative de l'auteur d'un squelette. Pour repren
     1) L'absence de la ligne ``VERSION = MAJOR.MINOR.PATCH``.
 
 
-Pour obtenir, ceci nous devons commencer par modifier le fichier path::``changes/__jscmeta__/specs.peuf`` du squelette comme suit.
+Pour obtenir ceci, nous devons commencer par modifier le fichier path::``__jscmeta__/specs.peuf`` du squelette comme suit.
 Ce code va être expliqué juste après.
 
 peuf::
@@ -25,10 +25,13 @@ peuf::
 Tout d'abord, tout se passe dans le bloc peuf::``x-todo-x.txt::...`` nommé via le chemin relatif du fichier path::``x-todo-x.txt``. On dispoe alors de deux types de sous-bloc.
 
     1) Le sous-bloc peuf::``singleline::...`` sert à indiquer des lignes isolées devant aparaître dans un contenu.
-    Ici on utilise juste regex::``VERSION = MAJOR\.MINOR\.PATCH`` où les contre-obliques regex::``\`` sont indispensables car ¨justcode attend des ¨regexs_fr.
+    Ici on utilise juste regex::``VERSION = MAJOR\.MINOR\.PATCH`` où les contre-obliques regex::``\`` sont indispensables car ¨justcode travaille avec des ¨regexs (voir ce qui suit pour une précision très importante indiquant l'usage de ¨jinja avant de passer via une ¨regex).
 
-    1) Le sous-bloc peuf::``multilines::...`` est pour plusieurs lignes.
-    Rien de bien nouveau ici si ce n'est l'utilisation de regex::``^`` qui fait ¨ref au début du fichier.
+    1) Le sous-bloc peuf::``multilines::...`` est pour plusieurs lignes. Notons deux choses importantes ici.
+
+        * Avant de considérer avoir une ¨regex, ¨justcode fait appel à ¨jinja. Ceci permet de comprendre que jinja::``{{project_name}}`` sera remplacé par le nom du projet.
+
+        * L'utilisation de regex::``^`` fait classiquement ¨ref au début du fichier.
 
 
 Une fois le squelette complété, il suffit alors de lancer ¨justcode avec l'option terminal::``--validate``, et avec pour argument le chemin du dossier path::``myproject_2``.
