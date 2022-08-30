@@ -1,0 +1,13 @@
+gene::
+    license = yes
+
+
+x-todo-x.txt::
+    singleline::
+        VERSION = MAJOR\.MINOR\.PATCH
+
+    multilines::
+        title::
+            ^===
+            \{\{project_name\}\} - TODO
+            ===

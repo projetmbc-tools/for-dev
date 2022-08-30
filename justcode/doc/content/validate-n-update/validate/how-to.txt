@@ -8,4 +8,4 @@ Comment faire ?
 
 content::
     ¨content/structure.txt
-    ¨content/content.txt        ??????
+    ¨content/content.txt

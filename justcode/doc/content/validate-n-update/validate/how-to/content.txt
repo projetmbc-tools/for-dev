@@ -1,29 +1,34 @@
 ﻿this::
-    date = 2022-08-30    ???
+    date = 2022-08-30
 
 
-==========================
-Un contenu minimal attendu
-==========================
+=====================
+Des contenus attendus
+=====================
 
-???
+L'analyse de contenu est à l'initiative de l'auteur d'un squelette. Pour reprendre le cas du ¨2e projet path::``myproject_2``, nous cherchons à repérer les absences suivantes dans le fichier path::``myproject_2/changes/x-todo-x.txt``.
 
-possible si indiquer dans la squeelette
+    1) L'absence des ``===`` autour de ``myproject`` au début du fichier.
 
-placholder pour le quelette indiquant ce qui n'est pas à retrouver, via 3 modes
-
-    regex pour truc come =========
-    line pour une ligne  come Something to do?
-    paragrph pour multiligne  pour par exemple:
-
-                VERSION = MAJOR.MINOR.PATCH
-
-                big catego
-
-                    + :new: , :news:
-                    + :update: , :updates:
-                    + :break:
-                    + :fordev:
+    1) L'absence de la ligne ``VERSION = MAJOR.MINOR.PATCH``.
 
 
-garder idé de match à trouver suivant le même prinvcipe mais pour + tard si besoin !
+Pour obtenir, ceci nous devons commencer par modifier le fichier path::``changes/__jscmeta__/specs.peuf`` du squelette comme suit.
+Ce code va être expliqué juste après.
+
+peuf::
+    ---
+    path = ¨exatempl/validate/changes/specs.peuf
+    ---
+
+
+Tout d'abord, tout se passe dans le bloc peuf::``x-todo-x.txt::...`` nommé via le chemin relatif du fichier path::``x-todo-x.txt``. On dispoe alors de deux types de sous-bloc.
+
+    1) Le sous-bloc peuf::``singleline::...`` sert à indiquer des lignes isolées devant aparaître dans un contenu.
+    Ici on utilise juste regex::``VERSION = MAJOR\.MINOR\.PATCH`` où les contre-obliques regex::``\`` sont indispensables car ¨justcode attend des ¨regexs_fr.
+
+    1) Le sous-bloc peuf::``multilines::...`` est pour plusieurs lignes.
+    Rien de bien nouveau ici si ce n'est l'utilisation de regex::``^`` qui fait ¨ref au début du fichier.
+
+
+Une fois le squelette complété, il suffit alors de lancer ¨justcode avec l'option terminal::``--validate``, et avec pour argument le chemin du dossier path::``myproject_2``.

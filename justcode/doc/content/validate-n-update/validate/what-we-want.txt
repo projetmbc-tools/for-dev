@@ -57,9 +57,9 @@ verb::
 
 Le concepteur du ¨skelchges peut faire en sorte que ¨justcode note les manquements suivants vis à vis du fichier path::``x-todo-x.txt`` donné plus haut.
 
-    1) L'abscence des ``===`` autour de ``myproject`` au début du fichier.
+    1) L'absence des ``===`` autour de ``myproject`` au début du fichier.
 
-    1) L'abscence de la ligne ``VERSION = MAJOR.MINOR.PATCH``.
+    1) L'absence de la ligne ``VERSION = MAJOR.MINOR.PATCH``.
 
 
 info::
