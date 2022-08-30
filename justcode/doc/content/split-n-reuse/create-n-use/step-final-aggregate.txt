@@ -45,7 +45,7 @@ Il est alors utile de créer, puis d'utiliser un squelette que nous nommerons pa
     Dans ce dossier, l'unique fichier path::``justcode.peuf`` possède le contenu ci-après indiquant d'utiliser un squelette sur notre dossier, et non sur un sous-dossier, via le sous-bloc peuf::``main::...``.
     Des règles ¨gitignore sont aussi indiquées
     ((
-        Des règles ¨gitignore ne sont aplicables que sur tout un projet, et non sur des sous-dossiers.
+        Des règles ¨gitignore ne sont applicables que sur tout un projet, et non sur des sous-dossiers.
         Ceci explique l'usage du bloc peuf::``main::...`` pour l'ajout de telles règles.
     )),
     on en reparle juste après.
@@ -60,7 +60,7 @@ Il est alors utile de créer, puis d'utiliser un squelette que nous nommerons pa
         Ne pas hésiter à demander le support d'autres règles.
     )),
     ici ce sont les règles ``python`` et ``osx``.
-    De plus, il est possible d'ajouter des règles "maison" en indiquant un fichier, ou plus.
-    Au final, toutes les règles sont mises dans un unique fichier path::``.gitignore``.
+    De plus, il est possible d'ajouter des règles "maison" en indiquant un fichier, ou plus : ici, on indique le fichier path::``~/mes_gitignores/cbdev.txt``.
+    Au final, toutes les règles sont mises dans un unique fichier path::``.gitignore`` en respectant l'ordre de déclaration : ici, les règles ¨python seront suivies de celles propres à ¨macos, puis de celles "maison".
 
     1) Il ne reste plus qu'à lancer la génération comme cela a été expliqué à la fin de cf::``step-1-single[CHANGES].txt``.

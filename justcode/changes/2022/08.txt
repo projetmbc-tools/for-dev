@@ -10,7 +10,7 @@
 --------
 
 [[:update:]]
-Licenses & ``gitignore`` rules: if no connection is available, the process stops with a message.
+Licenses & ``gitignore`` rules: if no connection is available, the process stops properly.
 
 
 // ---------- //

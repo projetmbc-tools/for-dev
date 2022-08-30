@@ -1,18 +1,18 @@
 ﻿this::
-    title  = Démarrer rapidement des projets informatiques,
-             ou d'écriture
+    title  = Démarrer rapidement des projets informatiques
+             de codage, ou d'écriture
     author = Christophe, BAL [projetmbc@gmail.com]
     lang   = fr
 
     licence = by nc sa 4.0
     out     = html | pdf
 
-    lexic   = ???
+//    lexic   =
 
 
 abrev::
-    cvnum = cf::``justcode ;
-                  https://github.com/bc-tools/for-dev/tree/dev/justcode``
+    justcode = cf::``justcode ;
+                     https://github.com/bc-tools/for-dev/tree/dev/justcode``
 
     content = content
 

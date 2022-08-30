@@ -6,7 +6,7 @@
 Comment faire ?
 ===============
 
-La section cf::``?/create-n-use/step-final-aggregate.txt`` donne toutes les explications nécessaires à ce sujet : voir le code du fichier path::``justcode.peuf`` redonné ci-après où path::``~/mes_gitignores/cbdev.txt`` sert à indiquer des règles "maison" non proposées par ¨justcode (retenez qu'il n'est de nouveau pas utile d'utiliser le préfixe peuf::``api::...``).
+La section cf::``?/create-n-use/step-final-aggregate.txt`` donne toutes les explications nécessaires à ce sujet : voir le code du fichier path::``justcode.peuf`` redonné ci-après où path::``~/mes_gitignores/cbdev.txt`` sert à indiquer des règles "maison" non proposées par ¨justcode (notez qu'il n'est pas nécessaire d'utiliser le préfixe peuf::``api::``).
 
 peuf::
     ---

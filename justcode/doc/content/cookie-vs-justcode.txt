@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-08-24
+    date = 2022-08-30
 
 
 ==========================
@@ -8,23 +8,23 @@
 
 Avant de présenter avec délices les saveurs propres à ¨justcode, il est important d'indiquer les différences vis à vis de ¨cookiecutter.
 
-    1) Là où ¨cookiecutter ajoute un dossier dans un endroit donné, ¨justcode travaille directement dans un dossier donné.
-    Ceci vient de ce que ¨justcode va automatiquement attribuer le nom du dit dossier à la variable jinja::``project_name``, c'est une affectation implicite
-    ((
-        Il est possible de rediriger cette valeur vers une autre variable si vous utilisez un template qui emploie par exemple la variable jinja::``project`` pour le nom du projet.
-    )).
+    1) Là où ¨cookiecutter ajoute un dossier dans un endroit donné, ¨justcode travaille directement dans un dossier donné (¨justcode va automatiquement attribuer le nom du dit dossier à la variable jinja::``project_name``, c'est une affectation implicite).
 
-    1) Même si ¨justcode est utilisable en ligne de commandes, chaque squelette de projet contiendra toujours un fichier peuf::``about.peuf`` contenant à minima toutes les ¨infos utiles à la conception du squelette.
-    Ceci étant dit, pour plus de productivité, il vaut mieux  taper directement ces ¨infos sans passer via un terminal.
-    Bien entendu, un fichier factice avec toutes les variables attendues peut être produit via ¨justcode
-    ((
-        Si un tel fichier existe déjà, ¨justcode indiquera d'éventuelles variables manquantes, tout en ajoutant dans le presse-papier un code factice relatif à ces manques. La responsabilité de l'ajout de ces oublis revient à l'utilisateur.
-    )).
+    1) Même si ¨justcode s'utilise en ligne de commandes, chaque squelette de projet contiendra toujours un fichier peuf::``justcode.peuf`` contenant à minima toutes les ¨infos utiles à la conception via un squelette.
+    Bien entendu, un fichier factice avec toutes les variables attendues peut être produit via ¨justcode.
+    Ceci étant dit, pour plus de productivité, il vaut mieux taper directement ces ¨infos sans passer via le terminal.
+    Si un tel fichier existe déjà, ¨justcode indiquera d'éventuelles variables manquantes, tout en laissant la responsabilité de l'ajout de ces oublis à l'utilisateur.
 
-    1) Le fichier peuf::``about.peuf`` devient utile pour comparer un projet existant vis à vis d'un squelette donné. Ceci permet d'avoir un ensemble de projet toujours structurés de la même façon, mais aussi d'intégrer un projet existant à un ensemble d'autres fabriqués via un squelette
-    ((
-        Dans ce deuxième cas, il suffit d'ajouter un fichier peuf::``about.peuf`` pour ensuite demander à ¨justcode de valider le projet vis à vis d'un squelette donné.
-    )).
+    1) Le fichier peuf::``justcode.peuf`` est utile pour deux choses.
+
+        * La gestion des licences et d'un éventuel fichier ¨gitignore est faite par ¨justcode, et non par l'intermédiaire du squelette, via le fichier peuf::``justcode.peuf``.
+
+        * Pour comparer un projet existant vis à vis d'un squelette donné, ¨justcode récupère dans peuf::``justcode.peuf``
+        tous les paramètres utilisés lors de l'utilisation du dit squelette.
+        Cette fonctinnalité permet d'avoir un ensemble de projets toujours structurés de la même façon, mais aussi d'intégrer un projet existant à un ensemble d'autres fabriqués via un squelette
+        ((
+            Dans ce deuxième cas, il suffit d'ajouter un fichier peuf::``justcode.peuf`` pour ensuite demander à ¨justcode de valider le projet vis à vis d'un squelette donné.
+        )).
 
 
 note::
