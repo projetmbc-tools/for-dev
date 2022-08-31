@@ -3,4 +3,4 @@ templates-used::
         monorepo  = ~/mes_squelettes/monorepo
         gitignore = python ;
                     osx ;
-                    ~/mes_gitignores/cbdev.txt
+                    ~/mes_gitignores/reglesmaison.txt

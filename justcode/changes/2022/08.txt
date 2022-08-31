@@ -10,7 +10,7 @@
 --------
 
 [[:update:]]
-``gitignore`` rules: all the rules proposed by ¨gitignore_io are integrated.
+``gitignore`` rules: all the rules proposed by ¨gitignore_io are integrated in the project.
 
 
 // ---------- //

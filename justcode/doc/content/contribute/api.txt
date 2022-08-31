@@ -1,5 +1,5 @@
-﻿this::
-    date = 2022-08-???
+﻿abrev::
+    content = api
 
 
 ======
@@ -8,7 +8,10 @@ L'¨API
 
 ???
 
-content::
-    ¨content/specs.txt              ??????
-
 convention + liste template auto doc
+
+
+content::
+    ¨content/gitignore.txt       ??????
+    ¨content/license.txt         ??????
+    ¨content/template.txt        ??????

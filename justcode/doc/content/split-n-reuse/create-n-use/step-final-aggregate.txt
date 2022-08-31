@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-08-30
+    date = 2022-08-31
 
 
 abrev::
@@ -55,12 +55,8 @@ Il est alors utile de créer, puis d'utiliser un squelette que nous nommerons pa
         path = ¨currentstep/justcode-mathobj.peuf
         ---
 
-    Vous noterez la possibilité d'utiliser des règles disponibles directement, qui sont en fait fabriquées par cf::``https://www.gitignore.io``
-    ((
-        Ne pas hésiter à demander le support d'autres règles.
-    )),
-    ici ce sont les règles ``python`` et ``osx``.
-    De plus, il est possible d'ajouter des règles "maison" en indiquant un fichier, ou plus : ici, on indique le fichier path::``~/mes_gitignores/cbdev.txt``.
+    Vous noterez la possibilité d'utiliser des règles disponibles directement, qui sont en fait proposées par cf::``https://www.gitignore.io``. Ici ce sont les règles ``python`` et ``osx`` (les noms sont tous en minuscules).
+    De plus, il est possible d'ajouter des règles "maison" en indiquant un fichier, ou plus : ici, on indique le fichier path::``~/mes_gitignores/reglesmaison.txt``.
     Au final, toutes les règles sont mises dans un unique fichier path::``.gitignore`` en respectant l'ordre de déclaration : ici, les règles ¨python seront suivies de celles propres à ¨macos, puis de celles "maison".
 
     1) Il ne reste plus qu'à lancer la génération comme cela a été expliqué à la fin de cf::``step-1-single[CHANGES].txt``.
