@@ -1,0 +1,8 @@
+# Modification made at 2022-08-31.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# Cloud9 IDE - http://c9.io
+.c9revisions
+.c9

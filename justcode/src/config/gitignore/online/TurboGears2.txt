@@ -1,0 +1,25 @@
+# Modification made at 2022-08-31.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+*.py[co]
+
+# Default development database
+devdata.db
+
+# Default data directory
+data/*
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox

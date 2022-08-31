@@ -1,0 +1,13 @@
+# Modification made at 2022-08-31.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# Compiled Form Modules
+*.fmx
+
+# Compiled Menu Modules
+*.mmx
+
+# Compiled Pre-Linked Libraries
+*.plx

@@ -1,0 +1,30 @@
+# Modification made at 2022-08-31.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# Backup
+*.pdsbak
+
+# Debug
+Debug
+
+# Generated files
+*.workspace
+*.log
+*.bmk
+*.brk
+*.cfg
+*.dbg
+*.dct
+*.dlt
+*.hex
+*.lst
+*.dic
+*_callertable.txt
+*.user.dic
+*.asm
+*.c.ini
+*.h.ini
+*.cp
+*.mcl

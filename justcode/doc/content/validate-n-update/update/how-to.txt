@@ -6,7 +6,7 @@
 Comment faire ?
 ===============
 
-Le gros du travail revient au ¨dev du squelette. Il suffit de proposer un fichier comme suit avec un contenu immédiat à comprendre pour le bloc peuf::``same-contents::...``.
+Le gros du travail revient au ¨dev du squelette. Il suffit de proposer un fichier path::``specs.peuf`` comme suit avec un contenu immédiat à comprendre pour le bloc peuf::``same-contents::...``.
 
 peuf::
     ---

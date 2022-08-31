@@ -1,0 +1,10 @@
+# Modification made at 2022-08-31.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# yalc
+# https://www.npmjs.com/package/yalc/v/1.0.0-pre.17#keep-it-out-of-git
+
+.yalc
+yalc.lock

@@ -2,10 +2,10 @@
     content = /contribute
 
 
-==================================
-????
-==================================
+==========
+Contribuer
+==========
 
 content::
-    ¨content/templates.txt          ??????
-    ¨content/doc.txt                ??????
+    ¨content/doc.txt            ??????
+    ¨content/api.txt            ??????

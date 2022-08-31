@@ -1,0 +1,19 @@
+# Modification made at 2022-08-31.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# Test Complete ignore files: https://support.smartbear.com/viewarticle/68002/
+
+# Tester-specific Settings
+*.tcCFGExtender
+*.tcLS
+
+# Type library declarations
+*.tlb
+
+# Log files
+*.tcLogs
+
+# Backup files
+*.bak

@@ -1,0 +1,13 @@
+# Modification made at 2022-08-31.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# gitignore template for Splunk apps
+# documentation: http://docs.splunk.com/Documentation/Splunk/6.2.3/admin/Defaultmetaconf
+
+# Splunk local meta file
+local.meta
+
+# Splunk local folder
+local

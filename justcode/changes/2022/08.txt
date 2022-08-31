@@ -2,6 +2,21 @@
 
 
 ==
+31
+==
+
+--------
+:fordev:
+--------
+
+[[:update:]]
+``gitignore`` rules: all the rules proposed by ¨gitignore_io are integrated.
+
+
+// ---------- //
+
+
+==
 26
 ==
 

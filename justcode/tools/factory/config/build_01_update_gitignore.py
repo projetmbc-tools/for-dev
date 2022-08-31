@@ -9,6 +9,8 @@ from requests            import (
     get as getwebcontent
 )
 
+from bs4 import BeautifulSoup
+
 from mistool.os_use import PPath as Path
 
 
@@ -22,18 +24,9 @@ UPDATE_ONLINE = True
 GITIGNORE_IO_URL      = "https://www.gitignore.io"
 GITIGNORE_IO_BASE_URL = GITIGNORE_IO_URL + "/api/{urlparam}"
 
-GITIGNORE_IO_WEBSITE = [
-# LaTeX
-    'latex',
-# Python
-    'python',
-    'jupyternotebooks',
-# OS
-    'windows',
-    'osx',
-    'linux',
-]
-
+GITHUB_URL           = "https://github.com"
+GITHUB_TEMPLATES_URL = f"{GITHUB_URL}/toptal/gitignore/tree/master/templates"
+GITHUB_RAW_BASE_URL  = "https://raw.githubusercontent.com/toptal/gitignore/master/templates"
 
 
 TODAY = date.today()
@@ -63,6 +56,42 @@ TAB_3 = TAB_1*3
 # -- TOOLS -- #
 # ----------- #
 
+def pyname(name):
+    cname = ""
+
+    for c in name:
+        if c in "-+":
+            c = "_"
+
+        cname += c
+
+    cname = cname.upper()
+
+    if cname == "C__":
+        cname = "CPP"
+
+    return cname
+
+
+def allurls():
+    bs = BeautifulSoup(
+        getwebcontent(GITHUB_TEMPLATES_URL).text,
+        "html.parser"
+    )
+
+    urls = []
+
+    for elt in bs.select('a'):
+        href = elt['href']
+
+        if href.endswith('.gitignore'):
+            rule = Path(href).stem
+
+            urls.append(f"{GITHUB_RAW_BASE_URL}/{rule}.gitignore")
+
+    return urls
+
+
 def rulesfrom(content: str) -> set:
     rules = set()
 
@@ -79,10 +108,13 @@ def rulesfrom(content: str) -> set:
     return rules
 
 
-def extractrules(urlparam):
-    whichrules = f"{TAB_2}+ ``{urlparam}``"
+def extractrules(urlraw):
+# Some constants.
+    rulename = str(Path(urlraw).stem)
+    rulename = rulename.replace("%2B", "+")
 
-    project_file = GITIGNORE_ONLINE_DIR / f"{urlparam}.txt"
+    whichrules   = f"{TAB_2}+ ``{rulename}``"
+    project_file = GITIGNORE_ONLINE_DIR / f"{rulename}.txt"
 
 # Rules in the project.
     if project_file.is_file():
@@ -96,11 +128,12 @@ def extractrules(urlparam):
         project_rules = set()
 
 # Rules on ``gitignore.io``.
-    web_content = getwebcontent(
-        GITIGNORE_IO_BASE_URL.format(urlparam = urlparam)
-    )
+    resp = getwebcontent(urlraw)
 
-    web_content = web_content.text
+    if resp.status_code != 200:
+        raise Exception('AIE !')
+
+    web_content = resp.text
     web_rules   = rulesfrom(web_content)
 
 # New rules or removed ones?
@@ -153,12 +186,16 @@ def extractrules(urlparam):
     print(
         whichrules,
         infos,
-        f"{TAB_3}- Updating the file ``{urlparam}.txt``.",
+        f"{TAB_3}- Updating the file ``{rulename}.txt``.",
         sep = "\n"
     )
 
     web_content = f"""
 # Modification made at {TODAY}.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
 {web_content}
     """.strip() + "\n"
 
@@ -167,6 +204,7 @@ def extractrules(urlparam):
         mode     = 'w',
     ) as f:
         project_rules = f.write(web_content)
+
 
 
 # --------------- #
@@ -196,10 +234,16 @@ except ConnectionError:
 # ----------------------------------- #
 
 if UPDATE_ONLINE:
-    print(f"{TAB_1}* Rules on ``gitignore.io``.")
+    print(f"{TAB_1}* Looking for rules on ``github.com``.")
+
+    urls = allurls()
+
+    print(f"{TAB_1}* {len(urls)} rules found.")
+
+    print(f"{TAB_1}* Rules made by ``gitignore.io``.")
 
     with ThreadPoolExecutor(max_workers = 5) as exe:
-        exe.map(extractrules, GITIGNORE_IO_WEBSITE)
+        exe.map(extractrules, urls)
 
 
 # ----------------------------- #
@@ -229,8 +273,6 @@ for f in GITIGNORE_DIR.walk("file::**.txt"):
 
 code_EACH_TAG = []
 
-ALL_GITIGNORES = []
-
 TAG_ONLINE  = '__online__'
 TAG_SPECIAL = '__special__'
 
@@ -238,31 +280,22 @@ for kind in [
     TAG_ONLINE,
     TAG_SPECIAL,
 ]:
-    sortednames = sorted(gitignores_by_kind[kind])
-
-    ALL_GITIGNORES.append(kind)
-    ALL_GITIGNORES += sortednames
+    sortednames = sorted(
+        gitignores_by_kind[kind],
+        key = lambda n: pyname(n)
+    )
 
     code_EACH_TAG.append(kind)
 
     code_EACH_TAG += [
-        f'TAG_GITIGNORE_{n.upper()} = "{n}"'
+        f'TAG_GITIGNORE_{pyname(n)} := "{n}",'
         for n in sortednames
     ]
 
     code_EACH_TAG.append('')
 
 
-code_ALL_TAGS = f"{ALL_GITIGNORES = }"
-
-code_ALL_TAGS = black.format_file_contents(
-    code_ALL_TAGS,
-    fast = False,
-    mode = black.FileMode()
-)
-
-
-code_EACH_TAG = '\n'.join(code_EACH_TAG)
+code_EACH_TAG = '\n    '.join(code_EACH_TAG[:-1])
 
 
 for kind in [
@@ -271,43 +304,33 @@ for kind in [
 ]:
     ctitle = kind.replace('_', '').title()
 
-    code_ALL_TAGS = code_ALL_TAGS.replace(
-        ' '*4 + f'"{kind}",',
-        f"# {ctitle}"
-    )
-
     code_EACH_TAG = code_EACH_TAG.replace(
         kind,
         f"# {ctitle}"
     )
 
-for n in ALL_GITIGNORES:
-    code_ALL_TAGS = code_ALL_TAGS.replace(
-        f'"{n}"',
-        f'TAG_GITIGNORE_{n.upper()}'
-    )
 
-
-with PYFILE.open(
-    encoding = 'utf8',
-    mode     = 'w',
-) as f:
-    f.write(
-        f"""
+code = f"""
 #!/usr/bin/env python3
 
 # This code was automatically build by the following file.
 #
 #     + ``{THIS_FILE_REL_PROJECT_DIR}``
 
-# EACH TAG
-
-{code_EACH_TAG}
-
 # ALL THE TAGS
 
-{code_ALL_TAGS}
-        """.strip()
-        +
-        '\n'
-    )
+ALL_GITIGNORES = [
+    {code_EACH_TAG}
+]
+        """.strip() + '\n'
+
+code = code.replace(
+    "    #",
+    "#"
+)
+
+with PYFILE.open(
+    encoding = 'utf8',
+    mode     = 'w',
+) as f:
+    f.write(code)

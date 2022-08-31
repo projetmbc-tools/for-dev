@@ -1,0 +1,9 @@
+# Modification made at 2022-08-31.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+fishd.*
+fish_history
+fish_variables
+config.local.fish

@@ -1,8 +1,8 @@
-# Modification made at 2022-08-20.
-# Created by https://www.toptal.com/developers/gitignore/api/jupyternotebooks
-# Edit at https://www.toptal.com/developers/gitignore?templates=jupyternotebooks
+# Modification made at 2022-08-31.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
 
-### JupyterNotebooks ###
 # gitignore template for Jupyter Notebooks
 # website: http://jupyter.org/
 
@@ -15,5 +15,3 @@ ipython_config.py
 
 # Remove previous ipynb_checkpoints
 #   git rm -r .ipynb_checkpoints/
-
-# End of https://www.toptal.com/developers/gitignore/api/jupyternotebooks

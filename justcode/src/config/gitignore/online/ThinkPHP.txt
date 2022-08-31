@@ -1,0 +1,13 @@
+# Modification made at 2022-08-31.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# gitignore template for ThinkPHP v3.2.3
+# website: http://www.thinkphp.cn/
+
+# Logs and Cache files
+/Application/Runtime/
+
+# Common configure file
+/Application/Common/Conf/config.php

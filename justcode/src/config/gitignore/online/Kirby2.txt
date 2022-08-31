@@ -1,0 +1,20 @@
+# Modification made at 2022-08-31.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+## Kirby 2 | http://getkirby.com
+
+# Exclude account information
+site/accounts/*
+!site/accounts/index.html
+assets/avatars/*
+!assets/avatars/.gitkeep
+
+# Exclude thumbnails
+thumbs/*
+!thumbs/index.html
+
+# Exclude cache
+site/cache/*
+!site/cache/index.html
