@@ -70,6 +70,9 @@ def pyname(name):
     if cname == "C__":
         cname = "CPP"
 
+    elif cname == "TLA_":
+        cname = "TLA_PLUS"
+
     return cname
 
 
