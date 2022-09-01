@@ -1,0 +1,13 @@
+﻿this::
+    date = 2022-09-???
+
+
+abrev::
+    exafilter = ¨exatempl/filter
+
+
+==========================================
+Utiliser des transformations de paramètres
+==========================================
+
+pas besoin de dossier path::``specs.peuf`` isci

@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-08-28
+    date = 2022-09-01
 
 
 abrev::
@@ -35,7 +35,7 @@ Expliquons le contenu du squelette.
     ((
         Le préfixe "jsc" est pour "Just Start (To) Code", soit ¨justcode.
     )),
-    un dossier utilisé par ¨justcode pour obtenir des métas ¨infos sur le squelette. Le fichier path::``specs.peuf`` admet le contenu suivant très court, et immédiat à comprendre.
+    un dossier **optionnel** utilisé ici par ¨justcode pour obtenir des métas ¨infos sur le squelette via le fichier path::``specs.peuf`` admettant le contenu suivant très court, et immédiat à comprendre.
 
     peuf::
         ---
