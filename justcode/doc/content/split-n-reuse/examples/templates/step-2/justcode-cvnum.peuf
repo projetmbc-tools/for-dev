@@ -3,6 +3,10 @@ templates-used::
         changes = ~/mes_squelettes/changes
         readme  = ~/mes_squelettes/readme
 
+    global::
+        project_author_name = Christophe BAL
+        project_author_mail = projetmbc@gmail.com
+
     changes::
         licence = by nc sa 4.0
 
