@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-01
+    date = 2022-09-02
 
 
 abrev::
@@ -35,7 +35,7 @@ Expliquons le contenu du squelette.
     ((
         Le préfixe "jsc" est pour "Just Start (To) Code", soit ¨justcode.
     )),
-    un dossier **optionnel** utilisé ici par ¨justcode pour obtenir des métas ¨infos sur le squelette via le fichier path::``specs.peuf`` admettant le contenu suivant très court, et immédiat à comprendre.
+    un dossier **optionnel** utilisé ici pour indiquer des métas ¨infos à ¨justcode via le fichier path::``specs.peuf`` admettant le contenu suivant très court, et immédiat à comprendre.
 
     peuf::
         ---
@@ -52,15 +52,15 @@ Il reste à voir comment initier un projet à partir de notre squelette. Nous al
         path = ¨currentstep/dir-cvnum.txt
         ---
 
-    Le nom du projet est automatiquement celui du dossier, soit ici ``cvnum``, et le fichier path::``justcode.peuf`` permet d'indiquer des squelettes, ainsi que des paramètres attendus.
-    Dans notre cas, ce fichier admet le contenu suivant où l'on donne un squelette pour initier un sous-dossier path::``changes`` via son chemin : voir peuf::``changes = ...`` dans le sous-bloc peuf::``import::...`` du bloc peuf::``templates-used::...``.
+    Le nom du projet est automatiquement celui du dossier, soit ici ``cvnum``, et le fichier path::``justcode.peuf`` permet d'indiquer des squelettes, ainsi que des paramètres.
+    Dans notre cas, ce fichier admet le contenu suivant où l'on donne un squelette pour initier un sous-dossier de chemin path::``changes`` : voir peuf::``changes = ...`` dans le sous-bloc peuf::``import::...`` du bloc peuf::``templates-used::...``.
 
     peuf::
         ---
         path = ¨currentstep/justcode-cvnum.peuf
         ---
 
-    Noter que dans le bloc peuf::``changes::...`` est indiqué la licence "Creative Commons Attribution - Non Commercial - Share Alike 4.0 International", une licence gérée par défaut par ¨justcode. Il est aussi possible de fournir directement un fichier licence stocké soit localement, soit en ligne : voir cf::``?/api/licenses.txt``.
+    Noter que dans le bloc peuf::``changes::...`` est indiqué la licence "Creative Commons Attribution - Non Commercial - Share Alike 4.0 International", une licence gérée par défaut par ¨justcode : voir cf::``?/api/licenses.txt``.
 
     1) Pour finir, on lance ¨justcode en ligne de commandes avec pour unique argument le chemin de notre dossier path::``cvnum``. Voilà, c'est tout !
 

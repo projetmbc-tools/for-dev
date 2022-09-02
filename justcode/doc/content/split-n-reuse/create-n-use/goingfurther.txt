@@ -3,7 +3,7 @@
 
 
 abrev::
-    content = /gofurther
+    content = /goingfurther
 
 
 ==================
