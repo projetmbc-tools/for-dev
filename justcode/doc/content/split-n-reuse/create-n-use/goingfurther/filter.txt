@@ -11,3 +11,23 @@ Utiliser des transformations de paramètres
 ==========================================
 
 pas besoin de dossier path::``specs.peuf`` isci
+
+
+
+
+dirtree::
+    ---
+    path = ¨exafilter/dirtree.txt
+    ---
+
+
+jinja::
+    ---
+    path = ¨exafilter/description.md
+    ---
+
+
+markdown::
+    ---
+    path = ¨exafilter/description-filled.md
+    ---

@@ -1,0 +1,17 @@
+﻿abrev::
+    content = /hook
+
+
+=======================
+Pré et post-traitements
+=======================
+
+on peut gir physiquement mais aussi dynmaiquement : par exemple, author = Christophe BAL [projetmbc@gmail.com] aboutit à author_name et author_email sans passer via un filtre (utile si le filtre est lourd en calcul)
+
+    ---> besoin d'un syst pour enregistrer le hook
+    ---> nécessité d'indiquer l'ajout de nouvel cocte
+    ---> une classe JSCEnv pour env de justcode
+
+content::
+    ¨content/pre.txt        ?????
+    ¨content/post.txt       ?????
