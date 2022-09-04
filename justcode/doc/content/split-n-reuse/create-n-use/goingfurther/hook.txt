@@ -1,4 +1,8 @@
-﻿abrev::
+﻿this::
+    date = 2022-09-04     ????????
+
+
+abrev::
     content = /hook
 
 

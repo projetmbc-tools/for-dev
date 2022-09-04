@@ -15,5 +15,5 @@ Dans cette section, nous allons rencontrer des fonctionnalités avancées très 
 content::
     ¨content/folder-vs-special-block.txt
     ¨content/global.txt
-    ¨content/filter.txt     ?????
+    ¨content/filter.txt
     ¨content/hook.txt       ?????

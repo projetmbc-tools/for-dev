@@ -1,5 +1,7 @@
-﻿+ filterinaction
+﻿+ filtersinaction
     + __jscmeta__
         + filters
-            * XXXXXX.py
+            * __init__.py
+            * fullname.py
+            * justemail.py
     * description.md
