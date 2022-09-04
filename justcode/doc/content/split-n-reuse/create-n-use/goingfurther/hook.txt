@@ -1,22 +1,18 @@
 ﻿this::
-    date = 2022-09-04     ????????
+    date = 2022-09-05
 
 
 abrev::
-    content = /hook
+    exahook = ¨exatempl/hook
 
 
 =======================
 Pré et post-traitements
 =======================
 
-on peut gir physiquement mais aussi dynmaiquement : par exemple, author = Christophe BAL [projetmbc@gmail.com] aboutit à author_name et author_email sans passer via un filtre (utile si le filtre est lourd en calcul)
+Comme ¨cookiecuttter supporte l'ajout de pré et post-traitements, ¨justcode le fait aussi. Ccei nécessite de coder ces traitements dans les dossiers path::``pre`` et path::``post`` du dossier path::``hook`` mis dans le dossier path::``__jscmeta__`` destiné à ¨justcode.
 
-    ---> besoin d'un syst pour enregistrer le hook
-    ---> nécessité d'indiquer l'ajout de nouvel cocte
-    ---> une classe JSCEnv pour env de justcode
-
-
-content::
-    ¨content/pre.txt        ?????
-    ¨content/post.txt       ?????
+dirtree::
+    ---
+    path = ¨exahook/dirtree.txt
+    ---

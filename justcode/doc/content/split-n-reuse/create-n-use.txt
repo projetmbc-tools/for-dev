@@ -25,4 +25,4 @@ content::
     ¨content/step-3-modify[README].txt
     ¨content/step-4-partial[TOOLS].txt
     ¨content/step-final-aggregate.txt
-    ¨content/goingfurther.txt               ????
+    ¨content/goingfurther.txt

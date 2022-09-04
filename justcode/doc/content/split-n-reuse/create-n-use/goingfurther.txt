@@ -16,4 +16,4 @@ content::
     ¨content/folder-vs-special-block.txt
     ¨content/global.txt
     ¨content/filter.txt
-    ¨content/hook.txt       ?????
+    ¨content/hook.txt
