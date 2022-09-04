@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-???
+    date = 2022-09-04     ???
 
 
 abrev::
@@ -10,10 +10,19 @@ abrev::
 Utiliser des transformations de paramètres
 ==========================================
 
-pas besoin de dossier path::``specs.peuf`` isci
+pas besoin de dossier path::``specs.peuf`` ici
 
 
+filteres géré automatiquement mais via un syst de dev standardisé
+où nom fonc = nom filtre + utilisation de prototype (si pour ajout à l'API)
 
+
+def monfiltre(env, name):
+    return name[::-1].upper()
+
+if __name__ == "__main__":
+    # Tester ici.
+    ...
 
 dirtree::
     ---

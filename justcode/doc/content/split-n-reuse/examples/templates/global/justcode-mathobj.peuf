@@ -4,10 +4,7 @@ templates-used::
         readme  = ~/mes_squelettes/readme
         tools   = ~/mes_squelettes/tools
 
-    changes::
-        licence = by nc sa 4.0
-
-    readme::
+    global::
         licence = by nc sa 4.0
 
     tools::

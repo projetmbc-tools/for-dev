@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-02
+    date = 2022-09-04
 
 
 abrev::
@@ -50,3 +50,7 @@ peuf::
 
 
 Pour le projet ¨mathobj, la démarche est similaire. Facile ! Non ?
+
+
+note::
+    La section cf::``?/goingfurther/global.txt`` montre toute l'utilité du bloc peuf::``global``.

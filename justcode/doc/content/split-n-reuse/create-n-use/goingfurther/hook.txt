@@ -12,6 +12,7 @@ on peut gir physiquement mais aussi dynmaiquement : par exemple, author = Christ
     ---> nécessité d'indiquer l'ajout de nouvel cocte
     ---> une classe JSCEnv pour env de justcode
 
+
 content::
     ¨content/pre.txt        ?????
     ¨content/post.txt       ?????

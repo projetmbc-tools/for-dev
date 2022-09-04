@@ -1,7 +1,31 @@
 ﻿this::
-    date = 2022-09-????
+    date = 2022-09-04
+
+
+abrev::
+    exaglob = ¨exatempl/global
 
 
 ===============================
 Indiquer des valeurs par défaut
 ===============================
+
+Les valeurs des paramètres sont cherchées d'abord localament puis globalement. Par exemple, dans le code suivant, les valeurs du paramètre peuf::``licence`` sont directement données localement pour chacun des squelettes peuf::``changes``, peuf::``readme`` et peuf::``tools``.
+Un usage du paramètre peuf::``licence`` dans le bloc peuf::``global`` serait donc ignoré dans ce cas.
+
+peuf::
+    ---
+    path = ¨exaglob/justcode-mathobj-no-global.peuf
+    ---
+
+
+On note ici une répétition de certaines valeurs : il serait plus simple d'indiquer directement que les licences pour peuf::``changes`` et peuf::``readme`` utilisent la même valeur peuf::``by nc sa 4.0``. Pour cela, il suffit de passer via le bloc peuf::``global`` tout en cessant d'utiliser des valeurs locales via peuf::``changes`` et peuf::``readme`` comme cela est fait dans le code suivant. Noter que la valeur du paramètre peuf::``licence`` est changée localement pour peuf::``tools``.
+
+peuf::
+    ---
+    path = ¨exaglob/justcode-mathobj.peuf
+    ---
+
+
+note::
+    Il est important de retenir que le bloc peuf::``global`` permet de définir des valeurs par défaut, et ainsi de créer des paramètres optionnels.
