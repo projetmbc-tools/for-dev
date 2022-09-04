@@ -1,0 +1,31 @@
+﻿this::
+    date = 2022-09-04
+
+
+abrev::
+    exaspe = ¨exatempl/special-blocks
+
+
+===========================================
+Nommer ses dossiers comme des noms réservés
+===========================================
+
+Certains noms de sous-blocs du bloc peuf::``templates-used`` sont propres à l'¨api de ¨justcode. Par exemple, le sous-bloc peuf::``import`` sert à indiquer des squelettes importés. Comment peut-alors utiliser un squelette pour un dossier lui aussi nommé path::``import`` ?
+C'est très simple, il suffit de changer le nom path::``import`` en path::``./import`` comme dans l'exemple ci-après.
+
+peuf::
+    ---
+    path = ¨exaspe/specs.peuf
+    ---
+
+
+info::
+    Voici la liste des noms reservés pour le bloc peuf::``templates-used``.
+
+// AUTO - LIST OF RESERVED NAMES - TEMPLATES USED - START
+
+        * peuf::``global``
+
+        * peuf::``import``
+
+// AUTO - LIST OF RESERVED NAMES - TEMPLATES USED - END

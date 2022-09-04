@@ -1,0 +1,6 @@
+templates-used::
+    import::
+        ./import = ~/mes_squelettes/import
+
+    ./import::
+        licence = gpl 3.0
