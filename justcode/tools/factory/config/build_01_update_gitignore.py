@@ -21,6 +21,10 @@ from mistool.os_use import PPath as Path
 UPDATE_ONLINE = True
 # UPDATE_ONLINE = False # Debug mode.
 
+NB_WORKERS = 5
+# NB_WORKERS = 1 # Debug mode.
+
+
 GITIGNORE_IO_URL      = "https://www.gitignore.io"
 GITIGNORE_IO_BASE_URL = GITIGNORE_IO_URL + "/api/{urlparam}"
 
@@ -98,11 +102,11 @@ def allurls():
 def rulesfrom(content: str) -> set:
     rules = set()
 
-    for line in content.split('\n'):
+    for line in content.splitlines():
         if(
             not line
             or
-            line[0] == '#'
+            line[0] in ['#']
         ):
             continue
 
@@ -161,6 +165,12 @@ def extractrules(urlraw):
             sep = "\n"
         )
         return
+
+# ! -- DEBUGGING -- ! #
+    # print(f"{web_rules = }")
+    # print(f"{project_rules = }")
+    # exit(1)
+# ! -- DEBUGGING -- ! #
 
 # Something has changed...
     infos = []
@@ -229,7 +239,7 @@ try:
 
 except ConnectionError:
     print(f"{TAB_1}* No internet connection.")
-    exit()
+    exit(1)
 
 
 # ----------------------------------- #
@@ -245,7 +255,7 @@ if UPDATE_ONLINE:
 
     print(f"{TAB_1}* Rules made by ``gitignore.io``.")
 
-    with ThreadPoolExecutor(max_workers = 5) as exe:
+    with ThreadPoolExecutor(max_workers = NB_WORKERS) as exe:
         exe.map(extractrules, urls)
 
 

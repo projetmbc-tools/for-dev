@@ -10,7 +10,7 @@ abrev::
 Pré et post-traitements
 =======================
 
-Comme ¨cookiecuttter supporte l'ajout de pré et post-traitements, ¨justcode le fait aussi. Ccei nécessite de coder ces traitements dans les dossiers path::``pre`` et path::``post`` du dossier path::``hook`` mis dans le dossier path::``__jscmeta__`` destiné à ¨justcode.
+Comme ¨cookiecuttter supporte l'ajout de pré et post-traitements, ¨justcode le fait aussi. Ceci nécessite de coder ces traitements dans les dossiers path::``pre`` et path::``post`` du dossier path::``hooks`` mis dans le dossier path::``__jscmeta__`` destiné à ¨justcode.
 
 dirtree::
     ---

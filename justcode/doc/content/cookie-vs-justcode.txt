@@ -8,7 +8,7 @@
 
 Avant de présenter avec délices les saveurs propres à ¨justcode, il est important d'indiquer les différences vis à vis de ¨cookiecutter.
 
-    1) Là où ¨cookiecutter ajoute un dossier dans un endroit donné, ¨justcode travaille directement depuis un dossier donné (¨justcode va automatiquement attribuer le nom du dit dossier à la variable jinja::``project_name``, c'est une affectation implicite).
+    1) Là où ¨cookiecutter ajoute un dossier dans un endroit donné, ¨justcode travaille directement depuis un dossier (¨justcode va automatiquement attribuer le nom du dit dossier à la variable jinja::``project_name``, c'est une affectation implicite).
 
     1) Même si ¨justcode s'utilise en ligne de commandes, chaque projet initié par un squelette contiendra toujours un fichier peuf::``justcode.peuf`` contenant toutes les ¨infos utiles à la conception via un squelette.
     Bien entendu, un fichier factice peuf::``justcode.peuf`` avec toutes les variables attendues peut être produit via ¨justcode.
