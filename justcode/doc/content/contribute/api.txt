@@ -10,6 +10,19 @@ L'¨API
 
 convention + liste template auto doc
 
+dirtree::
+    + contribute
+        + api
+            * README.md
+            * LICENSE.txt
+            + changes
+                * LICENSE.txt
+                * x-todo-x.txt
+            + gitignore
+            + license
+            + template [...]
+
+
 
 content::
     ¨content/gitignore.txt       ??????

@@ -1,11 +1,36 @@
 ﻿this::
-    date = 2022-09-???
+    date = 2022-09-05
 
 
 =======
 La ¨doc
 =======
 
-???
+L'auteur de ¨justcode étant un codeur amateur français, la ¨doc n'est maintenue activement qu'en français. Si toutefois vous souhaitez traduire la ¨doc, voici comment commencer contribuer.
 
-La licence est la licence "licence::``by nc sa 4.0``"
+    1) Commencer par copier-coller le dossier path::``doc`` là où vous souhaitez faire votre ¨trad.
+
+    1) Traduire les fichiers sans toucher à la ¨struc utilisée (le langage de rédaction utilisée est ¨tns, il est très intuitif).
+
+    1) Une fois le travail bien avancé, voire fini, faites le parvenir à l'auteur de ¨justcode.
+
+
+note:
+    La ¨doc sera forcément sous licence "licence::``by nc sa 4.0``".
+
+
+Si vous souhaitez mettre à jour une ¨propo de ¨trad, il faudra indiquer rapidement en anglais les ¨chgts  effectués en les datant (pas besoin d'entre trop dans les détails).
+
+
+info::
+    Les ¨trads effectuées sont dans le dossier path::``contribute`` qui admet la ¨struct suivante (le dosseir path::``api`` ne nous intéresse pas ici).
+
+    dirtree::
+        + contribute
+            + api [...]
+            + doc
+                * README.md
+                * LICENSE.txt
+                + changes
+                    * LICENSE.txt
+                    * x-todo-x.txt
