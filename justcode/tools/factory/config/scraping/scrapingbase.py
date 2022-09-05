@@ -37,8 +37,8 @@ class ScrapingBase:
 
 
     def build(self) -> None:
-        self.licences        = []
-        self.failed_licences = []
+        self.licences        = set()
+        self.failed_licences = set()
 
         print(f"{self.decotab_1} Extracting infos about licenses.")
         self.extract_licences()
@@ -118,7 +118,7 @@ class ScrapingBase:
         url     : str,
         content : str,
     ) -> None:
-        self.licences.append(
+        self.licences.add(
             (fullname, shortid, url, content)
         )
 
@@ -128,7 +128,7 @@ class ScrapingBase:
         fullname: str,
         shortid : str,
     ) -> None:
-        self.failed_licences.append(
+        self.failed_licences.add(
             (fullname, shortid)
         )
 
@@ -161,7 +161,7 @@ class ScrapingBase:
             if content_stored == content:
                 print(
                     f"{self.decotab_2} No new content "
-                    f"for the license ``Creative Commons {shortid}``."
+                    f"for the license ``{shortid}``."
                 )
                 continue
 

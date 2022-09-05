@@ -60,7 +60,7 @@ Il reste à voir comment initier un projet à partir de notre squelette. Nous al
         path = ¨currentstep/justcode-cvnum.peuf
         ---
 
-    Noter que dans le bloc peuf::``changes::...`` est indiqué la licence "Creative Commons Attribution - Non Commercial - Share Alike 4.0 International", une licence gérée par défaut par ¨justcode : voir cf::``?/api/licenses.txt``.
+    Noter que dans le bloc peuf::``changes::...`` est indiqué la licence "licence::``by nc sa 4.0``", une licence gérée par défaut par ¨justcode : voir cf::``?/api/licenses.txt``.
 
     1) Pour finir, on lance ¨justcode en ligne de commandes avec pour unique argument le chemin de notre dossier path::``cvnum``. Voilà, c'est tout !
 

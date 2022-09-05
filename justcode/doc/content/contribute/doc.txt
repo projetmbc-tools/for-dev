@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-08-???
+    date = 2022-09-???
 
 
 =======
@@ -7,3 +7,5 @@ La ¨doc
 =======
 
 ???
+
+La licence est la licence "licence::``by nc sa 4.0``"

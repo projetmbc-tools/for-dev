@@ -20,7 +20,9 @@ UPDATE_CREATIVE = UPDATE_OPENSOURCE = True
 # UPDATE_OPENSOURCE = False # Debug mode.
 # UPDATE_CREATIVE   = False # Debug mode.
 
+
 FAILED_LICENSES = []
+
 
 
 TODAY = date.today()
@@ -109,6 +111,9 @@ if UPDATE_CREATIVE:
 # ------------------------------------- #
 
 if UPDATE_OPENSOURCE:
+    if UPDATE_CREATIVE:
+        print()
+
     print(f"{TAB_1}* Licenses on ``opensource.org``.")
 
     myOpenSrc = OpenSource(
@@ -126,6 +131,7 @@ if UPDATE_OPENSOURCE:
 # ------------------------------------- #
 
 if UPDATE_CREATIVE or UPDATE_OPENSOURCE:
+    print()
     print(f"{TAB_1}* Updating ``failed_licenses.json``.")
 
 # We want a deterministic output!
@@ -274,4 +280,12 @@ with PYFILE.open(
     )
 
 
-print(f"{TAB_1}* {len(ALL_LICENSES)} licenses proposed.")
+nb_licences = len(
+    list(
+        None
+        for n in ALL_LICENSES
+        if n[:2] != '_'*2
+    )
+)
+
+print(f"{TAB_1}* {nb_licences} licenses proposed.")
