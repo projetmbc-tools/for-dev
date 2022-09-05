@@ -24,7 +24,6 @@ UPDATE_CREATIVE = UPDATE_OPENSOURCE = True
 FAILED_LICENSES = []
 
 
-
 TODAY = date.today()
 
 
@@ -280,12 +279,6 @@ with PYFILE.open(
     )
 
 
-nb_licences = len(
-    list(
-        None
-        for n in ALL_LICENSES
-        if n[:2] != '_'*2
-    )
-)
+nb_licences = myCC.nb_success + myOpenSrc.nb_success
 
 print(f"{TAB_1}* {nb_licences} licenses proposed.")

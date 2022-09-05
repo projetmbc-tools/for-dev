@@ -35,6 +35,9 @@ class ScrapingBase:
         self.decotab_2   = decotab_2
         self.license_dir = license_dir
 
+        self.nb_failures = 0
+        self.nb_success  = 0
+
 
     def build(self) -> None:
         self.licences        = set()
@@ -43,11 +46,11 @@ class ScrapingBase:
         print(f"{self.decotab_1} Extracting infos about licenses.")
         self.extract_licences()
 
-        nb_failures = len(self.failed_licences)
-        nb_success  = len(self.licences)
+        self.nb_failures = len(self.failed_licences)
+        self.nb_success  = len(self.licences)
 
-        if nb_failures:
-            percent_failures  = nb_failures / (nb_failures + nb_success)
+        if self.nb_failures:
+            percent_failures  = self.nb_failures / (self.nb_failures + self.nb_success)
             percent_failures *= 100
 
             print(f"{self.decotab_1} Failures: {percent_failures:.2f}%.")
@@ -59,7 +62,7 @@ class ScrapingBase:
 
         self.update_licences()
 
-        print(f"{self.decotab_1} {nb_success} licenses found with success.")
+        print(f"{self.decotab_1} {self.nb_success} licenses found with success.")
 
 
     def extract_licences(self) -> Dict[str, str]:
