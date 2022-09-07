@@ -14,7 +14,7 @@ L'ajout d'une ¨nelle licence consiste à founir deux fichiers nommés via le m�
 
 
 warning::
-    L'¨id d'une licence ne doit utiliser que des lettres non accentuées, des chiffres et éventuellement le trait d'union ``-``.
+    L'¨id d'une licence ne peut utiliser que des lettres non accentuées, des chiffres et éventuellement le trait d'union ``-``.
 
 
 Imaginons que nous voulions ajouter la licence "Do What The Fuck You Want to Public License" : voir cf::``https://fr.wikipedia.org/wiki/WTFPL``

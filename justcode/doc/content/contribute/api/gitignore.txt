@@ -10,7 +10,7 @@ L'ajout de ¨nelles règles ¨gitignore se résume à proposer un fichier path::
 
 
 warning::
-    L'¨id d'un ¨ens de règles ne doit utiliser que des lettres non accentuées, des chiffres et éventuellement les symboles suivants.
+    L'¨id d'un ¨ens de règles ne peut utiliser que des lettres non accentuées, des chiffres et éventuellement les symboles suivants.
 
         * Le trait d'union ``-``.
         * Le signe plus ``+``.
