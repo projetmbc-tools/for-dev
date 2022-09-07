@@ -18,7 +18,7 @@ As the author of `justcode` is a French amateur coder, the documentation is only
   1) Once the work is well advanced, or even finished, send it to the author of `justcode`.
 
 
-> The documentation will necessarily be licensed under a "Creative Commons - Attribution - Non-Commercial - Share Alike 4.0 International" license.
+> The documentation will necessarily be licensed under a *"Creative Commons - Attribution - Non-Commercial - Share Alike 4.0 International"* license.
 
 
 If you wish to update a translation proposal, you should quickly indicate in English the changes made and date them (no need to go into too much detail).
@@ -26,12 +26,14 @@ If you wish to update a translation proposal, you should quickly indicate in Eng
 
 > The translations made are in the `contribute` folder which has the following structure (the `api` folder is not of interest here).
 
-    dirtree::
-        + contribute
-            + api [...]
-            + doc
-                * README.md
+    + contribute
+        + api [...]
+        + doc
+            * README.md
+            * LICENSE.txt
+            + changes
                 * LICENSE.txt
-                + changes
-                    * LICENSE.txt
-                    * x-todo-x.txt
+                * x-todo-x.txt
+
+
+> Regular users of `github` will be able to use `merge requests` to indicate their contribution.

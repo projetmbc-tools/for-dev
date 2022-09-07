@@ -1,9 +1,16 @@
 ﻿this::
-    date = 2022-09-???
+    date = 2022-09-07
 
 
-======
-???
-======
+============================
+De ¨nelles règles ¨gitignore
+============================
 
-???
+L'ajout de ¨nelles règles ¨gitignore se résume à proposer un fichier path::``TXT`` dont le nom est l'¨id des règles, et le contenu l'¨ens des règles.
+
+
+warning::
+    L'¨id d'un ¨ens de règles ne doit utiliser que des lettres non accentuées, des chiffres et éventuellement les symboles suivants.
+
+        * Le trait d'union ``-``.
+        * Le signe plus ``+``.

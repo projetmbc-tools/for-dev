@@ -5,7 +5,7 @@
     lang   = fr
 
     licence = by nc sa 4.0
-    out     = html | pdf
+    out     = html, pdf
 
 //    lexic   =
 

@@ -1,0 +1,38 @@
+﻿this::
+    date = 2022-09-07
+
+
+============================================
+Un monde avec d'autres licences est possible
+============================================
+
+L'ajout d'une ¨nelle licence consiste à founir deux fichiers nommés via le même ¨id, tout en majuscule, mais avec des extensions différentes (un exemple est donné juste après).
+
+    1) Un fichier path::``PEUF`` sert à donner quelques métadonnées à propos de la licence.
+
+    1) Le texte complet de la licence est indiqué dans un fichier path::``TXT``.
+
+
+warning::
+    L'¨id d'une licence ne doit utiliser que des lettres non accentuées, des chiffres et éventuellement le trait d'union ``-``.
+
+
+Imaginons que nous voulions ajouter la licence "Do What The Fuck You Want to Public License" : voir cf::``https://fr.wikipedia.org/wiki/WTFPL``
+((
+    Comme la licence licence::``unlicense`` est déjà proposée, l'ajout de la politiquement incorrecte licence "WTFPL" ne semble pas utile.
+)).
+L'¨id de cette licence est ``WTFPL``, nous devons donc créer les fichiers ``WTFPL.txt`` et path::``WTFPL.peuf`` qui ont les contenus suivants.
+
+
+peuf::
+    ---
+    path  = wtpl/meta.peuf
+    title = Fichier path::``WTFPL.peuf`
+    ---
+
+
+verbatim::
+    ---
+    path  = wtpl/content.txt
+    title = Fichier ``WTFPL.txt``
+    ---

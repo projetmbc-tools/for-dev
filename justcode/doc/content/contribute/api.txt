@@ -1,4 +1,8 @@
-﻿abrev::
+﻿this::
+    date = 2022-09-07
+
+
+abrev::
     content = api
 
 
@@ -6,25 +10,28 @@
 L'¨API
 ======
 
-???
+info::
+    Les ¨modifs effectuées et retenues seront mises dans le sous-dossier path::``api`` du dossier path::``contribute`` qui admet la ¨struct suivante (le dossier path::``doc`` ne nous intéresse pas ici).
 
-convention + liste template auto doc
-
-dirtree::
-    + contribute
-        + api
-            * README.md
-            * LICENSE.txt
-            + changes
+    dirtree::
+        + contribute
+            + api
+                * README.md
                 * LICENSE.txt
-                * x-todo-x.txt
-            + gitignore
-            + license
-            + template [...]
+                + changes
+                    * LICENSE.txt
+                    * x-todo-x.txt
+                + gitignore
+                + license
+                + template
+            + doc [...]
 
+
+tip::
+    Les utilisateurs habitués à ¨github pourront passer via des git::``merge requests`` pour indiquer leur contribution.
 
 
 content::
-    ¨content/gitignore.txt       ??????
-    ¨content/license.txt         ??????
+    ¨content/gitignore.txt
+    ¨content/licenses.txt
     ¨content/template.txt        ??????
