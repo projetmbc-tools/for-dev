@@ -7,5 +7,5 @@ Mettre à jour
 =============
 
 content::
-    ¨content/what-we-want.txt       ????
-    ¨content/how-to.txt             ????
+    ¨content/what-we-want.txt
+    ¨content/how-to.txt

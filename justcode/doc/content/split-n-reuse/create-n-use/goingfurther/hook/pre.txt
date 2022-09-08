@@ -1,0 +1,16 @@
+﻿this::
+    date = 2022-09-????
+
+
+=======================
+????
+=======================
+
+????
+
+
+
+
+pré ---> var avec date du jour
+
+aussi un gitigbore pour ne pas polluer un projet  avec des sqye-uekettes mais contenant son prpore gitignore
