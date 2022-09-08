@@ -7,11 +7,11 @@ Une bonne structure
 ===================
 
 Quelque soit le squelette utilisé, ¨justcode est capable de comparer la structure d'un dossier vis à vis d'un squelette à valider.
-Si nous reprenons le cas du ¨1er projet path::``myproject_1``, on commence par ajouter un fichier path::``justcode.peuf`` avec le contenu suivant où l'on utilise un sequelette "maison".
+Si nous reprenons le cas du ¨1er projet path::``myproject_1``, on commence par ajouter un fichier path::``params.peuf`` avec le contenu suivant où l'on utilise un sequelette "maison".
 
 peuf::
     ---
-    path = ¨exadir/validate-1/justcode.peuf
+    path = ¨exadir/validate-1/params.peuf
     ---
 
 

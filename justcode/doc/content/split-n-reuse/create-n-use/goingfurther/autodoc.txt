@@ -1,0 +1,17 @@
+﻿this::
+    date = 2022-09-????
+
+
+abrev::
+    content = autodoc
+
+
+=======================
+Documenter un squelette    ?????
+=======================
+
+????
+
+
+content::
+    ¨content/xxx.txt       ????

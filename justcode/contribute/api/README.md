@@ -14,7 +14,7 @@ Each folder in the `api` directory contains a `README.md` explaining how to cont
 > All the contributions will necessarily be licensed under a *"GNU GENERAL PUBLIC LICENSE - Version 3"* license.
 
 
-> The translations made are in the `contribute` folder which has the following structure (the `doc` folder is not of interest here).
+> The contributions made are in the `contribute` folder which has the following structure (the `doc` folder is not of interest here).
 
     + contribute
         + api

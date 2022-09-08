@@ -2,6 +2,10 @@
     date = 2022-09-07
 
 
+abrev::
+    exawtpl = licenses/wtpl
+
+
 ============================================
 Un monde avec d'autres licences est possible
 ============================================
@@ -26,13 +30,13 @@ L'¨id de cette licence est ``WTFPL``, nous devons donc créer les fichiers ``WT
 
 peuf::
     ---
-    path  = wtpl/meta.peuf
+    path  = ¨exawtpl/meta.peuf
     title = Fichier path::``WTFPL.peuf`
     ---
 
 
 verbatim::
     ---
-    path  = wtpl/content.txt
+    path  = ¨exawtpl/content.txt
     title = Fichier ``WTFPL.txt``
     ---

@@ -14,7 +14,7 @@ Pour employer un squelette proposé par ¨justcode, il suffit d'utiliser un nom 
 
 peuf::
     ---
-    path = ¨apitempl/justcode-cvnum.peuf
+    path = ¨apitempl/params-cvnum.peuf
     ---
 
 
@@ -22,7 +22,7 @@ Voici un autre exemple faisant ¨ref à ¨mathobj.
 
 peuf::
     ---
-    path = ¨apitempl/justcode-mathobj.peuf
+    path = ¨apitempl/params-mathobj.peuf
     ---
 
 

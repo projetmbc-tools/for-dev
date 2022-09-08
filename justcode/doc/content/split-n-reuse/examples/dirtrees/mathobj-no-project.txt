@@ -1,7 +1,8 @@
 ﻿+ math-objects
     * .gitignore
     * LICENSES-USED.md
-    * justcode.peuf
+    + __jscmeta__
+        * params.peuf
     + changes
         * LICENSE.txt
         * x-todo-x.txt

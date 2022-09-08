@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-04
+    date = 2022-09-08
 
 
 abrev::
@@ -10,12 +10,12 @@ abrev::
 Indiquer des valeurs par défaut
 ===============================
 
-Les valeurs des paramètres sont cherchées d'abord localament puis globalement. Par exemple, dans le code suivant, les valeurs du paramètre peuf::``licence`` sont directement données localement pour chacun des squelettes peuf::``changes``, peuf::``readme`` et peuf::``tools``.
+Les valeurs des ¨params sont cherchées d'abord localement, puis globalement. Par exemple, dans le code suivant, les valeurs des paramètres peuf::``licence`` sont directement données localement pour chacun des squelettes peuf::``changes``, peuf::``readme`` et peuf::``tools``.
 Un usage du paramètre peuf::``licence`` dans le bloc peuf::``global`` serait donc ignoré dans ce cas.
 
 peuf::
     ---
-    path = ¨exaglob/justcode-mathobj-no-global.peuf
+    path = ¨exaglob/params-mathobj-no-global.peuf
     ---
 
 
@@ -23,7 +23,7 @@ On note ici une répétition de certaines valeurs : il serait plus simple d'indi
 
 peuf::
     ---
-    path = ¨exaglob/justcode-mathobj.peuf
+    path = ¨exaglob/params-mathobj.peuf
     ---
 
 

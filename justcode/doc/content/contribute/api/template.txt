@@ -1,12 +1,13 @@
-﻿this::
-    date = 2022-09-07  ???
+﻿abrev::
+    content = template
 
 
-======
-???
-======
-
-???
-
+======================
+Des squelettes en plus
+======================
 
 liste template auto doc
+
+content::
+    ¨content/minimal.txt        ??????
+    ¨content/XXXXXXX.txt        ??????

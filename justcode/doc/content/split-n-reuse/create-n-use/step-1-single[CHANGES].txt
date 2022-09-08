@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-02
+    date = 2022-09-08
 
 
 abrev::
@@ -11,7 +11,7 @@ abrev::
 Un ¨1er squelette - Le cas des ¨chgts
 =====================================
 
-Commençons par voir comment définir un squelette minimaliste, et paramétrable pour le dossier des ¨chgts des projets ¨cvnum et ¨mathobj
+Commençons par voir comment définir un squelette minimaliste, et paramétrable, pour le dossier des ¨chgts des projets ¨cvnum et ¨mathobj
 ((
     En réalité, ces projets utilisent une version compatible avec le projet ¨tnschges via un squelette proposé par défaut par ¨justcode. Nous reparlerons de ceci plus tard...
 )).
@@ -52,12 +52,12 @@ Il reste à voir comment initier un projet à partir de notre squelette. Nous al
         path = ¨currentstep/dir-cvnum.txt
         ---
 
-    Le nom du projet est automatiquement celui du dossier, soit ici ``cvnum``, et le fichier path::``justcode.peuf`` permet d'indiquer des squelettes, ainsi que des paramètres.
+    Le nom du projet est automatiquement celui du dossier, soit ici ``cvnum``, et le fichier path::``params.peuf`` permet d'indiquer un ou plusieurs squelettes, ainsi que des paramètres.
     Dans notre cas, ce fichier admet le contenu suivant où l'on donne un squelette pour initier un sous-dossier de chemin path::``changes`` : voir peuf::``changes = ...`` dans le sous-bloc peuf::``import::...`` du bloc peuf::``templates-used::...``.
 
     peuf::
         ---
-        path = ¨currentstep/justcode-cvnum.peuf
+        path = ¨currentstep/params-cvnum.peuf
         ---
 
     Noter que dans le bloc peuf::``changes::...`` est indiqué la licence "licence::``by nc sa 4.0``", une licence gérée par défaut par ¨justcode : voir cf::``?/api/licenses.txt``.
@@ -69,7 +69,7 @@ Voici quelques précisions sur les chemins des dossiers initialisables via un sq
 
     1) Les noms des dossiers où initier un squelette ne peuvent utiliser que des lettres latines non accentuéees, des chiffres, le point ``.``, le ¨_ ``_``, et le signe ``-``. Ne portez pas plainte, ceci ne changera jamais.
 
-    1) Il est interdit d'utiliser les mots clés du mini-langage des fichiers path::``justcode.peuf`` propres au bloc peuf::``templates-used::...``, mais cette limitation est facilement contournable. Par exemple, pour initier un squelette dans un dossier path::``import``, il suffit d'indiquer et utiliser le chemin peuf::``./import``.
+    1) Il est interdit d'utiliser les mots clés du mini-langage des fichiers path::``params.peuf`` propres au bloc peuf::``templates-used::...``, mais cette limitation est facilement contournable : par exemple, pour initier un squelette dans un dossier path::``import``, il suffit d'indiquer et utiliser le chemin peuf::``./import``.
 
 
 tip::

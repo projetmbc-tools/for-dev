@@ -1,6 +1,7 @@
 general::
-    project     =
-    about-name  = justcode is for "[ju]st [s]tart [t]o [code]"
+// Optional : cf special case for name
+//    project     =
+    about_name   = [ju]st [s]tart [t]o [code]
     desc        = A modular way to init different kinds of coding like projects.
     authors     = Christophe BAL
 // Optional
@@ -10,4 +11,4 @@ general::
     publish     = https://pypi.org/project/justcode
     dep         = python ^3.8
 // Optional
-//    dev-dep     =
+//    dev_dep     =

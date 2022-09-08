@@ -1,5 +1,6 @@
 ﻿+ myproject_3
-    * justcode.peuf
+    + __jscmeta__
+        * params.peuf
     + changes [...]
     + src [...]
     + tests [...]

@@ -1,2 +1,3 @@
 ﻿+ math-objects
-    * justcode.peuf
+    + __jscmeta__
+        * params.peuf

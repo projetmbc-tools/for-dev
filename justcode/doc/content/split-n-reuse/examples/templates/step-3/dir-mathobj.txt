@@ -1,5 +1,6 @@
 ﻿+ math-objects
-    * justcode.peuf
+    + __jscmeta__
+        * params.peuf
     + readme
         * projects.md
         * prologue.md

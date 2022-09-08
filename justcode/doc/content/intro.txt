@@ -1,26 +1,27 @@
 ﻿this::
-    date = 2022-08-24
+    date = 2022-09-08
 
 
 ============================
 De l'utilité de ¨justcode...
 ============================
 
-Lorsque l'on code souvent dans un language donné, comme ¨python ou ¨latex par exemple, l'utilisation d'une structure commune par language s'impose vite ; on parle de patron, ou squelette de départ. Comme structure de départ, on peut imaginer un dossier pour la ¨doc, un autre pour le code ¨src, et un dernier pour le journal des ¨chgts.
+Lorsque l'on code souvent dans un language donné, comme ¨python ou ¨latex par exemple, l'utilisation d'une structure commune par language s'impose vite ; on parle de patron, ou squelette de départ.
+Comme structure de départ, on peut imaginer un dossier pour la ¨doc, un autre pour le code ¨src, et un dernier pour le journal des ¨chgts.
 Il existe un très bon outil pour définir, et utiliser de tels squelettes, à savoir ¨cookicutter
 ((
     Ce projet s'appuie sur le très flexible ¨jinja.
 )).
-Bien que très intuitif et complet, ce projet souffre de quelques manques que ¨justcode se propose de combler.
+Bien que très intuitif, complet et largement utilisé par la communeauté, ce projet souffre de quelques manques que ¨justcode se propose de combler.
 Voici les fonctionnalités proposées par ¨justcode
 ((
-    En coulisse, ¨cookicutter et ¨jinja feront le gros du travail.
+    En coulisse, ¨jinja fait le plus gros du travail, une bibliothèque aussi utilisée par ¨cookicutter.
 )).
 
     1) **Mixer différents squelettes pour un proposer un nouveau.**
     Typiquement, on peut avoir différentes structures de projets qui utilisent toutes la même façon d'écrire les évolutions dans un dossier dédié nommé path::``changes`` par exemple.
-    Avec ¨justcode, on peut fabriquer un squelette spécialisé pour l'écriture de ces évolutions, puis ensuite intégérer facilement ce squelette dans d'autres squelettes.
+    Avec ¨justcode, on peut fabriquer un squelette spécialisé pour l'écriture de ces évolutions, puis ensuite intégérer facilement ce squelette dans un dossier path::``changes`` d'autres squelettes.
 
     1) **Valider ¨etou compléter la structure d'un projet existant vis à vis d'un squelette.**
-    Lorsque l'on crée un projet à partir d'un squelette, et que ce projet évolue, il peut arriver ensuite que certaines ¨majs sont faites dans le squelette initalement utilisé. Dans ce cas, il peut devenir nécessaire de vérifier que le projet répond bien aux nouveautés du nouveau squelette. ¨justcode permet ceci, et, si besoin, une ¨maj du projet peut être faite de façon ciblée, ou non (par exemple, on peut ne vouloir mettre à jour que des scripts ¨python proposés par le squelette).
+    Lorsque l'on crée un projet à partir d'un squelette, et que ce projet évolue, il peut arriver ensuite que certaines ¨majs soiennt faites dans le squelette initalement utilisé. Dans ce cas, il peut devenir nécessaire de vérifier que le projet répond bien aux nouveautés du nouveau squelette. ¨justcode permet ceci, et, si besoin, une ¨maj du projet peut être faite de façon ciblée, ou non (par exemple, on peut ne vouloir mettre à jour que certains scripts ¨python proposés par le squelette).
     Ceci permet aussi de valider un projet structuré "à la main" que l'on voudrait normaliser vis à vis d'un squelette donné.

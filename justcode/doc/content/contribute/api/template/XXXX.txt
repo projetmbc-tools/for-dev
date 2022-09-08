@@ -1,0 +1,12 @@
+﻿this::
+    date = 2022-09-07  ???
+
+
+======
+???
+======
+
+???
+
+
+liste template auto doc

@@ -6,9 +6,9 @@
 Comment faire ?
 ===============
 
-La section cf::``?/create-n-use/step-final-aggregate.txt`` donne toutes les explications nécessaires à ce sujet : voir le code du fichier path::``justcode.peuf`` redonné ci-après où path::``~/mes_gitignores/reglesmaison.txt`` sert à indiquer des règles "maison" non proposées par ¨justcode (notez qu'il n'est pas nécessaire d'utiliser le préfixe peuf::``api::`` pour les règles fournies par ¨justcode).
+La section cf::``?/create-n-use/step-final-aggregate.txt`` donne toutes les explications nécessaires à ce sujet : voir le code du fichier path::``params.peuf`` redonné ci-après où path::``~/mes_gitignores/reglesmaison.txt`` sert à indiquer des règles "maison" non proposées par ¨justcode (notez qu'il n'est pas nécessaire d'utiliser le préfixe peuf::``api::`` pour les règles fournies par ¨justcode).
 
 peuf::
     ---
-    path = ¨exatempl/step-final/justcode-mathobj.peuf
+    path = ¨exatempl/step-final/params-mathobj.peuf
     ---

@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-04
+    date = 2022-09-08
 
 
 abrev::
@@ -59,11 +59,11 @@ python::
     ---
 
 
-Dans ce code, on note l'usage de deux fonctions proposés par ¨justcode.
+Dans ce code, on note l'usage de deux fonctions proposées par ¨justcode.
 
-    1) La fonction python::``newfilter`` est à employer pour décorer le filtre "maison".
+    1) La fonction python::``newfilter`` est à employer pour décorer le filtre "maison" : cette fonction permet d'ajouter un nouveau filtre à l'¨ens des filtres pris en compte.
 
-    1) La fonction python::``testfilter`` sert à tester en situation réelle le filtre lors de son implémentation.
+    1) La fonction python::``testfilter`` sert à tester en situation réelle le filtre lors de son implémentation, d'où son utilisation dans un bloc python::``if __name__ == '__main__':...`` nécessairement.
 
 
 Le fichier path::``justemail.py`` donné ci-dessous est maintenant immédiat à décrypter.

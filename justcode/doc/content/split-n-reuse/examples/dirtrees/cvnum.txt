@@ -1,6 +1,7 @@
 ﻿+ cvnum
-    * justcode.peuf
     * pyproject.toml
+    + __jscmeta__
+        * params.peuf
     + changes
         * LICENSE.txt
         * x-todo-x.txt
