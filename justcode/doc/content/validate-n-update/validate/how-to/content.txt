@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-08-30
+    date = 2022-09-08
 
 
 =====================
@@ -22,9 +22,9 @@ peuf::
     ---
 
 
-Tout d'abord, tout se passe dans le bloc peuf::``x-todo-x.txt::...`` nommé via le chemin relatif du fichier path::``x-todo-x.txt``. On dispoe alors de deux types de sous-bloc.
+Tout d'abord, il faut ajouter un bloc peuf::``check::...`` pour y indiquer ce qui doit être vérifié dans des fichiers donné via leur chemin relatif: ici, nous ajoutons le sous-bloc peuf::``x-todo-x.txt::...``. On dispoe alors de deux types de sous-bloc.
 
-    1) Le sous-bloc peuf::``singleline::...`` sert à indiquer des lignes isolées devant aparaître dans un contenu.
+    1) Le sous-bloc peuf::``singlelines::...`` sert à indiquer des lignes isolées devant aparaître dans un contenu.
     Ici on utilise juste regex::``VERSION = MAJOR\.MINOR\.PATCH`` où les contre-obliques regex::``\`` sont indispensables car ¨justcode travaille avec des ¨regexs (voir ce qui suit pour une précision très importante indiquant l'usage de ¨jinja avant de passer via une ¨regex).
 
     1) Le sous-bloc peuf::``multilines::...`` est pour plusieurs lignes. Notons deux choses importantes ici.

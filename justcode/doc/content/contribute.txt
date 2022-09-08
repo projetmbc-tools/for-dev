@@ -7,5 +7,5 @@ Contribuer
 ==========
 
 content::
-    ¨content/doc.txt            ????
+    ¨content/doc.txt
     ¨content/api.txt            ????

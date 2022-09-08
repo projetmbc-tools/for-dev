@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-08-30
+    date = 2022-09-08
 
 
 abrev::
@@ -32,7 +32,7 @@ Imaginons avoir le projet suivant développé sans avoir usé du ¨skelchges (le
 
 dirtree::
     ---
-    path = ¨exadir/validate-1/myproject-nojustcode.txt
+    path = ¨exadir/validate-1/myproject-noparams.txt
     ---
 
 
@@ -43,7 +43,7 @@ L'analyse ne se réduit pas uniquement aux structures des dossiers, le contenu d
 
 dirtree::
     ---
-    path = ¨exadir/validate-2/myproject-nojustcode.txt
+    path = ¨exadir/validate-2/myproject-noparams.txt
     ---
 
 
@@ -55,7 +55,7 @@ verb::
     ---
 
 
-Le concepteur du ¨skelchges peut faire en sorte que ¨justcode note les manquements suivants vis à vis du fichier path::``x-todo-x.txt`` donné plus haut.
+Comme nous allons l'expliquer dans la section suivante, le concepteur du ¨skelchges peut faire en sorte que ¨justcode note les manquements suivants vis à vis du fichier path::``x-todo-x.txt`` donné ci-dessus.
 
     1) L'absence des ``===`` autour de ``myproject`` au début du fichier.
 
@@ -63,4 +63,4 @@ Le concepteur du ¨skelchges peut faire en sorte que ¨justcode note les manquem
 
 
 info::
-    Le niveau d'analyse est modifiable à tout moment pour répondre au mieux aux exigences de chacun.
+    L'analyse est personnalisable à tout moment pour répondre au mieux aux exigences de chacun.

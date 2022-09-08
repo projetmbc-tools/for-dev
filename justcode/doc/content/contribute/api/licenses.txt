@@ -1,9 +1,9 @@
 ﻿this::
-    date = 2022-09-07
+    date = 2022-09-08
 
 
 abrev::
-    exawtpl = licenses/wtpl
+    exawtpl = examples/licenses
 
 
 ============================================
@@ -30,13 +30,13 @@ L'¨id de cette licence est ``WTFPL``, nous devons donc créer les fichiers ``WT
 
 peuf::
     ---
-    path  = ¨exawtpl/meta.peuf
+    path  = ¨exawtpl/WTFPL.peuf
     title = Fichier path::``WTFPL.peuf`
     ---
 
 
 verbatim::
     ---
-    path  = ¨exawtpl/content.txt
+    path  = ¨exawtpl/WTFPL.txt
     title = Fichier ``WTFPL.txt``
     ---
