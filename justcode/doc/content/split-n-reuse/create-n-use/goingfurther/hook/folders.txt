@@ -1,20 +1,12 @@
 ﻿this::
-    date = 2022-09-????
+    date = 2022-09-10
 
 
-abrev::
-    exahook = ¨exatempl/hook
+=======================================
+Où placer les pré et post-traitements ?
+=======================================
 
-
-=======================
-????
-=======================
-
-????
-
-
-
-Comme ¨cookiecuttter supporte l'ajout de pré et post-traitements, ¨justcode le fait aussi. Ceci nécessite de coder ces traitements dans les dossiers path::``pre`` et path::``post`` du dossier path::``hooks`` mis dans le dossier path::``__jscmeta__`` destiné à ¨justcode.
+Les codes ¨python sont à placer dans les dossiers path::``pre`` et path::``post`` du dossier path::``hooks``, tout ceci étant mis dans le dossier path::``__jscmeta__`` destiné à ¨justcode.
 
 dirtree::
     ---

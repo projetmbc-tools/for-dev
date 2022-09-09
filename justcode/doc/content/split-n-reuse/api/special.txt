@@ -6,16 +6,7 @@
 Filtres et ¨params spéciaux
 ===========================
 
-Dans l'exemple suivant, le ¨param jinja::``today`` est géré directement par ¨justcode : c'est la date du jour. En plus sont aussi employés les deux filtres jinja::``year`` et jinja::``month`` fournis par ¨justcode.
-
-dirtree::
-    ---
-    path = ¨exafileparam/dirtree.txt
-    ---
-
-
-warning::
-    Il est interdit de redéfinir un filtre, ou un ¨param special fourni directement par ¨justcode.
+Voici les listes des ¨params et filtres spéciaux déjà présentes dans la section cf::``?/goingfurther/api.txt``.
 
 
 -----------------------------------

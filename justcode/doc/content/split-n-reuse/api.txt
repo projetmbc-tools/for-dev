@@ -10,3 +10,4 @@ content::
     ¨content/templates.txt
     ¨content/licenses.txt
     ¨content/gitignore.txt
+    ¨content/special.txt

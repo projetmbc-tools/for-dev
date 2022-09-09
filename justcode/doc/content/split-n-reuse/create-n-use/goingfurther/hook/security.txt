@@ -1,0 +1,14 @@
+﻿this::
+    date = 2022-09-09
+
+
+====================================
+Prudence, un crochet c'est dangereux
+====================================
+
+Tous les pré et post-traitements se codent en ¨python. Ceci implique de réels risques à utiliser de tels traitements proposés par des parties tierces. C'est pour cela que par défaut ¨justcode bloque tout pré ou post-traitement. Il faut donc explicietement indiquer à ¨justcode qu'il peut lancer de tels traitements. Ceci se fait via le bloc peuf::``gene`` d'un fichier path::``params.peuf`` comme dans l'exemple ci-dessous.
+
+peuf::
+    ---
+    path = ¨exahook/params.peuf
+    ---

@@ -34,4 +34,5 @@ tip::
 content::
     ¨content/gitignore.txt
     ¨content/licenses.txt
-    ¨content/template.txt        ??????
+    ¨content/special.txt         ?????
+    ¨content/template.txt        ?????

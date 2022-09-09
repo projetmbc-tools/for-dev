@@ -2,11 +2,16 @@
     content = hook
 
 
+abrev::
+    exahook = ¨exatempl/hook
+
+
 =======================
 Pré et post-traitements
 =======================
 
 content::
-    ¨content/folder.txt         ????
-    ¨content/pre.txt            ????
-    ¨content/post.txt           ????
+    ¨content/security.txt
+    ¨content/folder.txt
+    ¨content/pre.txt
+    ¨content/post.txt

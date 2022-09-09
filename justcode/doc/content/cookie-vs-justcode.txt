@@ -23,9 +23,8 @@ Avant de présenter avec délices les saveurs propres à ¨justcode, il est impo
 
         * La gestion des licences et d'un éventuel fichier ¨gitignore est faite par ¨justcode, et non par l'intermédiaire du squelette, via le fichier peuf::``params.peuf``.
 
-        * Pour comparer un projet existant vis à vis d'un squelette donné, ¨justcode récupère dans peuf::``params.peuf``
-        tous les paramètres utilisés lors de l'utilisation du dit squelette.
-        Cette fonctionnalité permet d'avoir un ensemble de projets toujours structurés de la même façon, mais aussi d'intégrer un projet existant à un ensemble d'autres fabriqués via le même squelette
+        * Pour comparer un projet existant vis à vis d'un squelette donné, ¨justcode récupère dans peuf::``params.peuf`` tous les paramètres utilisés lors de l'utilisation du dit squelette.
+        Cette fonctionnalité permet d'avoir un ¨ens de projets toujours structurés de la même façon, mais aussi d'intégrer un projet existant à un ¨ens d'autres fabriqués via le même squelette
         ((
             Dans ce deuxième cas, il suffit d'ajouter un fichier peuf::``params.peuf`` pour ensuite demander à ¨justcode de valider le projet vis à vis d'un squelette donné.
         )).
