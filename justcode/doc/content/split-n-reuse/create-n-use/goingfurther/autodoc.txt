@@ -12,6 +12,7 @@ Documenter un squelette    ?????
 
 ????
 
+list params accessibles en commandes
 
 content::
     ¨content/xxx.txt       ????

@@ -1,0 +1,18 @@
+﻿this::
+    date = 2022-09-09
+
+
+abrev::
+    exafileparam = ¨exatempl/file-param-name
+
+
+=======================================
+Noms paramétrés de fichiers et dossiers
+=======================================
+
+Il est possible de nommer des fichiers et des dossiers en utilisant des ¨params comme dans l'exemple suivant.
+
+dirtree::
+    ---
+    path = ¨exafileparam/dirtree-no-spe.txt
+    ---

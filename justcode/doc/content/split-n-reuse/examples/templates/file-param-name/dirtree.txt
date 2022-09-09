@@ -1,0 +1,6 @@
+﻿+ tnschanges
+    * x-todo-x.txt
+    + __jscmeta__
+        * specs.peuf
+    + {{today | year}}
+        * {{today | month_nb}}.txt

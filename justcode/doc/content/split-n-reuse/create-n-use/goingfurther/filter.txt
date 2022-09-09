@@ -1,6 +1,5 @@
 ﻿this::
-    date = 2022-09-08
-
+    date = 2022-09-09
 
 abrev::
     exafilter = ¨exatempl/filter
@@ -72,3 +71,6 @@ python::
     ---
     path = ¨exafilter/justemail.py
     ---
+
+
+Dans la section suivante sont présentés des filtres fournis "clé en main" par ¨justcode.
