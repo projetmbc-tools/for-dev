@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-08-28
+    date = 2022-09-11
 
 
 abrev::
@@ -22,7 +22,7 @@ L'initialisation du projet ¨mathobj s'appuie maintenant sur la structure de dé
 
 dirtree::
     ---
-    path = ¨currentstep/dir-mathobj.txt
+    path = ¨currentstep/dirtree.txt
     ---
 
 
@@ -30,5 +30,5 @@ Pour ignorer les dossiers path::``debug`` et path::``factory``, on utilise la cl
 
 peuf::
     ---
-    path = ¨currentstep/params-mathobj.peuf
+    path = ¨currentstep/params.peuf
     ---

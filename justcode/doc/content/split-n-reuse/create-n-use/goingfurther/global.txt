@@ -15,7 +15,7 @@ Un usage du paramètre peuf::``licence`` dans le bloc peuf::``global`` serait do
 
 peuf::
     ---
-    path = ¨exaglob/params-mathobj-no-global.peuf
+    path = ¨exaglob/params-no-global.peuf
     ---
 
 
@@ -24,7 +24,7 @@ Pour cela, il suffit de passer via le bloc peuf::``global`` tout en cessant d'ut
 
 peuf::
     ---
-    path = ¨exaglob/params-mathobj.peuf
+    path = ¨exaglob/params.peuf
     ---
 
 

@@ -12,6 +12,6 @@ Pré et post-traitements
 
 content::
     ¨content/security.txt
-    ¨content/folder.txt
+    ¨content/folders.txt
     ¨content/pre.txt        ????
     ¨content/post.txt       ????

@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-08-31
+    date = 2022-09-11
 
 
 ===============
@@ -10,5 +10,5 @@ La section cf::``?/create-n-use/step-final-aggregate.txt`` donne toutes les expl
 
 peuf::
     ---
-    path = ¨exatempl/step-final/params-mathobj.peuf
+    path = ¨exatempl/step-final/params.peuf
     ---

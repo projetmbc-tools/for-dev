@@ -36,7 +36,7 @@ Commençons par faire évoluer l'initialisation du projet ¨cvnum. Pour cela, il
 
 dirtree::
     ---
-    path = ¨currentstep/dir-cvnum.txt
+    path = ¨currentstep/dirtree.txt
     ---
 
 

@@ -1,8 +1,9 @@
 ﻿this::
-    date = 2022-09-09
+    date = 2022-09-11
+
 
 abrev::
-    exafilter = ¨exatempl/filter
+    exafilter = ¨exatempl/filters
 
 
 =====================================
@@ -73,4 +74,13 @@ python::
     ---
 
 
-Dans la section suivante sont présentés des filtres fournis "clé en main" par ¨justcode.
+Comme un filtre est un ¨prog ¨python, il est risqué d'autoriser aveuglément l'usage de tels filtres "maison". C'est pour cette raison que l'utilisateur doit explictement autoriser l'usage de filtres proposés par un squelette via le bloc peuf``main::...`` comme suit.
+
+peuf::
+    ---
+    path = ¨exafilter/params.peuf
+    ---
+
+
+note::
+    Dans la section suivante sont présentés des filtres fournis "clé en main" par ¨justcode.

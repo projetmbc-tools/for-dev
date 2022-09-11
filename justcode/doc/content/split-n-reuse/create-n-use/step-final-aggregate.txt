@@ -40,7 +40,7 @@ Voici les étapes à suivre.
 
     dirtree::
         ---
-        path = ¨currentstep/dir-mathobj.txt
+        path = ¨currentstep/dirtree.txt
         ---
 
     Dans ce dossier, l'unique fichier path::``params.peuf`` possède le contenu ci-après indiquant d'utiliser un squelette sur notre dossier, et non sur un sous-dossier, via le sous-bloc peuf::``main::...``.
@@ -53,7 +53,7 @@ Voici les étapes à suivre.
 
     peuf::
         ---
-        path = ¨currentstep/params-mathobj.peuf
+        path = ¨currentstep/params.peuf
         ---
 
     Les règles ¨gitignore disponibles directement sont celles proposées par cf::``https://www.gitignore.io`` : ici ce sont les règles ``python`` et ``osx`` qui sont employées (les noms sont tous en minuscules).

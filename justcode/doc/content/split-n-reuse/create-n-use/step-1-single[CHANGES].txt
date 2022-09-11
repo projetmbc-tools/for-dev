@@ -46,9 +46,10 @@ Expliquons le contenu du squelette.
 
     On constante la ¨def de deux ¨params qui vont être utilisés par le squelette. Rappelons que le jinja::``project_name`` est associé au nom du dossier à initialiser.
 
-        * peuf::``author_name: str = ?`` utilise une syntaxe similaire à celle de ¨python pour indiquer que jinja::``author_name`` est une chaîne de caratères. Quant au point d'interrogation, il indique juste que ce paramètre devra être renseigné par l'utilisateur du squelette (¨justcode dispose de ses propres types de ¨params qui n'ont rien à voir, ou presque, avec ceux de ¨python).
+        * peuf::``author_name: str = ?`` utilise une syntaxe similaire à celle de ¨python pour indiquer que jinja::``author_name`` est une chaîne de caratères (¨justcode dispose de ses propres types de ¨params qui n'ont rien à voir, ou presque, avec ceux de ¨python).
+        Quant au point d'interrogation, il indique juste que ce paramètre devra être renseigné par l'utilisateur du squelette. Tout autre chaîne sera considérée comme étant une valeur par défaut, rendant ainsi un paramètre optionnel.
 
-        * La declaration peuf::``license: lic = ?`` est similiare à la précdente si ce n'est qu'elle utilise le type peuf::``lic`` propre à ¨justcode.
+        * La declaration peuf::``license: lic = ?`` est similiare à la précédente si ce n'est qu'elle utilise le type peuf::``lic`` propre à ¨justcode pour la gestion des licences proposées par défaut.
 
 
 Il reste à voir comment initier un projet à partir de notre squelette. Nous allons supposer que le chemin absolu du dossier définissant le squelette est path::``~/mes_squelettes/changes`` où path::``~`` est un raccourci pour le chemin du dossier de l'utilisateur principal. Pour initier le projet ¨cvnum, il faut suivre les étapes suivantes.
@@ -57,7 +58,7 @@ Il reste à voir comment initier un projet à partir de notre squelette. Nous al
 
     dirtree::
         ---
-        path = ¨currentstep/dir-cvnum.txt
+        path = ¨currentstep/dirtree.txt
         ---
 
     Le nom du projet, associé au * param jinja::``project_name``, est automatiquement celui du dossier, soit ici ``cvnum``.

@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-08
+    date = 2022-09-11
 
 
 abrev::
@@ -14,7 +14,7 @@ Le titre principal du fichier path::``prologue.md`` proposé par le squelette du
 
 dirtree::
     ---
-    path = ¨currentstep/dir-mathobj.txt
+    path = ¨currentstep/dirtree.txt
     ---
 
 
