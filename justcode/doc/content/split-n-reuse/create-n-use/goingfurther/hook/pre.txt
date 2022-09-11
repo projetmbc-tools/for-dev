@@ -1,16 +1,24 @@
 ﻿this::
-    date = 2022-09-????
+    date = 2022-09-11
 
 
 ===================================
 De l'utilité des pré-traitements...
 ===================================
 
-????
+Imaginions qu'un squelette souhaite indiquer automatiquement l'¨os_fr utilisé lors de l'initilisation d'un projet.
+Nous allons supposer que la variable ¨jinja pour cette ¨info se nomme jinja::``osname``.
+Pour arriver à nos fins, il suffit de passer via le code suivant placé dans le dossier path::``pre`` (on a laissé un mini test de vérification).
+
+python::
+    ---
+    path = ¨exahook/pre_osname.py
+    ---
 
 
+Le code ci-dessus s'appuie sur deux ingrédients importants.
 
+    1) La classe python::``Params`` contient tous les paramètres qui seront disponibles lors de l'utilisation d'un ou plusieurs squelettes. L'emploi de python::``GLOBAL_TAG``, qui vaut juste python::``"global"``, permet d'éviter de tragiques fautes de frappe.
 
-pré ---> var avec date du jour
-
-aussi un gitigbore pour ne pas polluer un projet  avec des sqye-uekettes mais contenant son prpore gitignore
+    1) La méthode statique python::``Type.str`` n'est pas indispensable mais c'esst un sécurité demandant à ¨justcode de valider la valeur indiquée.
+    On peut ainsi utiliser python::``Type.lic`` pour une valeur de type ¨lic, et là cela devient très utile.

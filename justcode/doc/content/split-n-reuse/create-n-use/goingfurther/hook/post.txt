@@ -1,13 +1,16 @@
 ﻿this::
-    date = 2022-09-????
+    date = 2022-09-12
 
 
 ====================================
 De l'utilité des post-traitements...
 ====================================
 
-????
+Imaginions qu'un squelette souhaite initier un dépôt ¨git une fois le dossier initié.
+Ceci se fait simplement via le code suivant placé dans le dossier path::``post``.
+Noter l'utilisation de valeurs de ¨params ¨autos utiles aux squelettes employés : ici, on récupère le chemin du dossier initialisé pour lancer des commandes dans le bon dossier, ce chemin étant du type python::``pathlib.Path``.
 
-
-
-post ---> git ibit d'un monorepo
+python::
+    ---
+    path = ¨exahook/post_gitinit.py
+    ---
