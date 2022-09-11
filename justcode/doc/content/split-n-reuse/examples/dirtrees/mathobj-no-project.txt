@@ -8,10 +8,10 @@
         * x-todo-x.txt
     + readme
         * about.md
-        * projects.md
-        * prologue.md
         * about.peuf
         * LICENSE.txt
+        * projects.md
+        * prologue.md
     + tools
         * LICENSE.txt
         + publish

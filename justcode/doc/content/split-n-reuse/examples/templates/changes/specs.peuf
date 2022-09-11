@@ -1,2 +1,3 @@
-gene::
-    license = yes
+params::
+    license    : lic = ?
+    author_name: str = ?

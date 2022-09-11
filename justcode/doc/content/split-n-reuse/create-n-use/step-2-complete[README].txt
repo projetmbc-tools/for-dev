@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-08
+    date = 2022-09-11
 
 
 abrev::
@@ -21,7 +21,7 @@ dirtree::
     ---
 
 
-Le contenu du fichier path::``about.md`` est le suivant. Ceci va nous donner l'occasion de parler des paramètres attendus par un squelette, à savoir ici jinja::``project_author_name`` et jinja::``project_author_mail``.
+Le contenu du fichier path::``about.md`` est le suivant. Ceci va nous donner l'occasion de parler des paramètres attendus par un squelette, à savoir ici jinja::``author_name`` et jinja::``author_mail``.
 
 jinja::
     ---
@@ -41,7 +41,7 @@ dirtree::
 
 
 On note l'ajout du fichier path::``last.md`` dans un dossier path::``readme`` : lors de l'initialisation, ¨justcode gardera tout le contenu du dossier path::``readme`` tout en le complétant avec le contenu proposé par le squelette. **En cas de conflit, ce sera ¨tjrs ce qui est proposé par le squelette qui sera ignoré.**
-Finalement, l'initialisation se fait en utilisant la version ci-dessous du fichier path::``params.peuf`` qui tient compte des paramètres pour le squelette : ici on définit ces paramètres comme globaux, mais rien n'empêche de les définir dans le bloc peuf::``readme`` pour un usage local. Rien de plus à faire.
+Finalement, l'initialisation se fait en utilisant la version ci-dessous du fichier path::``params.peuf`` qui tient compte des paramètres pour le squelette. Rien de plus à faire, et pour le projet ¨mathobj, la démarche est similaire. Facile ! Non ?.
 
 peuf::
     ---
@@ -49,8 +49,5 @@ peuf::
     ---
 
 
-Pour le projet ¨mathobj, la démarche est similaire. Facile ! Non ?
-
-
 note::
-    La section cf::``?/goingfurther/global.txt`` montre toute l'utilité du bloc peuf::``global``.
+    Les paramètres ont été définis localement dans chacun des blocs peuf::``changes`` et peuf::``readme``. On note certaines répétitions. Ceci est évitable facilement via le bloc bloc peuf::``global`` : voir la section cf::``?/goingfurther/global.txt``.

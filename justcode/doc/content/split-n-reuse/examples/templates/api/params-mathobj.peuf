@@ -1,3 +1,2 @@
-templates-used::
-    main::
-        monorepo = api::monorepo
+main::
+    monorepo = api::monorepo

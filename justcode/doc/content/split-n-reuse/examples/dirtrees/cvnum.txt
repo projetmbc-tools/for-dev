@@ -7,14 +7,14 @@
         * x-todo-x.txt
     + contribute
         + api
-            * README.md
             * LICENSE.txt
+            * README.md
             + changes
                 * LICENSE.txt
                 * x-todo-x.txt
         + doc
-            * README.md
             * LICENSE.txt
+            * README.md
             + changes
                 * LICENSE.txt
                 * x-todo-x.txt
@@ -23,10 +23,10 @@
         * main.txt
     + readme
         * about.md
-        * last.md
-        * prologue.md
         * about.peuf
+        * last.md
         * LICENSE.txt
+        * prologue.md
     + src
         * __init__.py
         * LICENSE.txt

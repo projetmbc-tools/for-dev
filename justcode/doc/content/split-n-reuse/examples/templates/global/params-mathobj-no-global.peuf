@@ -1,16 +1,18 @@
-templates-used::
-    import::
-        changes = ~/mes_squelettes/changes
-        readme  = ~/mes_squelettes/readme
-        tools   = ~/mes_squelettes/tools
+import::
+    changes = ~/mes_squelettes/changes
+    readme  = ~/mes_squelettes/readme
+    tools   = ~/mes_squelettes/tools
 
-    changes::
-        licence = by nc sa 4.0
+changes::
+    licence     = by nc sa 4.0
+    author_name = Christophe BAL
 
-    readme::
-        licence = by nc sa 4.0
+readme::
+    licence     = by nc sa 4.0
+    author_name = Christophe BAL
+    author_mail = projetmbc@gmail.com
 
-    tools::
-        licence = gpl 3.0
-        remove  = debug ;
-                  factory
+tools::
+    licence = gpl 3.0
+    remove  = debug ;
+                factory

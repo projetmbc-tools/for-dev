@@ -1,10 +1,6 @@
-templates-used::
-    import::
-        changes = api::changes
-        readme  = api::readme
+import::
+    changes = api::changes
+    readme  = api::readme
 
-    changes::
-        licence = by nc sa 4.0
-
-    readme::
-        licence = by nc sa 4.0
+global::
+    licence = by nc sa 4.0

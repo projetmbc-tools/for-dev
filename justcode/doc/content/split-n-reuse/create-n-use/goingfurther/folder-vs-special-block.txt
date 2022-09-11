@@ -28,4 +28,6 @@ info::
 
         * peuf::``import``
 
+        * peuf::``main``
+
 // AUTO - LIST OF RESERVED NAMES - TEMPLATES USED - END

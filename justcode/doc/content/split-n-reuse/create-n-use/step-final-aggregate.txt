@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-08
+    date = 2022-09-11
 
 
 abrev::
@@ -19,7 +19,8 @@ dirtree::
     ---
 
 
-Il est alors utile de créer, puis d'utiliser un squelette que nous nommerons path::``monorepo``. Voici les étapes à suivre.
+Il est alors utile de créer, puis d'utiliser un squelette que nous nommerons path::``monorepo`` à l'aide de squelettes existants.
+Voici les étapes à suivre.
 
     1) On crée le dossier suivant supposé stocké à l'emplacement path::``~/mes_squelettes/monorepo``.
 
@@ -28,7 +29,7 @@ Il est alors utile de créer, puis d'utiliser un squelette que nous nommerons pa
         path = ¨examono/dirtree.txt
         ---
 
-    1) L'importation de squelettes pour notre nouveau squelette se fait très simplement dans le fichier path::``sepcs.peuf`` comme suit (on pourrait utiliser si besoin le bloc path::``gene::...`` pour des réglages généraux).
+    1) L'importation de squelettes pour notre nouveau squelette se fait très simplement dans le fichier path::``specs.peuf`` comme suit (on pourrait utiliser des réglages par défaut de certains ¨params en utilisant si besoin le bloc path::``global::...``).
 
     peuf::
         ---
@@ -43,7 +44,7 @@ Il est alors utile de créer, puis d'utiliser un squelette que nous nommerons pa
         ---
 
     Dans ce dossier, l'unique fichier path::``params.peuf`` possède le contenu ci-après indiquant d'utiliser un squelette sur notre dossier, et non sur un sous-dossier, via le sous-bloc peuf::``main::...``.
-    Des règles ¨gitignore sont aussi indiquées
+    En plus des ¨params attendus, des règles ¨gitignore sont aussi indiquées
     ((
         Des règles ¨gitignore ne sont applicables que sur tout un projet, et non sur des sous-dossiers.
         Ceci explique l'usage du bloc peuf::``main::...`` pour l'ajout de telles règles.
@@ -55,8 +56,12 @@ Il est alors utile de créer, puis d'utiliser un squelette que nous nommerons pa
         path = ¨currentstep/params-mathobj.peuf
         ---
 
-    Les règles ¨gitignore disponibles directement sont celles proposées par cf::``https://www.gitignore.io`` : ici ce sont les règles ``python`` et ``osx`` (les noms sont tous en minuscules).
+    Les règles ¨gitignore disponibles directement sont celles proposées par cf::``https://www.gitignore.io`` : ici ce sont les règles ``python`` et ``osx`` qui sont employées (les noms sont tous en minuscules).
     De plus, il est possible d'ajouter des règles "maison" en indiquant un fichier, ou plus : ici, on indique le fichier path::``~/mes_gitignores/reglesmaison.txt``.
     Au final, toutes les règles sont mises dans un unique fichier path::``.gitignore`` en respectant l'ordre de déclaration : ici, les règles ¨python seront suivies de celles propres à ¨macos, puis de celles "maison".
 
     1) Il ne reste plus qu'à lancer la génération comme cela a été expliqué à la fin de cf::``step-1-single[CHANGES].txt``.
+
+
+note::
+    Rappelons la possibilité de définir des ¨params globalement pour éviter certaines redondances : voir la section cf::``?/goingfurther/global.txt``.

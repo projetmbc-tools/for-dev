@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-08
+    date = 2022-09-11
 
 
 abrev::
@@ -19,7 +19,8 @@ peuf::
     ---
 
 
-On note ici une répétition de certaines valeurs : il serait plus simple d'indiquer directement que les licences pour peuf::``changes`` et peuf::``readme`` utilisent la même valeur peuf::``by nc sa 4.0``. Pour cela, il suffit de passer via le bloc peuf::``global`` tout en cessant d'utiliser des valeurs locales via peuf::``changes`` et peuf::``readme`` comme cela est fait dans le code suivant. Noter que la valeur du paramètre peuf::``licence`` est changée localement pour peuf::``tools``.
+On note ici une répétition de certaines valeurs : il serait plus simple d'indiquer directement que les licences pour peuf::``changes`` et peuf::``readme`` utilisent la même valeur peuf::``by nc sa 4.0``, mais aussi de définir les ¨infos sur l'auteur pour tout le projet.
+Pour cela, il suffit de passer via le bloc peuf::``global`` tout en cessant d'utiliser des valeurs locales via peuf::``changes`` et peuf::``readme`` comme cela est fait dans le code suivant. Noter que la valeur du paramètre peuf::``licence`` est changée localement pour peuf::``tools``.
 
 peuf::
     ---

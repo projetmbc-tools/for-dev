@@ -1,6 +1,6 @@
 About `{{project_name}}`
 ---
 
-This project is maintained by {{project_author_name}}.
+This project is maintained by {{author_name}}.
 
-Email: {{project_author_mail}}.
+Email: {{author_mail}}.
