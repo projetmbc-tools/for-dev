@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-09
+    date = 2022-09-12
 
 
 abrev::
@@ -23,8 +23,6 @@ info::
     Voici la liste des noms reservés pour le bloc peuf::``templates-used``.
 
 // AUTO - LIST OF RESERVED NAMES - TEMPLATES USED - START
-
-        * peuf::``global``
 
         * peuf::``import``
 

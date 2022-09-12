@@ -3,7 +3,7 @@ import::
     readme  = ~/mes_squelettes/readme
     tools   = ~/mes_squelettes/tools
 
-global::
+main::
     licence     = by nc sa 4.0
     author_name = Christophe BAL
     author_mail = projetmbc@gmail.com
@@ -11,4 +11,4 @@ global::
 tools::
     licence = gpl 3.0
     remove  = debug ;
-                factory
+              factory

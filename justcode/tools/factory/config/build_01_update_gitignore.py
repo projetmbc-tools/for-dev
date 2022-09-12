@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import                          black
+
 from collections         import defaultdict
 from concurrent.futures  import ThreadPoolExecutor
 from datetime            import date
@@ -9,6 +9,7 @@ from requests            import (
     get as getwebcontent
 )
 
+import          black
 from bs4 import BeautifulSoup
 
 from mistool.os_use import PPath as Path

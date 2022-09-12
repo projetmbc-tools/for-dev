@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-11
+    date = 2022-09-12
 
 
 abrev::
@@ -50,4 +50,4 @@ peuf::
 
 
 note::
-    Les paramètres ont été définis localement dans chacun des blocs peuf::``changes`` et peuf::``readme``. On note certaines répétitions. Ceci est évitable facilement via le bloc bloc peuf::``global`` : voir la section cf::``?/goingfurther/global.txt``.
+    Les paramètres ont été définis localement dans chacun des blocs peuf::``changes`` et peuf::``readme``. On note certaines répétitions. Ceci est évitable facilement via le bloc bloc peuf::``main`` : voir la section cf::``?/goingfurther/global.txt``.

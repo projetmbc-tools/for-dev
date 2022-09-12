@@ -18,12 +18,12 @@ python::
 
 Le code ci-dessus s'appuie sur deux ingrédients importants.
 
-    1) La classe python::``Params`` contient tous les paramètres qui seront disponibles lors de l'utilisation d'un ou plusieurs squelettes. L'emploi de python::``TAG_GLOBAL``, qui vaut juste python::``"global"``, permet d'éviter de tragiques fautes de frappe.
+    1) La classe python::``Params`` contient tous les paramètres qui seront disponibles lors de l'utilisation d'un ou plusieurs squelettes. L'emploi de python::``TAG_MAIN``, qui vaut juste python::``"main"``, permet d'éviter de tragiques fautes de frappe.
 
     1) La méthode statique python::``Type.str`` n'est pas indispensable ici, mais c'est une bonne pratique car on demande à ¨justcode de valider la valeur indiquée, et de la transformer éventuellement pour produire automatiquement d'autres ¨params.
     On peut ainsi utiliser python::``Type.lic`` pour une valeur de type ¨lic, et là cela devient très utile.
 
 
 tip::
-    La classe python::``Params`` s'utilise comme un ¨dict. Ses clés correspondent aux contextes d'utilisation. Ici nous utilisons juste le contexte global via python::``TAG_GLOBAL``.
+    La classe python::``Params`` s'utilise comme un ¨dict. Ses clés correspondent aux contextes d'utilisation. Ici nous utilisons juste le contexte global via python::``TAG_MAIN``.
     Pour utiliser par exemple le contexte d'un dossier path::``changes`` initié via un sous-squelette, il suffira de passer via python::``Params["changes"]``.

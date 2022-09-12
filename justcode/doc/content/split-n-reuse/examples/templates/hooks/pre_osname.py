@@ -3,12 +3,12 @@
 import platform
 
 from justcode import (
-    TAG_GLOBAL,
+    TAG_MAIN,
     Params,
     Type,
 )
 
-Params[TAG_GLOBAL]['osname'] = Type.str(
+Params[TAG_MAIN]['osname'] = Type.str(
     f"{platform.system()} - {platform.release()}"
 )
 

@@ -2,5 +2,5 @@ import::
     changes = api::changes
     readme  = api::readme
 
-global::
+main::
     licence = by nc sa 4.0

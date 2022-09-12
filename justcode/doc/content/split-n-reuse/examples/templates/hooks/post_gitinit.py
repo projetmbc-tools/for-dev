@@ -6,13 +6,12 @@ from shlex   import split as shlexsplit
 import              subprocess
 
 from justcode import (
-    TAG_GLOBAL,
     TAG_MAIN,
     TAG_PROJECT_PATH,
     Params,
 )
 
-projdir  = Params[TAG_GLOBAL][TAG_PROJECT_PATH]
+projdir  = Params[TAG_MAIN][TAG_PROJECT_PATH]
 projrepo = Params[TAG_MAIN]["project_repo"]
 
 initial_workdir = Path.cwd()
