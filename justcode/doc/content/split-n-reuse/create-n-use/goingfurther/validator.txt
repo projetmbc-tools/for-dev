@@ -1,0 +1,28 @@
+﻿this::
+    date = 2022-09-12  ????
+
+
+abrev::
+    exavalid = ¨exatempl/validators
+
+
+=================================================
+Valider des ¨params en les transformant si besoin
+=================================================
+
+????
+
+faire des types maison comme Prénom Nom [mail]
+
+idée de ttransformer une seule fois pour toute !
+
+author = Prénom Nom [mail] passer au crible du vlaideur donne :
+
+    ---> author_name = Prénom Nom
+    ---> author_mail = mail
+
+
+simple à faire via prehook et Type.add(id, pyfunctouse) où id est un type pour un squelette
+
+
+MAJ de prehook doc avec ref vers ici !

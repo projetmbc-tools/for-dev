@@ -1,40 +1,17 @@
 ﻿this::
-    date = 2022-09-09
+    date = 2022-09-12
+
+
+abrev::
+    content = /special
 
 
 ===========================
 Filtres et ¨params spéciaux
 ===========================
 
-Voici les listes des ¨params et filtres spéciaux déjà présentes dans la section cf::``?/goingfurther/api.txt``.
+Voici les listes des ¨params et filtres spéciaux.
 
-
------------------------------------
-Liste complète des ¨params spéciaux
------------------------------------
-
-// AUTO - LIST OF SPECIAL PARAMS - START
-
-    * jinja::``today`` est la date complète lors de l'appel de ¨justcode (utilisé seul, ce paramètre ne sera pas très pratique, voir les filtres spéciaux pour les dates de la série jinja::``date_...``).
-
-    Le type ¨python de jinja::``today`` est python::``datetime``.
-
-// AUTO - LIST OF SPECIAL PARAMS - END
-
-
------------------------------------
-Liste complète des filtres spéciaux
------------------------------------
-
-// AUTO - LIST OF SPECIAL FILTERS - START
-
-    * jinja::``date_year`` renvoie le numéro de l'année d'une date fournie au format python::``datetime``.
-
-    Ce filtre s'utilise sans aucun paramètre.
-
-
-    * jinja::``date_month_nb`` renvoie le numéro du mois d'une date fournie au format python::``datetime``.
-
-    Ce filtre s'utilise sans aucun paramètre.
-
-// AUTO - LIST OF SPECIAL FILTERS - END
+content::
+    ¨content/params.txt
+    ¨content/filters.txt

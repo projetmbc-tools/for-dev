@@ -1,86 +1,30 @@
 ﻿this::
-    date = 2022-09-11
+    date = 2022-09-12
 
 
 abrev::
+    content = filter
+
     exafilter = ¨exatempl/filters
 
 
-=====================================
-Transformer des valeurs de paramètres
-=====================================
+====================================
+Transformer la valeur d'un paramètre
+====================================
 
-¨jinja propose le concept de "filtre" pour modifier une valeur dans un squelette
-((
-    L'emploi de tel filtre doit être mûrement réfléchi !
-)).
-Par exemple
+¨jinja propose le concept de "filtre" pour modifier une valeur dans un squelette. Par exemple
 ((
     Cet exemple est des plus mauvais, mais nous allons explorer un cas plus pertinent juste après.
 )),
 si python::``name = "WaRRioR"``, alors jinja::``"Hello {{ name | title }}!"`` sera transformé en verb::``Hello Warrior!`` suite à l'utilisation de la fonction "filtre" python::``title`` (qui vient de ¨python directement).
-¨justcode, tout comme ¨cookiecutter, permet l'utilisation de filtres "maison" comme nous allons le voir dans cette section.
-
-
-Considérons le squelette de fichier suivant où le paramètre python::``author`` doit être donné au format jinja::``Prénom NOM [adresse_de_courriel]``.
-Les textes attendus pour les valeurs filtrées jinja::``{{author | fullname}}`` et jinja::``{{author | justemail}}`` sont immédiats à deviner.
-
-jinja::
-    ---
-    path = ¨exafilter/description.md
-    ---
-
-
-Par exemple, si python::``author = Christophe BAL [projetmbc@gmail.com]`` , on veut obtenir le fichier ci-après.
-
-markdown::
-    ---
-    path = ¨exafilter/description-filled.md
-    ---
-
-
-Les filtres "maison" python::``fullname`` et python::``justemail`` sont à implémenter en ¨python dans un module path::``filters`` placé dans le dossier path::``__jscmeta__`` destiné à ¨justcode.
-Nous vous conseillons d'utiliser un fichier ¨python par filtre en utilisant le même nom pour le fichier et le filtre. Dans notre cas, nous utilisons donc la structure suivante pour construire un squelette path::``filtersinaction`` de ¨demo des filtres
-((
-    Pas besoin de fichier path::``specs.peuf`` ici.
-)).
-
-dirtree::
-    ---
-    path = ¨exafilter/dirtree.txt
-    ---
-
-
-Le fichier path::``__init__.py`` peut être vide. Quant aux deux autres fichiers leurs contenus est assez simple. Commençons par path::``fullname.py``.
-
-python::
-    ---
-    path = ¨exafilter/fullname.py
-    ---
-
-
-Dans ce code, on note l'usage de deux fonctions proposées par ¨justcode.
-
-    1) La fonction python::``newfilter`` est à employer pour décorer le filtre "maison" : cette fonction permet d'ajouter un nouveau filtre à l'¨ens des filtres pris en compte.
-
-    1) La fonction python::``testfilter`` sert à tester en situation réelle le filtre lors de son implémentation, d'où son utilisation dans un bloc python::``if __name__ == '__main__':...`` nécessairement.
-
-
-Le fichier path::``justemail.py`` donné ci-dessous est maintenant immédiat à décrypter.
-
-python::
-    ---
-    path = ¨exafilter/justemail.py
-    ---
-
-
-Comme un filtre est un ¨prog ¨python, il est risqué d'autoriser aveuglément l'usage de tels filtres "maison". C'est pour cette raison que l'utilisateur doit explictement autoriser l'usage de filtres proposés par un squelette via le bloc peuf``main::...`` comme suit.
-
-peuf::
-    ---
-    path = ¨exafilter/params.peuf
-    ---
+¨justcode permet l'utilisation de filtres "maison" comme nous allons le voir dans cette section.
 
 
 note::
-    Dans la section suivante sont présentés des filtres fournis "clé en main" par ¨justcode.
+    L'emploi de tel filtre doit être mûrement réfléchi !
+    Une autre approche est de passer via un validateur : voir cf::``validator.txt``.
+
+
+content::
+    ¨content/security.txt
+    ¨content/how-to.txt

@@ -1,0 +1,62 @@
+﻿this::
+    date = 2022-09-12
+
+
+------------------------------------------
+Comment ajoute-t-on des filtres "maison" ?
+------------------------------------------
+
+Considérons le squelette de fichier suivant où le paramètre python::``author`` doit être donné au format jinja::``Prénom NOM [adresse_de_courriel]``.
+
+jinja::
+    ---
+    path = ¨exafilter/description.md
+    ---
+
+
+Les textes attendus pour les valeurs filtrées jinja::``{{author | fullname}}`` et jinja::``{{author | justemail}}`` sont immédiats à deviner.
+Par exemple, si python::``author = Christophe BAL [projetmbc@gmail.com]`` , on veut obtenir le fichier ci-après.
+
+markdown::
+    ---
+    path = ¨exafilter/description-filled.md
+    ---
+
+
+Les filtres "maison" python::``fullname`` et python::``justemail`` sont à implémenter en ¨python dans un dossier path::``filters`` placé dans le dossier path::``__jscmeta__`` destiné à ¨justcode.
+Nous vous conseillons d'utiliser un fichier ¨python par filtre en utilisant le même nom pour le fichier et le filtre. Dans notre cas, nous utilisons donc la structure suivante pour construire un squelette path::``filters-in-action`` de ¨demo des filtres
+((
+    Pas besoin de fichier path::``specs.peuf`` ici.
+)).
+
+dirtree::
+    ---
+    path = ¨exafilter/dirtree.txt
+    ---
+
+
+Les deux fichiers ¨python ont des contenus assez simples à analyser. Commençons par path::``fullname.py``.
+
+python::
+    ---
+    path = ¨exafilter/fullname.py
+    ---
+
+
+Dans ce code, on note l'usage de deux fonctions proposées par ¨justcode.
+
+    1) La fonction python::``newfilter`` est à employer pour décorer le filtre "maison" : cette fonction permet d'ajouter un nouveau filtre à l'¨ens des filtres pris en compte.
+
+    1) La fonction python::``testfilter`` sert à tester en situation réelle le filtre lors de son implémentation, d'où son utilisation dans un bloc python::``if __name__ == '__main__':...`` nécessairement.
+
+
+Le fichier path::``justemail.py`` donné ci-dessous est maintenant immédiat à décrypter.
+
+python::
+    ---
+    path = ¨exafilter/justemail.py
+    ---
+
+
+note::
+    Dans la section cf::``special.txt`` sont présentés des filtres fournis "clé en main" par ¨justcode.

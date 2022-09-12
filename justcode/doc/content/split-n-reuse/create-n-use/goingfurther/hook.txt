@@ -1,9 +1,7 @@
 ﻿abrev::
     content = hook
 
-
-abrev::
-    exahook = ¨exatempl/hook
+    exahook = ¨exatempl/hooks
 
 
 =======================

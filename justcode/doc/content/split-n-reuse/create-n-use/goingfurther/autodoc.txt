@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-????
+    date = 2022-09-12  ????
 
 
 abrev::
@@ -14,6 +14,12 @@ Documenter un squelette    ?????
 
 list params accessibles en commandes
 @ pour extra commentaires si besoin (author_name = Prénom NOM [mail] par exemple), le mieux étant d'avoir noms anglais simple à saisir
+
+
+params::
+    license    : lic = ?
+    author_name: str = ?
+                     @ Prénom NOM [mail]
 
 content::
     ¨content/xxx.txt       ????

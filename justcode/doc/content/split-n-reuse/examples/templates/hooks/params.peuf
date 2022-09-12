@@ -1,4 +1,4 @@
 main::
-    hook = yes
+    hooks = yes
 
 // ... etc.

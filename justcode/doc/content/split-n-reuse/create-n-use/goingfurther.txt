@@ -20,4 +20,5 @@ content::
     ¨content/filter.txt
     ¨content/special.txt
     ¨content/hook.txt
+    ¨content/validator.txt          ?????
     ¨content/autodoc.txt            ?????

@@ -1,4 +1,4 @@
 main::
-    filter = yes
+    filters = yes
 
 // ... etc.
