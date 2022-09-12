@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-     ????
+    date = 2022-09-13
 
 
 abrev::
@@ -8,51 +8,25 @@ abrev::
     exadocauto = ¨exatempl/autodoc
 
 
-=======================
-Documenter un squelette
-=======================
+===============================================
+Documenter un squelette (en anglais uniquement)
+===============================================
 
-????
+Que ce soit pour contribuer à l'¨api de ¨justcode, ou bien proposer vos squelettes à la communeauté, il faut documenter ces derniers. Les sections suivantes expliquent comment s'y prendre.
 
-list params accessibles en commandes
-@ pour extra commentaires si besoin (author_name = Prénom NOM [mail] par exemple), le mieux étant d'avoir noms anglais simple à saisir
 
-ceci est fait via la création du valuieur en anglais uniquement
-
-@newvalidator('auth')
-esst en fait
-@newvalidator(typename = 'auth')
-et on peut en fait utiliser
-
-@newvalidator(
-    typename = 'auth',
-    desc     = """
-Ma description tout au complet !
-    """
-)
-
-ok pour
-
-params::
-    license: lic    = ?
-    author : author = ?
-
-on ne pas par le squelette (car sinon plein de redondances
-
-par contre @ utilisable pour type géné utilisé mais ocntexte à préciser licalement
-
-ok pour
-
-params::
-    license: lic = ?
-    author : str = ?
-                 @ Name of the author of the project.
-
+info::
+    L'utilisateur peut demander à ¨justcode la ¨doc d'un squelette via l'option terminal::``--help``, et avec pour argument le chemin du dossier usant de squelettes indiqués dans le dossier spécial path::``__jscmeta__``.
+    ¨justcode extrait ¨auto^t la structure du squelette, ainsi que certaines ¨infos sur les ¨params attendus.
+    Ce qui suit explique comment donner des ¨infos plus précises, et ainsi permettre qu'un squelette se diffuse dans le monde entier
+    ((
+        La fin de phrase m'a été soufflée par mon équipe de marketing.
+    )).
 
 
 content::
-    ¨content/templates.txt          ????
-    ¨content/params.txt             ????
-    ¨content/filters.txt            ????
-    ¨content/validators.txt         ????
-    ¨content/hooks.txt              ????
+    ¨content/shortdesc.txt
+    ¨content/params.txt
+    ¨content/filters.txt
+    ¨content/validators.txt
+    ¨content/hooks.txt

@@ -1,9 +1,14 @@
 ﻿this::
-    date = 2022-09-????
+    date = 2022-09-13
 
 
-=======================
-????
-=======================
+=====================
+Expliquer les filtres
+=====================
 
-????
+Comme le codage est fait en ¨python, il suffit de passer via les ¨docstrings pour documenter les filtres. Voici un exemple où la syntaxe ¨tnsdoc doit être utilisée (même si ce projet est en cours de ¨dev, cette syntaxe est très intuitive).
+
+peuf::
+    ---
+    path = ¨exadocauto/onefilter.py
+    ---

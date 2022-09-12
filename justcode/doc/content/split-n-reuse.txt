@@ -19,5 +19,5 @@ warning::
 
 content::
     ¨content/motivate.txt
-    ¨content/create-n-use.txt       ????
+    ¨content/create-n-use.txt
     ¨content/api.txt                ????

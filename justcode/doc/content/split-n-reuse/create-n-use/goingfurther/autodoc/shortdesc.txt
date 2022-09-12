@@ -1,0 +1,14 @@
+﻿this::
+    date = 2022-09-12
+
+
+================
+Une ¨desc courte
+================
+
+Dans le fichier path::``specs.peuf``, on peut donner une courte ¨desc d'un squelette via le bloc peuf::``main::...`` comme dans l'exemple suivant.
+
+peuf::
+    ---
+    path = ¨exadocauto/specs-shortdesc.peuf
+    ---

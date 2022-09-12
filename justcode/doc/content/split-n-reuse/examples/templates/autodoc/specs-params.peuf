@@ -1,0 +1,5 @@
+params::
+    author: str = ?
+                @ Full name of the author of the project.
+
+// ... etc.

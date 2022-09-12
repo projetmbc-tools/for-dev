@@ -26,4 +26,4 @@ content::
     ¨content/steps/3-modify[README].txt
     ¨content/steps/4-partial[TOOLS].txt
     ¨content/steps/final-aggregate.txt
-    ¨content/goingfurther.txt                ????
+    ¨content/goingfurther.txt
