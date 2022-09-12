@@ -27,6 +27,6 @@ Auteur tel que tapé :
 
 Courriel de l'auteur :
 {{author | justemail}}
-            """.strip()
+            """
         )
     )

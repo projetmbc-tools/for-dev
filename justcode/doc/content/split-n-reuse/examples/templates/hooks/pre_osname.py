@@ -5,10 +5,10 @@ import platform
 from justcode import (
     TAG_MAIN,
     Params,
-    Type,
+    JSCType,
 )
 
-Params[TAG_MAIN]['osname'] = Type.str(
+Params[TAG_MAIN]['osname'] = JSCType.str(
     f"{platform.system()} - {platform.release()}"
 )
 

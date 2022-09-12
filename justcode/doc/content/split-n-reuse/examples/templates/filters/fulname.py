@@ -26,6 +26,6 @@ Auteur tel que tapé :
 
 Prénom et nom de l'auteur :
 {{author | fullname}}
-            """.strip()
+            """
         )
     )

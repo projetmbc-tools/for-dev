@@ -5,13 +5,14 @@ from justcode import (
     testfilter,
     TAG_MAIN,
     Params,
-    Type
+    JSCType
 )
 
 # Un valideur est associé à un type justcode via le paramètre fourni
 # au décorateur ``newvalidator``.
 # Dans la mesure du possible, il est conseillé d'utiliser le même nom
-# que la fonction Python faisant le travail.
+# que la fonction Python faisant le travail, mais ceci n'est pas une
+# obligation (sinon cela aurait été automatisé).
 @newvalidator('auth')
 def auth(author):
 # Préparation des variables.
@@ -21,7 +22,7 @@ def auth(author):
     name  = name.strip()
     email = email.strip()
 
-# Une vérification basique pas très sérieuse...
+# Une vérification basique vraiment pas sérieuse...
     assert '@' in email, \
            (
             f"Bad email format << {email} >>."
@@ -29,13 +30,16 @@ def auth(author):
             f"See : {author}"
            )
 
-# Création de nouveaux paramètres globaux de type chaînes de caractères.
-    Params[TAG_MAIN]['author_fullname'] = Type.str(name)
-    Params[TAG_MAIN]['author_email']    = Type.str(email)
+# Création de paramètres globaux de type "chaîne de caractères".
+    Params[TAG_MAIN]['author_fullname'] = JSCType.str(name)
+    Params[TAG_MAIN]['author_email']    = JSCType.str(email)
 
 # Il est possible de transformer la valeur avant de la renvoyer.
 # C'est la valeur renvoyée qui sera utilisée dans le squelette.
-    return author
+#
+# Il faut obligatoirement renvoyé un type ``justcode`` obtenu via
+# l'une des méthodes statiques de la classe ``JSCType``.
+    return JSCType.str(author)
 
 
 # ----------------- #
@@ -55,6 +59,6 @@ Prénom et nom de l'auteur :
 
 Courriel de l'auteur :
 {{author_email}}
-            """.strip()
+            """
         )
     )

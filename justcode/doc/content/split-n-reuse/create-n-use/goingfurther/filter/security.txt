@@ -12,3 +12,8 @@ peuf::
     ---
     path = ¨exafilter/params.peuf
     ---
+
+
+tip::
+    Il est conseillé de ne coder que de petits filtres facilement analysables par un habitué de ¨python.
+    De plus, il faut cibler les importations en évitant par exemple l'usage de python::``from os import *``.
