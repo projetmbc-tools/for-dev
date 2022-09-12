@@ -7,26 +7,27 @@ import              subprocess
 
 from justcode import (
     TAG_GLOBAL,
+    TAG_MAIN,
     TAG_PROJECT_PATH,
     Params,
 )
 
-PROJECT_DIR  = Params[TAG_GLOBAL][TAG_PROJECT_PATH]
-PROJECT_REPO = Params[TAG_GLOBAL]["project_repo"]
+projdir  = Params[TAG_GLOBAL][TAG_PROJECT_PATH]
+projrepo = Params[TAG_MAIN]["project_repo"]
 
-prev_cwd = Path.cwd()
+initial_workdir = Path.cwd()
 
-chdir(PROJECT_DIR)
+chdir(projdir)
 
 for command in [
      "git init",
-    f"git remote add origin {PROJECT_REPO}",
+    f"git remote add origin {projrepo}",
 ]:
     subprocess.call(
         shlexsplit(command)
     )
 
-chdir(prev_cwd)
+chdir(initial_workdir)
 
 
 # ----------------- #
@@ -34,10 +35,10 @@ chdir(prev_cwd)
 # ----------------- #
 
 if __name__ == '__main__':
-    chdir(PROJECT_DIR)
+    chdir(projdir)
 
     subprocess.call(
         shlexsplit("git remote -v")
     )
 
-    chdir(prev_cwd)
+    chdir(initial_workdir)

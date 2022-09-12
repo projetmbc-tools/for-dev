@@ -1,0 +1,12 @@
+﻿this::
+    date = 2022-09-?????
+
+
+=====================================
+Liste complète des valideurs spéciaux
+=====================================
+
+// AUTO - LIST OF SPECIAL VALIDATORS - START
+
+
+// AUTO - LIST OF SPECIAL VALIDATORS - END

@@ -2,9 +2,9 @@
     date = 2022-09-12
 
 
-----------------------------------
+==================================
 Attention aux filtres maléfiques !
-----------------------------------
+==================================
 
 En interne, un filtre est un ¨prog ¨python. Il est donc risqué d'autoriser aveuglément l'usage de filtres "maison". C'est pour cette raison que l'utilisateur doit explictement autoriser l'usage de filtres proposés par un squelette via le bloc peuf``main::...`` comme suit.
 

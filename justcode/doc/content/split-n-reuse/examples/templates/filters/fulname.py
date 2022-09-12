@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
-from justcode import newfilter, testfilter
+from justcode import (
+    newfilter,
+    testfilter
+)
 
 @newfilter
 def fullname(author):
@@ -19,10 +22,10 @@ if __name__ == '__main__':
             author   = "Christophe BAL [projetmbc@gmail.com]",
             template = """
 Auteur tel que tapé :
-`{{author}}`
+{{author}}
 
 Prénom et nom de l'auteur :
-`{{author | fullname}}`
+{{author | fullname}}
             """.strip()
         )
     )

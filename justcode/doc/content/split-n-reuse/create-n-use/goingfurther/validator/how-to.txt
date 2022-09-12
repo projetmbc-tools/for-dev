@@ -1,0 +1,50 @@
+﻿this::
+    date = 2022-09-12
+
+
+==========================================
+Créer et utiliser des valideurs "maison" ?
+==========================================
+
+Les scripts ¨python "maison" sont à placer dans un sous-dossier path::``validators`` de path::``__jscmeta__``. Il faut donc avoir a minima la structure suivante de squelette avec obligatoirement un fichier path::``specs.peuf``.
+
+dirtree::
+    ---
+    path = ¨exavalid/dirtree-empty.txt
+    ---
+
+
+Reprenons l'idée de renseigner un auteur au format peuf::``author = Christophe BAL [projetmbc@gmail.com]`` comme dans cf::``filter/how-to.txt``.
+Sans user de filtre, à partir du ¨param jinja::``author``, on souhaite ajouter ¨auto^t deux nouveaux ¨params jinja::``author_fullname`` et jinja::``author_email`` qui pour l'exemple précédent auront pour valeurs ¨resp_fs ``Christophe BAL`` et ``projetmbc@gmail.com``.
+Ceci se fait en construisant en ¨python un valideur "maison" dans le dossier path::``validators``.
+Nous vous conseillons d'utiliser un fichier ¨python par ¨param en utilisant le même nom pour le fichier et le ¨param à valider.
+Dans notre cas, nous utilisons donc la structure suivante.
+
+dirtree::
+    ---
+    path = ¨exavalid/dirtree.txt
+    ---
+
+
+Le fichier path::``author.py`` admet le code suivant facile à décrypter grâce aux commentaires (revoir si besoin les sections cf::``filter.txt`` et cf::``hook.txt``).
+
+python::
+    ---
+    path = ¨exavalid/author.py
+    ---
+
+
+Il reste à expliquer comment employer notre valideur au sein de notre squelette en l'associant au ¨param peuf::``author``. C'est simple puisque qu'un valideur est associcé à un type ¨justcode, il suffit d'indiquer ce type "maison" dans la déclaration des ¨params au sein du fichier path::``specs.peuf`` comme suit.
+
+peuf::
+    ---
+    path = ¨exavalid/specs.peuf
+    ---
+
+
+note::
+    Vous trouverez dans cf::``?/split-n-reuse/api/special.txt`` la liste des valideurs spéciaux fournis par ¨justcode.
+
+
+warning::
+    Il est interdit de redéfinir un valideur special fourni directement par ¨justcode, ainsi que de proposer à l'utilisateur de définir la valeur d'un ¨param qui doit être construit par un valideur.

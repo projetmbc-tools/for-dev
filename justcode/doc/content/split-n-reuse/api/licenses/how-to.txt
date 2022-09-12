@@ -6,11 +6,11 @@
 Comment faire ?
 ===============
 
-Ceci a déjà été évoqué dans la section cf::``?/create-n-use/step-1-single[CHANGES].txt``.
+Ceci a déjà été évoqué dans la section cf::``?/create-n-use/steps/1-single[CHANGES].txt``.
 Pour mémoire, nous redonnons ci-dessous le code du fichier path::``params.peuf`` qui est proposé dans la dite section.
 Retenez l'utilisation de peuf::``licence = ...`` où ce qui est après le signe ``=`` est un identifiant de licence (pas besoin ici d'utiliser le préfixe peuf::``api::``).
 
 peuf::
     ---
-    path = ¨exatempl/step-1/params-cvnum.peuf
+    path = ¨exatempl/steps/1/params-cvnum.peuf
     ---

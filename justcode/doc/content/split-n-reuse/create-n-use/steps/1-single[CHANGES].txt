@@ -3,7 +3,7 @@
 
 
 abrev::
-    currentstep = ¨exatempl/step-1
+    currentstep = ¨exatempl/steps/1
     exachges    = ¨exatempl/changes
 
 

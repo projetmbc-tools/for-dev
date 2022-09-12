@@ -2,9 +2,9 @@
     date = 2022-09-12
 
 
-------------------------------------------
+==========================================
 Comment ajoute-t-on des filtres "maison" ?
-------------------------------------------
+==========================================
 
 Considérons le squelette de fichier suivant où le paramètre python::``author`` doit être donné au format jinja::``Prénom NOM [adresse_de_courriel]``.
 
@@ -15,7 +15,7 @@ jinja::
 
 
 Les textes attendus pour les valeurs filtrées jinja::``{{author | fullname}}`` et jinja::``{{author | justemail}}`` sont immédiats à deviner.
-Par exemple, si python::``author = Christophe BAL [projetmbc@gmail.com]`` , on veut obtenir le fichier ci-après.
+Par exemple, si peuf::``author = Christophe BAL [projetmbc@gmail.com]``, on veut obtenir le fichier ci-après.
 
 markdown::
     ---

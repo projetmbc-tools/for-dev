@@ -12,7 +12,7 @@ abrev::
 Que souhaite-t-on ?
 ===================
 
-Reprenons le ¨skelchges proposé dans cf::``?/create-n-use/step-1-single[CHANGES].txt``. Ce squelette possède le contenu suivant.
+Reprenons le ¨skelchges proposé dans cf::``?/create-n-use/steps/1-single[CHANGES].txt``. Ce squelette possède le contenu suivant.
 
 dirtree::
     ---

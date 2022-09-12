@@ -2,4 +2,3 @@
     + __jscmeta__
         * specs.peuf
         + validators
-            * author.py

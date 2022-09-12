@@ -15,3 +15,4 @@ Voici les listes des ¨params et filtres spéciaux.
 content::
     ¨content/params.txt
     ¨content/filters.txt
+    ¨content/validators.txt      ?????

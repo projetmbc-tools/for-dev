@@ -3,7 +3,7 @@
 
 
 abrev::
-    currentstep = ¨exatempl/step-final
+    currentstep = ¨exatempl/steps/final
     examono     = ¨exatempl/monorepo
 
 
@@ -60,7 +60,7 @@ Voici les étapes à suivre.
     De plus, il est possible d'ajouter des règles "maison" en indiquant un fichier, ou plus : ici, on indique le fichier path::``~/mes_gitignores/reglesmaison.txt``.
     Au final, toutes les règles sont mises dans un unique fichier path::``.gitignore`` en respectant l'ordre de déclaration : ici, les règles ¨python seront suivies de celles propres à ¨macos, puis de celles "maison".
 
-    1) Il ne reste plus qu'à lancer la génération comme cela a été expliqué à la fin de cf::``step-1-single[CHANGES].txt``.
+    1) Il ne reste plus qu'à lancer la génération comme cela a été expliqué à la fin de cf::``steps/1-single[CHANGES].txt``.
 
 
 note::

@@ -21,9 +21,9 @@ info::
 
 
 content::
-    ¨content/step-1-single[CHANGES].txt
-    ¨content/step-2-complete[README].txt
-    ¨content/step-3-modify[README].txt
-    ¨content/step-4-partial[TOOLS].txt
-    ¨content/step-final-aggregate.txt
+    ¨content/steps/1-single[CHANGES].txt
+    ¨content/steps/2-complete[README].txt
+    ¨content/steps/3-modify[README].txt
+    ¨content/steps/4-partial[TOOLS].txt
+    ¨content/steps/final-aggregate.txt
     ¨content/goingfurther.txt                ????
