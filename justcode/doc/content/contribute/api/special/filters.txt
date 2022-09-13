@@ -10,4 +10,4 @@ Ajouter de nouveaux filtres
 
 
 warning::
-    Il faut absoluement documenter les valideurs : voir cf::``?/autodoc/filters.txt``.
+    Il faut absolument documenter les filtres : voir cf::``?/autodoc/filters.txt``.

@@ -10,4 +10,4 @@ Proposer des ¨params créés automatiquement
 
 
 warning::
-    Il faut absoluement documenter les valideurs : voir cf::``?/autodoc/params.txt``.
+    Il faut absolument documenter les paramètres "¨autos" : voir cf::``?/autodoc/params.txt``.
