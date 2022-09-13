@@ -1,0 +1,13 @@
+﻿this::
+    date = 2022-09-     ?????
+
+
+==========================================
+Proposer des ¨params créés automatiquement
+==========================================
+
+???
+
+
+warning::
+    Il faut absoluement documenter les valideurs : voir cf::``?/autodoc/params.txt``.

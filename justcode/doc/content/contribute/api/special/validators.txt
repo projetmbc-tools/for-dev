@@ -1,0 +1,13 @@
+﻿this::
+    date = 2022-09-     ?????
+
+
+====================================================
+Compléter la liste des valideurs (et donc des types)
+====================================================
+
+???
+
+
+warning::
+    Il faut absoluement documenter les valideurs : voir cf::``?/autodoc/validators.txt``.

@@ -1,0 +1,13 @@
+﻿this::
+    date = 2022-09-     ?????
+
+
+===========================
+Ajouter de nouveaux filtres
+===========================
+
+???
+
+
+warning::
+    Il faut absoluement documenter les valideurs : voir cf::``?/autodoc/filters.txt``.
