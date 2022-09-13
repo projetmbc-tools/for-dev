@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-08
+    date = 2022-09-13
 
 
 abrev::
@@ -25,7 +25,7 @@ Imaginons que nous voulions ajouter la licence "Do What The Fuck You Want to Pub
 ((
     Comme la licence licence::``unlicense`` est déjà proposée, l'ajout de la politiquement incorrecte licence "WTFPL" ne semble pas utile.
 )).
-L'¨id de cette licence est ``WTFPL``, nous devons donc créer les fichiers ``WTFPL.txt`` et path::``WTFPL.peuf`` qui ont les contenus suivants.
+Nous choisissons pour de cette licence l'¨id ``WTFPL``. Nous créons donc les fichiers ``WTFPL.txt`` et path::``WTFPL.peuf`` qui ont les contenus suivants.
 
 
 peuf::

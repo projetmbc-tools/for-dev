@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-?????
+    date = 2022-09-13
 
 
 =====================================
@@ -8,5 +8,6 @@ Liste complète des valideurs spéciaux
 
 // AUTO - LIST OF SPECIAL VALIDATORS - START
 
+    * python::``Type.str`` associé au type peuf::``str`` attend un argument de type chaîne de caracères, et le vide des espaces inutiles en début et en fin de chaînes de caractères.
 
 // AUTO - LIST OF SPECIAL VALIDATORS - END

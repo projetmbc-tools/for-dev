@@ -7,5 +7,6 @@ De nouveaux ¨params ¨etou filtres
 =================================
 
 content::
-    ¨content/param.txt          ??????
-    ¨content/filter.txt         ??????
+    ¨content/param.txt              ??????
+    ¨content/filter.txt             ??????
+    ¨content/validator.txt          ??????
