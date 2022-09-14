@@ -1,5 +1,8 @@
 params::
+// Paramètres renseignés par l'utilisateur.
     year : int = ?
     month: int = ?
     day  : int = ?
+
+// Paramètre construit ¨auto^t.
     date : str = {{year}}-{{month}}-{{day}}

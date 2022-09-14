@@ -16,7 +16,7 @@ Dans cette section, nous allons rencontrer des fonctionnalités avancées très 
 content::
     ¨content/folder-vs-special-block.txt
     ¨content/filelike-param-name.txt
-    ¨content/param-in-param.txt
+    ¨content/params-in-param.txt
     ¨content/global.txt
     ¨content/filter.txt
     ¨content/special.txt
