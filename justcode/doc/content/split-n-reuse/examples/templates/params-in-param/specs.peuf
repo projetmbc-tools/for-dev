@@ -1,0 +1,5 @@
+params::
+    year : int = ?
+    month: int = ?
+    day  : int = ?
+    date : str = {{year}}-{{month}}-{{day}}

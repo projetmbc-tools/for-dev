@@ -1,0 +1,13 @@
+// ---------- //
+
+
+==
+14
+==
+
+-----
+:new:
+-----
+
+[[:doc:]]
+¨Doc before code: the ¨1st version of the ¨doc has been finished (concrete coding can start now).

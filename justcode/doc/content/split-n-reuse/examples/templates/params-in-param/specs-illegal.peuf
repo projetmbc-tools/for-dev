@@ -1,0 +1,4 @@
+params::
+    b_via_a: str = a:{{a}}
+    a_via_c: str = c:{{c}}
+    c_via_b: str = b:{{b}}
