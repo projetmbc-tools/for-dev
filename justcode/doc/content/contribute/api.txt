@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-07
+    date = 2022-09-13
 
 
 abrev::
@@ -11,19 +11,22 @@ L'¨API
 ======
 
 info::
-    Les ¨modifs effectuées et retenues seront mises dans le sous-dossier path::``api`` du dossier path::``contribute`` qui admet la ¨struct suivante (le dossier path::``doc`` ne nous intéresse pas ici).
+    Les ¨modifs retenues, mais en cours de validation, seront mises dans le sous-dossier path::``api`` du dossier path::``contribute`` qui admet la ¨struct suivante (le dossier path::``doc`` ne nous intéresse pas ici).
 
     dirtree::
         + contribute
             + api
                 * README.md
                 * LICENSE.txt
+                + autoparam
                 + changes
                     * LICENSE.txt
                     * x-todo-x.txt
+                + filter
                 + gitignore
                 + license
                 + template
+                + validator
             + doc [...]
 
 
@@ -34,5 +37,5 @@ tip::
 content::
     ¨content/gitignore.txt
     ¨content/licenses.txt
-    ¨content/special.txt         ?????
-    ¨content/template.txt        ?????
+    ¨content/special.txt
+    ¨content/template.txt

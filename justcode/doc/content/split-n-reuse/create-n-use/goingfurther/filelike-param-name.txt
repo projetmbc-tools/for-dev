@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-09
+    date = 2022-09-14
 
 
 abrev::
@@ -14,5 +14,5 @@ Il est possible de nommer des fichiers et des dossiers en utilisant des ¨params
 
 dirtree::
     ---
-    path = ¨exafileparam/dirtree-no-spe.txt
+    path = ¨exafileparam/dirtree.txt
     ---

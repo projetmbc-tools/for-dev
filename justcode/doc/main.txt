@@ -22,4 +22,4 @@ content::
     ¨content/cookie-vs-justcode.txt
     ¨content/split-n-reuse.txt
     ¨content/validate-n-update.txt
-    ¨content/contribute.txt                 ????
+    ¨content/contribute.txt

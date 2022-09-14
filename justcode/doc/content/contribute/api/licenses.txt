@@ -1,16 +1,20 @@
 ﻿this::
-    date = 2022-09-13
+    date = 2022-09-14
 
 
 abrev::
-    exawtpl = examples/licenses
+    exalic = examples/licenses
 
 
 ============================================
 Un monde avec d'autres licences est possible
 ============================================
 
-L'ajout d'une ¨nelle licence consiste à founir deux fichiers nommés via le même ¨id, tout en majuscule, mais avec des extensions différentes (un exemple est donné juste après).
+L'ajout d'une ¨nelle licence consiste à fournir deux fichiers nommés via le même ¨id
+((
+    Partir de l'¨id officiel s'il existe, tout en le rendant compatible avec les règles de nommage indiquées dans l'avertissement.
+)),
+tout en majuscule, mais avec des extensions différentes (un exemple est donné juste après).
 
     1) Un fichier path::``PEUF`` sert à donner quelques métadonnées à propos de la licence.
 
@@ -18,25 +22,25 @@ L'ajout d'une ¨nelle licence consiste à founir deux fichiers nommés via le m�
 
 
 warning::
-    L'¨id d'une licence ne peut utiliser que des lettres non accentuées, des chiffres et éventuellement le trait d'union ``-``.
+    L'¨id d'une licence ne peut utiliser que des lettres majuscules non accentuées, des chiffres et éventuellement le trait d'union ``-``.
 
 
 Imaginons que nous voulions ajouter la licence "Do What The Fuck You Want to Public License" : voir cf::``https://fr.wikipedia.org/wiki/WTFPL``
 ((
-    Comme la licence licence::``unlicense`` est déjà proposée, l'ajout de la politiquement incorrecte licence "WTFPL" ne semble pas utile.
+    Comme la licence licence::``unlicense`` est déjà proposée, l'ajout de la politiquement incorrecte licence "WTFPL" ne semble pas utile. Cette phrase m'a été dictée par mes avocats.
 )).
-Nous choisissons pour de cette licence l'¨id ``WTFPL``. Nous créons donc les fichiers ``WTFPL.txt`` et path::``WTFPL.peuf`` qui ont les contenus suivants.
+Nous choisissons pour de cette licence l'¨id officiel ``WTFPL`` . Nous créons donc les fichiers ``WTFPL.txt`` et path::``WTFPL.peuf`` qui ont les contenus suivants.
 
 
 peuf::
     ---
-    path  = ¨exawtpl/WTFPL.peuf
+    path  = ¨exalic/WTFPL.peuf
     title = Fichier path::``WTFPL.peuf`
     ---
 
 
 verbatim::
     ---
-    path  = ¨exawtpl/WTFPL.txt
+    path  = ¨exalic/WTFPL.txt
     title = Fichier ``WTFPL.txt``
     ---

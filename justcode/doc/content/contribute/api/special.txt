@@ -1,12 +1,23 @@
-﻿abrev::
-    content = special
+﻿this::
+    date = 2022-09-14
 
 
-=================================
-De nouveaux ¨params ¨etou filtres
-=================================
+=========================================================
+De nouveaux filtres, valideurs ou ¨params générés ¨auto^t
+=========================================================
 
-content::
-    ¨content/params.txt              ??????
-    ¨content/filters.txt             ??????
-    ¨content/validators.txt          ??????
+Il suffit de coder l'un de ces outils comme expliqué dans cf::``?/goingfurther/filter.txt``, cf::``?/goingfurther/validator.txt`` et cf::``?/goingfurther/hook.txt``
+((
+    On utilisera un pré-traitement pour ajouter de nouveaux ¨params "¨autos" globaux.
+)),
+tout en respectant toutes les recommandations suivantes.
+
+    1) Il faut documenter les codes proposés comme expliqué dans cf::``?/goingfurther/autodoc.txt``.
+
+    1) Il doit y avoir un bloc python::``__main__`` de déboggage "à la main".
+
+    1) Les filtres retenus, mais en cours de validation, sont placés dans le dossier path::``filter``.
+
+    1) Les valideurs retenus, mais en cours de validation, sont placés dans le dossier path::``validator``.
+
+    1) Les ¨params "¨autos" retenus, mais en cours de validation, sont placés dans le dossier path::``autoparam``.

@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-13
+    date = 2022-09-14
 
 
 abrev::
@@ -12,12 +12,12 @@ abrev::
 Documenter un squelette (en anglais uniquement)
 ===============================================
 
-Que ce soit pour contribuer à l'¨api de ¨justcode, ou bien proposer vos squelettes à la communeauté, il faut documenter ces derniers. Les sections suivantes expliquent comment s'y prendre.
+Que ce soit pour contribuer à l'¨api de ¨justcode, ou bien proposer vos squelettes à la communauté, il faut documenter ces derniers **en anglais**. Les sections suivantes expliquent comment s'y prendre.
 
 
 info::
     L'utilisateur peut demander à ¨justcode la ¨doc d'un squelette via l'option terminal::``--help``, et avec pour argument le chemin du dossier usant de squelettes indiqués dans le dossier spécial path::``__jscmeta__``.
-    ¨justcode extrait ¨auto^t la structure du squelette, ainsi que certaines ¨infos sur les ¨params attendus.
+    ¨justcode extrait ¨auto^t la structure du squelette, ainsi que les ¨infos sur les ¨params attendus, les filtres spéciaux disponibles, et les valideurs ajoutés.
     Ce qui suit explique comment donner des ¨infos plus précises, et ainsi permettre qu'un squelette se diffuse dans le monde entier
     ((
         La fin de phrase m'a été soufflée par mon équipe de marketing.

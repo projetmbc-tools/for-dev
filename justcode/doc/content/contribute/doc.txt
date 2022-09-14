@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-07
+    date = 2022-09-14
 
 
 =======
@@ -23,7 +23,7 @@ Si vous souhaitez mettre à jour une ¨propo de ¨trad, il faudra indiquer rapid
 
 
 info::
-    Les ¨trads effectuées et retenues seront mises dans le sous-dossier path::``doc`` du dossier path::``contribute`` qui admet la ¨struct suivante (le dossier path::``api`` ne nous intéresse pas ici).
+    Les ¨trads effectuées seront mises dans le sous-dossier path::``doc`` du dossier path::``contribute`` qui admet la ¨struct suivante (le dossier path::``api`` ne nous intéresse pas ici).
 
     dirtree::
         + contribute
