@@ -269,7 +269,7 @@ print(f"{TAB_1}* Updating ``gitignore.py``.")
 gitignores_found   = set()
 gitignores_by_kind = defaultdict(list)
 
-for f in GITIGNORE_DIR.walk("file::**.txt"):
+for f in GITIGNORE_DATAS_DIR.walk("file::**.txt"):
     name = f.stem
     kind = f'__{f.parent.name}__'
 

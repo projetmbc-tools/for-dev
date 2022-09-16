@@ -1,0 +1,7 @@
+# Created by Christophe BAL.
+
+### cbdev coding style ###
+
+## Hiden files and folders:
+x-*-x.*
+x-*-x/

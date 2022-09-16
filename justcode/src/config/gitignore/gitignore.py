@@ -2,7 +2,7 @@
 
 # This code was automatically build by the following file.
 #
-#     + ``tools/factory/config/build_01_update_gitignore.py``
+#     + ``tools/factory/config/build_01_update_gitignore_online.py``
 
 # ALL THE TAGS
 

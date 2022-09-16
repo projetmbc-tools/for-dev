@@ -194,6 +194,9 @@ class ScrapingBase:
                     dumps({
                         'fullname': fullname,
                         'shortid' : shortid,
-                        'url'     : url,
+                        'urls'    : {
+                            'official': None,
+                            'content' : url,
+                        }
                     })
                 )
