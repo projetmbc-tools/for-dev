@@ -1,0 +1,18 @@
+# Modification made at 2022-09-16.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+_build
+_tracks
+
+opa-debug-js
+
+*.opp
+*.opx
+*.opx.broken
+*.dump
+*.api
+*.api-txt
+*.exe
+*.log

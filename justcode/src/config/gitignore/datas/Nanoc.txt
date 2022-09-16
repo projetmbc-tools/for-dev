@@ -1,0 +1,15 @@
+# Modification made at 2022-09-16.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# For projects using Nanoc (http://nanoc.ws/)
+
+# Default location for output (needs to match output_dir's value found in nanoc.yaml)
+output/
+
+# Temporary file directory
+tmp/nanoc/
+
+# Crash Log
+crash.log

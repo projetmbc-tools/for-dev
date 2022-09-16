@@ -1,0 +1,22 @@
+# Modification made at 2022-09-16.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# Previews Folders
+**/__Previews/
+
+# History Folders
+**/History/*
+
+# Project Logs
+Project\ Logs*/
+
+# Project Outputs
+Project\ Outputs*/
+
+# Auto-conversion notices
+*.PcbDoc.htm
+
+# Access lock file for dbLib sources
+**/*.ldb

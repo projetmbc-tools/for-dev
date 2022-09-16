@@ -1,0 +1,15 @@
+# Modification made at 2022-09-16.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# Calabash / Cucumber
+rerun/
+reports/
+screenshots/
+screenshot*.png
+test-servers/
+
+# bundler
+.bundle
+vendor

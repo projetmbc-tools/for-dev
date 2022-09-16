@@ -1,0 +1,19 @@
+# Modification made at 2022-09-16.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/lib/
+/classes/
+/target/
+/checkouts/
+.lein-deps-sum
+.lein-repl-history
+.lein-plugins/
+.lein-failures
+.nrepl-port
+.cpcache/

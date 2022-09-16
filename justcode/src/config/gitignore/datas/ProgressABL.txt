@@ -1,0 +1,33 @@
+# Modification made at 2022-09-16.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# Developer Studio
+/.dbconnection
+/.project
+/.propath
+/debugger.pref
+/protrace*
+*.r
+*.pl
+
+# DataDigger
+DataDigger/Cache
+DataDigger/backup
+DataDigger/DataDigger-*.ini
+DataDigger/DataDigger*.log
+
+# General folders
+/old/
+/debug/
+
+# General files
+.gitignore
+*.tmp
+*.bak
+*.bck
+*.old
+*- Copy.*
+*- Copy (*).*
+*.log

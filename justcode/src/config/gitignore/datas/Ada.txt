@@ -1,0 +1,10 @@
+# Modification made at 2022-09-16.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# Object file
+*.o
+
+# Ada Library Information
+*.ali

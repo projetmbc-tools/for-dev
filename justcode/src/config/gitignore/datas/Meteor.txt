@@ -1,0 +1,17 @@
+# Modification made at 2022-09-16.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# gitignore template for the Meteor framework
+# website: https://www.meteor.com/
+#
+# Recommended template: Node.gitignore
+
+# protect api keys in setting json
+settings-production.json
+settings.json
+
+# protect your mup.json settings
+mup.json
+mup.js

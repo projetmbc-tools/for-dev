@@ -1,0 +1,11 @@
+# Modification made at 2022-09-16.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# 1C external data processors on unmanaged formes
+
+**/Form/**/form
+src/**/und/*
+src/**/maps.txt
+src/**/renames.txt

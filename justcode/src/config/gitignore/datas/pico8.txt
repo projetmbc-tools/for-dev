@@ -1,0 +1,15 @@
+# Modification made at 2022-09-16.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# exported file types
+*.p8.png
+*.png
+*.wav
+*.js
+*.html
+*.bin
+
+# demos folder
+demos/

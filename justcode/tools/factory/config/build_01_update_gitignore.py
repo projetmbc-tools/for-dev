@@ -47,9 +47,9 @@ while(PROJECT_DIR.name != 'justcode'):
 
 THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
 
-GITIGNORE_DIR        = PROJECT_DIR / 'src' / 'config' / 'gitignore'
-GITIGNORE_ONLINE_DIR = GITIGNORE_DIR / 'online'
-PYFILE               = GITIGNORE_DIR / 'gitignore.py'
+GITIGNORE_DIR       = PROJECT_DIR / 'src' / 'config' / 'gitignore'
+GITIGNORE_DATAS_DIR = GITIGNORE_DIR / 'datas'
+PYFILE              = GITIGNORE_DIR / 'gitignore.py'
 
 
 TAB_1 = ' '*4
@@ -122,7 +122,7 @@ def extractrules(urlraw):
     rulename = rulename.replace("%2B", "+")
 
     whichrules   = f"{TAB_2}+ ``{rulename}``"
-    project_file = GITIGNORE_ONLINE_DIR / f"{rulename}.txt"
+    project_file = GITIGNORE_DATAS_DIR / f"{rulename}.txt"
 
 # Rules in the project.
     if project_file.is_file():

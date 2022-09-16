@@ -1,0 +1,12 @@
+# Modification made at 2022-09-16.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# gitignore template for Nikola static site generator
+# website: https://getnikola.com/
+
+.doit.db
+*.py[cod]
+cache/
+output/

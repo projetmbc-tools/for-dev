@@ -1,0 +1,16 @@
+# Modification made at 2022-09-16.
+#
+# This rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+*Script
+
+# Holmake generated files
+*Theory.sig
+*Theory.sml
+*.uo
+*.ui
+
+# Holmake auxiliary files
+.hollogs
+.HOLMK
