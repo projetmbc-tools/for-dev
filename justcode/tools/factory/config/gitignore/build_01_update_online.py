@@ -49,7 +49,6 @@ THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
 
 GITIGNORE_DIR       = PROJECT_DIR / 'src' / 'config' / 'gitignore'
 GITIGNORE_DATAS_DIR = GITIGNORE_DIR / 'datas'
-PYFILE              = GITIGNORE_DIR / 'gitignore.py'
 
 
 TAB_1 = ' '*4
@@ -60,26 +59,6 @@ TAB_3 = TAB_1*3
 # ----------- #
 # -- TOOLS -- #
 # ----------- #
-
-def pyname(name):
-    cname = ""
-
-    for c in name:
-        if c in "-+":
-            c = "_"
-
-        cname += c
-
-    cname = cname.upper()
-
-    if cname == "C__":
-        cname = "CPP"
-
-    elif cname == "TLA_":
-        cname = "TLA_PLUS"
-
-    return cname
-
 
 def allurls():
     bs = BeautifulSoup(
@@ -121,8 +100,10 @@ def extractrules(urlraw):
     rulename = str(Path(urlraw).stem)
     rulename = rulename.replace("%2B", "+")
 
+    filename = rulename.upper()
+
     whichrules   = f"{TAB_2}+ ``{rulename}``"
-    project_file = GITIGNORE_DATAS_DIR / f"{rulename}.txt"
+    project_file = GITIGNORE_DATAS_DIR / f"{filename}.txt"
 
 # Rules in the project.
     if project_file.is_file():
@@ -200,12 +181,18 @@ def extractrules(urlraw):
     print(
         whichrules,
         infos,
-        f"{TAB_3}- Updating the file ``{rulename}.txt``.",
+        f"{TAB_3}- Updating the file ``{filename}.txt``.",
         sep = "\n"
     )
 
+    deco = '-'*(2*3 + len(rulename))
+
     web_content = f"""
-# Modification made at {TODAY}.
+# {deco} #
+# -- {rulename} -- #
+# {deco} #
+#
+# Last changes: {TODAY}.
 #
 # This rules come from the project gitignore.io. See :
 # https://github.com/toptal/gitignore.io
@@ -258,93 +245,3 @@ if UPDATE_ONLINE:
 
     with ThreadPoolExecutor(max_workers = NB_WORKERS) as exe:
         exe.map(extractrules, urls)
-
-
-# ----------------------------- #
-# -- UPDATE ``gitignore.py`` -- #
-# ----------------------------- #
-
-print(f"{TAB_1}* Updating ``gitignore.py``.")
-
-gitignores_found   = set()
-gitignores_by_kind = defaultdict(list)
-
-for f in GITIGNORE_DATAS_DIR.walk("file::**.txt"):
-    name = f.stem
-    kind = f'__{f.parent.name}__'
-
-    assert not name in gitignores_found, \
-           (
-            f"name ``{name}`` already used in another kind."
-             "\n"
-            f"See the folder ``{kind.replace('_', '')}``."
-           )
-
-    gitignores_found.add(name)
-
-    gitignores_by_kind[kind].append(name)
-
-
-code_EACH_TAG = []
-
-TAG_ONLINE  = '__online__'
-TAG_SPECIAL = '__special__'
-
-for kind in [
-    TAG_ONLINE,
-    TAG_SPECIAL,
-]:
-    sortednames = sorted(
-        gitignores_by_kind[kind],
-        key = lambda n: pyname(n)
-    )
-
-    code_EACH_TAG.append(kind)
-
-    code_EACH_TAG += [
-        f'TAG_GITIGNORE_{pyname(n)} := "{n}",'
-        for n in sortednames
-    ]
-
-    code_EACH_TAG.append('')
-
-
-code_EACH_TAG = '\n    '.join(code_EACH_TAG[:-1])
-
-
-for kind in [
-    TAG_ONLINE,
-    TAG_SPECIAL,
-]:
-    ctitle = kind.replace('_', '').title()
-
-    code_EACH_TAG = code_EACH_TAG.replace(
-        kind,
-        f"# {ctitle}"
-    )
-
-
-code = f"""
-#!/usr/bin/env python3
-
-# This code was automatically build by the following file.
-#
-#     + ``{THIS_FILE_REL_PROJECT_DIR}``
-
-# ALL THE TAGS
-
-ALL_GITIGNORES = [
-    {code_EACH_TAG}
-]
-        """.strip() + '\n'
-
-code = code.replace(
-    "    #",
-    "#"
-)
-
-with PYFILE.open(
-    encoding = 'utf8',
-    mode     = 'w',
-) as f:
-    f.write(code)

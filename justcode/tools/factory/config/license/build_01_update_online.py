@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 
-from datetime    import date
-from collections import defaultdict
-
-import black
-
 from mistool.os_use import PPath as Path
 
 from scraping import *
@@ -23,9 +18,6 @@ UPDATE_CREATIVE = UPDATE_OPENSOURCE = True
 FAILED_LICENSES = []
 
 
-TODAY = date.today()
-
-
 THIS_FILE = Path(__file__)
 THIS_DIR  = Path(THIS_FILE).parent
 
@@ -39,7 +31,6 @@ THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
 
 LICENSE_DIR       = PROJECT_DIR / 'src' / 'config' / 'license'
 LICENSE_DATAS_DIR = LICENSE_DIR / 'datas'
-PYFILE            = LICENSE_DIR / 'license.py'
 FAIL_JSON_FILE    = THIS_DIR / 'failed_licenses.json'
 
 
@@ -48,26 +39,15 @@ TAB_2 = TAB_1*2
 TAB_3 = TAB_1*3
 
 
-# ----------- #
-# -- TOOLS -- #
-# ----------- #
-
-def tagfrom(shortid):
-    tag = ''
-
-    for c in shortid:
-        if c in '. -':
-            tag += '_'
-
-        else:
-            tag += c.upper()
-
-    return tag
-
-
 # --------------- #
 # -- LET'S GO! -- #
 # --------------- #
+
+if not(UPDATE_CREATIVE or UPDATE_OPENSOURCE):
+    exit()
+
+nb_licences = 0
+
 
 # ! -- DEBUGGING -- ! #
 # Clear the terminal.
@@ -102,6 +82,7 @@ if UPDATE_CREATIVE:
     myCC.build()
 
     FAILED_LICENSES += myCC.failed_licences
+    nb_licences     += myCC.nb_success
 
 
 # ------------------------------------- #
@@ -122,32 +103,30 @@ if UPDATE_OPENSOURCE:
     myOpenSrc.build()
 
     FAILED_LICENSES += myOpenSrc.failed_licences
+    nb_licences     += myOpenSrc.nb_success
 
 
 # ------------------------------------- #
 # -- UPDATE ``failed_licenses.json`` -- #
 # ------------------------------------- #
 
-if UPDATE_CREATIVE or UPDATE_OPENSOURCE:
-    print()
-    print(f"{TAB_1}* Updating ``failed_licenses.json``.")
+print()
+print(f"{TAB_1}* Updating ``failed_licenses.json``.")
 
 # We want a deterministic output!
-    FAILED_LICENSES.sort()
+FAILED_LICENSES.sort()
 
-    with FAIL_JSON_FILE.open(
-        encoding = 'utf-8',
-        mode     = 'w',
-    ) as f:
-        f.write(
-            dumps(FAILED_LICENSES)
-        )
+with FAIL_JSON_FILE.open(
+    encoding = 'utf-8',
+    mode     = 'w',
+) as f:
+    f.write(
+        dumps(FAILED_LICENSES)
+    )
 
 
 # ------------------------- #
 # -- WHAT HAS BEEN DONE? -- #
 # ------------------------- #
-
-nb_licences = myCC.nb_success + myOpenSrc.nb_success
 
 print(f"{TAB_1}* {nb_licences} licenses proposed online.")

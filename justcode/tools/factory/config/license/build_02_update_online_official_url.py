@@ -26,6 +26,9 @@ LICENSE_DIR       = PROJECT_DIR / 'src' / 'config' / 'license'
 LICENSE_DATAS_DIR = LICENSE_DIR / 'datas'
 
 
+URL_CC = "https://creativecommons.org"
+
+
 TAB_1 = ' '*4
 TAB_2 = TAB_1*2
 TAB_3 = TAB_1*3
@@ -113,15 +116,21 @@ for p in LICENSE_DATAS_DIR.walk("file::**.json"):
         infos = load(f)
 
     if not infos['urls']['official'] is None:
+        nb_official_OK += 1
         continue
 
-    with p.with_ext('txt').open(
-        encoding = "utf-8",
-        mode     = "r"
-     ) as f:
-        content = f.read()
 
-    urlfound = extracturl(content)
+    if infos['fullname'].startswith("Creative Commons"):
+        urlfound = URL_CC
+
+    else:
+        with p.with_ext('txt').open(
+            encoding = "utf-8",
+            mode     = "r"
+        ) as f:
+            content = f.read()
+
+        urlfound = extracturl(content)
 
 
     if urlfound is None:
