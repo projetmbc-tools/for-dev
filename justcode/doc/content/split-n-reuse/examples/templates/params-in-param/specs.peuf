@@ -4,5 +4,5 @@ params::
     month: int = ?
     day  : int = ?
 
-// Paramètre construit ¨auto^t.
+// Paramètre construit automatiquement.
     date : str = {{year}}-{{month}}-{{day}}

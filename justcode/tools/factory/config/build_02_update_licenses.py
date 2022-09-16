@@ -38,10 +38,10 @@ while(PROJECT_DIR.name != 'justcode'):
 
 THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
 
-LICENSE_DIR        = PROJECT_DIR / 'src' / 'config' / 'license'
-LICENSE_ONLINE_DIR = LICENSE_DIR / 'online'
-PYFILE             = LICENSE_DIR / 'license.py'
-FAIL_JSON_FILE     = THIS_DIR / 'failed_licenses.json'
+LICENSE_DIR       = PROJECT_DIR / 'src' / 'config' / 'license'
+LICENSE_DATAS_DIR = LICENSE_DIR / 'datas'
+PYFILE            = LICENSE_DIR / 'license.py'
+FAIL_JSON_FILE    = THIS_DIR / 'failed_licenses.json'
 
 
 TAB_1 = ' '*4
@@ -98,7 +98,7 @@ if UPDATE_CREATIVE:
     myCC = CreativeCommons(
         decotab_1   = f"{TAB_2}+",
         decotab_2   = f"{TAB_3}-",
-        license_dir = LICENSE_ONLINE_DIR,
+        license_dir = LICENSE_DATAS_DIR,
     )
     myCC.build()
 
@@ -118,7 +118,7 @@ if UPDATE_OPENSOURCE:
     myOpenSrc = OpenSource(
         decotab_1   = f"{TAB_2}+",
         decotab_2   = f"{TAB_3}-",
-        license_dir = LICENSE_ONLINE_DIR,
+        license_dir = LICENSE_DATAS_DIR,
     )
     myOpenSrc.build()
 
