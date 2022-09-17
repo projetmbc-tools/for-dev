@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-
-from collections         import defaultdict
 from concurrent.futures  import ThreadPoolExecutor
 from datetime            import date
 from requests            import (
@@ -9,7 +7,6 @@ from requests            import (
     get as getwebcontent
 )
 
-import          black
 from bs4 import BeautifulSoup
 
 from mistool.os_use import PPath as Path
@@ -192,7 +189,8 @@ def extractrules(urlraw):
 # -- {rulename} -- #
 # {deco} #
 #
-# Last changes: {TODAY}.
+# Last changes made by justcode:
+# {TODAY}
 #
 # This rules come from the project gitignore.io. See :
 # https://github.com/toptal/gitignore.io
@@ -205,7 +203,6 @@ def extractrules(urlraw):
         mode     = 'w',
     ) as f:
         project_rules = f.write(web_content)
-
 
 
 # --------------- #

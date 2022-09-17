@@ -9,6 +9,72 @@
 
 
 
+from mistool.os_use import PPath as Path
+
+
+# --------------- #
+# -- CONSTANTS -- #
+# --------------- #
+
+THIS_FILE = Path(__file__)
+
+PROJECT_DIR = Path(THIS_FILE).parent
+
+while(PROJECT_DIR.name != 'justcode'):
+   PROJECT_DIR = PROJECT_DIR.parent
+
+
+GITIGNORE_DIR       = PROJECT_DIR / 'src' / 'config' / 'gitignore'
+GITIGNORE_DATAS_DIR = GITIGNORE_DIR / 'datas'
+
+CONTRIBUTE_DIR       = PROJECT_DIR / 'contribute' / 'api' / 'gitignore'
+CONTRIBUTE_DATAS_DIR = CONTRIBUTE_DIR / 'datas'
+
+
+TAB_1 = ' '*4
+TAB_2 = TAB_1*2
+TAB_3 = TAB_1*3
+
+
+# ----------- #
+# -- TOOLS -- #
+# ----------- #
+
+
+
+# --------------- #
+# -- LET'S GO! -- #
+# --------------- #
+
+# ! -- DEBUGGING -- ! #
+# Clear the terminal.
+print("\033c", end = "")
+# ! -- DEBUGGING -- ! #
+
+
+# ------------------------------- #
+# -- LOOKING FOR CONTRIBUTIONS -- #
+# ------------------------------- #
+
+print(f"{TAB_1}* GITIGNORE rules - Looking for contributions.")
+
+code = []
+
+allpaths = [p for p in CONTRIBUTE_DATAS_DIR.walk("file::**.txt")]
+allpaths.sort()
+
+for p in allpaths:
+    rules_filename_withext = p.name
+    rules_filename         = p.stem
+
+    print(f"{TAB_2}+ Checking ``{rules_filename_withext}``.")
+
+    if (GITIGNORE_DATAS_DIR / rules_filename_withext).is_file():
+        print(f"{TAB_3}- The file already exists in the API.")
+
+    rules_filename = p.stem
+
+
 exit()
 
 license_found   = set()
