@@ -3,9 +3,9 @@
 # -------- #
 #
 # Last changes made by justcode:
-# 2022-09-16
+# 2022-09-17
 #
-# This rules come from the project gitignore.io. See :
+# The following rules come from the project gitignore.io. See :
 # https://github.com/toptal/gitignore.io
 
 # If you prefer the allow list template instead of the deny list, see community template:

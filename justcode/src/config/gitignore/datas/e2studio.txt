@@ -3,9 +3,9 @@
 # -------------- #
 #
 # Last changes made by justcode:
-# 2022-09-16
+# 2022-09-17
 #
-# This rules come from the project gitignore.io. See :
+# The following rules come from the project gitignore.io. See :
 # https://github.com/toptal/gitignore.io
 
 # Modified gitignore for Renesas E2Studio (Built on eclipse): maintain all data needed by eclipse to setting up a workspace.

@@ -192,7 +192,7 @@ def extractrules(urlraw):
 # Last changes made by justcode:
 # {TODAY}
 #
-# This rules come from the project gitignore.io. See :
+# The following rules come from the project gitignore.io. See :
 # https://github.com/toptal/gitignore.io
 
 {web_content}
