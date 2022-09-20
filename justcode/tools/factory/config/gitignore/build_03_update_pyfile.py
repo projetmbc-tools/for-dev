@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-
-from datetime            import date
+from datetime import date
 
 from mistool.os_use import PPath as Path
 

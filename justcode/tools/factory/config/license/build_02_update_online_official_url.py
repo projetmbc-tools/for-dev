@@ -2,7 +2,6 @@
 
 from json import load, dumps
 import           re
-from turtle import RawTurtle
 
 from mistool.os_use import PPath as Path
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-from concurrent.futures  import ThreadPoolExecutor
-from datetime            import date
-from requests            import (
+from concurrent.futures import ThreadPoolExecutor
+from datetime           import date
+from requests           import (
     ConnectionError,
     get as getwebcontent
 )

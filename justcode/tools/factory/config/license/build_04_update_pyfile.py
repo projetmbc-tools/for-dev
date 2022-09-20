@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from json        import load
+from json import load
 
 from mistool.os_use import PPath as Path
 
