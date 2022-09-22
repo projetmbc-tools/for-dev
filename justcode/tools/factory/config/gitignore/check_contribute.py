@@ -11,6 +11,8 @@
 from mistool.os_use import PPath as Path
 from orpyste.data import ReadBlock
 
+from core.extract import *
+
 
 # --------------- #
 # -- CONSTANTS -- #
@@ -32,14 +34,16 @@ GIT_CONTRIB_DATAS_DIR = GIT_CONTRIB_DIR / 'datas'
 
 ALL_STATUS_TAGS = [
 # New rules.
-    STATUS_TAG_NEW      := "new",
-# No new rules, but maybe comments changed :
-# see the value of the ``about-RULES-NAME`` key.
-    STATUS_TAG_IN_API   := "inapi",
-# Well named tags : this value are only changed
+    STATUS_TAG_NEW         := "new",
+# No new rule, but the formatting is different.
+    STATUS_TAG_SAME_IN_API := "same-in-api",
+# The file is already in the API (same rules and
+# formatting).
+    STATUS_TAG_IN_API      := "in-api",
+# Well named tags : this values are only changed
 # by the author of the project.
-    STATUS_TAG_REJECTED := "rejected",
-    STATUS_TAG_ACCEPTED := "accepted",
+    STATUS_TAG_REJECTED    := "rejected",
+    STATUS_TAG_ACCEPTED    := "accepted",
 ]
 
 
@@ -69,10 +73,16 @@ TAB_3 = TAB_1*3
 # ----------- #
 
 def compare2api(contribpath, apipath):
-    print(f"{TAB_3}- The file already exists in the API.")
+    contrib_content = getcontent(contribpath)
+    api_content     = getcontent(apipath)
 
-    print(f"{contribpath = }")
-    print(f"{apipath     = }")
+    if contrib_content == api_content:
+        return STATUS_TAG_IN_API
+
+    if rulesfrom(contrib_content) == rulesfrom(api_content):
+        return STATUS_TAG_SAME_IN_API
+
+    return STATUS_TAG_NEW
 
 
 # --------------- #
@@ -101,12 +111,11 @@ allpaths = [p for p in GIT_CONTRIB_DATAS_DIR.walk("file::**.txt")]
 allpaths.sort()
 
 for p in allpaths:
-    rules_filename_noext = p.name
-    rules_filename       = p.stem
+    print(f"{TAB_2}+ Checking ``{p.stem}``.")
 
-    print(f"{TAB_2}+ Checking ``{rules_filename_noext}``.")
+    if (apipath := GIT_SRC_DATAS_DIR / p.name).is_file():
+        print(f"{TAB_3}- The file already exists in the API.")
 
-    if (apipath := GIT_SRC_DATAS_DIR / rules_filename_noext).is_file():
         status = compare2api(
             contribpath = p,
             apipath     = apipath,
@@ -114,3 +123,10 @@ for p in allpaths:
 
     else:
         status = STATUS_TAG_NEW
+
+
+    if status == STATUS_TAG_NEW:
+        print(f"{TAB_3}- New rules found.")
+
+    elif status == STATUS_TAG_SAME_IN_API:
+        print(f"{TAB_3}- Similar rules in the API.")
