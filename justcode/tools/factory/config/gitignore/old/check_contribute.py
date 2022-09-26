@@ -63,6 +63,29 @@ else:
     LAST_STATUS_INFOS = dict()
 
 
+API_CONTENTS = dict()
+API_RULES    = dict()
+
+for apipath in GIT_SRC_DATAS_DIR.walk("file::**.txt"):
+    name = apipath.stem
+
+
+    content = getcontent(apipath)
+
+    assert not content in API_CONTENTS, \
+           f"same content for ``{name}`` and ``{API_CONTENTS[content]}``."
+
+    API_CONTENTS[content] = name
+
+
+    repr_rules = repr(rulesfrom(content))
+
+    assert not repr_rules in API_RULES, \
+           f"similar contents for ``{name}`` and ``{API_RULES[repr_rules]}``."
+
+    API_RULES[repr_rules] = name
+
+
 TAB_1 = ' '*4
 TAB_2 = TAB_1*2
 TAB_3 = TAB_1*3
@@ -72,14 +95,15 @@ TAB_3 = TAB_1*3
 # -- TOOLS -- #
 # ----------- #
 
-def compare2api(contribpath, apipath):
+def compare2api(contribpath):
     contrib_content = getcontent(contribpath)
-    api_content     = getcontent(apipath)
 
-    if contrib_content == api_content:
+    if contrib_content in API_CONTENTS:
         return STATUS_TAG_IN_API
 
-    if rulesfrom(contrib_content) == rulesfrom(api_content):
+    repr_rules = repr(rulesfrom(contrib_content))
+
+    if repr_rules in API_RULES:
         return STATUS_TAG_SAME_IN_API
 
     return STATUS_TAG_NEW
@@ -113,20 +137,12 @@ allpaths.sort()
 for p in allpaths:
     print(f"{TAB_2}+ Checking ``{p.stem}``.")
 
-    if (apipath := GIT_SRC_DATAS_DIR / p.name).is_file():
-        print(f"{TAB_3}- The file already exists in the API.")
-
-        status = compare2api(
-            contribpath = p,
-            apipath     = apipath,
-        )
-
-    else:
-        status = STATUS_TAG_NEW
-
+    status = compare2api(p)
 
     if status == STATUS_TAG_NEW:
         print(f"{TAB_3}- New rules found.")
 
     elif status == STATUS_TAG_SAME_IN_API:
-        print(f"{TAB_3}- Similar rules in the API.")
+        api_name = API_RULES[repr(rulesfrom(getcontent(p)))]
+
+        print(f"{TAB_3}- Similar rules in the API : see ``{api_name}`` .")

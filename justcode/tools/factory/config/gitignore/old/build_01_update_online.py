@@ -11,8 +11,6 @@ from bs4 import BeautifulSoup
 
 from mistool.os_use import PPath as Path
 
-from core.extract import rulesfrom
-
 
 # --------------- #
 # -- CONSTANTS -- #
@@ -76,6 +74,22 @@ def allurls():
             urls.append(f"{GITHUB_RAW_BASE_URL}/{rule}.gitignore")
 
     return urls
+
+
+def rulesfrom(content: str) -> set:
+    rules = set()
+
+    for line in content.splitlines():
+        if(
+            not line
+            or
+            line[0] in ['#']
+        ):
+            continue
+
+        rules.add(line)
+
+    return rules
 
 
 def extractrules(urlraw):

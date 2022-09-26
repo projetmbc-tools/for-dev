@@ -33,7 +33,7 @@ One fixture added to build and use path::``PEUF`` files very easily.
 -------
 
 [[:api:]]
-``orpystedatas.build_datas`` has been removed (it was wrong and is unuseful for the moment).
+``orpystedatas.build_datas`` has been removed (it was wrong, and it is unuseful for the moment).
 
 
 // ---------- //
@@ -58,4 +58,7 @@ A very stupid bug fixed in path::``orpystedata.py``.
 13  (0.0.7-beta)
 ==
 
-This project is a "Common Box of Dev Tools" proposing small scripts that can be helpful. **The strange first number version comes from a rigid behavior of ¨pypi.**
+This project is a "Common Box of Dev Tools" proposing small scripts that can be helpful.
+
+info::
+    The strange first number version comes from a rigid behavior of ¨pypi.

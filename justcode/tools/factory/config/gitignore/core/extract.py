@@ -1,16 +1,6 @@
 #!/usr/bin/env python3
 
-from concurrent.futures import ThreadPoolExecutor
-from datetime           import date
-from requests           import (
-    ConnectionError,
-    get as getwebcontent
-)
-
-from bs4 import BeautifulSoup
-
 from mistool.os_use import PPath as Path
-
 
 
 # ----------- #
