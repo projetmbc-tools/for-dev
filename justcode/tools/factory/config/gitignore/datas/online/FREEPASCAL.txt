@@ -1,0 +1,22 @@
+# ---------------- #
+# -- FreePascal -- #
+# ---------------- #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+*.lps
+*.compiled
+*.[oa]
+*.ppu
+*.rst
+*.cgi
+*.exe
+*.log
+*.bak*
+fp.ini
+fp.cfg
+fp.dsk

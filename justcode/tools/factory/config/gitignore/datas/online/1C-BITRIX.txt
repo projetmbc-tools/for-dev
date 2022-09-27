@@ -1,0 +1,34 @@
+# --------------- #
+# -- 1C-Bitrix -- #
+# --------------- #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# core
+/bitrix/
+
+# uploaded files
+/upload/
+
+# other files
+test.php
+*.zip
+*.gzip
+*.gz
+*.tgz
+*.tar
+*.gz.[0-9]
+*.sql
+*.log
+*.mp3
+*.exe
+*.db
+*.csv
+*.xml
+*.psd
+*.[oa]
+*~

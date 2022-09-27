@@ -1,0 +1,24 @@
+# ----------- #
+# -- Clean -- #
+# ----------- #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# Binaries
+*.exe
+*.out
+
+# Project files
+*.prj
+
+# Directory used to store object files, abc files and assembly files
+Clean System Files/
+
+# iTasks environment extra data
+*-data/
+*-www/
+*-sapl/

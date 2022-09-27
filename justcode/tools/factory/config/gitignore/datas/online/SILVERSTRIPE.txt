@@ -1,0 +1,19 @@
+# ------------------ #
+# -- Silverstripe -- #
+# ------------------ #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+assets/_combinedfiles/
+assets/_resampled/
+assets/Uploads/
+silverstripe-cache/
+.env
+vendor/
+resources/
+themes/simple/
+public/resources/

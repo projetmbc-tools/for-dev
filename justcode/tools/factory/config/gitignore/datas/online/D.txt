@@ -1,0 +1,34 @@
+# ------- #
+# -- D -- #
+# ------- #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# Compiled Object files
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.a
+*.lib
+
+# Executables
+*.exe
+
+# DUB
+.dub
+docs.json
+__dummy.html
+docs/
+
+# Code coverage
+*.lst

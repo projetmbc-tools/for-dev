@@ -1,0 +1,17 @@
+# --------- #
+# -- ATS -- #
+# --------- #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# Compiled C Files
+*~
+*_?ats.c
+*_?ats.o
+
+# Compiled Javascript Files
+*_?ats.js

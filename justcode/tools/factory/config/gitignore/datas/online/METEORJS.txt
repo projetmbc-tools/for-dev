@@ -1,0 +1,21 @@
+# -------------- #
+# -- MeteorJS -- #
+# -------------- #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# default meteor build and local packages
+.meteor/local
+
+# meteor settings file
+settings.json
+
+# meteor build output files
+*.tar.gz
+
+# general swp files from vim
+*.swp

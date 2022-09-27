@@ -1,0 +1,26 @@
+# --------------- #
+# -- PureBasic -- #
+# --------------- #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# PureBasic
+
+# Settings files
+*.pb.cfg
+*.pbi.cfg
+project.cfg
+
+# Shared libraries
+*.so
+*.dylib
+*.dll
+
+# Binary executables
+*.exe
+*.app
+*.out

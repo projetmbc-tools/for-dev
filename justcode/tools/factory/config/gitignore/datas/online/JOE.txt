@@ -1,0 +1,14 @@
+# --------- #
+# -- Joe -- #
+# --------- #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# File backups
+*~
+# Gets created when joe crashes
+DEADJOE

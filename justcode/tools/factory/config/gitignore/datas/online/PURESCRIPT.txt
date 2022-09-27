@@ -1,0 +1,19 @@
+# ---------------- #
+# -- PureScript -- #
+# ---------------- #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# Dependencies
+.psci_modules
+.spago
+bower_components
+node_modules
+
+# Generated files
+.psci
+output

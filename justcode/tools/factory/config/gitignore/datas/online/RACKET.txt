@@ -1,0 +1,25 @@
+# ------------ #
+# -- Racket -- #
+# ------------ #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# gitignore template for the Racket language
+# website: http://www.racket-lang.org/
+
+# DrRacket autosave files
+*.rkt~
+*.rkt.bak
+\#*.rkt#
+\#*.rkt#*#
+
+# Compiled racket bytecode
+compiled/
+*.zo
+
+# Dependency tracking files
+*.dep

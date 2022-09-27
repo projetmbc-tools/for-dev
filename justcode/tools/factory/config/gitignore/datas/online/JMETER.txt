@@ -1,0 +1,21 @@
+# ------------ #
+# -- JMeter -- #
+# ------------ #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# JMeter common ignore files
+# http://jmeter.apache.org/
+
+# Ignore Summary/Aggregrate reports
+*.jtl
+
+# Ignore log files
+*.log
+
+# Ignore customized user.properties
+user.properties

@@ -1,0 +1,14 @@
+# ---------------- #
+# -- WerckerCLI -- #
+# ---------------- #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+_steps
+_builds
+_cache
+_projects

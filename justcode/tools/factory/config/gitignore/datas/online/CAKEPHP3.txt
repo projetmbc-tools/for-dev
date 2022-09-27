@@ -1,0 +1,17 @@
+# -------------- #
+# -- CakePHP3 -- #
+# -------------- #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# CakePHP 3
+
+/config/app.php
+/config/.env
+/logs/*
+/tmp/*
+/vendor/*

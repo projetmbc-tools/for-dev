@@ -1,0 +1,18 @@
+# ------------------ #
+# -- PHP-CS-Fixer -- #
+# ------------------ #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# Covers PHP CS Fixer
+# Reference: https://cs.symfony.com/
+
+# Generated files
+.php-cs-fixer.cache
+
+# Local config See: https://cs.symfony.com/doc/config.html
+.php-cs-fixer.php

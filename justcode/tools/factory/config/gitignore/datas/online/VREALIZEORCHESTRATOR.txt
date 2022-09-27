@@ -1,0 +1,34 @@
+# -------------------------- #
+# -- vRealizeOrchestrator -- #
+# -------------------------- #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# Default Resource Elements
+Resources/Library/*
+
+# Library Workflows
+Workflows/Library
+
+# Environment Specific variables
+Configurations/*
+
+# Multi-Node Workflows
+Workflows/VCO@*
+
+# All Packages
+**/Packages/
+
+# Test actions
+Actions/test/*
+
+# All packages, resources, configurations, policies and Workflows
+**/Packages/
+**/Resources/
+**/Configurations/
+**/Workflows/
+**/Policy Templates/

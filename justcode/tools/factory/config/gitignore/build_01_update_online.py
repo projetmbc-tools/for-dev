@@ -37,8 +37,7 @@ TODAY = date.today()
 
 
 THIS_FILE = Path(__file__)
-
-PROJECT_DIR = Path(THIS_FILE).parent
+THIS_DIR  = PROJECT_DIR = Path(THIS_FILE).parent
 
 while(PROJECT_DIR.name != 'justcode'):
    PROJECT_DIR = PROJECT_DIR.parent
@@ -46,8 +45,7 @@ while(PROJECT_DIR.name != 'justcode'):
 
 THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
 
-GITIGNORE_DIR       = PROJECT_DIR / 'src' / 'config' / 'gitignore'
-GITIGNORE_DATAS_DIR = GITIGNORE_DIR / 'datas'
+GITIGNORE_DATAS_PREBUILD_DIR = THIS_DIR / 'datas' / 'online'
 
 
 TAB_1 = ' '*4
@@ -86,7 +84,7 @@ def extractrules(urlraw):
     filename = rulename.upper()
 
     whichrules   = f"{TAB_2}+ ``{rulename}``"
-    project_file = GITIGNORE_DATAS_DIR / f"{filename}.txt"
+    project_file = GITIGNORE_DATAS_PREBUILD_DIR / f"{filename}.txt"
 
 # Rules in the project.
     if project_file.is_file():

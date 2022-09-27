@@ -1,0 +1,16 @@
+# ---------------- #
+# -- Terragrunt -- #
+# ---------------- #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# terragrunt cache directories
+**/.terragrunt-cache/*
+
+# Terragrunt debug output file (when using `--terragrunt-debug` option)
+# See: https://terragrunt.gruntwork.io/docs/reference/cli-options/#terragrunt-debug
+terragrunt-debug.tfvars.json

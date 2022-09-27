@@ -1,0 +1,28 @@
+# ----------- #
+# -- Plone -- #
+# ----------- #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+*.pyc
+*.pyo
+*.tmp*
+*.mo
+*.egg
+*.EGG
+*.egg-info
+*.EGG-INFO
+.*.cfg
+bin/
+build/
+develop-eggs/
+downloads/
+eggs/
+fake-eggs/
+parts/
+dist/
+var/

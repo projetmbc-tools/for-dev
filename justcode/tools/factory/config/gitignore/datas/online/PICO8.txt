@@ -1,0 +1,20 @@
+# ----------- #
+# -- pico8 -- #
+# ----------- #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# exported file types
+*.p8.png
+*.png
+*.wav
+*.js
+*.html
+*.bin
+
+# demos folder
+demos/

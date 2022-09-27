@@ -1,0 +1,17 @@
+# ----------- #
+# -- Idris -- #
+# ----------- #
+#
+# Last changes made by justcode:
+# 2022-09-26
+#
+# The following rules come from the project gitignore.io. See :
+# https://github.com/toptal/gitignore.io
+
+# Idris 2
+*.ttc
+*.ttm
+
+# Idris 1
+*.ibc
+*.o
