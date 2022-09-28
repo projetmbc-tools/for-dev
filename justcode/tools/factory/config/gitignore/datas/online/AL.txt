@@ -1,13 +1,3 @@
-# -------- #
-# -- AL -- #
-# -------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 #Template for AL projects for Dynamics 365 Business Central
 #launch.json folder
 .vscode/
@@ -19,3 +9,4 @@
 *.app
 #Translation Base-file
 *.g.xlf
+

@@ -1,13 +1,3 @@
-# ----------- #
-# -- Nanoc -- #
-# ----------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 # For projects using Nanoc (http://nanoc.ws/)
 
 # Default location for output (needs to match output_dir's value found in nanoc.yaml)

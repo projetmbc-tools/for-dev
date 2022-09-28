@@ -1,13 +1,3 @@
-# -------------- #
-# -- ThinkPHP -- #
-# -------------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 # gitignore template for ThinkPHP v3.2.3
 # website: http://www.thinkphp.cn/
 

@@ -1,13 +1,3 @@
-# ------------------ #
-# -- DataRecovery -- #
-# ------------------ #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 
 ### From https://en.wikipedia.org/wiki/List_of_archive_formats
 
@@ -17,3 +7,4 @@
 # File format used in conjunction with any archive format to provide redundancy and data recovery, most often in newsgroup distribution of binary files.
 *.par
 *.par2
+

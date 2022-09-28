@@ -1,13 +1,3 @@
-# ----------------- #
-# -- Compression -- #
-# ----------------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 
 ### From https://en.wikipedia.org/wiki/List_of_archive_formats
 
@@ -44,3 +34,4 @@
 *.infl
 # Compression format(s) used by some DOS and Windows install programs. MS-DOS includes expand.exe to decompress its install files. The compressed files are created with a matching compress.exe command. The compression algorithm is LZSS.
 *.??_
+

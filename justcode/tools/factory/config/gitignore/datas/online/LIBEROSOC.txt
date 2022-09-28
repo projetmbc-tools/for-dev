@@ -1,13 +1,3 @@
-# --------------- #
-# -- LiberoSOC -- #
-# --------------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 #Microsemi Libero SOC v11.5
 
 #ignore miscellaneous files in the following directories

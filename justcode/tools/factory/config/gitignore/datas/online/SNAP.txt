@@ -1,13 +1,3 @@
-# ---------- #
-# -- Snap -- #
-# ---------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 # gitginore template for creating Snap packages
 # website: https://snapcraft.io/
 

@@ -1,13 +1,3 @@
-# -------------------- #
-# -- KonyVisualizer -- #
-# -------------------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 # Below list few files not added to gitignore list to support Headless/CI build
 
 # Auto-generated javascript. It's important to note that jssrc at the project root

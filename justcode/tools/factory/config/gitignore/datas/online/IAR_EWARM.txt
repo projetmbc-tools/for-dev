@@ -1,13 +1,3 @@
-# --------------- #
-# -- IAR_EWARM -- #
-# --------------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 # gitignore template for the IAR EWARM
 # website: https://www.iar.com/knowledge/support/technical-notes/ide/which-files-should-be-version-controlled/
 

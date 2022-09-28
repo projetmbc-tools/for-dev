@@ -1,13 +1,3 @@
-# ------------ #
-# -- Vivado -- #
-# ------------ #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 #########################################################################################################
 ##	This is an example .gitignore file for Vivado, please treat it as an example as
 ##	it might not be complete. In addition, XAPP 1165 should be followed.

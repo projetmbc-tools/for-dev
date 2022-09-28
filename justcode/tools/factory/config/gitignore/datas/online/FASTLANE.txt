@@ -1,13 +1,3 @@
-# -------------- #
-# -- fastlane -- #
-# -------------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 # fastlane - A streamlined workflow tool for Cocoa deployment
 #
 # It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the

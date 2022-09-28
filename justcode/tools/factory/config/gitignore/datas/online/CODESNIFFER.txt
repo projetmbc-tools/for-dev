@@ -1,13 +1,3 @@
-# ----------------- #
-# -- CodeSniffer -- #
-# ----------------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 # gitignore for the PHP Codesniffer framework
 # website: https://github.com/squizlabs/PHP_CodeSniffer
 #

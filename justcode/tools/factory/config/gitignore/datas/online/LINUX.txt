@@ -1,13 +1,3 @@
-# ----------- #
-# -- Linux -- #
-# ----------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 *~
 
 # temporary files which can be created if a process still has a handle open of a deleted file

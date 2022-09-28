@@ -1,13 +1,3 @@
-# --------------- #
-# -- Genero4GL -- #
-# --------------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 # fglcomp compiled outputs
 # http://www.4js.com/online_documentation/fjs-fgl-manual-html/?path=fjs-fgl-manual#c_fgl_FileExtensions_001.html
 *.42m

@@ -1,13 +1,3 @@
-# --------------- #
-# -- Scrivener -- #
-# --------------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 */Files/binder.autosave
 */Files/binder.backup
 */Files/search.indexes

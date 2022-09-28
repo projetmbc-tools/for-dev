@@ -1,13 +1,3 @@
-# ---------- #
-# -- Keil -- #
-# ---------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 # something maybe need to add
 # *.bat  # generate batch file
 # output/project_name # uv project generate without file ext
@@ -60,3 +50,4 @@
 # project
 *.uvgui.*
 *.uvguix.*
+

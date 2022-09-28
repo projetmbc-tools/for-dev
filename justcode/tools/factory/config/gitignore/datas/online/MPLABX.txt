@@ -1,13 +1,3 @@
-# ------------ #
-# -- MPLabX -- #
-# ------------ #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 #Ignore List for Microchip's MPLAB X IDE
 #It's a form of NetBeans with vendor specific changes
 #Taken from zeha on GIST https://gist.github.com/zeha/5999375

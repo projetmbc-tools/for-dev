@@ -1,13 +1,3 @@
-# ---------- #
-# -- ROOT -- #
-# ---------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 # ROOT Home Page : https://root.cern.ch/
 # ROOT Used by Experimental Physicists, not necessarily HEP
 # ROOT based on C++
@@ -17,3 +7,5 @@
 *.pcm
 *.so
 *.d
+
+

@@ -1,13 +1,3 @@
-# ------------ #
-# -- Images -- #
-# ------------ #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 # JPEG
 *.jpg
 *.jpeg

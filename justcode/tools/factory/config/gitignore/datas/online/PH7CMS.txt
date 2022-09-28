@@ -1,13 +1,3 @@
-# ------------ #
-# -- pH7CMS -- #
-# ------------ #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 _test/*
 public/_repository/upgrade/*
 public/_install/_license-key.txt

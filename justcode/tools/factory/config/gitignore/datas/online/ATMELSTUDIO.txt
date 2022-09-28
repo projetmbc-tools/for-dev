@@ -1,13 +1,3 @@
-# ----------------- #
-# -- AtmelStudio -- #
-# ----------------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 ## Ignore Atmel Studio temporary files and build results
 # https://www.microchip.com/mplab/avr-support/atmel-studio-7
 

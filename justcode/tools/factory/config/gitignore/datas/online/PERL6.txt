@@ -1,13 +1,3 @@
-# ----------- #
-# -- Perl6 -- #
-# ----------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 # Gitignore for Perl 6 (http://www.perl6.org)
 # As part of https://github.com/github/gitignore
 

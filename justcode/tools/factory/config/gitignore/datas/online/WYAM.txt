@@ -1,13 +1,3 @@
-# ---------- #
-# -- Wyam -- #
-# ---------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 # Wyam Ignore - Based on https://wyam.io/docs/advanced/what_to_exclude_from_source_control
 output/*
 config.wyam.dll

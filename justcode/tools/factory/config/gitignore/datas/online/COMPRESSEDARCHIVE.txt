@@ -1,13 +1,3 @@
-# ----------------------- #
-# -- CompressedArchive -- #
-# ----------------------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 
 ### Mostly from https://en.wikipedia.org/wiki/List_of_archive_formats
 
@@ -143,3 +133,4 @@
 *.zpaq
 # Archiver with a compression algorithm based on the Burrows-Wheeler transform method.
 *.zz
+

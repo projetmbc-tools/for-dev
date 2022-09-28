@@ -1,13 +1,3 @@
-# ------------- #
-# -- CS-Cart -- #
-# ------------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 # CS-Cart and CS-Cart Multi-Vendor, a PHP-based CMS
 ## Maintainer https://simtechdev.com
 

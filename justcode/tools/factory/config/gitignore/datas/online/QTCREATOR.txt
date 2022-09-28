@@ -1,13 +1,3 @@
-# --------------- #
-# -- QtCreator -- #
-# --------------- #
-#
-# Last changes made by justcode:
-# 2022-09-26
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
 # gitignore for Qt Creator like IDE for pure C/C++ project without Qt
 #
 # Reference: http://doc.qt.io/qtcreator/creator-project-generic.html
@@ -38,3 +28,4 @@
 # Flags for Clang Code Model
 *.cxxflags
 *.cflags
+

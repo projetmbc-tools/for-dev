@@ -28,9 +28,26 @@ NB_WORKERS = 5
 GITIGNORE_IO_URL      = "https://www.gitignore.io"
 GITIGNORE_IO_BASE_URL = GITIGNORE_IO_URL + "/api/{urlparam}"
 
+EXT_PATCH = 'patch'
+EXT_STACK = 'stack'
+
+GITIGNORE_EXTS = [
+    f'.{e}'
+    for e in [
+        'gitignore',
+        EXT_PATCH,
+        EXT_STACK,
+    ]
+]
+
 GITHUB_URL           = "https://github.com"
 GITHUB_TEMPLATES_URL = f"{GITHUB_URL}/toptal/gitignore/tree/master/templates"
 GITHUB_RAW_BASE_URL  = "https://raw.githubusercontent.com/toptal/gitignore/master/templates"
+
+# ! -- DEBUGGING -- ! #
+# print(f"{GITHUB_TEMPLATES_URL = }")
+# exit()
+# ! -- DEBUGGING -- ! #
 
 
 TODAY = date.today()
@@ -45,7 +62,7 @@ while(PROJECT_DIR.name != 'justcode'):
 
 THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
 
-GITIGNORE_DATAS_PREBUILD_DIR = THIS_DIR / 'datas' / 'online'
+GITIGNORE_DATAS_ONLINE_DIR = THIS_DIR / 'datas' / 'online'
 
 
 TAB_1 = ' '*4
@@ -68,23 +85,32 @@ def allurls():
     for elt in bs.select('a'):
         href = elt['href']
 
-        if href.endswith('.gitignore'):
-            rule = Path(href).stem
+        for ext in GITIGNORE_EXTS:
+            if href.endswith(ext):
+                rule = Path(href).stem
 
-            urls.append(f"{GITHUB_RAW_BASE_URL}/{rule}.gitignore")
+                urls.append(f"{GITHUB_RAW_BASE_URL}/{rule}{ext}")
 
     return urls
 
 
 def extractrules(urlraw):
-# Some constants.
-    rulename = str(Path(urlraw).stem)
+    rulename = Path(urlraw)
+
+    rulekind = str(rulename.ext)
+
+    rulename = str(rulename.stem)
     rulename = rulename.replace("%2B", "+")
 
     filename = rulename.upper()
 
+# Special rules to ignore.
+    if rulekind in [EXT_PATCH, EXT_STACK]:
+        filename = f'{filename}.{rulekind}'
+
+# Rules to keep.
     whichrules   = f"{TAB_2}+ ``{rulename}``"
-    project_file = GITIGNORE_DATAS_PREBUILD_DIR / f"{filename}.txt"
+    project_file = GITIGNORE_DATAS_ONLINE_DIR / f"{filename}.txt"
 
 # Rules in the project.
     if project_file.is_file():
@@ -166,22 +192,6 @@ def extractrules(urlraw):
         sep = "\n"
     )
 
-    deco = '-'*(2*3 + len(rulename))
-
-    web_content = f"""
-# {deco} #
-# -- {rulename} -- #
-# {deco} #
-#
-# Last changes made by justcode:
-# {TODAY}
-#
-# The following rules come from the project gitignore.io. See :
-# https://github.com/toptal/gitignore.io
-
-{web_content}
-    """.strip() + "\n"
-
     with project_file.open(
         encoding = 'utf-8',
         mode     = 'w',
@@ -219,6 +229,17 @@ if UPDATE_ONLINE:
     print(f"{TAB_1}* Looking for rules on ``github.com``.")
 
     urls = allurls()
+
+# ! -- DEBUGGING -- ! #
+    # nb = 0
+    # for u in urls:
+    #     print(u)
+    #     nb += 1
+
+    #     if nb % 10 == 0:
+    #         input('?')
+    # exit()
+# ! -- DEBUGGING -- ! #
 
     print(f"{TAB_1}* {len(urls)} rules found.")
 
