@@ -1,0 +1,15 @@
+﻿this::
+    date = 2022-09-28
+
+
+==================
+À propos de l'¨api
+==================
+
+L'option terminal::``--api`` permet d'obtenir, de façon interactive, des ¨infos sur une liste de ¨parms indiquant des noms de règles ¨gitignore, de ¨lics, ¨etou de squelettes proposés par ¨justcode.
+Ceci est très utile lorsque l'on fabrique des squelettes, ou bien que l'on veut en utiliser un.
+Vous êtes inivité à tester la commande terminal::``python -m justcode --api python cbdev gpl`` pour voir l'utilité de l'option terminal::``--api``.
+
+
+tip::
+    La commande terminal::``python -m justcode --api`` sans ¨param vous listera tout ce que propose l'¨api.

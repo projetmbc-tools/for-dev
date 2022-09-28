@@ -1,0 +1,9 @@
+﻿this::
+    date = 2022-09-28
+
+
+===========================================
+Valider un dossier vis à vis d'un squelette
+===========================================
+
+Il suffit de faire appel à l'option terminal::``--validate`` comme dans terminal::``python -m justcode --validate chemin/vers/le/projet`` par exemple.

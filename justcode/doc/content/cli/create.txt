@@ -1,0 +1,9 @@
+﻿this::
+    date = 2022-09-28
+
+
+==========================
+Créer un squelette initial
+==========================
+
+Il suffit de s'appuyer sur l'option terminal::``-m`` de ¨python en tapant terminal::``python -m justcode chemin/vers/le/projet`` où path::``chemin/vers/le/projet`` désigne le chemin vers le dossier à initier.

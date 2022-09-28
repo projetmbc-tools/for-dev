@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-14
+    date = 2022-09-28
 
 
 abrev::
@@ -12,13 +12,13 @@ Un monde avec d'autres licences est possible
 
 L'ajout d'une ¨nelle licence consiste à fournir deux fichiers nommés via le même ¨id
 ((
-    Partir de l'¨id officiel s'il existe, tout en le rendant compatible avec les règles de nommage indiquées dans l'avertissement.
+    Partir de l'¨id officiel s'il existe, tout en le rendant compatible avec les règles de nommage indiquées dans l'avertissement, si besoin.
 )),
 tout en majuscule, mais avec des extensions différentes (un exemple est donné juste après).
 
     1) Un fichier path::``PEUF`` sert à donner quelques métadonnées à propos de la licence.
 
-    1) Le texte complet de la licence est indiqué dans un fichier path::``TXT``.
+    1) Le texte intégral de la licence est indiqué dans un fichier path::``TXT``.
 
 
 warning::

@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-11
+    date = 2022-09-28
 
 
 abrev::
@@ -7,9 +7,9 @@ abrev::
     exachges    = ¨exatempl/changes
 
 
-=====================================
-Un ¨1er squelette - Le cas des ¨chgts
-=====================================
+===================================================
+Un ¨1er squelette avec une ¨lic - Le cas des ¨chgts
+===================================================
 
 Commençons par voir comment définir un squelette minimaliste, et paramétrable, pour le dossier des ¨chgts des projets ¨cvnum et ¨mathobj
 ((
@@ -31,7 +31,7 @@ Expliquons le contenu du squelette.
         path = ¨exachges/xtodox.txt
         ---
 
-    Le paramètre jinja::``project_name`` est un peu particulier car il est automatiquement associé au nom du dossier à initialiser.
+    Le ¨param jinja::``project_name`` est un peu particulier car il est automatiquement associé au nom du dossier à initialiser.
 
     1) L'absence du fichier path::``LICENSE.txt`` vient de ce que l'ajout d'une licence est indiqué dans le fichier path::``specs.peuf`` du dossier path::``__jscmeta__``
     ((
@@ -47,9 +47,9 @@ Expliquons le contenu du squelette.
     On constante la ¨def de deux ¨params qui vont être utilisés par le squelette. Rappelons que le jinja::``project_name`` est associé au nom du dossier à initialiser.
 
         * peuf::``author_name: str = ?`` utilise une syntaxe similaire à celle de ¨python pour indiquer que jinja::``author_name`` est une chaîne de caratères (¨justcode dispose de ses propres types de ¨params qui n'ont rien à voir, ou presque, avec ceux de ¨python).
-        Quant au point d'interrogation, il indique juste que ce paramètre devra être renseigné par l'utilisateur du squelette. Tout autre chaîne sera considérée comme étant une valeur par défaut, rendant ainsi un paramètre optionnel.
+        Quant au point d'interrogation, il indique juste que ce ¨param devra être renseigné par l'utilisateur du squelette. Tout autre chaîne sera considérée comme étant une valeur par défaut, rendant ainsi un ¨param optionnel.
 
-        * La declaration peuf::``license: lic = ?`` est similiare à la précédente si ce n'est qu'elle utilise le type peuf::``lic`` propre à ¨justcode pour la gestion des licences proposées par défaut.
+        * La declaration peuf::``license: lic = ?`` est similiare à la précédente si ce n'est qu'elle utilise le type peuf::``lic`` propre à ¨justcode pour la gestion des licences.
 
 
 Il reste à voir comment initier un projet à partir de notre squelette. Nous allons supposer que le chemin absolu du dossier définissant le squelette est path::``~/mes_squelettes/changes`` où path::``~`` est un raccourci pour le chemin du dossier de l'utilisateur principal. Pour initier le projet ¨cvnum, il faut suivre les étapes suivantes.
@@ -61,12 +61,14 @@ Il reste à voir comment initier un projet à partir de notre squelette. Nous al
         path = ¨currentstep/dirtree.txt
         ---
 
-    Le nom du projet, associé au * param jinja::``project_name``, est automatiquement celui du dossier, soit ici ``cvnum``.
-    Le fichier path::``params.peuf`` permet d'indiquer un ou plusieurs squelettes, ainsi que les paramètres attendus par chacun des squelettes employés. Dans notre cas, ce fichier admet le contenu suivant où l'on donne un squelette pour initier un sous-dossier de chemin path::``changes`` : voir peuf::``changes = ...`` dans le bloc peuf::``import::...``.
+    Le nom du projet, associé au ¨param jinja::``project_name``, est automatiquement celui du dossier, soit ici ``cvnum``.
+
+    Quant au fichier path::``params.peuf``, il permet d'indiquer un ou plusieurs squelettes, ainsi que les ¨params attendus par chacun des squelettes employés.
+    Dans notre cas, ce fichier admet le contenu suivant où l'on donne juste un squelette pour initier un sous-dossier de chemin path::``changes`` : voir peuf::``changes = ...`` dans le bloc peuf::``import::...``.
 
     peuf::
         ---
-        path = ¨currentstep/params-cvnum.peuf
+        path = ¨currentstep/params.peuf
         ---
 
     Noter que dans le bloc peuf::``changes::...`` est indiqué la licence "licence::``by nc sa 4.0``", une licence gérée par défaut par ¨justcode : voir cf::``?/api/licenses.txt``.
@@ -74,9 +76,14 @@ Il reste à voir comment initier un projet à partir de notre squelette. Nous al
     1) Pour finir, on lance ¨justcode en ligne de commandes avec pour unique argument le chemin de notre dossier path::``cvnum``. Voilà, c'est tout pour l'utilisation !
 
 
+info::
+    Se reporter à cf::``?/cli.txt`` pour le mode d'emploi détaillé de ¨justcode en ligne de commandes.
+
+
 Voici quelques précisions sur les chemins des dossiers initialisables via un squelette.
 
-    1) Les noms des dossiers où initier un squelette ne peuvent utiliser que des lettres latines non accentuéees, des chiffres, le point ``.``, le ¨_ ``_``, et le signe ``-``. Ne portez pas plainte, ceci ne changera jamais.
+    1) Les noms des dossiers où initier un squelette ne peuvent utiliser que des lettres latines non accentuéees, des chiffres, le point ``.``, le ¨_ ``_``, et le signe ``-``.
+    Ne portez pas plainte, ceci ne changera jamais.
 
     1) Il est interdit d'utiliser les noms des blocs spéciaux du mini-langage des fichiers path::``params.peuf``, mais cette limitation est facilement contournable : par exemple, pour initier un squelette dans un dossier path::``import``, il suffit d'indiquer et utiliser le chemin peuf::``./import``.
 

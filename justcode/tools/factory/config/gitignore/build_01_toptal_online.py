@@ -40,8 +40,8 @@ GITIGNORE_EXTS = [
     ]
 ]
 
-GITHUB_URL           = "https://github.com"
-GITHUB_TEMPLATES_URL = f"{GITHUB_URL}/toptal/gitignore/tree/master/templates"
+GITHUB_TOPTAL_URL    = "https://github.com/toptal/gitignore"
+GITHUB_TEMPLATES_URL = f"{GITHUB_TOPTAL_URL}/tree/master/templates"
 GITHUB_RAW_BASE_URL  = "https://raw.githubusercontent.com/toptal/gitignore/master/templates"
 
 # ! -- DEBUGGING -- ! #
@@ -127,7 +127,7 @@ def extractrules(urlraw):
     resp = getwebcontent(urlraw)
 
     if resp.status_code != 200:
-        raise Exception('AIE !')
+        raise Exception(f'AIE ! See `` {urlraw} ``.')
 
     web_content = resp.text
     web_rules   = rulesfrom(web_content)
@@ -226,7 +226,7 @@ except ConnectionError:
 # ----------------------------------- #
 
 if UPDATE_ONLINE:
-    print(f"{TAB_1}* Looking for rules on ``github.com``.")
+    print(f"{TAB_1}* Looking for rules on ``{GITHUB_TOPTAL_URL}``.")
 
     urls = allurls()
 

@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-12
+    date = 2022-09-28
 
 
 abrev::
@@ -7,9 +7,9 @@ abrev::
     examono     = ¨exatempl/monorepo
 
 
-=======================================
-Un squelette composé de sous-squelettes
-=======================================
+======================================================================
+Un squelette avec des règles ¨gitignore, et composé de sous-squelettes
+======================================================================
 
 L'agrégation de plusieurs squelettes pour en former un nouveau est maintenant très simple à comprendre. Imaginons que la structure suivante de type dépôt "unique" soit souvent utilisée.
 
@@ -19,7 +19,7 @@ dirtree::
     ---
 
 
-Il est alors utile de créer, puis d'utiliser un squelette que nous nommerons path::``monorepo`` à l'aide de squelettes existants.
+Il est alors utile de créer, puis d'utiliser, un squelette que nous nommerons path::``monorepo`` à l'aide de squelettes existants.
 Voici les étapes à suivre.
 
     1) On crée le dossier suivant supposé stocké à l'emplacement path::``~/mes_squelettes/monorepo``.
@@ -29,14 +29,14 @@ Voici les étapes à suivre.
         path = ¨examono/dirtree.txt
         ---
 
-    1) L'importation de squelettes pour notre nouveau squelette se fait très simplement dans le fichier path::``specs.peuf`` comme suit (on pourrait utiliser des réglages par défaut de certains ¨params en utilisant si besoin le bloc path::``main::...``).
+    1) L'importation de squelettes pour notre nouveau squelette se fait très simplement dans le fichier path::``specs.peuf`` comme suit.
 
     peuf::
         ---
         path = ¨examono/specs.peuf
         ---
 
-    1) On crée le dossier minimal suivant avant de lancer l'initialisation.
+    1) On crée le dossier minimaliste suivant avant de lancer l'initialisation.
 
     dirtree::
         ---
@@ -49,19 +49,24 @@ Voici les étapes à suivre.
         Des règles ¨gitignore ne sont applicables que sur tout un projet, et non sur des sous-dossiers.
         Ceci explique l'usage du bloc peuf::``main::...`` pour l'ajout de telles règles.
     )),
-    on en reparle juste après.
+    on en reparle tout de suite après.
 
     peuf::
         ---
         path = ¨currentstep/params.peuf
         ---
 
-    Les règles ¨gitignore disponibles directement sont celles proposées par cf::``https://www.gitignore.io`` : ici ce sont les règles ``python`` et ``osx`` qui sont employées (les noms sont tous en minuscules).
-    De plus, il est possible d'ajouter des règles "maison" en indiquant un fichier, ou plus : ici, on indique le fichier path::``~/mes_gitignores/reglesmaison.txt``.
-    Au final, toutes les règles sont mises dans un unique fichier path::``.gitignore`` en respectant l'ordre de déclaration : ici, les règles ¨python seront suivies de celles propres à ¨macos, puis de celles "maison".
+    Les règles ¨gitignore à ajouter s'indiquent de la façon suivante.
+
+        * Il faut donner un ou des ¨enss de règles via peuf::``gitignore = ...``.
+        Les différents ¨enss sont séparés par des points-virgules.
+
+        * Un ¨ens de règles peut soit être l'un de ceux proposés par ¨justcode comme c'est le cas pour peuf::``python`` et peuf::``osx`` ci-dessus, soit directement fourni via un fichier comme path::``~/mes_gitignores/reglesmaison.txt`` dans notre exemple (ceci permet l'emploi de règles "maison").
+
+        * Au final, toutes les règles sont mises dans un unique fichier path::``.gitignore`` en étant réorganiser de façon la plus optimale possible par ¨justcode.
 
     1) Il ne reste plus qu'à lancer la génération comme cela a été expliqué à la fin de cf::``steps/1-single[CHANGES].txt``.
 
 
 note::
-    Rappelons la possibilité de définir des ¨params globalement pour éviter certaines redondances : voir la section cf::``?/goingfurther/global.txt``.
+    Il est bien entendu possible de définir des ¨params globalement pour éviter certaines redondances : voir la section cf::``?/goingfurther/global.txt`` (tout se passe dans le bloc peuf::``main::...`` très simplement).

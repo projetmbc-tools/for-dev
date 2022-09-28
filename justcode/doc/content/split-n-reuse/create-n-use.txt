@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-11
+    date = 2022-09-28
 
 
 abrev::
@@ -17,7 +17,7 @@ note::
 
 info::
     Dans cf::``?/api.txt`` sont présentés des squelettes fournis directement par ¨justcode, ainsi que les licences supportées nativement, et des règles ¨gitignore prêtes à l'emploi. Ne réinventez donc par la roue.
-    Si besoin, vous pouvez même contribuer en proposant de nouveaux squelettes : voir cf::``?/contribute/templates.txt``. Toute bonne volonté est bienvenue !
+    Si besoin, vous pouvez même contribuer de différentes façons : voir cf::``?/contribute.txt``. Toute bonne volonté est bienvenue !
 
 
 content::

@@ -1,0 +1,9 @@
+﻿this::
+    date = 2022-09-28
+
+
+=============
+Aide générale
+=============
+
+Le classique terminal::``--help`` est bien entendu disponible : terminal::``python -m justcode --help`` affichera un mode d'emploi en anglais.

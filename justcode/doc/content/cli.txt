@@ -1,0 +1,14 @@
+﻿abrev::
+    content = /cli
+
+
+===============================
+¨justcode en ligne de commandes
+===============================
+
+content::
+    ¨content/create.txt
+    ¨content/validate.txt
+    ¨content/update.txt
+    ¨content/api.txt
+    ¨content/help.txt
