@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-13
+    date = 2022-09-29
 
 
 =====================================
@@ -8,6 +8,14 @@ Liste complète des valideurs spéciaux
 
 // AUTO - LIST OF SPECIAL VALIDATORS - START
 
-    * python::``Type.str`` associé au type peuf::``str`` attend un argument de type chaîne de caracères, et le vide des espaces inutiles en début et en fin de chaînes de caractères.
+    * python::``Type.str`` associé au type peuf::``str`` attend un argument de type chaîne de caractères, et le vide des espaces inutiles en début et en fin de chaînes de caractères.
+
+    * python::``Type.lic`` associé au type peuf::``lic`` attend un argument pouvant être de trpis types différents.
+
+        1) peuf::``no`` indique de ne pas utiliser de licence si cela est proposé par un squelette.
+
+        1) Une chaîne de caractères indiquant le nom d'une licence proposée par l'¨api.
+
+        1) Dans les cas restants, la valeur sera interprtée comme un chemin vers un fichier contenant le texte intégral d'une licence "maison".
 
 // AUTO - LIST OF SPECIAL VALIDATORS - END

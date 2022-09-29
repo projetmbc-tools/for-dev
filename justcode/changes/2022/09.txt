@@ -9,7 +9,7 @@
 :new:
 -----
 
-[[:doc:]]    ?????
+[[:doc:]]
 ¨cli: the way to work with ¨justcode in a terminal has been documented.
 
 

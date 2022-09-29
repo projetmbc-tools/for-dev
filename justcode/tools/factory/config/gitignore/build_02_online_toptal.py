@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from concurrent.futures import ThreadPoolExecutor
-from datetime           import date
 from requests           import (
     ConnectionError,
     get as getwebcontent
@@ -48,9 +47,6 @@ GITHUB_RAW_BASE_URL  = "https://raw.githubusercontent.com/toptal/gitignore/maste
 # print(f"{GITHUB_TEMPLATES_URL = }")
 # exit()
 # ! -- DEBUGGING -- ! #
-
-
-TODAY = date.today()
 
 
 THIS_FILE = Path(__file__)
@@ -106,7 +102,7 @@ def extractrules(urlraw):
 
 # Special rules to ignore.
     if rulekind in [EXT_PATCH, EXT_STACK]:
-        filename = f'{filename}.{rulekind}'
+        filename += f'.{rulekind}'
 
 # Rules to keep.
     whichrules   = f"{TAB_2}+ ``{rulename}``"
@@ -127,7 +123,7 @@ def extractrules(urlraw):
     resp = getwebcontent(urlraw)
 
     if resp.status_code != 200:
-        raise Exception(f'AIE ! See `` {urlraw} ``.')
+        raise Exception(f'DAMN! See `` {urlraw} ``.')
 
     web_content = resp.text
     web_rules   = rulesfrom(web_content)
