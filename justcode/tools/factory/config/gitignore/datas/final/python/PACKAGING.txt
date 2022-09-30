@@ -1,0 +1,35 @@
+###
+# this::
+#     author = Christophe, BAL [projetmbc@gmail.com]
+#     desc   = Specific rules for packaging projects.
+#
+#
+# info::
+#     This rules have been made after analyzing the similar ones given
+#     by the project ¨gitignoreio.
+###
+
+#
+MANIFEST.in
+
+#
+build/
+dist/
+sdist/
+
+#
+develop-eggs/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+
+#
+wheels/
+share/python-wheels/
+
+#
+poetry.lock
+
+# pdm
+.pdm.toml

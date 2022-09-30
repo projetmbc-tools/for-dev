@@ -1,8 +1,8 @@
 ###
 # this::
 #     author = Christophe, BAL [projetmbc@gmail.com]
-#     desc   = Specific rules for ``SageMath``,
-#              see https://www.sagemath.org.
+#     desc   = Specific rules for ``Scrapy``,
+#              see https://github.com/scrapy/scrapy.
 #
 #
 # info::
@@ -11,4 +11,4 @@
 ###
 
 #
-*.sage.py
+.scrapy

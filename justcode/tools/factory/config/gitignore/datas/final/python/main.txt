@@ -11,4 +11,7 @@
 
 # Byte-compiled
 __pycache__/
-*.py[cod]
+*.py[co]
+
+# Cython debug
+cython_debug/

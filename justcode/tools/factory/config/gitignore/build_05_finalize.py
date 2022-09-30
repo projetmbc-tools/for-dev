@@ -49,6 +49,9 @@ diffrules_online = []
 for p in FINAL_DIR.glob('*'):
     name = p.name
 
+    if name == '.DS_Store':
+        continue
+
     resume = {}
 
 
@@ -65,10 +68,16 @@ for p in FINAL_DIR.glob('*'):
     if onlinefile.is_file():
         onlinerules = usefulrulesfrom(onlinefile)
 
+    else:
+        onlinerules = set()
 
-    ignorefile = (FINAL_DIR / name / "0-ignore-0.txt")
 
-    if ignorefile.is_file():
+    ignorefile = FINAL_DIR / name / "0-ignore-0.txt"
+
+    if not ignorefile.is_file():
+        toignore = set()
+
+    else:
         toignore = ignorefile.read_text(
             encoding = 'utf-8'
         )
@@ -83,8 +92,6 @@ for p in FINAL_DIR.glob('*'):
             )
         ])
 
-    else:
-        toignore = set()
 
     onlinerules -= toignore
     apirules    -= toignore

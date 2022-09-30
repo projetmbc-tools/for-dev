@@ -1,8 +1,8 @@
 ###
 # this::
 #     author = Christophe, BAL [projetmbc@gmail.com]
-#     desc   = Specific rules for ``SageMath``,
-#              see https://www.sagemath.org.
+#     desc   = Specific rules for ``Jupyter``,
+#              see https://github.com/jupyter.
 #
 #
 # info::
@@ -10,5 +10,9 @@
 #     by the project ¨gitignoreio.
 ###
 
-#
-*.sage.py
+# Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py

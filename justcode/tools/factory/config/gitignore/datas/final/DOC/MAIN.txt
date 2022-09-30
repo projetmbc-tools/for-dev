@@ -1,8 +1,7 @@
 ###
 # this::
 #     author = Christophe, BAL [projetmbc@gmail.com]
-#     desc   = Specific rules for ``SageMath``,
-#              see https://www.sagemath.org.
+#     desc   = Main rules for standard gettext projects.
 #
 #
 # info::
@@ -11,4 +10,3 @@
 ###
 
 #
-*.sage.py
