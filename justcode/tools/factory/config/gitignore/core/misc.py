@@ -13,3 +13,12 @@ def build_kindname(kind: str, name: str) -> str:
 
 def extract_kindname(kindname: str) -> Tuple[str, str]:
     return kindname.split('/')
+
+
+# -------------------------- #
+# -- "BY HAND" MANAGEMENT -- #
+# -------------------------- #
+
+def keep_thisrules(kindname: str) -> bool:
+
+    return False

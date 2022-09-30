@@ -1,4 +1,0 @@
-*.py[co]
-.tox
-data/*
-devdata.db

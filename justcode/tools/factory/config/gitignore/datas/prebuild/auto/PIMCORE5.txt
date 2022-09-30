@@ -1,7 +1,0 @@
-!/var/SymfonyRequirements.php
-!/var/cache/.gitkeep
-!/var/classes
-!/var/config/
-!/var/logs/.gitkeep
-!/var/sessions/.gitkeep
-/web/var/

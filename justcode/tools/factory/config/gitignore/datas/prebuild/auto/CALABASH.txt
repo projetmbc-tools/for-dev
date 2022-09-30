@@ -1,5 +1,0 @@
-.bundle
-rerun/
-screenshot*.png
-screenshots/
-test-servers/

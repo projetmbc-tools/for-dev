@@ -1,4 +1,0 @@
-*.csproj
-*.unityproj
-*.mdb
-*.svd

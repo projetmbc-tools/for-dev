@@ -1,3 +1,0 @@
-!apex-scripts/*.cls
-apex-scripts/*
-config/*

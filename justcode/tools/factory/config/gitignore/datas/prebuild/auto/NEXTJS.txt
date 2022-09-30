@@ -1,4 +1,0 @@
-.pnp.js
-/.next/
-/.pnp
-/coverage

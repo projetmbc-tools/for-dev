@@ -1,7 +1,0 @@
-/bootstrap/data
-/bootstrap/tmp
-/exploded-archives/
-/test-build/
-/test-output/
-/test-report/
-temp-testng-customsuite.xml

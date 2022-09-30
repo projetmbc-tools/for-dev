@@ -1,5 +1,0 @@
-!/bin/data/
-*.mode*
-*.perspective
-.csettings
-[Bb]uild/

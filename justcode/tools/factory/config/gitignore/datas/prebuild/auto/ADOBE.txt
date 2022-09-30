@@ -1,4 +1,0 @@
-*.aep
-*.ai
-*.indd
-*.prproj

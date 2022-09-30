@@ -1,8 +1,0 @@
-*.pp
-*.uniflashsession
-.config/
-.launches/
-.xdchelp
-Flash/
-RAM/
-makefile

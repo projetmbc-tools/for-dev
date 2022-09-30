@@ -1,6 +1,0 @@
-*.lrs
-*.lrt
-*.or
-*.res
-*.rsj
-backup/

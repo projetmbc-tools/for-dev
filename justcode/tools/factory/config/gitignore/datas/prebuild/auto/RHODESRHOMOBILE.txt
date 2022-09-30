@@ -1,7 +1,0 @@
-bin/*.ap_
-bin/RhoBundle
-bin/libs
-bin/target
-bin/tmp
-rholog-*
-sim-*

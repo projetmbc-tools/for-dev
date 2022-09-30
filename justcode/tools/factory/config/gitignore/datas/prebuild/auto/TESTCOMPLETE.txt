@@ -1,3 +1,0 @@
-*.tcCFGExtender
-*.tcLS
-*.tcLogs

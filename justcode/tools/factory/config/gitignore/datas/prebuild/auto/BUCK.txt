@@ -1,5 +1,0 @@
-.buckconfig.local
-.buckd/
-.buckversion
-.fakebuckversion
-buck-out/

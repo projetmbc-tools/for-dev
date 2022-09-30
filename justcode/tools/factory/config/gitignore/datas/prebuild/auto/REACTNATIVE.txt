@@ -1,2 +1,0 @@
-.expo
-__generated__

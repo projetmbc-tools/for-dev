@@ -1,3 +1,0 @@
-*.dll # extensions
-*.smx # plugins
-*.so # extensions

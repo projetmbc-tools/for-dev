@@ -1,4 +1,0 @@
-.scannerwork/
-.sonar/
-.sonarlint/
-.sonarqube/

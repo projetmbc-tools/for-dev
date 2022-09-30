@@ -1,8 +1,0 @@
-**/*.mflow
-.mule/
-.studio/
-bin/**
-catalog/
-flows/
-tmp/**
-tmp/**/*

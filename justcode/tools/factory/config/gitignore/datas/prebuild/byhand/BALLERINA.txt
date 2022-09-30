@@ -1,5 +1,0 @@
-target
-!gradle-wrapper.jar
-.gradletasknamecache
-gradle-app.setting
-velocity.log

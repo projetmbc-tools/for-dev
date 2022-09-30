@@ -1,4 +1,0 @@
-*.pem
-/build
-/node_modules
-.vercel

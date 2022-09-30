@@ -1,3 +1,0 @@
-*.lvcompile
-*.lvindexcache
-Builds/

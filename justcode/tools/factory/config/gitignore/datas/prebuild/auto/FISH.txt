@@ -1,4 +1,0 @@
-config.local.fish
-fish_history
-fish_variables
-fishd.*

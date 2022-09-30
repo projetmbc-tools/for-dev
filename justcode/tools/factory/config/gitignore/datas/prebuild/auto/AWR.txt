@@ -1,5 +1,0 @@
-*.dsf
-*.dsf.ext
-*.dsf.ext*
-*.emi
-*.stderr.txt

@@ -1,3 +1,0 @@
-.dub
-__dummy.html
-docs.json

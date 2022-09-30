@@ -1,4 +1,0 @@
-*.stackdump
-Thumbs.db:encryptable
-[Dd]esktop.ini
-ehthumbs_vista.db

@@ -1,9 +1,0 @@
-*.dSYM/
-*.idb
-*.mod*
-*.su
-.tmp_versions/
-Mkfile.old
-Module.symvers
-dkms.conf
-modules.order

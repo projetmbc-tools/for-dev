@@ -1,4 +1,0 @@
-*.bak*
-fp.cfg
-fp.dsk
-fp.ini

@@ -1,2 +1,0 @@
-.metals/
-project/**/metals.sbt

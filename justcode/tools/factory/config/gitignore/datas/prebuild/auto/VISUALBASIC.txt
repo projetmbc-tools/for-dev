@@ -1,4 +1,0 @@
-*.csi
-*.dca
-*.enc
-*.lvw

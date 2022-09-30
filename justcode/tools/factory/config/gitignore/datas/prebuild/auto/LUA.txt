@@ -1,3 +1,0 @@
-*.def
-*.src.rock
-luac.out

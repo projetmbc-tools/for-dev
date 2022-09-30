@@ -1,5 +1,0 @@
-*.cubin
-*.fatbin
-*.gpu
-*.ii
-*.ptx

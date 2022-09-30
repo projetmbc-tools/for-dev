@@ -1,3 +1,0 @@
-**/.ssh/*_id_*
-**/.ssh/id_*
-**/.ssh/known_hosts

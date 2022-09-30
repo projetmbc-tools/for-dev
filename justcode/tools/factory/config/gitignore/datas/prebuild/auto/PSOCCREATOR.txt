@@ -1,9 +1,0 @@
-*.cycdx
-*.cyfit
-*.cyprj.*
-*.cywrk.*
-*/Generated_Source
-*/codegentemp
-*_datasheet.pdf
-*_timing.html
-Export/

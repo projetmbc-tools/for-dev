@@ -1,8 +1,0 @@
-config/autoload/*.local.php
-data/DoctrineORMModule/Proxy/
-data/DoctrineORMModule/cache/
-data/cache/
-data/logs/
-data/sessions/
-data/tmp/
-extras/documentation

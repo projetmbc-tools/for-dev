@@ -1,3 +1,0 @@
-*-SetupFiles/
-*-cache/
-Prerequisites/

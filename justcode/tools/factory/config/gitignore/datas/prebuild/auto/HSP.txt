@@ -1,4 +1,0 @@
-*.ax
-*.dpm
-hsptmp*
-packfile

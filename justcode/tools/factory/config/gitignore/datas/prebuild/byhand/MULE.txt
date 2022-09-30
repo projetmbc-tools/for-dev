@@ -1,4 +1,0 @@
-*.launch
-*.pydevproject
-.buildpath
-.externalToolBuilders/

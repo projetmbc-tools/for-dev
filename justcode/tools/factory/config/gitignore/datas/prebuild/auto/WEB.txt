@@ -1,8 +1,0 @@
-*.asp
-*.htm
-*.jsp
-*.php
-*.rss
-*.wasm
-*.wat
-*.xhtml

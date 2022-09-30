@@ -1,4 +1,0 @@
-.kitchen.local.yml
-.kitchen/
-.vagrant
-/cookbooks

@@ -1,4 +1,0 @@
-*.pxp
-*.pxt
-*.uxp
-*.uxt

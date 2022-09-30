@@ -1,6 +1,0 @@
-/assets/node_modules
-/installer/_build
-/installer/deps
-/installer/doc
-/installer/tmp
-/priv/static/

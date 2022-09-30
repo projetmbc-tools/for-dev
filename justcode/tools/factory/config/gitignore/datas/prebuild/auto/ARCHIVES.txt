@@ -1,3 +1,0 @@
-*.bzip
-*.bzip2
-*.txz

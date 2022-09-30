@@ -1,8 +1,0 @@
-.mvn/timing.properties
-.mvn/wrapper/maven-wrapper.jar
-buildNumber.properties
-pom.xml.next
-pom.xml.releaseBackup
-pom.xml.tag
-pom.xml.versionsBackup
-release.properties

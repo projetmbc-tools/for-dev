@@ -1,5 +1,0 @@
-**.log
-**/Debug/Exe/
-**/Debug/List
-*.ewd
-*.eww

@@ -1,8 +1,0 @@
-*.flac
-*.iff
-*.m3u
-*.m4a
-*.mpa
-*.ogg
-*.ra
-*.wma

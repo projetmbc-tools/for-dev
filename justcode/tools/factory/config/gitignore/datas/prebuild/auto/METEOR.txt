@@ -1,3 +1,0 @@
-mup.js
-mup.json
-settings-production.json

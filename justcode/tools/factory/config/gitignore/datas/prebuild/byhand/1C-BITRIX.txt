@@ -1,5 +1,0 @@
-*.[oa]
-*.db
-*.mp3
-*.psd
-/upload/

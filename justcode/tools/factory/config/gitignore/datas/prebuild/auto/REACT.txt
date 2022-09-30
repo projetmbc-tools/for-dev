@@ -1,7 +1,0 @@
-**/*.back.*
-**/*.backup.*
-*.sublime*
-.DS_*
-psd
-sketch
-thumb

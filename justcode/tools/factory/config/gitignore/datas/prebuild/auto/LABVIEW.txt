@@ -1,4 +1,0 @@
-*.aliases
-*.llb
-*.lvlibp
-*.lvlps

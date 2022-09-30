@@ -1,5 +1,0 @@
-Gemfile.lock
-coverage/*
-pkg/*
-spec/fixtures/*
-vendor/*

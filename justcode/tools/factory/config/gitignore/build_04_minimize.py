@@ -93,8 +93,8 @@ for kind in ALL_KINDS:
         encoding = 'utf-8',
         mode     = 'r',
     ) as f:
-        for kind_name, rules in load(f).items():
-            RULES[build_kindname(kind, kind_name)] = rules
+        for name, rules in load(f).items():
+            RULES[build_kindname(kind, name)] = rules
 
 # ! -- DEBUGGING -- ! #
 # print('')
@@ -260,12 +260,14 @@ if RULES:
         f"auto minimized rule{plurial}."
     )
 
+
     for kind_name, rules in RULES.items():
-        writerules(
-            dirpath   = PREBUID_AUTO_DIR,
-            kind_name = kind_name,
-            rules     = rules
-        )
+        if keep_thisrules(kind_name):
+            writerules(
+                dirpath   = PREBUID_AUTO_DIR,
+                kind_name = kind_name,
+                rules     = rules
+            )
 
 
 # -- "BY HAND" RULES -- #
@@ -297,6 +299,7 @@ if several_deps:
 
     autonames_unresolved = []
     byhand_rules         = defaultdict(list)
+    byhand_rules_used_by = defaultdict(list)
 
     for onerule, deps in several_deps.items():
         maxcard = max(
@@ -336,11 +339,28 @@ AUTO-NAMES "BY HAND" TO CHOOSE
 
 
         byhand_rules[name].append(onerule)
+        byhand_rules_used_by[name].extend(deps)
 
 
     for kind_name, rules in byhand_rules.items():
-        writerules(
-            dirpath   = PREBUID_BY_HAND_DIR,
-            kind_name = kind_name,
-            rules     = rules
-        )
+        used_by = set(byhand_rules_used_by[kind_name])
+        used_by = list(used_by)
+        used_by.sort()
+        used_by = "\n#     + ".join(used_by)
+        used_by = f"""
+###
+# Rules used by the following sets of rules.
+#
+#     + {used_by}
+#
+###
+        """.strip()
+
+
+        if keep_thisrules(kind_name):
+            writerules(
+                dirpath   = PREBUID_BY_HAND_DIR,
+                kind_name = kind_name,
+                rules     = rules,
+                header    = used_by,
+            )

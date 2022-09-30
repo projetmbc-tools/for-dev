@@ -1,4 +1,0 @@
-api
-cache-downloads
-inspector
-source/inspector.html

@@ -1,5 +1,0 @@
-.generated-tests/
-.xlib
-generated-tests/
-testit-reports/
-xill.properties

@@ -1,8 +1,0 @@
-*.cma
-*.cmi
-*.cmo
-*.cmx
-*.cmxa
-*.cmxs
-*.native
-_build/

@@ -1,7 +1,0 @@
-*.annot
-*.byte
-*.install
-.merlin
-_opam/
-setup.data
-setup.log

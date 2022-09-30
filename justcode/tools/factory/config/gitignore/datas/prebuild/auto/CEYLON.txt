@@ -1,3 +1,0 @@
-.ceylon/config.old
-modules
-test-modules

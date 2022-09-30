@@ -1,5 +1,0 @@
-db/sql
-files
-javascripts/bundles
-plugins/**/*
-stylesheets/bundles

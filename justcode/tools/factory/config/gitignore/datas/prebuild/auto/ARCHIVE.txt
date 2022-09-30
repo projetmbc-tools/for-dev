@@ -1,6 +1,0 @@
-*.LBR
-*.ar
-*.cpio
-*.lbr
-*.mar
-*.shar

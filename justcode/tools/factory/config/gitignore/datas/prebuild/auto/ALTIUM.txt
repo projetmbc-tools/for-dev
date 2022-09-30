@@ -1,6 +1,0 @@
-**/*.ldb
-**/History/*
-**/__Previews/
-*.PcbDoc.htm
-Project\ Logs*/
-Project\ Outputs*/

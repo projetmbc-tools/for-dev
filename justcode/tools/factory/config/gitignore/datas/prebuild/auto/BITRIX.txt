@@ -1,8 +1,0 @@
-!/bitrix/components
-!/bitrix/gadgets
-!/bitrix/php_interface/
-!/bitrix/templates
-/bitrix/*
-/bitrix/components/bitrix
-/bitrix/gadgets/bitrix
-/bitrix/php_interface/dbconn.php

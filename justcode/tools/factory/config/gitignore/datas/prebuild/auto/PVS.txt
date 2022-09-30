@@ -1,5 +1,0 @@
-*.prf~
-*fasl
-.pvscontext
-orphaned-proofs.prf
-pvsbin/

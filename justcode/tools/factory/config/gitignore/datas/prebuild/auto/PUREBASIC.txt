@@ -1,3 +1,0 @@
-*.pb.cfg
-*.pbi.cfg
-project.cfg

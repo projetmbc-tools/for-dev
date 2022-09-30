@@ -1,8 +1,0 @@
-*.dmp
-*.js
-*.dcp
-*.rst
-*.c
-*.html
-*.debug
-*.rpt

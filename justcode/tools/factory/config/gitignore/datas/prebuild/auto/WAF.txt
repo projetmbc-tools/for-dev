@@ -1,5 +1,0 @@
-.lock-waf_*_build
-.waf-*-*/
-.waf3-*-*/
-waf-*-*/
-waf3-*-*/

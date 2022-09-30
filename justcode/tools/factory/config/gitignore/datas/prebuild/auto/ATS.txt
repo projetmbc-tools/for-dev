@@ -1,3 +1,0 @@
-*_?ats.c
-*_?ats.js
-*_?ats.o

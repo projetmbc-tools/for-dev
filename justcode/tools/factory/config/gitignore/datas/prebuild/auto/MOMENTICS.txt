@@ -1,3 +1,0 @@
-arm-p/
-arm/
-translations/*.qm

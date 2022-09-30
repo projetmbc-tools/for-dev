@@ -1,4 +1,0 @@
-*.BACKUP.*
-*.BASE.*
-*.LOCAL.*
-*.REMOTE.*

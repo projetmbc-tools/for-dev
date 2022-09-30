@@ -1,2 +1,0 @@
-!/craft/storage/rebrand
-/craft/storage/*

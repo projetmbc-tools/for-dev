@@ -1,5 +1,0 @@
-!.paket/paket.bootstrapper.exe
-.fake
-bin
-lib/debug
-lib/release

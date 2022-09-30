@@ -1,9 +1,0 @@
-*.sw[mnpcod]
-*.tmp.*
-.sourcemaps/
-UserInterfaceState.xcuserstate
-hooks/
-platforms/
-plugins/android.json
-plugins/ios.json
-www/

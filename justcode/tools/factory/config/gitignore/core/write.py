@@ -14,12 +14,16 @@ from .misc import *
 def writerules(
     dirpath  : Path,
     kind_name: str,
-    rules    : List[str]
+    rules    : List[str],
+    header   : str = ""
 ) -> None:
     _, name = extract_kindname(kind_name)
     name    = f'{name}.txt'
 
     content = '\n'.join(rules).strip() + '\n'
+
+    if header:
+        content = f"{header}\n\n{content}"
 
     (dirpath / name).write_text(
         data     = content,

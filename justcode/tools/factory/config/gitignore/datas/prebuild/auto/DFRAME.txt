@@ -1,8 +1,0 @@
-!app/View/cache/.gitkeep
-!app/View/logs/.gitkeep
-!app/View/templates_c/.gitkeep
-!web/assets/.gitkeep
-app/View/cache/*
-app/View/logs/*
-app/View/templates_c/*
-web/assets/*

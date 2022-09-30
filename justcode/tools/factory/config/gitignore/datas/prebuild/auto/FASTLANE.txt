@@ -1,2 +1,0 @@
-fastlane/FastlaneRunner
-fastlane/screenshots/screenshots.html

@@ -1,5 +1,0 @@
-**/*.log
-/app/**/*.map
-/debugger
-/hooks
-ers.txt

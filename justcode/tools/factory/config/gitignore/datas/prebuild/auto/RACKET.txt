@@ -1,6 +1,0 @@
-*.rkt.bak
-*.rkt~
-*.zo
-\#*.rkt#
-\#*.rkt#*#
-compiled/

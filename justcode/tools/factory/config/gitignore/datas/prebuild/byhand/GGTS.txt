@@ -1,7 +1,0 @@
-/target/
-*Db.properties
-*Db.script
-/*.zip
-/plugin.xml
-/web-app/WEB-INF/classes
-/web-app/plugins

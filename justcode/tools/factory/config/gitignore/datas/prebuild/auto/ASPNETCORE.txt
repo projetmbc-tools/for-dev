@@ -1,5 +1,0 @@
-!**/packages/build/
-!*.[Cc]ache/
-**/packages/*
-*_i.h
-.cr/

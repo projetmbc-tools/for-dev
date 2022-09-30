@@ -1,6 +1,0 @@
-/*.log
-/*DB.*
-/.link_to_grails_plugins/
-/cobertura.ser
-/target-eclipse/
-stacktrace.log

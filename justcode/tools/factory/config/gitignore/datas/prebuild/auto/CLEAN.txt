@@ -1,4 +1,0 @@
-*-data/
-*-sapl/
-*-www/
-Clean System Files/

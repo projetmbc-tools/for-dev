@@ -1,4 +1,0 @@
-EWARM/**/Exe
-EWARM/**/List
-EWARM/**/Obj
-EWARM/settings

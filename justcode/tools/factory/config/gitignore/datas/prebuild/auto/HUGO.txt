@@ -1,8 +1,0 @@
-/.hugo_build.lock
-/assets/jsconfig.json
-/public/
-/resources/_gen/
-hugo.darwin
-hugo.exe
-hugo.linux
-hugo_stats.json

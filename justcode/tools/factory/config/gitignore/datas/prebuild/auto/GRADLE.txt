@@ -1,3 +1,0 @@
-!gradle-wrapper.properties
-!src/**/build/
-**/build/

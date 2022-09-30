@@ -1,9 +1,0 @@
-!/media/index.html
-!/site/accounts/index.html
-!/site/cache/index.html
-!/site/sessions/index.html
-.lock
-/site/accounts/*
-/site/cache/*
-/site/config/.license
-/site/sessions/*
