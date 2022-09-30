@@ -1,0 +1,12 @@
+###
+# this::
+#     author = Christophe, BAL [projetmbc@gmail.com]
+#     desc   = Main rules for standard Python projects.
+#
+#
+# info::
+#     This rules have been made after analyzing the similar ones given
+#     by the project ¨gitignoreio.
+###
+
+# ???

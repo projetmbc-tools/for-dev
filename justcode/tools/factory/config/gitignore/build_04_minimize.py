@@ -81,6 +81,9 @@ PREFERRED_BY_HAND_NAMES = {
 }
 
 
+NB_RULES_ADDED = 0
+
+
 ALL_KINDS = [
     TAG_CONTRIB := 'contribute',
     TAG_ONLINE  := 'online',
@@ -263,6 +266,8 @@ if RULES:
 
     for kind_name, rules in RULES.items():
         if keep_thisrules(kind_name):
+            NB_RULES_ADDED += 1
+
             writerules(
                 dirpath   = PREBUID_AUTO_DIR,
                 kind_name = kind_name,
@@ -358,9 +363,26 @@ AUTO-NAMES "BY HAND" TO CHOOSE
 
 
         if keep_thisrules(kind_name):
+            NB_RULES_ADDED += 1
+
             writerules(
                 dirpath   = PREBUID_BY_HAND_DIR,
                 kind_name = kind_name,
                 rules     = rules,
                 header    = used_by,
             )
+
+
+# -- WHAT WE HAVE DONE... -- #
+
+if NB_RULES_ADDED == 0:
+    print(
+        f"{TAB_1}* No file created."
+    )
+
+else:
+    plurial = "" if NB_RULES_ADDED == 1 else "s"
+
+    print(
+        f"{TAB_1}* {NB_RULES_ADDED} file{plurial} added."
+    )

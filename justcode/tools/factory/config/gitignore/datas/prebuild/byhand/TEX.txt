@@ -1,0 +1,16 @@
+###
+# Rules used by the following sets of rules.
+#
+#     + online/COMPRESSION
+#     + online/GAMES
+#     + online/HASKELL
+#     + online/JABREF
+#     + online/LYX
+#     + online/TEX
+#
+###
+
+*.lzo
+*.sav
+*.aux
+*.lyx~

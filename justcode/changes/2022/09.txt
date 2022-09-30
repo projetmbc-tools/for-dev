@@ -2,6 +2,21 @@
 
 
 ==
+30
+==
+
+-----
+:new:
+-----
+
+[[:doc:]]
+¨gitignore rules: one section explains clearly the modularity of the rules.
+
+
+// ---------- //
+
+
+==
 28
 ==
 
