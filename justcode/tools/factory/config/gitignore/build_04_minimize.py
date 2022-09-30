@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from collections import defaultdict
-from json        import dumps, load
+from json        import load
 
 from mistool.os_use import PPath as Path
 
@@ -17,9 +17,11 @@ THIS_DIR  = Path(THIS_FILE).parent
 
 DATAS_DIR = THIS_DIR / 'datas'
 
-PREBUID_DIR         = DATAS_DIR / 'prebuild'
-PREBUID_AUTO_DIR    = PREBUID_DIR / 'auto'
-PREBUID_BY_HAND_DIR = PREBUID_DIR / 'byhand'
+FINAL_DIR = DATAS_DIR / 'final'
+
+MINIMIZE_DIR         = DATAS_DIR / 'minimize'
+MINIMIZE_AUTO_DIR    = MINIMIZE_DIR / 'auto'
+MINIMIZE_BY_HAND_DIR = MINIMIZE_DIR / 'byhand'
 
 
 # GITHUB_TOPTAL_URL   = "https://github.com/toptal/gitignore"
@@ -109,6 +111,7 @@ for kind in ALL_KINDS:
 TAB_1 = ' '*4
 TAB_2 = TAB_1*2
 TAB_3 = TAB_1*3
+TAB_4 = TAB_1*4
 
 
 # --------------- #
@@ -119,6 +122,40 @@ TAB_3 = TAB_1*3
 # Clear the terminal.
 print("\033c", end = "")
 # ! -- DEBUGGING -- ! #
+
+
+# ---------------------- #
+# -- RULES OF THE API -- #
+# ---------------------- #
+
+print(
+    f"{TAB_1}* Collecting the rules proposed by the API."
+)
+
+apirules = set()
+
+for p in FINAL_DIR.glob('*/*.txt'):
+    apirules = apirules.union(
+        rulesfrom(
+            p.read_text(
+                encoding = 'utf-8'
+            )
+        )
+    )
+
+nb_apirules = len(apirules)
+
+if nb_apirules == 0:
+    print(
+        f"{TAB_2}+ No rules in the API."
+    )
+
+else:
+    plurial = "" if nb_apirules == 1 else "s"
+
+    print(
+        f"{TAB_2}+ {nb_apirules} rule{plurial} in the API."
+    )
 
 
 # -------------------------------- #
@@ -269,7 +306,7 @@ if RULES:
             NB_RULES_ADDED += 1
 
             writerules(
-                dirpath   = PREBUID_AUTO_DIR,
+                dirpath   = MINIMIZE_AUTO_DIR,
                 kind_name = kind_name,
                 rules     = rules
             )
@@ -366,7 +403,7 @@ AUTO-NAMES "BY HAND" TO CHOOSE
             NB_RULES_ADDED += 1
 
             writerules(
-                dirpath   = PREBUID_BY_HAND_DIR,
+                dirpath   = MINIMIZE_BY_HAND_DIR,
                 kind_name = kind_name,
                 rules     = rules,
                 header    = used_by,
@@ -377,12 +414,74 @@ AUTO-NAMES "BY HAND" TO CHOOSE
 
 if NB_RULES_ADDED == 0:
     print(
-        f"{TAB_1}* No file created."
+        f"{TAB_1}* No set of rules created."
     )
 
 else:
     plurial = "" if NB_RULES_ADDED == 1 else "s"
 
     print(
-        f"{TAB_1}* {NB_RULES_ADDED} file{plurial} added."
+        f"{TAB_1}* {NB_RULES_ADDED} set{plurial} of rules managed."
     )
+
+
+# -------------------------- #
+# -- PREPARING FINAL JOBS -- #
+# -------------------------- #
+
+if NB_RULES_ADDED:
+    for kind_name in RULES:
+        if not keep_thisrules(kind_name):
+            continue
+
+        _, name = extract_kindname(kind_name)
+
+        finaljob_dir = FINAL_DIR / name
+
+        if not finaljob_dir.is_dir():
+            print(
+                f"{TAB_2}+ ''final/{name}''"
+                 "\n"
+                f"{TAB_4}--> Folder added"
+            )
+
+            finaljob_dir.create('dir')
+
+        finaljob_main = finaljob_dir / "MAIN.txt"
+
+        if not finaljob_main.is_file():
+            print(
+                f"{TAB_2}+ ''final/{name}/MAIN.txt''"
+                 "\n"
+                f"{TAB_4}--> File added"
+            )
+
+            finaljob_main.write_text(
+                encoding = 'utf-8',
+                data     = """
+###
+# this::
+#     author = First Name, NAME [your@email.org]
+#     desc   = Describe a little the rules.
+#
+#
+# info::
+#     This rules have been made after analyzing the similar ones given
+#     by the project ¨gitignoreio.
+###
+                """.strip() + '\n'
+            )
+
+        finaljob_ignore = finaljob_dir / "0-ignore-0.txt"
+
+        if not finaljob_ignore.is_file():
+            print(
+                f"{TAB_2}+ ''final/{name}/0-ignore-0.txt''"
+                 "\n"
+                f"{TAB_4}--> File added"
+            )
+
+            finaljob_ignore.write_text(
+                encoding = 'utf-8',
+                data     = '# List of rules to ignore for comparisons'
+            )

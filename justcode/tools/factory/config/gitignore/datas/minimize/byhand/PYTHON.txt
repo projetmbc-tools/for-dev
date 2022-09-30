@@ -12,6 +12,7 @@
 #     + online/COCOSCREATOR
 #     + online/COMPRESSEDARCHIVE
 #     + online/DART
+#     + online/DBT
 #     + online/DJANGO
 #     + online/DOCFX
 #     + online/EMACS
@@ -61,12 +62,12 @@ build/
 dist/
 *.egg
 .cache
+target/
 *.pot
 db.sqlite3
 db.sqlite3-journal
 local_settings.py
 .webassets-cache
-target/
 .ipynb_checkpoints
 ipython_config.py
 profile_default/

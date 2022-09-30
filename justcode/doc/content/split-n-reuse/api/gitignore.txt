@@ -8,4 +8,4 @@ Des règles ¨gitignore facilement utilisables
 
 content::
     ¨content/how-to.txt
-    ¨content/modularity.txt
+    ¨content/modular.txt

@@ -1,12 +1,10 @@
 ###
 # this::
 #     author = Christophe, BAL [projetmbc@gmail.com]
-#     desc   = Main rules for standard (La)TeX projects.
+#     desc   = Rules for standard (La)TeX projects.
 #
 #
 # info::
 #     This rules have been made after analyzing the similar ones given
 #     by the project ¨gitignoreio.
 ###
-
-# ???

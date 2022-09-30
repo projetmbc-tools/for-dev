@@ -9,4 +9,6 @@
 #     by the project ¨gitignoreio.
 ###
 
-# ???
+# Byte-compiled
+__pycache__/
+*.py[cod]

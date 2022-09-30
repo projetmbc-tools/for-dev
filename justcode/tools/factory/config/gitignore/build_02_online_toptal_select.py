@@ -80,33 +80,18 @@ print(
 # -- UPDATE OF THE JSON FILES -- #
 # ------------------------------ #
 
-with JSON_TO_IGNORE.open(
-    encoding = 'utf-8',
-    mode     = 'w',
-) as f:
-    f.write(
-        dumps(
-            obj    = to_ignore,
+for jsfile, jsdatas in [
+    (JSON_TO_IGNORE, to_ignore),
+    (JSON_USEFULL  , all_usefull_rules),
+]:
+    jsfile.write_text(
+        data = dumps(
+            obj    = jsdatas,
             indent = 4
-        )
+        ),
+        encoding = 'utf-8'
     )
 
-print(
-    f"{TAB_1}* JSON file ``{JSON_TO_IGNORE.name}`` has been updated."
-)
-
-
-with JSON_USEFULL.open(
-    encoding = 'utf-8',
-    mode     = 'w',
-) as f:
-    f.write(
-        dumps(
-            obj    = all_usefull_rules,
-            indent = 4
-        )
+    print(
+        f"{TAB_1}* JSON file ``{jsfile.name}`` has been updated."
     )
-
-print(
-    f"{TAB_1}* JSON file ``{JSON_USEFULL.name}`` has been updated."
-)

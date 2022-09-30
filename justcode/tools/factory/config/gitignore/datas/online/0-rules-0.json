@@ -1580,6 +1580,12 @@
     "DBEAVER": [
         ".dbeaver-data-sources*.xml"
     ],
+    "DBT": [
+        "dbt_modules/",
+        "dbt_packages/",
+        "logs/",
+        "target/"
+    ],
     "DEFOLD": [
         "*.pyc",
         ".DS_Store",

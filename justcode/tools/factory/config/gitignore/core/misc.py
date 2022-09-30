@@ -7,7 +7,7 @@ from typing import Tuple
 # -- "BY HAND" MANAGEMENT -- #
 # -------------------------- #
 
-WOTKING_ON = """
+WORKING_ON = """
 PYTHON
 TEX
 """.upper() \
@@ -18,7 +18,7 @@ TEX
 def keep_thisrules(kindname: str) -> bool:
     _, name = extract_kindname(kindname)
 
-    if name in WOTKING_ON:
+    if name in WORKING_ON:
         return True
 
     return False
