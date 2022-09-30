@@ -1,0 +1,14 @@
+**/IntegrationServer/DocumentStore/
+**/IntegrationServer/WmRepository4/
+**/IntegrationServer/XAStore/
+**/IntegrationServer/datastore/
+**/IntegrationServer/db/
+**/IntegrationServer/lib/
+**/IntegrationServer/logs/
+**/IntegrationServer/packages/Wm*/
+**/IntegrationServer/replicate/
+**/IntegrationServer/sdk/
+**/IntegrationServer/support/
+**/IntegrationServer/update/
+**/IntegrationServer/userFtpRoot/
+**/IntegrationServer/web/

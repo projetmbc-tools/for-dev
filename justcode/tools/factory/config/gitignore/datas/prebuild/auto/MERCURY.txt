@@ -1,0 +1,6 @@
+*.beams
+*.c_date
+*.init
+*.mh
+Mercury.modules
+Mercury/

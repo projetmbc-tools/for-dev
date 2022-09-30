@@ -1,0 +1,7 @@
+.gwt-tmp/
+.gwt/
+gwt-unitCache/
+war/WEB-INF/classes/
+war/WEB-INF/deploy/
+war/gwt_bree/
+www-test/

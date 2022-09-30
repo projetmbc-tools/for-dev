@@ -1,0 +1,4 @@
+*.sit
+*.sitx
+*.zipx
+*.cpt

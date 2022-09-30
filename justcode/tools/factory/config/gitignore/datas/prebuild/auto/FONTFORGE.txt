@@ -1,0 +1,7 @@
+*.pfa
+*.pfb
+*.pt3
+*.sfd-*
+*.sfd~
+*.suit
+*.woff

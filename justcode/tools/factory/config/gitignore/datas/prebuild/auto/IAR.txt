@@ -1,0 +1,3 @@
+**/Exe/*.sim
+settings/
+thumbs.db

@@ -1,0 +1,10 @@
+!/tests/_output/.gitkeep
+*.zwc
+*.zwc.old
+*zcompdump*
+._zinit
+.directory_history
+.zcalc_history
+.zinit_lstupd
+/tests/_output/*
+zsdoc/data

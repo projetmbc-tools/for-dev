@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 
 from mistool.os_use import PPath as Path
 
-from core.extract import rulesfrom
+from core import *
 
 
 # --------------- #
@@ -26,18 +26,6 @@ NB_WORKERS = 5
 
 GITIGNORE_IO_URL      = "https://www.gitignore.io"
 GITIGNORE_IO_BASE_URL = GITIGNORE_IO_URL + "/api/{urlparam}"
-
-EXT_PATCH = 'patch'
-EXT_STACK = 'stack'
-
-GITIGNORE_EXTS = [
-    f'.{e}'
-    for e in [
-        'gitignore',
-        EXT_PATCH,
-        EXT_STACK,
-    ]
-]
 
 GITHUB_TOPTAL_URL    = "https://github.com/toptal/gitignore"
 GITHUB_TEMPLATES_URL = f"{GITHUB_TOPTAL_URL}/tree/master/templates"
@@ -55,10 +43,7 @@ THIS_DIR  = PROJECT_DIR = Path(THIS_FILE).parent
 while(PROJECT_DIR.name != 'justcode'):
    PROJECT_DIR = PROJECT_DIR.parent
 
-
-THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
-
-GITIGNORE_DATAS_ONLINE_DIR = THIS_DIR / 'datas' / 'online' / 'raw'
+DATAS_DOWNLOADED_DIR = THIS_DIR / 'datas' / 'online'
 
 
 TAB_1 = ' '*4
@@ -81,40 +66,32 @@ def allurls():
     for elt in bs.select('a'):
         href = elt['href']
 
-        for ext in GITIGNORE_EXTS:
-            if href.endswith(ext):
-                rule = Path(href).stem
+        if href.endswith(PT_EXT_GITIGN):
+            rule = Path(href).stem
 
-                urls.append(f"{GITHUB_RAW_BASE_URL}/{rule}{ext}")
+            urls.append(f"{GITHUB_RAW_BASE_URL}/{rule}{PT_EXT_GITIGN}")
 
     return urls
 
 
 def extractrules(urlraw):
     rulename = Path(urlraw)
-
-    rulekind = str(rulename.ext)
-
     rulename = str(rulename.stem)
     rulename = rulename.replace("%2B", "+")
 
     filename = rulename.upper()
 
-# Special rules to ignore.
-    if rulekind in [EXT_PATCH, EXT_STACK]:
-        filename += f'.{rulekind}'
-
 # Rules to keep.
     whichrules   = f"{TAB_2}+ ``{rulename}``"
-    project_file = GITIGNORE_DATAS_ONLINE_DIR / f"{filename}.txt"
+    project_file = DATAS_DOWNLOADED_DIR / f"{filename}.txt"
 
 # Rules in the project.
     if project_file.is_file():
-        with project_file.open(
-            encoding = 'utf-8',
-            mode     = 'r',
-        ) as f:
-            project_rules = rulesfrom(f.read())
+        project_rules = rulesfrom(
+            project_file.read_text(
+                encoding = 'utf-8'
+            )
+        )
 
     else:
         project_rules = set()
@@ -188,11 +165,10 @@ def extractrules(urlraw):
         sep = "\n"
     )
 
-    with project_file.open(
-        encoding = 'utf-8',
-        mode     = 'w',
-    ) as f:
-        project_rules = f.write(web_content)
+    project_file.write_text(
+        data     = web_content,
+        encoding = 'utf-8'
+    )
 
 
 # --------------- #
@@ -222,7 +198,10 @@ except ConnectionError:
 # ----------------------------------- #
 
 if UPDATE_ONLINE:
-    print(f"{TAB_1}* Looking for rules on ``{GITHUB_TOPTAL_URL}``.")
+    print(
+        f"{TAB_1}* Looking for rules on ``{GITHUB_TOPTAL_URL}`` "
+         "(patches and stacks ignored)."
+    )
 
     urls = allurls()
 

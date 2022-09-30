@@ -1,0 +1,10 @@
+input.i
+lpfg.log
+lsys.dll
+lsys.exp
+lsys.i
+lsys.ii
+lsys.lib
+lsys.o
+lsys.obj
+lsys.so

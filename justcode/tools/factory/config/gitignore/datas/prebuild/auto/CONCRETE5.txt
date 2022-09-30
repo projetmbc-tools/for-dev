@@ -1,0 +1,7 @@
+!/application/files/index.html
+/application/files/*
+/updates/*
+config/site.php
+error_log
+files/cache/*
+files/tmp/*

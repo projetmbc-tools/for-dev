@@ -1,0 +1,8 @@
+*.eml
+.eclipse
+/db
+/logs/
+/project/project
+/project/target
+server.pid
+test-result

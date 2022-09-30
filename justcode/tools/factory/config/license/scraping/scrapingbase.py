@@ -132,7 +132,7 @@ class ScrapingBase:
         shortid : str,
     ) -> None:
         self.failed_licences.add(
-            (fullname, shortid)
+            (shortid, fullname)
         )
 
 

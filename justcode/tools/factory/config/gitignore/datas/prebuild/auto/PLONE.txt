@@ -1,0 +1,5 @@
+*.EGG
+*.EGG-INFO
+*.tmp*
+.*.cfg
+fake-eggs/

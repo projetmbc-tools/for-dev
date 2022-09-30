@@ -2,25 +2,22 @@
 
 from mistool.os_use import PPath as Path
 
+from .constants import (
+    PT_EXT_GITIGN,
+    PT_EXT_PATCH
+)
+
 
 # ----------- #
 # -- TOOLS -- #
 # ----------- #
 
-def getcontent(path: Path) -> str:
-    with path.open(
-        encoding = 'utf-8',
-        mode     = 'r',
-    ) as f:
-        content = f.read()
-
-    return content
-
-
 def rulesfrom(content: str) -> set:
     rules = set()
 
     for line in content.splitlines():
+        line = line.strip()
+
         if(
             not line
             or
@@ -29,5 +26,24 @@ def rulesfrom(content: str) -> set:
             continue
 
         rules.add(line)
+
+    return rules
+
+
+def usefulrulesfrom(path: Path) -> set:
+    rules = rulesfrom(
+        path.read_text(
+            encoding = 'utf-8'
+        )
+    )
+
+    if len(rules) == 1:
+        for therule in rules:
+            if therule.endswith((PT_EXT_GITIGN, PT_EXT_PATCH)):
+# ! -- DEBUGGING -- ! #
+                # print(path.stem)
+# ! -- DEBUGGING -- ! #
+
+                rules = set()
 
     return rules

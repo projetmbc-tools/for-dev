@@ -1,0 +1,8 @@
+.truffle-solidity-loader
+.vagrant/**
+blockchain/geth/**
+blockchain/history
+blockchain/keystore/**
+build_webpack
+package-lock.json
+yarn.lock

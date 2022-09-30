@@ -1,0 +1,12 @@
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+!bin/symfony_requirements
+!var/log/.gitkeep
+**/Entity/*~
+/.web-server-pid
+/app/bootstrap.php.cache
+/app/cache/*
+/app/config/parameters.ini
+/app/logs/*
+/app/spool/*
+/var/bootstrap.php.cache

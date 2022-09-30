@@ -1,0 +1,11 @@
+*.asv
+*.mex*
+*.mlappinstall
+*.mltbx
+*.m~
+*.slxc
+codegen/
+helpsearch*/
+octave-workspace
+sccprj/
+slprj/

@@ -1,0 +1,4 @@
+*.compiled
+*.lps
+*.ppu
+*.dbg

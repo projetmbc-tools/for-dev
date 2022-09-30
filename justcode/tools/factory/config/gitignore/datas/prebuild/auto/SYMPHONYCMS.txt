@@ -1,0 +1,6 @@
+install-log.txt
+manifest/cache/
+manifest/logs/
+manifest/tmp/
+symphony/
+workspace/uploads/

@@ -1,0 +1,17 @@
+!/source
+!/source/Application
+!/source/modules
+!/source/out
+/source/*
+/source/Application/translations
+/source/Application/views/admin
+/source/Application/views/azure
+/source/Application/views/flow
+/source/modules/*
+/source/out/admin
+/source/out/azure
+/source/out/downloads
+/source/out/flow
+/source/out/media
+/source/out/pictures
+/source/tmp

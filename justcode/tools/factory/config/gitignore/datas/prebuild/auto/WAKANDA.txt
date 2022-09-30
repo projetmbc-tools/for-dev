@@ -1,0 +1,14 @@
+*(compacting)*
+*.Match
+*.breakpoints
+*.cacheUAG
+*.waBackup
+*.waData
+*.waDirectory
+*.waIndx
+*.waLog
+*.waPreferences
+*.waSym
+*.waSymData
+*/Logs
+studio_log*

@@ -1,0 +1,11 @@
+*.tex
+*.toolbox/**/*.cfg
+*.toolbox/**/*.out
+*.toolbox/**/*.tla
+*.toolbox/*.launch
+*.toolbox/*.log
+*.toolbox/*.pdf
+*.toolbox/*.pmap
+*.toolbox/*.tex
+*.toolbox/*aux
+*aux

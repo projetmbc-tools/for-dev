@@ -1,0 +1,9 @@
+*.api
+*.api-txt
+*.dump
+*.opp
+*.opx
+*.opx.broken
+_build
+_tracks
+opa-debug-js

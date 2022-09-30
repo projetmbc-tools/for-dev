@@ -1,0 +1,14 @@
+*.changes
+*.chg
+*.errors
+*.image
+*.img
+*.img7
+*.sml
+/github-cache
+/package-cache
+/play-cache
+/play-stash
+PharoDebug.log
+SqueakDebug.log
+github-*.zip

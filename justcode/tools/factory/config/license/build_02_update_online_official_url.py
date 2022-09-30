@@ -145,8 +145,8 @@ for p in LICENSE_DATAS_DIR.walk("file::**.json"):
 
 
     with p.open(
-                encoding = 'utf-8',
-                mode     = 'w',
+        encoding = 'utf-8',
+        mode     = 'w',
     ) as f:
         f.write(
             dumps(infos)

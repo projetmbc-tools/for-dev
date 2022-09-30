@@ -1,0 +1,7 @@
+*.efx
+*.gbr
+*.pps
+*.ppt
+*.pptx
+*.tax2010
+*.vcf

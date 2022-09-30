@@ -1,0 +1,8 @@
+*.hprof
+.cxx/
+.externalNativeBuild/
+deploymentTargetDropDown.xml
+google-services.json
+misc.xml
+output.json
+render.experimental.xml

@@ -1,0 +1,9 @@
+Homestead.json
+Homestead.yaml
+app/storage/
+bootstrap/compiled.php
+public/hot
+public/storage
+public_html/hot
+public_html/storage
+storage/*.key

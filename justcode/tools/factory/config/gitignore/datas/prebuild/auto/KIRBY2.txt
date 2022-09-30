@@ -1,0 +1,8 @@
+!assets/avatars/.gitkeep
+!site/accounts/index.html
+!site/cache/index.html
+!thumbs/index.html
+assets/avatars/*
+site/accounts/*
+site/cache/*
+thumbs/*

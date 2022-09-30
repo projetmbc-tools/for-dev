@@ -1,0 +1,8 @@
+*.ez
+.elixir_ls/
+/.fetch
+/_build
+/config/*.secret.exs
+/cover
+/deps
+/doc

@@ -1,0 +1,13 @@
+*.obj.dmp
+*.p1
+*.production
+*.sdb
+.generated_files/
+disassembly/
+funclist
+html/
+nb-configuration.xml
+nbactions.xml
+nbproject/Makefile-*
+nbproject/Package-*.bash
+nbproject/private/

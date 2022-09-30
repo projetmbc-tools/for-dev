@@ -1,0 +1,4 @@
+*.amx
+dependencies/
+pawn.lock
+settings.ini

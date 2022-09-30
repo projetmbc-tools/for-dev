@@ -1,0 +1,10 @@
+*.itf
+*.po
+*.ql
+*.qo
+*.xwam
+.lgt_tmp/
+.pl-history
+lgt_tmp/
+logtalk_doclet_logs/
+logtalk_tester_logs/

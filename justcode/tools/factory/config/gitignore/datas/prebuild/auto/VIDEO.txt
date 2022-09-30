@@ -1,0 +1,14 @@
+*.3g2
+*.3gp
+*.asf
+*.asx
+*.flv
+*.mkv
+*.mov
+*.mp4
+*.mpg
+*.ogv
+*.rm
+*.vob
+*.webm
+*.wmv

@@ -1,0 +1,10 @@
+/*.isopen
+/*.set
+/AS/System/
+/Binaries/
+/ConvertLog.txt
+/Diagnosis/
+/Physical/*/*/*/DLFiles/
+/Temp/
+/Upgrades/
+/debug.log

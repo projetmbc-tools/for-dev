@@ -1,0 +1,8 @@
+.DS_Store/
+.angular/
+app/**/*.js
+app/**/*.js.map
+connect.lock/
+e2e/*.js
+e2e/*.map
+libpeerconnection.log/

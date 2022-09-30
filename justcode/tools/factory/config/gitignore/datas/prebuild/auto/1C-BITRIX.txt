@@ -1,0 +1,3 @@
+*.gz.[0-9]
+/bitrix/
+test.php

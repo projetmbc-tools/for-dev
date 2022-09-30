@@ -1,0 +1,7 @@
+.ballerina
+.vscode
+/compiler/ballerina-lang/src/main/resources/grammar/BallerinaLexer.tokens
+/composer/modules/web/dist-electron
+/composer/modules/web/dist-electron/
+/gen
+/tool-plugins/intellij/src/main/antlr/org/ballerinalang/plugins/idea/grammar/BallerinaLexer.tokens

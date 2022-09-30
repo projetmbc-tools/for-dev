@@ -1,0 +1,14 @@
+!TAGS/
+!tags/
+.TAGS
+.tags
+GPATH
+GRTAGS
+GSYMS
+GTAGS
+TAGS
+cscope.files
+cscope.in.out
+cscope.out
+cscope.po.out
+gtags.files

@@ -1,0 +1,5 @@
+*.mno
+_compareTemp
+configs/
+dw_php_codehinting.config
+dwsync.xml

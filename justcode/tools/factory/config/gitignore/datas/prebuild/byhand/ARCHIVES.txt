@@ -1,0 +1,9 @@
+*.gzip
+*.deb
+*.gem
+*.rpm
+*.xpi
+*.bz2
+*.lzma
+*.xar
+*.xz

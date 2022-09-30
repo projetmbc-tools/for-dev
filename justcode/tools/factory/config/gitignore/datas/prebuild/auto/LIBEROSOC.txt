@@ -1,0 +1,15 @@
+!constraint/**.pdc
+!constraint/**.sdc
+!smartgen/*/*.gen
+!smartgen/*/*.v
+!smartgen/*/*.vhd
+component/*
+constraint/*
+designer/*/*
+package/*
+simulation/*
+smartgen/*/*
+smartgen/smartgen.aws
+synthesis/*
+tooldata/*
+viewdraw/*

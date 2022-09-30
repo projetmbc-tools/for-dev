@@ -1,0 +1,4 @@
+*.FCStd1
+*.FCStd2
+*.fcstd1
+*.fcstd2

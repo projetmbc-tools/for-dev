@@ -1,0 +1,9 @@
+*.bakvpj
+*.bakvpw
+*.pat
+*.patl
+*.pvs
+*.scan
+*/**/*rto/*
+*/**/*rtol/*
+.bak*

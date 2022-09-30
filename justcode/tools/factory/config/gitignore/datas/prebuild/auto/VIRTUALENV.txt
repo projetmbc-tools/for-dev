@@ -1,0 +1,7 @@
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pip-selfcheck.json
+pyvenv.cfg

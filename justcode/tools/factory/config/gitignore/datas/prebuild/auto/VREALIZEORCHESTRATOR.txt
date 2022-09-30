@@ -1,0 +1,10 @@
+**/Configurations/
+**/Packages/
+**/Policy Templates/
+**/Resources/
+**/Workflows/
+Actions/test/*
+Configurations/*
+Resources/Library/*
+Workflows/Library
+Workflows/VCO@*

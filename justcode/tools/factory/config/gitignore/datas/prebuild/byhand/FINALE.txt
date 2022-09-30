@@ -1,0 +1,7 @@
+*.aif
+*.mid
+*.wav
+*.avi
+*.midi
+*.pdf
+*.ps

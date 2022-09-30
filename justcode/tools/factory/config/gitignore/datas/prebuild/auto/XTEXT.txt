@@ -1,0 +1,4 @@
+*.xml_gen
+generated/
+src-gen/
+xtend-gen/

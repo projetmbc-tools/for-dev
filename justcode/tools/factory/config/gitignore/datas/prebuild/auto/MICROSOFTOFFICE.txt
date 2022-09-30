@@ -1,0 +1,6 @@
+*.xlk
+*.~vsd*
+Backup of *.doc*
+~$*.doc*
+~$*.ppt*
+~$*.xls*

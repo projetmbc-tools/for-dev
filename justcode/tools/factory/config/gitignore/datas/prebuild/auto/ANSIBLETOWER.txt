@@ -1,0 +1,8 @@
+!roles/requirements.yml
+*.*~
+*.bkp
+*.original
+*pass*
+*password*
+*pwd*
+roles/**

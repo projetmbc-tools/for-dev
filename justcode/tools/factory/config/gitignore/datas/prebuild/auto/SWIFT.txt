@@ -1,0 +1,4 @@
+.accio/
+Dependencies/
+playground.xcworkspace
+timeline.xctimeline

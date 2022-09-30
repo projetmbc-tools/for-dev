@@ -1,0 +1,8 @@
+bb.out
+bb.out.*
+cachegrind.out
+cachegrind.out.*
+callgrind.out
+callgrind.out.*
+massif.out
+massif.out.*

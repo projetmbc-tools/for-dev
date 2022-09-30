@@ -1,0 +1,5 @@
+/composer.phar
+/app/phpunit.xml
+!bin/console
+/var/log/*
+/web/uploads/

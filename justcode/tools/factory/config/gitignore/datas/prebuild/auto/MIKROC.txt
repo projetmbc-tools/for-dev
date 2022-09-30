@@ -1,0 +1,13 @@
+*.bmk
+*.brk
+*.c.ini
+*.cp
+*.dct
+*.dic
+*.dlt
+*.h.ini
+*.mcl
+*.pdsbak
+*.user.dic
+*.workspace
+*_callertable.txt

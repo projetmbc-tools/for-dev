@@ -1,0 +1,11 @@
+!/logs/empty
+!/tmp/cache/models/empty
+!/tmp/cache/persistent/empty
+!/tmp/cache/views/empty
+!/tmp/sessions/empty
+!/tmp/tests/empty
+/tmp/cache/models/*
+/tmp/cache/persistent/*
+/tmp/cache/views/*
+/tmp/sessions/*
+/tmp/tests/*

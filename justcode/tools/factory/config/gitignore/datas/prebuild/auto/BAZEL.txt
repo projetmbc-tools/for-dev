@@ -1,0 +1,4 @@
+/.aswb/
+/.clwb/
+/.ijwb/
+/bazel-*

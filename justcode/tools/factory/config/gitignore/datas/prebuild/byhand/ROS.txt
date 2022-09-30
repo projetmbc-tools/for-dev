@@ -1,0 +1,6 @@
+*.dox
+*.pcd
+*.wikidoc
+.#*
+qtcreator-*
+srv/_*.py

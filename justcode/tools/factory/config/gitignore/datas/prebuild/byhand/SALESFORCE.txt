@@ -1,0 +1,10 @@
+tmp/
+.history
+.loadpath
+Referenced Packages
+salesforce.schema
+*.sublime-project
+*.sublime-settings
+*.sublime-workspace
+mm.log
+build.properties

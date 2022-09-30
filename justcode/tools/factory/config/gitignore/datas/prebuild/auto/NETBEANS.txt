@@ -1,0 +1,4 @@
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+**/nbproject/private/
+.nb-gradle/

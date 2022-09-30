@@ -1,0 +1,8 @@
+*.orig
+/tmp/*
+*.rbc
+/log/*
+.byebug_history
+.rvmrc
+/coverage/
+/vendor/bundle

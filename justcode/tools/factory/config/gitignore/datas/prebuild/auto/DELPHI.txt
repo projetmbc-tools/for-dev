@@ -1,0 +1,17 @@
+*.bpi
+*.bpl
+*.dcu
+*.dres
+*.dsk
+*.hpp
+*.identcache
+*.local
+*.ocx
+*.projdata
+*.rsm
+*.stat
+*.tds
+*.tvsconfig
+*Resource.rc
+__history/
+__recovery/

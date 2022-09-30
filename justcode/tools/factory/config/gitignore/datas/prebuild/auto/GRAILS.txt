@@ -1,0 +1,6 @@
+/*.war
+/logs
+/plugins
+/prodDb.*
+/stacktrace.log
+/test/reports

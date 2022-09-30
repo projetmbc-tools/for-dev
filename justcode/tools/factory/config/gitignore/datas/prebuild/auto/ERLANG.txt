@@ -1,0 +1,8 @@
+*.plt
+.concrete/DEV_MODE
+.eunit
+.rebar
+.rebar3
+_checkouts/
+ebin/*.beam
+rel/example_project

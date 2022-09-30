@@ -1,0 +1,16 @@
+*.depend
+*.layout
+.externalToolBuilders
+*~.nib
+.metadata
+[Dd]ebug*/
+[Rr]elease*/
+/bin/*
+*.app/
+.directory
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcworkspace
+.svn/
+xcuserdata

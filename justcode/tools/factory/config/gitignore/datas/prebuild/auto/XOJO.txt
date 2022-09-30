@@ -1,0 +1,8 @@
+*.debug.app
+*.obsolete*
+*.rbuistate
+*.xojo_uistate
+Builds*
+Debug*.exe
+Debug*/Debug*.exe
+Debug*/Debug*\ Libs

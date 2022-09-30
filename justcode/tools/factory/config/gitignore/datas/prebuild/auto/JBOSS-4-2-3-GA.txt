@@ -1,0 +1,5 @@
+* /server/default/deploy
+* Do it similar configuration used for
+* For ignore * .war, * .war.failed and * .xml.failed if you use other directories of jboss.
+*/
+/**

@@ -1,0 +1,13 @@
+*.bsf
+*.dbs
+*.mti
+*.psm
+*.ucdb
+*.vstf
+*.wlf
+[_@]*
+cov*/
+sc_dpiheader.h
+transcript*
+vsim.dbg
+wlf*

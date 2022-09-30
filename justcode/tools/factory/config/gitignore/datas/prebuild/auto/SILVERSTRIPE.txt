@@ -1,0 +1,7 @@
+assets/Uploads/
+assets/_combinedfiles/
+assets/_resampled/
+public/resources/
+resources/
+silverstripe-cache/
+themes/simple/

@@ -1,0 +1,6 @@
+*.XRF
+*.lock
+*.optback
+*_BCK.xml
+DataSourcesIndex.xml
+ProgramHeaders.xml

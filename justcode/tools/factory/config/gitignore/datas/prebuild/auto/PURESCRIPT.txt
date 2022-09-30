@@ -1,0 +1,4 @@
+.psci
+.psci_modules
+.spago
+output

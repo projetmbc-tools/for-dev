@@ -1,0 +1,7 @@
+*.doc
+*.docx
+*.msg
+*.pages
+*.rtf
+*.wpd
+*.wps

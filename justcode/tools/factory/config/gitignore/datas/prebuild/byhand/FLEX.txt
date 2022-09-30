@@ -1,0 +1,8 @@
+bin-debug/
+bin-release/
+.FlexUnitSettings
+.actionScriptProperties
+.flexLibProperties
+.flexProperties
+.model
+.project/

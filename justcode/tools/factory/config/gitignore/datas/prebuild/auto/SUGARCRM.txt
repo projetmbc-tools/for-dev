@@ -1,0 +1,10 @@
+!/cache/index.html
+!/upload/index.html
+/config_override.php
+/custom/application/Ext/
+/custom/history/
+/custom/modulebuilder/
+/custom/modules/*/Ext/
+/custom/working/
+/silentUpgrade*.php
+/upload_backup/

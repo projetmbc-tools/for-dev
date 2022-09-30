@@ -1,0 +1,4 @@
+*.lzo
+*.sav
+*.aux
+*.lyx~

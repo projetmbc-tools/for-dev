@@ -1,0 +1,4 @@
+*.gadget
+*.pif
+*.vb
+*.wsf

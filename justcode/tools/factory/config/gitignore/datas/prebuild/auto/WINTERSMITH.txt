@@ -1,0 +1,4 @@
+config.json
+contents/
+package.json
+templates/

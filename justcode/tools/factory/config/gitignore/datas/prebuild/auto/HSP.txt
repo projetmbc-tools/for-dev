@@ -1,0 +1,4 @@
+*.ax
+*.dpm
+hsptmp*
+packfile

@@ -1,0 +1,3 @@
+*.box
+*.pkrvars.hcl
+packer_cache/
