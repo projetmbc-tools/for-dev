@@ -1,8 +1,7 @@
 ###
 # this::
 #     author = Christophe, BAL [projetmbc@gmail.com]
-#     desc   = Main rules for standard Python projects,
-#              see https://github.com/python/.
+#     desc   = Specific rules for the package ``minitoc``.
 #
 #
 # info::
@@ -10,9 +9,8 @@
 #     by the project ¨gitignoreio.
 ###
 
-# Byte-compiled
-__pycache__/
-*.py[co]
-
-# Cython debug
-cython_debug/
+#
+*.maf
+*.ml[ft]
+*.mtc[0-9]*
+*.sl[cft][0-9]*

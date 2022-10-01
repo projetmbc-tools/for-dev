@@ -1,1 +1,51 @@
 # List of rules to ignore for comparisons
+
+
+# -- A -- #
+*.acn
+*.acr
+
+
+# -- C -- #
+*-converted-to.*
+
+
+# -- F -- #
+*.fmt
+*.fot
+
+
+# -- G -- #
+*.glg
+*.glo
+*.gls
+*.gnuplot
+
+# -- L -- #
+latex.out/
+*.lof
+*.log
+*.lot
+*.ltjruby
+*.lzo
+*.lzs
+
+
+# -- M -- #
+*.mf
+*.mlf
+*.mlt
+*.mp
+
+
+# -- S -- #
+*.slf[0-9]*
+*.slt[0-9]*
+*.stc[0-9]*
+*.slg
+*.slo
+*.sls
+
+
+# -- T -- #
+*.table
