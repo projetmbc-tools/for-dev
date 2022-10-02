@@ -1,0 +1,9 @@
+###
+# this::
+#     author = Christophe, BAL [projetmbc@gmail.com]
+#     desc   = Specific rules for ``Sphinx``,
+#              see https://github.com/sphinx-doc/sphinx.
+###
+
+#
+docs/_build/

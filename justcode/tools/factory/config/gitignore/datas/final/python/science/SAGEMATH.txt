@@ -1,0 +1,9 @@
+###
+# this::
+#     author = Christophe, BAL [projetmbc@gmail.com]
+#     desc   = Specific rules for ``SageMath``,
+#              see https://www.sagemath.org.
+###
+
+#
+*.sage.py

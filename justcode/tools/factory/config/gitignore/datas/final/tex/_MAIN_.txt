@@ -1,0 +1,34 @@
+###  jusqu'à  # TeXnicCenter #  y compris
+# this::
+#     author = Christophe, BAL [projetmbc@gmail.com]
+#     desc   = Main rules for standard ``(La)TeX`` projects,
+#              see https://github.com/latex3.
+###
+
+# Core latex/pdflatex
+*.aux
+*.cb
+*.cb2
+*.fls
+*.f[om]t
+*.lo[fgt]
+.*.lb
+*.out
+*.toc
+
+# Intermediate documents
+*.dvi
+*.xdv
+*-converted-to.*
+
+# Generated if empty string is given at
+# "Please type another file name for output:".
+.pdf
+
+# Extra "standard" tools.
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync

@@ -1,0 +1,10 @@
+###
+# this::
+#     author = Christophe, BAL [projetmbc@gmail.com]
+#     desc   = Specific rules for the packages ``TikZ`` and  ``PGF``.
+###
+
+#
+*.dpth
+*.md5
+*.auxlock

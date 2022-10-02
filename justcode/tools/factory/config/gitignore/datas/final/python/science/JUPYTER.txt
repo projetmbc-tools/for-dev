@@ -1,0 +1,13 @@
+###
+# this::
+#     author = Christophe, BAL [projetmbc@gmail.com]
+#     desc   = Specific rules for ``Jupyter``,
+#              see https://github.com/jupyter.
+###
+
+# Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py

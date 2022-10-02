@@ -1,0 +1,10 @@
+###
+# this::
+#     author = Christophe, BAL [projetmbc@gmail.com]
+#     desc   = Specific rules for the package ``sympytex``.
+###
+
+#
+*.sout
+*.sympy
+sympy-plots-for-*.tex/

@@ -1,0 +1,9 @@
+###
+# this::
+#     author = Christophe, BAL [projetmbc@gmail.com]
+#     desc   = Specific rules for ``KBibTeX``,
+#              see https://apps.kde.org/fr/kbibtex/.
+###
+
+#
+*~[0-9]*

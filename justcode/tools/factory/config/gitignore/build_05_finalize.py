@@ -26,6 +26,21 @@ TAB_2 = TAB_1*2
 TAB_3 = TAB_1*3
 
 
+# ----------- #
+# -- TOOLS -- #
+# ----------- #
+
+def ignorethisname(name):
+    for toremove in '-':
+        name = name.replace(toremove, '')
+
+    return (
+        name == '.DS_Store'
+        or
+        not name.isupper()
+    )
+
+
 # --------------- #
 # -- LET'S GO! -- #
 # --------------- #
@@ -49,7 +64,7 @@ diffrules_online = []
 for p in FINAL_DIR.glob('*'):
     name = p.name
 
-    if name == '.DS_Store':
+    if ignorethisname(name):
         continue
 
     resume = {}
@@ -57,7 +72,10 @@ for p in FINAL_DIR.glob('*'):
 
     apirules = set()
 
-    for f in p.glob('*.txt'):
+    for f in p.glob('**/*.txt'):
+        if ignorethisname(f.stem):
+            continue
+
         apirules = apirules.union(
             usefulrulesfrom(f)
         )

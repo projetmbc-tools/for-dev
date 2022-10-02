@@ -1,0 +1,11 @@
+###
+# this::
+#     author = Christophe, BAL [projetmbc@gmail.com]
+#     desc   = Specific rules for the package ``minitoc``.
+###
+
+#
+*.maf
+*.ml[ft]
+*.mtc[0-9]*
+*.sl[cft][0-9]*

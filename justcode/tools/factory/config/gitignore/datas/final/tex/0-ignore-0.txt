@@ -21,6 +21,7 @@
 *.gls
 *.gnuplot
 
+
 # -- L -- #
 latex.out/
 *.lof
@@ -38,6 +39,12 @@ latex.out/
 *.mp
 
 
+# -- N -- #
+*.nlg
+*.nlo
+*.nls
+
+
 # -- S -- #
 *.slf[0-9]*
 *.slt[0-9]*
@@ -49,3 +56,9 @@ latex.out/
 
 # -- T -- #
 *.table
+TSWLatexianTemp*
+
+
+# -- X -- #
+*.xyc
+*.xyd

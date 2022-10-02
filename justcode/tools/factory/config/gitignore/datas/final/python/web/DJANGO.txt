@@ -1,0 +1,12 @@
+###
+# this::
+#     author = Christophe, BAL [projetmbc@gmail.com]
+#     desc   = Specific rules for ``Django``,
+#              see https://github.com/django/django.
+###
+
+#
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal

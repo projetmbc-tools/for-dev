@@ -1,0 +1,13 @@
+###
+# this::
+#     author = Christophe, BAL [projetmbc@gmail.com]
+#     desc   = Main rules for standard Python projects,
+#              see https://github.com/python/.
+###
+
+# Byte-compiled
+__pycache__/
+*.py[co]
+
+# Cython debug
+cython_debug/
