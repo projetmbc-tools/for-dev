@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-08-28
+    date = 2022-10-02
 
 
 abrev::
@@ -10,7 +10,7 @@ abrev::
 Comment faire ?
 ===============
 
-Pour employer un squelette proposé par ¨justcode, il suffit d'utiliser un nom du type peuf::``api::nom-du-squelette`` au lieu d'un chemin comme cela était proposé dans tous les exemples de la section cf::``?/create-n-use.txt``. Voici un premier exemple en lien avec ¨cvnum.
+Pour employer un squelette proposé par ¨justcode, il suffit d'indiquer son nom. Voici un exemple avec des sous-dossiers à initier.
 
 peuf::
     ---
@@ -18,7 +18,7 @@ peuf::
     ---
 
 
-Voici un autre exemple faisant ¨ref à ¨mathobj.
+Voici un autre exemple avec un projet complet à initier.
 
 peuf::
     ---
@@ -27,4 +27,4 @@ peuf::
 
 
 info::
-    La section cf::``?/contribute/templates.txt``explique comment contribuer en proposant de nouveaux squelettes.
+    La section cf::``?/contribute/templates.txt``explique comment proposer de nouveaux squelettes.

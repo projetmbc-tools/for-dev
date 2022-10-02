@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-30
+    date = 2022-10-02
 
 
 =====================
@@ -15,19 +15,16 @@ Ce qui suit reste valable pour ¨ttes les règles avec leurs sous-contextes éve
     1) L'emploi du nom peuf::``python`` dans peuf::``gitignore = python`` demande d'utiliser l'¨ens "principal" des règles ¨python (pas de sous-règles propres à l'emploi de ¨sagemath, ou bien de ¨jupyter par exemple).
     Ces règles ne concernent donc qu'un usage ¨std de ¨python, et ceci sans aucune fioriture.
 
-    1) Imaginions que nous travaillons sur un projet s'appuyant sur le 	protéiforme logiciel ¨sagemath.
+    1) Imaginons que nous travaillons sur un projet s'appuyant sur le protéiforme logiciel ¨sagemath.
     Les règles spécifiques à ce projet sont accessibles via peuf::``python.sagemath``.
     On peut donc passer via peuf::``python ; python.sagemath`` pour cumuler toutes les règles.
 
-    1) Au lieu de taper peuf::``python ; python.sagemath``, on peut plus efficacement écrire peuf::``python::sagemath`` avec une syntaxe très éclairante sur les règles employées
+    1) Il faut savaoir que peuf::``python`` est en fait un raccourci pour peuf::``python.main``.
+
+    1) Au lieu de taper peuf::``python ; python.sagemath``, on peut plus efficacement écrire peuf::``python.(main, sagemath)``
     ((
         Rappelons que le nom d'un ¨ens de règles peut contenir les symboles ``+`` et ``-``.
     )).
-    Ceci permet une sélection aisée, et fine de ce que l'on désire avoir.
+    Ceci permet une sélection aisée, et fine, de ce que l'on désire avoir.
 
-    1) Si vous avez besoin de tous les contextes associés à ¨python, il suffit de passer via peuf::``python::all``.
-
-
-info::
-    En fait, ¨justcode interprète ¨auto^t le nom de règles peuf::``python`` comme étant peuf::``python.main`` où peuf::``main`` indique les règles principales pour ¨python.
-    Retenir aussi que, par exemple, peuf::``python::sagemath::jupyter`` est un raccourci pour peuf::``python.main ; python.sagemath ; python.jupyter``, soit aussi peuf::``python ; python.sagemath ; python.jupyter``.
+    1) Si vous avez besoin de tous les contextes associés à ¨python, il suffit de passer via peuf::``python.all``.

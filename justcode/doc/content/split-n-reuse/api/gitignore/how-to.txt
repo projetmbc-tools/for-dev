@@ -1,12 +1,12 @@
 ﻿this::
-    date = 2022-09-11
+    date = 2022-10-02
 
 
 ===============
 Comment faire ?
 ===============
 
-La section cf::``?/create-n-use/steps/final-aggregate.txt`` donne toutes les explications nécessaires à ce sujet : voir le code du fichier path::``params.peuf`` redonné ci-après où path::``~/mes_gitignores/reglesmaison.txt`` sert à indiquer des règles "maison" non proposées par ¨justcode (notez qu'il n'est pas nécessaire d'utiliser le préfixe peuf::``api::`` pour les règles fournies par ¨justcode).
+La section cf::``?/create-n-use/steps/final-aggregate.txt`` donne toutes les explications nécessaires à ce sujet : voir le code du fichier path::``params.peuf`` redonné ci-après où path::``~/mes_gitignores/reglesmaison.txt`` sert à indiquer des règles "maison" non proposées par ¨justcode.
 
 peuf::
     ---

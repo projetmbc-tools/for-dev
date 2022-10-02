@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-28
+    date = 2022-10-03
 
 
 abrev::
@@ -63,7 +63,7 @@ Voici les étapes à suivre.
 
         * Un ¨ens de règles peut soit être l'un de ceux proposés par ¨justcode comme c'est le cas pour peuf::``python`` et peuf::``osx`` ci-dessus, soit directement fourni via un fichier comme path::``~/mes_gitignores/reglesmaison.txt`` dans notre exemple (ceci permet l'emploi de règles "maison").
 
-        * Au final, toutes les règles sont mises dans un unique fichier path::``.gitignore`` en étant réorganiser de façon la plus optimale possible par ¨justcode.
+        * Au final, toutes les règles sont mises dans un unique fichier path::``gitignore`` en étant réorganiser de façon la plus optimale possible par ¨justcode.
 
     1) Il ne reste plus qu'à lancer la génération comme cela a été expliqué à la fin de cf::``steps/1-single[CHANGES].txt``.
 

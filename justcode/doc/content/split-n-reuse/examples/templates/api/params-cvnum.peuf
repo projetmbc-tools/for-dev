@@ -1,6 +1,6 @@
 import::
-    changes = api::changes
-    readme  = api::readme
+    changes = changes
+    readme  = readme
 
 main::
     licence = by nc sa 4.0

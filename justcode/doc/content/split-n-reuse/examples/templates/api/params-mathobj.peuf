@@ -1,2 +1,2 @@
 main::
-    monorepo = api::monorepo
+    monorepo = monorepo
