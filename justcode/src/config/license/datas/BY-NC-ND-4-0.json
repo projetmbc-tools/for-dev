@@ -1,1 +1,8 @@
-{"fullname": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0", "shortid": "BY-NC-ND-4.0", "urls": {"official": "https://creativecommons.org", "content": "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.txt"}}
+{
+    "fullname": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0",
+    "shortid": "BY-NC-ND-4.0",
+    "urls": {
+        "official": "https://creativecommons.org",
+        "content": "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.txt"
+    }
+}

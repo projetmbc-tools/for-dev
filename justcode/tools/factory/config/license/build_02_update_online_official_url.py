@@ -144,13 +144,13 @@ for p in LICENSE_DATAS_DIR.walk("file::**.json"):
     infos['urls']['official'] = urlfound
 
 
-    with p.open(
+    p.write_text(
         encoding = 'utf-8',
-        mode     = 'w',
-    ) as f:
-        f.write(
-            dumps(infos)
+        data     = dumps(
+            infos,
+            indent = 4
         )
+    )
 
 
 if nb_official_OK == 0:

@@ -150,12 +150,9 @@ class ScrapingBase:
 
 # License in the project.
             if lic_file_TXT.is_file():
-                with lic_file_TXT.open(
-                    encoding = 'utf-8',
-                    mode     = 'r',
-                ) as f:
-                    content_stored = f.read()
-                    content_stored = content_stored
+                content_stored = lic_file_TXT.read_text(
+                    encoding = 'utf-8'
+                )
 
             else:
                 content_stored = ''
@@ -174,11 +171,10 @@ class ScrapingBase:
                 f"``{file_name}.txt``."
             )
 
-            with lic_file_TXT.open(
+            lic_file_TXT.write_text(
                 encoding = 'utf-8',
-                mode     = 'w',
-            ) as f:
-                f.write(content)
+                data     = content
+            )
 
 
             print(
@@ -186,17 +182,17 @@ class ScrapingBase:
                 f"``{file_name}.json``."
             )
 
-            with lic_file_JSON.open(
+            lic_file_JSON.write_text(
                 encoding = 'utf-8',
-                mode     = 'w',
-            ) as f:
-                f.write(
-                    dumps({
+                data     = dumps(
+                    {
                         'fullname': fullname,
                         'shortid' : shortid,
                         'urls'    : {
                             'official': None,
                             'content' : url,
                         }
-                    })
+                    },
+                    indent = 4
                 )
+            )

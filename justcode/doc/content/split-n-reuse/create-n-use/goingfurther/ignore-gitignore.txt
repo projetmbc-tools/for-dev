@@ -3,20 +3,19 @@
 
 
 abrev::
-    exafileparam = ¨exatempl/ignore-gitignore
+    exaignogitigno = ¨exatempl/ignore-gitignore
 
 
 =============================
 Ignorer des règles ¨gitignore
 =============================
 
-Il est parfois utile de retirer certaines règles d'un ¨ens de règles "importées". Cela se fait simplement via un, ou plusieurs fichiers contenant les règles à ignorer.
-Dans l'exemple qui suit, on utilise un seul fichier de chemin path::``- ~/mes_gitignores/ignorercesregles.txt``.
-En indiquant le chemin précédé du symbole peuf::``-`` et d'un espace, on spécifie d'ignorer ¨ttes les règles présentes dans le fichier path::``ignorercesregles.txt``.
+Il est parfois utile de retirer certaines règles d'un ¨ens de règles "importées". Cela se fait simplement via un fichier, ou plus, contenant les règles à ignorer.
+Dans l'exemple qui suit, tout ce qui se trouve après le signe peuf::``-``, suivi d'un espace, sera ignoré : ici, ceci correspond aux règles des fichiers path::``ignorercesregles.txt`` et path::``ignoreraussiceci.txt`` du dossier path::``~/mes_gitignores``.
 
 dirtree::
     ---
-    path = ¨exafileparam/params.peuf
+    path = ¨exaignogitigno/params.peuf
     ---
 
 

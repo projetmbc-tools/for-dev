@@ -1,4 +1,4 @@
-###  jusqu'à  # TeXnicCenter #  y compris
+###
 # this::
 #     author = Christophe, BAL [projetmbc@gmail.com]
 #     desc   = Main rules for standard ``(La)TeX`` projects,

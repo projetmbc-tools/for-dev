@@ -93,5 +93,5 @@ for jsfile, jsdatas in [
     )
 
     print(
-        f"{TAB_1}* JSON file ``{jsfile.name}`` has been updated."
+        f"{TAB_1}* JSON file ``datas/online/{jsfile.name}`` has been updated."
     )

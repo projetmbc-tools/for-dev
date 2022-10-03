@@ -31,7 +31,8 @@ THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
 
 LICENSE_DIR       = PROJECT_DIR / 'src' / 'config' / 'license'
 LICENSE_DATAS_DIR = LICENSE_DIR / 'datas'
-FAIL_JSON_FILE    = THIS_DIR / '0-failed-licenses-0.json'
+
+NO_CONTENT_JSON_FILE = THIS_DIR / 'report-no-content.json'
 
 
 TAB_1 = ' '*4
@@ -111,20 +112,22 @@ if UPDATE_OPENSOURCE:
 # ------------------------------------- #
 
 print()
-print(f"{TAB_1}* Updating ``{FAIL_JSON_FILE.name}.json``.")
+print(f"{TAB_1}* Updating ``{NO_CONTENT_JSON_FILE.name}``.")
 
 # We want a deterministic output!
 FAILED_LICENSES.sort()
+FAILED_LICENSES = {
+    s: l
+    for s, l in FAILED_LICENSES
+}
 
-with FAIL_JSON_FILE.open(
+NO_CONTENT_JSON_FILE.write_text(
     encoding = 'utf-8',
-    mode     = 'w',
-) as f:
-    f.write(
-        dumps(
-            obj    = FAILED_LICENSES,
-            indent = 4)
+    data     = dumps(
+        obj    = FAILED_LICENSES,
+        indent = 4
     )
+)
 
 
 # ------------------------- #

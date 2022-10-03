@@ -1,1 +1,8 @@
-{"fullname": "SIL OPEN FONT LICENSE", "shortid": "OFL-1.1", "urls": {"official": "http://scripts.sil.org/OFL", "content": "https://choosealicense.com/licenses/ofl-1.1"}}
+{
+    "fullname": "SIL OPEN FONT LICENSE",
+    "shortid": "OFL-1.1",
+    "urls": {
+        "official": "http://scripts.sil.org/OFL",
+        "content": "https://choosealicense.com/licenses/ofl-1.1"
+    }
+}

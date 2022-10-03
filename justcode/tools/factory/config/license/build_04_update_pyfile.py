@@ -77,16 +77,12 @@ for p in allpaths:
     ]
 
 
-
 code = '\n'.join(code)
 
 
-with PYFILE.open(
+PYFILE.write_text(
     encoding = 'utf8',
-    mode     = 'w',
-) as f:
-    f.write(
-        f"""
+    data     = f"""
 #!/usr/bin/env python3
 
 # This code was automatically build by the following file.
@@ -98,10 +94,10 @@ with PYFILE.open(
 ALL_LICENSES = [
 {code}
 ]
-        """.strip()
-        +
-        '\n'
-    )
+    """.strip()
+    +
+    '\n'
+)
 
 
 print(f"{TAB_1}* ``licence.py`` updated.")

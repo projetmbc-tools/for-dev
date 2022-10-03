@@ -16,17 +16,15 @@ THIS_FILE = Path(__file__)
 THIS_DIR  = Path(THIS_FILE).parent
 
 DATAS_DIR = THIS_DIR / 'datas'
-
 FINAL_DIR = DATAS_DIR / 'final'
+
+PREFERRED_JSON_FILE = THIS_DIR / 'preferred-rules.json'
 
 MINIMIZE_DIR         = DATAS_DIR / 'minimize'
 MINIMIZE_AUTO_DIR    = MINIMIZE_DIR / 'auto'
 MINIMIZE_BY_HAND_DIR = MINIMIZE_DIR / 'byhand'
 
-
-# GITHUB_TOPTAL_URL   = "https://github.com/toptal/gitignore"
-# GITHUB_JUSTCODE_URL = "https://github.com/bc-tools/for-dev/tree/dev/justcode"
-
+MAIN_FILE = '_MAIN_.txt'
 
 PREFERRED_RULES      = set()
 DUPLICATES_TO_REMOVE = set()
@@ -447,11 +445,11 @@ if NB_RULES_ADDED:
 
             finaljob_dir.create('dir')
 
-        finaljob_main = finaljob_dir / "MAIN.txt"
+        finaljob_main = finaljob_dir / MAIN_FILE
 
         if not finaljob_main.is_file():
             print(
-                f"{TAB_2}+ ''final/{name}/MAIN.txt''"
+                f"{TAB_2}+ ''final/{name}/{MAIN_FILE}''"
                  "\n"
                 f"{TAB_4}--> File added"
             )

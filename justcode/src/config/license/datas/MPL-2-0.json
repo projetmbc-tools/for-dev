@@ -1,1 +1,8 @@
-{"fullname": "Mozilla Public License 2.0", "shortid": "MPL-2.0", "urls": {"official": "http://mozilla.org/MPL/2.0", "content": "https://choosealicense.com/licenses/mpl-2.0"}}
+{
+    "fullname": "Mozilla Public License 2.0",
+    "shortid": "MPL-2.0",
+    "urls": {
+        "official": "http://mozilla.org/MPL/2.0",
+        "content": "https://choosealicense.com/licenses/mpl-2.0"
+    }
+}

@@ -20,6 +20,9 @@ FINAL_DIR   = DATAS_DIR / 'final'
 ONLINE_DIR  = DATAS_DIR / 'online'
 CONTRIB_DIR = DATAS_DIR / 'contribute'
 
+JSON_REPORT     = THIS_DIR / 'diff-contexts.json'
+DIFF_JSON_FILE  = 'diff-resume.json'
+IGNORE_TXT_FILE = '_ignore_.txt'
 
 TAB_1 = ' '*4
 TAB_2 = TAB_1*2
@@ -90,7 +93,7 @@ for p in FINAL_DIR.glob('*'):
         onlinerules = set()
 
 
-    ignorefile = FINAL_DIR / name / "0-ignore-0.txt"
+    ignorefile = FINAL_DIR / name / IGNORE_TXT_FILE
 
     if not ignorefile.is_file():
         toignore = set()
@@ -123,7 +126,7 @@ for p in FINAL_DIR.glob('*'):
         resume['api-online'] = sorted(list(apirules - onlinerules))
         resume['online-api'] = sorted(list(onlinerules - apirules))
 
-    (FINAL_DIR / name / "resume.json").write_text(
+    (FINAL_DIR / name / DIFF_JSON_FILE).write_text(
         data = dumps(
             obj    = resume,
             indent = 4
@@ -134,13 +137,18 @@ for p in FINAL_DIR.glob('*'):
 
 if diffrules_online:
     print(
-        f"{TAB_2}+ Different rules - API and online "
-         "(see the ``resume.json`` files)"
+        f"{TAB_2}+ API and online have different rules. See the files below.",
+            f"{TAB_3}- ``{JSON_REPORT.name}``: the list of contexts concerned.",
+            f"{TAB_3}- ``<<context-name>> / {DIFF_JSON_FILE}``: a resume of the differences.",
+        sep = "\n"
     )
 
     diffrules_online.sort()
 
-    for name in diffrules_online:
-        print(
-            f"{TAB_3}- {name}"
-        )
+    JSON_REPORT.write_text(
+        encoding = 'utf-8',
+        data     = dumps(
+            diffrules_online,
+            indent = 4
+        ),
+    )

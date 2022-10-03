@@ -1,1 +1,8 @@
-{"fullname": "The PostgreSQL Licence", "shortid": "PostgreSQL", "urls": {"official": null, "content": "https://choosealicense.com/licenses/postgresql"}}
+{
+    "fullname": "The PostgreSQL Licence",
+    "shortid": "PostgreSQL",
+    "urls": {
+        "official": null,
+        "content": "https://choosealicense.com/licenses/postgresql"
+    }
+}

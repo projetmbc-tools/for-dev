@@ -1,1 +1,8 @@
-{"fullname": "The 3-Clause BSD License", "shortid": "BSD-3-Clause", "urls": {"official": null, "content": "https://choosealicense.com/licenses/bsd-3-clause"}}
+{
+    "fullname": "The 3-Clause BSD License",
+    "shortid": "BSD-3-Clause",
+    "urls": {
+        "official": null,
+        "content": "https://choosealicense.com/licenses/bsd-3-clause"
+    }
+}

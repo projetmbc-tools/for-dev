@@ -1,1 +1,8 @@
-{"fullname": "Zero-Clause BSD", "shortid": "0BSD", "urls": {"official": null, "content": "https://choosealicense.com/licenses/0bsd"}}
+{
+    "fullname": "Zero-Clause BSD",
+    "shortid": "0BSD",
+    "urls": {
+        "official": null,
+        "content": "https://choosealicense.com/licenses/0bsd"
+    }
+}

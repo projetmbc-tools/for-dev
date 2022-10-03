@@ -1,1 +1,8 @@
-{"fullname": "ISC License", "shortid": "ISC", "urls": {"official": null, "content": "https://choosealicense.com/licenses/isc"}}
+{
+    "fullname": "ISC License",
+    "shortid": "ISC",
+    "urls": {
+        "official": null,
+        "content": "https://choosealicense.com/licenses/isc"
+    }
+}
