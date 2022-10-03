@@ -1,7 +1,7 @@
 main::
-    monorepo  = ~/mes_squelettes/monorepo
+    template  = ~/mes_squelettes/monorepo
     gitignore = python ;
-                osx ;
+                macos ;
                 ~/mes_gitignores/reglesmaison.txt
 
 changes::

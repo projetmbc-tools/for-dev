@@ -1,0 +1,24 @@
+﻿this::
+    date = 2022-10-03
+
+
+abrev::
+    exafileparam = ¨exatempl/ignore-gitignore
+
+
+=============================
+Ignorer des règles ¨gitignore
+=============================
+
+Il est parfois utile de retirer certaines règles d'un ¨ens de règles "importées". Cela se fait simplement via un, ou plusieurs fichiers contenant les règles à ignorer.
+Dans l'exemple qui suit, on utilise un seul fichier de chemin path::``- ~/mes_gitignores/ignorercesregles.txt``.
+En indiquant le chemin précédé du symbole peuf::``-`` et d'un espace, on spécifie d'ignorer ¨ttes les règles présentes dans le fichier path::``ignorercesregles.txt``.
+
+dirtree::
+    ---
+    path = ¨exafileparam/params.peuf
+    ---
+
+
+note::
+    Ce ¨syst d'exclusion de règles est aussi disponible pour les règles proposées "clés en main" par ¨justcode. Voir cf::``?/gitignore/modular.txt`` pour en savoir plus.

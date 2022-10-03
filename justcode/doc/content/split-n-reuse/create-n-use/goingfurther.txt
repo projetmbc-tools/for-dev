@@ -14,6 +14,7 @@ Dans cette section, nous allons rencontrer des fonctionnalités avancées très 
 
 
 content::
+    ¨content/ignore-gitignore.txt
     ¨content/folder-vs-special-block.txt
     ¨content/filelike-param-name.txt
     ¨content/params-in-param.txt

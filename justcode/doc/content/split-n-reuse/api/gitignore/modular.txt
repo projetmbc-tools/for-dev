@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-10-02
+    date = 2022-10-03
 
 
 =====================
@@ -19,7 +19,7 @@ Ce qui suit reste valable pour ¨ttes les règles avec leurs sous-contextes éve
     Les règles spécifiques à ce projet sont accessibles via peuf::``python.sagemath``.
     On peut donc passer via peuf::``python ; python.sagemath`` pour cumuler toutes les règles.
 
-    1) Il faut savaoir que peuf::``python`` est en fait un raccourci pour peuf::``python.main``.
+    1) Il faut savaoir que peuf::``python`` est en fait un raccourci pour peuf::``python.main`` (ceci est utilisé dans le point suivant).
 
     1) Au lieu de taper peuf::``python ; python.sagemath``, on peut plus efficacement écrire peuf::``python.(main, sagemath)``
     ((
@@ -28,3 +28,9 @@ Ce qui suit reste valable pour ¨ttes les règles avec leurs sous-contextes éve
     Ceci permet une sélection aisée, et fine, de ce que l'on désire avoir.
 
     1) Si vous avez besoin de tous les contextes associés à ¨python, il suffit de passer via peuf::``python.all``.
+
+    1) Pour finir, on peut ignorer un groupe de règles en utilisant le symbole peuf::``-`` entouré d'espaces, les ¨enss à ignorer étant aprés ce symbole comme dans peuf::``tex.(all - science, biblio)`` qui demande de juste ignorer les ¨enss des contextes peuf::``science`` et peuf::``biblio``.
+
+
+info::
+    Si vous souhaitez n'ignorer que quelques règles, et non tout un ¨ens, le plus simple est de le faire via un fichier dédié comme cela est expliqué dans cf::``?/goingfurther/ignore-gitignore.txt``.

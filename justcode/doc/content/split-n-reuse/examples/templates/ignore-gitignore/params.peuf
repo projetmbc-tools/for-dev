@@ -1,0 +1,5 @@
+main::
+    template  = ~/mes_squelettes/monorepo
+    gitignore = python ;
+                macos ;
+                - ~/mes_gitignores/ignorercesregles.txt

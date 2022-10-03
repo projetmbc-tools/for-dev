@@ -1,0 +1,21 @@
+// ---------- //
+
+
+==
+03
+==
+
+-----
+:new:
+-----
+
+[[:doc:]]
+¨gitignore rules: sets of rules can be ignored (this works for the ¨api, and for the user's rules).
+
+
+--------
+:update:
+--------
+
+[[:doc:]]
+Main template: one specific key ``template`` must be used to indicate the main template.
