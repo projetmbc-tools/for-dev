@@ -138,7 +138,7 @@ def buildapirules(content, ctxts):
         prettyrules.pop(0)
 
 # Comments and list of rules.
-    comment_rules = []
+    commentedrules = []
 
     comment  = []
     lofrules = []
@@ -149,10 +149,11 @@ def buildapirules(content, ctxts):
 
         if l[0] == '#':
             if lofrules:
-                comment_rules.append({
-                    'comment': '\n'.join(comment),
-                    'rules'  : lofrules,
-                })
+                updatectxtapi(
+                    commentedrules,
+                    comment,
+                    lofrules
+                )
 
                 comment  = []
                 lofrules = []
@@ -163,18 +164,18 @@ def buildapirules(content, ctxts):
             lofrules.append(l)
 
     if lofrules:
-        comment_rules.append({
-            'comment': '\n'.join(comment),
-            'rules'  : lofrules,
-        })
+        updatectxtapi(
+            commentedrules,
+            comment,
+            lofrules
+        )
 
 
 # Rules
     return {
         'desc' : desc,
-        'rules': comment_rules,
+        'rules': commentedrules,
     }
-
 
 
 def update(rules, ctxts, content):
@@ -189,6 +190,13 @@ def update(rules, ctxts, content):
 
     else:
         rules[firstctxt] = content
+
+
+def updatectxtapi(commentedrules, comment, lofrules):
+    commentedrules.append({
+        'comment': '\n'.join(comment),
+        'rules'  : lofrules,
+    })
 
 
 # --------------- #
