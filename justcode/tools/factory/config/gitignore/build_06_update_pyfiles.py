@@ -29,7 +29,7 @@ GITIGNORE_DIR = PROJECT_DIR / 'src' / 'config' / 'gitignore' / 'datas'
 INIT_FILE     = GITIGNORE_DIR / '__init__.py'
 
 FINAL_DIR       = THIS_DIR / 'datas' / 'final'
-IGNORE_TXT_FILE = '_ignore_.txt'
+IGNORE_TXT_FILE = 'ignore.txt'
 
 
 TEMPL_API_RULES = f"""
@@ -56,7 +56,7 @@ def ignorethisname(onepath):
     return onepath.name == IGNORE_TXT_FILE
 
 
-HEAD_TITLE_ABOUT = '#'*4
+COMMENT_TITLE_1 = '#'*4
 
 def buildapirules(content, ctxts):
 # Metainfos, and rules to analyze.
@@ -71,7 +71,7 @@ def buildapirules(content, ctxts):
 
     assert not before, \
            (
-             'something before the first ``###`` '
+             'illegal text before the first ``###`` '
             f'in ``{ctxts}``.'
            )
 
@@ -111,7 +111,7 @@ def buildapirules(content, ctxts):
 
     infos = infos['this']
     desc  = '\n'.join(
-        f'{HEAD_TITLE_ABOUT} {l}'
+        f'{COMMENT_TITLE_1} {l}'
         for l in infos['desc'].split('\n')
     )
 
@@ -137,14 +137,44 @@ def buildapirules(content, ctxts):
     while(prettyrules and not prettyrules[0]):
         prettyrules.pop(0)
 
-    prettyrules = '\n'.join(prettyrules)
+# Comments and list of rules.
+    comment_rules = []
+
+    comment  = []
+    lofrules = []
+
+    for l in prettyrules:
+        if not l:
+            continue
+
+        if l[0] == '#':
+            if lofrules:
+                comment_rules.append({
+                    'comment': '\n'.join(comment),
+                    'rules'  : lofrules,
+                })
+
+                comment  = []
+                lofrules = []
+
+            comment.append(l)
+
+        else:
+            lofrules.append(l)
+
+    if lofrules:
+        comment_rules.append({
+            'comment': '\n'.join(comment),
+            'rules'  : lofrules,
+        })
+
 
 # Rules
-    return f"""
-{desc}
+    return {
+        'desc' : desc,
+        'rules': comment_rules,
+    }
 
-{prettyrules}
-    """.strip() + '\n'*2
 
 
 def update(rules, ctxts, content):

@@ -1,0 +1,47 @@
+# Linux
+*.d
+*.o
+*.ko
+*.elf
+*.map 
+*.pch
+*.la
+*.lo
+*.so
+*.so.*
+*.su
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# Windows
+*.exe
+*.lib
+*.dll
+
+# Linux GCC
+*.gch
+
+# MSVC (Windows)
+*.obj
+*.ilk
+*.map
+*.exp
+*.def
+*.res
+*.pch
+*.pdb
+*.idb
+
+# MinGW (Windows)
+*.o
+*.a
+*.map
+*.gch
+
+# CMake
+build/

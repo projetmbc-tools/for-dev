@@ -5,8 +5,11 @@
 #     + ``tools/factory/config/gitignore/build_06_update_pyfiles.py``
 
 RULES = {
-    "_main_": "",
+    "main": "",
     "general": {
-        "sphinx": "#### Specific rules for ``Sphinx``, see https://github.com/sphinx-doc/sphinx.\n\n##\ndocs/_build/\n\n"
+        "sphinx": {
+            "desc": "#### Specific rules for ``Sphinx``, see https://github.com/sphinx-doc/sphinx.",
+            "rules": [{"comment": "##", "rules": ["docs/_build/"]}],
+        }
     },
 }

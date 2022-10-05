@@ -22,7 +22,7 @@ CONTRIB_DIR = DATAS_DIR / 'contribute'
 
 JSON_REPORT     = THIS_DIR / 'diff-contexts.json'
 DIFF_JSON_FILE  = 'diff-resume.json'
-IGNORE_TXT_FILE = '_ignore_.txt'
+IGNORE_TXT_FILE = 'ignore.txt'
 
 TAB_1 = ' '*4
 TAB_2 = TAB_1*2

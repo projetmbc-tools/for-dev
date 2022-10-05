@@ -24,7 +24,8 @@ MINIMIZE_DIR         = DATAS_DIR / 'minimize'
 MINIMIZE_AUTO_DIR    = MINIMIZE_DIR / 'auto'
 MINIMIZE_BY_HAND_DIR = MINIMIZE_DIR / 'byhand'
 
-MAIN_FILE = '_MAIN_.txt'
+MAIN_FILE       = 'MAIN.txt'
+IGNORE_TXT_FILE = 'ignore.txt'
 
 PREFERRED_RULES      = set()
 DUPLICATES_TO_REMOVE = set()
@@ -470,11 +471,11 @@ if NB_RULES_ADDED:
                 """.strip() + '\n'
             )
 
-        finaljob_ignore = finaljob_dir / "0-ignore-0.txt"
+        finaljob_ignore = finaljob_dir / IGNORE_TXT_FILE
 
         if not finaljob_ignore.is_file():
             print(
-                f"{TAB_2}+ ''final/{name}/0-ignore-0.txt''"
+                f"{TAB_2}+ ''final/{name}/{IGNORE_TXT_FILE}''"
                  "\n"
                 f"{TAB_4}--> File added"
             )

@@ -5,6 +5,9 @@
 #     + ``tools/factory/config/gitignore/build_06_update_pyfiles.py``
 
 RULES = {
-    "_main_": "",
-    "gettext": "#### Specific rules for ``gettext``, see https://www.gnu.org/software/gettext/.\n\n##\n*.mo\n*.pot\n\n",
+    "main": "",
+    "gettext": {
+        "desc": "#### Specific rules for ``gettext``, see https://www.gnu.org/software/gettext/.",
+        "rules": [{"comment": "##", "rules": ["*.mo", "*.pot"]}],
+    },
 }
