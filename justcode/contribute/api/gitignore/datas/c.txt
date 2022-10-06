@@ -1,4 +1,12 @@
-### Linux
+###
+# this::
+#     author = none
+#     desc   =
+###
+
+
+## LINUX
+
 *.d
 *.o
 *.ko
@@ -18,15 +26,23 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-### Windows
+
+## WINDOWS
+
 *.exe
 *.lib
 *.dll
 
-### Linux GCC
+
+## GCC
+
+# Only on Linux.
 *.gch
 
-### MSVC (Windows)
+
+## MSVC
+
+# Only on Windows.
 *.obj
 *.ilk
 *.map
@@ -37,11 +53,17 @@ dkms.conf
 *.pdb
 *.idb
 
-### MinGW (Windows)
+
+## MINGW
+
+# Only on Windows.
 *.o
 *.a
 *.map
 *.gch
 
-### CMake
+
+## CMAKE
+
+# Doublon !
 build/

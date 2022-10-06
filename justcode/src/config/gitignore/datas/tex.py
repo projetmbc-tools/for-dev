@@ -2,7 +2,7 @@
 
 # This code was automatically build by the following file.
 #
-#     + ``tools/factory/config/gitignore/build_06_update_pyfiles.py``
+#     + ``tools/factory/gitignore/build_06_update_src.py``
 
 RULES = {
     "main": {

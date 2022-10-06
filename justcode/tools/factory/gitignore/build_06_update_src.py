@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-import black
+import           black
+from json import dumps
 
 from mistool.os_use     import PPath as Path
 from mistool.string_use import between
@@ -25,8 +26,11 @@ while(PROJECT_DIR.name != 'justcode'):
 THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
 
 
-GITIGNORE_DIR = PROJECT_DIR / 'src' / 'config' / 'gitignore' / 'datas'
-INIT_FILE     = GITIGNORE_DIR / '__init__.py'
+GITIGNORE_DIR       = PROJECT_DIR / 'src' / 'config' / 'gitignore'
+GITIGNORE_DATAS_DIR = GITIGNORE_DIR / 'datas'
+
+JSON_META_FILE = GITIGNORE_DIR / 'metadatas.json'
+# INIT_FILE     = GITIGNORE_DATAS_DIR / '__init__.py'
 
 FINAL_DIR       = THIS_DIR / 'datas' / 'final'
 IGNORE_TXT_FILE = 'ignore.txt'
@@ -117,7 +121,7 @@ def buildapirules(content, ctxts):
 
 # Rules
     if not rules:
-        return ''
+        return {}
 
     prettyrules = []
 
@@ -188,7 +192,7 @@ def update(rules, ctxts, content):
 
         update(rules[firstctxt], otherctxts, content)
 
-    else:
+    elif content:
         rules[firstctxt] = content
 
 
@@ -197,6 +201,24 @@ def updatectxtapi(commentedrules, comment, lofrules):
         'comment': '\n'.join(comment),
         'rules'  : lofrules,
     })
+
+
+def removerules(deps):
+    if 'desc' in deps:
+        return {}
+
+    return {
+        main: removerules(sub)
+        for main, sub in deps.items()
+    }
+
+
+def buildmetas(apirules):
+    metadatas = {
+        'treeview': removerules(apirules),
+    }
+
+    return metadatas
 
 
 # --------------- #
@@ -228,14 +250,14 @@ for p in FINAL_DIR.glob('**/*.txt'):
         ctxts
     )
 
-    ctxts = ctxts.with_ext('') \
-                 .parts
+    if content:
+        ctxts = ctxts.with_ext('') \
+                    .parts
 
-    update(API_RULES, ctxts, content)
+        update(API_RULES, ctxts, content)
 
 
 # ! -- DEBUGGING -- ! #
-# Clear the terminal.
 # from pprint import pprint
 # print("API_RULES")
 # pprint(API_RULES)
@@ -254,15 +276,30 @@ for p in FINAL_DIR.glob('**/*.txt'):
 print(f"{TAB_1}* Update of the Python files.")
 
 for mainctxt, subctxts in API_RULES.items():
-    subctxts = black.format_file_contents(
+    subctxts_code = black.format_file_contents(
         repr(subctxts),
         fast = False,
         mode = black.FileMode()
     ).strip()
 
-    (GITIGNORE_DIR / f'{mainctxt}.py').write_text(
+    (GITIGNORE_DATAS_DIR / f'{mainctxt}.py').write_text(
         encoding = 'utf-8',
         data     = TEMPL_API_RULES.format(
-            subctxts = subctxts
+            subctxts = subctxts_code
         )
     )
+
+
+# ----------------------- #
+# -- UPDATING PY FILES -- #
+# ----------------------- #
+
+print(f"{TAB_1}* Update of ``metadatas.json`` in the source.")
+
+JSON_META_FILE.write_text(
+    data = dumps(
+        obj    = buildmetas(API_RULES),
+        indent = 4
+    ),
+    encoding = 'utf-8'
+)
