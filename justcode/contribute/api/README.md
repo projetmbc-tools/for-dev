@@ -1,32 +1,39 @@
-Contribute to the `API` of `cvnum`
-==================================
+Contribute to the `API` of `justcode`
+=====================================
 
 > **I beg your pardon for my english...**
 >
 > English is not my native language, so be nice if you notice misunderstandings, misspellings, or grammatical errors in my documents and codes.
 
 
-How to contribute?
-------------------
+Where are the contributions?
+----------------------------
+
+The contributions made are in the `contribute/api` folder which has the following structure.
+
+<!-- FOLDER STRUCT. AUTO - START -->
+
+    + api
+        * LICENSE.txt
+        * README.md
+        + autoparam
+        + changes
+            * LICENSE.txt
+            * x-todo-x.txt
+        + filter
+        + gitignore
+        + license
+        + template
+        + validator
+
+<!-- FOLDER STRUCT. AUTO - END -->
 
 Each folder in the `api` directory contains a `README.md` explaining how to contribute for a given feature.
 
-> All the contributions will necessarily be licensed under a *"GNU GENERAL PUBLIC LICENSE - Version 3"* license.
+> All the contributions will necessarily be licensed under a ***"GNU GENERAL PUBLIC LICENSE - Version 3"*** license.
 
 
-> The contributions made are in the `contribute` folder which has the following structure (the `doc` folder is not of interest here).
+Regular users of `github`
+------------------------
 
-    + contribute
-        + api
-            * README.md
-            * LICENSE.txt
-            + changes
-                * LICENSE.txt
-                * x-todo-x.txt
-            + gitignore
-            + license
-            + template
-        + doc [...]
-
-
-> Regular users of `github` will be able to use `merge requests` to indicate their contribution.
+It is possible to use `merge requests` to indicate one contribution.

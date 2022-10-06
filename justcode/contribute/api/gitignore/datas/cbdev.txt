@@ -1,7 +1,9 @@
-# Created by Christophe BAL.
+###
+# this::
+#     author = Christophe, BAL [projetmbc@gmail.com]
+#     desc   = ``cbdev`` coding style.
+###
 
-### cbdev coding style ###
-
-## Hiden files and folders:
-x-*-x.*
+# Hiden files and folders.
 x-*-x/
+x-*-x.*

@@ -1,7 +1,7 @@
-Contribute to `template`
-========================
+Contribute to `autoparam`
+=========================
 
 How to contribute?
 ------------------
 
-????
+TODO

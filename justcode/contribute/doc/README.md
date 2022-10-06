@@ -6,12 +6,29 @@ Contribute to the documentation of `justcode`
 > English is not my native language, so be nice if you notice misunderstandings, misspellings, or grammatical errors in my documents and codes.
 
 
-How to contribute?
-------------------
+Where are the translations?
+---------------------------
+
+The translations made are in the `contribute/doc` folder which has the following structure.
+
+<!-- FOLDER STRUCT. AUTO - START -->
+
+    + doc
+        * LICENSE.txt
+        * README.md
+        + changes
+            * LICENSE.txt
+            * x-todo-x.txt
+
+<!-- FOLDER STRUCT. AUTO - END -->
+
+
+Start a new translation
+-----------------------
 
 As the author of `justcode` is a French amateur coder, the documentation is only actively maintained in French. Here is how to translate it.
 
-  1) Start by copying and pasting the `doc` folder where you want to do your translation.
+  1) Start by copying and pasting the main `doc` folder where you want to do your translation.
 
   1) Translate the files without touching the structure used (the writing language used is `tns`, it is very intuitive).
 
@@ -21,19 +38,13 @@ As the author of `justcode` is a French amateur coder, the documentation is only
 > The documentation will necessarily be licensed under a *"Creative Commons - Attribution - Non-Commercial - Share Alike 4.0 International"* license.
 
 
+Update one translation
+----------------------
+
 If you wish to update a translation proposal, you should quickly indicate in English the changes made and date them (no need to go into too much detail).
 
 
-> The translations made are in the `contribute` folder which has the following structure (the `api` folder is not of interest here).
+Regular users of `github`
+------------------------
 
-    + contribute
-        + api [...]
-        + doc
-            * README.md
-            * LICENSE.txt
-            + changes
-                * LICENSE.txt
-                * x-todo-x.txt
-
-
-> Regular users of `github` will be able to use `merge requests` to indicate their contribution.
+It is possible to use `merge requests` to indicate one contribution.
