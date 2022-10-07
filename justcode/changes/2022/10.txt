@@ -2,7 +2,7 @@
 
 
 ==
-07
+08
 ==
 
 -----
@@ -10,7 +10,7 @@
 -----
 
 [[:doc:]]
-¨cli: possibility to search the contexts containing one or more ¨gitignore rules given by the user.
+¨gitignore rules: one note talks about the use of terminal::``git check-ignore``.
 
 
 // ---------- //

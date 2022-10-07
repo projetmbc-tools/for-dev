@@ -21,15 +21,15 @@ Ce qui suit reste valable pour ¨ttes les règles avec leurs sous-contextes éve
 
     1) Il faut savaoir que peuf::``python`` est en fait un raccourci pour peuf::``python.main`` (ceci est utilisé dans le point suivant).
 
-    1) Au lieu de taper peuf::``python ; python.sagemath``, on peut plus efficacement écrire peuf::``python.(main, sagemath)``
-    ((
-        Rappelons que le nom d'un ¨ens de règles peut contenir les symboles ``+`` et ``-``.
-    )).
-    Ceci permet une sélection aisée, et fine, de ce que l'on désire avoir.
+    1) Au lieu de taper peuf::``python ; python.sagemath``, on peut plus efficacement écrire peuf::``python.(main, sagemath)``. Ceci permet une sélection aisée, et fine, de ce que l'on désire avoir.
 
     1) Si vous avez besoin de tous les contextes associés à ¨python, il suffit de passer via peuf::``python.all``.
 
-    1) Pour finir, on peut ignorer un groupe de règles en utilisant le symbole peuf::``-`` entouré d'espaces, les ¨enss à ignorer étant aprés ce symbole.
+    1) Pour finir, on peut ignorer un groupe de règles en utilisant le symbole peuf::``-`` entouré d'espaces
+    ((
+        Rappelons que le nom d'un ¨ens de règles peut contenir les symboles ``+`` et ``-``.
+    )),
+    les ¨enss à ignorer étant aprés ce symbole.
     Ainsi peuf::``tex.(all - science, biblio)`` demande d'ignorer les contextes peuf::``science`` et peuf::``biblio``.
 
 

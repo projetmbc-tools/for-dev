@@ -57,534 +57,534 @@
         "/tex/main"
     ],
     "*.gaux": [
-        "/tex/main/packages/music/gregoriotex"
+        "/tex/packages/music/gregoriotex"
     ],
     "*.glog": [
-        "/tex/main/packages/music/gregoriotex"
+        "/tex/packages/music/gregoriotex"
     ],
     "*.gtex": [
-        "/tex/main/packages/music/gregoriotex"
+        "/tex/packages/music/gregoriotex"
     ],
     "*.bbl": [
-        "/tex/main/packages/music/bibliography/biblio"
+        "/tex/packages/bibliography/biblio"
     ],
     "*.bcf": [
-        "/tex/main/packages/music/bibliography/biblio"
+        "/tex/packages/bibliography/biblio"
     ],
     "*.blg": [
-        "/tex/main/packages/music/bibliography/biblio"
+        "/tex/packages/bibliography/biblio"
     ],
     "*-blx.aux": [
-        "/tex/main/packages/music/bibliography/biblio"
+        "/tex/packages/bibliography/biblio"
     ],
     "*-blx.bib": [
-        "/tex/main/packages/music/bibliography/biblio"
+        "/tex/packages/bibliography/biblio"
     ],
     "*.run.xml": [
-        "/tex/main/packages/music/bibliography/biblio"
+        "/tex/packages/bibliography/biblio"
     ],
     "*.alg": [
-        "/tex/main/packages/music/bibliography/computer-science/algorithms"
+        "/tex/packages/computer-science/algorithms"
     ],
     "*.loa": [
-        "/tex/main/packages/music/bibliography/computer-science/algorithms"
+        "/tex/packages/computer-science/algorithms"
     ],
     "*-gnuplottex-*": [
-        "/tex/main/packages/music/bibliography/computer-science/science/gnuplottex"
+        "/tex/packages/science/gnuplottex"
     ],
     "*.sout": [
-        "/tex/main/packages/music/bibliography/computer-science/science/gnuplottex/sympytex"
+        "/tex/packages/science/sympytex"
     ],
     "*.sympy": [
-        "/tex/main/packages/music/bibliography/computer-science/science/gnuplottex/sympytex"
+        "/tex/packages/science/sympytex"
     ],
     "sympy-plots-for-*.tex/": [
-        "/tex/main/packages/music/bibliography/computer-science/science/gnuplottex/sympytex"
+        "/tex/packages/science/sympytex"
     ],
     "*.sagetex.sage": [
-        "/tex/main/packages/music/bibliography/computer-science/science/gnuplottex/sympytex/sagetex"
+        "/tex/packages/science/sagetex"
     ],
     "*.sagetex.py": [
-        "/tex/main/packages/music/bibliography/computer-science/science/gnuplottex/sympytex/sagetex"
+        "/tex/packages/science/sagetex"
     ],
     "*.sagetex.scmd": [
-        "/tex/main/packages/music/bibliography/computer-science/science/gnuplottex/sympytex/sagetex"
+        "/tex/packages/science/sagetex"
     ],
     "*.m[fp]": [
-        "/tex/main/packages/music/bibliography/computer-science/science/gnuplottex/sympytex/sagetex/feynmfp"
+        "/tex/packages/science/feynmfp"
     ],
     "*.t[1-9]": [
-        "/tex/main/packages/music/bibliography/computer-science/science/gnuplottex/sympytex/sagetex/feynmfp"
+        "/tex/packages/science/feynmfp"
     ],
     "*.t[1-9][0-9]": [
-        "/tex/main/packages/music/bibliography/computer-science/science/gnuplottex/sympytex/sagetex/feynmfp"
+        "/tex/packages/science/feynmfp"
     ],
     "*.tfm": [
-        "/tex/main/packages/music/bibliography/computer-science/science/gnuplottex/sympytex/sagetex/feynmfp"
+        "/tex/packages/science/feynmfp"
     ],
     "*.pdfpc": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/pdfpc"
+        "/tex/packages/pdf/pdfpc"
     ],
     "*.newpax": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/pdfpc/newpax"
+        "/tex/packages/pdf/newpax"
     ],
     "*.xmpi": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/pdfpc/newpax/xmpincl"
+        "/tex/packages/pdf/xmpincl"
     ],
     "*.upa": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/pdfpc/newpax/xmpincl/pdfcomment"
+        "/tex/packages/pdf/pdfcomment"
     ],
     "*.upb": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/pdfpc/newpax/xmpincl/pdfcomment"
+        "/tex/packages/pdf/pdfcomment"
     ],
     "*.pax": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/pdfpc/newpax/xmpincl/pdfcomment/pax"
+        "/tex/packages/pdf/pax"
     ],
     "*.4ct": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/htlatex"
+        "/tex/packages/html/htlatex"
     ],
     "*.4tc": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/htlatex"
+        "/tex/packages/html/htlatex"
     ],
     "*.idv": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/htlatex"
+        "/tex/packages/html/htlatex"
     ],
     "*.lg": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/htlatex"
+        "/tex/packages/html/htlatex"
     ],
     "*.trc": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/htlatex"
+        "/tex/packages/html/htlatex"
     ],
     "*.xref": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/htlatex"
+        "/tex/packages/html/htlatex"
     ],
     "acs-*.bib": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/achemso"
+        "/tex/packages/editing/achemso"
     ],
     "*.spl": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/achemso/elsarticle"
+        "/tex/packages/editing/elsarticle"
     ],
     "*.end": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/achemso/elsarticle/ledmac"
+        "/tex/packages/editing/ledmac"
     ],
     "*.?end": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/achemso/elsarticle/ledmac"
+        "/tex/packages/editing/ledmac"
     ],
     "*.[1-9]": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/achemso/elsarticle/ledmac"
+        "/tex/packages/editing/ledmac"
     ],
     "*.[1-9][0-9]": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/achemso/elsarticle/ledmac"
+        "/tex/packages/editing/ledmac"
     ],
     "*.[1-9][0-9][0-9]": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/achemso/elsarticle/ledmac"
+        "/tex/packages/editing/ledmac"
     ],
     "*.[1-9]R": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/achemso/elsarticle/ledmac"
+        "/tex/packages/editing/ledmac"
     ],
     "*.[1-9][0-9]R": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/achemso/elsarticle/ledmac"
+        "/tex/packages/editing/ledmac"
     ],
     "*.[1-9][0-9][0-9]R": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/achemso/elsarticle/ledmac"
+        "/tex/packages/editing/ledmac"
     ],
     "*.eledsec[1-9]": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/achemso/elsarticle/ledmac"
+        "/tex/packages/editing/ledmac"
     ],
     "*.eledsec[1-9]R": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/achemso/elsarticle/ledmac"
+        "/tex/packages/editing/ledmac"
     ],
     "*.eledsec[1-9][0-9]": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/achemso/elsarticle/ledmac"
+        "/tex/packages/editing/ledmac"
     ],
     "*.eledsec[1-9][0-9]R": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/achemso/elsarticle/ledmac"
+        "/tex/packages/editing/ledmac"
     ],
     "*.eledsec[1-9][0-9][0-9]": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/achemso/elsarticle/ledmac"
+        "/tex/packages/editing/ledmac"
     ],
     "*.eledsec[1-9][0-9][0-9]R": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/achemso/elsarticle/ledmac"
+        "/tex/packages/editing/ledmac"
     ],
     "*.listing": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/tcolorbox"
+        "/tex/packages/formatting/tcolorbox"
     ],
     "*.loe": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/tcolorbox/thmtools"
+        "/tex/packages/formatting/thmtools"
     ],
     "*.xcp": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/tcolorbox/thmtools/xcolor"
+        "/tex/packages/formatting/xcolor"
     ],
     "*.nav": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/tcolorbox/thmtools/xcolor/beamer"
+        "/tex/packages/formatting/beamer"
     ],
     "*.pre": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/tcolorbox/thmtools/xcolor/beamer"
+        "/tex/packages/formatting/beamer"
     ],
     "*.snm": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/tcolorbox/thmtools/xcolor/beamer"
+        "/tex/packages/formatting/beamer"
     ],
     "*.vrb": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/tcolorbox/thmtools/xcolor/beamer"
+        "/tex/packages/formatting/beamer"
     ],
     "*.thm": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/tcolorbox/thmtools/xcolor/beamer/amsthm"
+        "/tex/packages/formatting/amsthm"
     ],
     "*.xwm": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/tcolorbox/thmtools/xcolor/beamer/amsthm/xwatermark"
+        "/tex/packages/formatting/xwatermark"
     ],
     "*.sta": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/tcolorbox/thmtools/xcolor/beamer/amsthm/xwatermark/standalone"
+        "/tex/packages/formatting/standalone"
     ],
     "*.ttt": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/tcolorbox/thmtools/xcolor/beamer/amsthm/xwatermark/standalone/endfloat"
+        "/tex/packages/formatting/endfloat"
     ],
     "*.fff": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/tcolorbox/thmtools/xcolor/beamer/amsthm/xwatermark/standalone/endfloat"
+        "/tex/packages/formatting/endfloat"
     ],
     "*.ent": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/tcolorbox/thmtools/xcolor/beamer/amsthm/xwatermark/standalone/endfloat/endnotes"
+        "/tex/packages/formatting/endnotes"
     ],
     "*-tags.tex": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/expex"
+        "/tex/packages/linguistic/expex"
     ],
     "_minted*": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/expex/minted"
+        "/tex/packages/linguistic/minted"
     ],
     "*.pyg": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/expex/minted"
+        "/tex/packages/linguistic/minted"
     ],
     "*.hst": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/vhistory"
+        "/tex/packages/dev/vhistory"
     ],
     "*.ver": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/vhistory"
+        "/tex/packages/dev/vhistory"
     ],
     "*.lox": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/vhistory/fixme"
+        "/tex/packages/dev/fixme"
     ],
     "*.lod": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/vhistory/fixme/easy-todo"
+        "/tex/packages/dev/easy-todo"
     ],
     "*.mw": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/vhistory/fixme/easy-todo/morewrites"
+        "/tex/packages/dev/morewrites"
     ],
     "*.soc": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/vhistory/fixme/easy-todo/morewrites/changes"
+        "/tex/packages/dev/changes"
     ],
     "*.cpt": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/vhistory/fixme/easy-todo/morewrites/changes/cprotect"
+        "/tex/packages/dev/cprotect"
     ],
     "*.tdo": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/vhistory/fixme/easy-todo/morewrites/changes/cprotect/todonotes"
+        "/tex/packages/dev/todonotes"
     ],
     "*.cut": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/vhistory/fixme/easy-todo/morewrites/changes/cprotect/todonotes/comment"
+        "/tex/packages/dev/comment"
     ],
     "*.lol": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/listings"
+        "/tex/packages/listing/listings"
     ],
     "*.xy[cd]": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/xypic"
+        "/tex/packages/graphics/xypic"
     ],
     "*.dpth": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/xypic/tikz-pgf"
+        "/tex/packages/graphics/tikz-pgf"
     ],
     "*.md5": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/xypic/tikz-pgf"
+        "/tex/packages/graphics/tikz-pgf"
     ],
     "*.auxlock": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/xypic/tikz-pgf"
+        "/tex/packages/graphics/tikz-pgf"
     ],
     "svg-inkscape/": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/xypic/tikz-pgf/svg"
+        "/tex/packages/graphics/svg"
     ],
     "*.ptc": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/titletoc"
+        "/tex/packages/reference/titletoc"
     ],
     "*.idx": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/titletoc/makeidx"
+        "/tex/packages/reference/makeidx"
     ],
     "*.ilg": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/titletoc/makeidx"
+        "/tex/packages/reference/makeidx"
     ],
     "*.ind": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/titletoc/makeidx"
+        "/tex/packages/reference/makeidx"
     ],
     "*.maf": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/titletoc/makeidx/minitoc"
+        "/tex/packages/reference/minitoc"
     ],
     "*.ml[ft]": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/titletoc/makeidx/minitoc"
+        "/tex/packages/reference/minitoc"
     ],
     "*.mtc[0-9]*": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/titletoc/makeidx/minitoc"
+        "/tex/packages/reference/minitoc"
     ],
     "*.sl[cft][0-9]*": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/titletoc/makeidx/minitoc"
+        "/tex/packages/reference/minitoc"
     ],
     "*.xdy": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/titletoc/makeidx/minitoc/xindy"
+        "/tex/packages/reference/xindy"
     ],
     "*.ac[nr]": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/titletoc/makeidx/minitoc/xindy/glossaries"
+        "/tex/packages/reference/glossaries"
     ],
     "*.gl[gos]": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/titletoc/makeidx/minitoc/xindy/glossaries"
+        "/tex/packages/reference/glossaries"
     ],
     "*.glsdefs": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/titletoc/makeidx/minitoc/xindy/glossaries"
+        "/tex/packages/reference/glossaries"
     ],
     "*.lz[os]": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/titletoc/makeidx/minitoc/xindy/glossaries"
+        "/tex/packages/reference/glossaries"
     ],
     "*.sl[gos]": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/titletoc/makeidx/minitoc/xindy/glossaries"
+        "/tex/packages/reference/glossaries"
     ],
     "*.lpz": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/titletoc/makeidx/minitoc/xindy/glossaries/makeindex"
+        "/tex/packages/reference/makeindex"
     ],
     "*.nl[gos]": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/titletoc/makeidx/minitoc/xindy/glossaries/makeindex/nomencl"
+        "/tex/packages/reference/nomencl"
     ],
     "*.brf": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/titletoc/makeidx/minitoc/xindy/glossaries/makeindex/nomencl/hyperref"
+        "/tex/packages/reference/hyperref"
     ],
     "*.pytxcode": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/extra-tools/pythontex"
+        "/tex/packages/extra-tools/pythontex"
     ],
     "pythontex-files-*/": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/extra-tools/pythontex"
+        "/tex/packages/extra-tools/pythontex"
     ],
     "*.wrt": [
-        "/tex/main/packages/music/bibliography/computer-science/science/pdf/html/editing/formatting/linguistic/dev/listing/graphics/reference/extra-tools/pythontex/scrwfile"
+        "/tex/packages/extra-tools/scrwfile"
     ],
     "*~[0-9]*": [
-        "/tex/main/packages/editor/kbibtex"
+        "/tex/editor/kbibtex"
     ],
     ".*.swp": [
-        "/tex/main/packages/editor/kbibtex/gummi"
+        "/tex/editor/gummi"
     ],
     "*.backup": [
-        "/tex/main/packages/editor/kbibtex/gummi/kile"
+        "/tex/editor/kile"
     ],
     "*.lyx~": [
-        "/tex/main/packages/editor/kbibtex/gummi/kile/lyx"
+        "/tex/editor/lyx"
     ],
     "./auto/*": [
-        "/tex/main/packages/editor/kbibtex/gummi/kile/lyx/emacs"
+        "/tex/editor/emacs"
     ],
     "*.el": [
-        "/tex/main/packages/editor/kbibtex/gummi/kile/lyx/emacs"
+        "/tex/editor/emacs"
     ],
     "*.tps": [
-        "/tex/main/packages/editor/kbibtex/gummi/kile/lyx/emacs/texniccenter"
+        "/tex/editor/texniccenter"
     ],
     ".texpadtmp": [
-        "/tex/main/packages/editor/kbibtex/gummi/kile/lyx/emacs/texniccenter/texpad"
+        "/tex/editor/texpad"
     ],
     "*.bak": [
-        "/tex/main/packages/editor/kbibtex/gummi/kile/lyx/emacs/texniccenter/texpad/winedt"
+        "/tex/editor/winedt"
     ],
     "*.sav": [
-        "/tex/main/packages/editor/kbibtex/gummi/kile/lyx/emacs/texniccenter/texpad/winedt"
+        "/tex/editor/winedt"
     ],
     "__pycache__/": [
-        "/tex/python/main"
+        "/python/main"
     ],
     "*.py[co]": [
-        "/tex/python/main"
+        "/python/main"
     ],
     "cython_debug/": [
-        "/tex/python/main"
+        "/python/main"
     ],
     "celerybeat-schedule": [
-        "/tex/python/main/tasks/celery"
+        "/python/tasks/celery"
     ],
     "celerybeat.pid": [
-        "/tex/python/main/tasks/celery"
+        "/python/tasks/celery"
     ],
     "instance/": [
-        "/tex/python/main/tasks/web/flask"
+        "/python/web/flask"
     ],
     ".webassets-cache": [
-        "/tex/python/main/tasks/web/flask"
+        "/python/web/flask"
     ],
     "*.log": [
-        "/tex/python/main/tasks/web/flask/django"
+        "/python/web/django"
     ],
     "local_settings.py": [
-        "/tex/python/main/tasks/web/flask/django"
+        "/python/web/django"
     ],
     "db.sqlite3": [
-        "/tex/python/main/tasks/web/flask/django"
+        "/python/web/django"
     ],
     "db.sqlite3-journal": [
-        "/tex/python/main/tasks/web/flask/django"
+        "/python/web/django"
     ],
     ".ipynb_checkpoints": [
-        "/tex/python/main/tasks/web/science/jupyter"
+        "/python/science/jupyter"
     ],
     "profile_default/": [
-        "/tex/python/main/tasks/web/science/jupyter"
+        "/python/science/jupyter"
     ],
     "ipython_config.py": [
-        "/tex/python/main/tasks/web/science/jupyter"
+        "/python/science/jupyter"
     ],
     "*.sage.py": [
-        "/tex/python/main/tasks/web/science/jupyter/sagemath"
+        "/python/science/sagemath"
     ],
     ".scrapy": [
-        "/tex/python/main/tasks/web/science/datas/scrapy"
+        "/python/datas/scrapy"
     ],
     ".env": [
-        "/tex/python/main/tasks/web/science/datas/dev/env"
+        "/python/dev/env"
     ],
     ".venv": [
-        "/tex/python/main/tasks/web/science/datas/dev/env"
+        "/python/dev/env"
     ],
     "env/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env"
+        "/python/dev/env"
     ],
     "venv/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env"
+        "/python/dev/env"
     ],
     "ENV/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env"
+        "/python/dev/env"
     ],
     "env.bak/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env"
+        "/python/dev/env"
     ],
     "venv.bak/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env"
+        "/python/dev/env"
     ],
     ".python-version": [
-        "/tex/python/main/tasks/web/science/datas/dev/env"
+        "/python/dev/env"
     ],
     "Pipfile.lock": [
-        "/tex/python/main/tasks/web/science/datas/dev/env"
+        "/python/dev/env"
     ],
     ".pybuilder/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder"
+        "/python/dev/pybuilder"
     ],
     "target/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder"
+        "/python/dev/pybuilder"
     ],
     "*.manifest": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller"
+        "/python/dev/pyinstaller"
     ],
     "*.spec": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller"
+        "/python/dev/pyinstaller"
     ],
     ".tox/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing"
+        "/python/dev/testing"
     ],
     ".nox/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing"
+        "/python/dev/testing"
     ],
     "nosetests.xml": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing"
+        "/python/dev/testing"
     ],
     ".pytest_cache/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing"
+        "/python/dev/testing"
     ],
     "htmlcov/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing"
+        "/python/dev/testing"
     ],
     ".coverage": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing"
+        "/python/dev/testing"
     ],
     ".coverage.*": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing"
+        "/python/dev/testing"
     ],
     "coverage.xml": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing"
+        "/python/dev/testing"
     ],
     "*.cover": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing"
+        "/python/dev/testing"
     ],
     "*.py,cover": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing"
+        "/python/dev/testing"
     ],
     "cover/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing"
+        "/python/dev/testing"
     ],
     ".hypothesis/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing"
+        "/python/dev/testing"
     ],
     ".mypy_cache/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing"
+        "/python/dev/typing"
     ],
     ".dmypy.json": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing"
+        "/python/dev/typing"
     ],
     "dmypy.json": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing"
+        "/python/dev/typing"
     ],
     ".pyre/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing"
+        "/python/dev/typing"
     ],
     ".pytype/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing"
+        "/python/dev/typing"
     ],
     "MANIFEST.in": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing/packaging"
+        "/python/dev/packaging"
     ],
     "build/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing/packaging"
+        "/python/dev/packaging"
     ],
     "dist/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing/packaging"
+        "/python/dev/packaging"
     ],
     "sdist/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing/packaging"
+        "/python/dev/packaging"
     ],
     "develop-eggs/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing/packaging"
+        "/python/dev/packaging"
     ],
     "eggs/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing/packaging"
+        "/python/dev/packaging"
     ],
     ".eggs/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing/packaging"
+        "/python/dev/packaging"
     ],
     "*.egg-info/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing/packaging"
+        "/python/dev/packaging"
     ],
     "*.egg": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing/packaging"
+        "/python/dev/packaging"
     ],
     "wheels/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing/packaging"
+        "/python/dev/packaging"
     ],
     "share/python-wheels/": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing/packaging"
+        "/python/dev/packaging"
     ],
     "poetry.lock": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing/packaging"
+        "/python/dev/packaging"
     ],
     ".pdm.toml": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing/packaging"
+        "/python/dev/packaging"
     ],
     ".ropeproject": [
-        "/tex/python/main/tasks/web/science/datas/dev/env/pybuilder/pyinstaller/testing/typing/packaging/rope"
+        "/python/dev/rope"
     ],
     "*.pyd": [
-        "/tex/python/main/tasks/web/science/datas/dev/os/windows"
+        "/python/os/windows"
     ],
     ".spyderproject": [
-        "/tex/python/main/tasks/web/science/datas/dev/os/editor/spyder"
+        "/python/editor/spyder"
     ],
     ".spyproject": [
-        "/tex/python/main/tasks/web/science/datas/dev/os/editor/spyder"
+        "/python/editor/spyder"
     ],
     "*.mo": [
-        "/tex/python/translate/gettext"
+        "/translate/gettext"
     ],
     "*.pot": [
-        "/tex/python/translate/gettext"
+        "/translate/gettext"
     ],
     "docs/_build/": [
-        "/tex/python/translate/doc/general/sphinx"
+        "/doc/general/sphinx"
     ]
 }

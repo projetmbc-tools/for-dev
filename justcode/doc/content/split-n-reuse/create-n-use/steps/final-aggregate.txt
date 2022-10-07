@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-10-03
+    date = 2022-10-08
 
 
 abrev::
@@ -70,6 +70,17 @@ Voici les étapes à suivre.
 
     1) Il ne reste plus qu'à lancer la génération comme cela a été expliqué à la fin de cf::``steps/1-single[CHANGES].txt``.
 
+
+tip::
+    Pour fabriquer des fichiers ¨gitignore, l'emploi de terminal::``git check-ignore -v`` est très utile. Voici deux cas possibles d'utilisation.
+
+        1) terminal::``git check-ignore -v un/chemin/teste`` indique si le chemin path::``un/chemin/teste`` est à ignorer, et si c'est le cas, la règle éliminante est indiquée.
+        Pas besoin de fournir le chemin d'un dossier, ou d'un fichier existant.
+
+        1) On peut aussi travailler sur le dossier courant via terminal::``git check-ignore -v **/*``.
+
+
+va afficher tous les fichiers du dossier path::``un/chemin/teste`` ignorés et la règle qui a conduit à cette éliméination.
 
 note::
     Il est bien entendu possible de définir des ¨params globalement pour éviter certaines redondances : voir la section cf::``?/goingfurther/global.txt`` (tout se passe dans le bloc peuf::``main::...`` très simplement).

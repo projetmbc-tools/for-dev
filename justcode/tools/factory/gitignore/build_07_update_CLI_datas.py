@@ -27,7 +27,7 @@ THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
 
 GITIGNORE_DIR   = PROJECT_DIR / 'src' / 'config' / 'gitignore' / 'cli'
 TREEVIEW_PYFILE = GITIGNORE_DIR / 'treeview.py'
-USEDBY_PYFILE   = GITIGNORE_DIR / 'usedby.py'
+# USEDBY_PYFILE   = GITIGNORE_DIR / 'usedby.py'
 
 USEDBY_JSON     = THIS_DIR / 'usedby.json'
 JSON_RULES_FILE = THIS_DIR / 'apirules.json'
@@ -66,7 +66,7 @@ def build_treeview(deps):
     }
 
 
-def exctractrules(ctxt, usedby, strpath):
+def exctractrules(ctxt, usedby, virtualpath):
     for k, v in ctxt.items():
         if k == TAG_DESC:
             continue
@@ -74,32 +74,30 @@ def exctractrules(ctxt, usedby, strpath):
         if k == TAG_RULES_COMMENTS:
             for r_c in ctxt[TAG_RULES_COMMENTS]:
                 for r in r_c[TAG_RULES]:
-                    usedby[r].append(strpath)
+                    usedby[r].append(virtualpath)
 
         else:
-            strpath += f'/{k}'
-
-            exctractrules(v, usedby, strpath)
+            exctractrules(v, usedby, f'{virtualpath}/{k}')
 
 
 def build_usedby(apirules):
     usedby = defaultdict(list)
 
     exctractrules(
-        ctxt    = apirules,
-        usedby  = usedby,
-        strpath = ''
+        ctxt        = apirules,
+        usedby      = usedby,
+        virtualpath = ''
     )
 
     return dict(usedby)
 
 
-def load_usedby(_):
-    with USEDBY_JSON.open(
-        encoding = 'utf-8',
-        mode     = 'r',
-    ) as f:
-        return load(f)
+# def load_usedby(_):
+#     with USEDBY_JSON.open(
+#         encoding = 'utf-8',
+#         mode     = 'r',
+#     ) as f:
+#         return load(f)
 
 
 # --------------- #
@@ -121,9 +119,9 @@ print(f"{TAB_1}* Update of some JSON files.")
 for target, builder in [
     (TREEVIEW_PYFILE, build_treeview),
     (USEDBY_JSON    , build_usedby  ),
-    (USEDBY_PYFILE  , load_usedby   ),
+    # (USEDBY_PYFILE  , load_usedby   ),
 ]:
-    print(f"{TAB_2}* Update of ``{target.name}``.")
+    print(f"{TAB_2}+ Update of ``{target.name}``.")
 
     if target.ext == 'json':
         content = dumps(
