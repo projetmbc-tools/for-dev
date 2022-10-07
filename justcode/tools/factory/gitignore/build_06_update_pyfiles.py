@@ -26,10 +26,40 @@ while(PROJECT_DIR.name != 'justcode'):
 THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
 
 
+JSON_RULES_FILE = THIS_DIR / 'apirules.json'
+
+ALL_TAGS = [
+    TAG_DESC           := ':desc:',
+    TAG_RULES          := ':rules:',
+    TAG_COMMENTS       := ':comments:',
+    TAG_RULES_COMMENTS := f'{TAG_RULES[:-1]}-n-{TAG_COMMENTS[1:]}',
+]
+
+TAGS_VARNAMES = {
+    'TAG_' + t.replace(':', '')  \
+              .replace('-', '_') \
+              .upper(): t
+    for t in ALL_TAGS
+}
+
+PYCODE_TAGS = f"""
+#!/usr/bin/env python3
+
+# This code was automatically build by the following file.
+#
+#     + ``{THIS_FILE_REL_PROJECT_DIR}``
+
+"""
+
+for varname, tag in TAGS_VARNAMES.items():
+    PYCODE_TAGS += f'{varname} = "{tag}"'
+    PYCODE_TAGS += '\n'
+
+
 GITIGNORE_DIR       = PROJECT_DIR / 'src' / 'config' / 'gitignore'
 GITIGNORE_DATAS_DIR = GITIGNORE_DIR / 'datas'
 
-JSON_META_FILE = GITIGNORE_DIR / 'metadatas.json'
+TAGS_FILE  = GITIGNORE_DATAS_DIR / 'TAGS.py'
 # INIT_FILE     = GITIGNORE_DATAS_DIR / '__init__.py'
 
 FINAL_DIR       = THIS_DIR / 'datas' / 'final'
@@ -42,6 +72,8 @@ TEMPL_API_RULES = f"""
 # This code was automatically build by the following file.
 #
 #     + ``{THIS_FILE_REL_PROJECT_DIR}``
+
+from .TAGS import *
 
 RULES = {{subctxts}}
 """.strip() + '\n'
@@ -177,8 +209,8 @@ def buildapirules(content, ctxts):
 
 # Rules
     return {
-        'desc' : desc,
-        'rules': commentedrules,
+        TAG_DESC          : desc,
+        TAG_RULES_COMMENTS: commentedrules,
     }
 
 
@@ -198,27 +230,9 @@ def update(rules, ctxts, content):
 
 def updatectxtapi(commentedrules, comment, lofrules):
     commentedrules.append({
-        'comment': '\n'.join(comment),
-        'rules'  : lofrules,
+        TAG_COMMENTS: '\n'.join(comment),
+        TAG_RULES   : lofrules,
     })
-
-
-def removerules(deps):
-    if 'desc' in deps:
-        return {}
-
-    return {
-        main: removerules(sub)
-        for main, sub in deps.items()
-    }
-
-
-def buildmetas(apirules):
-    metadatas = {
-        'treeview': removerules(apirules),
-    }
-
-    return metadatas
 
 
 # --------------- #
@@ -273,7 +287,7 @@ for p in FINAL_DIR.glob('**/*.txt'):
 # -- UPDATING PY FILES -- #
 # ----------------------- #
 
-print(f"{TAB_1}* Update of the Python files.")
+print(f"{TAB_1}* Update of {len(API_RULES)} Python files in the source.")
 
 for mainctxt, subctxts in API_RULES.items():
     subctxts_code = black.format_file_contents(
@@ -281,6 +295,12 @@ for mainctxt, subctxts in API_RULES.items():
         fast = False,
         mode = black.FileMode()
     ).strip()
+
+    for varname, tag in TAGS_VARNAMES.items():
+        subctxts_code = subctxts_code.replace(
+            f'"{tag}"',
+            varname
+        )
 
     (GITIGNORE_DATAS_DIR / f'{mainctxt}.py').write_text(
         encoding = 'utf-8',
@@ -294,11 +314,23 @@ for mainctxt, subctxts in API_RULES.items():
 # -- UPDATING PY FILES -- #
 # ----------------------- #
 
-print(f"{TAB_1}* Update of ``metadatas.json`` in the source.")
+print(f"{TAB_1}* Update of ``{TAGS_FILE.name}`` in the source.")
 
-JSON_META_FILE.write_text(
+TAGS_FILE.write_text(
+    encoding = 'utf-8',
+    data     = PYCODE_TAGS
+)
+
+
+# ------------------------ #
+# -- UPDATING JSON FILE -- #
+# ------------------------ #
+
+print(f"{TAB_1}* Update of ``{JSON_RULES_FILE.name}`` in teh factory.")
+
+JSON_RULES_FILE.write_text(
     data = dumps(
-        obj    = buildmetas(API_RULES),
+        obj    = API_RULES,
         indent = 4
     ),
     encoding = 'utf-8'

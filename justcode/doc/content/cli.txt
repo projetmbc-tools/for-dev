@@ -11,4 +11,5 @@ content::
     ¨content/validate.txt
     ¨content/update.txt
     ¨content/api.txt
+    ¨content/dev-tools.txt
     ¨content/help.txt

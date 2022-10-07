@@ -2,15 +2,17 @@
 
 # This code was automatically build by the following file.
 #
-#     + ``tools/factory/gitignore/build_06_update_src.py``
+#     + ``tools/factory/gitignore/build_06_update_pyfiles.py``
+
+from .TAGS import *
 
 RULES = {
     "main": {
-        "desc": "#### Main rules for standard ``(La)TeX`` projects, see https://github.com/latex3.",
-        "rules": [
+        TAG_DESC: "#### Main rules for standard ``(La)TeX`` projects, see https://github.com/latex3.",
+        TAG_RULES_N_COMMENTS: [
             {
-                "comment": "## Core latex/pdflatex",
-                "rules": [
+                TAG_COMMENTS: "## Core latex/pdflatex",
+                TAG_RULES: [
                     "*.aux",
                     "*.cb",
                     "*.cb2",
@@ -23,16 +25,16 @@ RULES = {
                 ],
             },
             {
-                "comment": "## Intermediate documents",
-                "rules": ["*.dvi", "*.xdv", "*-converted-to.*"],
+                TAG_COMMENTS: "## Intermediate documents",
+                TAG_RULES: ["*.dvi", "*.xdv", "*-converted-to.*"],
             },
             {
-                "comment": '## Generated if empty string is given at\n## "Please type another file name for output:".',
-                "rules": [".pdf"],
+                TAG_COMMENTS: '## Generated if empty string is given at\n## "Please type another file name for output:".',
+                TAG_RULES: [".pdf"],
             },
             {
-                "comment": '## Extra "standard" tools.',
-                "rules": [
+                TAG_COMMENTS: '## Extra "standard" tools.',
+                TAG_RULES: [
                     "*.fdb_latexmk",
                     "*.synctex",
                     "*.synctex(busy)",
@@ -46,17 +48,19 @@ RULES = {
     "packages": {
         "music": {
             "gregoriotex": {
-                "desc": "#### Specific rules for the package ``gregoriotex``.",
-                "rules": [{"comment": "##", "rules": ["*.gaux", "*.glog", "*.gtex"]}],
+                TAG_DESC: "#### Specific rules for the package ``gregoriotex``.",
+                TAG_RULES_N_COMMENTS: [
+                    {TAG_COMMENTS: "##", TAG_RULES: ["*.gaux", "*.glog", "*.gtex"]}
+                ],
             }
         },
         "bibliography": {
             "biblio": {
-                "desc": "#### Specific rules for bibliographies.",
-                "rules": [
+                TAG_DESC: "#### Specific rules for bibliographies.",
+                TAG_RULES_N_COMMENTS: [
                     {
-                        "comment": "##",
-                        "rules": [
+                        TAG_COMMENTS: "##",
+                        TAG_RULES: [
                             "*.bbl",
                             "*.bcf",
                             "*.blg",
@@ -70,91 +74,104 @@ RULES = {
         },
         "computer-science": {
             "algorithms": {
-                "desc": "#### Specific rules for the package ``algorithms``.",
-                "rules": [{"comment": "##", "rules": ["*.alg", "*.loa"]}],
+                TAG_DESC: "#### Specific rules for the package ``algorithms``.",
+                TAG_RULES_N_COMMENTS: [
+                    {TAG_COMMENTS: "##", TAG_RULES: ["*.alg", "*.loa"]}
+                ],
             }
         },
         "science": {
             "gnuplottex": {
-                "desc": "#### Specific rules for the package ``gnuplottex``.",
-                "rules": [{"comment": "##", "rules": ["*-gnuplottex-*"]}],
+                TAG_DESC: "#### Specific rules for the package ``gnuplottex``.",
+                TAG_RULES_N_COMMENTS: [
+                    {TAG_COMMENTS: "##", TAG_RULES: ["*-gnuplottex-*"]}
+                ],
             },
             "sympytex": {
-                "desc": "#### Specific rules for the package ``sympytex``.",
-                "rules": [
+                TAG_DESC: "#### Specific rules for the package ``sympytex``.",
+                TAG_RULES_N_COMMENTS: [
                     {
-                        "comment": "##",
-                        "rules": ["*.sout", "*.sympy", "sympy-plots-for-*.tex/"],
+                        TAG_COMMENTS: "##",
+                        TAG_RULES: ["*.sout", "*.sympy", "sympy-plots-for-*.tex/"],
                     }
                 ],
             },
             "sagetex": {
-                "desc": "#### Specific rules for the package ``sagetex``.",
-                "rules": [
+                TAG_DESC: "#### Specific rules for the package ``sagetex``.",
+                TAG_RULES_N_COMMENTS: [
                     {
-                        "comment": "##",
-                        "rules": ["*.sagetex.sage", "*.sagetex.py", "*.sagetex.scmd"],
+                        TAG_COMMENTS: "##",
+                        TAG_RULES: ["*.sagetex.sage", "*.sagetex.py", "*.sagetex.scmd"],
                     }
                 ],
             },
             "feynmfp": {
-                "desc": "#### Specific rules for the packages ``feynmf`` and ``feynmp``.",
-                "rules": [
+                TAG_DESC: "#### Specific rules for the packages ``feynmf`` and ``feynmp``.",
+                TAG_RULES_N_COMMENTS: [
                     {
-                        "comment": "##",
-                        "rules": ["*.m[fp]", "*.t[1-9]", "*.t[1-9][0-9]", "*.tfm"],
+                        TAG_COMMENTS: "##",
+                        TAG_RULES: ["*.m[fp]", "*.t[1-9]", "*.t[1-9][0-9]", "*.tfm"],
                     }
                 ],
             },
         },
         "pdf": {
             "pdfpc": {
-                "desc": "#### Specific rules for the package ``pdfpc``.",
-                "rules": [{"comment": "##", "rules": ["*.pdfpc"]}],
+                TAG_DESC: "#### Specific rules for the package ``pdfpc``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.pdfpc"]}],
             },
             "newpax": {
-                "desc": "#### Specific rules for the package ``newpax``.",
-                "rules": [{"comment": "##", "rules": ["*.newpax"]}],
+                TAG_DESC: "#### Specific rules for the package ``newpax``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.newpax"]}],
             },
             "xmpincl": {
-                "desc": "#### Specific rules for the package ``xmpincl``.",
-                "rules": [{"comment": "##", "rules": ["*.xmpi"]}],
+                TAG_DESC: "#### Specific rules for the package ``xmpincl``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.xmpi"]}],
             },
             "pdfcomment": {
-                "desc": "#### Specific rules for the package ``pdfcomment``.",
-                "rules": [{"comment": "##", "rules": ["*.upa", "*.upb"]}],
+                TAG_DESC: "#### Specific rules for the package ``pdfcomment``.",
+                TAG_RULES_N_COMMENTS: [
+                    {TAG_COMMENTS: "##", TAG_RULES: ["*.upa", "*.upb"]}
+                ],
             },
             "pax": {
-                "desc": "#### Specific rules for the package ``pax``.",
-                "rules": [{"comment": "##", "rules": ["*.pax"]}],
+                TAG_DESC: "#### Specific rules for the package ``pax``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.pax"]}],
             },
         },
         "html": {
             "htlatex": {
-                "desc": "#### Specific rules for the tool ``htlatex``.",
-                "rules": [
+                TAG_DESC: "#### Specific rules for the tool ``htlatex``.",
+                TAG_RULES_N_COMMENTS: [
                     {
-                        "comment": "##",
-                        "rules": ["*.4ct", "*.4tc", "*.idv", "*.lg", "*.trc", "*.xref"],
+                        TAG_COMMENTS: "##",
+                        TAG_RULES: [
+                            "*.4ct",
+                            "*.4tc",
+                            "*.idv",
+                            "*.lg",
+                            "*.trc",
+                            "*.xref",
+                        ],
                     }
                 ],
             }
         },
         "editing": {
             "achemso": {
-                "desc": "#### Specific rules for the package ``achemso``.",
-                "rules": [{"comment": "##", "rules": ["acs-*.bib"]}],
+                TAG_DESC: "#### Specific rules for the package ``achemso``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["acs-*.bib"]}],
             },
             "elsarticle": {
-                "desc": "#### Specific rules for the package ``elsarticle`` (documentclass of Elsevier journals).",
-                "rules": [{"comment": "##", "rules": ["*.spl"]}],
+                TAG_DESC: "#### Specific rules for the package ``elsarticle`` (documentclass of Elsevier journals).",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.spl"]}],
             },
             "ledmac": {
-                "desc": "#### Specific rules for the package ``(r)(e)ledmac`` and ``(r)(e)ledpar``.",
-                "rules": [
+                TAG_DESC: "#### Specific rules for the package ``(r)(e)ledmac`` and ``(r)(e)ledpar``.",
+                TAG_RULES_N_COMMENTS: [
                     {
-                        "comment": "##",
-                        "rules": [
+                        TAG_COMMENTS: "##",
+                        TAG_RULES: [
                             "*.end",
                             "*.?end",
                             "*.[1-9]",
@@ -176,133 +193,148 @@ RULES = {
         },
         "formatting": {
             "tcolorbox": {
-                "desc": "#### Specific rules for the package ``tcolorbox``.",
-                "rules": [{"comment": "##", "rules": ["*.listing"]}],
+                TAG_DESC: "#### Specific rules for the package ``tcolorbox``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.listing"]}],
             },
             "thmtools": {
-                "desc": "#### Specific rules for the package ``thmtools``.",
-                "rules": [{"comment": "##", "rules": ["*.loe"]}],
+                TAG_DESC: "#### Specific rules for the package ``thmtools``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.loe"]}],
             },
             "xcolor": {
-                "desc": "#### Specific rules for the package ``xcolor``.",
-                "rules": [{"comment": "##", "rules": ["*.xcp"]}],
+                TAG_DESC: "#### Specific rules for the package ``xcolor``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.xcp"]}],
             },
             "beamer": {
-                "desc": "#### Specific rules for the package ``beamer``.",
-                "rules": [
-                    {"comment": "##", "rules": ["*.nav", "*.pre", "*.snm", "*.vrb"]}
+                TAG_DESC: "#### Specific rules for the package ``beamer``.",
+                TAG_RULES_N_COMMENTS: [
+                    {
+                        TAG_COMMENTS: "##",
+                        TAG_RULES: ["*.nav", "*.pre", "*.snm", "*.vrb"],
+                    }
                 ],
             },
             "amsthm": {
-                "desc": "#### Specific rules for the package ``amsthm``.",
-                "rules": [{"comment": "##", "rules": ["*.thm"]}],
+                TAG_DESC: "#### Specific rules for the package ``amsthm``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.thm"]}],
             },
             "xwatermark": {
-                "desc": "#### Specific rules for the package ``xwatermark``.",
-                "rules": [{"comment": "##", "rules": ["*.xwm"]}],
+                TAG_DESC: "#### Specific rules for the package ``xwatermark``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.xwm"]}],
             },
             "standalone": {
-                "desc": "#### Specific rules for the package ``standalone``.",
-                "rules": [{"comment": "##", "rules": ["*.sta"]}],
+                TAG_DESC: "#### Specific rules for the package ``standalone``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.sta"]}],
             },
             "endfloat": {
-                "desc": "#### Specific rules for the package ``endfloat``.",
-                "rules": [{"comment": "##", "rules": ["*.ttt", "*.fff"]}],
+                TAG_DESC: "#### Specific rules for the package ``endfloat``.",
+                TAG_RULES_N_COMMENTS: [
+                    {TAG_COMMENTS: "##", TAG_RULES: ["*.ttt", "*.fff"]}
+                ],
             },
             "endnotes": {
-                "desc": "#### Specific rules for the package ``endnotes``.",
-                "rules": [{"comment": "##", "rules": ["*.ent"]}],
+                TAG_DESC: "#### Specific rules for the package ``endnotes``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.ent"]}],
             },
         },
         "linguistic": {
             "expex": {
-                "desc": "#### Specific rules for the package ``expex``.",
-                "rules": [
+                TAG_DESC: "#### Specific rules for the package ``expex``.",
+                TAG_RULES_N_COMMENTS: [
                     {
-                        "comment": "## Forward references with \\gathertags.",
-                        "rules": ["*-tags.tex"],
+                        TAG_COMMENTS: "## Forward references with \\gathertags.",
+                        TAG_RULES: ["*-tags.tex"],
                     }
                 ],
             },
             "minted": {
-                "desc": "#### Specific rules for the package ``minted``.",
-                "rules": [{"comment": "##", "rules": ["_minted*", "*.pyg"]}],
+                TAG_DESC: "#### Specific rules for the package ``minted``.",
+                TAG_RULES_N_COMMENTS: [
+                    {TAG_COMMENTS: "##", TAG_RULES: ["_minted*", "*.pyg"]}
+                ],
             },
         },
         "dev": {
             "vhistory": {
-                "desc": "#### Specific rules for the package ``vhistory``.",
-                "rules": [{"comment": "##", "rules": ["*.hst", "*.ver"]}],
+                TAG_DESC: "#### Specific rules for the package ``vhistory``.",
+                TAG_RULES_N_COMMENTS: [
+                    {TAG_COMMENTS: "##", TAG_RULES: ["*.hst", "*.ver"]}
+                ],
             },
             "fixme": {
-                "desc": "#### Specific rules for the package ``fixme``.",
-                "rules": [{"comment": "##", "rules": ["*.lox"]}],
+                TAG_DESC: "#### Specific rules for the package ``fixme``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.lox"]}],
             },
             "easy-todo": {
-                "desc": "#### Specific rules for the package ``easy-todo``.",
-                "rules": [{"comment": "##", "rules": ["*.lod"]}],
+                TAG_DESC: "#### Specific rules for the package ``easy-todo``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.lod"]}],
             },
             "morewrites": {
-                "desc": "#### Specific rules for the package ``morewrites``.",
-                "rules": [{"comment": "##", "rules": ["*.mw"]}],
+                TAG_DESC: "#### Specific rules for the package ``morewrites``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.mw"]}],
             },
             "changes": {
-                "desc": "#### Specific rules for the package ``changes``.",
-                "rules": [{"comment": "##", "rules": ["*.soc"]}],
+                TAG_DESC: "#### Specific rules for the package ``changes``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.soc"]}],
             },
             "cprotect": {
-                "desc": "#### Specific rules for the package ``cprotect``.",
-                "rules": [{"comment": "##", "rules": ["*.cpt"]}],
+                TAG_DESC: "#### Specific rules for the package ``cprotect``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.cpt"]}],
             },
             "todonotes": {
-                "desc": "#### Specific rules for the package ``todonotes``.",
-                "rules": [{"comment": "##", "rules": ["*.tdo"]}],
+                TAG_DESC: "#### Specific rules for the package ``todonotes``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.tdo"]}],
             },
             "comment": {
-                "desc": "#### Specific rules for the package ``comment``.",
-                "rules": [{"comment": "##", "rules": ["*.cut"]}],
+                TAG_DESC: "#### Specific rules for the package ``comment``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.cut"]}],
             },
         },
         "listing": {
             "listings": {
-                "desc": "#### Specific rules for the package ``listings``.",
-                "rules": [{"comment": "##", "rules": ["*.lol"]}],
+                TAG_DESC: "#### Specific rules for the package ``listings``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.lol"]}],
             }
         },
         "graphics": {
             "xypic": {
-                "desc": "#### Specific rules for the package ``xypic``.",
-                "rules": [
+                TAG_DESC: "#### Specific rules for the package ``xypic``.",
+                TAG_RULES_N_COMMENTS: [
                     {
-                        "comment": "## Precompiled matrices and outlines",
-                        "rules": ["*.xy[cd]"],
+                        TAG_COMMENTS: "## Precompiled matrices and outlines",
+                        TAG_RULES: ["*.xy[cd]"],
                     }
                 ],
             },
             "tikz-pgf": {
-                "desc": "#### Specific rules for the packages ``TikZ`` and  ``PGF``.",
-                "rules": [{"comment": "##", "rules": ["*.dpth", "*.md5", "*.auxlock"]}],
+                TAG_DESC: "#### Specific rules for the packages ``TikZ`` and  ``PGF``.",
+                TAG_RULES_N_COMMENTS: [
+                    {TAG_COMMENTS: "##", TAG_RULES: ["*.dpth", "*.md5", "*.auxlock"]}
+                ],
             },
             "svg": {
-                "desc": "#### Specific rules for the package ``svg``.",
-                "rules": [{"comment": "##", "rules": ["svg-inkscape/"]}],
+                TAG_DESC: "#### Specific rules for the package ``svg``.",
+                TAG_RULES_N_COMMENTS: [
+                    {TAG_COMMENTS: "##", TAG_RULES: ["svg-inkscape/"]}
+                ],
             },
         },
         "reference": {
             "titletoc": {
-                "desc": "#### Specific rules for the package ``titletoc``.",
-                "rules": [{"comment": "##", "rules": ["*.ptc"]}],
+                TAG_DESC: "#### Specific rules for the package ``titletoc``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.ptc"]}],
             },
             "makeidx": {
-                "desc": "#### Specific rules for the package ``makeidx``.",
-                "rules": [{"comment": "##", "rules": ["*.idx", "*.ilg", "*.ind"]}],
+                TAG_DESC: "#### Specific rules for the package ``makeidx``.",
+                TAG_RULES_N_COMMENTS: [
+                    {TAG_COMMENTS: "##", TAG_RULES: ["*.idx", "*.ilg", "*.ind"]}
+                ],
             },
             "minitoc": {
-                "desc": "#### Specific rules for the package ``minitoc``.",
-                "rules": [
+                TAG_DESC: "#### Specific rules for the package ``minitoc``.",
+                TAG_RULES_N_COMMENTS: [
                     {
-                        "comment": "##",
-                        "rules": [
+                        TAG_COMMENTS: "##",
+                        TAG_RULES: [
                             "*.maf",
                             "*.ml[ft]",
                             "*.mtc[0-9]*",
@@ -312,15 +344,15 @@ RULES = {
                 ],
             },
             "xindy": {
-                "desc": "#### Specific rules for the package ``xindy``.",
-                "rules": [{"comment": "##", "rules": ["*.xdy"]}],
+                TAG_DESC: "#### Specific rules for the package ``xindy``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.xdy"]}],
             },
             "glossaries": {
-                "desc": "#### Specific rules for the package ``glossaries``.",
-                "rules": [
+                TAG_DESC: "#### Specific rules for the package ``glossaries``.",
+                TAG_RULES_N_COMMENTS: [
                     {
-                        "comment": "##",
-                        "rules": [
+                        TAG_COMMENTS: "##",
+                        TAG_RULES: [
                             "*.ac[nr]",
                             "*.gl[gos]",
                             "*.glsdefs",
@@ -331,68 +363,73 @@ RULES = {
                 ],
             },
             "makeindex": {
-                "desc": "#### Specific rules for the standard tool ``Makeindex``.",
-                "rules": [{"comment": "## Log files.", "rules": ["*.lpz"]}],
+                TAG_DESC: "#### Specific rules for the standard tool ``Makeindex``.",
+                TAG_RULES_N_COMMENTS: [
+                    {TAG_COMMENTS: "## Log files.", TAG_RULES: ["*.lpz"]}
+                ],
             },
             "nomencl": {
-                "desc": "#### Specific rules for the package ``nomencl``.",
-                "rules": [{"comment": "##", "rules": ["*.nl[gos]"]}],
+                TAG_DESC: "#### Specific rules for the package ``nomencl``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.nl[gos]"]}],
             },
             "hyperref": {
-                "desc": "#### Specific rules for the package ``hyperref``.",
-                "rules": [{"comment": "##", "rules": ["*.brf"]}],
+                TAG_DESC: "#### Specific rules for the package ``hyperref``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.brf"]}],
             },
         },
         "extra-tools": {
             "pythontex": {
-                "desc": "#### Specific rules for the package ``pythontex``.",
-                "rules": [
-                    {"comment": "##", "rules": ["*.pytxcode", "pythontex-files-*/"]}
+                TAG_DESC: "#### Specific rules for the package ``pythontex``.",
+                TAG_RULES_N_COMMENTS: [
+                    {
+                        TAG_COMMENTS: "##",
+                        TAG_RULES: ["*.pytxcode", "pythontex-files-*/"],
+                    }
                 ],
             },
             "scrwfile": {
-                "desc": "#### Specific rules for the package ``scrwfile``.",
-                "rules": [{"comment": "##", "rules": ["*.wrt"]}],
+                TAG_DESC: "#### Specific rules for the package ``scrwfile``.",
+                TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.wrt"]}],
             },
         },
     },
     "editor": {
         "kbibtex": {
-            "desc": "#### Specific rules for ``KBibTeX``, see https://apps.kde.org/fr/kbibtex/.",
-            "rules": [{"comment": "##", "rules": ["*~[0-9]*"]}],
+            TAG_DESC: "#### Specific rules for ``KBibTeX``, see https://apps.kde.org/fr/kbibtex/.",
+            TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*~[0-9]*"]}],
         },
         "gummi": {
-            "desc": "#### Specific rules for ``gummi``, see https://gummi.app/.",
-            "rules": [{"comment": "##", "rules": [".*.swp"]}],
+            TAG_DESC: "#### Specific rules for ``gummi``, see https://gummi.app/.",
+            TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: [".*.swp"]}],
         },
         "kile": {
-            "desc": "#### Specific rules for ``Kile``, see https://kile.sourceforge.io/.",
-            "rules": [{"comment": "##", "rules": ["*.backup"]}],
+            TAG_DESC: "#### Specific rules for ``Kile``, see https://kile.sourceforge.io/.",
+            TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.backup"]}],
         },
         "lyx": {
-            "desc": "#### Specific rules for ``LyX``, see https://www.lyx.org/.",
-            "rules": [{"comment": "##", "rules": ["*.lyx~"]}],
+            TAG_DESC: "#### Specific rules for ``LyX``, see https://www.lyx.org/.",
+            TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.lyx~"]}],
         },
         "emacs": {
-            "desc": "#### Specific rules for ``emacs``, see https://www.gnu.org/software/emacs/.",
-            "rules": [
+            TAG_DESC: "#### Specific rules for ``emacs``, see https://www.gnu.org/software/emacs/.",
+            TAG_RULES_N_COMMENTS: [
                 {
-                    "comment": "## Auto folder when using auctex",
-                    "rules": ["./auto/*", "*.el"],
+                    TAG_COMMENTS: "## Auto folder when using auctex",
+                    TAG_RULES: ["./auto/*", "*.el"],
                 }
             ],
         },
         "texniccenter": {
-            "desc": "#### Specific rules for ``TeXnicCenter``, see https://www.texniccenter.org/.",
-            "rules": [{"comment": "##", "rules": ["*.tps"]}],
+            TAG_DESC: "#### Specific rules for ``TeXnicCenter``, see https://www.texniccenter.org/.",
+            TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.tps"]}],
         },
         "texpad": {
-            "desc": "#### Specific rules for ``Texpad``, see https://www.textpad.com/home.",
-            "rules": [{"comment": "##", "rules": [".texpadtmp"]}],
+            TAG_DESC: "#### Specific rules for ``Texpad``, see https://www.textpad.com/home.",
+            TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: [".texpadtmp"]}],
         },
         "winedt": {
-            "desc": "#### Specific rules for ``WinEdt``, see https://www.winedt.org/.",
-            "rules": [{"comment": "##", "rules": ["*.bak", "*.sav"]}],
+            TAG_DESC: "#### Specific rules for ``WinEdt``, see https://www.winedt.org/.",
+            TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.bak", "*.sav"]}],
         },
     },
 }

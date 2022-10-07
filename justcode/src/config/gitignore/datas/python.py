@@ -2,35 +2,42 @@
 
 # This code was automatically build by the following file.
 #
-#     + ``tools/factory/gitignore/build_06_update_src.py``
+#     + ``tools/factory/gitignore/build_06_update_pyfiles.py``
+
+from .TAGS import *
 
 RULES = {
     "main": {
-        "desc": "#### Main rules for standard Python projects, see https://github.com/python/.",
-        "rules": [
-            {"comment": "## Byte-compiled", "rules": ["__pycache__/", "*.py[co]"]},
-            {"comment": "## Cython debug", "rules": ["cython_debug/"]},
+        TAG_DESC: "#### Main rules for standard Python projects, see https://github.com/python/.",
+        TAG_RULES_N_COMMENTS: [
+            {TAG_COMMENTS: "## Byte-compiled", TAG_RULES: ["__pycache__/", "*.py[co]"]},
+            {TAG_COMMENTS: "## Cython debug", TAG_RULES: ["cython_debug/"]},
         ],
     },
     "tasks": {
         "celery": {
-            "desc": "#### Specific rules for ``Celery``, see https://github.com/celery/celery/.",
-            "rules": [
-                {"comment": "##", "rules": ["celerybeat-schedule", "celerybeat.pid"]}
+            TAG_DESC: "#### Specific rules for ``Celery``, see https://github.com/celery/celery/.",
+            TAG_RULES_N_COMMENTS: [
+                {
+                    TAG_COMMENTS: "##",
+                    TAG_RULES: ["celerybeat-schedule", "celerybeat.pid"],
+                }
             ],
         }
     },
     "web": {
         "flask": {
-            "desc": "#### Specific rules for ``Flask``, see https://github.com/pallets/flask.",
-            "rules": [{"comment": "##", "rules": ["instance/", ".webassets-cache"]}],
+            TAG_DESC: "#### Specific rules for ``Flask``, see https://github.com/pallets/flask.",
+            TAG_RULES_N_COMMENTS: [
+                {TAG_COMMENTS: "##", TAG_RULES: ["instance/", ".webassets-cache"]}
+            ],
         },
         "django": {
-            "desc": "#### Specific rules for ``Django``, see https://github.com/django/django.",
-            "rules": [
+            TAG_DESC: "#### Specific rules for ``Django``, see https://github.com/django/django.",
+            TAG_RULES_N_COMMENTS: [
                 {
-                    "comment": "##",
-                    "rules": [
+                    TAG_COMMENTS: "##",
+                    TAG_RULES: [
                         "*.log",
                         "local_settings.py",
                         "db.sqlite3",
@@ -42,33 +49,33 @@ RULES = {
     },
     "science": {
         "jupyter": {
-            "desc": "#### Specific rules for ``Jupyter``, see https://github.com/jupyter.",
-            "rules": [
-                {"comment": "## Notebook", "rules": [".ipynb_checkpoints"]},
+            TAG_DESC: "#### Specific rules for ``Jupyter``, see https://github.com/jupyter.",
+            TAG_RULES_N_COMMENTS: [
+                {TAG_COMMENTS: "## Notebook", TAG_RULES: [".ipynb_checkpoints"]},
                 {
-                    "comment": "## IPython",
-                    "rules": ["profile_default/", "ipython_config.py"],
+                    TAG_COMMENTS: "## IPython",
+                    TAG_RULES: ["profile_default/", "ipython_config.py"],
                 },
             ],
         },
         "sagemath": {
-            "desc": "#### Specific rules for ``SageMath``, see https://www.sagemath.org.",
-            "rules": [{"comment": "##", "rules": ["*.sage.py"]}],
+            TAG_DESC: "#### Specific rules for ``SageMath``, see https://www.sagemath.org.",
+            TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: ["*.sage.py"]}],
         },
     },
     "datas": {
         "scrapy": {
-            "desc": "#### Specific rules for ``Scrapy``, see https://github.com/scrapy/scrapy.",
-            "rules": [{"comment": "##", "rules": [".scrapy"]}],
+            TAG_DESC: "#### Specific rules for ``Scrapy``, see https://github.com/scrapy/scrapy.",
+            TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "##", TAG_RULES: [".scrapy"]}],
         }
     },
     "dev": {
         "env": {
-            "desc": "#### Specific rules for working with virtual environments.",
-            "rules": [
+            TAG_DESC: "#### Specific rules for working with virtual environments.",
+            TAG_RULES_N_COMMENTS: [
                 {
-                    "comment": "##",
-                    "rules": [
+                    TAG_COMMENTS: "##",
+                    TAG_RULES: [
                         ".env",
                         ".venv",
                         "env/",
@@ -78,28 +85,32 @@ RULES = {
                         "venv.bak/",
                     ],
                 },
-                {"comment": "## pyenv", "rules": [".python-version"]},
-                {"comment": "## pipenv", "rules": ["Pipfile.lock"]},
+                {TAG_COMMENTS: "## pyenv", TAG_RULES: [".python-version"]},
+                {TAG_COMMENTS: "## pipenv", TAG_RULES: ["Pipfile.lock"]},
             ],
         },
         "pybuilder": {
-            "desc": "#### Specific rules for ``PyBuilder``, see https://github.com/pybuilder/pybuilder.",
-            "rules": [{"comment": "##", "rules": [".pybuilder/", "target/"]}],
+            TAG_DESC: "#### Specific rules for ``PyBuilder``, see https://github.com/pybuilder/pybuilder.",
+            TAG_RULES_N_COMMENTS: [
+                {TAG_COMMENTS: "##", TAG_RULES: [".pybuilder/", "target/"]}
+            ],
         },
         "pyinstaller": {
-            "desc": "#### Specific rules for ``PyInstaller``, see https://github.com/pyinstaller/pyinstaller.",
-            "rules": [{"comment": "##", "rules": ["*.manifest", "*.spec"]}],
+            TAG_DESC: "#### Specific rules for ``PyInstaller``, see https://github.com/pyinstaller/pyinstaller.",
+            TAG_RULES_N_COMMENTS: [
+                {TAG_COMMENTS: "##", TAG_RULES: ["*.manifest", "*.spec"]}
+            ],
         },
         "testing": {
-            "desc": "#### Specific rules for testing flow.",
-            "rules": [
+            TAG_DESC: "#### Specific rules for testing flow.",
+            TAG_RULES_N_COMMENTS: [
                 {
-                    "comment": "##",
-                    "rules": [".tox/", ".nox/", "nosetests.xml", ".pytest_cache/"],
+                    TAG_COMMENTS: "##",
+                    TAG_RULES: [".tox/", ".nox/", "nosetests.xml", ".pytest_cache/"],
                 },
                 {
-                    "comment": "## Coverage",
-                    "rules": [
+                    TAG_COMMENTS: "## Coverage",
+                    TAG_RULES: [
                         "htmlcov/",
                         ".coverage",
                         ".coverage.*",
@@ -109,28 +120,28 @@ RULES = {
                         "cover/",
                     ],
                 },
-                {"comment": "##", "rules": [".hypothesis/"]},
+                {TAG_COMMENTS: "##", TAG_RULES: [".hypothesis/"]},
             ],
         },
         "typing": {
-            "desc": "#### Specific rules for typing specifications.",
-            "rules": [
+            TAG_DESC: "#### Specific rules for typing specifications.",
+            TAG_RULES_N_COMMENTS: [
                 {
-                    "comment": "##",
-                    "rules": [".mypy_cache/", ".dmypy.json", "dmypy.json"],
+                    TAG_COMMENTS: "##",
+                    TAG_RULES: [".mypy_cache/", ".dmypy.json", "dmypy.json"],
                 },
-                {"comment": "##", "rules": [".pyre/"]},
-                {"comment": "## pytype", "rules": [".pytype/"]},
+                {TAG_COMMENTS: "##", TAG_RULES: [".pyre/"]},
+                {TAG_COMMENTS: "## pytype", TAG_RULES: [".pytype/"]},
             ],
         },
         "packaging": {
-            "desc": "#### Specific rules for packaging projects.",
-            "rules": [
-                {"comment": "##", "rules": ["MANIFEST.in"]},
-                {"comment": "##", "rules": ["build/", "dist/", "sdist/"]},
+            TAG_DESC: "#### Specific rules for packaging projects.",
+            TAG_RULES_N_COMMENTS: [
+                {TAG_COMMENTS: "##", TAG_RULES: ["MANIFEST.in"]},
+                {TAG_COMMENTS: "##", TAG_RULES: ["build/", "dist/", "sdist/"]},
                 {
-                    "comment": "##",
-                    "rules": [
+                    TAG_COMMENTS: "##",
+                    TAG_RULES: [
                         "develop-eggs/",
                         "eggs/",
                         ".eggs/",
@@ -138,29 +149,31 @@ RULES = {
                         "*.egg",
                     ],
                 },
-                {"comment": "##", "rules": ["wheels/", "share/python-wheels/"]},
-                {"comment": "##", "rules": ["poetry.lock"]},
-                {"comment": "## pdm", "rules": [".pdm.toml"]},
+                {TAG_COMMENTS: "##", TAG_RULES: ["wheels/", "share/python-wheels/"]},
+                {TAG_COMMENTS: "##", TAG_RULES: ["poetry.lock"]},
+                {TAG_COMMENTS: "## pdm", TAG_RULES: [".pdm.toml"]},
             ],
         },
         "rope": {
-            "desc": "#### Specific rules for ``Rope``, see https://github.com/python-rope/rope.",
-            "rules": [{"comment": "## Project settings", "rules": [".ropeproject"]}],
+            TAG_DESC: "#### Specific rules for ``Rope``, see https://github.com/python-rope/rope.",
+            TAG_RULES_N_COMMENTS: [
+                {TAG_COMMENTS: "## Project settings", TAG_RULES: [".ropeproject"]}
+            ],
         },
     },
     "os": {
         "windows": {
-            "desc": "#### Specific rules for the ``Windows`` OS.",
-            "rules": [{"comment": "## DLL like", "rules": ["*.pyd"]}],
+            TAG_DESC: "#### Specific rules for the ``Windows`` OS.",
+            TAG_RULES_N_COMMENTS: [{TAG_COMMENTS: "## DLL like", TAG_RULES: ["*.pyd"]}],
         }
     },
     "editor": {
         "spyder": {
-            "desc": "#### Specific rules for ``Spyder``, see https://github.com/spyder-ide/spyder.",
-            "rules": [
+            TAG_DESC: "#### Specific rules for ``Spyder``, see https://github.com/spyder-ide/spyder.",
+            TAG_RULES_N_COMMENTS: [
                 {
-                    "comment": "## Project settings",
-                    "rules": [".spyderproject", ".spyproject"],
+                    TAG_COMMENTS: "## Project settings",
+                    TAG_RULES: [".spyderproject", ".spyproject"],
                 }
             ],
         }

@@ -2,6 +2,21 @@
 
 
 ==
+07
+==
+
+-----
+:new:
+-----
+
+[[:doc:]]
+¨cli: possibility to search the contexts containing one or more ¨gitignore rules given by the user.
+
+
+// ---------- //
+
+
+==
 03
 ==
 
@@ -10,7 +25,7 @@
 -----
 
 [[:doc:]]
-¨gitignore rules: sets of rules can be ignored (this works for the ¨api, and for the user's rules).
+¨gitignore rules: sets of rules can be ignored (this works for the ¨api, and the user's rules).
 
 
 --------
