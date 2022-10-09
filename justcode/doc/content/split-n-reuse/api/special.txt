@@ -1,18 +1,19 @@
 ﻿this::
-    date = 2022-09-12
+    date = 2022-10-10
 
 
 abrev::
     content = /special
 
 
-===========================
-Filtres et ¨params spéciaux
-===========================
+=============================================
+Types, ¨params, filtres et valideurs spéciaux
+=============================================
 
-Voici les listes des ¨params et filtres spéciaux.
+Voici ce que propose ¨justcode.
 
 content::
+    ¨content/types.txt                ??????
     ¨content/params.txt
     ¨content/filters.txt
     ¨content/validators.txt

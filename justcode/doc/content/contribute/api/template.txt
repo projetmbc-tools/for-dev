@@ -1,17 +1,16 @@
 ﻿this::
-    date = 2022-09-14
+    date = 2022-10-09
 
 
 ======================
 Des squelettes en plus
 ======================
 
-Il suffit de coder un squelette tout en respectant chacune des recommandations suivantes.
+Il suffit de coder un squelette tout en respectant les recommandations suivantes.
 
     1) Il faut documenter le squelette comme expliqué dans cf::``?/goingfurther/autodoc.txt``. Rappelons que ¨justcode extrait ¨auto^t la structure du squelette, ainsi que les ¨infos sur les ¨params attendus, les filtres spéciaux disponibles, et les valideurs ajoutés.
 
-    1) Il doit y avoir au moins un dossier "projet test" placé dans le sous-dossier path::``tests`` du dossier spécial path::``__jscmeta__``.
-    Un tel projet doit utiliser tous les ¨params "utilisateur" proposés : le fichier path::``__jscmeta__/params.peuf`` doit être complet.
-    Ceci permettra de lancer des tests de validation ¨autos, mais aussi de comprendre l'utilité du squelette proposé (avant de la garder, ou non, pour l¨api de ¨justcode).
-
-    1) Les squelettes retenus, mais en cours de validation, sont placés dans le dossier path::``template``.
+    1) Les squelettes proposés, ou en cours d'analyse, sont placés dans un sous-dossier de path::``contribute/api/template`` en respectant l'organisation proposée, dans la mesure du possible
+    ((
+        En cas de réelle nécessité, rien n'interdit de créer de nouvelles catégories.
+    )).

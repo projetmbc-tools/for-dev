@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-08-30
+    date = 2022-10-10
 
 
 ===============
@@ -8,7 +8,7 @@ Comment faire ?
 
 Ceci a déjà été évoqué dans la section cf::``?/create-n-use/steps/1-single[CHANGES].txt``.
 Pour mémoire, nous redonnons ci-dessous le code du fichier path::``params.peuf`` qui est proposé dans la dite section.
-Retenez l'utilisation de peuf::``licence = ...`` où ce qui est après le signe ``=`` est un identifiant de licence (pas besoin ici d'utiliser le préfixe peuf::``api::``).
+Retenez l'utilisation de peuf::``licence = ...`` où ce qui est après le signe ``=`` est un identifiant de licence.
 
 peuf::
     ---

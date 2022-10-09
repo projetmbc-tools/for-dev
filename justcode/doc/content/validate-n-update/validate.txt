@@ -8,4 +8,4 @@ Valider
 
 content::
     ¨content/what-we-want.txt
-    ¨content/how-to.txt
+    ¨content/how-to.txt                ??????

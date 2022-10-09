@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-14
+    date = 2022-10-09
 
 
 =========================================================
@@ -16,8 +16,10 @@ tout en respectant toutes les recommandations suivantes.
 
     1) Il doit y avoir un bloc python::``__main__`` de déboggage "à la main".
 
-    1) Les filtres retenus, mais en cours de validation, sont placés dans le dossier path::``filter``.
+    1) Où placer les codes proposés ?
 
-    1) Les valideurs retenus, mais en cours de validation, sont placés dans le dossier path::``validator``.
+        * Les filtres retenus, mais en cours de validation, sont placés dans le dossier path::``filter``.
 
-    1) Les ¨params "¨autos" retenus, mais en cours de validation, sont placés dans le dossier path::``autoparam``.
+        * Les valideurs retenus, mais en cours de validation, sont placés dans le dossier path::``validator``.
+
+        * Les ¨params "¨autos" retenus, mais en cours de validation, sont placés dans le dossier path::``autoparam``.

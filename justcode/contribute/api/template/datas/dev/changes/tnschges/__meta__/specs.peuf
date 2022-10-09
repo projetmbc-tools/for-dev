@@ -1,2 +1,15 @@
+main::
+    desc = This template is tp write a changelog using easy-to-maintain
+           files and folders, and the ¨tnschges language.
+
+
 params::
-    license: lic = none
+    license : lic = by nc sa
+
+    year_init : int = {{today | date_year}}
+                    @ the full year number at the time of use of
+                      the template.
+    month_init: int = {{today | date_month_nb}}
+                    @ the number of the month at the time of use of
+                      the skeleton, this number being given with
+                      two digits with zero on the left if necessary.

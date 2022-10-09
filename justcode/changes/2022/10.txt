@@ -10,7 +10,7 @@
 -----
 
 [[:doc:]]
-¨gitignore rules: one note talks about the use of terminal::``git check-ignore``.
+¨gitignore rules: the use of terminal::``git check-ignore`` has been indicated.
 
 
 // ---------- //

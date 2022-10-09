@@ -1,0 +1,15 @@
+﻿this::
+    date = 2022-10-???
+
+
+====================================
+Liste complète des types disponibles
+====================================
+
+par sécu, ¨justcode propose un jeu restreint de types !!!
+
+// AUTO - LIST OF SPECIAL FILTERS - START
+
+    * ????
+
+// AUTO - LIST OF SPECIAL FILTERS - END
