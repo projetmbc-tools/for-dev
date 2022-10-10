@@ -13,7 +13,7 @@ Types, ¨params, filtres et valideurs spéciaux
 Voici ce que propose ¨justcode.
 
 content::
-    ¨content/types.txt                ??????
-    ¨content/params.txt
-    ¨content/filters.txt
-    ¨content/validators.txt
+    ¨content/types.txt                  ?????
+    ¨content/validators.txt             ?????
+    ¨content/filters.txt                ?????
+    ¨content/params.txt                 ?????

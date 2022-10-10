@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-12
+    date = 2022-10-11
 
 
 ===================================
@@ -15,11 +15,11 @@ Liste complète des ¨params spéciaux
 
     * jinja::``project_path`` est le chemin absolu du dossier appelant ¨justcode.
 
-    Le type ¨python de jinja::``project_path`` est python::``pathlib.Path``.
+    Le type ¨python de jinja::``project_path`` est python::``path``.
 
 
-    * jinja::``today`` est la date complète lors de l'appel de ¨justcode (utilisé seul, ce paramètre ne sera pas très pratique, voir les filtres spéciaux pour les dates de la série jinja::``date_...``).
+    * jinja::``today`` est la date sans heure lors de l'appel de ¨justcode (ce paramètre devient très pratique en étant combiné avec certains des filtres de la série jinja::``date_...``).
 
-    Le type ¨python de jinja::``today`` est python::``datetime.datetime``.
+    Le type ¨python de jinja::``today`` est python::``date``.
 
 // AUTO - LIST OF SPECIAL PARAMS - END

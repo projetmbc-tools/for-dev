@@ -1,15 +1,38 @@
 ﻿this::
-    date = 2022-10-???
+    date = 2022-10-?????
 
 
 ====================================
 Liste complète des types disponibles
 ====================================
 
-par sécu, ¨justcode propose un jeu restreint de types !!!
+info::
+    Pour des raisons de sécurité, ¨justcode propose son propre jeu de types de données
+    ((
+        Donner accès à tous les types ¨python, c'est autoriser l'utilisation des méthodes de ces types.
+    )).
+
 
 // AUTO - LIST OF SPECIAL FILTERS - START
 
-    * ????
+    * jinja::``author`` ???
+
+
+    * jinja::``date`` ???
+
+
+    * jinja::``int`` sert à utiliser des entiers relatifs avec éventuellement des zéros inutiles à gauche : `0` , `- 134` et `00000123` sont des entiers valides.
+
+
+    * jinja::``lic`` ???
+
+
+    * jinja::``str`` sert à indiquer un texte à utiliser verbatim, ou presque
+    ((
+        Penser aux ¨params qui en utilisent d'autres.
+    )).
+
+
+    * jinja::``path``
 
 // AUTO - LIST OF SPECIAL FILTERS - END

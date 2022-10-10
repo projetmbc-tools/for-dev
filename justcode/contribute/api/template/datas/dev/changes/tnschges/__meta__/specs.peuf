@@ -1,6 +1,7 @@
 main::
-    desc = This template is tp write a changelog using easy-to-maintain
-           files and folders, and the ¨tnschges language.
+    author = Christophe, Bal [projetmbc@gmail.com]
+    desc   = This template is for writing a ¨tnschges flavour changelog
+             (this uses easy-to-maintain files and folders).
 
 
 params::
@@ -9,7 +10,8 @@ params::
     year_init : int = {{today | date_year}}
                     @ the full year number at the time of use of
                       the template.
-    month_init: int = {{today | date_month_nb}}
+    month_init: int = {{today | date_month}}
                     @ the number of the month at the time of use of
-                      the skeleton, this number being given with
-                      two digits with zero on the left if necessary.
+                      the template, this number being written with
+                      a leading zero if necessary to have a two digits
+                      integer.
