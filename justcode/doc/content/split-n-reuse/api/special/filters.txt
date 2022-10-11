@@ -1,29 +1,51 @@
 ﻿this::
-    date = 2022-10-?????
+    date = 2022-10-11
 
 
 ===================================
 Liste complète des filtres spéciaux
 ===================================
 
+info::
+    Les filtres sont nommés au format jinja::``typesimple_action``.
+
+
 // AUTO - LIST OF SPECIAL FILTERS - START
 
-    * param !!!!!!!!!!!!!!!!
+    * jinja::``author_name`` renvoie des ¨infos sur un auteur de type jinja::``author``.
 
-    jinja::``date_year`` renvoie le numéro complet de l'année d'une date fournie au format python::``datetime``.
+        1) jinja::``author_name`` renvoie les prénoms et le nom d'un auteur de type jinja::``author``.
 
-    Ce filtre s'utilise sans aucun paramètre.
+        1) jinja::``author_name("last")`` renvoie juste le nom d'un auteur de type jinja::``author``.
 
-
-    * param !!!!!!!!!!!!!!!!
-
-    jinja::``date_day`` renvoie ????
+        1) jinja::``author_name("first")`` renvoie juste les prénoms d'un auteur de type jinja::``author``.
 
 
-    * param !!!!!!!!!!!!!!!!
+    * jinja::``author_email`` renvoie l'adresse du courriel d'un auteur de type jinja::``author`` (si l'adresse n'a pas été renseignée, une exception sera levée).
 
-    jinja::``date_month`` renvoie le numéro à deux chiffres du mois d'une date fournie au format python::``datetime``.
 
-    Ce filtre s'utilise sans aucun paramètre.
+    * jinja::``date_day`` est un filtre avec un ¨param optionnel pour le format de retour souhaité pour le jour d'une date de type jinja::``date``.
+
+        1) jinja::``date_day`` renvoie le numéro à deux chiffres.
+
+        1) jinja::``date_day("name")`` renvoie le nom dans la langue choisie via le ¨param spécial jinja::``lang``.
+
+        1) jinja::``date_day("abrev")`` renvoie l'abréviation du nom dans la langue choisie via le ¨param spécial jinja::``lang``.
+
+
+    * jinja::``date_month`` est un filtre avec un ¨param optionnel pour le format de retour souhaité pour le mois d'une date de type jinja::``date``.
+
+        1) jinja::``date_month`` renvoie le numéro à deux chiffres.
+
+        1) jinja::``date_month("name")`` renvoie le nom dans la langue choisie via le ¨param spécial jinja::``lang``.
+
+        1) jinja::``date_month("abrev")`` renvoie l'abréviation du nom dans la langue choisie via le ¨param spécial jinja::``lang``.
+
+
+    * jinja::``date_year`` est un filtre avec un ¨param optionnel pour le format de retour souhaité pour l'année d'une date de type jinja::``date``.
+
+        1) jinja::``date_year`` renvoie le numéro sur 4 chiffres.
+
+        1) jinja::``date_year("short")`` renvoie le numéro à deux chiffres.
 
 // AUTO - LIST OF SPECIAL FILTERS - END

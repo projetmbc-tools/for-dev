@@ -8,10 +8,9 @@ params::
     license : lic = by nc sa
 
     year_init : int = {{today | date_year}}
-                    @ the full year number at the time of use of
-                      the template.
+                    @ the full 4-digits number of the year at the time
+                      of use of the template.
     month_init: int = {{today | date_month}}
-                    @ the number of the month at the time of use of
-                      the template, this number being written with
-                      a leading zero if necessary to have a two digits
-                      integer.
+                    @ the 2-digits number of the month at the time of use
+                      of the template, this number being written with
+                      a leading zero if necessary.

@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-12
+    date = 2022-10-11
 
 
 abrev::
@@ -8,9 +8,9 @@ abrev::
     exafilter = ¨exatempl/filters
 
 
-====================================
-Transformer la valeur d'un paramètre
-====================================
+=================================
+Transformer la valeur d'un ¨param
+=================================
 
 ¨jinja propose le concept de "filtre" pour modifier une valeur dans un squelette. Par exemple
 ((
@@ -22,7 +22,7 @@ si python::``name = "WaRRioR"``, alors jinja::``"Hello {{ name | title }}!"`` se
 
 note::
     L'emploi de tel filtre doit être mûrement réfléchi !
-    Une autre approche est de passer via un validateur : voir cf::``validator.txt``.
+    Une autre approche est de passer via un validateur : voir cf::``checker.txt``.
 
 
 content::

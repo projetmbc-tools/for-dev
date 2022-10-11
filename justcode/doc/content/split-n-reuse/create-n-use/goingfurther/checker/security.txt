@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-12
+    date = 2022-10-11
 
 
 ==================================
@@ -16,6 +16,9 @@ peuf::
     ---
     path = ¨exavalid/params.peuf
     ---
+
+
+L'usage de peuf::``checkers = ...`` est similaire à ce qui a été expliqué dans cf::``filter/security.txt``.
 
 
 tip::

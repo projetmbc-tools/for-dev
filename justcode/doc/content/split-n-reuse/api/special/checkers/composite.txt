@@ -1,0 +1,13 @@
+﻿this::
+    date = 2022-10-11   ?????
+
+
+====================
+Les types "composés"
+====================
+
+// AUTO - LIST OF SPECIAL COMPOSITE TYPES - START
+
+    * jinja::``listof(UN_TYPE_SIMPLE)`` permet de proposer une liste d'¨args spéarés par des points-virgules, et non des virgules, chaque élément de la liste étant du type simple jinja::``UN_TYPE_SIMPLE``.
+
+// AUTO - LIST OF SPECIAL COMPOSITE TYPES - END

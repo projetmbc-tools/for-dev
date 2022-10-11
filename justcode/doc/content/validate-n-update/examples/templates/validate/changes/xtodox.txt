@@ -1,0 +1,25 @@
+{###
+validate::
+    lines::
+        VERSION = MAJOR\.MINOR\.PATCH
+
+    blocks::
+        title::
+            ^===
+            {{project_name}} - TODO
+            ===
+###}
+
+
+===
+{{project_name}} - TODO
+===
+
+Author: {{author_name}}
+
+VERSION = MAJOR.MINOR.PATCH
+
+
+> ---------------------------- <
+
+Something to do?

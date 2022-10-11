@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-14
+    date = 2022-10-11
 
 
 abrev::
@@ -8,11 +8,15 @@ abrev::
     exadocauto = ¨exatempl/autodoc
 
 
-===============================================
-Documenter un squelette (en anglais uniquement)
-===============================================
+=======================
+Documenter un squelette
+=======================
 
-Que ce soit pour contribuer à l'¨api de ¨justcode, ou bien proposer vos squelettes à la communauté, il faut documenter ces derniers **en anglais**. Les sections suivantes expliquent comment s'y prendre.
+warning::
+    ¨Ttes les ¨docs doivent être écrites en anglais.
+
+
+Que ce soit pour contribuer à l'¨api de ¨justcode, ou bien proposer vos squelettes à la communauté, il faut documenter. Les sections suivantes expliquent comment s'y prendre.
 
 
 info::
@@ -25,8 +29,9 @@ info::
 
 
 content::
-    ¨content/shortdesc.txt
+    ¨content/desc-template.txt
+    ¨content/desc-file.txt
     ¨content/params.txt
     ¨content/filters.txt
-    ¨content/validators.txt
+    ¨content/checkers.txt
     ¨content/hooks.txt

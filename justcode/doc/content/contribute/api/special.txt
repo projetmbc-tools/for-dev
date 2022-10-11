@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-10-09
+    date = 2022-10-11
 
 
 =========================================================
@@ -20,6 +20,6 @@ tout en respectant toutes les recommandations suivantes.
 
         * Les filtres retenus, mais en cours de validation, sont placés dans le dossier path::``filter``.
 
-        * Les valideurs retenus, mais en cours de validation, sont placés dans le dossier path::``validator``.
+        * Les valideurs retenus, mais en cours de validation, sont placés dans le dossier path::``checker``.
 
         * Les ¨params "¨autos" retenus, mais en cours de validation, sont placés dans le dossier path::``autoparam``.

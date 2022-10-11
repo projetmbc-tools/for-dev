@@ -10,5 +10,5 @@ Dans le fichier path::``specs.peuf``, on peut donner une courte ¨desc d'un sque
 
 peuf::
     ---
-    path = ¨exadocauto/specs-shortdesc.peuf
+    path = ¨exadocauto/desc-specs.peuf
     ---

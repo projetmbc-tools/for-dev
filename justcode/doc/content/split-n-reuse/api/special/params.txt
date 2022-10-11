@@ -8,18 +8,23 @@ Liste complète des ¨params spéciaux
 
 // AUTO - LIST OF SPECIAL PARAMS - START
 
+    * jinja::``lang`` est un ¨param optionnel pour indiquer la langue du squelette. Par défaut, la valeur est jinja::``en_GB``.
+
+    Le type de jinja::``lang`` est jinja::``lang``.
+
+
     * jinja::``project_name`` est le nom du projet obtenu en prenant directement le nom du dossier appelant ¨justcode.
 
-    Le type ¨python de jinja::``project_name`` est python::``str``.
+    Le type de jinja::``project_name`` est jinja::``str``.
 
 
     * jinja::``project_path`` est le chemin absolu du dossier appelant ¨justcode.
 
-    Le type ¨python de jinja::``project_path`` est python::``path``.
+    Le type de jinja::``project_path`` est jinja::``path``.
 
 
     * jinja::``today`` est la date sans heure lors de l'appel de ¨justcode (ce paramètre devient très pratique en étant combiné avec certains des filtres de la série jinja::``date_...``).
 
-    Le type ¨python de jinja::``today`` est python::``date``.
+    Le type de jinja::``today`` est jinja::``date``.
 
 // AUTO - LIST OF SPECIAL PARAMS - END

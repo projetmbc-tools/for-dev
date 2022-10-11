@@ -1,0 +1,32 @@
+{###
+this::
+    desc = This file is just to indicate TODOs.
+           The name ``x-todo-x.txt`` allows to easily "git ignore"
+           this file.
+
+
+validate::
+    lines::
+        VERSION = MAJOR\.MINOR\.PATCH
+
+    blocks::
+        title::
+            ^==+
+            {{project_name}} - TODO
+            ==+
+###}
+
+
+{% for _ in range(3+4 + project_name|length) %}={% endfor %}
+{{project_name}} - TODO
+{% for _ in range(3+4 + project_name|length) %}={% endfor %}
+{% if about_name %}
+{{project_name}} = {{about_name}}
+{% endif %}
+
+VERSION = MAJOR.MINOR.PATCH
+
+
+> {% for _ in range(25) %}-{% endfor %} <
+
+Something to do?

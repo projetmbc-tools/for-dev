@@ -1,0 +1,18 @@
+﻿this::
+    date = 2022-10-11
+
+
+==============================
+Décrire l'utilité d'un fichier
+==============================
+
+En mettant au tout début d'un fichier un commentaire ¨jinja un peu spécial au format jinja::``{### ... ###}``, on peut décrire rapidement l'utilité du fichier via un bloc un bloc peuf::``this::...`` comme dans l'exemple ci-après.
+
+peuf::
+    ---
+    path = ¨exadocauto/desc-onefile.txt
+    ---
+
+
+info::
+    Le commentaire spécial jinja::``{### ... ###}`` est aussi utile pour paramétrer les validations de squelettes comme cela est expliqué dans cf::``?/validate/content.txt``.

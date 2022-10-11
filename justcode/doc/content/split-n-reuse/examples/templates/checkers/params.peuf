@@ -1,0 +1,4 @@
+main::
+    checkers = all
+
+// ... etc.

@@ -2,6 +2,37 @@
 
 
 ==
+11
+==
+
+-----
+:new:
+-----
+
+[[:doc:]]
+¨Doc before code.
+
+    1) With validators and filters, the control of authorisations is more refined.
+
+    1) Each file of a template can be shortly documented.
+
+
+--------
+:update:
+--------
+
+[[:doc:]]
+¨Doc before code.
+
+    1) The standard types and their validators are fully documented.
+
+    1) The filters for dates can be used with an optional value.
+
+
+// ---------- //
+
+
+==
 08
 ==
 
@@ -10,7 +41,7 @@
 -----
 
 [[:doc:]]
-¨gitignore rules: the use of terminal::``git check-ignore`` has been indicated.
+¨gitignore rules: the useful command terminal::``git check-ignore`` has been indicated.
 
 
 // ---------- //

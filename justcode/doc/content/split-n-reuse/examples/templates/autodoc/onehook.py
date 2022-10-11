@@ -4,14 +4,4 @@ one skeleton initiates one project. This two informations are gathered
 to build one new global parameter ``osname``.
 """
 
-import platform
-
-from justcode import (
-    TAG_MAIN,
-    Params,
-    JSCType,
-)
-
-Params[TAG_MAIN]['osname'] = JSCType.str(
-    f"{platform.system()} - {platform.release()}"
-)
+...

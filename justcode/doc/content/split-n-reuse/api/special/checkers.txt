@@ -1,0 +1,10 @@
+﻿abrev::
+    content = /checkers
+
+====================================
+Liste complète des types disponibles
+====================================
+
+content::
+    ¨content/simple.txt
+    ¨content/composite.txt

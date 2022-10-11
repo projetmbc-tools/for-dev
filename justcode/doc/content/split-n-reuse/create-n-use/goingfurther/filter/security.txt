@@ -1,17 +1,26 @@
 ﻿this::
-    date = 2022-09-12
+    date = 2022-10-11
 
 
 ==================================
 Attention aux filtres maléfiques !
 ==================================
 
-En interne, un filtre est un ¨prog ¨python. Il est donc risqué d'autoriser aveuglément l'usage de filtres "maison". C'est pour cette raison que l'utilisateur doit explictement autoriser l'usage de filtres proposés par un squelette via le bloc peuf``main::...`` comme suit.
+En interne, un filtre est un ¨prog ¨python. Il est donc risqué d'autoriser aveuglément l'usage de filtres "maison". C'est pour cette raison que l'utilisateur doit explictement autoriser l'usage de filtres proposés par un squelette via le bloc peuf``main::...`` comme suit où l'on indique le nom du squelette autorisé à ajouter un nouveau filtre.
 
 peuf::
     ---
     path = ¨exafilter/params.peuf
     ---
+
+
+La valeur de peuf::``filters`` peut aussi être de l'un des deux types suivants.
+
+    1) Plusieurs squelettes peuvent être autorisés comme dans peuf::``filters = squelette_1 ; squelette_2 ; squelette_3``.
+
+    1) peuf::``filters = all`` permet d'autoriser tous les squelettes utilisés à fournir des filtres.
+
+Par défaut, peuf::``filters = no`` interdit tout filtre proposé par un squelette.
 
 
 tip::

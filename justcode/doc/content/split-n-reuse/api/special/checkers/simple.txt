@@ -1,0 +1,53 @@
+﻿this::
+    date = 2022-10-11
+
+
+===================
+Les types "simples"
+===================
+
+info::
+    Pour des raisons de ¨sécu, ¨justcode propose son propre jeu de types de données
+    ((
+        Donner accès à tous les types ¨python, c'est autoriser l'utilisation des méthodes de ces types.
+    )).
+    Toutes les valeurs sonr ¨tjrs nettoyées de leurs espaces inutiles initiaux et finaux.
+
+
+// AUTO - LIST OF SPECIAL SIMPLE TYPES - START
+
+    * jinja::``author`` permet de proposer des ¨args de l'un des types suivants.
+
+        1) jinja::``Nom`` juste pour un nom.
+
+        1) jinja::``Prénom_1 , Prénom_2 , Nom`` pour des prénoms, sans limite de nombres, et un nom.
+
+        1) jinja::``Nom [un_email@ici.org]`` pour un nom et une adresse de courriel.
+
+        1) jinja::``Prénom_1 , Prénom_2 , Nom [un_email@ici.org]`` pour des prénoms, un nom et une adresse de courriel.
+
+
+    * jinja::``date`` s'emploie pour des dates données soit au format jinja::``2022-10-24``, soit sous la forme jinja::``24/10/2022``.
+
+
+    * jinja::``int`` permet de définir des entiers relatifs avec éventuellement des zéros inutiles à gauche : par exemple, `0` , `- 134` et `00000123` sont des entiers valides.
+
+
+    * jinja::``lang`` sert pour une langue attendue dans un format standard.
+
+
+    * jinja::``lic`` sert pour des arguments de l'un des trois types différents.
+
+        1) jinja::``no`` indique de ne pas utiliser de licence si cela est proposé par un squelette.
+
+        1) Une chaîne de caractères indiquant le nom d'une licence proposée par l'¨api.
+
+        1) Dans les cas restants, la valeur sera interprtée comme un chemin vers un fichier contenant le texte intégral d'une licence "maison".
+
+
+    * jinja::``path`` sert pour les ¨args de type chemin de dossier, ou de fichier.
+
+
+    * jinja::``str`` permet de travailler avec des textes tout simplement.
+
+// AUTO - LIST OF SPECIAL SIMPLE TYPES - END

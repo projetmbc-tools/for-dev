@@ -1,5 +1,6 @@
 params::
-    author: str = ?
-                @ Full name of the author of the project.
+    author: author = ?
+                   @ Full name of the author of the project with his email
+                     in the format ``Firstname, Lastname [email@here.org]``.
 
 // ... etc.

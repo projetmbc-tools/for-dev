@@ -1,0 +1,14 @@
+﻿abrev::
+    content = checker
+
+    exavalid = ¨exatempl/checkers
+
+
+=============================================================
+Valideurs de ¨params, et en fabriquer éventuellement d'autres
+=============================================================
+
+
+content::
+    ¨content/security.txt
+    ¨content/how-to.txt

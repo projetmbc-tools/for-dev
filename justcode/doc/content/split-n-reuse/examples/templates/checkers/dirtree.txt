@@ -1,5 +1,5 @@
 ﻿+ validators-in-action
     + __jscmeta__
         * specs.peuf
-        + validators
-            * author.py
+        + checkers
+            * auth.py

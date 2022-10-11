@@ -39,7 +39,9 @@ def auth(author):
 #
 # Il faut obligatoirement renvoyé un type ``justcode`` obtenu via
 # l'une des méthodes statiques de la classe ``JSCType``.
-    return JSCType.str(author)
+    author = JSCType.str(author)
+
+    return author
 
 
 # ----------------- #

@@ -6,14 +6,13 @@ abrev::
     content = /special
 
 
-=============================================
-Types, ¨params, filtres et valideurs spéciaux
-=============================================
+=========================
+Types, ¨params et filtres
+=========================
 
 Voici ce que propose ¨justcode.
 
 content::
-    ¨content/types.txt                  ?????
-    ¨content/validators.txt             ?????
-    ¨content/filters.txt                ?????
-    ¨content/params.txt                 ?????
+    ¨content/checkers.txt
+    ¨content/filters.txt
+    ¨content/params.txt

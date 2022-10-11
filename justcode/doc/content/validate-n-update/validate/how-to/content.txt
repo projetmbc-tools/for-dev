@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-10-???
+    date = 2022-10-11
 
 
 =====================
@@ -13,8 +13,7 @@ L'analyse de contenu est à l'initiative de l'auteur d'un squelette. Pour repren
     1) L'absence de la ligne ``VERSION = MAJOR.MINOR.PATCH``.
 
 
-Pour obtenir ceci, nous devons commencer par modifier le fichier path::``__jscmeta__/specs.peuf`` du squelette comme suit.
-Ce code va être expliqué juste après.
+Pour obtenir ceci, le fichier path::``x-todo-x.txt`` du squelette comme suit. Ce code va être expliqué juste après.
 
 peuf::
     ---
@@ -22,16 +21,18 @@ peuf::
     ---
 
 
-Tout d'abord, il faut ajouter un bloc peuf::``check::...`` pour y indiquer ce qui doit être vérifié dans des fichiers donné via leur chemin relatif: ici, nous ajoutons le sous-bloc peuf::``x-todo-x.txt::...``. On dispoe alors de deux types de sous-bloc.
+On utilise au tout début du fichier un commentaire ¨jinja un peu spécial au format jinja::``{### ... ###}`` dans lequel sont utilisées les directives suivantes.
 
-    1) Le sous-bloc peuf::``singlelines::...`` sert à indiquer des lignes isolées devant aparaître quelque part dans un contenu.
+    1) Tout se passe dans le bloc bien nommé peuf::``validate::...`` qui accepte deux types de sous-blocs.
+
+    1) Le sous-bloc peuf::``lines::...`` sert à indiquer des lignes isolées devant aparaître quelque part dans un contenu.
     Ici on utilise juste regex::``VERSION = MAJOR\.MINOR\.PATCH`` où les contre-obliques regex::``\`` sont indispensables car ¨justcode travaille avec des ¨regexs (voir ce qui suit pour une précision très importante indiquant l'usage de ¨jinja avant de passer via une ¨regex).
 
-    1) Le sous-bloc peuf::``multilines::...`` est pour plusieurs lignes. Notons deux choses importantes ici.
+    1) Le sous-bloc peuf::``blocks::...`` est pour plusieurs lignes. Notons deux choses importantes ici.
 
         * Avant de considérer avoir une ¨regex, ¨justcode fait appel à ¨jinja. Ceci permet de comprendre que jinja::``{{project_name}}`` sera remplacé par le nom du projet.
 
         * L'utilisation de regex::``^`` fait classiquement ¨ref au début du fichier.
 
 
-Une fois le squelette complété, il suffit alors de lancer ¨justcode avec l'option terminal::``--validate``, et avec pour argument le chemin du dossier path::``myproject_2``.
+Une fois le squelette complété, la validation attendue sera effectuée en lançant de ¨justcode avec l'option terminal::``--validate``, et pour argument le chemin du dossier path::``myproject_2``.

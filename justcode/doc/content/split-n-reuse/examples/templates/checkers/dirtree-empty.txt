@@ -1,4 +1,4 @@
 ﻿+ validators-in-action
     + __jscmeta__
         * specs.peuf
-        + validators
+        + checkers
