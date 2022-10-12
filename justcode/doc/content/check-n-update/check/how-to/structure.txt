@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-10-09
+    date = 2022-10-12
 
 
 ===================
@@ -11,8 +11,8 @@ Si nous reprenons le cas du ¨1er projet path::``myproject_1``, on commence par 
 
 peuf::
     ---
-    path = ¨exadir/validate-1/params.peuf
+    path = ¨exadir/check-1/params.peuf
     ---
 
 
-Il suffit alors de lancer ¨justcode avec l'option terminal::``--validate``, et pour argument le chemin du dossier path::``myproject_1``.
+Il suffit alors de lancer ¨justcode avec l'option terminal::``--check``, et pour argument le chemin du dossier path::``myproject_1``.

@@ -1,29 +1,25 @@
 ﻿this::
-    date = 2022-10-11
+    date = 2022-10-12 ?????
 
 
-=====================
-Des contenus attendus
-=====================
+=========================
+Certaines lignes verbatim
+=========================
 
-L'analyse de contenu est à l'initiative de l'auteur d'un squelette. Pour reprendre le cas du ¨2e projet path::``myproject_2``, nous cherchons à repérer les absences suivantes dans le fichier path::``myproject_2/changes/x-todo-x.txt``.
-
-    1) L'absence des ``===`` autour de ``myproject`` au début du fichier.
-
-    1) L'absence de la ligne ``VERSION = MAJOR.MINOR.PATCH``.
-
-
-Pour obtenir ceci, le fichier path::``x-todo-x.txt`` du squelette comme suit. Ce code va être expliqué juste après.
-
-peuf::
+jinja::
     ---
-    path = ¨exatempl/validate/changes/specs.peuf
+    path = ¨exatempl/check-n-update/x-todo-x-verbatim.txt
     ---
+
+
+
+????
+
 
 
 On utilise au tout début du fichier un commentaire ¨jinja un peu spécial au format jinja::``{### ... ###}`` dans lequel sont utilisées les directives suivantes.
 
-    1) Tout se passe dans le bloc bien nommé peuf::``validate::...`` qui accepte deux types de sous-blocs.
+    1) Tout se passe dans le bloc bien nommé peuf::``check::...`` qui accepte deux types de sous-blocs.
 
     1) Le sous-bloc peuf::``lines::...`` sert à indiquer des lignes isolées devant aparaître quelque part dans un contenu.
     Ici on utilise juste regex::``VERSION = MAJOR\.MINOR\.PATCH`` où les contre-obliques regex::``\`` sont indispensables car ¨justcode travaille avec des ¨regexs (voir ce qui suit pour une précision très importante indiquant l'usage de ¨jinja avant de passer via une ¨regex).
@@ -35,4 +31,4 @@ On utilise au tout début du fichier un commentaire ¨jinja un peu spécial au f
         * L'utilisation de regex::``^`` fait classiquement ¨ref au début du fichier.
 
 
-Une fois le squelette complété, la validation attendue sera effectuée en lançant de ¨justcode avec l'option terminal::``--validate``, et pour argument le chemin du dossier path::``myproject_2``.
+Une fois le squelette complété, la validation attendue sera effectuée en lançant de ¨justcode avec l'option terminal::``--check``, et pour argument le chemin du dossier path::``myproject_2``.

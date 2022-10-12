@@ -21,6 +21,6 @@ content::
     ¨content/intro.txt
     ¨content/cookie-vs-justcode.txt
     ¨content/split-n-reuse.txt
-    ¨content/validate-n-update.txt
+    ¨content/check-n-update.txt
     ¨content/cli.txt
     ¨content/contribute.txt

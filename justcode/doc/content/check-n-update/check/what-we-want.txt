@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-08
+    date = 2022-10-12
 
 
 abrev::
@@ -24,7 +24,7 @@ Le contenu du fichier path::``x-todo-x.txt`` est le suivant.
 
 jinja::
     ---
-    path = ¨exachges/xtodox.txt
+    path = ¨exachges/x-todo-x.txt
     ---
 
 
@@ -32,7 +32,7 @@ Imaginons avoir le projet suivant développé sans avoir usé du ¨skelchges (le
 
 dirtree::
     ---
-    path = ¨exadir/validate-1/myproject-noparams.txt
+    path = ¨exadir/check-1/myproject-noparams.txt
     ---
 
 
@@ -43,7 +43,7 @@ L'analyse ne se réduit pas uniquement aux structures des dossiers, le contenu d
 
 dirtree::
     ---
-    path = ¨exadir/validate-2/myproject-noparams.txt
+    path = ¨exadir/check-2/myproject-noparams.txt
     ---
 
 
@@ -51,7 +51,7 @@ Supposons que le contenu du fichier path::``x-todo-x.txt`` soit ici le suivant.
 
 verb::
     ---
-    path = ¨exadir/validate-2/xtodox.txt
+    path = ¨exadir/check-2/x-todo-x.txt
     ---
 
 

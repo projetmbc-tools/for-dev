@@ -1,0 +1,22 @@
+﻿this::
+    date = 2022-10-12 ?????
+
+
+========================
+Tout un fichier verbatim
+========================
+
+# verbatim-file pour fichier d'extension géré soit ici d python, mais
+// verbatim-file  pour JavaScript ou C, C++
+et
+-- verbatim-file pour Lua
+et
+<!-- verbatim-file --> pour HTML
+... ok,
+ou {# verbatim-file #} sinon mais facile à commenter en mode dev au début et c'est tout mais avec deux effets : le fichier doit pêtre présent dans la structure, et aussi avec le bon cntenu
+
+
+jinja::
+    ---
+    path = ¨exatempl/check-n-update/scriptpython.py
+    ---

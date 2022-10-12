@@ -1,6 +1,0 @@
-params::
-    license: lic = ?
-
-
-same-contents::
-    publish/tool_update_all.py

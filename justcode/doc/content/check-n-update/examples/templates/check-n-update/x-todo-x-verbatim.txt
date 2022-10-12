@@ -1,0 +1,7 @@
+...
+
+{# verbatim-start #}
+VERSION = MAJOR.MINOR.PATCH
+{# verbatim-end #}
+
+...

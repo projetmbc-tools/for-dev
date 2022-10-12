@@ -5,26 +5,47 @@ this::
            this file.
 
 
-validate::
-    lines::
-        VERSION = MAJOR\.MINOR\.PATCH
-
-    blocks::
-        title::
-            ^==+
-            {{project_name}} - TODO
-            ==+
+check::
+    title::
+        ^==+
+        {{project_name}} - TODO
+        ==+
 ###}
 
 
-{% for _ in range(3+4 + project_name|length) %}={% endfor %}
+{% for _ in range(3 + 4 + project_name|length) %}={% endfor %}
 {{project_name}} - TODO
-{% for _ in range(3+4 + project_name|length) %}={% endfor %}
+{% for _ in range(3 + 4 + project_name|length) %}={% endfor %}
 {% if about_name %}
 {{project_name}} = {{about_name}}
 {% endif %}
 
+{{### verbatim-start ###}}
 VERSION = MAJOR.MINOR.PATCH
+
+Big catego
+
+    + :new: , :news:
+    + :update: , :updates:
+    + :break:
+    + :fordev:
+
+Small catego
+
+    + :format:
+    + :doc:
+    + :bug: , :bugs:
+    + :issue: , :issues:
+    + :api:
+    + :tech:
+    + :flow:
+    + :facto:
+    + :misc:
+    + :test: , :tests:
+    + Only with :fordev:
+        * :new: , :news:
+        * :update: , :updates:
+{{### verbatim-end ###}}
 
 
 > {% for _ in range(25) %}-{% endfor %} <

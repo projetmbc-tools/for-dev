@@ -28,7 +28,7 @@ Expliquons le contenu du squelette.
 
     jinja::
         ---
-        path = ¨exachges/xtodox.txt
+        path = ¨exachges/x-todo-x.txt
         ---
 
     Le ¨param jinja::``project_name`` est un peu particulier car il est automatiquement associé au nom du dossier à initialiser.

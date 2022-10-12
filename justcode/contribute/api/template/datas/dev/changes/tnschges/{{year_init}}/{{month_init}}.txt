@@ -2,7 +2,11 @@
 this::
     desc = This kind of file is to indicate changes using
            the ¨tnschges language.
-###}
+
+
+check::
+    initial-date-ruler::
+        ^// -+ //
 
 
 // ---------- //
