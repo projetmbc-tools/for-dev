@@ -6,10 +6,10 @@
 Tout un fichier verbatim
 ========================
 
-# verbatim-file pour fichier d'extension géré soit ici d python, mais
-// verbatim-file  pour JavaScript ou C, C++
+# verbatim-file # pour fichier d'extension géré soit ici d python, mais
+// verbatim-file // pour JavaScript ou C, C++
 et
--- verbatim-file pour Lua
+-- verbatim-file -- pour Lua
 et
 <!-- verbatim-file --> pour HTML
 ... ok,

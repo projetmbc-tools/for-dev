@@ -1,0 +1,13 @@
+﻿this::
+    date = 2022-10-17
+
+
+=====================================================
+Concepteurs, ne ralentisser pas inutilement ¨justcode
+=====================================================
+
+Les fonctionnalités présentées dans les sections précédentes nécessitent l'analyse de chaque fichier proposé par un squelette modèle. Ceci nous amène à parler de deux choses à connaître.
+
+    1) Le concepteur d'un squelette "maison" peut indiquer que son squelette ne propose aucune règle de validation via peuf::``check = no`` dans le bloc peuf::``main::`` du fichier path::``__jsmeta__/specs.peuf``. Dès lors l'analyse des fichiers sera mise en silence.
+
+    1) Pour les squelettes proposés directement par ¨justcode, l'analyse a été précalculée une fois pour toute, et donc pour ces squelletes "clés en main", leur utilisation sera optimisée.

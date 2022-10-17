@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-12
+    date = 2022-10-16
 
 
 abrev::
@@ -11,7 +11,6 @@ Indiquer des valeurs par défaut
 ===============================
 
 Les valeurs des ¨params sont cherchées d'abord localement, puis globalement. Par exemple, dans le code suivant, les valeurs des paramètres peuf::``licence`` sont directement données localement pour chacun des squelettes peuf::``changes``, peuf::``readme`` et peuf::``tools``.
-Un usage du paramètre peuf::``licence`` dans le bloc peuf::``main`` serait donc ignoré dans ce cas.
 
 peuf::
     ---

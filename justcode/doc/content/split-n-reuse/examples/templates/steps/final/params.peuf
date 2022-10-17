@@ -1,5 +1,6 @@
 main::
     template  = ~/mes_squelettes/monorepo
+    remove    = readme
     gitignore = python ;
                 macos ;
                 ~/mes_gitignores/reglesmaison.txt
@@ -7,11 +8,6 @@ main::
 changes::
     licence     = by nc sa 4.0
     author_name = Christophe BAL
-
-readme::
-    licence     = by nc sa 4.0
-    author_name = Christophe BAL
-    author_mail = projetmbc@gmail.com
 
 tools::
     licence = gpl 3.0

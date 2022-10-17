@@ -2,15 +2,32 @@
 
 
 ==
-12       ????
+            ????
 ==
 
 -----
 :new:
 -----
 
-[[:doc:]]       ????
-¨Doc before code: the special value is for mandatory ¨params without a default value.
+[[:doc:]]
+¨Doc before code.
+
+    1) ???
+
+    usage de tnsdoc dans les specs et params via /*** ... ***/
+
+    1) OK !!!
+    remove aussi dans main  !
+
+    1)       ????   dans step-1
+     the special value peuf::``?`` is for ¨params without a default value.
+
+
+    1) ?????
+
+    jinja de base, ou bien via ext (voire ce que propose jinjaflow perso)
+
+        ---> indiquer via main : jinja = py , cpp  (liste extensions pour adaptation)
 
 
 --------

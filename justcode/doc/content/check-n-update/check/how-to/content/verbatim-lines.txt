@@ -16,6 +16,13 @@ jinja::
 ????
 
 
+// verbatim-start //
+
+
+
+// verbatim-end //
+
+
 
 On utilise au tout début du fichier un commentaire ¨jinja un peu spécial au format jinja::``{### ... ###}`` dans lequel sont utilisées les directives suivantes.
 

@@ -1,4 +1,4 @@
-{###
+/***
 this::
     desc = This file is just to indicate TODOs.
            The name ``x-todo-x.txt`` allows to easily "git ignore"
@@ -8,29 +8,33 @@ this::
 check::
     title::
         ^==+
-        {{project_name}} - TODO
+        {{ project_name }} - TODO
         ==+
-###}
+***/
 
 
-{% for _ in range(3 + 4 + project_name|length) %}={% endfor %}
-{{project_name}} - TODO
-{% for _ in range(3 + 4 + project_name|length) %}={% endfor %}
-{% if about_name %}
-{{project_name}} = {{about_name}}
-{% endif %}
+//: for _ in range(3 + 4 + project_name|length) -://
+=
+//:- endfor ://
+{{ project_name }} - TODO
+//: for _ in range(3 + 4 + project_name|length) -://
+=
+//:- endfor ://
+//: if about_name ://
+{{ project_name }} = {{ about_name }}
+//: endif ://
 
-{{### verbatim-start ###}}
+// verbatim-start //
 VERSION = MAJOR.MINOR.PATCH
 
-Big catego
+Big catego.
 
     + :new: , :news:
     + :update: , :updates:
     + :break:
     + :fordev:
 
-Small catego
+Small catego.
 
     + :format:
     + :doc:
@@ -42,12 +46,14 @@ Small catego
     + :facto:
     + :misc:
     + :test: , :tests:
-    + Only with :fordev:
+    + Only for the big catego. :fordev:
         * :new: , :news:
         * :update: , :updates:
-{{### verbatim-end ###}}
+// verbatim-end //
 
 
-> {% for _ in range(25) %}-{% endfor %} <
+//: for _ in range(25) -://
+-
+//:- endfor ://
 
 Something to do?

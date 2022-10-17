@@ -1,9 +1,9 @@
 ﻿this::
-    date = 2022-10-12
+    date = 2022-10-????
 
 
 abrev::
-    exachges = ?/split-n-reuse/examples/templates/changes
+    exachges = ¨exatempl/changes
 
     skelchges = squelette path::``changes``
 
