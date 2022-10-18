@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-10-11
+    date = 2022-10-18
 
 
 abrev::
@@ -8,21 +8,20 @@ abrev::
     exafilter = ¨exatempl/filters
 
 
-=================================
-Transformer la valeur d'un ¨param
-=================================
+===============================
+Transformer la ¨val d'un ¨param
+===============================
 
-¨jinja propose le concept de "filtre" pour modifier une valeur dans un squelette. Par exemple
+¨jinjang gère le concept de "filtre" pour modifier une ¨val dans un squelette. Par exemple, si python::``name = "WaRRioR"``, alors jinjang::``"Hello {{ name | title }}!"`` sera transformé en verb::``Hello Warrior!`` suite à l'utilisation de la fonction "filtre" python::``title`` qui vient de ¨python directement
 ((
     Cet exemple est des plus mauvais, mais nous allons explorer un cas plus pertinent juste après.
-)),
-si python::``name = "WaRRioR"``, alors jinja::``"Hello {{ name | title }}!"`` sera transformé en verb::``Hello Warrior!`` suite à l'utilisation de la fonction "filtre" python::``title`` (qui vient de ¨python directement).
+)).
 ¨justcode permet l'utilisation de filtres "maison" comme nous allons le voir dans cette section.
 
 
 note::
     L'emploi de tel filtre doit être mûrement réfléchi !
-    Une autre approche est de passer via un validateur : voir cf::``checker.txt``.
+    Une autre approche envisageable est de passer via un validateur : voir cf::``checker.txt``.
 
 
 content::

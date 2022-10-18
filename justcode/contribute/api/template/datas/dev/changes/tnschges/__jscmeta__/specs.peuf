@@ -2,7 +2,6 @@ main::
     author = Christophe, Bal [projetmbc@gmail.com]
     desc   = This template is for writing a ¨tnschges flavour changelog
              (this uses easy-to-maintain files and folders).
-    jinja  = auto
 
 
 params::

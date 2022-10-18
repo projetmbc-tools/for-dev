@@ -1,12 +1,12 @@
 ﻿this::
-    date = 2022-10-11
+    date = 2022-10-18
 
 
 =========================================================
 De nouveaux filtres, valideurs ou ¨params générés ¨auto^t
 =========================================================
 
-Il suffit de coder l'un de ces outils comme expliqué dans cf::``?/goingfurther/filter.txt``, cf::``?/goingfurther/validator.txt`` et cf::``?/goingfurther/hook.txt``
+Il suffit de coder l'un de ces outils comme expliqué dans cf::``?/goingfurther/filter.txt``, cf::``?/goingfurther/checker.txt`` et cf::``?/goingfurther/hook.txt``
 ((
     On utilisera un pré-traitement pour ajouter de nouveaux ¨params "¨autos" globaux.
 )),
@@ -14,7 +14,7 @@ tout en respectant toutes les recommandations suivantes.
 
     1) Il faut documenter les codes proposés comme expliqué dans cf::``?/goingfurther/autodoc.txt``.
 
-    1) Il doit y avoir un bloc python::``__main__`` de déboggage "à la main".
+    1) Dès que cela est possible, il doit y avoir un bloc python::``__main__`` de déboggage "à la main".
 
     1) Où placer les codes proposés ?
 

@@ -6,7 +6,7 @@
 Filtres et ¨params spéciaux
 ===========================
 
-Dans l'exemple suivant, le ¨param jinja::``today`` est géré directement par ¨justcode : c'est la date du jour. En plus, sont aussi employés deux filtres jinja::``date_year`` et jinja::``date_month`` fournis par ¨justcode.
+Dans l'exemple suivant, le ¨param jinjang::``today`` est géré directement par ¨justcode : c'est la date du jour. En plus, sont aussi employés deux filtres jinjang::``date_year`` et jinjang::``date_month`` fournis par ¨justcode.
 
 dirtree::
     ---

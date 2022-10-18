@@ -2,8 +2,13 @@
 
 from justcode import (
     newfilter,
-    testfilter
+    loctest
 )
+
+
+# ------------------- #
+# -- EXTRACT EMAIL -- #
+# ------------------- #
 
 @newfilter
 def justemail(author):
@@ -19,14 +24,14 @@ def justemail(author):
 
 if __name__ == '__main__':
     print(
-        testfilter(
+        loctest(
             author   = "Christophe BAL [projetmbc@gmail.com]",
             template = """
 Auteur tel que tapé :
-{{author}}
+{{ author }}
 
 Courriel de l'auteur :
-{{author | justemail}}
+{{ author | justemail }}
             """
         )
     )

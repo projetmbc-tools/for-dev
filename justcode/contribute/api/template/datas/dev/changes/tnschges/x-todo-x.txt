@@ -13,13 +13,9 @@ check::
 ***/
 
 
-//: for _ in range(3 + 4 + project_name|length) -://
-=
-//:- endfor ://
+//: for _ in range(project_name | length) -://=//:- endfor ://
 {{ project_name }} - TODO
-//: for _ in range(3 + 4 + project_name|length) -://
-=
-//:- endfor ://
+//: for _ in range(project_name | length) -://=//:- endfor ://
 //: if about_name ://
 {{ project_name }} = {{ about_name }}
 //: endif ://
@@ -52,8 +48,6 @@ Small catego.
 // verbatim-end //
 
 
-//: for _ in range(25) -://
--
-//:- endfor ://
+> //: for _ in range(25) -://-//:- endfor :// <
 
 Something to do?

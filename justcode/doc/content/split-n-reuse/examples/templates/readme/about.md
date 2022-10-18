@@ -1,6 +1,6 @@
-About `{{project_name}}`
+About `{{ project_name }}`
 ---
 
-This project is maintained by {{author_name}}.
+This project is maintained by {{ author_name }}.
 
-Email: {{author_mail}}.
+Email: {{ author_mail }}.

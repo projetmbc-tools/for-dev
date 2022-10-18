@@ -1,7 +1,7 @@
 import::
-    changes = ~/mes_squelettes/changes
-    readme  = ~/mes_squelettes/readme
-    tools   = ~/mes_squelettes/tools
+    changes = ~/mes_patrons/changes
+    readme  = ~/mes_patrons/readme
+    tools   = ~/mes_patrons/tools
 
 changes::
     licence     = by nc sa 4.0

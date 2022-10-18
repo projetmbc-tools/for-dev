@@ -2,9 +2,9 @@
     content = /templates
 
 
-=================================
-Les squelettes fournis par défaut
-=================================
+==============================
+Les patrons fournis par défaut
+==============================
 
 content::
     ¨content/how-to.txt

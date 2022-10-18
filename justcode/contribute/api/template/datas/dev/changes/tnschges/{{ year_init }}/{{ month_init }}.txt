@@ -10,10 +10,6 @@ check::
 ***/
 
 
-//
-//: for _ in range(10) -://
--
-//:- endfor ://
-//
+// //: for _ in range(10) -://-//:- endfor :// //
 
 Your changes must be written using the ¨tnschges language.

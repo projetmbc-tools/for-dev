@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-10-16
+    date = 2022-10-18
 
 
 abrev::
@@ -7,31 +7,28 @@ abrev::
     examono     = ¨exatempl/monorepo
 
 
-======================================================================
-Un squelette composé de sous-squelettes, et avec des règles ¨gitignore
-======================================================================
+===========================================================
+Un patron composé de sous-patrons, et des règles ¨gitignore
+===========================================================
 
-L'agrégation de plusieurs squelettes pour en former un nouveau est maintenant très simple à comprendre. Imaginons que la structure suivante de type dépôt "unique" soit souvent utilisée.
+L'agrégation de plusieurs patrons pour en former un nouveau est maintenant très simple à comprendre. Imaginons que la structure suivante de type "dépôt unique" soit souvent utilisée où divers patrons sont employés.
 
 dirtree::
     ---
-    path = ¨exadir/mathobj-no-project.txt
+    path = ¨exadir/mathobj-init.txt
     ---
 
 
-Il est alors utile de créer, puis d'utiliser, un squelette que nous nommerons path::``monorepo`` à l'aide de squelettes existants.
+Il est alors utile de créer, puis d'utiliser, un patron que nous nommerons path::``monorepo`` à l'aide de patrons existants. Commençons par la ¨def du patron pour le "dépôt unique".
 
-
-Commençons par la ¨def du squelette.
-
-    1) On crée le dossier suivant supposé stocké à l'emplacement path::``~/mes_squelettes/monorepo``. Certains fichiers ont été ajoutés car ils sont spécifiques au squelette, et non à ceux qui vont être utilisés.
+    1) On crée le dossier suivant supposé stocké à l'emplacement path::``~/mes_patrons/monorepo``. Certains fichiers ont été ajoutés car ils sont spécifiques au patron, et non à ceux qui vont être utilisés.
 
     dirtree::
         ---
         path = ¨examono/dirtree.txt
         ---
 
-    1) L'importation de squelettes existants par notre nouveau squelette se fait très simplement via le fichier path::``specs.peuf`` comme suit.
+    1) L'importation de patrons existants par notre nouveau patron se fait très simplement via le fichier path::``specs.peuf``, et non path::``params.peuf``, comme suit.
 
     peuf::
         ---
@@ -39,7 +36,7 @@ Commençons par la ¨def du squelette.
         ---
 
 
-Passons maintenant à l'utilisation de notre squelette path::``monorepo``.
+Passons maintenant à l'utilisation de notre patron path::``monorepo``.
 
     1) On commence par créer le dossier minimaliste suivant avant de lancer l'initialisation.
 
@@ -55,9 +52,9 @@ Passons maintenant à l'utilisation de notre squelette path::``monorepo``.
         path = ¨currentstep/params.peuf
         ---
 
-    1) La clé peuf::``template`` du bloc peuf::``main::...`` sert à indiquer l'utilisation sur notre dossier principal du squelette stocké à l'emplacement path::``~/mes_squelettes/monorepo``.
+    1) La clé peuf::``template`` du bloc peuf::``main::...`` sert à indiquer l'utilisation sur notre dossier principal du patron stocké à l'emplacement path::``~/mes_patrons/monorepo``.
 
-    1) Via peuf::``remove = readme``, nous ignorons le sous-squelette path::``readme`` utilisé par path::``monorepo``
+    1) Via peuf::``remove = readme``, nous ignorons le sous-patron path::``readme`` utilisé par path::``monorepo``
     ((
         Est-ce utile ?
     )).

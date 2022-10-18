@@ -11,6 +11,7 @@ from justcode import (
     Params,
 )
 
+
 projdir  = Params[TAG_MAIN][TAG_PROJECT_PATH]
 projrepo = Params[TAG_MAIN]["project_repo"]
 
@@ -27,17 +28,3 @@ for command in [
     )
 
 chdir(initial_workdir)
-
-
-# ----------------- #
-# -- QUICK DEBUG -- #
-# ----------------- #
-
-if __name__ == '__main__':
-    chdir(projdir)
-
-    subprocess.call(
-        shlexsplit("git remote -v")
-    )
-
-    chdir(initial_workdir)

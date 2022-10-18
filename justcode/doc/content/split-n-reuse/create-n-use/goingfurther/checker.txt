@@ -4,9 +4,9 @@
     exavalid = ¨exatempl/checkers
 
 
-=============================================================
-Valideurs de ¨params, et en fabriquer éventuellement d'autres
-=============================================================
+============================================================
+Valider des ¨params en en fabriquant éventuellement d'autres
+============================================================
 
 
 content::

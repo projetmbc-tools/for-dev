@@ -2,5 +2,5 @@
     * x-todo-x.txt
     + __jscmeta__
         * specs.peuf
-    + {{year}}
-        * {{month}}.txt
+    + {{ year }}
+        * {{ month }}.txt

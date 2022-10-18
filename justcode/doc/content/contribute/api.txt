@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-13
+    date = 2022-10-18
 
 
 abrev::
@@ -22,11 +22,11 @@ info::
                 + changes
                     * LICENSE.txt
                     * x-todo-x.txt
+                + checker
                 + filter
                 + gitignore
                 + license
                 + template
-                + validator
             + doc [...]
 
 

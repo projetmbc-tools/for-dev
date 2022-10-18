@@ -5,4 +5,4 @@ params::
     day  : int = ?
 
 // Paramètre construit automatiquement.
-    date : str = {{year}}-{{month}}-{{day}}
+    date : str = {{ year }}-{{ month }}-{{ day }}

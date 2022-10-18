@@ -1,9 +1,9 @@
 ﻿this::
-    date = 2022-09-28
+    date = 2022-10-18
 
 
-==========================================
-¨Maj d'un dossier vis à vis d'un squelette
-==========================================
+=======================================
+¨Maj d'un dossier vis à vis d'un patron
+=======================================
 
 Ici c'est l'emploi de l'option terminal::``--update`` qui lancera l'analyse comme dans terminal::``python -m justcode --update chemin/vers/le/projet``.

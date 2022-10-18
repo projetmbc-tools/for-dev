@@ -8,6 +8,7 @@ from justcode import (
     JSCType,
 )
 
+
 Params[TAG_MAIN]['osname'] = JSCType.str(
     f"{platform.system()} - {platform.release()}"
 )

@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-14
+    date = 2022-10-18
 
 
 abrev::
@@ -10,7 +10,7 @@ abrev::
 Des ¨params dans un ¨param
 ==========================
 
-Un ¨param peut s'appuyer sur d'autres en utilisant éventuellement des filtres (ces derniers sont présentés juste après dans la section cf::``filter.txt``).
+Un ¨param peut s'appuyer sur d'autres en utilisant éventuellement des filtres dont nous parlerons après dans la section cf::``filter.txt``.
 Voici un exemple bancal, mais éclairant, de fichier path::``specs.peuf`` avec un ¨param construit à partir de trois autres
 ((
     Bien entendu, l'emploi d'un ¨param de type "date" serait bien plus adapté ici pour ensuite en extraire l'année, le mois et le jour.

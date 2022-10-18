@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-28
+    date = 2022-10-18
 
 
 abrev::
@@ -11,12 +11,12 @@ Créer des squelettes modulables
 ===============================
 
 note::
-    Comme ¨jinja est utilisé en coulisse, tout ce qui utilisable avec ce projet le sera aussi avec ¨justcode.
-    Cette ¨doc n'ayant pas vocation à reproduire celle de ¨jinja, si les exemples proposées dans ce ¨docu ne repondent pas à vos besoins, vous êtes invité à vous reporter à la ¨doc de ¨jinja.
+    Il faut savoir que ¨jinjang est utilisé en coulisse, tout ce qui utilisable avec ce projet le sera aussi avec ¨justcode.
+    Cette ¨doc n'ayant pas vocation à reproduire celle de ¨jinjang, si les exemples proposées dans ce ¨docu ne repondent pas à vos besoins, vous êtes invité à vous reporter à la ¨doc de ¨jinjang.
 
 
 info::
-    Dans cf::``?/api.txt`` sont présentés des squelettes fournis directement par ¨justcode, ainsi que les licences supportées nativement, et des règles ¨gitignore prêtes à l'emploi. Ne réinventez donc par la roue.
+    Dans cf::``?/api.txt`` sont présentés des patrons fournis directement par ¨justcode, ainsi que les licences supportées nativement, et des règles ¨gitignore prêtes à l'emploi. Ne réinventez donc par la roue.
     Si besoin, vous pouvez même contribuer de différentes façons : voir cf::``?/contribute.txt``. Toute bonne volonté est bienvenue !
 
 

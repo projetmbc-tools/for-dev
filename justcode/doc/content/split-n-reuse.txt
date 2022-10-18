@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-08-24
+    date = 2022-10-18
 
 
 abrev::
@@ -9,12 +9,12 @@ abrev::
     exatempl = ?/examples/templates
 
 
-=========================
-Des squelettes modulables
-=========================
+======================
+Des patrons modulables
+======================
 
 warning::
-    Là où ¨cookiecutter parle de "template", nous emploierons le terme de "squelette". L'expression "patron de conception" est une meilleure ¨trad, mais ceci est plus long à lire, et à taper.
+    Là où ¨cookiecutter parle de "template", nous emploierons le terme de "patron" comme raccourci de "patron de conception".
 
 
 content::

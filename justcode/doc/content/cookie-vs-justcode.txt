@@ -1,30 +1,33 @@
 ﻿this::
-    date = 2022-09-08
+    date = 2022-10-18
 
 
 ==========================
 ¨cookiecutter vs ¨justcode
 ==========================
 
-Avant de présenter avec délices les saveurs propres à ¨justcode, il est important d'indiquer les différences vis à vis de ¨cookiecutter.
+Avant de présenter avec délice les saveurs propres à ¨justcode, il est important d'indiquer les différences vis à vis de ¨cookiecutter.
 
-    1) Là où ¨cookiecutter ajoute un dossier dans un endroit donné, ¨justcode travaille directement depuis un dossier (¨justcode va automatiquement attribuer le nom du dit dossier à la variable jinja::``project_name``, c'est une affectation implicite).
+    1) Là où ¨cookiecutter ajoute un dossier dans un endroit donné, ¨justcode travaille directement depuis un dossier
+    ((
+        Au passage, ¨justcode va automatiquement attribuer le nom du dit dossier à la variable jinja::``project_name``, c'est une affectation implicite.
+    )).
 
-    1) Même si ¨justcode s'utilise en ligne de commandes, chaque projet initié par un squelette contiendra toujours un fichier peuf::``params.peuf`` indiquant toutes les ¨infos utiles à la conception via le squelette, ce fichier devant être mis dans un dossier path::``__jscmeta__`` destiné à ¨justcode.
+    1) Même si ¨justcode s'utilise en ligne de commandes, chaque projet initié par un patron contiendra toujours un fichier peuf::``params.peuf`` indiquant toutes les ¨infos utiles à la conception du squelette initial, ce fichier devant être mis dans un dossier path::``__jscmeta__`` destiné à ¨justcode.
     Via le terminal, on peut aussi initier un projet commee suit.
 
         * Soit on demande la création d'un fichier factice peuf::``params.peuf`` avec toutes les ¨params attendus, un fichier à modifier ensuite à la main.
 
-        * Soit on renseigne chaque paramètre attendu dircetement via le terminal.
+        * Soit on renseigne chaque paramètre attendu directement via le terminal.
 
-    Il est bon de savoir que si un fichier peuf::``params.peuf`` existe déjà, ¨justcode indiquera d'éventuelles valeurs manquantes, ou interdites, tout en laissant la responsabilité de la gestion de ces oublis à l'utilisateur.
+    Il est bon de savoir que si un fichier peuf::``params.peuf`` existe déjà, ¨justcode indiquera d'éventuelles valeurs manquantes, ou interdites, tout en laissant la responsabilité de la gestion de ces ¨pbs à l'utilisateur.
 
     1) Le fichier peuf::``params.peuf`` est aussi utile pour d'autres choses.
 
-        * La gestion des licences et d'un éventuel fichier ¨gitignore est faite par ¨justcode, et non par l'intermédiaire du squelette, via le fichier peuf::``params.peuf``.
+        * La gestion des licences et d'un éventuel fichier ¨gitignore est faite par ¨justcode, et non par l'intermédiaire du patron, via le fichier peuf::``params.peuf``.
 
-        * Pour comparer un projet existant vis à vis d'un squelette donné, ¨justcode récupère dans peuf::``params.peuf`` tous les paramètres utilisés lors de l'utilisation du dit squelette.
-        Cette fonctionnalité permet d'avoir un ¨ens de projets toujours structurés de la même façon, mais aussi d'intégrer un projet existant à un ¨ens d'autres fabriqués via le même squelette
+        * Pour comparer un projet existant vis à vis d'un patron donné, ¨justcode récupère dans peuf::``params.peuf`` tous les paramètres utilisés lors de l'utilisation du dit patron.
+        Cette fonctionnalité permet d'avoir un ¨ens de projets toujours structurés de la même façon, mais aussi d'intégrer un projet existant à un ¨ens d'autres fabriqués via le même patron
         ((
-            Dans ce deuxième cas, il suffit d'ajouter un fichier peuf::``params.peuf`` pour ensuite demander à ¨justcode de valider le projet vis à vis d'un squelette donné.
+            Dans ce deuxième cas, il suffit d'ajouter un fichier peuf::``params.peuf`` pour ensuite demander à ¨justcode de valider le projet vis à vis d'un patron donné.
         )).

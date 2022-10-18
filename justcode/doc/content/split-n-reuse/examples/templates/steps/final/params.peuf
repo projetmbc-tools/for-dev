@@ -1,5 +1,5 @@
 main::
-    template  = ~/mes_squelettes/monorepo
+    template  = ~/mes_patrons/monorepo
     remove    = readme
     gitignore = python ;
                 macos ;

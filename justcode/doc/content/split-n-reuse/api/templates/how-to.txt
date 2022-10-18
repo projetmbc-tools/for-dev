@@ -10,7 +10,7 @@ abrev::
 Comment faire ?
 ===============
 
-Pour employer un squelette proposé par ¨justcode, il suffit d'indiquer son nom. Voici un exemple avec des sous-dossiers à initier.
+Pour employer un patron proposé par ¨justcode, il suffit d'indiquer son nom. Voici un exemple avec des sous-dossiers à initier.
 
 peuf::
     ---
@@ -27,4 +27,4 @@ peuf::
 
 
 info::
-    La section cf::``?/contribute/templates.txt``explique comment proposer de nouveaux squelettes.
+    La section cf::``?/contribute/templates.txt``explique comment proposer de nouveaux patrons.

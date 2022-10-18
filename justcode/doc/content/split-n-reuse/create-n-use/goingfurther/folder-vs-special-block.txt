@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-09-12
+    date = 2022-10-18
 
 
 abrev::
@@ -10,7 +10,8 @@ abrev::
 Nommer ses dossiers comme des noms réservés
 ===========================================
 
-Certains noms de sous-blocs du bloc peuf::``templates-used`` sont propres à l'¨api de ¨justcode. Par exemple, le sous-bloc peuf::``import`` sert à indiquer des squelettes importés. Comment peut-alors utiliser un squelette pour un dossier lui aussi nommé path::``import`` ?
+Certains noms de sous-blocs pour les fichiers path::``specs.peuf`` et path::``params.peuf`` sont propres à l'¨api de ¨justcode. Par exemple, dans  path::``specs.peuf``, le sous-bloc peuf::``import`` sert à indiquer des patrons importés.
+Comment peut-alors utiliser un patron pour un dossier lui aussi nommé path::``import`` ?
 Le plus simple consiste à changer le nom path::``import`` en path::``./import`` comme dans l'exemple ci-après.
 
 peuf::
@@ -20,12 +21,12 @@ peuf::
 
 
 info::
-    Voici la liste des noms reservés pour le bloc peuf::``templates-used``.
+    Voici la liste des noms reservés.
 
-// AUTO - LIST OF RESERVED NAMES - TEMPLATES USED - START
+// AUTO - LIST OF RESERVED BLOCK NAMES - START
 
         * peuf::``import``
 
         * peuf::``main``
 
-// AUTO - LIST OF RESERVED NAMES - TEMPLATES USED - END
+// AUTO - LIST OF RESERVED BLOCK NAMES - END

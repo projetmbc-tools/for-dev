@@ -1,16 +1,16 @@
 ﻿this::
-    date = 2022-10-09
+    date = 2022-10-18
 
 
-======================
-Des squelettes en plus
-======================
+===================
+Des patrons en plus
+===================
 
-Il suffit de coder un squelette tout en respectant les recommandations suivantes.
+Il suffit de coder un patron tout en respectant les recommandations suivantes.
 
-    1) Il faut documenter le squelette comme expliqué dans cf::``?/goingfurther/autodoc.txt``. Rappelons que ¨justcode extrait ¨auto^t la structure du squelette, ainsi que les ¨infos sur les ¨params attendus, les filtres spéciaux disponibles, et les valideurs ajoutés.
+    1) Il faut documenter le patron comme expliqué dans cf::``?/goingfurther/autodoc.txt``. Rappelons que ¨justcode extrait ¨auto^t la structure du patron, ainsi que les ¨infos sur les ¨params attendus, les filtres spéciaux disponibles, et les valideurs ajoutés.
 
-    1) Les squelettes proposés, ou en cours d'analyse, sont placés dans un sous-dossier de path::``contribute/api/template`` en respectant l'organisation proposée, dans la mesure du possible
+    1) Les patrons proposés, ou en cours d'analyse, sont placés dans un sous-dossier de path::``contribute/api/template`` en respectant l'organisation proposée, dans la mesure du possible
     ((
         En cas de réelle nécessité, rien n'interdit de créer de nouvelles catégories.
     )).

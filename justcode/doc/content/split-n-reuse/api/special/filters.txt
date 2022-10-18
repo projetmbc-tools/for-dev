@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-10-11
+    date = 2022-10-18
 
 
 ===================================
@@ -7,45 +7,45 @@ Liste complète des filtres spéciaux
 ===================================
 
 info::
-    Les filtres sont nommés au format jinja::``typesimple_action``.
+    Les filtres sont nommés au format jinjang::``typesimple_action``.
 
 
 // AUTO - LIST OF SPECIAL FILTERS - START
 
-    * jinja::``author_name`` renvoie des ¨infos sur un auteur de type jinja::``author``.
+    * jinjang::``author_name`` est un filtre avec un ¨arg optionnel qui renvoie des ¨infos sur un auteur de type jinjang::``author``.
 
-        1) jinja::``author_name`` renvoie les prénoms et le nom d'un auteur de type jinja::``author``.
+        1) jinjang::``author_name`` renvoie les prénoms et le nom d'un auteur de type jinjang::``author``.
 
-        1) jinja::``author_name("last")`` renvoie juste le nom d'un auteur de type jinja::``author``.
+        1) jinjang::``author_name("last")`` renvoie juste le nom d'un auteur de type jinjang::``author``.
 
-        1) jinja::``author_name("first")`` renvoie juste les prénoms d'un auteur de type jinja::``author``.
-
-
-    * jinja::``author_email`` renvoie l'adresse du courriel d'un auteur de type jinja::``author`` (si l'adresse n'a pas été renseignée, une exception sera levée).
+        1) jinjang::``author_name("first")`` renvoie juste les prénoms d'un auteur de type jinjang::``author``.
 
 
-    * jinja::``date_day`` est un filtre avec un ¨param optionnel pour le format de retour souhaité pour le jour d'une date de type jinja::``date``.
-
-        1) jinja::``date_day`` renvoie le numéro à deux chiffres.
-
-        1) jinja::``date_day("name")`` renvoie le nom dans la langue choisie via le ¨param spécial jinja::``lang``.
-
-        1) jinja::``date_day("abrev")`` renvoie l'abréviation du nom dans la langue choisie via le ¨param spécial jinja::``lang``.
+    * jinjang::``author_email`` renvoie l'adresse du courriel d'un auteur de type jinjang::``author`` (si l'adresse n'a pas été renseignée, une exception sera levée).
 
 
-    * jinja::``date_month`` est un filtre avec un ¨param optionnel pour le format de retour souhaité pour le mois d'une date de type jinja::``date``.
+    * jinjang::``date_day`` est un filtre avec un ¨arg optionnel pour le format de retour souhaité pour le jour d'une date de type jinjang::``date``.
 
-        1) jinja::``date_month`` renvoie le numéro à deux chiffres.
+        1) jinjang::``date_day`` renvoie le numéro à deux chiffres.
 
-        1) jinja::``date_month("name")`` renvoie le nom dans la langue choisie via le ¨param spécial jinja::``lang``.
+        1) jinjang::``date_day("name")`` renvoie le nom dans la langue choisie via le ¨param spécial jinjang::``lang``.
 
-        1) jinja::``date_month("abrev")`` renvoie l'abréviation du nom dans la langue choisie via le ¨param spécial jinja::``lang``.
+        1) jinjang::``date_day("abrev")`` renvoie l'abréviation du nom dans la langue choisie via le ¨param spécial jinjang::``lang``.
 
 
-    * jinja::``date_year`` est un filtre avec un ¨param optionnel pour le format de retour souhaité pour l'année d'une date de type jinja::``date``.
+    * jinjang::``date_month`` est un filtre avec un ¨arg optionnel pour le format de retour souhaité pour le mois d'une date de type jinjang::``date``.
 
-        1) jinja::``date_year`` renvoie le numéro sur 4 chiffres.
+        1) jinjang::``date_month`` renvoie le numéro à deux chiffres.
 
-        1) jinja::``date_year("short")`` renvoie le numéro à deux chiffres.
+        1) jinjang::``date_month("name")`` renvoie le nom dans la langue choisie via le ¨param spécial jinjang::``lang``.
+
+        1) jinjang::``date_month("abrev")`` renvoie l'abréviation du nom dans la langue choisie via le ¨param spécial jinjang::``lang``.
+
+
+    * jinjang::``date_year`` est un filtre avec un ¨arg optionnel pour le format de retour souhaité pour l'année d'une date de type jinjang::``date``.
+
+        1) jinjang::``date_year`` renvoie le numéro sur 4 chiffres.
+
+        1) jinjang::``date_year("short")`` renvoie le numéro limité à deux chiffres.
 
 // AUTO - LIST OF SPECIAL FILTERS - END

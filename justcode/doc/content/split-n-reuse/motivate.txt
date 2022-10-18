@@ -1,10 +1,10 @@
 ﻿this::
-    date = 2022-09-08
+    date = 2022-10-18
 
 
-============================================
-Des squelettes modulaires, pour quoi faire ?
-============================================
+============================
+Que cherchons-nous à faire ?
+============================
 
 Considérons la structure de base suivante du projet ¨cvnum.
 
@@ -18,7 +18,7 @@ Passons maintenant au cas du dépôt unique ¨mathobj
 ((
     Un dépôt unique, ou "monorepo" en anglais, est un dépôt réunissant divers projets. Ceci est très utile pour des projets avec un champ d'action commun.
 ))
-où le contenu du dossier path::``math-objects`` est celui donné ci-dessus, ce dossier ne faisant pas partie du squelette initial de ¨mathobj.
+où le contenu du sous-dossier path::``cvnum`` est celui donné ci-dessus, ce dossier ne faisant pas partie du squelette initial de ¨mathobj.
 
 dirtree::
     ---
@@ -26,9 +26,9 @@ dirtree::
     ---
 
 
-Ces deux squelettes ont certaines caractérisques communes, et d'autres très similaires.
+Ces deux structures ont certaines caractérisques communes, et d'autres très similaires.
 
-    1) Un fichier path::``params.peuf`` permet de donner les ¨infos sur le squelette du projet.
+    1) Un fichier path::``__jscmeta__/params.peuf`` permet de donner à ¨justcode des ¨infos sur le squelette du projet.
 
     1) Pour indiquer les ¨chgts effectués, un dossier path::``changes`` contient des fichiers path::``LICENSE.txt``, pour la licence du contenu des ¨chgts, et path::``x-todo-x.txt`` pour indiquer des choses à faire
     ((
@@ -36,22 +36,23 @@ Ces deux squelettes ont certaines caractérisques communes, et d'autres très si
         Ceci est indiqué dans le fichier path::``.gitignore`` du dossier path::``math-objects``.
     )).
 
-    1) Pour rédiger un fichier path::``README.md`` morceaux par morceaux, un dossier path::``readme`` est utilisé. On note que dans le dossier path::``cvnum`` se trouve en plus un fichier path::``last.md`` faisant partie du squelette utilisé pour ¨cvnum, tandis que path::``projects.md`` est propre au squelette de ¨mathobj.
+    1) Pour rédiger un fichier path::``README.md`` morceaux par morceaux, un dossier path::``readme`` est utilisé. On note que dans le dossier path::``cvnum`` se trouve en plus un fichier path::``last.md`` faisant partie du squelette de ¨cvnum, tandis que path::``projects.md`` est propre à celui de ¨mathobj.
 
-    1) Un dossier path::``tools`` utilisé pour des codes nécessaires au développement, et non au produit fini, est utilisé dans ¨cvnum et ¨mathobj. Dans le cas du dépôt unique, ce dossier ne contient pas les dossiers path::``debug`` et path::``factory``. De plus, le contenu du dossier path::``publish`` n'est pas le même dans chacun des deux projets.
+    1) Un dossier path::``tools`` utilisé pour des codes nécessaires au développement, et non au produit final, est utilisé dans ¨cvnum et ¨mathobj. Dans le cas du dépôt unique, ce dossier ne contient pas les dossiers path::``debug`` et path::``factory``. De plus, le contenu du dossier path::``publish`` n'est pas le même dans chacun des deux projets.
 
 
-Les explications précédentes permettent de comprendre la nécessité d'hériter d'un ou plusieurs squelettes pour en fabriquer de nouveaux, au lieu de faire des copier-coller de squelettes existants pour en créer de nouveaux. Voici comment faire pour obtenir facilement des squelettes utiles à la conception de ¨cvnum et ¨mathobj.
+Les explications précédentes permettent de comprendre la nécessité d'hériter d'un ou plusieurs patrons pour en fabriquer de nouveaux, au lieu de faire des copier-coller de patrons existants pour en créer de nouveaux.
+Voici comment faire pour obtenir facilement des patrons utiles à la conception des squelettes de ¨cvnum et ¨mathobj.
 
-    1) Le fichier path::``params.peuf`` est utilisé par ¨justcode pour initier un projet
+    1) Le fichier path::``__jscmeta__/params.peuf`` est utilisé par ¨justcode pour fabriquer un squelette
     ((
         Si ce fichier n'existe pas, ou est incomplet, ¨justcode le construira, ou le complètera, après avoir interragi avec l'utilisateur via le terminal.
     )).
-    **Ce fichier n'est donc pas issu d'un squelette.**
+    **Ce fichier n'est donc pas issu d'un patron.**
 
-    1) Le dossier path::``changes`` des ¨chgts provient d'un squelette spécifique, ce squelette étant "importé" dans chacun des squelettes utilisés pour initier ¨cvnum et ¨mathobj.
+    1) Le dossier path::``changes`` des ¨chgts provient d'un patron spécifique qui a été "importé" dans chacun des deux patrons utilisés pour initier ¨cvnum et ¨mathobj.
 
-    1) Les dossiers path::``readme`` s'appuient sur un autre squelette commun produisant la structure suivante.
+    1) Les dossiers path::``readme`` s'appuient sur un autre patron commun produisant la structure suivante.
 
     dirtree::
         ---
@@ -60,16 +61,16 @@ Les explications précédentes permettent de comprendre la nécessité d'hérite
 
     Cette structure est complétée suivant les besoins de ¨cvnum et ¨mathobj.
 
-    1) Pour les dossiers path::``tools``, le squelette commun employé produit la structure minimale ci-dessous.
+    1) Pour les dossiers path::``tools``, le patron commun employé produit la structure minimale ci-dessous.
 
     dirtree::
         ---
         path = ¨exadir/tools.txt
         ---
 
-    Suivant ce qui est attendu, des dossiers sont ignorés, et d'autres complétés pour créer deux nouveaux squelettes, l'un pour les projets de type ¨python, et l'autre pour les dépôts uniques.
+    Suivant ce qui est attendu, des dossiers sont ignorés, et d'autres complétés pour créer deux nouveaux patrons, l'un pour les projets de type ¨python, et l'autre pour les dépôts uniques.
 
-    1) Pour finir, les dossiers path::``contribute`` et path::``doc`` sont obtenus via deux squelettes importés.
+    1) Pour finir, les dossiers path::``contribute`` et path::``doc`` sont obtenus via deux patrons importés.
 
 
-Voilà pour les grandes lignes de la création de squelettes à la sauce ¨justcode. Les sections suivantes vont expliquer comment concevoir de tels squelettes modulables, et ensuite comment les utiliser.
+Voilà pour les grandes lignes de la création de squelettes à la sauce ¨justcode. Les sections suivantes vont expliquer comment concevoir des patrons modulables, et ensuite comment les utiliser.

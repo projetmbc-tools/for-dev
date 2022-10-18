@@ -1,12 +1,12 @@
 ﻿this::
-    date = 2022-09-12
+    date = 2022-10-18
 
 
 ==========================================
 Comment ajoute-t-on des filtres "maison" ?
 ==========================================
 
-Considérons le squelette de fichier suivant où le paramètre python::``author`` doit être donné au format jinja::``Prénom NOM [adresse_de_courriel]``.
+Considérons le patron de fichier suivant où le ¨param python::``author`` doit être donné au format jinja::``Prénom NOM [adresse_de_courriel]``.
 
 jinja::
     ---
@@ -24,7 +24,7 @@ markdown::
 
 
 Les filtres "maison" python::``fullname`` et python::``justemail`` sont à implémenter en ¨python dans un dossier path::``filters`` placé dans le dossier path::``__jscmeta__`` destiné à ¨justcode.
-Nous vous conseillons d'utiliser un fichier ¨python par filtre en utilisant le même nom pour le fichier et le filtre. Dans notre cas, nous utilisons donc la structure suivante pour construire un squelette path::``filters-in-action`` de ¨demo des filtres
+Nous vous conseillons d'utiliser un fichier ¨python par filtre en utilisant le même nom pour le fichier et le filtre. Dans notre cas, nous utilisons donc la structure suivante pour construire un patron path::``filters-in-action`` de ¨demo des filtres
 ((
     Pas besoin de fichier path::``specs.peuf`` ici.
 )).
@@ -46,8 +46,9 @@ python::
 Dans ce code, on note l'usage de deux fonctions proposées par ¨justcode.
 
     1) La fonction python::``newfilter`` est à employer pour décorer le filtre "maison" : cette fonction permet d'ajouter un nouveau filtre à l'¨ens des filtres pris en compte.
+    Le nom de la fonction sera celui du filtre côté patron.
 
-    1) La fonction python::``testfilter`` sert à tester en situation réelle le filtre lors de son implémentation, d'où son utilisation dans un bloc python::``if __name__ == '__main__':...`` nécessairement.
+    1) La fonction python::``loctest`` sert à tester en situation réelle réduite le filtre lors de son implémentation, d'où son utilisation dans un bloc python::``if __name__ == '__main__':...`` nécessairement.
 
 
 Le fichier path::``justemail.py`` donné ci-dessous est maintenant immédiat à décrypter.

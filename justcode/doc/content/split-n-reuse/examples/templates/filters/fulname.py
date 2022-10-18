@@ -2,8 +2,13 @@
 
 from justcode import (
     newfilter,
-    testfilter
+    loctest
 )
+
+
+# ---------------------- #
+# -- EXTRACT FULLNAME -- #
+# ---------------------- #
 
 @newfilter
 def fullname(author):
@@ -18,14 +23,14 @@ def fullname(author):
 
 if __name__ == '__main__':
     print(
-        testfilter(
+        loctest(
             author   = "Christophe BAL [projetmbc@gmail.com]",
             template = """
 Auteur tel que tapé :
-{{author}}
+{{ author }}
 
 Prénom et nom de l'auteur :
-{{author | fullname}}
+{{ author | fullname }}
             """
         )
     )

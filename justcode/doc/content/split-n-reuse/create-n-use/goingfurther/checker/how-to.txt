@@ -1,12 +1,12 @@
 ﻿this::
-    date = 2022-10-11
+    date = 2022-10-18
 
 
-==========================================
-Créer et utiliser des valideurs "maison" ?
-==========================================
+========================================
+Créer et utiliser des valideurs "maison"
+========================================
 
-Les scripts ¨python "maison" sont à placer dans un sous-dossier path::``checkers`` de path::``__jscmeta__``. Il faut donc avoir a minima la structure suivante de squelette avec obligatoirement un fichier path::``specs.peuf``.
+Les scripts ¨python "maison" sont à placer dans un sous-dossier path::``checkers`` de path::``__jscmeta__``. Il faut donc avoir a minima la structure suivante de patron avec obligatoirement un fichier path::``specs.peuf``.
 
 dirtree::
     ---
@@ -15,10 +15,10 @@ dirtree::
 
 
 Reprenons l'idée de renseigner un auteur au format peuf::``author = Christophe BAL [projetmbc@gmail.com]`` comme dans cf::``filter/how-to.txt``.
-Sans user de filtre, à partir du ¨param jinja::``author``, on souhaite ajouter ¨auto^t deux nouveaux ¨params jinja::``author_fullname`` et jinja::``author_email`` qui pour l'exemple précédent auront pour valeurs ¨resp_fs ``Christophe BAL`` et ``projetmbc@gmail.com``.
-Ceci va être fait en construisant un valideur "maison" jinja::``auth``
+Sans user de filtre, à partir du ¨param jinjang::``author``, on souhaite ajouter ¨auto^t deux nouveaux ¨params jinjang::``author_fullname`` et jinjang::``author_email`` qui pour l'exemple précédent auront pour valeurs ¨resp_fs ``Christophe BAL`` et ``projetmbc@gmail.com``.
+Ceci va être fait en construisant un valideur "maison" jinjang::``auth``
 ((
-    Indiquons que ¨justcode possède un type spécial jinja::``author`` : voir cf::``?/split-n-reuse/api/special.txt``.
+    Indiquons que ¨justcode possède un type spécial jinjang::``author`` : voir cf::``?/split-n-reuse/api/special.txt``.
 ))
 via ¨python dans le dossier path::``checkers``.
 Nous vous conseillons d'utiliser un fichier ¨python par valideur en utilisant le même nom pour le fichier et le valideur.
@@ -38,7 +38,7 @@ python::
     ---
 
 
-Il reste à expliquer comment employer notre valideur au sein de notre squelette en l'associant au ¨param peuf::``author``. C'est simple puisque qu'un valideur est associcé à un type ¨justcode, il suffit d'indiquer ce type "maison" dans la déclaration des ¨params au sein du fichier path::``specs.peuf`` comme suit.
+Il reste à expliquer comment employer notre valideur au sein de notre squelette en l'associant au ¨param peuf::``author``. C'est simple : puisque qu'un valideur est associcé à un type ¨justcode, il suffit d'indiquer ce type "maison" dans la déclaration des ¨params au sein du fichier path::``specs.peuf`` comme suit.
 
 peuf::
     ---

@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-10-11
+    date = 2022-10-18
 
 
 ==================================
@@ -20,7 +20,7 @@ La valeur de peuf::``filters`` peut aussi être de l'un des deux types suivants.
 
     1) peuf::``filters = all`` permet d'autoriser tous les squelettes utilisés à fournir des filtres.
 
-Par défaut, peuf::``filters = no`` interdit tout filtre proposé par un squelette.
+    1) Par défaut, peuf::``filters = no`` interdit tout filtre proposé par un squelette.
 
 
 tip::

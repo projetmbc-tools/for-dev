@@ -19,7 +19,7 @@ Ce qui suit reste valable pour ¨ttes les règles avec leurs sous-contextes éve
     Les règles spécifiques à ce projet sont accessibles via peuf::``python.sagemath``.
     On peut donc passer via peuf::``python ; python.sagemath`` pour cumuler toutes les règles.
 
-    1) Il faut savaoir que peuf::``python`` est en fait un raccourci pour peuf::``python.main`` (ceci est utilisé dans le point suivant).
+    1) Il faut savoir que peuf::``python`` est en fait un raccourci pour peuf::``python.main`` (ceci est utilisé dans le point suivant).
 
     1) Au lieu de taper peuf::``python ; python.sagemath``, on peut plus efficacement écrire peuf::``python.(main, sagemath)``. Ceci permet une sélection aisée, et fine, de ce que l'on désire avoir.
 

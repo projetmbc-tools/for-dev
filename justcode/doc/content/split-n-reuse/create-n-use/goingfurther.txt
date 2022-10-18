@@ -14,13 +14,13 @@ Dans cette section, nous allons rencontrer des fonctionnalités avancées très 
 
 
 content::
-    ¨content/ignore-gitignore.txt
     ¨content/folder-vs-special-block.txt
     ¨content/filelike-param-name.txt
     ¨content/params-in-param.txt
     ¨content/global.txt
     ¨content/filter.txt
     ¨content/special.txt
+    ¨content/ignore-gitignore.txt
     ¨content/hook.txt
     ¨content/checker.txt
     ¨content/autodoc.txt

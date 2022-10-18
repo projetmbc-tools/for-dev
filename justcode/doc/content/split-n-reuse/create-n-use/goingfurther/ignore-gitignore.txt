@@ -11,7 +11,7 @@ Ignorer des règles ¨gitignore
 =============================
 
 Il est parfois utile de retirer certaines règles d'un ¨ens de règles "importées". Cela se fait simplement via un fichier, ou plus, contenant les règles à ignorer.
-Dans l'exemple qui suit, tout ce qui se trouve après le signe peuf::``-``, suivi d'un espace, sera ignoré : ici, ceci correspond aux règles des fichiers path::``ignorercesregles.txt`` et path::``ignoreraussiceci.txt`` du dossier path::``~/mes_gitignores``.
+Dans l'exemple qui suit, tout ce qui se trouve après le signe peuf::``-``, suivi d'un espace, sera ignoré : ici, ceci correspond aux règles des fichiers path::``ignorer_ces_regles.txt`` et path::``ignorer_aussi_ceci.txt`` du dossier path::``~/mes_gitignores``.
 
 dirtree::
     ---

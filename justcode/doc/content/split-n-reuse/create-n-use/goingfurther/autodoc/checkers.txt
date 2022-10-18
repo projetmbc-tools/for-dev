@@ -11,7 +11,7 @@ Tout comme pour les filtres, tout va se passer via les ¨docstrings pour documen
 
 peuf::
     ---
-    path = ¨exadocauto/onevalidator.py
+    path = ¨exadocauto/onechecker.py
     ---
 
 

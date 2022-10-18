@@ -1,46 +1,34 @@
 ﻿this::
-    date = 2022-09-28
+    date = 2022-10-18
 
 
 abrev::
     exalic = examples/licenses
 
+    choosealicense = cf::``choosealicense ;
+                           https://choosealicense.com/licenses/wtfpl``
 
-============================================
-Un monde avec d'autres licences est possible
-============================================
 
-L'ajout d'une ¨nelle licence consiste à fournir deux fichiers nommés via le même ¨id
-((
-    Partir de l'¨id officiel s'il existe, tout en le rendant compatible avec les règles de nommage indiquées dans l'avertissement, si besoin.
-)),
-tout en majuscule, mais avec des extensions différentes (un exemple est donné juste après).
+===============================================
+Un monde avec d'autres licences est possible...
+===============================================
 
-    1) Un fichier path::``PEUF`` sert à donner quelques métadonnées à propos de la licence.
-
-    1) Le texte intégral de la licence est indiqué dans un fichier path::``TXT``.
+L'ajout d'une ¨nelle licence se résumé à fournir un fichier path::``PEUF`` nommé via un ¨id.
 
 
 warning::
-    L'¨id d'une licence ne peut utiliser que des lettres majuscules non accentuées, des chiffres et éventuellement le trait d'union ``-``.
+    Partir de l'¨id officiel s'il existe, tout en le rendant compatible avec les règles de nommage suivantes : l'¨id d'une licence ne peut utiliser que des lettres majuscules non accentuées, des chiffres et éventuellement le trait d'union ``-``.
 
 
 Imaginons que nous voulions ajouter la licence "Do What The Fuck You Want to Public License" : voir cf::``https://fr.wikipedia.org/wiki/WTFPL``
 ((
     Comme la licence licence::``unlicense`` est déjà proposée, l'ajout de la politiquement incorrecte licence "WTFPL" ne semble pas utile. Cette phrase m'a été dictée par mes avocats.
 )).
-Nous choisissons pour de cette licence l'¨id officiel ``WTFPL`` . Nous créons donc les fichiers ``WTFPL.txt`` et path::``WTFPL.peuf`` qui ont les contenus suivants.
+Nous choisissons l'¨id officiel ``WTFPL``. Comme de plus le texte intégral de cette licence est disponible sur le site digne de confiance ¨choosealicense, nous créons finalement le fichier path::``WTFPL.peuf`` avec le contenu suivant.
 
 
 peuf::
     ---
     path  = ¨exalic/WTFPL.peuf
     title = Fichier path::``WTFPL.peuf`
-    ---
-
-
-verbatim::
-    ---
-    path  = ¨exalic/WTFPL.txt
-    title = Fichier ``WTFPL.txt``
     ---
