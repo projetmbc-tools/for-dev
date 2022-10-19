@@ -6,5 +6,5 @@
 Mettre à jour
 =============
 
-Une fois un patron complété pour être validé, il peut aussi être employé à des fins de ¨maj de façon plus ou moins stricte (c'est à la convenance de l'utilisateur).
+Une fois un patron complété pour être validable, il peut aussi être employé à des fins de ¨maj de façon plus ou moins stricte (c'est à la convenance de l'utilisateur).
 Tout ceci s'obtient via le lancement de ¨justcode avec l'option terminal::``--update``, et pour argument le chemin du dossier à mettre à jour.

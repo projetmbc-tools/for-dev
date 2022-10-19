@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-10-18
+    date = 2022-10-20
 
 
 ============================
@@ -26,3 +26,7 @@ Voici les fonctionnalités proposées par ¨justcode
     Lorsque l'on crée un projet à partir d'un patron, et que ce projet évolue, il peut arriver ensuite que certaines ¨majs soient faites dans le patron initalement utilisé. Dans ce cas, il peut devenir nécessaire de vérifier que le projet répond bien aux nouveautés du patron mis à jour.
     ¨justcode permet ceci, et, si besoin, une ¨maj du projet peut être faite de façon ciblée, ou non (par exemple, on peut ne vouloir mettre à jour que certains scripts ¨python proposés par le patron, mais pas tous).
     Ceci permet aussi de valider un projet structuré "à la main" que l'on voudrait normaliser vis à vis d'un patron donné.
+
+
+info::
+    Le nom ¨justcode vient de "JU-st S-tart T-o CODE", soit "juste commencer à coder" en anglais, mais aussi de "J-inja U-sed S-pecifically for T-emplating CODEs" pour "¨jinja utilisé spécifiquement pour concevoir des codes" car ¨jinja fait un gros du travail en coulisse.
