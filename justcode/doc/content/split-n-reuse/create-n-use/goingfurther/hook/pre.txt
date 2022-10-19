@@ -18,7 +18,7 @@ python::
 
 Le code ci-dessus s'appuie sur deux ingrédients importants.
 
-    1) La classe python::``Params`` contient tous les paramètres qui seront disponibles lors de l'utilisation d'un ou plusieurs squelettes. L'emploi de python::``TAG_MAIN``, qui vaut juste python::``"main"``, permet d'éviter de tragiques fautes de frappe.
+    1) La classe python::``Params`` contient tous les paramètres qui seront disponibles lors de l'utilisation d'un ou plusieurs patrons. L'emploi de python::``TAG_MAIN``, qui vaut juste python::``"main"``, permet d'éviter de tragiques fautes de frappe.
 
     1) La méthode statique python::``Type.str`` n'est pas indispensable ici, mais c'est une bonne pratique car on demande à ¨justcode de valider la valeur indiquée, et de la transformer éventuellement pour produire automatiquement d'autres ¨params.
     On peut ainsi utiliser python::``Type.lic`` pour une valeur de type ¨lic, et là cela devient très utile.

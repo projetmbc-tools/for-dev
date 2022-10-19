@@ -1,4 +1,4 @@
 main::
-    filters = unsquelette
+    filters = unpatron
 
 // ... etc.

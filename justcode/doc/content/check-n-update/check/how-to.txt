@@ -7,5 +7,5 @@ Comment faire ?
 ===============
 
 content::
-    ¨content/structure.txt    ????
-    ¨content/content.txt      ???
+    ¨content/structure.txt
+    ¨content/content.txt

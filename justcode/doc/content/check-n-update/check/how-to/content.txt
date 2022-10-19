@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-10-???
+    date = 2022-10-20
 
 
 abrev::
@@ -10,18 +10,26 @@ abrev::
 Des contenus attendus
 =====================
 
-L'analyse de contenu est à l'initiative de l'auteur d'un squelette. Pour reprendre le cas du ¨2e projet path::``myproject_2``, nous cherchons à repérer les absences suivantes dans le fichier path::``myproject_2/changes/x-todo-x.txt``.
+L'analyse de contenu est à l'initiative de l'auteur d'un patron. Pour reprendre le cas du ¨2e projet path::``myproject_2``, nous cherchons à ¨tjrs avoir le même fichier path::``publish/buildlog.py``, et aussi à repérer les absences suivantes dans le fichier path::``myproject_2/changes/x-todo-x.txt``.
 
-    1) L'absence des ``===`` autour de ``myproject`` au début du fichier.
+    1) L'absence des ``===`` autour de ``myproject_2`` au début du fichier.
 
     1) L'absence de la ligne ``VERSION = MAJOR.MINOR.PATCH`` quelque part dans le fichier.
 
 
-Pour obtenir ceci, il faut utiliser deux approches différentes dont l'une s'appuie sur les regex_frs. Dans chaque cas, il est nécessaire d'employer des commentaires ¨jinja de la forme jinja::``{{# ... #}}`` dans le fichier path::``x-todo-x.txt`` du squelette (on fera donc ce type de ¨modifs dans chaque fichier devant être validé).
+Pour obtenir ceci, il faut utiliser deux approches différentes dont l'une s'appuie sur les regex_frs. Dans chaque cas, il est nécessaire d'employer des commentaires spécifiques dans les fichiers du patron (on fera ce type de ¨modifs dans chaque fichier devant être validé).
+
+    1) Soit des commentaire peuf::``/*** ... ***/`` en début de fichier path::``TXT``, soit un du type jinjang::``### ... ###`` au début des fichiers ¨python.
+
+    1) Soit des commentaires de la forme jinjang::``{# ... #}`` pour les fichiers path::``TXT``, soit un du type jinjang::``#_ ... _#`` pour les fichiers ¨python.
+
+
+info::
+    Des délimiteurs adaptés à différents types de fichier sont disponibles grâce à ¨jinjang.
 
 
 content::
-    ¨content/verbatim-file.txt          ?????
-    ¨content/verbatim-lines.txt         ????
-    ¨content/regex.txt                  ???
-    ¨content/final-file.txt
+    ¨content/verbatim-file.txt
+    ¨content/verbatim-lines.txt
+    ¨content/regex.txt
+    ¨content/final-todo-file.txt

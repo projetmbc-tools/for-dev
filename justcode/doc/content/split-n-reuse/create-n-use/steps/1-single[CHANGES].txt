@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-10-18
+    date = 2022-10-20
 
 
 abrev::
@@ -50,7 +50,7 @@ Expliquons le contenu du patron.
         ((
             ¨justcode dispose de ses propres types de ¨params qui n'ont rien à voir, ou presque, avec ceux de ¨python.
         )).
-        Quant au point d'interrogation, il indique juste que ce ¨param devra être renseigné par l'utilisateur du patron. Tout autre chaîne sera considérée comme étant une valeur par défaut, rendant ainsi un ¨param optionnel.
+        Quant au point d'interrogation, il indique juste que ce ¨param devra être renseigné par l'utilisateur du patron. Tout autre chaîne, éventuellement vide, sera considérée comme étant une valeur par défaut, rendant ainsi un ¨param optionnel.
 
         * La déclaration peuf::``license: lic = ?`` est similiare à la précédente si ce n'est qu'elle utilise le type peuf::``lic`` propre à ¨justcode pour la gestion des licences.
 

@@ -1,41 +1,14 @@
 ﻿this::
-    date = 2022-10-12 ?????
+    date = 2022-10-20
 
 
 =========================
 Certaines lignes verbatim
 =========================
 
-jinja::
+Pour indiquer des lignes à retrouver telles quelles quelque part dans un fichier, il suffit des entourer des commentaires ¨jinjang spéciaux jinjang::``{# verbatim-start #}`` et jinjang::``{# verbatim-end #}`` comme dans l'extrait de contenu suivant.
+
+jinjang::
     ---
     path = ¨exatempl/check-n-update/x-todo-x-verbatim.txt
     ---
-
-
-
-????
-
-
-// verbatim-start //
-
-
-
-// verbatim-end //
-
-
-
-On utilise au tout début du fichier un commentaire ¨jinja un peu spécial au format jinja::``{### ... ###}`` dans lequel sont utilisées les directives suivantes.
-
-    1) Tout se passe dans le bloc bien nommé peuf::``check::...`` qui accepte deux types de sous-blocs.
-
-    1) Le sous-bloc peuf::``lines::...`` sert à indiquer des lignes isolées devant aparaître quelque part dans un contenu.
-    Ici on utilise juste regex::``VERSION = MAJOR\.MINOR\.PATCH`` où les contre-obliques regex::``\`` sont indispensables car ¨justcode travaille avec des ¨regexs (voir ce qui suit pour une précision très importante indiquant l'usage de ¨jinja avant de passer via une ¨regex).
-
-    1) Le sous-bloc peuf::``blocks::...`` est pour plusieurs lignes. Notons deux choses importantes ici.
-
-        * Avant de considérer avoir une ¨regex, ¨justcode fait appel à ¨jinja. Ceci permet de comprendre que jinja::``{{project_name}}`` sera remplacé par le nom du projet.
-
-        * L'utilisation de regex::``^`` fait classiquement ¨ref au début du fichier.
-
-
-Une fois le squelette complété, la validation attendue sera effectuée en lançant de ¨justcode avec l'option terminal::``--check``, et pour argument le chemin du dossier path::``myproject_2``.

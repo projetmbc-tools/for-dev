@@ -1,13 +1,13 @@
 ﻿this::
-    date = 2022-10-???
+    date = 2022-10-19
 
 
 ===================
 Une bonne structure
 ===================
 
-Quelque soit le squelette utilisé, ¨justcode est capable de comparer la structure d'un dossier vis à vis d'un squelette à valider.
-Si nous reprenons le cas du ¨1er projet path::``myproject_1``, on commence par ajouter un fichier path::``params.peuf`` avec le contenu suivant où l'on utilise un sequelette "maison".
+Quelque soit le patron utilisé, ¨justcode est capable de comparer la structure d'un dossier vis à vis d'un patron à valider.
+Si nous reprenons le cas du ¨1er projet path::``myproject_1``, on doit a minima ajouter un fichier path::``params.peuf`` avec le contenu suivant où l'on utilise un patron "maison".
 
 peuf::
     ---
@@ -15,4 +15,4 @@ peuf::
     ---
 
 
-Il suffit alors de lancer ¨justcode avec l'option terminal::``--check``, et pour argument le chemin du dossier path::``myproject_1``.
+Il suffit alors de lancer ¨justcode avec l'option terminal::``--check``, et pour argument le chemin du dossier path::``myproject_1`` pour que nous apprenions l'abscence du fichier path::``x-todo-x.txt``.

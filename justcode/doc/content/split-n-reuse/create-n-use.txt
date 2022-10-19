@@ -1,14 +1,14 @@
 ﻿this::
-    date = 2022-10-18
+    date = 2022-10-20
 
 
 abrev::
     content = /create-n-use
 
 
-===============================
-Créer des squelettes modulables
-===============================
+============================
+Créer des patrons modulables
+============================
 
 note::
     Il faut savoir que ¨jinjang est utilisé en coulisse, tout ce qui utilisable avec ce projet le sera aussi avec ¨justcode.

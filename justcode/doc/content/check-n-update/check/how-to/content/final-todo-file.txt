@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-10-12
+    date = 2022-10-20
 
 
 ============================================
@@ -8,5 +8,5 @@ Le fichier path::``x-todo-x.txt`` au complet
 
 jinja::
     ---
-    path = ¨exatempl/check-n-update/x-todo-x.txt
+    path = ¨exatempl/changes/x-todo-x.txt
     ---

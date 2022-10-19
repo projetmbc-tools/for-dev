@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-10-18
+    date = 2022-10-20
 
 
 ===================
@@ -38,7 +38,7 @@ info::
 
     * jinjang::``lic`` sert pour des arguments de l'un des trois types différents.
 
-        1) jinjang::``no`` indique de ne pas utiliser de licence si cela est proposé par un squelette.
+        1) jinjang::``no`` indique de ne pas utiliser de licence si cela est proposé par un patron.
 
         1) Une chaîne de caractères indiquant le nom d'une licence proposée par l'¨api.
 

@@ -2,16 +2,16 @@
 check::
     title::
         ^===
-        {{project_name}} - TODO
+        {{ project_name }} - TODO
         ===
 ###}
 
 
 ===
-{{project_name}} - TODO
+{{ project_name }} - TODO
 ===
 
-Author: {{author_name}}
+Author: {{ author_name }}
 
 {# verbatim-start #}
 VERSION = MAJOR.MINOR.PATCH

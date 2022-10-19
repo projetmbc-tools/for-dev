@@ -2,7 +2,7 @@
 check::
     title::
         ^===
-        {{project_name}} - TODO
+        {{ project_name }} - TODO
         ===
 ###}
 

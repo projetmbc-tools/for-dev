@@ -3,8 +3,9 @@
         * 2000.txt
         * 2011.txt
         * 2022.txt
-        * LICENSE.txt
         * x-todo-x.txt
+    + publish
+        * buildlog.py
     + src [...]
     + tests [...]
     + tools [...]

@@ -5,8 +5,8 @@
 abrev::
     content = /split-n-reuse
 
-    exadir   = ?/examples/dirtrees
-    exatempl = ?/examples/templates
+    exadir   = ¨content/examples/dirtrees
+    exatempl = ¨content/examples/templates
 
 
 ======================

@@ -1,18 +1,17 @@
 ﻿this::
-    date = 2022-10-????
+    date = 2022-10-20
 
 
 abrev::
-    exachges = ¨exatempl/changes
-
-    skelchges = squelette path::``changes``
+    exachges   = ¨exatempl/changes
+    templchges = patron path::``changes``
 
 
 ===================
 Que souhaite-t-on ?
 ===================
 
-Reprenons le ¨skelchges proposé dans cf::``?/create-n-use/steps/1-single[CHANGES].txt``. Ce squelette possède le contenu suivant.
+Considérons un ¨templchges ayant la structure suivante.
 
 dirtree::
     ---
@@ -28,7 +27,7 @@ jinja::
     ---
 
 
-Imaginons avoir le projet suivant développé sans avoir usé du ¨skelchges (les contenus des dossiers path::``src``, path::``tests`` et path::``tools`` ont été omis car il ne nous intéresse pas ici).
+Imaginons avoir le projet suivant développé sans avoir usé du ¨templchges (les contenus des dossiers path::``src``, path::``tests`` et path::``tools`` ont été omis car il ne nous intéresse pas ici).
 
 dirtree::
     ---
@@ -36,10 +35,14 @@ dirtree::
     ---
 
 
-On constate que vis à vis du ¨skelchges, il manque une licence, ainsi que le fichier path::``x-todo-x.txt``. Il faut savoir que ¨justcode est capable d'indiquer cela comme nous le verrons plus tard (les fichiers path::``2000.txt``, path::``2011.txt`` et path::``2022.txt`` sont tous simplement ignorés).
+On constate que vis à vis du ¨templchges, il manque les fichiers path::``x-todo-x.txt`` et path::``publish/buildlog.py``. Il se trouve que ¨justcode est capable d'indiquer cela comme nous le verrons plus tard (les autres fichiers sont ignorés car non proposés par le ¨templchges).
 
 
-L'analyse ne se réduit pas uniquement aux structures des dossiers, le contenu des fichiers peut être analysé suivant certains critères qu'aura fourni le concepteur du squelette. Considérons le projet ci-après qui respecte la structure du ¨skelchges.
+info::
+    La validation d'un projet vis à vis d'un patron s'obtient en lançant ¨justcode avec l'option terminal::``--check``, et pour argument le chemin du dossier path::``myproject_2``.
+
+
+L'analyse ne se réduit pas juste aux structures des dossiers, le contenu des fichiers peut être analysé suivant certains critères qu'aura fourni le concepteur du patron. Considérons le projet ci-après qui respecte la structure du ¨templchges.
 
 dirtree::
     ---
@@ -55,11 +58,14 @@ verb::
     ---
 
 
-Comme nous allons l'expliquer dans la section suivante, le concepteur du ¨skelchges peut faire en sorte que ¨justcode note les manquements suivants vis à vis du fichier path::``x-todo-x.txt`` donné ci-dessus.
+Comme nous allons l'expliquer dans la section suivante, le concepteur du ¨templchges peut faire en sorte que ¨justcode note les manquements suivants vis à vis du fichier path::``x-todo-x.txt`` donné plus haut.
 
-    1) L'absence des ``===`` autour de ``myproject`` au début du fichier.
+    1) L'absence des ``===`` autour de ``myproject_2`` au début du fichier.
 
     1) L'absence de la ligne ``VERSION = MAJOR.MINOR.PATCH``.
+
+
+Il est aussi possible de souhaiter ¨tjrs avoir le même fichier path::``publish/buildlog.py``. Ce type de fichier peut être un outil maison qui n'a pas vocation a être modifié.
 
 
 info::

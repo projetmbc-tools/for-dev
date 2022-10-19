@@ -1,15 +1,15 @@
 ﻿abrev::
     content = /check-n-update
 
-    exadir   = ?/examples/dirtrees
-    exatempl = ?/examples/templates
+    exadir   = ¨content/examples/dirtrees
+    exatempl = ¨content/examples/templates
 
 
-===========================================
-Validation et ¨maj vis à vis d'un squelette
-===========================================
+========================================
+Validation et ¨maj vis à vis d'un patron
+========================================
 
 content::
-    ¨content/check.txt       ????????
-    ¨content/update.txt      ??????
+    ¨content/check.txt
+    ¨content/update.txt
     ¨content/no-check.txt

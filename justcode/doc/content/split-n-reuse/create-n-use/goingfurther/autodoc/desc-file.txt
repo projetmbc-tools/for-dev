@@ -1,12 +1,12 @@
 ﻿this::
-    date = 2022-10-18
+    date = 2022-10-20
 
 
 ==============================
 Décrire l'utilité d'un fichier
 ==============================
 
-En mettant au tout début d'un fichier un commentaire ¨tnsdoc un peu spécial au format peuf::``/*** ... ***/``, on peut décrire rapidement l'utilité du fichier via un bloc un bloc peuf::``this::...`` comme dans l'exemple ci-après.
+En mettant au tout début d'un fichier path::``TXT`` un commentaire ¨tnsdoc un peu spécial au format peuf::``{### ... ###}``, on peut décrire rapidement l'utilité du fichier via un bloc un bloc peuf::``this::...`` comme dans l'exemple ci-après.
 
 peuf::
     ---
@@ -15,4 +15,14 @@ peuf::
 
 
 info::
-    Le commentaire spécial jinja::``/*** ... ***/`` est aussi utile pour paramétrer les validations de patrons comme cela est expliqué dans cf::``?/validate/content.txt``.
+    Suivant le type de fichier employé, il faudra utilisé un type adapté de commentaires spéciaux.
+
+        1) Pour un fichier du type ¨js, ¨c, ou ¨cpp, on utilisera javascript::``/*_ verbatim-file _*/``.
+
+        1) Pour un fichier du type ¨html, on feral appel à html::``<!--_ verbatim-file _-->``.
+
+        1) ... ¨etc.
+
+
+info::
+    Les commentaires spéciaaux sont aussi utiles pour paramétrer les validations de patrons comme cela est expliqué dans cf::``?/check/how-to/content.txt``.

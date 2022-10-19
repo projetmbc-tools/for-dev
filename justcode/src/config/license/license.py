@@ -2,7 +2,7 @@
 
 # This code was automatically build by the following file.
 #
-#     + ``tools/factory/config/license/build_04_update_pyfile.py``
+#     + ``tools/factory/license/build_04_update_pyfile.py``
 
 # ALL THE TAGS
 
