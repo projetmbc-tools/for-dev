@@ -29,4 +29,4 @@ Voici les fonctionnalités proposées par ¨justcode
 
 
 info::
-    Le nom ¨justcode vient de "JU-st S-tart T-o CODE", soit "juste commencer à coder" en anglais, mais aussi de "J-inja U-sed S-pecifically for T-emplating CODEs" pour "¨jinja utilisé spécifiquement pour concevoir des codes" car ¨jinja fait un gros du travail en coulisse.
+    Le nom ¨justcode vient de "JU-st S-tart T-o CODE", soit "juste commencer à coder" en anglais, mais aussi de "J-inja U-sed S-pecifically for T-emplating CODEs" pour "¨jinja utilisé spécifiquement pour concevoir des codes" car ¨jinja fait un gros travail en coulisse.

@@ -1,5 +1,6 @@
 ﻿this::
-    title  = Produire du texte à partir de patrons de conception
+    title  = Produire du contenu paramétrable à partir
+             de patrons de conception
     author = Christophe, BAL [projetmbc@gmail.com]
     lang   = fr
 
