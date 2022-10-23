@@ -19,3 +19,7 @@ abrev::
 
 content::
     ¨content/intro.txt
+    ¨content/verbatim.txt       ???
+    ¨content/html.txt           ???
+    ¨content/latex.txt          ???
+    ¨content/contribute.txt     ???

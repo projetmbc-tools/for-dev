@@ -1,0 +1,14 @@
+﻿abrev::
+    content = api
+
+
+======
+L'¨API
+======
+
+tip::
+    Les utilisateurs habitués à ¨github pourront passer via des git::``merge requests`` pour indiquer leur contribution.
+
+
+content::
+    ¨content/????.txt

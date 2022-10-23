@@ -1,0 +1,10 @@
+abrev::
+    content = /html
+
+
+==========
+???
+==========
+
+content::
+    ¨content/???.txt

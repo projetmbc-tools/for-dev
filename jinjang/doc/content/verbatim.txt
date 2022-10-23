@@ -1,0 +1,10 @@
+abrev::
+    content = /verbatim
+
+
+==========
+???
+==========
+
+content::
+    ¨content/???.txt

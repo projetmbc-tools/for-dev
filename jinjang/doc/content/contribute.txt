@@ -1,0 +1,11 @@
+﻿abrev::
+    content = /contribute
+
+
+==========
+Contribuer
+==========
+
+content::
+    ¨content/doc.txt
+    ¨content/api.txt

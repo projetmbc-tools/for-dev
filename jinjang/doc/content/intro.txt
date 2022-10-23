@@ -1,27 +1,41 @@
 ﻿this::
-    date = 2022-10-22
+    date = 2022-10-23
 
 
 =======================================
 ¨jinja c'est bien, ¨jinjang c'est mieux
 =======================================
 
-L'ambition de ¨jinjang est de rendre le travail avec ¨jinja bien plus efficace. Donnons juste un exemple dans le cadre de projets écrits via ¨latex avant d'explorer les détails dans les sections suivantes.
+L'ambition de ¨jinjang est de rendre le travail avec ¨jinja bien plus efficace dans certaines situations. Considérons par exemple la rédaction de projets écrits via ¨latex (les détails arriveront dans les sections suivantes).
 
-    1) Ce qui ne va pas avec ¨jinja est que l'on pollue très vite les contenus des patrons
+    1) ¨jinja permet de rédiger un fichier "patron"
     ((
         En anglais, on parle de "templates". Nous utiliserons "patron" comme raccourci de "patron de conception".
+    ))
+    contenant des instructions, et des variables à utiliser dynamiquement afin d'obtenir des fichiers finaux personnalisés.
+    ¨jinjang rend le processus de fabrication de tels fichiers finaaux très simple soit en utilisant des données fournies au format ¨json, soit via un script ¨python fabriquant des données
+    ((
+        Le concepteur du "patron" devra fournir un script ¨python respectant quelques règles très simples à suivre.
     )).
-    Ceci peut rendre très pénible la conception de tels patrons, même en ¨html qui est le langage ciblé initialement par ¨jinja.
 
-    1) ¨jinjang permet d'utiliser des commentaires spécifiques au langage associé à un fichier "patron" pour utiliser les commandes propres au langage ¨jinja. Par exemple, ceci rend possible la compilation d'un patron path::``TEX``, ou encore le test en situation réelle d'un fichier ¨python "patron".
-
-    1) Il est très simple de fabriquer un fichier final à partir d'un fichier "patron" et de données au format ¨json, ou bien d'un script ¨python fabriquant ces données.
+    1) La rédaction d'un patron pour ¨jinja nécessite de "polluer" le fichier "patron" avec des balises du langage ¨jinja : par exemple, des instructions s'indiquent dans un bloc jinja::``{% ... %}``.
+    Malheureusement, ceci rend impossible la compilation d'un fichier path::``TEX`` utilisant de telles balises
+    ((
+        La conception de patron est même pénible en ¨html qui est pourtant le langage ciblé principalement par ¨jinja.
+    )).
+    Pour remédier à cela, ¨jinjang redéfinit les réglages de ¨jinja pour travailler avec des balises ne perturbant plus ¨latex : par exemple, des instructions s'indiquent dans un bloc jinjang::``%: ... :%``.
+    De plus, un package dédié latex::``jinjang`` permet d'obtenir un aperçu permettant d'imaginer ce que sera le ¨docu final
+    ((
+        Il est ainsi possible de déboguer un patron sans avoir à lancer le processus de fabrication d'un ¨docu final "test".
+    )).
 
 
 info::
     Le nom ¨jinjang, en plus de sonner japonais, au moins pour un français, est pour "JINJA N-ext G-eneration", soit "la génération suivant(e de) ¨jinja" en anglais. Ceci a une double signification.
 
-        1) La génération suivant ¨jinja : ceci indique que l'on s'en remet pleinement à ¨jinja pour concevoir des produits finis à partir de patrons.
+        1) **La génération suivant ¨jinja :** ceci indique que l'on s'en remet pleinement à ¨jinja pour concevoir des produits finis à partir de patrons
+        ((
+            "next to" signifie "proche de" en anglais.
+        )).
 
-        1) La génération suivante de ¨jinja : ceci indique que l'on améliore les fonctionnalités proposées par ¨jinja.
+        1) **La génération suivante de ¨jinja :** ceci indique que l'on améliore les fonctionnalités proposées par ¨jinja.

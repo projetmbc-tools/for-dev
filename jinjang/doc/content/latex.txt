@@ -1,0 +1,10 @@
+abrev::
+    content = /latex
+
+
+==========
+???
+==========
+
+content::
+    ¨content/???.txt
