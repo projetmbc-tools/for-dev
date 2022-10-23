@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-10-20
+    date = 2022-10-22
 
 
 =======================================
@@ -14,12 +14,9 @@ L'ambition de ¨jinjang est de rendre le travail avec ¨jinja bien plus efficace
     )).
     Ceci peut rendre très pénible la conception de tels patrons, même en ¨html qui est le langage ciblé initialement par ¨jinja.
 
-    1) Les commandes propres au langage de conception de ¨jinja sont indiquées via des commentaires spécifiques au langage de programmation de chaque fichier "patron". Par exemple, ceci rend possible la compilation d'un patron path::``TEX``, ou encore le test en situation réelle d'un fichier ¨python "patron".
+    1) ¨jinjang permet d'utiliser des commentaires spécifiques au langage associé à un fichier "patron" pour utiliser les commandes propres au langage ¨jinja. Par exemple, ceci rend possible la compilation d'un patron path::``TEX``, ou encore le test en situation réelle d'un fichier ¨python "patron".
 
-    1) ¨jinjang propose pour ¨latex un package éponyme fournissant la macro latex::``\JNGVAR`` à un argument afin de pouvoir compiler son patron path::``TEX`` tout en rendant visible dans le PDF les noms des variables destinées à être remplacées par ¨jinja.
-    Pour le langage ¨python, on dispose d'une bibliothèque avec une fonction python::``JNGVAR``.
-
-    1) Il est très simple de fabriquer un fichier final à partir d'un fichier "patron" et de données, ou bien d'un script ¨python fabriquant ces données.
+    1) Il est très simple de fabriquer un fichier final à partir d'un fichier "patron" et de données au format ¨json, ou bien d'un script ¨python fabriquant ces données.
 
 
 info::

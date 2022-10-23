@@ -1,0 +1,26 @@
+this::
+    author = Christophe, Bal [projetmbc@gmail.com]
+    desc   = ??? avec une bibliothèque dédiée !!!
+
+// Extensions de fichier spéarés par des virgules
+ext::
+    tex ,
+    sty
+
+
+block::
+    %: .... :%
+
+var::
+    \JNGVAR{ ... }
+
+
+comment::
+    %_ ... _%
+
+
+line_statement_prefix
+    %.
+
+line_comment_prefix
+    %+

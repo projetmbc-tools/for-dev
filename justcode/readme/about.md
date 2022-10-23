@@ -1,4 +1,4 @@
-About `inipro`
---------------
+About `justcode`
+----------------
 
-This project is to facilite the step need to initiate one coding like project.
+This project tries to ease the building of projects using and/or respecting some templates.

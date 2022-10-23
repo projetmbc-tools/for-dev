@@ -1,0 +1,33 @@
+exemple commenté qui servira aussi de test d'intégration
+
+multiligne si existe, sinon juste avec commentaire unique comme pour lua via --_ ... _-- par exemple
+
+
+this::
+    author = Christophe, Bal [projetmbc@gmail.com]
+    desc   = ??? avec une bibliothèque dédiée !!!
+
+// Extensions de fichier spéarés par des virgules
+ext::
+    py
+
+
+block::
+    #: .... :#
+
+var::  besoin de variantes pour envoyer une valuer par défaut du bon type !!!!!  classe type gère type python mais sous class possible pour amliorer ceci !
+    on va bosser des regex mais on doit l'indiquer quelque part
+    JNGVAR( ... )
+
+
+comment::
+    #_ ... _#
+
+
+line_statement_prefix
+    If given and a string, this will be used as prefix for line based statements. See also :ref:`line-statements`.
+    #. t = 6
+
+line_comment_prefix
+    If given and a string, this will be used as prefix for line based comments. See also :ref:`line-statements`.
+    #+ Commentaire en ligne

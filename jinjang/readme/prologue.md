@@ -1,5 +1,5 @@
-The `Python` module `justcode`
-==============================
+The `Python` module `jinjang`
+=============================
 
 
 > **I beg your pardon for my english...**
