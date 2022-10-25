@@ -2,9 +2,12 @@ abrev::
     content = /html
 
 
-==========
-???
-==========
+====================
+Pour des codes ¨html
+====================
 
 content::
-    ¨content/???.txt
+    ¨content/extensions.txt
+    ¨content/var-n-parm.txt
+    ¨content/statement.txt
+    ¨content/comment.txt

@@ -5,22 +5,29 @@ this::
 // Extensions de fichier spéarés par des virgules
 ext::
     tex ,
-    sty
+    sty ,
+    tkz
 
-
-block::
-    %: .... :%
 
 var::
     \JNGVAR{ ... }
 
 
+param::
+    \JNGPARAM{ ... }
+
+
+statement::
+    block::
+        %%: .... :%%
+
+    line::
+        %: ...
+
+
 comment::
-    %_ ... _%
+    block::
+        %%_ ... _%%
 
-
-line_statement_prefix
-    %.
-
-line_comment_prefix
-    %+
+    line::
+        %_
