@@ -1,0 +1,17 @@
+this::
+    date = 2022-10-???
+
+
+abrev::
+    content = /latex
+
+
+======================
+Travailler avec ¨latex
+======================
+
+content::
+    ¨content/extensions.txt     ?????
+    ¨content/var-n-parm.txt     ????
+    ¨content/statement.txt      ???
+    ¨content/comment.txt        ??

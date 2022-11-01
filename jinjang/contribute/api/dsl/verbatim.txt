@@ -1,0 +1,28 @@
+this::
+    author = Christophe, Bal [projetmbc@gmail.com]
+    desc   = Generic behaviour of `jinjang`.
+    date   = 2022-10-29
+
+
+ext::
+    *
+
+
+var::
+    {{ ... }}
+
+
+statement::
+    block::
+        {% ... %}
+
+    line::
+        % ...
+
+
+comment::
+    block::
+        {# ... #}
+
+    line::
+        # ...

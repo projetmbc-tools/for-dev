@@ -1,12 +1,18 @@
 this::
     author = Christophe, Bal [projetmbc@gmail.com]
     desc   = ??? avec une bibliothèque dédiée !!!
+    date   = 2022-11-???
+    tool   = ?????
 
-// Extensions de fichier spéarés par des virgules
+
 ext::
     tex ,
     sty ,
     tkz
+
+
+comment::
+    inline = % ...
 
 
 var::
@@ -15,19 +21,3 @@ var::
 
 param::
     \JNGPARAM{ ... }
-
-
-statement::
-    block::
-        %%: .... :%%
-
-    line::
-        %: ...
-
-
-comment::
-    block::
-        %%_ ... _%%
-
-    line::
-        %_

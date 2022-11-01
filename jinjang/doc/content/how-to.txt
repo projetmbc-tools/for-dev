@@ -1,0 +1,10 @@
+﻿abrev::
+    content = /how-to
+
+
+=================
+????
+=================
+
+content::
+    ¨content/????.txt         ??

@@ -1,0 +1,21 @@
+this::
+    date = 2022-10-29
+
+
+abrev::
+    content = /verbatim
+
+
+====================================
+Verbatim, le comportement par défaut
+====================================
+
+warning::
+    Les habitués de ¨jinja feront attention aux réglages spécifiques choisis, ceux-ci semblant plus logiques aux yeux de l'auteur de ¨jinjang.
+
+
+content::
+    ¨content/extensions.txt     ?????
+    ¨content/var-n-parm.txt     ????
+    ¨content/statement.txt      ???
+    ¨content/comment.txt        ??

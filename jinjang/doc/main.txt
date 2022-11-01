@@ -20,7 +20,6 @@ abrev::
 content::
     ¨content/intro.txt
     ¨content/jinja-power.txt
-    ¨content/verbatim.txt       ???
-    ¨content/html.txt           ???
-    ¨content/latex.txt          ???
+    ¨content/how-to             ?????
+    ¨content/specs.txt          ?????????
     ¨content/contribute.txt     ???

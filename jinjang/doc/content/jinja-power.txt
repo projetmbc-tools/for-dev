@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-10-25
+    date = 2022-10-31
 
 
 abrev::
@@ -13,5 +13,5 @@ abrev::
 Toute la puissance de ¨jinja à portée de clavier
 ================================================
 
-Le processus de fabrication de ¨docus finaux employés par ¨jinjang vise à produire un patron qui sera interprété par ¨jinja. Il est donc très facile d'employer toute l'artillerie lourde proposée par le langage de patron de ¨jinja.
-Ce ¨docu n'aynat pas vocation à être exhaustif à ce sujet, nous vous invitons à lire la ¨jinjadoc pour par exemple apprendre à utiliser des ¨subtemplates.
+Pour fabriquer des fichiers, le processus employé par ¨jinjang consistes à produire un patron qui sera interprété par ¨jinja. Il est donc facile d'employer toute l'artillerie lourde proposée par le langage de patron de ¨jinja.
+Ce ¨docu n'ayant pas vocation à être exhaustif sur ce sujet, nous vous invitons à lire la ¨jinjadoc pour apprendre, par exemple, à utiliser des ¨subtemplates.

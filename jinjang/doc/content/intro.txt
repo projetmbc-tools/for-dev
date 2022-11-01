@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-10-25
+    date = 2022-10-31
 
 
 =======================================
@@ -16,10 +16,11 @@ L'ambition de ¨jinjang est de rendre le travail avec ¨jinja plus efficace dans
     ¨jinjang rend le processus de fabrication de tels fichiers finaux très simple soit en utilisant des données fournies au format ¨json, soit via un script ¨python fabriquant les données attendues
     ((
         Le concepteur du "patron" devra fournir un script ¨python respectant quelques règles très simples à suivre.
-    )).
+    )),
+    de tels fichiers pouvant être détectés ¨auto^t.
 
     1) La rédaction d'un patron pour ¨jinja nécessite de "polluer" le fichier "patron" avec des balises du langage ¨jinja : par exemple, des instructions s'indiquent dans un bloc jinja::``{% ... %}`` (comportement par défaut).
-    Malheureusement, ceci rend impossible la compilation d'un fichier path::``TEX`` utilisant de telles balises
+    Malheureusement, ceci rend, par exemple, impossible la compilation d'un fichier path::``TEX`` utilisant de telles balises
     ((
         La conception de patron reste aussi pénible en ¨html qui est pourtant le langage ciblé principalement par ¨jinja.
     )).
@@ -31,7 +32,7 @@ L'ambition de ¨jinjang est de rendre le travail avec ¨jinja plus efficace dans
 
 
 info::
-    Le nom ¨jinjang, en plus de sonner japonais, au moins pour un français, est pour "JINJA N-ext G-eneration", soit "la génération suivant(e de) ¨jinja" en anglais. Ceci a une double signification.
+    Le nom ¨jinjang est pour "JINJA N-ext G-eneration", soit "la génération suivant(e de) ¨jinja" en anglais. Ceci a une double signification.
 
         1) **La génération suivant ¨jinja :** ceci indique que l'on s'en remet pleinement à ¨jinja pour concevoir des produits finis à partir de patrons
         ((

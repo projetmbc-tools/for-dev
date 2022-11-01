@@ -1,0 +1,13 @@
+abrev::
+    content = /specs
+
+
+==================================
+Réglages et petits outils proposés
+==================================
+
+content::
+    ¨content/verbatim.txt       ?????
+    ¨content/html.txt           ????
+    ¨content/latex.txt          ???
+    ¨content/python.txt         ??
