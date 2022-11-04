@@ -11,11 +11,4 @@ Verbatim, le comportement par défaut
 ====================================
 
 warning::
-    Les habitués de ¨jinja feront attention aux réglages spécifiques choisis, ceux-ci semblant plus logiques aux yeux de l'auteur de ¨jinjang.
-
-
-content::
-    ¨content/extensions.txt     ?????
-    ¨content/var-n-parm.txt     ????
-    ¨content/statement.txt      ???
-    ¨content/comment.txt        ??
+    Les habitués de ¨jinja feront attention aux réglages spécifiques choisis qui semblent plus logiques aux yeux de l'auteur de ¨jinjang.

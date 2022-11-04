@@ -9,9 +9,3 @@ abrev::
 ======================
 Travailler avec ¨latex
 ======================
-
-content::
-    ¨content/extensions.txt     ?????
-    ¨content/var-n-parm.txt     ????
-    ¨content/statement.txt      ???
-    ¨content/comment.txt        ??

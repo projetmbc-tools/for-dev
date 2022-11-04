@@ -11,7 +11,7 @@ ext::
     tkz
 
 
-comment::
+src-comment::
     inline = % ...
 
 
@@ -20,4 +20,4 @@ var::
 
 
 param::
-    \JNGPARAM{ ... }
+    \JNGPARAM{ :default: }{ ... }

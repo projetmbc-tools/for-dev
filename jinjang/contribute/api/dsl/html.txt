@@ -9,5 +9,13 @@ ext::
     html
 
 
-comment::
-    block = <!--: ... :-->
+source-comment::
+    block = <!-- ... -->
+
+
+var::
+    {{ ... }}
+
+
+param::
+    [[ :default: | ... ]]

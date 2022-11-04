@@ -9,10 +9,3 @@ abrev::
 ====================
 Pour des codes ¨html
 ====================
-
-content::
-    ¨content/extra-tool.txt     ??????
-    ¨content/extensions.txt     ?????
-    ¨content/var-n-parm.txt     ????
-    ¨content/statement.txt      ???
-    ¨content/comment.txt        ??

@@ -9,5 +9,5 @@ ext::
     py
 
 
-comment::
+src-comment::
     inline = # ...
