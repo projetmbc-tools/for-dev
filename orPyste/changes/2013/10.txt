@@ -1,8 +1,0 @@
-// ---------- //
-
-
-==
-05
-==
-
-One big bug has been fixed : sometimes, empty contents caused an error.

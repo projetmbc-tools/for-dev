@@ -1,8 +1,0 @@
-{
-    "layout": "wrap columns=50",
-    "mode"  : {
-        "c"      : ":default:",
-        "k::= <>": "keyval",
-        "v"      : "verb"
-    }
-}

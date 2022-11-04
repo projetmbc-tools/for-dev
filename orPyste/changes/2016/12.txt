@@ -1,8 +1,0 @@
-// ---------- //
-
-
-==
-01
-==
-
-**New kind of names for blocks:** you can now use dash signs ``-``.

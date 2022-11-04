@@ -1,9 +1,0 @@
-﻿this::
-    date = 2016-12-01
-
-
-================
-Nommer les blocs
-================
-
-Les noms de bloc ne peuvent contenir que des lettres non accentuées, des chiffres, le signe ``-`` et le caractère souligné blanc ``_``. Les noms peuvent commencer par n'importe lequel de ces caractères autorisés.

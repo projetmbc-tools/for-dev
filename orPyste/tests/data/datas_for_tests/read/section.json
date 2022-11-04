@@ -1,6 +1,0 @@
-{
-    "container"      : ":default:",
-    "keyval:: = <>"  : "test",
-    "multikeyval:: =": "multi",
-    "verbatim"       : "verb"
-}
