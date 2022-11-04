@@ -1,0 +1,69 @@
+this::
+    date = 2017-02-20
+
+
+=========
+Commenter
+=========
+
+Les fichiers ``peuf`` disposent de deux types de commentaires similaires à ce que l'on trouve par exemple dans le langage ¨code_c.
+
+    1) Un commentaire sur une seule ligne sera du type orpyste::``//...`` où orpyste::``//`` pourra juste être précédé par des espaces ¨etou des tabulations.
+
+    2) Un commentaire sur plusieurs lignes sera du type orpyste::``/*...*/`` où orpyste::``/*`` pourra être précédé par des espaces ¨etou des tabulations, et orpyste::``*/`` sera éventuellement suivi d'espaces ¨etou des tabulations.
+
+
+info::
+    Un commentaire sur plusieurs lignes non fermé via orpyste::``*/`` sera en fait ¨tjrs fermé par ¨orpyste à la toute fin du fichier.
+
+
+warning::
+    Les commentaires sont interdits dans le titre d'une section.
+
+
+Les types de commentaires disponibles dans ¨orpyste sont très pratiques. En effet, considérons le fichier suivant où seuls les joueurs `1` et `3` sont reconnus. Notez que la fin du commentaire sur plusieurs lignes est orpyste::``//*/`` et non juste orpyste::``*/``.
+
+orpyste::
+    joueur_1::
+        date  = 1985
+        sexe  = masculin
+        score = 18974
+        alias = Super Mario
+
+    /*
+    joueur_2::
+        date  = 1991
+        sexe  = féminin
+        score = 32007
+        alias = Sonic
+    //*/
+
+    joueur_3::
+        date  = 1981
+        sexe  = masculin
+        score = 76634
+        alias = Donkey Kong
+
+
+Juste en changeant orpyste::``/*`` en orpyste::``//*``, tous les joueurs sont reconnus car deux commentaires du type orpyste::``//...`` sont apparus. Pratique ! Non ?
+
+orpyste::
+    joueur_1::
+        date  = 1985
+        sexe  = masculin
+        score = 18974
+        alias = Super Mario
+
+    //*
+    joueur_2::
+        date  = 1991
+        sexe  = féminin
+        score = 32007
+        alias = Sonic
+    //*/
+
+    joueur_3::
+        date  = 1981
+        sexe  = masculin
+        score = 76634
+        alias = Donkey Kong

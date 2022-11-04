@@ -1,0 +1,22 @@
+// This file can be used by typensee to produce the documentation.
+
+this::
+    title   = Le package ¨orpyste
+    authors = Christophe, BAL [projetmbc@gmail.com]
+
+    licence = cc by nc sa 4.0
+    out     = html ; pdf
+
+    lexic = python
+
+
+abrev::
+    orpyste = cf::``orPyste ; https://github.com/bc-python/orpyste``
+
+
+content::
+    /content/intro.txt
+    /content/peuf.txt
+    /content/reader.txt
+    /content/json.txt
+    /content/cleaner.txt

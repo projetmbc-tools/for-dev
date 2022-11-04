@@ -1,0 +1,90 @@
+==========
+2016-11-28
+==========
+
+**Du nouveau dans le module ``data`` :** on poursuit les améliorations.
+
+    1) La méthode ``rtu`` de la classe ``data.Infos`` renvoie des données du type ``(nbline, verbatim_line)`` ou ``(nbline, key, sep, value)``.
+    Ceci permet au passage à la méthode ``ReadBlock.flatdict`` de renvoyer des dictionnaires de même type pour les données.
+
+    2) Ajout d'une méthode ``mydict`` acceptant divers arguments afin d'obtenir un dictionnaire personnalisé des données.
+
+
+**¨Maj du module ``parse.walk`` :** mise à jour du code de MKOrderedDict relativement au package ¨mistool (la méthode magique ``__len__`` a été implémentée).
+
+
+==========
+2016-11-22
+==========
+
+**Du nouveau dans la classe ``data.ReadBlock`` :** ajout de la propriété ``treedict`` donnant l'équivalent "récursif" de ``flatdict`` car ce dernier format n'est pas toujours approprié.
+
+
+==========
+2016-11-21
+==========
+
+**Refonte importante qui justifie un changement mineur de numéro de version:** pour supporter pleinement l'utilisation du mode ``multikeyval`` il a fallu effectuer les changements essentiels suivants.
+
+    1) Dans le module ``parse.walk``, ajout d'une classe ``MKOrderedDict`` qui est un dictionnaire acceptant un usage répété d'une même clé (en fait, ceci est une nouveauté du package ¨mistool où elle sera maintenue).
+
+    2) De grosses modifications dans la classe ``data.Infos``.
+
+        * La méthode ``rtu_data`` devient la propriété ``rtu`` (donc il n'y a plus d'arguments). Le code a été totalement revu afin de prendre en compte le mode ``multikeyval``.
+
+        * Suppression de la méthode ``short_rtu_data``.
+
+        * L'argument ``islinebyline`` a été supprimé. On récupèrera toujours le numéro de ligne pour laisser la responsabilité à l'application utilisant ¨orpyste de tenir compte ou non de cette ¨info (on cherche à n'avoir qu'un seul type de sorties car c'est plus simple à maintenir et à utiliser même si cela crée un peu de bruit).
+
+    3) Concernant ``data.ReadBlock``, voici ce qui a été fait.
+
+        * La méthode ``flatdict`` est devenue une propriété sans argument de personnalisation (pour la même raison que ci-dessus). On renvoie un ``MKOrderedDict`` (cf ``parse.walk``).
+
+        * Suppression des méthodes ``recudict`` et ``nblineof``.
+
+        * La méthode ``jsonify`` devient la propriété ``forjson``.
+
+        * Les codes de ``forjson``, anciennement ``jsonify``, et de de la fonction ``data.loadjson`` ont dû être mis à jour. Ils se baseront **toujours** sur le ``MKOrderedDict`` fabriqué par la propriété ``flatdict``.
+        Le format est plus verbeux mais permet de gérer à la fois les modes ``key`` et ``multikey``. Ceci pour permettre à une application tierce n'utilisant que le fichier ¨json, et non ¨orpyste, d'indiquer plus finement des messages lors de l'analyse stockée dans l'objet ¨json.
+
+
+==========
+2016-11-16
+==========
+
+**Changement de nom de la méthode ``remove`` de la classe ``parse.WalkInAST`` :** ce nouveau nom est ``remove_extras`` (voir aussi la grande nouveauté ci-après).
+
+
+**Ajout d'un gestionnaire de contexte à la classe ``parse.WalkInAST`` :** ceci implique que les classes ``data.Read``, ``data.ReadBlock`` et ``clean.Clean`` peuvent s'utiliser via une syntaxe du type ``with .... as ...:`` au lieu de faire appel aux méthodes ``build`` et ``remove_extras``.
+
+
+==========
+2016-11-15
+==========
+
+**Retour au nom de sous-module ``tools``:** ceci répond à des spécifications personnelles de l'auteur de ¨orpyste (soyons cohérent avec nous-même).
+
+
+==========
+2016-11-10
+==========
+
+**Amélioration côté développement interne :** ¨flake8 et ¨pylint sont consultés pour améliorer le code de ¨orpyste lorsque cela paraît pertinent.
+
+
+==========
+2016-11-06
+==========
+
+**Modification du type de clés autorisées :** on peut maintenant utiliser en fait n'importe quoi comme caractère excepté ceux correspondant à des séparateurs. Ces derniers sont par contre autorisés dans les valeurs.
+
+
+==========
+2016-11-05
+==========
+
+**Stockage au format ¨json des dictionnaires créés par la classe ``data.ReadBlock`` :** voici les deux fonctionnalités ajoutées.
+
+    1) Ajout d'une méthode ``jsonify`` à la classe ``data.ReadBlock`` pour fabriquer une chaîne de caractères donnant une variable de type ¨json représentant l'un des dictionnaires proposés pour lire les données (ceci peut être utile pour un stockage permanent et/ou pour interagir avec d'autres applications).
+
+    2) La fonction ``loadjson`` fait le travail inverse de la méthode ``data.ReadBlock.jsonify``.

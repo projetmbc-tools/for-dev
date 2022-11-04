@@ -1,0 +1,201 @@
+this::
+    date = 2017-01-04
+
+
+=====================================================================
+Des clés "uniques" et leurs valeurs - Une lecture par bloc - Partie 1
+=====================================================================
+
+Nous allons voir comment récupérer les données par blocs
+((
+    Ceci peut sûrement poser des problèmes pour de très gros fichiers.
+))
+et non plus ligne par ligne comme dans la section précédente, puis ensuite nous verrons comment travailler plus simplement avec des dictionnaires.
+
+
+Nous gardons le même fichier ¨peuf que précédemment toujours de chemin path::``user/example.peuf`` et encodé en ``utf-8``.
+
+orpyste::
+    // Un commentaire sur une seule ligne qui ne sera pas pris en compte.
+
+    joueur_1::
+        age   = 24
+        sexe  = féminin
+        score = 2007
+        alias = Sonic
+
+    /*
+    Un commentaire sur plusieurs lignes qui ne sera lui non plus pas pris
+    en compte.
+    */
+
+    joueur_2::
+        age   = 18
+        sexe  = masculin
+        score = 1874
+        alias = Super Mario
+
+
+Pour récupérer les données par blocs, il suffit de faire appel à la classe ``ReadBlock`` au lieu de la classe ``Read``. Comme ``ReadBlock`` est une sous-classe de ``Read``, on peut utiliser les mêmes méthodes que celles présentées dans la section précédente. Voici un premier code ainsi adapté.
+
+python::
+    from pprint import pprint
+
+    from pathlib import Path
+    from orpyste.data import ReadBlock
+
+    with ReadBlock(
+        content = Path("user/example.peuf"),
+        mode    = "keyval:: ="
+    ) as datas:
+        for onedata in datas:
+            if onedata.isblock():
+                print('--- {0} ---'.format(onedata.querypath))
+
+            elif onedata.isdata():
+                pprint(onedata.rtu)
+
+
+Dans un terminal, le code ci-dessus affichera ce qui suit (la ¨mef a été un peu modifiée à la main pour améliorer la lisibilité).
+
+term::
+    --- joueur_1 ---
+    MKOrderedDict([
+        (
+            id=0, key='age',
+            value={'sep': '=', 'value': '24', 'nbline': 5}
+        ),
+        (
+            id=0, key='sexe',
+            value={'sep': '=', 'value': 'féminin', 'nbline': 6}
+        ),
+        (
+            id=0, key='score',
+            value={'sep': '=', 'value': '2007', 'nbline': 7}
+        ),
+        (
+            id=0, key='alias',
+            value={'sep': '=', 'value': 'Sonic', 'nbline': 8}
+        )
+    ])
+    --- joueur_2 ---
+    MKOrderedDict([
+        (
+            id=0, key='age',
+            value={'sep': '=', 'value': '18', 'nbline': 16}
+        ),
+        (
+            id=0, key='sexe',
+            value={'sep': '=', 'value': 'masculin', 'nbline': 17}
+        ),
+        (
+            id=0, key='score',
+            value={'sep': '=', 'value': '1874', 'nbline': 18}
+        ),
+        (
+            id=0, key='alias',
+            value={'sep': '=', 'value': 'Super Mario', 'nbline': 19}
+        )
+    ])
+
+
+On constate que les données sont renvoyées via des dictionnaires de type ``MKOrderedDict``
+((
+    En fait, cette classe est présente dans le module ``parse.walk``.
+))
+qui permettent d'utiliser plusieurs fois la même clé (chaque clé ayant un identifiant augmentant de un à chaque fois qu'elle est employée). Ce type de dictionnaire est facile à manipuler. Dans le code suivant nous n'affichons que les alias et les scores. Seules les lignes modifiées ont été reportées.
+
+python::
+    [...]
+
+    with ReadBlock(...) as datas:
+        for onedata in datas:
+            if onedata.isdata():
+                mkdict = onedata.rtu
+
+                for keyid, val in mkdict["alias"]:
+                    print("Alias: {0}".format(val['value'])
+
+                    print(
+                        "Score: {0}".format(
+                            mkdict.getitembyid(keyid, "score")['value']
+                        )
+                    )
+
+
+Ceci nous donne dans un terminal :
+
+term::
+    Alias: Sonic
+    Score: 2007
+    Alias: Super Mario
+    Score: 1874
+
+
+L'avantage de cette technique est qu'elle donne accès à toutes les informations mais elle demande de taper du code verbeux. Dans la partie 2 nous verrons comment aller directement à l'essentiel mais avant voyons comment récupérer toutes vos données d'un seul coup sous forme d'un "unique" dictionnaire. Commençons par voir dans le code suivant comment avoir un dictionnaire ordonné "plat" dont les clés sont des "querypaths" (la remarque à la fin de cette section en dit plus sur ce concept maison).
+
+python::
+    [...]
+
+    with ReadBlock(...) as datas:
+        pprint.pprint(datas.flatdict)
+
+
+La proprieté ``flatdict`` nous donne le dictionnaire ordonné suivant immédiatement utilisable comme expliqué précédemment (nous avons fait un peu de ¨mef à la main).
+
+term::
+    MKOrderedDict([
+        (id=0, key='joueur_1', value=MKOrderedDict([
+            (id=0, key='age', value={
+                'value': '24', 'sep': '=', 'nbline': 5
+            }),
+            (id=0, key='sexe', value={
+                'value': 'féminin', 'sep': '=', 'nbline': 6
+            }),
+            (id=0, key='score', value={
+                'value': '2007', 'sep': '=', 'nbline': 7
+            }),
+            (id=0, key='alias', value={
+                'value': 'Sonic', 'sep': '=', 'nbline': 8
+            })
+        ])),
+        (id=0, key='joueur_2', value=MKOrderedDict([
+            (id=0, key='age', value={
+                'value': '18', 'sep': '=', 'nbline': 16
+            }),
+            (id=0, key='sexe', value={
+                'value': 'masculin', 'sep': '=', 'nbline': 17
+            }),
+            (id=0, key='score', value={
+                'value': '1874', 'sep': '=', 'nbline': 18
+            }),
+            (id=0, key='alias', value={
+                'value': 'Super Mario', 'sep': '=', 'nbline': 19
+            })
+        ]))
+    ])
+
+
+Vous pouvez aussi utiliser la proprieté ``treedict`` qui fournit un dictionnaire ordonné "récursif", qui est une instance de la classe ``RecuOrderedDict``, dont les clés sont des noms de blocs et non des "querypaths". Avec notre exemple un peu trop simpliste, on obtiendra le même dictionnaire mais **nous expliquer mieux la différence ci-dessous.**
+
+
+info::
+    **Quelle différence existe-t-il entre les dictionnaires renvoyés par les méthodes ``flatdict`` et ``recudict`` ?**
+
+    Pour répondre à cette question, imaginons que les blocs ``joueur_1`` et ``joueur_2`` soient contenus dans un bloc ``informations`` (nous parlerons plus tard des blocs pouvant contenir d'autres blocs). Dans ce cas, le dictionnaire renvoyé par ``flatdict`` sera du type suivant où l'imbrication des blocs est symbolysé par un chemin fictif nommé "querypath".
+
+    python::
+        MKOrderedDict([
+            ('informations/joueur_1', ...),
+            ('informations/joueur_2', ...)
+        ])
+
+    Pour le dictionnaire renvoyé par ``recudict``, nous aurons la structure "récursive" ci-dessous.
+
+    python::
+        RecuOrderedDict([
+            ('informations', RecuOrderedDict([
+                ('joueur_1', ...),
+                ('joueur_2', ......)
+            ]))
+        ])

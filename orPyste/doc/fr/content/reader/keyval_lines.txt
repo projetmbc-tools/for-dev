@@ -1,0 +1,208 @@
+﻿this::
+    date = 2017-01-03
+
+
+=================================================================
+Des clés "uniques" et leurs valeurs - Une lecture ligne par ligne
+=================================================================
+
+¨orpyste propose deux moyens pour récupérer. On utilise soit une lecture ligne par ligne, comme nous allons le voir dans cette section, soit une lecture renvoyant des blocs de données, comme ceci sera expliqué dans la section suivante.
+
+
+warning::
+    Avant de commencer les explications, vous devez savoir que dans une valeur tous les espaces finaux et initiaux éventuels sur chaque ligne seront ignorés, et que de plus les retours à la ligne seront vus comme des espaces.
+
+
+Commençons avec le fichier ¨peuf tout simple ci-dessous qui stocke des données au format ``clé = valeur``, à clés uniques, dans chacun des deux blocs ``joueur_1`` et ``joueur_2``.
+
+orpyste::
+    // Un commentaire sur une seule ligne qui ne sera pas pris en compte.
+
+    joueur_1::
+        age   = 24
+        sexe  = féminin
+        score = 2007
+        alias = Sonic
+
+    /*
+    Un commentaire sur plusieurs lignes qui ne sera lui non plus pas pris
+    en compte.
+    */
+
+    joueur_2::
+        age   = 18
+        sexe  = masculin
+        score = 1874
+        alias = Super Mario
+
+
+Supposons que le chemin complet du fichier soit path::``user/example.peuf``, et que l'encodage du fichier soit le bien pratique ``utf-8`` l'encodage par défaut utilisé par ¨python (et donc aussi ¨orpyste). Le code suivant montre commment lire efficacement toutes les données stockées dans notre fichier ¨peuf (des explications seront données juste après avoir donné la sortie dans le terminal). Notez au passage que l'utilisation de ``mode = "keyval:: ="`` pour idnuqer que tous nos blocs sont du type "clé-valeurs".
+
+python::
+    from pathlib import Path
+    from pprint import pprint
+
+    from orpyste.data import Read
+
+    with Read(
+        content = Path("user/example.peuf"),
+        mode    = "keyval:: ="
+    ) as datas:
+        for onedata in datas:
+            if onedata.isblock():
+                print('--- {0} ---'.format(onedata.querypath))
+
+            elif onedata.isdata():
+                pprint(onedata.rtu)
+
+
+Lancé dans un terminal, le code précédent produit la sortie suivante où vous noterez que pour chaque clé on récupère le numéro de sa ligne dans le fichier ¨peuf analysé.
+
+term::
+    --- joueur_1 ---
+    (5, 'age', '=', '24')
+    (6, 'sexe', '=', 'féminin')
+    (7, 'score', '=', '2007')
+    (8, 'alias', '=', 'Sonic')
+    --- joueur_2 ---
+    (16, 'age', '=', '18')
+    (17, 'sexe', '=', 'masculin')
+    (18, 'score', '=', '1874')
+    (19, 'alias', '=', 'Super Mario')
+
+
+Expliquons maintenant ce que nous avons fait. Tout d'abord nous commençons par importer la classe ``Path`` du module ``pathlib`` car c'est elle qui est à utiliser pour indiquer un chemin de fichiers
+((
+    Vous pouvez aussi utiliser la classe ``os_use.PPath`` du module ¨mistool du même auteur que ¨orpyste. Cette classe enrichie ``pathlib.Path``.
+)).
+
+
+Nous instancions ensuite la classe ``Read`` en utilisant les deux arguments ``content`` et ``mode`` mais nous n'utilisons pas ici le ¨3eme argument optionnel ``encoding``.
+
+    1) Le code ``content = Path("user/example.peuf")`` est immédiat à comprendre. Ajoutons juste que la valeur de ``content`` peut aussi être une chaîne de caractères (ceci sera expliqué un peu plus bas).
+
+    1) Avec ``mode = "keyval:: ="``, nous indiquons que tous les blocs sont par défaut de type ``"keyval:: ="``
+    ((
+        L'espace après ``keyval::`` est inutile mais il facilite la lecture.
+    )).
+    Dans la chaîne précédente, ``keyval::`` définit le mode clé-valeur avec des clés uniques (pour des clés multiples, voir cf::``/multikeyval.txt``). Nous pouvons utiliser le raccourci ``k`` au lieu de ``keyval``.
+
+    Vient ensuite le séparateur ``=`` utilisé entre les clés et les valeurs. Il est possible différents séparateurs ; dans ce cas, il suffit de les écrire les uns après les autres séparés par des espaces. Pour un fichier comme ci-dessous, nous utiliserions ``mode = {"keyval:: <==> ==> <==": ':default:'}``.
+
+    orpyste::
+        logique::
+            P_1 <==> P_2
+            P_3 ==> P_4
+            P_5 <== P_6
+
+    1) Pour changer d'encodage de lecture du fichier, il suffit d'utiliser l'argument optionnel ``encoding`` en plus des arguments ``content`` et ``mode``. La façon d'indiquer un encodage est la même que celle utilisée par ¨python. Par défaut, ``encoding = "utf-8"``.
+
+
+Nous lisons ensuite séquentiellement et efficacement les données via un simple itérateur : voir ``for onedata in datas`` dans notre code. Lors de ce parcours des données, nous repérons les nouveaux blocs via la méthode ``isblock`` qui renvoie un booléen.
+Vous noterez l'utilisation de l'attribut "querypath" qui renvoie un "chemin" vers un bloc. Pour mieux comprendre cela, il faut imaginer un bloc ``bloc_3`` contenu dans le bloc ``bloc_2`` lui même encapsulé dans ``bloc_1``. Dans ce cas, ``bloc_1/bloc_2/bloc_3`` sera le "querypath" de ``bloc_3``. Nous reparlerons plus tard des blocs contenant d'autres blocs.
+
+Si nous n'avons pas un nouveau bloc, nous testons si nous avons une donnée via la méthode ``isdata``
+((
+    Il existe aussi des méthodes ``isstart`` et ``isend`` pour repérer le tout début et la toute fin de l'itération. Voir le tout dernier exemple à la fin de cette section. En pratique, c'est surtout ``isend`` qui est utile.
+)),
+et si tel est le cas nous faisons appel à la propriété ``rtu``
+((
+    "rtu" est l'acronyme de "Ready To Use" soit "Prêt À l'Emploi".
+))
+qui renvoie ici un quadruplet du type ``(no de ligne, clé, séparateur, valeur)``. Rappelons que ¨python permet d'utiliser ``nbline, key, sep, value = (5, 'age', '=', '24')`` pour obtenir ``nbline = 5``, ``key = 'age'``, ``sep = '='`` et ``value = '24'``.
+
+
+Nous aurions pu aussi travailler avec une chaîne de caractères stockant les données au format ¨peuf. Le code suivant produira les mêmes données que notre premier code.
+
+python::
+    from orpyste.data import Read
+
+    content = """
+    // Un commentaire sur une seule ligne non pris en compte.
+
+    joueur_1::
+        age   = 24
+        sexe  = féminin
+        score = 2007
+        alias = Sonic
+
+    /*
+    Un commentaire sur plusieurs lignes qui ne sera pas pris
+    en compte lui non plus.
+    */
+
+    joueur_2::
+        age   = 18
+        sexe  = masculin
+        score = 1874
+        alias = Super Mario
+    """.strip()
+
+    with Read(
+        content = content,
+        mode    = "keyval:: ="
+    ) as datas:
+        for onedata in datas:
+            if onedata.isblock():
+                print('--- {0} ---'.format(onedata.querypath))
+
+            elif onedata.isdata():
+                print(onedata.rtu)
+
+
+info::
+    Les valeurs ``onedata`` renvoyées par ``for onedata in datas`` sont toutes des instances de la classe ``Infos`` du module ``data`` qui possédent chacune les attributs ``mode``, ``data``, ``querypath`` et ``nbline`` utilisables comme suit (mais ceci est déconseillé car inutilement compliqué).
+
+    ...python::
+        for onedata in datas:
+            print(
+                '---',
+                "mode      = <<{0}>>".format(onedata.mode),
+                "data      = <<{0}>>".format(onedata.data),
+                "querypath = <<{0}>>".format(onedata.querypath),
+                "nbline    = <<{0}>>".format(onedata.nbline),
+                sep = "\n"
+            )
+
+
+    Les lignes précédentes afficheront ce qui suit (le contenu réel a été tronqué). Notez au passage deux blocs fictifs sans mode indiquant le début et la fin de l'itération.
+
+    term::
+        ---
+        mode      = <<None>>
+        data      = <<None>>
+        querypath = <<:start:>>
+        nbline    = <<-1>>
+        ---
+        mode      = <<keyval>>
+        data      = <<None>>
+        querypath = <<joueur_1>>
+        nbline    = <<3>>
+        ---
+        mode      = <<keyval>>
+        data      = <<{'sep': '=', 'value': '24', 'key': 'age'}>>
+        querypath = <<None>>
+        nbline    = <<4>>
+        ---
+        mode      = <<keyval>>
+        data      = <<{'sep': '=', 'value': 'féminin', 'key': 'sexe'}>>
+        querypath = <<None>>
+        nbline    = <<5>>
+        ---
+        mode      = <<keyval>>
+        data      = <<{'sep': '=', 'value': '2007', 'key': 'score'}>>
+        querypath = <<None>>
+        nbline    = <<6>>
+        ---
+        mode      = <<keyval>>
+        data      = <<{'sep': '=', 'value': 'Sonic', 'key': 'alias'}>>
+        querypath = <<None>>
+        nbline    = <<7>>
+        ---
+        [...]
+        ---
+        mode      = <<None>>
+        data      = <<None>>
+        querypath = <<:end:>>
+        nbline    = <<-1>>
+        ---

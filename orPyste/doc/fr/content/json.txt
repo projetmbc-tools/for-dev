@@ -1,0 +1,84 @@
+﻿this::
+    date = 2017-07-30
+
+
+===================================
+Stocker vos données au format ¨json
+===================================
+
+La classe ``ReadBlock`` possède une méthode ``forjson`` pour stocker vos données dans un fichier ¨json. Vous obtiendrez une chaîne de carcatères, charge à vous de la stocker là où cela vous arrange. Voici comment faire (vous trouverez juste après la structure ¨json utilisée).
+
+python::
+    from orpyste.section import ReadBlock
+
+    content = '''
+    ===========
+    Une section
+    ===========
+
+    bloc_principal::
+    // Un commentaire perdu... Le pauvre !
+        test::
+            a = 1 + 9
+            b <>  2
+            c = 3 et 4
+
+        sous_bloc::
+            sous_sous_bloc::
+                verb::
+                    ligne 1
+                        ligne 2
+                            ligne 3
+    '''
+
+    with ReadBlock(
+        content = content,
+        mode    = {
+            "container"    : ":default:",
+            "keyval:: = <>": "test",
+            "verbatim"     : "verb"
+        }
+    ) as datas:
+        strforjson = datas.forjson
+
+        print(jsonobj)
+
+
+Lancé dans un terminal, nous obtenons la sortie suivante qui a été formatée à la main. Comme vous pouvez le voir, nous utilisons le format ``[key, value]`` afin de stocker les clés et les valeurs du dictionnaire ¨python donné par la méthode-attribut `ReadBlock.flatdict``.
+Vous noterez également que pour le contenu textuel, nous utilisons une clé `null` (ceci facilite le travail d'applications tierces pour extraire des informations grâce à une variable ¨json "symétrique").
+
+json::
+    [
+        [
+            [0, "<Une section>/bloc_principal/test"],
+            [
+                [
+                    [0, "a"],
+                    {"nbline": 8, "sep": "=", "value": "1 + 9"}
+                ],
+                [
+                    [0, "b"],
+                    {"nbline": 9, "sep": "<>", "value": "2"}
+                ],
+                [
+                    [0, "c"],
+                    {"nbline": 10, "sep": "=", "value": "3 et 4"}
+                ]
+            ]
+        ],
+        [
+            [0, "<Une section>/bloc_principal/sous_bloc/sous_sous_bloc/verb"],
+            [
+                null,
+                [
+                    {"nbline": 15, "value": "ligne 1"},
+                    {"nbline": 16, "value": "    ligne 2"},
+                    {"nbline": 17, "value": "        ligne 3"}
+                ]
+            ]
+        ]
+    ]
+
+
+info::
+    Vous pouvez facilement revenir au dictionnaire ¨python grâce à la fonction` loadjson` qui transforme la variable ¨json, stockée dans une chaîne ou dans un fichier, en un dictionnaire plat qui est une instance de la classe `ReadBlock.MKOrderedDict`.

@@ -1,0 +1,33 @@
+this::
+    date = 2017-01-04
+
+
+===========================================
+Comment lancer l'analyse d'un contenu ¨peuf
+===========================================
+
+Dans tous les codes nous utiliserons une syntaxe du type suivant pour extraire les données de ``content`` un fichier ou une chaîne de caractères de type ¨peuf. Nous indiquerons les spécifications des blocs via l'argument ``mode``.
+
+python::
+    with Read(
+        content = content,
+        mode    = mode
+    ) as datas:
+        ...
+
+
+Nous utiliserons donc un contexte à la sauce ¨python avec une instance d'une certaine classe ``Read`` (cela marchera aussi aussi avec une autre classe nommée ``ReadBlock``). En coulisse, c'est comme si vous tapiez ce qui suit.
+
+python::
+    datas = Read(
+        content = content,
+        mode    = mode
+    )
+
+    datas.build()
+    ...
+    datas.remove_extras()
+
+
+info::
+    L'auteur de ¨cdt utilise le mécanisme verbeux ci-dessus pour tester d'autres projets ¨python via ¨pytest qui propose le décorateur ``@fixture`` afin de définir une action faite avant les tests, et une autre à la fin. Concrètement, l'auteur fait en sorte qu'en cas d'échec non prévu d'un test les fichiers intermédiaires produits par ¨orpyste soient toujours détruits.

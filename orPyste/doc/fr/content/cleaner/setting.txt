@@ -1,0 +1,87 @@
+this::
+    date = 2017-08-01
+
+
+========================
+Les réglages disponibles
+========================
+
+Nous gardons pour exemple le fichier ¨peuf présenté dans cf::``/howto.txt``. Dans le code suivant, nous utilisons l'argument optionel ``layout`` de la classe ``clean.Clean`` afin de personnaliser le formatage.
+
+python::
+    from pathlib import Path
+    from orpyste.clean import Clean
+
+    with Clean(
+        content = Path("user/example.peuf"),
+        mode    = {
+            "container"    : ":default:",
+            "keyval:: = <>": "test",
+            "verbatim"     : "verb"
+        },
+        layout  = "align wrap-keyval columns=50 spaces=0"
+    ) as infos:
+        hrule = '-'*10
+
+        print(
+            hrule,
+            "\n".join(line for line in infos.view),
+            hrule,
+            sep = "\n"
+        )
+
+
+Expliquons la valeur donnée à l'argument ``layout``.
+
+    1) ``align`` demande d'aligner tous les séparateurs d'un même bloc de type clé-valeur car ceci n'est pas fait par défaut.
+
+    1) ``wrap-keyval`` sert à forcer les retours à la ligne dans les valeurs lorsque celles-ci dépassent le nombre maximal de colonnes. Voir ce qui suit.
+
+    Il est aussi possible d'utiliser ``wrap-verbatim``, ainsi que ``wrap`` pour tout type de contenu.
+
+    Par défaut, il n'y a aucun retour automatique à la ligne.
+
+    1) ``columns=50`` définit le nombre maximal de colonnes qui vaut `80` par défaut.
+
+    1) Enfin ``spaces=0`` définit le nombre d'espaces après les fins  de commentaires et de blocs.
+
+    Il est aussi possible d'utiliser ``spaces-block`` et ``spaces-comment`` qui valent ¨resp `2` et `1` par défaut.
+
+
+Notre code précédent permet donc d'obtenir ce qui suit une fois lancé dans un terminal (notez la présence volontaire d'une ligne vide finale).
+
+term::
+    ----------
+    /*
+       Un exemple de commentaire disgrâcieux...
+    */
+    // Un autre commentaire juste avant le tout premier bloc.
+    ========================
+    Une section mal tapée...
+    ========================
+    bloc_principal::
+    // Commentaire dans le 1er bloc conteneur.
+    test::
+    /* Un commentaire dans un bloc clé-valeur. */
+        aaa        = 1    + 9 = 10
+        bbbbbbbbb <> 2
+    /* Un commentaire dans la valeur d'une clé. */
+        c          = 3 and 3 and 3 and 3 and 3 and
+                     3 and 3 and 3 and 3 and 3 and
+                     3 and 3 and 3 and 3 and 3 and
+                     3 and 3 and 3 and 3 and 3 and
+                     3 and 3 and 3 and 3 and 3 and
+                     3 and 3 and 3 and...
+    verb::
+        Ligne courte
+
+            Ligne       longue       longue       longue       longue       longue       longue       longue       longue       longue
+
+
+        ////
+
+    ----------
+
+
+warning::
+    Le mode ``wrap-keyval`` modifie les espaces présents dans les valeurs des clés ce qui est normal (revoir cf::``./reader/keyval_lines.txt``). Par contre, ce comportement a aussi lieu si l'on utilise le mode ``wrap-verbatim``, et là ce ne sera pas forcément le comportement voulu.

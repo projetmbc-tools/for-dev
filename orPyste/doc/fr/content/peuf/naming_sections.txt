@@ -1,0 +1,12 @@
+this::
+    date = 2017-02-22
+
+
+===================
+Nommer les sections
+===================
+
+Le "titre" d'une section peut contenir tous les caractères exceptés l'oblique ``/`` et la contre-oblique ``\``
+((
+    La raison de cette restriction est expliquée dans cf::``reader/queries.txt``.
+)).

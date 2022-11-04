@@ -1,0 +1,11 @@
+abrev::
+    content = /cleaner
+
+
+===================================================
+Formattage standardisé des fichiers au format ¨peuf
+===================================================
+
+content::
+    ¨content/howto.txt
+    ¨content/setting.txt
