@@ -11,7 +11,7 @@
 
 
 abrev::
-    justcode = cf::``jinjang ;
+    justcode = cf::``jinjaNG ;
                      https://github.com/bc-tools/for-dev/tree/dev/jinjang``
 
     content = content
