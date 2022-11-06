@@ -1,3 +1,0 @@
-﻿+ math-objects
-    + __jscmeta__
-        * params.peuf

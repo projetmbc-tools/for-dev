@@ -1,9 +1,0 @@
-this::
-    date = 2022-10-29
-
-
-===================================
-Quels sont les fichiers concernés ?
-===================================
-
-Les commandes qui vont être présentées s'appliquent aux types de fichiers non gérés spécifiquement par ¨jinjang.

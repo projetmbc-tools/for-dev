@@ -1,8 +1,0 @@
-import::
-    changes = ~/mes_patrons/changes
-    readme  = ~/mes_patrons/readme
-    tools   = ~/mes_patrons/tools
-
-tools::
-    remove = debug ;
-             factory

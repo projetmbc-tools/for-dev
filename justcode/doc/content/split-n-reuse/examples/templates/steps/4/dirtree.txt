@@ -1,9 +1,0 @@
-﻿+ math-objects
-    + __jscmeta__
-        * params.peuf
-    + readme
-        * projects.md
-        * prologue.md
-    + tools
-        + publish
-            * tool_update_README.py

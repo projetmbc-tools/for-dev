@@ -1,9 +1,0 @@
-###
-# this::
-#     author = Christophe, BAL [projetmbc@gmail.com]
-#     desc   = ``cbdev`` coding style.
-###
-
-# Hiden files and folders.
-x-*-x/
-x-*-x.*

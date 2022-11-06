@@ -1,8 +1,0 @@
-###
-# this::
-#     author = Christophe, BAL [projetmbc@gmail.com]
-#     desc   = Specific rules for the package ``fixme``.
-###
-
-#
-*.lox

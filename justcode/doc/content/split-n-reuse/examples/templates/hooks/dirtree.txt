@@ -1,5 +1,0 @@
-﻿+ hooks-in-action
-    + __jscmeta__
-        + hooks
-            + pre
-            + post

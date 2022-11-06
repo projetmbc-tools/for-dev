@@ -1,5 +1,0 @@
-﻿+ cvnum
-    + __jscmeta__
-        * params.peuf
-    + readme
-        * last.md

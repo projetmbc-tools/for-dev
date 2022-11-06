@@ -1,6 +1,0 @@
-main::
-    template  = ~/mes_patrons/monorepo
-    gitignore = python ;
-                macos ;
-              - ~/mes_gitignores/ignorer_ces_regles.txt ;
-                ~/mes_gitignores/ignorer_aussi_ceci.txt

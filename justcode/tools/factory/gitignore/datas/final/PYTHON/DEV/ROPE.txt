@@ -1,9 +1,0 @@
-###
-# this::
-#     author = Christophe, BAL [projetmbc@gmail.com]
-#     desc   = Specific rules for ``Rope``,
-#              see https://github.com/python-rope/rope.
-###
-
-# Project settings
-.ropeproject

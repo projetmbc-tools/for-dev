@@ -1,5 +1,0 @@
-﻿+ tools
-    * LICENSE.txt
-    + debug
-    + factory
-    + publish

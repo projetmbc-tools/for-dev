@@ -1,7 +1,0 @@
-{
-    "api-online": [
-        "*.mo",
-        "*.pot"
-    ],
-    "online-api": []
-}

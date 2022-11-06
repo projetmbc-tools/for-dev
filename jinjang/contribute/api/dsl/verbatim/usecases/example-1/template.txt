@@ -1,0 +1,5 @@
+Voici un petit {{ txt_exemple }} de compte automatique.
+
+{% for i in range(1, max_i + 1) %}
+    {{ i }}) Je compte en carrés {{ i**2 }}.
+{% endfor %}

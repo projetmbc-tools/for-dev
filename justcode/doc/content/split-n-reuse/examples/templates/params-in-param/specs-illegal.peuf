@@ -1,4 +1,0 @@
-params::
-    a: str = a vaut {{ b }}
-    b: str = b vaut {{ c }}
-    c: str = c vaut {{ a }}

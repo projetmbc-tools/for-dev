@@ -1,7 +1,0 @@
-{###
-this::
-    desc = This file is useful for something.
-###}
-
-
-...

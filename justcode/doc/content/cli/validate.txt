@@ -1,9 +1,0 @@
-﻿this::
-    date = 2022-10-18
-
-
-========================================
-Valider un dossier vis à vis d'un patron
-========================================
-
-Il suffit de faire appel à l'option terminal::``--validate`` comme dans terminal::``python -m justcode --validate chemin/vers/le/projet`` par exemple.

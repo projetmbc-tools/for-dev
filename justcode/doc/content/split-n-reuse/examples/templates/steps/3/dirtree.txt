@@ -1,6 +1,0 @@
-﻿+ math-objects
-    + __jscmeta__
-        * params.peuf
-    + readme
-        * projects.md
-        * prologue.md

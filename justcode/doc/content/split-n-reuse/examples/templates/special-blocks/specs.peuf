@@ -1,5 +1,0 @@
-import::
-    ./import = ~/mes_patrons/import
-
-./import::
-    licence = gpl 3.0

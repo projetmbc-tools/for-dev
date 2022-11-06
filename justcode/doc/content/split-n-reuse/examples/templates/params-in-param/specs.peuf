@@ -1,8 +1,0 @@
-params::
-// Paramètres renseignés par l'utilisateur.
-    year : int = ?
-    month: int = ?
-    day  : int = ?
-
-// Paramètre construit automatiquement.
-    date : str = {{ year }}-{{ month }}-{{ day }}

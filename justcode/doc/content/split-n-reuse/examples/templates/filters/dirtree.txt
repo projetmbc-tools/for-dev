@@ -1,6 +1,0 @@
-﻿+ filters-in-action
-    + __jscmeta__
-        + filters
-            * fullname.py
-            * justemail.py
-    * description.md

@@ -1,6 +1,0 @@
-﻿+ readme
-    * about.md
-    * prologue.md
-    * about.peuf
-    + __jscmeta__
-        * specs.peuf

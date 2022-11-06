@@ -1,6 +1,0 @@
-import::
-    changes = changes
-    readme  = readme
-
-main::
-    licence = by nc sa 4.0
