@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html>
-    
+
 <head>
+<!--: if False :-->
 <script type="text/javascript" src="../../tool.js"></script>
+<!--: endif :-->
 </head>
 
-    
+
+<!--: if False :-->
 <body onload="jinjang()">
-<p style='color: blue;[[param-tmpl-1]]'>
-  Some text {{var-templ-2}}.
+<!--: else :-->
+<body>
+<!--: endif :-->
+
+<p style='color: blue; [[ css-style ]] ;'>
+  Some text {{ example }}.
 </p>
-<div class='[[ ... ]]'>
+
 <table>
   <tr>
     <th>Company</th>
     <th>Contact</th>
-    <th>{{Country}}</th>
+    <th>{{ header-country }}</th>
   </tr>
   <tr>
     <td>Alfreds Futterkiste</td>
@@ -24,11 +31,10 @@
   </tr>
   <tr>
     <td>Centro comercial Moctezuma</td>
-    <td>Francisco {{Chang}}</td>
+    <td>Francisco {{ name }}</td>
     <td>Mexico</td>
   </tr>
 </table>
-</div>
 </body>
-    
+
 </html>

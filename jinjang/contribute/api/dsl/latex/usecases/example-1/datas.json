@@ -1,5 +1,5 @@
 {
     "txt_exemple": "exemple",
     "max_i": 3,
-    "type_liste": '\arabic*
+    "type_liste": "\\arabic*"
 }
