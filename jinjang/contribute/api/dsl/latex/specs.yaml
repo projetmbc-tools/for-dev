@@ -1,0 +1,17 @@
+about:
+    author: Christophe, Bal [projetmbc@gmail.com]
+    desc  : ??? avec une bibliothèque dédiée !!!
+    date  : 2022-11-???
+
+tool: ?????
+
+ext:
+    - tex
+    - sty
+    - tkz
+
+src-comment:
+    inline: "% ..."
+
+var  : "\\JNGVAR{ ... }"
+param: "\\JNGPARAM{ default }{ ... }"

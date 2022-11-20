@@ -1,5 +1,5 @@
 this::
-    date = 2022-10-29
+    date = 2022-11-15
 
 
 abrev::
@@ -11,4 +11,4 @@ Verbatim, le comportement par défaut
 ====================================
 
 warning::
-    Les habitués de ¨jinja feront attention aux réglages spécifiques choisis qui semblent plus logiques aux yeux de l'auteur de ¨jinjang.
+    Les habitués de ¨jinja feront attention aux réglages spécifiques choisis par ¨jinjang.
