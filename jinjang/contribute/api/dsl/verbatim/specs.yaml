@@ -1,6 +1,6 @@
 about:
-    author: Christophe, Bal [projetmbc@gmail.com]
-    desc  : Generic behaviour of `jinjaNG`.
+    author: "Christophe, Bal [projetmbc@gmail.com]"
+    desc  : "Generic behaviour of `jinjaNG`."
     date  : 2022-11-17
 
 ext:
