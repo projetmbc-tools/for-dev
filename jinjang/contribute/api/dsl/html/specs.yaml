@@ -1,15 +1,15 @@
 about:
-    author: "Christophe, Bal [projetmbc@gmail.com]"
-    desc  : "??? avec une bibliothèque dédiée !!!"
+    author: Christophe, Bal [projetmbc@gmail.com]
+    desc  : ??? avec une bibliothèque dédiée !!!
     date  : 2022-11-???
 
-tool: "?????"
+tool: ?????
 
 ext:
-    - "html"
+    - html
 
 src-comment:
-    block: "<!-- ... -->"
+    block: <!-- ... -->
 
 var  : "{{ ... }}"
 param: "[[ default | ... ]]"
