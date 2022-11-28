@@ -11,5 +11,4 @@ ext:
 src-comment:
     block: <!-- ... -->
 
-var  : "{{ ... }}"
-param: "[[ default | ... ]]"
+var: "{{ ... }}"

@@ -8,7 +8,7 @@ ref::
 **/
 jinjang =_=>
   document.body.outerHTML=document.body.outerHTML
-    .replace(/\[\[.*?\]\]/g, "")
+    // .replace(/\[\[.*?\]\]/g, "")
     .replace(
         /\{\{(.*?)\}\}/g,
         `<span style="color: red; font-weight: bold; `

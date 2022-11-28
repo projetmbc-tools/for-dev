@@ -6,6 +6,11 @@ from yaml import (
     dump      as yaml_dump
 )
 
+# ! -- DEBUGGING -- ! #
+# Clear the terminal.
+print("\033c", end="")
+# ! -- DEBUGGING -- ! #
+
 
 # --------------- #
 # -- CONSTANTS -- #
@@ -84,6 +89,12 @@ for specfile in CONTRIB_DSL_DIR.rglob("*/*specs.yaml"):
 # -- TOOLS FOR SOURCE -- #
 # ---------------------- #
 
+SPECHARS = {
+    (TAG_INSTR  := 'instruction'): ':',
+    (TAG_COMMENT:= 'comment'    ): '_',
+}
+
+
 GRP_TAGS = {
     (TAG_ABOUT := 'about'): [
         TAG_AUTHOR:= 'author',
@@ -97,7 +108,7 @@ GRP_TAGS = {
     None: [
         TAG_EXT  := 'ext',
         TAG_VAR  := 'var',
-        TAG_PARAM:= 'param',
+        # TAG_PARAM:= 'param',
     ]
 }
 
@@ -107,7 +118,7 @@ TAG_LAST_NAME = 'last name'
 TAG_EMAIL     = 'email'
 
 
-def extractauthorinfos(text):
+def build_authorinfos(text):
     firstname, lastname = text.split(',')
     lastname, email = lastname.split('[')
 
@@ -125,29 +136,35 @@ def extractauthorinfos(text):
     }
 
 
-def startend(text):
+def build_startend(text):
     start, end = text.split('...')
 
     return start.strip(), end.strip()
 
 
-def before(text):
+def build_before(text):
     bef, _ = text.split('...')
 
     return bef.strip()
 
 
+# # Ici, on change de gestion car on vcréer une regex qui va récupérer just la variable utilisée MYVAR mais aussi tout la commende JNPARAM pour passer à JNVAR(MYVAR) pour la gestion esnsuite par jinja
+
+# def build_paramregex(text):
+#     print('TODO >', text)
+#     exit()
+
+
 FORMATERS = {
-    TAG_AUTHOR: extractauthorinfos,
-    TAG_BLOCK : startend,
-    TAG_INLINE: before,
-    TAG_VAR   : startend,
+    TAG_AUTHOR: build_authorinfos,
+    TAG_BLOCK : build_startend,
+    TAG_INLINE: build_before,
+    TAG_VAR   : build_startend,
+    # TAG_PARAM : build_paramregex,
 }
 
 
 def specs2options(hardspec):
-    print(f"{TAB_2}+ Analyzing the hard specs...")
-
     options = {}
 
     for grptag, subtags in GRP_TAGS.items():
@@ -173,29 +190,15 @@ def specs2options(hardspec):
         if not grptag is None:
             del hardspec[grptag]
 
-    if hardspec:
-        raise Exception(
-            f"unknown keys: {list(hardspec.keys())}."
-        )
-
-    print('OPTIONS >', options)
-
-    exit()
-
-
-
-
-
+    return options
 
 
 # ---------------------- #
 # -- TOOLS FOR SOURCE -- #
 # ---------------------- #
 
-def update_src(hardspec):
-    print(f"{TAB_2}+ Updating the source code...")
-
-    print('SRC >',hardspec)
+def update_src(options):
+    print('SRC - OPTIONS >',options)
 
     exit()
 
@@ -205,8 +208,6 @@ def update_src(hardspec):
 # ------------------- #
 
 def update_doc(hardspec):
-    print(f"{TAB_2}+ Updating the doc...")
-
     print('DOC >',hardspec)
 
 
@@ -230,7 +231,15 @@ for name, infos in allspecs.items():
     ) as f:
         hardspec = yaml_load(f)
 
+
+    print(f"{TAB_2}+ Analyzing the hard specs.")
+
     options = specs2options(hardspec)
 
+    print(f"{TAB_2}+ Updating the source code.")
+
     update_src(options)
+
+    print(f"{TAB_2}+ Updating the doc.")
+
     update_doc(options)

@@ -1,5 +1,5 @@
 this::
-    date = 2022-11-04
+    date = 2022-11-26
 
 
 abrev::
@@ -11,10 +11,10 @@ Réglages et petits outils proposés
 ==================================
 
 note::
-    Ce qui suit est une ¨doc de ¨ref générée automatiquement en grande partie (les sections suivantes sont donc arides à la lecture).
+    Ce qui suit est une ¨doc de ¨ref générée automatiquement en grande partie (les sections suivantes peuvent être arides à la lecture).
 
 
 content::
     ¨content/verbatim.txt       ?????
-    ¨content/html.txt           ????
-    ¨content/latex.txt          ???
+//    ¨content/html.txt           ????
+//    ¨content/latex.txt          ???

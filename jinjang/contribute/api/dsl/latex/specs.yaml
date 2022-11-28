@@ -13,5 +13,4 @@ ext:
 src-comment:
     inline: "% ..."
 
-var  : \\JNGVAR{ ... }
-param: \\JNGPARAM{ default }{ ... }
+var: \\JNGVAR{ ... }

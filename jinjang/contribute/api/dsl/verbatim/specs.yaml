@@ -1,7 +1,7 @@
 about:
     author: Christophe, Bal [projetmbc@gmail.com]
     desc  : Generic behaviour of `jinjaNG`.
-    date  : 2022-11-17
+    date  : 2022-11-28
 
 ext:
     - "*"
@@ -11,4 +11,3 @@ src-comment:
     inline: "# ..."
 
 var: "{{ ... }}"
-param: \JNGPARAM{ default }{ ... }
