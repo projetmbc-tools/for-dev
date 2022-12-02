@@ -5,9 +5,30 @@
 SETTINGS = dict()
 
 
+# -- ALL TAGS -- #
+
+ALL_TAGS = [
+    (TAG_BLOCK_COMMENT_END:= 'comment_end_string'),
+    (TAG_BLOCK_COMMENT_START:= 'comment_start_string'),
+    (TAG_BLOCK_INSTR_END:= 'block_end_string'),
+    (TAG_BLOCK_INSTR_START:= 'block_start_string'),
+    (TAG_EXT:= 'ext'),
+    (TAG_INLINE_COMMENT:= 'line_comment_prefix'),
+    (TAG_INLINE_INSTR:= 'line_statement_prefix'),
+    (TAG_JINJA:= 'jinja2'),
+    (TAG_TOOLS:= 'tools'),
+    (TAG_VAR_END:= 'variable_end_string'),
+    (TAG_VAR_START:= 'variable_start_string'),
+]
+
+
 # -- ALL FLAVOURS -- #
 
-ALL_FLAVOURS = [(TAG_FLAVOUR_ASCII:= 'ascii'), (TAG_FLAVOUR_LATEX:= 'latex')]
+ALL_FLAVOURS = [
+    (TAG_FLAVOUR_ASCII:= 'ascii'),
+    (TAG_FLAVOUR_HTML:= 'html'),
+    (TAG_FLAVOUR_LATEX:= 'latex'),
+]
 
 
 # -- ASCII -- #
@@ -18,33 +39,62 @@ ALL_FLAVOURS = [(TAG_FLAVOUR_ASCII:= 'ascii'), (TAG_FLAVOUR_LATEX:= 'latex')]
 # Author     : Christophe Bal
 
 SETTINGS[TAG_FLAVOUR_ASCII] = {
-    "ext": ["*.*"],
-    "variable_start_string": "{{",
-    "variable_end_string": "}}",
-    "line_comment_prefix": "#_",
-    "line_statement_prefix": "#:",
-    "comment_start_string": "{#_",
-    "comment_end_string": "_#}",
-    "block_start_string": "{#:",
-    "block_end_string": ":#}",
+    TAG_TOOLS: False,
+    TAG_EXT: ["*"],
+    TAG_JINJA: {
+        TAG_VAR_START: "{{",
+        TAG_VAR_END: "}}",
+        TAG_INLINE_COMMENT: "#_",
+        TAG_INLINE_INSTR: "#:",
+        TAG_BLOCK_COMMENT_START: "{#_",
+        TAG_BLOCK_COMMENT_END: "_#}",
+        TAG_BLOCK_INSTR_START: "{#:",
+        TAG_BLOCK_INSTR_END: ":#}",
+    },
+}
+
+
+# -- HTML -- #
+#
+# Use -> Useful settings and tools for HTML templating.
+#
+# Last change: 2022-12-01
+# Author     : Christophe Bal
+
+SETTINGS[TAG_FLAVOUR_HTML] = {
+    TAG_TOOLS: True,
+    TAG_EXT: ["*.html"],
+    TAG_JINJA: {
+        TAG_VAR_START: "{{",
+        TAG_VAR_END: "}}",
+        TAG_INLINE_COMMENT: None,
+        TAG_INLINE_INSTR: None,
+        TAG_BLOCK_COMMENT_START: "<!--_",
+        TAG_BLOCK_COMMENT_END: "_-->",
+        TAG_BLOCK_INSTR_START: "<!--:",
+        TAG_BLOCK_INSTR_END: ":-->",
+    },
 }
 
 
 # -- LATEX -- #
 #
-# Use -> ??? avec une bibliothèque dédiée !!!
+# Use -> Useful settings and tools for LaTeX templating.
 #
-# Last change: 2022-11-???
+# Last change: 2022-12-01
 # Author     : Christophe Bal
 
 SETTINGS[TAG_FLAVOUR_LATEX] = {
-    "ext": ["*.tex", "*.sty", "*.tkz"],
-    "variable_start_string": "\\\\JNGVAR{",
-    "variable_end_string": "}",
-    "line_comment_prefix": "%_",
-    "line_statement_prefix": "%:",
-    "comment_start_string": "%%_",
-    "comment_end_string": "_%%",
-    "block_start_string": "%%:",
-    "block_end_string": ":%%",
+    TAG_TOOLS: True,
+    TAG_EXT: ["*.tex", "*.sty", "*.tkz"],
+    TAG_JINJA: {
+        TAG_VAR_START: "\\\\JNGVAR{",
+        TAG_VAR_END: "}",
+        TAG_INLINE_COMMENT: "%_",
+        TAG_INLINE_INSTR: "%:",
+        TAG_BLOCK_COMMENT_START: "%%_",
+        TAG_BLOCK_COMMENT_END: "_%%",
+        TAG_BLOCK_INSTR_START: "%%:",
+        TAG_BLOCK_INSTR_END: ":%%",
+    },
 }

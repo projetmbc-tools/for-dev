@@ -28,15 +28,17 @@ PROJECT_DIR = THIS_DIR
 while(PROJECT_DIR.name != 'jinjaNG'):
    PROJECT_DIR = PROJECT_DIR.parent
 
-THIS_FILE_REL_SRC_PATH = Path(__file__) - PROJECT_DIR
-
+THIS_FILE_REL_SRC_PATH    = Path(__file__) - PROJECT_DIR
 THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
+
 
 
 SPECS_SRC_FILE = PROJECT_DIR / 'src' / 'config' / 'flavour.py'
 
 CONTRIB_DSL_DIR   = PROJECT_DIR / 'contribute' / 'api' / 'dsl'
 SPECS_STATUS_YAML = THIS_DIR / 'validated.yaml'
+
+EXTRA_TOOLS_DIR = PROJECT_DIR / 'jinjang-extra-tools'
 
 
 TAB_1 = ' '*4
@@ -117,6 +119,7 @@ GRP_TAGS = {
         TAG_AUTHOR:= 'author',
         TAG_DESC  := 'desc',
         TAG_DATE  := 'date',
+        TAG_TOOLS := 'tools',
     ],
     (TAG_SRC_COMMENT:= 'src-comment'): [
         TAG_BLOCK := 'block',
@@ -133,6 +136,9 @@ GRP_TAGS = {
 TAG_1ST_NAME  = '1st name'
 TAG_LAST_NAME = 'last name'
 TAG_EMAIL     = 'email'
+
+
+TAG_JINJA = "jinja2"
 
 
 def build_authorinfos(text):
@@ -207,6 +213,12 @@ def specs2options(hardspec):
         if not grptag is None:
             del hardspec[grptag]
 
+    if options.get(TAG_TOOLS, False) == True:
+        options[TAG_TOOLS] = True
+
+    else:
+        options[TAG_TOOLS] = False
+
     return options
 
 
@@ -226,7 +238,16 @@ def build_settings(options):
         raise Exception('Missing var...')
 
     settings = {
-        TAG_EXT      : [f"*.{p}" for p in options[TAG_EXT]],
+        TAG_TOOLS: options[TAG_TOOLS],
+        TAG_EXT  : [
+            p
+            if p == "*" else
+            f"*.{p}"
+            for p in options[TAG_EXT]
+        ],
+    }
+
+    forjinja = {
         TAG_VAR_START: options[TAG_VAR][0],
         TAG_VAR_END  : options[TAG_VAR][1],
     }
@@ -240,24 +261,26 @@ def build_settings(options):
         raise Exception('No comment!')
 
     if TAG_INLINE in options:
-        settings[TAG_INLINE_COMMENT] = options[TAG_INLINE] + SPECHAR_COMMENT
-        settings[TAG_INLINE_INSTR]   = options[TAG_INLINE] + SPECHAR_INSTR
+        forjinja[TAG_INLINE_COMMENT] = options[TAG_INLINE] + SPECHAR_COMMENT
+        forjinja[TAG_INLINE_INSTR]   = options[TAG_INLINE] + SPECHAR_INSTR
 
     if TAG_BLOCK in options:
         block_start, block_end = options[TAG_BLOCK]
 
         if not TAG_INLINE in options:
-            settings[TAG_INLINE_COMMENT] = None
-            settings[TAG_INLINE_INSTR]   = None
+            forjinja[TAG_INLINE_COMMENT] = None
+            forjinja[TAG_INLINE_INSTR]   = None
 
     else:
         block_start = block_end = options[TAG_INLINE] + options[TAG_INLINE][-1]
 
-    settings[TAG_BLOCK_COMMENT_START] = block_start + SPECHAR_COMMENT
-    settings[TAG_BLOCK_COMMENT_END]   = SPECHAR_COMMENT + block_end
+    forjinja[TAG_BLOCK_COMMENT_START] = block_start + SPECHAR_COMMENT
+    forjinja[TAG_BLOCK_COMMENT_END]   = SPECHAR_COMMENT + block_end
 
-    settings[TAG_BLOCK_INSTR_START] = block_start + SPECHAR_INSTR
-    settings[TAG_BLOCK_INSTR_END]   = SPECHAR_INSTR + block_end
+    forjinja[TAG_BLOCK_INSTR_START] = block_start + SPECHAR_INSTR
+    forjinja[TAG_BLOCK_INSTR_END]   = SPECHAR_INSTR + block_end
+
+    settings[TAG_JINJA] = forjinja
 
     return settings
 
@@ -294,8 +317,8 @@ def build_src(name, options):
 # -- TOOLS FOR DOC -- #
 # ------------------- #
 
-def update_doc(hardspec):
-    print('DOC >',hardspec)
+def update_doc(options):
+    print('DOC >', options)
 
 
 # ------------------------ #
@@ -304,6 +327,7 @@ def update_doc(hardspec):
 
 final_pycode = []
 ALL_FLAVOURS = []
+ALL_TOOLS    = []
 not_ok       = defaultdict(list)
 
 for flavour in sorted(allspecs):
@@ -338,6 +362,11 @@ for flavour in sorted(allspecs):
         build_src(flavour, options),
     ]
 
+    if options[TAG_TOOLS]:
+        print(f"{TAB_2}+ Referencing new tools.")
+
+        ALL_TOOLS.append(flavour)
+
     print(f"{TAB_2}+ Building the doc.")
 
     update_doc(options)
@@ -356,13 +385,39 @@ ALL_FLAVOURS = [
 ]
 
 
+ALL_TAGS = []
+
 final_pycode = '\n'.join(final_pycode)
+
+myglobals = globals().copy()
+
+for name, val in myglobals.items():
+    if not name.startswith('TAG_'):
+        continue
+
+    pykey = f"'{val}':"
+
+    if pykey in final_pycode:
+        ALL_TAGS.append(
+            f"({name}:= '{val}'),"
+        )
+
+        final_pycode = final_pycode.replace(pykey, f'{name}:')
+
+ALL_TAGS.sort()
+
+
 final_pycode = f"""
 # Lines automatically build by the following file.
 #
 #     + ``{THIS_FILE_REL_SRC_PATH}``
 
 SETTINGS = dict()
+
+
+# -- ALL TAGS -- #
+
+ALL_TAGS = {ALL_TAGS}
 
 
 # -- ALL FLAVOURS -- #
@@ -379,7 +434,7 @@ final_pycode = black.format_file_contents(
 ).strip()
 
 for old, new in [
-    ('"(TAG_FLAVOUR', '(TAG_FLAVOUR'),
+    ('"(TAG_', '(TAG_'),
     ('),"', ')'),
 ]:
     final_pycode = final_pycode.replace(old, new)
@@ -389,6 +444,28 @@ with SPECS_SRC_FILE.open(
     mode     = 'w'
 ) as f:
     f.write(final_pycode)
+
+
+# ------------------ #
+# -- UPDATE TOOLS -- #
+# ------------------ #
+
+if ALL_TOOLS:
+    print(f"{TAB_1}* Updating the tools.")
+
+    for flavour in ALL_TOOLS:
+        for path in (CONTRIB_DSL_DIR / flavour).glob("*"):
+            if not path.stem.lower() == "tools":
+                continue
+
+            if path.stem.islower():
+                dest = f'jng{flavour}.{path.ext}'
+
+            else:
+                dest = 'README.md'
+
+            path.copy_to(EXTRA_TOOLS_DIR / flavour / dest)
+
 
 
 # ------------------ #

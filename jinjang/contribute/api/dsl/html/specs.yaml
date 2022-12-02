@@ -1,9 +1,8 @@
 about:
     author: Christophe, Bal [projetmbc@gmail.com]
-    desc  : ??? avec une bibliothèque dédiée !!!
-    date  : 2022-11-???
-
-tool: ?????
+    desc  : Useful settings and tools for HTML templating.
+    date  : 2022-12-01
+    tools : yes
 
 ext:
     - html
