@@ -1,5 +1,5 @@
-The folder `jinjang-extra-tools`
-================================
+The folder `jng-extra-tools`
+============================
 
 > **I beg your pardon for my english...**
 >

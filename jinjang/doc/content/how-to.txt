@@ -6,5 +6,10 @@
 ????
 =================
 
+soit detection auto du parfum, soit on l'impose
+
+penser à laisser possibilité d'appeler jinja direct !
+
+
 content::
     ¨content/????.txt         ??

@@ -5,7 +5,9 @@
 SETTINGS = dict()
 
 
+# -------------- #
 # -- ALL TAGS -- #
+# -------------- #
 
 ALL_TAGS = [
     (TAG_BLOCK_COMMENT_END:= 'comment_end_string'),
@@ -22,7 +24,9 @@ ALL_TAGS = [
 ]
 
 
+# ------------------ #
 # -- ALL FLAVOURS -- #
+# ------------------ #
 
 ALL_FLAVOURS = [
     (TAG_FLAVOUR_ASCII:= 'ascii'),
@@ -31,9 +35,11 @@ ALL_FLAVOURS = [
 ]
 
 
+# ----------- #
 # -- ASCII -- #
+# ----------- #
 #
-# Use -> Generic behaviour of `jinjaNG`.
+# Generic behaviour of `jinjaNG`.
 #
 # Last change: 2022-11-28
 # Author     : Christophe Bal
@@ -54,11 +60,13 @@ SETTINGS[TAG_FLAVOUR_ASCII] = {
 }
 
 
+# ---------- #
 # -- HTML -- #
+# ---------- #
 #
-# Use -> Useful settings and tools for HTML templating.
+# Useful settings and tools for HTML templating.
 #
-# Last change: 2022-12-01
+# Last change: 2022-12-02
 # Author     : Christophe Bal
 
 SETTINGS[TAG_FLAVOUR_HTML] = {
@@ -77,9 +85,11 @@ SETTINGS[TAG_FLAVOUR_HTML] = {
 }
 
 
+# ----------- #
 # -- LATEX -- #
+# ----------- #
 #
-# Use -> Useful settings and tools for LaTeX templating.
+# Useful settings and tools for LaTeX templating.
 #
 # Last change: 2022-12-01
 # Author     : Christophe Bal

@@ -1,0 +1,22 @@
+this::
+    date = 2022-12-02
+
+
+=======================
+Commenter son squelette
+=======================
+
+Voici les deux types de commentaires
+((
+    Voir la note sur les commentaires fictifs dans la sections ur les instructions.
+)).
+
+jinjang::
+    ---
+    flavour = verbatim
+    ---
+    #_ Un commentaire sur une seule ligne.
+
+    {#_ Un commentaire
+    sur
+    plusieurs lignes. _#}

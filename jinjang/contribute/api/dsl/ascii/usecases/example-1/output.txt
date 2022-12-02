@@ -1,5 +1,0 @@
-Voici un petit exemple de compte automatique.
-
-    1) Je compte en carrés 1.
-    2) Je compte en carrés 4.
-    3) Je compte en carrés 9.
