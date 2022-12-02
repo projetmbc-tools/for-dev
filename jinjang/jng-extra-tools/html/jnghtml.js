@@ -6,8 +6,8 @@ prototype::
 ref::
     The initial code comes from cf::``this post ; https://stackoverflow.com/a/74336061/4589608 ``.
 **/
-jinjang =_=>
-  document.body.outerHTML=document.body.outerHTML
+jnghtml = _ =>
+  document.body.outerHTML = document.body.outerHTML
     // .replace(/\[\[.*?\]\]/g, "")
     .replace(
         /\{\{(.*?)\}\}/g,

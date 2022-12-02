@@ -4,7 +4,7 @@
 How to use the tools?
 ---------------------
 
-Here is the miminal way to use the tools from the script file `<:TOOLS_LONG:>`. Note the use of `%: if False :% ... %: endif :%` suchas to load the script `<:TOOLS_LONG:>` only when working on the template. **We suppose here that the `JavaScript` and `HTML` files are located in the smae folder.**
+Here is the miminal way to use the tools from the script file `jnghtml.js`. Note the use of `%: if False :% ... %: endif :%` suchas to load the script `jnghtml.js` only when working on the template. **We suppose here that the `JavaScript` and `HTML` files are located in the smae folder.**
 
 ~~~html
 <!DOCTYPE html>
@@ -12,13 +12,13 @@ Here is the miminal way to use the tools from the script file `<:TOOLS_LONG:>`. 
 <head>
 <!--: if False :-->
 <script type = "text/javascript"
-        src  = "<:TOOLS_LONG:>">
+        src  = "jnghtml.js">
 </script>
 <!--: endif :-->
 </head>
 
 <!--: if False :-->
-<body onload = "<:TOOLS:>()">
+<body onload = "jnghtml()">
 <!--: else :-->
 <body>
 <!--: endif :-->

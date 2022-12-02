@@ -38,7 +38,7 @@ SPECS_SRC_FILE = PROJECT_DIR / 'src' / 'config' / 'flavour.py'
 CONTRIB_DSL_DIR   = PROJECT_DIR / 'contribute' / 'api' / 'dsl'
 SPECS_STATUS_YAML = THIS_DIR / 'validated.yaml'
 
-EXTRA_TOOLS_DIR = PROJECT_DIR / 'jinjang-extra-tools'
+EXTRA_TOOLS_DIR = PROJECT_DIR / 'jng-extra-tools'
 
 
 TAB_1 = ' '*4
@@ -94,6 +94,10 @@ for specfile in CONTRIB_DSL_DIR.rglob("*/*specs.yaml"):
 # ---------------------- #
 # -- TOOLS FOR SOURCE -- #
 # ---------------------- #
+
+# Placeholders
+README_TOOLS      = "<:TOOLS:>"
+README_TOOLS_LONG = "<:TOOLS_LONG:>"
 
 # Specilas chars.
 SPECHAR_INSTR   = ':'
@@ -454,17 +458,48 @@ if ALL_TOOLS:
     print(f"{TAB_1}* Updating the tools.")
 
     for flavour in ALL_TOOLS:
-        for path in (CONTRIB_DSL_DIR / flavour).glob("*"):
-            if not path.stem.lower() == "tools":
-                continue
+        tools_files = [
+            p
+            for p in (CONTRIB_DSL_DIR / flavour).glob("*")
+            if p.stem.lower() == "tools"
+        ]
 
+        for path in tools_files:
+            if path.ext != 'md':
+                toolsname      = f'jng{flavour}'
+                toolsname_long = f'{toolsname}.{path.ext}'
+                break
+
+        for path in tools_files:
             if path.stem.islower():
-                dest = f'jng{flavour}.{path.ext}'
+                dest = f'{toolsname}.{path.ext}'
 
             else:
                 dest = 'README.md'
 
-            path.copy_to(EXTRA_TOOLS_DIR / flavour / dest)
+            dest = EXTRA_TOOLS_DIR / flavour / dest
+
+            path.copy_to(
+                dest,
+                safemode = False
+            )
+
+            if dest.ext == 'md':
+                content = dest.read_text(encoding = 'utf-8')
+                content = content.replace(
+                    README_TOOLS,
+                    toolsname
+                )
+                content = content.replace(
+                    README_TOOLS_LONG,
+                    toolsname_long
+                )
+
+                dest.write_text(
+                    data     = content,
+                    encoding = 'utf-8')
+
+
 
 
 
