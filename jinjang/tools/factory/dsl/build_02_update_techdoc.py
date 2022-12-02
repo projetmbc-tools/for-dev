@@ -2,6 +2,7 @@
 
 from cbdevtools.addfindsrc import addfindsrc
 from mistool.os_use        import PPath as Path
+from mistool.string_use    import between
 
 addfindsrc(
     file    = __file__,
@@ -33,22 +34,36 @@ THIS_FILE_REL_SRC_PATH    = Path(__file__) - PROJECT_DIR
 THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
 
 
-SPECS_DOC_DIR = PROJECT_DIR / 'doc' / 'content' / 'specs'
+SPECS_DOC_DIR         = PROJECT_DIR / 'doc' / 'content' / 'specs'
+SPECS_CONTENT_TNSFILE = SPECS_DOC_DIR / 'specs.txt'
 
-DEFAULT_FILES
+DEFAULT_FILES = {
+    'variables'   : SPECS_DOC_DIR / TAG_FLAVOUR_ASCII,
+    'instructions': SPECS_DOC_DIR / TAG_FLAVOUR_ASCII,
+    'commments'   : SPECS_DOC_DIR / TAG_FLAVOUR_ASCII,
+    'tools'       : SPECS_DOC_DIR / TAG_FLAVOUR_HTML,
+}
 
-
-# ------------------- #
-# -- DEFAULT FILES -- #
-# ------------------- #
+DEFAULT_FILES = {
+    n: p / f'{n}.txt'
+    for n, p in DEFAULT_FILES.items()
+}
 
 
 # ---------------- #
 # -- LET'S WORK -- #
 # ---------------- #
 
-for flavour, specs in SETTINGS.items():
+MAIN_TOC = []
+
+for flavour in sorted(SETTINGS):
     if flavour == TAG_FLAVOUR_ASCII:
         continue
+
+    MAIN_TOC.append(flavour)
+
+    specs = SETTINGS[flavour]
+
+
 
     print(flavour)

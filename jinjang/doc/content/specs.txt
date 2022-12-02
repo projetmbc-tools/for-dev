@@ -1,7 +1,3 @@
-this::
-    date = 2022-12-02
-
-
 abrev::
     content = /specs
 
@@ -11,6 +7,6 @@ Réglages et petits outils proposés
 ==================================
 
 content::
-    ¨content/verbatim.txt
+    ¨content/ascii.txt
 /* -- AUTO CONTENT - START -- */
 /* -- AUTO CONTENT - END -- */
