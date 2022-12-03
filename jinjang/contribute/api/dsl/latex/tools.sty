@@ -8,14 +8,10 @@
 %     return : commands to print the argument as a math formula inside a box,
 %              all of this being in red.
 %%%
-% Source: https://tex.stackexchange.com/a/33478/6880
-\def\JNGVAR{%
-  \begingroup
-  \catcode`\_=12\relax
-  \@JNGVAR}
-\def\@JNGVAR#1{%
-  \color{red}\fbox{\ttfamily#1}%
-  \endgroup}
+% Source: https://tex.stackexchange.com/a/667360/6880
+\NewDocumentCommand\JNGVAR{v}{%
+  \textcolor{red}{\fbox{\texttt{#1}}}%
+}
   
 
 % %%%
