@@ -2,9 +2,9 @@ abrev::
     content = /html
 
 
-====
-html
-====
+===============================
+Pour les contenus de type ¨html
+===============================
 
 content::
     ¨content/variables.txt

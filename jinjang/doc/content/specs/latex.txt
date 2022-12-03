@@ -2,9 +2,9 @@ abrev::
     content = /latex
 
 
-=====
-latex
-=====
+================================
+Pour les contenus de type ¨latex
+================================
 
 content::
     ¨content/variables.txt
