@@ -8,9 +8,8 @@ Here is the miminal way to use the tools from the package `<:TOOLS:>`. Note the 
 
 ~~~latex
 \documentclass[12pt]{article}
-
 %: if False :%
-    \usepackage{<:TOOLS:>}
+\usepackage{<:TOOLS:>}
 %: endif :%
 
 \begin{document}
@@ -23,7 +22,7 @@ The smallest \JNGVAR{txt_example} in the world.
 The tiny template above will produce an ouput similar to the following one. Note that the underscore is interpreted as a subscript.
 
 <div style="border: solid 1px; padding: 4px 6px, margin-bottom:12px;">
-The smallest <span style="color: red; font-style: italic;border: solid 1px; padding: 1px 3px">txt_<sub>e</sub>xample</span> in the world.
+The smallest <span style="color: red; font-style: italic;border: solid 1px; padding: 1px 3px">txt<sub>e</sub>xample</span> in the world.
 </div>
 <br/>
 

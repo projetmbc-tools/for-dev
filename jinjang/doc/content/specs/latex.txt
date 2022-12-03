@@ -1,0 +1,13 @@
+abrev::
+    content = /latex
+
+
+=====
+latex
+=====
+
+content::
+    ¨content/variables.txt
+    ¨content/instructions.txt
+    ¨content/comments.txt
+    ¨content/tools.txt

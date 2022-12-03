@@ -1,10 +1,14 @@
 this::
-    date = 2022-12-03
+    date = ?
 
 
 ========================
 Variables dans un patron
 ========================
+
+TODO
+
+/* Text already used that can help you for a new doc.
 
 Les variables se tapent via des doubles accolades comme dans l'exemple suivant.
 
@@ -14,3 +18,4 @@ jinjang::
     ---
 
     J'utilise une variable : {{ une_var }}.
+*/

@@ -4,7 +4,7 @@
 How to use the tools?
 ---------------------
 
-Here is the miminal way to use the tools from the script file `<:TOOLS_LONG:>`. Note the use of `%: if False :% ... %: endif :%` suchas to load the script `<:TOOLS_LONG:>` only when working on the template. **We suppose here that the `JavaScript` and `HTML` files are located in the smae folder.**
+Here is the miminal way to use the tools from the script file `<:TOOLS_LONG:>`. Note the use of `<!--: if False :--> ... <!--: endif :-->` suchas to load the script `<:TOOLS_LONG:>` only when working on the template. **We suppose here that the `JavaScript` and `HTML` files are located in the smae folder.**
 
 ~~~html
 <!DOCTYPE html>

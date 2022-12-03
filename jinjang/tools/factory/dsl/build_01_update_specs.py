@@ -243,7 +243,8 @@ if ALL_TOOLS:
 
                 dest.write_text(
                     data     = content,
-                    encoding = 'utf-8')
+                    encoding = 'utf-8'
+                )
 
 
 # ------------------ #

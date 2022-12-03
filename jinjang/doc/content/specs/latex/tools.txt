@@ -1,10 +1,14 @@
 this::
-    date = 2022-12-03
+    date = ?
 
 
 =============================
 Outils d'aide à la conception
 =============================
+
+TODO
+
+/* Text already used that can help you for a new doc.
 
 Il existe un script ¨js path::``jnghtml.js`` pour faciliter la conception de patrons : ce script permet de ne pas trop polluer la mise en forme d'un patron avant son utilisation via ¨jinjang. L'essayer, c'est l'adopter.
 
@@ -46,3 +50,4 @@ Dans le cas précédent, jinja(flavour = html)::``{{ txt_example }}`` sera rendu
 
 note::
     Le code ¨js agit directement sur le ``document.body.outerHTML`` en utilisant une ¨regex_fr pour effectuer des remplacements en dur.
+*/

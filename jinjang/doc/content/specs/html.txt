@@ -1,0 +1,13 @@
+abrev::
+    content = /html
+
+
+====
+html
+====
+
+content::
+    ¨content/variables.txt
+    ¨content/instructions.txt
+    ¨content/comments.txt
+    ¨content/tools.txt
