@@ -1,12 +1,12 @@
 this::
-    date = 2022-12-03
+    date = 2022-12-04
 
 
 ========================
 Variables dans un patron
 ========================
 
-Les variables se tapent via une macro fictive latex::``\JNGVAR{ ... }`` qui devinet active si l'on utilise les outils présentées dans cf::``tools.txt``.
+Les variables se tapent via une macro fictive latex::``\JNGVAR{ ... }`` qui devient active si l'on utilise les outils présentés dans cf::``tools.txt``.
 
 jinjang::
     ---

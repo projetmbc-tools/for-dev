@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-03
+    date = 2022-12-04
 
 
 =============================
@@ -32,4 +32,4 @@ jinjang::
     \end{document}
 
 
-Dans le cas précédent, jinja(flavour = latex)::``\JNGVAR{txt_example}`` sera rendu comme le formule ``txt_{e}xample`` en rouge dans un cadre lui aussi rouge.
+Dans le cas précédent, jinja(flavour = latex)::``\JNGVAR{txt_example}`` donnera le texte ``txt_example`` en rouge dans un cadre lui aussi rouge (le caractère "souligné blanc" sera écrit verbatim).

@@ -1,23 +1,30 @@
-\usepackage{amsmath}
 \usepackage{color}
 
 %%%
 % prototype::
-%     #1 :
+%     #1 : the name of a ¨jinja variable (this variable should be a printable
+%          formula like text.
 %
-%     return :
+%     return : commands to print the argument as a math formula inside a box,
+%              all of this being in red.
 %%%
-
-\newcommand\JNGVAR[1]{%
-	{\color{red}\fbox{$#1$}}%
-}
-
+% Source: https://tex.stackexchange.com/a/33478/6880
+\def\JNGVAR{%
+  \begingroup
+  \catcode`\_=12\relax
+  \@JNGVAR}
+\def\@JNGVAR#1{%
+  \color{red}\fbox{\ttfamily#1}%
+  \endgroup}
+  
 
 % %%%
 % % prototype::
-% %     #1 :
-% %     #2 :
+% %     #1 : the sequence of characters to be used directly in the template
+% %          (without any action of ¨jinjang).
+% %     #2 : the name of a ¨jinja variable (this variable should be a printable
+% %          formula like text.
 % %
-% %     return :
+% %     return : the 1st argument without any change.
 % %%%
-% \newcommand\JNGPARAM[2]{#1}
+% % \newcommand\JNGPARAM[2]{#1} % PARAMS WILL COME LATER...

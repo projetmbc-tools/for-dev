@@ -19,19 +19,14 @@ The smallest \JNGVAR{txt_example} in the world.
 \end{document}
 ~~~
 
-The tiny template above will produce an ouput similar to the following one. Note that the underscore is interpreted as a subscript.
+The tiny template above will produce an ouput similar to the following one.
 
 <div style="border: solid 1px; padding: 4px 6px, margin-bottom:12px;">
-The smallest <span style="color: red; font-style: italic;border: solid 1px; padding: 1px 3px">txt<sub>e</sub>xample</span> in the world.
+The smallest <span style="color: red; border: solid 1px; padding: 1px 3px">txt_example</span> in the world.
 </div>
 <br/>
 
-> **WARNING 1.**
->
-> Names of the `jinja` variables can't contain two consecutive underscores.
-
-
-> **WARNING 2.**
+> **WARNING.**
 >
 > The `jinja` variables can't be used as one `LaTeX` argument.
 
@@ -39,4 +34,4 @@ The smallest <span style="color: red; font-style: italic;border: solid 1px; padd
 What is done behind the scenes?
 -------------------------------
 
-The `amsmath` and `color` packages are used to format the names of `jinja` variables in red inside a red box, while applying the mathematical mode to allow the use of isolated underscores in the name of a `jinja` variable.
+The `color` package is used to format the names of `jinja` variables in red inside a red box.
