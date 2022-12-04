@@ -10,7 +10,7 @@
 -----
 
 [[:doc:]]
-Flavours: one section indicates the files associated automatically a flavour.
+Flavours: one section indicates the files associated automatically to one flavour.
 
 
 --------

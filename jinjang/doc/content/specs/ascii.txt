@@ -1,14 +1,14 @@
 this::
-    date = 2022-12-02
+    date = 2022-12-04
 
 
 abrev::
     content = /ascii
 
 
-====================================
-Verbatim, le comportement par défaut
-====================================
+===============================================
+La saveur ``ascii``, le comportement par défaut
+===============================================
 
 warning::
     Les habitués de ¨jinja feront attention aux réglages spécifiques choisis par ¨jinjang.

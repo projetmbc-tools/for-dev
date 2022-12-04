@@ -2,9 +2,9 @@ abrev::
     content = /latex
 
 
-=====
-latex
-=====
+===================
+La saveur ``latex``
+===================
 
 content::
     ¨content/variables.txt

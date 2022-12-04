@@ -2,9 +2,9 @@ abrev::
     content = /html
 
 
-====
-html
-====
+==================
+La saveur ``html``
+==================
 
 content::
     ¨content/variables.txt

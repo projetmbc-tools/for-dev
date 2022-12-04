@@ -26,7 +26,7 @@ print("\033c", end="")
 # --------------- #
 
 FORCE_TOC_UPDATE = False
-# FORCE_TOC_UPDATE = True
+FORCE_TOC_UPDATE = True
 
 
 THIS_FILE = Path(__file__)
@@ -151,9 +151,11 @@ def build_toc(flavour, specs):
 
     toc = ('\n' + ' '*4).join(toc)
 
+    title = f"La saveur ``{flavour}``"
+
     return TEMPL_TOC.format(
         flavour = flavour,
-        title   = tnstitle(flavour),
+        title   = tnstitle(title),
         toc     = toc,
     )
 
