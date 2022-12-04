@@ -2,12 +2,13 @@ abrev::
     content = /html
 
 
-===============================
-Pour les contenus de type ¨html
-===============================
+====
+html
+====
 
 content::
     ¨content/variables.txt
     ¨content/instructions.txt
     ¨content/comments.txt
     ¨content/tools.txt
+    ¨content/extensions.txt

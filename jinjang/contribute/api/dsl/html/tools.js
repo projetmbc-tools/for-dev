@@ -12,9 +12,11 @@ ref::
 ***/
 jnghtml = _ =>
     document.body.outerHTML = document.body.outerHTML
-        // .replace(/\[\[.*?\]\]/g, "")  // PARAMS WILL COME LATER...
+// PARAMS WILL COME LATER...
+        // .replace(/\[\[.*?\]\]/g, "")
+// VARIABLES
         .replace(
-            /\{\{(.*?)\}\}/g,
+            /\{\{\s+(.*?)\s+\}\}/g,
               `<span style="color: red; font-weight: bold; `
             + `border: solid 1px; padding: 1px 3px">$1</span>`
         );

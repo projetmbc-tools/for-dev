@@ -52,7 +52,7 @@ TAG_INLINE_COMMENT      = 'line_comment_prefix'
 
 
 GRP_TAGS = {
-    (TAG_ABOUT := 'about'): [
+    (TAG_ABOUT:= 'about'): [
         TAG_AUTHOR:= 'author',
         TAG_DESC  := 'desc',
         TAG_DATE  := 'date',
@@ -63,8 +63,8 @@ GRP_TAGS = {
         TAG_INLINE:= 'inline',
     ],
     None: [
-        TAG_EXT  := 'ext',
-        TAG_VAR  := 'var',
+        TAG_EXT:= 'ext',
+        TAG_VAR:= 'var',
         # TAG_PARAM:= 'param',
     ]
 }

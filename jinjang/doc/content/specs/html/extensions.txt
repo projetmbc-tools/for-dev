@@ -1,0 +1,14 @@
+
+this::
+    date = 2022-12-04
+
+
+==============================================
+Fichiers ¨auto^t associés à la saveur ``html``
+==============================================
+
+Un seul type de fichier est automatiquement associé à la saveur ``html``.
+
+/* -- AUTO LIST - START -- */
+    * path::``*.html``
+/* -- AUTO LIST - END -- */

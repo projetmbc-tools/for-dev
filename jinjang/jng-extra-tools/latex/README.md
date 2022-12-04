@@ -4,13 +4,13 @@
 How to use the tools?
 ---------------------
 
-Here is the miminal way to use the tools from the package `jnglatex`. Note the use of `%: if False :% ... %: endif :%` suchas to import the package `jnglatex` only when working on the template.
+Here is the miminal way to use the tools from the package `jnglatex`. Note the use of `%: if False ... %: endif` suchas to import the package `jnglatex` only when working on the template.
 
 ~~~latex
 \documentclass[12pt]{article}
-%: if False :%
+%: if False
 \usepackage{jnglatex}
-%: endif :%
+%: endif
 
 \begin{document}
 

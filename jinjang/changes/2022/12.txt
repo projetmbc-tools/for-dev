@@ -5,12 +5,24 @@
 04
 ==
 
+-----
+:new:
+-----
+
+[[:doc:]]
+Flavours: one section indicates the files associated automatically a flavour.
+
+
 --------
 :update:
 --------
 
 [[:api:]]
-¨latex flavour: the tools display the underscores verbatim without (the mathematical mode is no longer used).
+Flavours: better tools
+
+    1) ¨latex macro latex::``\JNGVAR``: the underscores are displayed verbatim (the mathematical mode is no longer used).
+
+    1) ¨js function js::``jnghtml``: the regex trims the content captured.
 
 
 // ---------- //

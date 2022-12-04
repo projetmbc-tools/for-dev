@@ -18,3 +18,4 @@ content::
     ¨content/variables.txt
     ¨content/instructions.txt
     ¨content/commments.txt
+    ¨content/extensions.txt
