@@ -25,6 +25,14 @@ Flavours: better tools
     1) ¨js function js::``jnghtml``: the regex trims the content captured.
 
 
+--------
+:fordev:
+--------
+
+[[:api:]]
+Flavours: the path::``README`` files can used images put inside a folder named path::``images``.
+
+
 // ---------- //
 
 

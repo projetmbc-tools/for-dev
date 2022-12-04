@@ -19,16 +19,17 @@ The smallest \JNGVAR{txt_example} in the world.
 \end{document}
 ~~~
 
-The tiny template above will produce an ouput similar to the following one.
+The tiny template above will produce the ouput shown in the picture below.
 
-<div style="border: solid 1px; padding: 4px 6px, margin-bottom:12px;">
-The smallest <span style="color: red; border: solid 1px; padding: 1px 3px">txt_example</span> in the world.
-</div>
-<br/>
+---
+
+![output](images/exavar.png)
+
+---
 
 > **WARNING.**
 >
-> The `jinja` variables can't be used as one `LaTeX` argument.
+> The `jinja` variables can't be used as one `LaTeX` parameter.
 
 
 What is done behind the scenes?

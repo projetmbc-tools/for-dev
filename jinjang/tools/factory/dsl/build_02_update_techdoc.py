@@ -26,7 +26,7 @@ print("\033c", end="")
 # --------------- #
 
 FORCE_TOC_UPDATE = False
-FORCE_TOC_UPDATE = True
+# FORCE_TOC_UPDATE = True
 
 
 THIS_FILE = Path(__file__)

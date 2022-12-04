@@ -28,16 +28,17 @@ Here is the miminal way to use the tools from the script file `jnghtml.js`. Note
 </html>
 ~~~
 
-The tiny template above will produce an ouput similar to the following one.
+The tiny template above will produce the ouput shown in the picture below.
 
-<div style="border: solid 1px; padding: 4px 6px, margin-bottom:12px;">
-The smallest <span style="color: red; font-weight: bold; `border: solid 1px; padding: 1px 3px">txt_example</span> in the world.
-</div>
-<br/>
+---
+
+![output](images/exavar.png)
+
+---
 
 > **WARNING.**
 >
-> The `jinja` variables can't be used as one `CSS` variable.
+> The `jinja` variables can't be used as one `CSS` parameter.
 
 
 What is done behind the scenes?

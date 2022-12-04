@@ -1,9 +1,9 @@
 /***
 prototype::
     action : the function ``jnghtml`` use a regex like replacement to
-             transform a sequence like ``{{ one_jinja_var }}`` into
-             a span formatted looking like
-             ``<span style="color: red; ...">one_jinja_var</span>``.
+             transform a sequence like ``{{ jinja_basic_instr }}`` into
+             ``<span style="color: red; ...">jinja_basic_instr</span>``
+             where the text ``jinja_basic_instr`` is reproduced verbatim.
 
 
 ref::
@@ -16,7 +16,7 @@ jnghtml = _ =>
         // .replace(/\[\[.*?\]\]/g, "")
 // VARIABLES
         .replace(
-            /\{\{(.*?)\}\}/g,
+            /\{\{\s+(.*?)\s+\}\}/g,
               `<span style="color: red; font-weight: bold; `
             + `border: solid 1px; padding: 1px 3px">$1</span>`
         );

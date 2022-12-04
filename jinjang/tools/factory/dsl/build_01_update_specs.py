@@ -33,6 +33,10 @@ SPECS_STATUS_YAML = THIS_DIR / 'validated.yaml'
 EXTRA_TOOLS_DIR = PROJECT_DIR / 'jng-extra-tools'
 
 
+IMG_DIR  = 'images'
+IMG_EXTS = ['png']
+
+
 TAB_1 = ' '*4
 TAB_2 = TAB_1*2
 TAB_3 = TAB_1*3
@@ -183,7 +187,7 @@ final_pycode = black.format_file_contents(
     final_pycode,
     fast = False,
     mode = black.FileMode()
-).strip()
+).strip() + '\n'
 
 for old, new in [
     ('"(TAG_', '(TAG_'),
@@ -206,9 +210,35 @@ if ALL_TOOLS:
     print(f"{TAB_1}* Updating the tools.")
 
     for flavour in ALL_TOOLS:
+        contrib_flavour_dir     = CONTRIB_DSL_DIR / flavour
+        contrib_flavour_img_dir = contrib_flavour_dir / IMG_DIR
+
+        xtratools_flavour_dir     = EXTRA_TOOLS_DIR / flavour
+        xtratools_flavour_img_dir = xtratools_flavour_dir / IMG_DIR
+
+# Images.
+        imgs = [
+            p
+            for p in contrib_flavour_img_dir.glob("*")
+            if p.ext in IMG_EXTS
+        ]
+
+        if imgs:
+            if xtratools_flavour_img_dir.is_dir():
+                xtratools_flavour_img_dir.remove()
+
+            xtratools_flavour_img_dir.create('dir')
+
+            for image in imgs:
+                image.copy_to(
+                    xtratools_flavour_img_dir / image.name,
+                    safemode = False
+                )
+
+# Tools and README.
         tools_files = [
             p
-            for p in (CONTRIB_DSL_DIR / flavour).glob("*")
+            for p in contrib_flavour_dir.glob("*")
             if p.stem.lower() == "tools"
         ]
 
@@ -225,7 +255,7 @@ if ALL_TOOLS:
             else:
                 dest = 'README.md'
 
-            dest = EXTRA_TOOLS_DIR / flavour / dest
+            dest = xtratools_flavour_dir / dest
 
             path.copy_to(
                 dest,
