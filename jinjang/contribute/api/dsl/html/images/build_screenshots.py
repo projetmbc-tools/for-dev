@@ -27,9 +27,48 @@ with sync_playwright() as p:
 
     page = browser.new_page()
     page.goto(f"file://{HTML_FILE}")
-    page.locator('p') \
-        .screenshot(path = PNG_FILE)
+    page.screenshot(path = PNG_FILE)
     browser.close()
+
+
+# ------------------ #
+# -- TRIM - TOOLS -- #
+# ------------------ #
+
+def findposition(im, dir, is_xcoord, background):
+    if is_xcoord:
+        tofind = im.size[0] - 1
+        other  = im.size[1]
+
+    else:
+        tofind = im.size[1] - 1
+        other  = im.size[0]
+
+    if dir == 1:
+        tofind = 0
+
+    while True:
+        onlybg = True
+
+        for o in range(0, other):
+            if is_xcoord:
+                totest = (tofind, o)
+
+            else:
+                totest = (o, tofind)
+
+            # print(totest)
+            if im.getpixel(totest) != background:
+                onlybg = False
+                break
+
+        if not onlybg:
+            break
+
+        tofind += dir
+
+    return tofind - dir
+
 
 
 # -------------------- #
@@ -40,23 +79,33 @@ im = Image.open(PNG_FILE)
 
 background = im.getpixel((0, 0))
 
-leftmost = im.size[0] - 1
-height   = im.size[1]
+right = findposition(
+    im         = im,
+    dir        = -1,
+    is_xcoord  = True,
+    background = background
+)
 
-while True:
-    onlybg = True
+left = findposition(
+    im         = im,
+    dir        = 1,
+    is_xcoord  = True,
+    background = background
+)
 
-    for r in range(0, height):
-        if im.getpixel((leftmost, r)) != background:
-            onlybg = False
-            break
+up = findposition(
+    im         = im,
+    dir        = 1,
+    is_xcoord  = False,
+    background = background
+)
 
-    if not onlybg:
-        break
+down = findposition(
+    im         = im,
+    dir        = -1,
+    is_xcoord  = False,
+    background = background
+)
 
-    leftmost -= 1
-
-(left, upper, right, lower) = (0, 0, leftmost, height - 1)
-im = im.crop((left, upper, right, lower))
-
+im = im.crop((left, up, right, down))
 im.save(PNG_FILE)
