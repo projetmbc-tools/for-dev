@@ -19,7 +19,7 @@ The smallest \JNGVAR{txt_example} in the world.
 \end{document}
 ~~~
 
-The tiny template above will produce the ouput shown in the picture below.
+This template will produce the output shown in the following picture.
 
 ---
 

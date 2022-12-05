@@ -23,7 +23,8 @@ latexmk -c "exavar.tex"
 # -- PDF --> PNG -- #
 # ----------------- #
 
-convert -density 300 "exavar.pdf" -alpha off -resize 105% "exavar.png"
+convert -density 300 "exavar.pdf" -alpha off -resize 32% "exavar.png"
+
 
 
 # ------------------------------ #
