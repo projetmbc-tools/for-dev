@@ -1,5 +1,5 @@
 general:
-    project : python
+    project : spkpb
     desc    : A module to write programs which have to be verbose about a process on files and directories, and that have to emit informations, warnings and errors.
     author  : Christophe BAL
     licence : gnu 3

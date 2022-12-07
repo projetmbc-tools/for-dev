@@ -1,0 +1,7 @@
+general:
+    project : jinjaNG
+    desc    : Extended jinja2 template engine with specific settings, and wroflows.
+    author  : Christophe BAL
+    licence : gnu 3
+    need    :
+        - python3

@@ -1,10 +1,10 @@
 ﻿this::
-    date = 2022-10-31
+    date = 2022-12-06
 
 
-=======================================
-¨jinja c'est bien, ¨jinjang c'est mieux
-=======================================
+============================================
+¨jinja c'est bien, mais ¨jinjang c'est mieux
+============================================
 
 L'ambition de ¨jinjang est de rendre le travail avec ¨jinja plus efficace dans certaines situations. Considérons par exemple la rédaction de projets écrits via ¨latex (les détails arriveront dans les sections suivantes).
 

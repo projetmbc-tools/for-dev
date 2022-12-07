@@ -2,14 +2,10 @@
     content = /how-to
 
 
-=================
-????
-=================
-
-soit detection auto du parfum, soit on l'impose
-
-penser à laisser possibilité d'appeler jinja direct !
-
+==============================
+Comment faire appel à ¨jinjang
+==============================
 
 content::
-    ¨content/????.txt         ??
+    ¨content/cli.txt        ????
+    ¨content/python.txt     ??

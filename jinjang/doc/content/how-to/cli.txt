@@ -1,0 +1,11 @@
+﻿abrev::
+    content = /cli
+
+
+===============
+Via un terminal
+===============
+
+content::
+    ¨content/default.txt    ????
+    ¨content/options.txt    ??
