@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-12-06
+    date = 2022-12-10
 
 
 ============================================
@@ -34,7 +34,7 @@ L'ambition de ¨jinjang est de rendre le travail avec ¨jinja plus efficace dans
 info::
     Le nom ¨jinjang est pour "JINJA N-ext G-eneration", soit "la génération suivant(e de) ¨jinja" en anglais. Ceci a une double signification.
 
-        1) **La génération suivant ¨jinja :** ceci indique que l'on s'en remet pleinement à ¨jinja pour concevoir des produits finis à partir de patrons
+        1) **La génération à côté de ¨jinja :** ceci indique que l'on s'en remet pleinement à ¨jinja pour concevoir des produits finis à partir de patrons
         ((
             "next to" signifie "proche de" en anglais.
         )).

@@ -1,0 +1,20 @@
+﻿this::
+    date = 2022-12-????
+
+
+=========================================
+Stocker les données dans un fichier ¨yaml
+=========================================
+
+???
+
+méthode sure car juste levture !
+
+python -m jinjang -dto datas.yaml template.tex output.tex
+
+    [d]atas
+    [t]emplate
+    [o]utput
+
+
+yaml typé ??? voir si jinja transtype "3" vers 3 par exemple

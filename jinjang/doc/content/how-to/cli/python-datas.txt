@@ -1,0 +1,14 @@
+﻿this::
+    date = 2022-12-????
+
+
+=============================================
+Construire les données via un fichier ¨python
+=============================================
+
+???
+
+moins sure mais du coup on localise fabricationd es données via
+parler de hooks si on code pas en python
+
+via -dto mais on commence avec fichier python

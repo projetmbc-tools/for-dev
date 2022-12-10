@@ -1,4 +1,8 @@
-﻿abrev::
+﻿this::
+    date = 2022-12-10
+
+
+abrev::
     content = /cli
 
 
@@ -6,6 +10,11 @@
 Via un terminal
 ===============
 
+¨jinjang est pilotable depuis un terminal ; ce choix donne la possibilité d'appeler ¨jinjang facilement depuis, par exemple, un ¨makefile, ou un langage de programmation autre que ¨python.
+
+
 content::
-    ¨content/default.txt    ????
-    ¨content/options.txt    ??
+    ¨content/yaml-datas.txt     ?????
+    ¨content/python-datas.txt   ????
+    ¨content/batch.txt          ???
+    ¨content/hooks.txt          ??

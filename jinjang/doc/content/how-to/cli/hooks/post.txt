@@ -1,0 +1,11 @@
+﻿this::
+    date = 2022-12-????
+
+
+==================================
+Agir après l'utilisation du patron
+==================================
+
+???
+
+exemple de compilation d'un fichier tex

@@ -1,0 +1,11 @@
+﻿this::
+    date = 2022-12-????
+
+
+==================================
+Agir avant l'utilisation du patron
+==================================
+
+???
+
+création de datas.yaml avec langage autre que python

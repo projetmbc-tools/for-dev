@@ -1,0 +1,11 @@
+﻿abrev::
+    content = /hooks
+
+
+===================
+Pré et post-actions
+===================
+
+content::
+    ¨content/pre.txt        ????
+    ¨content/post.txt       ???

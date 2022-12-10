@@ -1,11 +1,17 @@
-﻿abrev::
+﻿this::
+    date = 2022-12-10
+
+
+abrev::
     content = /python
 
 
-========================================================
-?????
-========================================================
+=======================
+¨jinjang depuis ¨python
+=======================
+
+Cette section explique le pilotage de ¨jinjang depuis ¨python sans passer via un terminal.
+
 
 content::
-    ¨content/default.txt    ????
-    ¨content/options.txt    ??
+    ????

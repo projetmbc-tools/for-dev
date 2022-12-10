@@ -1,0 +1,20 @@
+﻿this::
+    date = 2022-12-????
+
+
+================================
+Traitement par lot de squelettes
+================================
+
+???
+
+myjinjang.yaml pour un dossier avec motif au format glob ou regex au choix !
+
+besoin ici d'une logique de nommage
+
+
+python -m jinjang -b myjinjang.yaml
+
+on peut utiliser liste de yaml si on veut
+
+python -m jinjang -b myjinjang_1.yaml myjinjang_2.yaml myjinjang_3.yaml
