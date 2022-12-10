@@ -14,7 +14,6 @@ Via un terminal
 
 
 content::
-    ¨content/yaml-datas.txt     ?????
-    ¨content/python-datas.txt   ????
-    ¨content/batch.txt          ???
+    ¨content/yaml-datas.txt     ????
+    ¨content/python-datas.txt   ???
     ¨content/hooks.txt          ??

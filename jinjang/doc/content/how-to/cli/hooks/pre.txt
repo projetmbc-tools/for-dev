@@ -8,4 +8,10 @@ Agir avant l'utilisation du patron
 
 ???
 
-création de datas.yaml avec langage autre que python
+création de datas.yaml avec langage autre que python fair un exemple de type bash
+
++
+
+Traitement par lot de squelettes
+
+python -m jinjang -h myjinjang.yaml
