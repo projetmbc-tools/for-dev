@@ -1,20 +1,54 @@
 ﻿this::
-    date = 2022-12-????
+    date = 2022-12-11
 
 
-=========================================
-Stocker les données dans un fichier ¨yaml
-=========================================
+======================================
+Avec des données dans un fichier ¨yaml
+======================================
 
-???
+La méthode la plus sûre, en terme de sécurité, consiste à travailler avec deux fichiers du type suivant.
 
-méthode sure car juste levture !
+    1) Un fichier squelette que l'on veut peupler.
 
-python -m jinjang -dto datas.yaml template.tex output.tex
-
-    [d]atas
-    [t]emplate
-    [o]utput
+    1) Un fichier au format ¨yaml avec les valeurs des variables pour peupler le fichier squelette.
 
 
-yaml typé ??? voir si jinja transtype "3" vers 3 par exemple
+Imaginons que dans un dossier path::``my/folder`` le fichier squelette soit path::``mytemplate.tex``, un fichier ¨latex, et que le fichier de données ¨yaml soit path::``mydatas.yaml``, alors pour obtenir un fichier path::``myoutput.tex``, il suffira de procéder comme suit où l'option term::``-dto`` est pour "[d]atas, [t]emplate, [o]utput", soit  "données, squelette, produit" en français.
+La sortie ¨jinjang a été omise, d'où la présence symbolique de term::``[...]``.
+
+terminal::
+    > cd my/folder
+    > python -m jinjang -dto mydatas.yaml mytemplate.tex myoutput.tex
+    [...]
+
+
+Il reste à montrer les contenus des deux fichiers de départ, et de celui produit. Commençons par le squelette.
+
+latex::
+    ---
+    title = Le squelette path::``mytemplate.tex``
+    path  = ?/examples/mytemplate.tex
+    ---
+
+
+Les données suivantes sont utilisées pour peupler le squelette.
+
+yaml::
+    ---
+    title = Les données dans path::``mydatas.yaml``
+    path  = ?/examples/mydatas.yaml
+    ---
+
+
+La commande term::``python -m jinjang -dto...`` permet d'pbtenir le fichier suivant.
+
+latex::
+    ---
+    title = Le produit fini path::``myoutput.tex``
+    path  = ?/examples/myoutput.tex
+    ---
+
+
+note::
+    La seule obtention du fichier path::``myoutput.tex`` n'est pas forcément satisfaisante. On pourrait aussi souhaiter obtenir le ¨pdf associé à ce fichier.
+    La section cf::``hooks.txt`` explique comment appeler des programmes extérieurs après le travail fait par ¨jinjnag, mais aussi avant si besoin.

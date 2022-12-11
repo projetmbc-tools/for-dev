@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-12-10
+    date = 2022-12-11
 
 
 abrev::
@@ -10,10 +10,10 @@ abrev::
 Via un terminal
 ===============
 
-¨jinjang est pilotable depuis un terminal ; ce choix donne la possibilité d'appeler ¨jinjang facilement depuis, par exemple, un ¨makefile, ou un langage de programmation autre que ¨python.
+¨jinjang est pilotable depuis un terminal ; ce choix donne la possibilité d'appeler ¨jinjang facilement via un ¨makefile par exemple.
 
 
 content::
-    ¨content/yaml-datas.txt     ????
+    ¨content/yaml-datas.txt
     ¨content/python-datas.txt   ???
     ¨content/hooks.txt          ??
