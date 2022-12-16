@@ -1,35 +1,60 @@
 ﻿this::
-    date = 2022-12-????
+    date = 2022-12-16
 
 
-==================================
-Agir avant l'utilisation du patron
-==================================
+====================================
+Agir avant l'utilisation du "patron"
+====================================
 
-???
+Supposons que pour peupler un "patron", nous voulons obtenir le fichier suivant, ce dernier devant être fabriqué ¨auto^t à chaque lancement de ¨jinjang sur le "patron".
 
-¨jinjang propose un moyen classique et
-
-création de datas.yaml avec langage autre que python fair un exemple de type bash
-
-besoin d'un système de chgt locale de {{  }} pour config si cela est utilisé pour une oud es commandes en ligne
-
-
-convention mais pas imposé : fichier de ¨config path::``cfg.jng.yaml``
-
-par conter si détecté, il est autmatiquement chargé saufi si option -nocfg
-
-python -m jinjang -h myjinjang.yaml
+json::
+    ---
+    title = Le fichier path::``lastchanges.json``
+    path  = ?/examples/lastchanges.json
+    ---
 
 
-hooks mis dans myjinjang.yaml sous frome de commandes à exécuter tout simplement
+Pour la fabrication ¨auto, nous obtons pour le fichier ¨bash ci-après (qui ne nécessite aucun commentaire).
 
-ob fait des && en interne
+bash::
+    ---
+    title = Le fichier path::``bash2datas.bash``
+    path  = ?/examples/bash2datas.bash
+    ---
 
+
+Il reste à voir comment demander à ¨jinjang de lancer le script ¨bash.
+Commençons par une méthode ne nécessitant aucune option lors de l'emploi de term::``python -m jinjang``.
+Pour cela, il suffit d'utiliser un fichier nommé path::``cfg.jng.yaml``, placé dans le même dossier que le fichier "patron", et ayant le contenu suivant.
 
 yaml::
+    ---
+    title = Le fichier de ¨config path::``cfg.jng.yaml``
+    ---
+
     hooks:
         pre:
-            - command 1
-            - command 2
-            - command 3
+            - bash bash2datas.bash
+            - echo "Last changes updated."
+
+
+Le contenu précédent est analysé comme suit par ¨jinjang.
+
+    1) Le bloc yaml::``pre`` dans le bloc yaml::``hooks`` indique des commandes de pré-traitements.
+
+    1) Les commandes sont listées dans leur ordre d'utilisation.
+
+    1) Chaque commande est lancée relativement au dossier du "patron" utilisé. Ceci permet de comprendre la simplicté du fichier ¨bash proposé plus haut qui n'utilise pas term::``cd``.
+
+
+info::
+    Via l'option term::``-nocfg``, il est possible d'interdire l'utilisation ¨auto du fichier path::``cfg.jng.yaml``.
+
+
+Si plusieurs "patrons" sont présents dans un même dossier, ou bien pour pouvoir utiliser des ¨configs de test, il est utile de pouvoir choisir le fichier de ¨config de façon explicite.
+Ceci se passe via l'option term::``-cfg`` comme dans term::``python -m jinjang -cfg myconfig.yaml -dto ...``.
+
+
+info::
+    Il est possible d'utiliser quelques variables spéciales relatives au "patron" : voir cf::``spevars`` pour en savoir plus.

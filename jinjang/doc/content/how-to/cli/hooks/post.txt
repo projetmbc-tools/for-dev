@@ -2,17 +2,17 @@
     date = 2022-12-16
 
 
-==================================
-Agir après l'utilisation du patron
-==================================
+====================================
+Agir après l'utilisation du "patron"
+====================================
 
-Imaginions que nous ayons produit un fichier ¨tex à l'aide d'un patron comme cela a été proposé dans cf::``?/yaml-datas.txt``.
-L'intérêt des fichiers ¨tex est limité si l'on ne les utilise pas pour produire un contenu mis en forme au format ¨pdf par exemple.
+Imaginons que nous avons produit un fichier ¨tex à l'aide d'un "patron" comme cela a été proposé dans cf::``?/json-datas.txt``.
+L'intérêt des fichiers ¨tex est limité si l'on ne les utilise pas pour produire des contenus mis en forme au format ¨pdf par exemple.
 Obtenir ceci est très simple via un fichier de ¨config
 ((
     Nous nous plaçons dans la situation d'utilisation ¨auto d'une ¨config à destination de ¨jinjang.
 ))
-comme le suivant où la ¨1ere commande permet d'obtenir le ¨pdf, et la ¨2nde de ne pas garder les fichiers intermédiaires utilisés pour compiler le fichier ¨tex.
+comme le suivant où la ¨1ere commande permet d'obtenir le ¨pdf, et la ¨2nde de ne pas garder les fichiers intermédiaires utilisés pour compiler le fichier ¨tex, ce dernier étant indiqué dans les commandes via la variable spéciale jinjang::``{{output}}`` (voir cf::``spevars`` à ce sujet).
 
 yaml::
     ---
@@ -21,8 +21,8 @@ yaml::
 
     hooks:
         post:
-            - latexmk {{output}}
-            - latexmk -c {{output}}
+            - latexmk -pdf {{output}}
+            - latexmk -c   {{output}}
 
 
 note::

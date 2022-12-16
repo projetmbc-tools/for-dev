@@ -16,7 +16,7 @@ cp "tools.sty" "images/tools.sty"
 cd images
 
 latexmk -pdf "exavar.tex"
-latexmk -c "exavar.tex"
+latexmk -c   "exavar.tex"
 
 
 # ----------------- #

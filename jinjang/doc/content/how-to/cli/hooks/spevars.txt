@@ -1,0 +1,15 @@
+﻿this::
+    date = 2022-12-????
+
+
+=======================
+Les variables spéciales
+=======================
+
+???
+
+
+besoin d'un système de chgt locale de {{  }} pour config si cela est utilisé pour une oud es commandes en ligne
+
+    {{input}}   :  le patron
+    {{output}}  :  le fichier produit

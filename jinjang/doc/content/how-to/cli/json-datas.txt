@@ -3,28 +3,28 @@
 
 
 ======================================
-Avec des données dans un fichier ¨yaml
+Avec des données dans un fichier ¨json
 ======================================
 
 La méthode la plus sûre, en terme de sécurité, consiste à travailler avec deux fichiers du type suivant.
 
     1) Un fichier "patron" que l'on veut peupler.
 
-    1) Un fichier au format ¨yaml associant des valeurs aux variables nécessaires au peuplement du fichier "patron".
+    1) Un fichier au format ¨json associant des valeurs aux variables nécessaires au peuplement du fichier "patron".
 
 
 Imaginons que nous soyons dans la situation suivante.
 
     1) Dans un dossier path::``my/folder`` se trouve un fichier "patron" path::``mytemplate.tex`` qui est de type ¨latex.
 
-    1) Les données sont indiquées dans le fichier path::``mydatas.yaml``.
+    1) Les données sont indiquées dans le fichier path::``mydatas.json``.
 
 
 Dans ce cas, pour obtenir un fichier path::``myoutput.tex`` obtenu après peuplement, il suffira de procéder comme suit où l'option term::``-dto`` est pour "[d]atas, [t]emplate, [o]utput", soit  "données, patron, produit" en français (la sortie ¨jinjang a été omise, et d'où la présence de term::``[...]``).
 
 terminal::
     > cd my/folder
-    > python -m jinjang -dto mydatas.yaml mytemplate.tex myoutput.tex
+    > python -m jinjang -dto mydatas.json mytemplate.tex myoutput.tex
     [...]
 
 
@@ -39,14 +39,14 @@ latex::
 
 Les données suivantes sont utilisées pour peupler le "patron".
 
-yaml::
+json::
     ---
-    title = Les données dans path::``mydatas.yaml``
-    path  = ?/examples/mydatas.yaml
+    title = Les données dans path::``mydatas.json``
+    path  = ?/examples/mydatas.json
     ---
 
 
-La commande term::``python -m jinjang -dto...`` fournit finalement le fichier suivant.
+La commande term::``python -m jinjang -dto ...`` fournit finalement le fichier suivant.
 
 latex::
     ---
