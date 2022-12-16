@@ -11,7 +11,7 @@ Supposons que pour peupler un "patron", nous voulons obtenir le fichier suivant,
 json::
     ---
     title = Le fichier path::``lastchanges.json``
-    path  = ?/examples/lastchanges.json
+    path  = ?/examples/hooks/pre/lastchanges.json
     ---
 
 
@@ -20,7 +20,7 @@ Pour la fabrication ¨auto, nous obtons pour le fichier ¨bash ci-après (qui ne
 bash::
     ---
     title = Le fichier path::``bash2datas.bash``
-    path  = ?/examples/bash2datas.bash
+    path  = ?/examples/hooks/pre/bash2datas.bash
     ---
 
 
@@ -31,12 +31,8 @@ Pour cela, il suffit d'utiliser un fichier nommé path::``cfg.jng.yaml``, placé
 yaml::
     ---
     title = Le fichier de ¨config path::``cfg.jng.yaml``
+    path  = ?/examples/hooks/pre/cfg.jng.yaml
     ---
-
-    hooks:
-        pre:
-            - bash bash2datas.bash
-            - echo "Last changes updated."
 
 
 Le contenu précédent est analysé comme suit par ¨jinjang.

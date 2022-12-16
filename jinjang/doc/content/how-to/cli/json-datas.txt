@@ -33,7 +33,7 @@ A titre indicatif, montrons des contenus possibles pour les deux fichiers de dé
 latex::
     ---
     title = Le "patron" path::``mytemplate.tex``
-    path  = ?/examples/mytemplate.tex
+    path  = ?/examples/direct/mytemplate.tex
     ---
 
 
@@ -42,7 +42,7 @@ Les données suivantes sont utilisées pour peupler le "patron".
 json::
     ---
     title = Les données dans path::``mydatas.json``
-    path  = ?/examples/mydatas.json
+    path  = ?/examples/direct/mydatas.json
     ---
 
 
@@ -51,7 +51,7 @@ La commande term::``python -m jinjang -dto ...`` fournit finalement le fichier s
 latex::
     ---
     title = Le produit fini path::``myoutput.tex``
-    path  = ?/examples/myoutput.tex
+    path  = ?/examples/direct/myoutput.tex
     ---
 
 

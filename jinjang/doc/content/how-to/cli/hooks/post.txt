@@ -17,12 +17,8 @@ comme le suivant où la ¨1ere commande permet d'obtenir le ¨pdf, et la ¨2nde 
 yaml::
     ---
     title = Le fichier de ¨config path::``cfg.jng.yaml``
+    path  = ?/examples/hooks/post/cfg.jng.yaml
     ---
-
-    hooks:
-        post:
-            - latexmk -pdf {{output}}
-            - latexmk -c   {{output}}
 
 
 note::
