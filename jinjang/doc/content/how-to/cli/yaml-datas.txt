@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-12-11
+    date = 2022-12-16
 
 
 ======================================
@@ -8,13 +8,19 @@ Avec des données dans un fichier ¨yaml
 
 La méthode la plus sûre, en terme de sécurité, consiste à travailler avec deux fichiers du type suivant.
 
-    1) Un fichier squelette que l'on veut peupler.
+    1) Un fichier "patron" que l'on veut peupler.
 
-    1) Un fichier au format ¨yaml avec les valeurs des variables pour peupler le fichier squelette.
+    1) Un fichier au format ¨yaml associant des valeurs aux variables nécessaires au peuplement du fichier "patron".
 
 
-Imaginons que dans un dossier path::``my/folder`` le fichier squelette soit path::``mytemplate.tex``, un fichier ¨latex, et que le fichier de données ¨yaml soit path::``mydatas.yaml``, alors pour obtenir un fichier path::``myoutput.tex``, il suffira de procéder comme suit où l'option term::``-dto`` est pour "[d]atas, [t]emplate, [o]utput", soit  "données, squelette, produit" en français.
-La sortie ¨jinjang a été omise, d'où la présence symbolique de term::``[...]``.
+Imaginons que nous soyons dans la situation suivante.
+
+    1) Dans un dossier path::``my/folder`` se trouve un fichier "patron" path::``mytemplate.tex`` qui est de type ¨latex.
+
+    1) Les données sont indiquées dans le fichier path::``mydatas.yaml``.
+
+
+Dans ce cas, pour obtenir un fichier path::``myoutput.tex`` obtenu après peuplement, il suffira de procéder comme suit où l'option term::``-dto`` est pour "[d]atas, [t]emplate, [o]utput", soit  "données, patron, produit" en français (la sortie ¨jinjang a été omise, et d'où la présence de term::``[...]``).
 
 terminal::
     > cd my/folder
@@ -22,16 +28,16 @@ terminal::
     [...]
 
 
-Il reste à montrer les contenus des deux fichiers de départ, et de celui produit. Commençons par le squelette.
+A titre indicatif, montrons des contenus possibles pour les deux fichiers de départ, et ensuite ce que contient le fichier produit. Commençons par le "patron".
 
 latex::
     ---
-    title = Le squelette path::``mytemplate.tex``
+    title = Le "patron" path::``mytemplate.tex``
     path  = ?/examples/mytemplate.tex
     ---
 
 
-Les données suivantes sont utilisées pour peupler le squelette.
+Les données suivantes sont utilisées pour peupler le "patron".
 
 yaml::
     ---
@@ -40,7 +46,7 @@ yaml::
     ---
 
 
-La commande term::``python -m jinjang -dto...`` permet d'pbtenir le fichier suivant.
+La commande term::``python -m jinjang -dto...`` fournit finalement le fichier suivant.
 
 latex::
     ---
@@ -50,5 +56,5 @@ latex::
 
 
 note::
-    La seule obtention du fichier path::``myoutput.tex`` n'est pas forcément satisfaisante. On pourrait aussi souhaiter obtenir le ¨pdf associé à ce fichier.
-    La section cf::``hooks.txt`` explique comment appeler des programmes extérieurs après le travail fait par ¨jinjnag, mais aussi avant si besoin.
+    La seule obtention du fichier path::``myoutput.tex`` n'est pas forcément satisfaisante : on pourrait souhaiter obtenir aussi le ¨pdf fabriqué via l'appel de ¨pdflatex appliqué à path::``myoutput.tex``.
+    La section cf::``hooks.txt`` explique comment appeler des programmes extérieurs après le travail fait par ¨jinjnag.
