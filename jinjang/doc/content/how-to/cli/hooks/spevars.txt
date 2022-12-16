@@ -1,15 +1,13 @@
 ﻿this::
-    date = 2022-12-????
+    date = 2022-12-16
 
 
-=======================
-Les variables spéciales
-=======================
+===================
+Les ¨vars spéciales
+===================
 
-???
+Pour faciliter la rédaction des commandes des traitements périphériques, il est possible d'utiliser les ¨vars spéciales suivantes.
 
+    1) jinjang::``{{input}}`` est le nom du fichier "patron", avec son extension.
 
-besoin d'un système de chgt locale de {{  }} pour config si cela est utilisé pour une oud es commandes en ligne
-
-    {{input}}   :  le patron
-    {{output}}  :  le fichier produit
+    1) jinjang::``{{output}}`` est le nom du fichier produit, avec son extension.

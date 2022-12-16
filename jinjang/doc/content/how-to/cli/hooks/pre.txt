@@ -26,7 +26,7 @@ bash::
 
 Il reste à voir comment demander à ¨jinjang de lancer le script ¨bash.
 Commençons par une méthode ne nécessitant aucune option lors de l'emploi de term::``python -m jinjang``.
-Pour cela, il suffit d'utiliser un fichier nommé path::``cfg.jng.yaml``, placé dans le même dossier que le fichier "patron", et ayant le contenu suivant.
+Pour cela, il suffit d'utiliser un fichier nommé path::``cfg.jng.yaml``, placé dans le même dossier que le fichier "patron", et ayant le contenu suivant (la ligne avec term::``echo``, qui demande juste un affichage, est juste là pour expliquer le comportement de ¨jinjang).
 
 yaml::
     ---

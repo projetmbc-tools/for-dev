@@ -9,4 +9,4 @@ Pré et post-actions
 content::
     ¨content/pre.txt
     ¨content/post.txt
-    ¨content/spevars.txt    ??
+    ¨content/spevars.txt
