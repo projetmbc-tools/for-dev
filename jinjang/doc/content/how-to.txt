@@ -7,5 +7,5 @@ Comment faire travailler ¨jinjang ?
 ===================================
 
 content::
-    ¨content/cli.txt        ????
+    ¨content/cli.txt
     ¨content/python.txt     ??

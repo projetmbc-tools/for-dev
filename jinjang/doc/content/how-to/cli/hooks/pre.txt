@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-12-16
+    date = 2022-12-17
 
 
 ====================================
@@ -32,6 +32,7 @@ yaml::
     ---
     title = Le fichier de ¨config path::``cfg.jng.yaml``
     path  = ?/examples/hooks/pre/cfg.jng.yaml
+    keep  = regex: '(.*\n)*> lastchanges.json\n'
     ---
 
 

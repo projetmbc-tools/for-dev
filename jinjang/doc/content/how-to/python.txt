@@ -1,17 +1,13 @@
 ﻿this::
-    date = 2022-12-10
-
-
-abrev::
-    content = /python
+    date = 2022-12-????
 
 
 =======================
 ¨jinjang depuis ¨python
 =======================
 
+?????
+
 Cette section explique le pilotage de ¨jinjang depuis ¨python sans passer via un terminal.
 
-
-content::
-    ????
+pas de woirkflow comme n ligne de commandes, si besoin regarder donc texh mais pas pertinent

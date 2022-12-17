@@ -33,7 +33,7 @@ A titre indicatif, montrons des contenus possibles pour les deux fichiers de dé
 latex::
     ---
     title = Le "patron" path::``mytemplate.tex``
-    path  = ?/examples/direct/mytemplate.tex
+    path  = ?/examples/direct/tmpl-test-in.tex
     ---
 
 
@@ -51,7 +51,7 @@ La commande term::``python -m jinjang -dto ...`` fournit finalement le fichier s
 latex::
     ---
     title = Le produit fini path::``myoutput.tex``
-    path  = ?/examples/direct/myoutput.tex
+    path  = ?/examples/direct/tmpl-test-out.tex
     ---
 
 

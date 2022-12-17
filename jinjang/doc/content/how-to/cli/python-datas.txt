@@ -1,20 +1,34 @@
 ﻿this::
-    date = 2022-12-????
+    date = 2022-12-17
 
 
 ==============================================
 Des données construites par un fichier ¨python
 ==============================================
 
-???
+Il peut être utile de produire directement des données via un script ¨python, le langage de ¨dev de ¨jinjang
+((
+    Via des pré-traitements, voir cf::``hooks/pre.txt``, il est possible de faire appel à d'autres langages pour produire les fichiers ¨json de données.
+)),
+sans passer via un fichier ¨json. Nous allons voir comment faire ceci dans cette section.
 
-moins sure mais du coup on localise fabricationd es données via
-parler de hooks si on code pas en python
 
-même commande mais l'extension py au lieu de taml
+warning::
+    L'appel d'un programme extérieur doit toujours être fait avec prudence. Donc, en cas de doute, n'employer que des données de peuplement fournies via un fichier ¨json.
+
+
+Côté lignes de commandes, les choses sont simples car il suffit de faire comme dans la session fictive suivante où le fichier ¨python remplace le fichier ¨json.
 
 terminal::
     > cd my/folder
     > python -m jinjang -dto mydatas.py mytemplate.tex myoutput.tex
     [...]
-même sortiee qu'avant !
+
+
+Par contre, le fichier path::``mydatas.py`` doit obligatoirement fournir les données de peuplement via une variable python::``JNG_DATAS`` avec un contenu analogue à celui qu'il faudrait indiquer via un fichier ¨json. C'est tout ! Voici un code très basique permettant de fixer les idées.
+
+python::
+    ---
+    title = Un exemple de code ¨python construisant des données
+    path  = ?/examples/via-python/mydatas.py
+    ---
