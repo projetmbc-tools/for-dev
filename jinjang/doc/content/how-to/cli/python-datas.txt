@@ -30,5 +30,5 @@ Par contre, le fichier path::``mydatas.py`` doit obligatoirement fournir les don
 python::
     ---
     title = Un exemple de code ¨python construisant des données
-    path  = ?/examples/via-python/mydatas.py
+    path  = ?/examples/python-datas/mydatas.py
     ---

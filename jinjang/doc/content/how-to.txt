@@ -8,4 +8,4 @@ Comment faire travailler ¨jinjang ?
 
 content::
     ¨content/cli.txt
-    ¨content/python.txt     ??
+    ¨content/python.txt

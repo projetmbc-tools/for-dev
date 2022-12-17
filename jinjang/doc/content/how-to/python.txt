@@ -1,13 +1,39 @@
 ﻿this::
-    date = 2022-12-????
+    date = 2022-12-18
 
 
 =======================
 ¨jinjang depuis ¨python
 =======================
 
-?????
+Cette section explique le pilotage de ¨jinjang depuis ¨python directement.
+Pour cela, considérons le code suivant qui produit un fichier path::``output.txt`` en peuplant le fichier path::``mytemplate.txt`` avec les données fournies via le dictionnaire python::``MY_DATAS``
+((
+    Nous supposons ici que la commande term::``cd`` a été employée avant d'appeler notre fichier ¨python, ceci afin de se placer dans le dossier contenant le script ¨python, et aussi le "patron".
+)).
+Des explications sont données juste après.
 
-Cette section explique le pilotage de ¨jinjang depuis ¨python sans passer via un terminal.
+python::
+    ---
+    path    = ?/examples/via-python/mypybuilder.py
+    replace = "tmpl-test-in.txt"
+              >>>
+              "mytemplate.txt"
+    ---
 
-pas de woirkflow comme n ligne de commandes, si besoin regarder donc texh mais pas pertinent
+
+Le code s'appuie sur une instance de la classe python::``JNGBuilder`` du package python::``jinjang``, celle-ci s'utilisant comme suit.
+
+    1) L'initialisation indique un "dialecte", soit ici la "saveur" ¨ascii
+    ((
+        L'emploi de la constante python::``FLAVOUR_ASCII``, fournie par ¨jinjang, évite des fautes de frappe ravageuses.
+    )).
+    Ceci est la valeur par défaut, on peut donc se passer de python::``flavour = FLAVOUR_ASCII``, sauf si l'on souhaite imposer la "saveur" ¨ascii.
+
+    1) L'initialisation demande de donner le fichier "patron", ceci est fait via python::``template = TMPL``.
+
+    1) La contsrcution du fichier "produit" se fait via la méthode python::``build`` qui possède deux arguments non optionnels, et bien nommés, python::``datas`` et python::``output``.
+
+
+info::
+    A tout moment on peut changer de "dialecte", ou de fichier "patron" en modifiant les valeurs des attributs python::``flavour`` et python::``template`` proposés par la classe python::``JNGBuilder``.

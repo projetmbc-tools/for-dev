@@ -1,2 +1,2 @@
-﻿Le naturel {{mynb}} s'écrit en base 2 :
-[{{mynb_base2}}]_2 .
+﻿Le mot "{{word}}" se code en ASCII :
+"{{ascii_code}}" .

@@ -1,2 +1,2 @@
-﻿Le naturel 777 s'écrit en base 2 :
-[1100001001]_2 .
+﻿Le mot "TEST" se code en ASCII :
+"084069083084" .

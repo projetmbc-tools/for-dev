@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-12-16
+    date = 2022-12-17
 
 
 ======================================
@@ -26,6 +26,10 @@ terminal::
     > cd my/folder
     > python -m jinjang -dto mydatas.json mytemplate.tex myoutput.tex
     [...]
+
+
+info::
+    Nous laissons ici la responsabilité à ¨jinjang de trouver le bon "dialecte" à utiliser pour repérer les variables dans le "patron" : voir cf::``flavour.txt`` à ce sujet.
 
 
 A titre indicatif, montrons des contenus possibles pour les deux fichiers de départ, et ensuite ce que contient le fichier produit. Commençons par le "patron".

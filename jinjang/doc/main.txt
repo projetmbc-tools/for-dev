@@ -20,6 +20,6 @@ abrev::
 content::
     ¨content/intro.txt
     ¨content/jinja-power.txt
-    ¨content/how-to             ?????
+    ¨content/how-to
     ¨content/specs.txt
     ¨content/contribute.txt     ???

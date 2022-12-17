@@ -13,7 +13,8 @@ jq --null-input                    \
 
 TEMPL_OUT="tmpl-test-out.json"
 
-if [ -f "$TEMPL_OUT" ]; then
+if [ -f "$TEMPL_OUT" ]
+then
     rm "$TEMPL_OUT"
 fi
 

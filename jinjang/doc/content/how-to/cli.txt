@@ -17,3 +17,4 @@ content::
     ¨content/json-datas.txt
     ¨content/python-datas.txt
     ¨content/hooks.txt
+    ¨content/flavour.txt
