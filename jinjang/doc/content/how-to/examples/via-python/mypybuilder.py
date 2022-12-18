@@ -1,4 +1,8 @@
-﻿from jinjang import JNGBuilder, FLAVOUR_ASCII
+﻿from jinjang import (
+    FLAVOUR_ASCII,
+    JNGBuilder,
+    Path,
+)
 
 # Les données.
 word       = "TEST"
@@ -13,8 +17,11 @@ MY_DATAS = {
 }
 
 # Le fichier "patron", et le produit.
-TMPL_FILE   = "tmpl-test-in.txt"
-OUTPUT_FILE = "output.txt"
+#
+# On doit utiliser une classe de type ``Path``
+# pour indiquer un chemin.
+TMPL_FILE   = Path("tmpl-test-in.txt")
+OUTPUT_FILE = Path("output.txt")
 
 # Fabrication du contenu.
 mybuilder = JNGBuilder(

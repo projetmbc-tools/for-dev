@@ -1,10 +1,18 @@
-﻿abrev::
+﻿this::
+    date = 2022-12-18
+
+
+abrev::
     content = /hooks
 
 
 ===================
 Pré et post-actions
 ===================
+
+warning::
+    L'appel d'un programme extérieur doit toujours être fait avec prudence. Donc, en cas de doute, n'employer pas de pré ou post-actions.
+
 
 content::
     ¨content/pre.txt

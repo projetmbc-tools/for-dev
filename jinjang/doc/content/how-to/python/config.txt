@@ -1,0 +1,26 @@
+﻿this::
+    date = 2022-12-18
+
+
+==============
+Configurations
+==============
+
+Tout comme en ligne de commandes, la classe python::``JNGBuilder`` cherche, par défaut, un fichier de configuration path::``cfg.jng.yaml`` de façon automatique.
+Pour n'utiliser aucune configuration, il suffit de faire comme suit en employant l'argument optionnel python::``autoconfig`` qui vaut par défaut python::``True``.
+
+python::
+    ---
+    title = Pas d'utilisation ¨auto d'un fichier path::``cfg.jng.yaml``
+    path  = ?/examples/via-python/use-config/noauto.py
+    ---
+
+
+Il est aussi possible de choisir un fichier de ¨config non nommé  path::``cfg.jng.yaml``.
+Dans ce cas, il suffit de procéder comme suit, de nouveau en passant via la classe python::``Path`` pour indiquer la valuer de l'argument optionnel python::``config`` (dans ce cas, la valeur de l'argument python::``autoconfig`` est ignorée).
+
+python::
+    ---
+    title = Un fichier de ¨config autre que path::``cfg.jng.yaml``
+    path  = ?/examples/via-python/use-config/myconfig.py
+    ---
