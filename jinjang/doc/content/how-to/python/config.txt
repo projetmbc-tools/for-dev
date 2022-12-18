@@ -2,12 +2,12 @@
     date = 2022-12-18
 
 
-==============
-Configurations
-==============
+========
+¨Configs
+========
 
-Tout comme en ligne de commandes, la classe python::``JNGBuilder`` cherche, par défaut, un fichier de configuration path::``cfg.jng.yaml`` de façon automatique.
-Pour n'utiliser aucune configuration, il suffit de faire comme suit en employant l'argument optionnel python::``autoconfig`` qui vaut par défaut python::``True``.
+Tout comme en ligne de commandes, la classe python::``JNGBuilder`` cherche, par défaut, un fichier de ¨config path::``cfg.jng.yaml`` de façon ¨auto.
+Pour n'utiliser aucune ¨config, il suffit de faire comme suit en employant l'¨arg optionnel python::``autoconfig`` qui vaut par défaut python::``True``.
 
 python::
     ---
@@ -16,8 +16,11 @@ python::
     ---
 
 
-Il est aussi possible de choisir un fichier de ¨config non nommé  path::``cfg.jng.yaml``.
-Dans ce cas, il suffit de procéder comme suit, de nouveau en passant via la classe python::``Path`` pour indiquer la valuer de l'argument optionnel python::``config`` (dans ce cas, la valeur de l'argument python::``autoconfig`` est ignorée).
+Il est aussi possible de choisir un fichier de ¨config non nommé  path::``cfg.jng.yaml``
+((
+    Ceci permet par exemple, d'user d'un fichier de ¨config en phase de ¨dev bloquant des pré et post-actions chronophages, pour ensuite au final passer via un fichier de ¨config par défaut qui lui appliquera les pré et post-actions chronophages.
+)).
+Dans ce cas, il suffit de procéder comme suit, de nouveau en passant via la classe python::``Path`` pour indiquer la valeur de l'¨arg optionnel python::``config`` (dans ce cas, la valeur de  python::``autoconfig`` est ignorée).
 
 python::
     ---

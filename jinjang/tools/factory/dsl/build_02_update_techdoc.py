@@ -1,11 +1,7 @@
 #!/usr/bin/env python3
 
-import re
-from datetime import date
+from btools.B01 import *
 
-from cbdevtools.addfindsrc import addfindsrc
-from mistool.os_use        import PPath as Path
-from mistool.string_use    import between
 
 addfindsrc(
     file    = __file__,
@@ -41,8 +37,9 @@ THIS_FILE_REL_SRC_PATH    = Path(__file__) - PROJECT_DIR
 THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
 
 
-SPECS_CONTENT_TNSFILE = PROJECT_DIR / 'doc' / 'content' / 'specs.txt'
-SPECS_DOC_DIR         = PROJECT_DIR / 'doc' / 'content' / 'specs'
+DOC_DIR               = PROJECT_DIR / 'doc' / 'content'
+SPECS_CONTENT_TNSFILE = DOC_DIR / 'specs.txt'
+SPECS_DOC_DIR         = DOC_DIR / 'specs'
 
 DEFAULT_FILES = {
     (TAG_VARS   := 'variables'   ): TAG_FLAVOUR_ASCII,
@@ -56,11 +53,6 @@ DEFAULT_FILES = [
     SPECS_DOC_DIR / p / f'{n}.txt'
     for n, p in DEFAULT_FILES.items()
 ]
-
-
-TAB_1 = ' '*4
-TAB_2 = TAB_1*2
-TAB_3 = TAB_1*3
 
 
 # ----------- #

@@ -37,4 +37,4 @@ Le code s'appuie sur une instance de la classe python::``JNGBuilder`` du package
 
 info::
     A tout moment on peut changer de "dialecte", ou de fichier "patron" en modifiant les valeurs des attributs python::``flavour`` et python::``template`` proposés par la classe python::``JNGBuilder``.
-    Cette méthode de moficiation d'attributs est sûre car elle passe par des "getters" en coulisse.
+    Cette méthode de modification d'attributs est sûre car elle passe par des "getters" en coulisse.

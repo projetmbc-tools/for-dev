@@ -1,0 +1,20 @@
+﻿this::
+    date = 2022-12-????
+
+
+=====================
+De nouveaux dialectes
+=====================
+
+Il est possible de proposer plus de dialectes que ceux actuellement disponibles : voir cf::``?/specs.txt`` à ce sujet. À ce jour, les saveurs proposées sont les suivantes.
+
+// -- ALL FLAVORS - AUTO LIST - START -- //
+
+    * ¨ascii via python::``"ascii"``.
+    * ¨html via python::``"html"``.
+    * ¨latex via python::``"latex"``.
+
+// -- ALL FLAVORS - AUTO LIST - END -- //
+
+
+???

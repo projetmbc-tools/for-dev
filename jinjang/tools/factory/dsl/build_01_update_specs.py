@@ -28,7 +28,7 @@ THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
 SPECS_SRC_FILE = PROJECT_DIR / 'src' / 'config' / 'flavour.py'
 
 CONTRIB_DSL_DIR   = PROJECT_DIR / 'contribute' / 'api' / 'dsl'
-SPECS_STATUS_YAML = THIS_DIR / 'validated.yaml'
+SPECS_STATUS_YAML = THIS_DIR / 'flavours.yaml'
 
 EXTRA_TOOLS_DIR = PROJECT_DIR / 'jng-extra-tools'
 
@@ -37,18 +37,11 @@ IMG_DIR  = 'images'
 IMG_EXTS = ['png']
 
 
-TAB_1 = ' '*4
-TAB_2 = TAB_1*2
-TAB_3 = TAB_1*3
-
-
 # ----------------------- #
 # -- THE SPECS DEFINED -- #
 # ----------------------- #
 
-if not SPECS_STATUS_YAML.is_file():
-    SPECS_STATUS_YAML.touch()
-
+SPECS_STATUS = {}
 
 allspecs = {}
 
@@ -89,7 +82,14 @@ not_ok       = defaultdict(list)
 for flavour in sorted(allspecs):
     infos = allspecs[flavour]
 
-    if infos['status'] != 'ok':
+    if infos['status'] != STATUS_OK:
+        if not infos['status'] in ALL_STATUS_TAGS:
+            raise Exception(
+                f"invalid status ''{infos['status']}'' "
+                f"for the flavour ''{flavour}'' in "
+                "the contributions."
+            )
+
         not_ok[infos['status']].append(flavour)
 
         continue
@@ -122,6 +122,8 @@ for flavour in sorted(allspecs):
         print(f"{TAB_2}+ Referencing new tools.")
 
         ALL_TOOLS.append(flavour)
+
+SPECS_STATUS[STATUS_OK] = ALL_FLAVOURS
 
 
 # -------------------- #
@@ -285,9 +287,57 @@ if not_ok:
     print(f"{TAB_1}* Specs not accepted.")
 
     for kind in sorted(not_ok):
+        if kind == STATUS_OK:
+            raise Exception(
+                f"the tag '{SPECS_STATUS}' is not allowed "
+                 "for the status of one new flavour."
+            )
+
         print(f"{TAB_2}+ Specs tagged ''{kind}''.")
 
         flavours = sorted(not_ok[kind])
+
+        SPECS_STATUS[kind] = flavours
+
         flavours = ' , '.join(flavours)
 
         print(f"{TAB_3}--> {flavours}")
+
+
+# ----------------------- #
+# -- SPECS STATUS YAML -- #
+# ----------------------- #
+
+print(f"{TAB_1}* Updating the status of specs (for other builders).")
+
+# ! -- DEBUGGING -- ! #
+# print(SPECS_STATUS)
+# exit()
+# ! -- DEBUGGING -- ! #
+
+# Hack source for good indented YAML code:
+#     * https://github.com/yaml/pyyaml/issues/234#issuecomment-765894586
+
+from yaml import Dumper
+
+class MyDumper(Dumper):
+    def increase_indent(
+        self,
+        flow = False,
+        *args, **kwargs
+    ):
+        return super().increase_indent(
+            flow       = flow,
+            indentless = False
+        )
+
+
+with SPECS_STATUS_YAML.open(
+    mode     = "w",
+    encoding = "utf-8"
+) as f:
+    yaml_dump(
+        data   = SPECS_STATUS,
+        stream = f,
+        Dumper = MyDumper
+    )

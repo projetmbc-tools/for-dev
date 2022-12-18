@@ -22,4 +22,4 @@ content::
     ¨content/jinja-power.txt
     ¨content/how-to
     ¨content/specs.txt
-    ¨content/contribute.txt     ???
+    ¨content/contribute.txt    ???

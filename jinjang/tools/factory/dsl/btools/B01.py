@@ -2,20 +2,66 @@
 
 import                  black
 from collections import defaultdict
-from yaml        import (
+from datetime    import date
+import re
+from yaml import (
     safe_load as yaml_load,
     dump      as yaml_dump
 )
 
-from mistool.os_use import PPath as Path
+from cbdevtools.addfindsrc import addfindsrc
+from mistool.os_use        import PPath as Path
+from mistool.string_use    import between
+
+
+# -------------- #
+# -- SPEAKING -- #
+# -------------- #
+
+TAB_1 = ' '*4
+TAB_2 = TAB_1*2
+TAB_3 = TAB_1*3
+
+
+# ------------------- #
+# -- AUTO CONTENTS -- #
+# ------------------- #
+def autoupdate(
+    onefile,
+    magiccode,
+    autocontent
+):
+    content = onefile.read_text(encoding = 'utf-8')
+
+    before, _ , after = between(
+        text = content,
+        seps = [
+            magiccode,
+            magiccode.replace('START', 'END')
+        ],
+        keepseps = True,
+    )
+
+    content = f"{before}\n{autocontent}\n{after}\n\n"
+
+    onefile.write_text(
+        data     = content,
+        encoding = 'utf-8'
+    )
 
 
 # --------------- #
 # -- CONSTANTS -- #
 # --------------- #
 
+ALL_STATUS_TAGS = [
+    STATUS_OK      := 'ok',
+    STATUS_KO      := 'ko',
+    STATUS_ON_HOLD := 'on hold',
+]
+
 DEFAULT_STATUS_CONTENT = {
-    "status" : 'on hold',
+    "status" : STATUS_ON_HOLD,
     "comment": (
         'Specs on hold.'
         ' '
