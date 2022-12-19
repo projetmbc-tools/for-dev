@@ -2,6 +2,21 @@
 
 
 ==
+19
+==
+
+-----
+:new:
+-----
+
+[[:doc:]]
+Contribute: the "human" and the technical ¨docs have been made.
+
+
+// ---------- //
+
+
+==
 18
 ==
 

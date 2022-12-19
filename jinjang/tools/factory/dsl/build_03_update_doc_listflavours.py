@@ -60,8 +60,14 @@ with FLAVOURS_STATUS_YAML.open(
 
 print(f"{TAB_2}+ List for the human doc.")
 
+maxlen = max(
+    len(fl)
+    for fl in flavours_by_status[STATUS_OK]
+)
+
 autolist = '\n'.join(
-    ' '*4 + f'* ¨{fl} via python::``"{fl}"``.'
+      ' '*4 + f'* ¨{fl} ' + ' '*(maxlen - len(fl))
+    + f'via python::``FLAVOUR_{fl.upper()} = "{fl}"``.'
     for fl in flavours_by_status[STATUS_OK]
 )
 
@@ -93,10 +99,12 @@ flavours_and_their_status = {
 
 autolist = []
 
-for fl in sorted(flavours_and_their_status.keys()):
+all_flavours = sorted(flavours_and_their_status.keys())
+
+for fl in all_flavours:
     st = flavours_and_their_status[fl]
 
-    autolist.append(' '*2 + f"* `{fl}`  **[{st}]**")
+    autolist.append(' '*2 + f"* **[{st}]** `{fl}`")
 
 autolist = '\n'.join(autolist)
 

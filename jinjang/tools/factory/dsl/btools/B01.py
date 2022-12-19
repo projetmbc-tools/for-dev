@@ -26,6 +26,7 @@ TAB_3 = TAB_1*3
 # ------------------- #
 # -- AUTO CONTENTS -- #
 # ------------------- #
+
 def autoupdate(
     onefile,
     magiccode,

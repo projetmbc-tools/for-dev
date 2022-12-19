@@ -1,0 +1,57 @@
+﻿this::
+    date = 2022-12-19
+
+
+======
+¨Specs
+======
+
+Pour indiquer les ¨specs d'une saveur, on utilise le fichier path::``specs.yaml`` qui doit avoir le contenu ci-dessous ; nous expliquons plus bas les valeurs attendues pour les différents ``<NOM-GÉNÉRIQUE>``.
+
+yaml::
+    about:
+        author: <AUTHOR>
+        desc  : <DESCRIPTION>
+        date  : <DATE>
+
+    ext:
+        - <EXT-1>
+        - <EXT-2>
+
+    src-comment:
+        block : <BLOCK-COMMENT>
+        inline: <INLINE-COMMENT>
+
+    var: <VARIABLE>
+
+
+Pour le bloc yaml::``about``, on doit indiquer ce qui suit.
+
+    1) ``<AUTHOR>`` indique l'auteur des ¨specs au format ``Prénom, Nom [courriel]``.
+
+    1) ``<DESCRIPTION>`` est une ¨desc très courte de la saveur.
+
+    1) ``<DATE>`` donne la date de création, ou de dernière ¨modif, au format ``AAAA-MM-JJ`` comme par exemple ``2022-12-19``.
+
+
+Le bloc yaml::``ext`` permet d'indiquer une liste d'extensions de fichiers pour l'¨asso ¨auto d'une saveur à un "patron".
+Par exemple, pour la saveur ¨latex, le bloc suivant est utilisé.
+
+yaml::
+    ext:
+        - tex
+        - sty
+        - tkz
+
+
+La particularité de ¨jinjang est de considérer que les patrons utilisés ont un ¨syst de commentaires sur lequel s'appuyer pour proposer différentes façons d'utiliser des instructions ¨jinja.
+Par exemple, pour la saveur ¨ascii, le bloc suivant est utilisé où les points de suspension ``...`` symbolise les instructions qui seront employées dans un "patron". Noter ici les guillemets qui ne sont pas toujours obligatoires (ici ce sont les symboles ``#`` qu'il faut protéger).
+
+yaml::
+    src-comment:
+        block : "{# ... #}"
+        inline: "# ..."
+
+
+Pour finir, la variable yaml::``var`` sert à définir comment devra être tapée une "variable de donnée" dans un patron.
+Par exemple, pour la saveur ¨html, c'est yaml::``var: "{{ ... }}"`` qui est indiqué.
