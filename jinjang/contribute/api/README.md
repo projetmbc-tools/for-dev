@@ -1,4 +1,4 @@
-Contribute to the `API` of `jinjang`
+Contribute to the `API` of `jinjaNG`
 ====================================
 
 > **I beg your pardon for my english...**
@@ -38,7 +38,7 @@ Update one contribution
 If you wish to update a contribution proposal, you should quickly indicate in English the changes made and date them (no need to go into too much detail).
 
 
-Regular users of `github`
+Regular users of `GitHub`
 ------------------------
 
-It is possible to use `merge requests` to indicate one contribution.
+It is possible to use `git merge requests` to indicate one contribution.
