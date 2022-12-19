@@ -6,10 +6,10 @@
 Quels sont les fichiers à produire ?
 ====================================
 
-Pour un ¨dev local, il suffit de créer un dossier path::``myflavor`` qui doit avoir une structure minimale du type suivant (les contenus attendus vont être présentés dans les sections suivantes).
+Pour un ¨dev local, il suffit de créer un dossier path::``myflavour`` qui doit avoir une structure minimale du type suivant (les contenus attendus vont être présentés dans les sections suivantes).
 
 dirtree::
-    + myflavor
+    + myflavour
         * specs.yaml
         + usecases
 

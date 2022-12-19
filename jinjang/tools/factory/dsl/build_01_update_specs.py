@@ -134,7 +134,7 @@ print(f"{TAB_1}* Updating the source code.")
 
 
 ALL_FLAVOURS = [
-    f"(TAG_FLAVOUR_{flvr.upper()}:= '{flvr}'),"
+    f"(FLAVOUR_{flvr.upper()}:= '{flvr}'),"
     for flvr in ALL_FLAVOURS
 ]
 
@@ -192,6 +192,7 @@ final_pycode = black.format_file_contents(
 ).strip() + '\n'
 
 for old, new in [
+    ('"(FLAVOUR_', '(FLAVOUR_'),
     ('"(TAG_', '(TAG_'),
     ('),"', ')'),
 ]:

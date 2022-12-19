@@ -213,7 +213,7 @@ def specs2options(hardspec):
 CODE_TEMPL = """
 {about}
 
-SETTINGS[TAG_FLAVOUR_{name_up}] = {settings}
+SETTINGS[FLAVOUR_{name_up}] = {settings}
 """.lstrip()
 
 

@@ -6,28 +6,28 @@ Contribute to the documentation of `jinjaNG`
 > English is not my native language, so be nice if you notice misunderstandings, misspellings, or grammatical errors in my documents and codes.
 
 
-How to create one new flavor?
+How to create one new flavour?
 ------------------------------
 
-In the section *"All flavors, and status"* at the end of this document, you can find all the flavors indicated as **"ok"**. If none of them meet your expectations, you can decide to suggest a new flavor. To do this, follow the steps below.
+In the section *"All flavours, and status"* at the end of this document, you can find all the flavours indicated as **"ok"**. If none of them meet your expectations, you can decide to suggest a new flavour. To do this, follow the steps below.
 
 
 #### Required file structure
 
-The first step in creating a new flavor, which we will call `myflavor`, is to use the following structure.
+The first step in creating a new flavour, which we will call `myflavour`, is to use the following structure.
 
 ~~~
-+ myflavor
++ myflavour
     * specs.yaml
     + usecases
 ~~~
 
 
-> The project's `GitHub` repository also shows a `status.yaml` file for each flavor. This file is the responsibility of the developer of `jinjaNG`. It allows you to know the status of the integration, or not, of a flavor.
+> The project's `GitHub` repository also shows a `status.yaml` file for each flavour. This file is the responsibility of the developer of `jinjaNG`. It allows you to know the status of the integration, or not, of a flavour.
 
 #### Contents of the folder `usecases`
 
-The `usecases` folder contains some short use cases for testing the validity of the specifications. Here is some of the content of the `usecases` folder for the `ASCII` flavor.
+The `usecases` folder contains some short use cases for testing the validity of the specifications. Here is some of the content of the `usecases` folder for the `ASCII` flavour.
 
 ~~~
 + usecases
@@ -52,7 +52,7 @@ Each case corresponds to a folder with a short and meaningful name. This folder 
 
 #### The file `specs.yaml`
 
-To indicate the specifications of a flavor, the `specs.yaml` file is used with the following contents; we explain the expected values for the various `<GENERIC-NAME>` below.
+To indicate the specifications of a flavour, the `specs.yaml` file is used with the following contents; we explain the expected values for the various `<GENERIC-NAME>` below.
 
 ~~~yaml
 about:
@@ -75,11 +75,11 @@ For the `about` block, the following should be specified.
 
   1. `<AUTHOR>` indicates the author of the ¨specs in the format `Firstname, Lastname [email]`.
 
-  1. `<DESCRIPTION>` is a very short description of the flavor.
+  1. `<DESCRIPTION>` is a very short description of the flavour.
 
   1. `<DATE>` gives the date of creation, or last modification, in the format `YYYY-MM-DD` such as `2022-12-19`.
 
-The `ext` block is used to specify a list of file extensions for the automatic association of a flavor with a pattern. For example, for the `LaTeX` flavor, the following block is used.
+The `ext` block is used to specify a list of file extensions for the automatic association of a flavour with a pattern. For example, for the `LaTeX` flavour, the following block is used.
 
 ~~~yaml
 ext:
@@ -88,7 +88,7 @@ ext:
     - tkz
 ~~~
 
-The special feature of `jinjaNG` is to considerate that the templates used have a comment system to build on to suggest different ways of using `jinjaNG` instructions. For example, for the `ASCII` flavor, the following block is used where the ellipsis `...` symbolises the instructions that will be used in a pattern. Note here the quotation marks which are not always mandatory (here it is the `#` symbols which must be protected).
+The special feature of `jinjaNG` is to considerate that the templates used have a comment system to build on to suggest different ways of using `jinjaNG` instructions. For example, for the `ASCII` flavour, the following block is used where the ellipsis `...` symbolises the instructions that will be used in a pattern. Note here the quotation marks which are not always mandatory (here it is the `#` symbols which must be protected).
 
 ~~~yaml
 src-comment:
@@ -96,18 +96,18 @@ src-comment:
     inline: "# ..."
 ~~~
 
-Finally, the `var` variable is used to define how a "data variable" should be typed into a pattern. For example, for the `HTML` flavor, it is `var: "{{ ... }}"` that is specified.
+Finally, the `var` variable is used to define how a "data variable" should be typed into a pattern. For example, for the `HTML` flavour, it is `var: "{{ ... }}"` that is specified.
 
 
 #### Make a proposal
 
-There are two possible methods to propose a new flavor.
+There are two possible methods to propose a new flavour.
 
   1. If you are not familiar with `GitHub`, here are the steps to follow.
 
-      * Start by compressing the flavor folder to `ZIP` format.
+      * Start by compressing the flavour folder to `ZIP` format.
 
-      * Send the compressed folder to `projetmbc@gmail.com`, making sure to indicate *"jinjaNG - Contribute - flavor"* as the email subject.
+      * Send the compressed folder to `projetmbc@gmail.com`, making sure to indicate *"jinjaNG - Contribute - flavour"* as the email subject.
 
   1. If you are familiar with `GitHub`, here are the steps to follow.
 
@@ -119,27 +119,31 @@ There are two possible methods to propose a new flavor.
 
 
 
-All flavors, and statuses
+All flavours, and statuses
 -------------------------
 
-#### The flavors, and their status
+#### The flavours, and their status
 
-<!-- LIST OF FLAVORS AND THEIR STATUS - AUTO - START -->
+<!-- LIST OF FLAVOURS AND THEIR STATUS - AUTO - START -->
 
-  * **[ok]** `ASCII`
+  * **[ok]** `ascii`
   * **[ok]** `html`
   * **[ok]** `latex`
 
-<!-- LIST OF FLAVORS AND THEIR STATUS - AUTO - END -->
+<!-- LIST OF FLAVOURS AND THEIR STATUS - AUTO - END -->
 
 
-#### Statuses with their relevant flavors
+#### Statuses with their relevant flavours
 
-<!-- LIST OF STATUSES WITH THE RELEVANT flavorS - AUTO - START -->
+<!-- LIST OF STATUSES WITH THE RELEVANT FLAVOURS - AUTO - START -->
 
   * Status **''ok''**
-    + `ASCII`
+    + `ascii`
     + `html`
     + `latex`
 
-<!-- LIST OF STATUSES WITH THE RELEVANT flavorS - AUTO - END -->
+<!-- LIST OF STATUSES WITH THE RELEVANT FLAVOURS - AUTO - END -->
+
+
+
+

@@ -12,7 +12,7 @@ Deux méthodes sont possibles pour proposer une ¨nelle saveur.
 
         a) Commencer par compresser au format ¨zip le dossier de la saveur.
 
-        a) Envoyer le dossier compressé à l'adresse email::``projetmbc@gmail.com`` en indiquant bien "jinjaNG - Contribute - Flavor" comme sujet du courriel.
+        a) Envoyer le dossier compressé à l'adresse email::``projetmbc@gmail.com`` en indiquant bien "jinjaNG - Contribute - Flavour" comme sujet du courriel.
 
     1) Si vous connaissez ¨github, voici les étapes à suivre.
 

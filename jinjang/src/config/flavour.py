@@ -29,9 +29,9 @@ ALL_TAGS = [
 # ------------------ #
 
 ALL_FLAVOURS = [
-    (TAG_FLAVOUR_ASCII:= 'ascii'),
-    (TAG_FLAVOUR_HTML:= 'html'),
-    (TAG_FLAVOUR_LATEX:= 'latex'),
+    (FLAVOUR_ASCII:= 'ascii'),
+    (FLAVOUR_HTML:= 'html'),
+    (FLAVOUR_LATEX:= 'latex'),
 ]
 
 
@@ -44,7 +44,7 @@ ALL_FLAVOURS = [
 # Last change: 2022-11-28
 # Author     : Christophe Bal
 
-SETTINGS[TAG_FLAVOUR_ASCII] = {
+SETTINGS[FLAVOUR_ASCII] = {
     TAG_TOOLS: False,
     TAG_EXT: ["*"],
     TAG_JINJA: {
@@ -69,7 +69,7 @@ SETTINGS[TAG_FLAVOUR_ASCII] = {
 # Last change: 2022-12-02
 # Author     : Christophe Bal
 
-SETTINGS[TAG_FLAVOUR_HTML] = {
+SETTINGS[FLAVOUR_HTML] = {
     TAG_TOOLS: True,
     TAG_EXT: ["*.html"],
     TAG_JINJA: {
@@ -94,7 +94,7 @@ SETTINGS[TAG_FLAVOUR_HTML] = {
 # Last change: 2022-12-01
 # Author     : Christophe Bal
 
-SETTINGS[TAG_FLAVOUR_LATEX] = {
+SETTINGS[FLAVOUR_LATEX] = {
     TAG_TOOLS: True,
     TAG_EXT: ["*.tex", "*.sty", "*.tkz"],
     TAG_JINJA: {

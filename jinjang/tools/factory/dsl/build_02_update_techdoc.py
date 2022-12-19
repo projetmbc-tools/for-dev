@@ -42,11 +42,11 @@ SPECS_CONTENT_TNSFILE = DOC_DIR / 'specs.txt'
 SPECS_DOC_DIR         = DOC_DIR / 'specs'
 
 DEFAULT_FILES = {
-    (TAG_VARS   := 'variables'   ): TAG_FLAVOUR_ASCII,
-    (TAG_INSTR  := 'instructions'): TAG_FLAVOUR_ASCII,
-    (TAG_COMMENT:= 'comments'    ): TAG_FLAVOUR_ASCII,
-     TAG_TOOLS                    : TAG_FLAVOUR_HTML,
-    (TAG_LISTEXT:= 'extensions'  ): TAG_FLAVOUR_ASCII,
+    (TAG_VARS   := 'variables'   ): FLAVOUR_ASCII,
+    (TAG_INSTR  := 'instructions'): FLAVOUR_ASCII,
+    (TAG_COMMENT:= 'comments'    ): FLAVOUR_ASCII,
+     TAG_TOOLS                    : FLAVOUR_HTML,
+    (TAG_LISTEXT:= 'extensions'  ): FLAVOUR_ASCII,
 }
 
 DEFAULT_FILES = [
@@ -288,7 +288,7 @@ def same_ext(lastext, newext):
 MAIN_TOC = []
 
 for flavour in sorted(SETTINGS):
-    if flavour == TAG_FLAVOUR_ASCII:
+    if flavour == FLAVOUR_ASCII:
         continue
 
     MAIN_TOC.append(flavour)

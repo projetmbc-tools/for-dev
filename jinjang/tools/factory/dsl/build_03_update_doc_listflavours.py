@@ -73,7 +73,7 @@ autolist = '\n'.join(
 
 autoupdate(
     onefile     = DOC_CONTRIB_DSL,
-    magiccode   = '// -- ALL FLAVORS - AUTO LIST - START -- //',
+    magiccode   = '// -- ALL FLAVOURS - AUTO LIST - START -- //',
     autocontent = '\n' + autolist + '\n'
 )
 
@@ -110,7 +110,7 @@ autolist = '\n'.join(autolist)
 
 autoupdate(
     onefile     = README_CONTRIB_DSL,
-    magiccode   = '<!-- LIST OF FLAVORS AND THEIR STATUS - AUTO - START -->',
+    magiccode   = '<!-- LIST OF FLAVOURS AND THEIR STATUS - AUTO - START -->',
     autocontent = '\n' + autolist + '\n'
 )
 
