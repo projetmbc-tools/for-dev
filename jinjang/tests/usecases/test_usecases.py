@@ -83,33 +83,7 @@ def extract_dto(
     }
 
     for pfile in pdir.glob('*'):
-        name = pfile.stem
-
-        if(
-            not pfile.is_file()
-            or
-            not name in dto
-        ):
-            continue
-
-        ext = pfile.suffix[1:] if pfile.suffix else ""
-
-        if name == 'datas':
-            if ext != 'json':
-                continue
-
-        else:
-            keepthis = False
-
-            for gext in flavours_exts:
-                if pfile.match(gext):
-                    keepthis = True
-                    break
-
-            if not keepthis:
-                continue
-
-        dto[name].append(pfile)
+        dto[pfile.stem].append(pfile)
 
     for name, pathsfound in dto.items():
         if len(pathsfound) != 1:
@@ -128,9 +102,10 @@ def test_contrib_usecases():
     for flavour, usecases in USECASES_FOLDERS.items():
         for ucdir in usecases:
             datas, template, output = extract_dto(flavour, ucdir)
+            test_name               = ucdir.name
 
-            print(f'--- {flavour} ---')
-            print(datas.name)
+            print(f'--- {flavour}:{test_name} ---')
+            print(datas.name, 'in', datas.parent)
             print(template.name)
             print(output.name)
 

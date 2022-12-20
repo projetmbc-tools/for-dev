@@ -29,12 +29,25 @@ TESTS_USECASES_DIR = PROJECT_DIR / 'tests' / 'usecases' / 'datas'
 FLAVOURS_STATUS_YAML = THIS_DIR / 'flavours.yaml'
 
 
-# ----------------------- #
-# -- SPECS STATUS YAML -- #
-# ----------------------- #
+addfindsrc(
+    file    = __file__,
+    project = 'jinjaNG',
+)
 
-print(f"{TAB_1}* Updating the tests build on the usecases.")
+from src.config.flavour import (
+    SETTINGS as FLAVOURS_SETTINGS,
+    TAG_EXT
+)
 
+
+# ------------------------ #
+# -- USECASES FOR TESTS -- #
+# ------------------------ #
+
+print(f"{TAB_1}* Updating datas for tests build on the usecases.")
+
+# We can't update usecases for an evolving flavour, this is why we use
+# ``FLAVOURS_STATUS_YAML``, and not ``config.flavour.SETTINGS``.
 
 with FLAVOURS_STATUS_YAML.open(
     mode     = "r",
@@ -46,8 +59,16 @@ with FLAVOURS_STATUS_YAML.open(
 for fl in flavours_OK:
     srcfiles = []
 
-    usecase_dir = CONTRIB_DSL_DIR / fl / 'usecases'
+    usecase_dir   = CONTRIB_DSL_DIR / fl / 'usecases'
+    flavours_exts = FLAVOURS_SETTINGS[fl][TAG_EXT]
 
+# New flavour datas dir.
+    flavour_dest_dir = TESTS_USECASES_DIR / fl
+
+    if flavour_dest_dir.is_dir():
+        flavour_dest_dir.remove()
+
+# Copying the datas.
     for pdir in usecase_dir.glob('*'):
         if(
             not pdir.is_dir()
@@ -58,11 +79,6 @@ for fl in flavours_OK:
         ):
             continue
 
-        dest_dir = TESTS_USECASES_DIR / fl
-
-        if dest_dir.is_dir():
-            dest_dir.remove()
-
         for pfile in pdir.glob('*'):
             name = pfile.stem
 
@@ -72,6 +88,23 @@ for fl in flavours_OK:
                 not name in ['datas', 'output', 'template']
             ):
                 continue
+
+            ext = pfile.suffix[1:] if pfile.suffix else ""
+
+            if name == 'datas':
+                if ext != 'json':
+                    continue
+
+            else:
+                keepthis = False
+
+                for gext in flavours_exts:
+                    if pfile.match(gext):
+                        keepthis = True
+                        break
+
+                if not keepthis:
+                    continue
 
             dest = TESTS_USECASES_DIR / fl / (pfile - usecase_dir)
 
