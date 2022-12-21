@@ -31,7 +31,10 @@ One small {{ txt_example }} with automatic calculations.
 {#: endfor :#}
 """.strip()
 
-datas = {}
+datas = {
+    "txt_example": 'example',
+    "max_i"      : 4,
+}
 
 output = mybuilder.render_fromstr(
     datas    = datas,
@@ -53,10 +56,6 @@ for kind in [
 
     toprint = globals()[kind]
 
-    if kind == 'datas':
-        pprint(toprint)
-
-    else:
-        print(toprint)
+    pprint(toprint) if kind == 'datas' else print(toprint)
 
 print()
