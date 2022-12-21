@@ -25,7 +25,7 @@ class Builder:
 # Via des chapines
     def render_fromstr(
         self,
-        datas   : str,
+        datas   : dict,
         template: str
     ) -> str:
         ...

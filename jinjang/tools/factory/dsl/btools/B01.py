@@ -43,7 +43,7 @@ def autoupdate(
         keepseps = True,
     )
 
-    content = f"{before}\n{autocontent}\n{after}\n\n"
+    content = f"{before}\n{autocontent}\n{after.rstrip()}\n\n"
 
     onefile.write_text(
         data     = content,

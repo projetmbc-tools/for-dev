@@ -144,14 +144,3 @@ All flavours, and statuses
 
 <!-- LIST OF STATUSES WITH THE RELEVANT FLAVOURS - AUTO - END -->
 
-
-
-
-
-
-
-
-
-
-
-
