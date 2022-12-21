@@ -210,26 +210,30 @@ def specs2options(hardspec):
 # -- TOOLS FOR SOURCE -- #
 # ---------------------- #
 
-CODE_TEMPL = """
+CODE_SETTINGS_TEMPL = """
 {about}
 
-SETTINGS[FLAVOUR_{name_up}] = {settings}
+AUTO_FROM_EXT[FLAVOUR_{name_up}] = {autoext}
+
+WITH_EXTRA_TOOLS[FLAVOUR_{name_up}] = {needtools}
+
+JINJA_TAGS[FLAVOUR_{name_up}] = {forjinja}
+
 """.lstrip()
 
 
-def build_settings(options):
+def build_all_settings(options):
     if not TAG_VAR in options:
         raise Exception('Missing var...')
 
-    settings = {
-        TAG_TOOLS: options[TAG_TOOLS],
-        TAG_EXT  : [
-            p
-            if p == "*" else
-            f"*.{p}"
-            for p in options[TAG_EXT]
-        ],
-    }
+    autoext = [
+        p
+        if p == "*" else
+        f"*.{p}"
+        for p in options[TAG_EXT]
+    ]
+
+    needtools = options[TAG_TOOLS]
 
     forjinja = {
         TAG_VAR_START: options[TAG_VAR][0],
@@ -264,9 +268,8 @@ def build_settings(options):
     forjinja[TAG_BLOCK_INSTR_START] = block_start + SPECHAR_INSTR
     forjinja[TAG_BLOCK_INSTR_END]   = SPECHAR_INSTR + block_end
 
-    settings[TAG_JINJA] = forjinja
 
-    return settings
+    return forjinja, needtools, autoext
 
 
 def build_src(name, options):
@@ -291,11 +294,15 @@ def build_src(name, options):
 # Author     : {author}
     """.strip()
 
-    pycode = CODE_TEMPL.format(
-        name     = name,
-        name_up  = name.upper(),
-        about    = about,
-        settings = build_settings(options),
+    forjinja, needtools, autoext = build_all_settings(options)
+
+    pycode = CODE_SETTINGS_TEMPL.format(
+        name      = name,
+        name_up   = name.upper(),
+        about     = about,
+        needtools = needtools,
+        forjinja  = forjinja,
+        autoext   = autoext,
     )
 
     return pycode

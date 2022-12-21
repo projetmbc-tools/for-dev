@@ -67,9 +67,9 @@ for pdir in yielddirs(DATAS_DIR):
 # ! -- DEBUGGING -- ! #
 
 
-# ------------------------------------- #
-# -- USECASES FROM THE CONTRIBUTIONS -- #
-# ------------------------------------- #
+# ----------------- #
+# -- LOCAL TOOLS -- #
+# ----------------- #
 
 def extract_dto(
     flavour: str,
@@ -79,7 +79,7 @@ def extract_dto(
 
     dto = {
         n: []
-        for n in ['datas', 'output', 'template']
+        for n in ['datas', 'template', 'output']
     }
 
     for pfile in pdir.glob('*'):
@@ -87,9 +87,14 @@ def extract_dto(
 
     for name, pathsfound in dto.items():
         if len(pathsfound) != 1:
+            nbpaths = len(pathsfound)
+
+            howmany = 'no' if nbpaths == 0 else nbpaths
+            plural  = ''   if nbpaths == 0 else 's'
+
             raise Exception(
                 f"one file, and only one, can be named ''{name}'': "
-                f"{len(pathsfound)} file(s) found. Look at the folder:\n{pdir}"
+                f"{howmany} file{plural} found. Look at the folder:\n{pdir}"
             )
 
     return tuple(
@@ -98,15 +103,51 @@ def extract_dto(
     )
 
 
-def test_contrib_usecases():
+def yield_usecases_datas():
     for flavour, usecases in USECASES_FOLDERS.items():
         for ucdir in usecases:
             datas, template, output = extract_dto(flavour, ucdir)
             test_name               = ucdir.name
 
-            print(f'--- {flavour}:{test_name} ---')
-            print(datas.name, 'in', datas.parent)
-            print(template.name)
-            print(output.name)
+            yield test_name, datas, template, output
 
-test_contrib_usecases()
+
+# -------------------------------------------- #
+# -- USECASES (CONTRIB.) - NON-STRICT TESTS -- #
+# -------------------------------------------- #
+
+# The lines are stripped to the right, and
+# empty lines are ignored.
+
+def test_contrib_usecases_non_strict():
+    for test_name, datas, template, output in yield_usecases_datas():
+        output_wanted = [
+            lstripped
+            for l in output.read_text(encoding = 'utf-8').split('\n')
+            if (lstripped:= l.rstrip())
+        ]
+        print(f'--- {flavour}:{test_name} ---')
+        print(output_wanted)
+
+        # output_found
+
+test_contrib_usecases_non_strict()
+
+exit()
+
+
+# ---------------------------------------- #
+# -- USECASES (CONTRIB.) - STRICT TESTS -- #
+# ---------------------------------------- #
+
+# Verbatim equivalences of the contents.
+
+def test_contrib_usecases_strict():
+    for test_name, datas, template, output in yield_usecases_datas():
+        output_wanted = output.read_text(encoding = 'utf-8').split('\n')
+        print(f'--- {flavour}:{test_name} ---')
+        print(output_wanted)
+
+        # output_found
+
+test_contrib_usecases_strict()

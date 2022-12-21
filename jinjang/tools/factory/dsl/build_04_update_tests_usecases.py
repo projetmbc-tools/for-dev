@@ -34,10 +34,7 @@ addfindsrc(
     project = 'jinjaNG',
 )
 
-from src.config.flavour import (
-    SETTINGS as FLAVOURS_SETTINGS,
-    TAG_EXT
-)
+from src.config.flavour import AUTO_FROM_EXT
 
 
 # ------------------------ #
@@ -60,7 +57,7 @@ for fl in flavours_OK:
     srcfiles = []
 
     usecase_dir   = CONTRIB_DSL_DIR / fl / 'usecases'
-    flavours_exts = FLAVOURS_SETTINGS[fl][TAG_EXT]
+    flavours_exts = AUTO_FROM_EXT[fl]
 
 # New flavour datas dir.
     flavour_dest_dir = TESTS_USECASES_DIR / fl

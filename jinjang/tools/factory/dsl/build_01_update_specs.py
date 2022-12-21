@@ -74,10 +74,11 @@ for specfile in CONTRIB_DSL_DIR.rglob("*/*specs.yaml"):
 # -- THE SPECS ACCEPTED -- #
 # ------------------------ #
 
-final_pycode = []
-ALL_FLAVOURS = []
-ALL_TOOLS    = []
-not_ok       = defaultdict(list)
+final_pycode  = []
+ALL_FLAVOURS  = []
+AUTO_FROM_EXT = {}
+ALL_TOOLS     = []
+not_ok        = defaultdict(list)
 
 for flavour in sorted(allspecs):
     infos = allspecs[flavour]
@@ -166,7 +167,9 @@ final_pycode = f"""
 #
 #     + ``{THIS_FILE_REL_SRC_PATH}``
 
-SETTINGS = dict()
+JINJA_TAGS       = dict()
+WITH_EXTRA_TOOLS = dict()
+AUTO_FROM_EXT    = dict()
 
 
 # -------------- #

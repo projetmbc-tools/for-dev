@@ -2,4 +2,4 @@
 
 __version__ = ""
 
-from .config import *
+from .build import *

@@ -169,7 +169,7 @@ ACTION_ADDING   = "adding"
 ACTION_UPDATING = "updating"
 ACTION_NOTHING  = ""
 
-def build_ext(flavour, specs, dest_file):
+def build_ext(flavour, autoext, dest_file):
     today = date.today()
 
 # Content
@@ -199,7 +199,7 @@ def build_ext(flavour, specs, dest_file):
     )
 
     lastext = extract_lastext(lastext)
-    newext  = specs[TAG_EXT]
+    newext  = autoext
 
     if same_ext(lastext, newext):
         return ACTION_NOTHING
@@ -287,7 +287,7 @@ def same_ext(lastext, newext):
 
 MAIN_TOC = []
 
-for flavour in sorted(SETTINGS):
+for flavour in sorted(AUTO_FROM_EXT):
     if flavour == FLAVOUR_ASCII:
         continue
 
@@ -298,14 +298,14 @@ for flavour in sorted(SETTINGS):
     nothingdone = True
 
 # The contents
-    specs    = SETTINGS[flavour]
+    autoext  = AUTO_FROM_EXT[flavour]
     dest_dir = SPECS_DOC_DIR / flavour
 
     for df in DEFAULT_FILES:
         dest_file = dest_dir / df.name
 
         if df.stem == TAG_LISTEXT:
-            action = build_ext(flavour, specs, dest_file)
+            action = build_ext(flavour, autoext, dest_file)
 
             if action:
                 print(f"{TAB_2}+ {action.title()} the file ``{df.name}``.")
@@ -318,7 +318,7 @@ for flavour in sorted(SETTINGS):
         if (
             df.stem == TAG_TOOLS
             and
-            specs[TAG_TOOLS] == False
+            WITH_EXTRA_TOOLS[flavour] == False
         ):
             continue
 
