@@ -28,8 +28,7 @@ THIS_DIR = Path(__file__).parent
 
 DATAS_DIR = THIS_DIR / 'datas'
 
-FLAVOURS_SETTINGS = config.flavour.SETTINGS
-TAG_EXT           = config.flavour.TAG_EXT
+AUTO_FROM_EXT = config.flavour.AUTO_FROM_EXT
 
 
 # ---------------------- #
@@ -67,16 +66,11 @@ for pdir in yielddirs(DATAS_DIR):
 # ! -- DEBUGGING -- ! #
 
 
-# ----------------- #
-# -- LOCAL TOOLS -- #
-# ----------------- #
+# -------------------- #
+# -- USECASES DATAS -- #
+# -------------------- #
 
-def extract_dto(
-    flavour: str,
-    pdir   : Path
-) -> Tuple[Path, Path, Path]:
-    flavours_exts = FLAVOURS_SETTINGS[flavour][TAG_EXT]
-
+def extract_dto(pdir: Path) -> Tuple[Path, Path, Path]:
     dto = {
         n: []
         for n in ['datas', 'template', 'output']
@@ -103,13 +97,22 @@ def extract_dto(
     )
 
 
-def yield_usecases_datas():
-    for flavour, usecases in USECASES_FOLDERS.items():
-        for ucdir in usecases:
-            datas, template, output = extract_dto(flavour, ucdir)
-            test_name               = ucdir.name
+USECASES_DATAS = []
 
-            yield test_name, datas, template, output
+for flavour, usecases in USECASES_FOLDERS.items():
+    for ucdir in usecases:
+        datas, template, output = extract_dto(ucdir)
+        test_name               = ucdir.name
+
+        USECASES_DATAS.append(
+            (
+                flavour,
+                test_name,
+                datas,
+                template,
+                output
+            )
+        )
 
 
 # -------------------------------------------- #
@@ -120,7 +123,7 @@ def yield_usecases_datas():
 # empty lines are ignored.
 
 def test_contrib_usecases_non_strict():
-    for test_name, datas, template, output in yield_usecases_datas():
+    for flavour, test_name, datas, template, output in USECASES_DATAS:
         output_wanted = [
             lstripped
             for l in output.read_text(encoding = 'utf-8').split('\n')
@@ -143,7 +146,7 @@ exit()
 # Verbatim equivalences of the contents.
 
 def test_contrib_usecases_strict():
-    for test_name, datas, template, output in yield_usecases_datas():
+    for flavour, test_name, datas, template, output in USECASES_DATAS:
         output_wanted = output.read_text(encoding = 'utf-8').split('\n')
         print(f'--- {flavour}:{test_name} ---')
         print(output_wanted)

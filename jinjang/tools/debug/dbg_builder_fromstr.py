@@ -14,18 +14,17 @@ MODULE_DIR = addfindsrc(
     project = 'jinjaNG',
 )
 
+from src.build import *
+
 
 # -------------- #
 # -- LET'S GO -- #
 # -------------- #
 
-from src.build import *
-
 mybuilder = Builder()
 
 template = """
 One small {{ txt_example }} with automatic calculations.
-
 {#: for i in range(1, max_i + 1) :#}
     {{ i }}) I count using squares: {{ i**2 }}.
 {#: endfor :#}
