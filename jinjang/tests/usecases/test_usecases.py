@@ -19,6 +19,8 @@ addfindsrc(
 
 from src import *
 
+MY_BUILDER = Builder()
+
 
 # ----------------------- #
 # -- GENERAL CONSTANTS -- #
@@ -27,8 +29,6 @@ from src import *
 THIS_DIR = Path(__file__).parent
 
 DATAS_DIR = THIS_DIR / 'datas'
-
-AUTO_FROM_EXT = config.flavour.AUTO_FROM_EXT
 
 
 # ---------------------- #
@@ -77,7 +77,10 @@ def extract_dto(pdir: Path) -> Tuple[Path, Path, Path]:
     }
 
     for pfile in pdir.glob('*'):
-        dto[pfile.stem].append(pfile)
+        name = pfile.stem
+
+        if name in dto:
+            dto[pfile.stem].append(pfile)
 
     for name, pathsfound in dto.items():
         if len(pathsfound) != 1:
@@ -115,6 +118,25 @@ for flavour, usecases in USECASES_FOLDERS.items():
         )
 
 
+# ----------- #
+# -- TOOLS -- #
+# ----------- #
+
+def build_output(
+    datas,
+    template
+):
+    output_found = template.parent / f"output_found{template.suffix}"
+
+    MY_BUILDER.render(
+        datas    = datas,
+        template = template,
+        output   = output_found
+    )
+
+    return output_found
+
+
 # -------------------------------------------- #
 # -- USECASES (CONTRIB.) - NON-STRICT TESTS -- #
 # -------------------------------------------- #
@@ -122,35 +144,52 @@ for flavour, usecases in USECASES_FOLDERS.items():
 # The lines are stripped to the right, and
 # empty lines are ignored.
 
-def test_contrib_usecases_non_strict():
+def minimize_content(path):
+    return [
+        lstripped
+        for l in path.read_text(encoding = 'utf-8').split('\n')
+        if (lstripped:= l.rstrip())
+    ]
+
+def tRRRest_contrib_usecases_non_strict():
     for flavour, test_name, datas, template, output in USECASES_DATAS:
-        output_wanted = [
-            lstripped
-            for l in output.read_text(encoding = 'utf-8').split('\n')
-            if (lstripped:= l.rstrip())
-        ]
-        print(f'--- {flavour}:{test_name} ---')
-        print(output_wanted)
+        output_wanted = minimize_content(output)
+        output_found  = minimize_content(
+            build_output(
+                datas,
+                template
+            )
+        )
 
-        # output_found
-
-test_contrib_usecases_non_strict()
-
-exit()
+        assert output_wanted == output_found, (
+                "\n"
+               f"See: {template.parent.name}/{template.name}"
+                "\n"
+        )
 
 
 # ---------------------------------------- #
 # -- USECASES (CONTRIB.) - STRICT TESTS -- #
 # ---------------------------------------- #
 
-# Verbatim equivalences of the contents.
+# Verbatim equivalences of the contents except for the final empty lines that are striped.
+
+def content(path):
+    return path.read_text(encoding = 'utf-8').rstrip().split('\n')
+
 
 def test_contrib_usecases_strict():
     for flavour, test_name, datas, template, output in USECASES_DATAS:
-        output_wanted = output.read_text(encoding = 'utf-8').split('\n')
-        print(f'--- {flavour}:{test_name} ---')
-        print(output_wanted)
+        output_wanted = content(output)
+        output_found  = content(
+            build_output(
+                datas,
+                template
+            )
+        )
 
-        # output_found
-
-test_contrib_usecases_strict()
+        assert output_wanted == output_found, (
+                "\n"
+               f"See: {template.parent.name}/{template.name}"
+                "\n"
+        )

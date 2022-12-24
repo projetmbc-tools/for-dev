@@ -1,5 +1,7 @@
 One small example with automatic calculations.
 
     1) I count using squares: 1.
+
     2) I count using squares: 4.
+
     3) I count using squares: 9.

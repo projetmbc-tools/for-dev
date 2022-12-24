@@ -34,7 +34,7 @@ addfindsrc(
     project = 'jinjaNG',
 )
 
-from src.config.flavour import AUTO_FROM_EXT
+from src import AUTO_FROM_EXT
 
 
 # ------------------------ #
@@ -89,7 +89,7 @@ for fl in flavours_OK:
             ext = pfile.suffix[1:] if pfile.suffix else ""
 
             if name == 'datas':
-                if ext != 'json':
+                if ext != 'yaml':
                     continue
 
             else:

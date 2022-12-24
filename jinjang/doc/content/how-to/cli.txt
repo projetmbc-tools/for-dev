@@ -15,6 +15,7 @@ Via un terminal
 
 content::
     ¨content/json-datas.txt
+    ¨content/yaml-datas.txt     ????
     ¨content/python-datas.txt
     ¨content/hooks.txt
     ¨content/flavour.txt

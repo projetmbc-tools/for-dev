@@ -13,11 +13,11 @@ from cbdevtools import *
 FILES_FOLDER_NB = "01"
 
 DATAS_EXT = "yaml"
-DATAS_EXT = "json"
-DATAS_EXT = "py"
+# DATAS_EXT = "json"
+# DATAS_EXT = "py"
 
 SAFEMODE = True
-SAFEMODE = False
+# SAFEMODE = False
 
 TEMPL_EXT = "txt"
 
@@ -50,11 +50,13 @@ mybuilder = Builder(
 )
 
 template = FILES_FOLDER / f"template.{TEMPL_EXT}"
+output   = template.parent / f"output.{TEMPL_EXT}"
 datas    = FILES_FOLDER / f"datas.{DATAS_EXT}"
 
 output = mybuilder.render(
     datas    = datas,
     template = template,
+    output   = output
 )
 
 print()

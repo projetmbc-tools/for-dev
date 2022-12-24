@@ -46,11 +46,22 @@ class Builder:
         auto    : bool = True,
         safemode: bool = True
     ) -> None:
-        self.flavour  = flavour
-        self.auto     = auto
+        self.flavour = flavour
+        self.auto    = auto
+
+# The update of ``safemode`` implies a new instance of
+# ``self._build_datas`` via ``JNGDatas(value).build``.
         self.safemode = safemode
 
-        self._build_datas = JNGDatas(safemode).build
+
+    @property
+    def safemode(self):
+        return self._safemode
+
+    @safemode.setter
+    def safemode(self, value):
+        self._safemode    = value
+        self._build_datas = JNGDatas(value).build
 
 
     @property
@@ -114,10 +125,13 @@ class Builder:
         self,
         datas   : Path,
         template: Path,
-        output  : Union[Path, None] = None
+        output  : Path
     ) -> Path:
         if output is None:
             output = template.parent / f'output{template.suffix}'
+
+        if self.auto:
+            self._auto_flavour(template)
 
         self._jinja2env.loader = FileSystemLoader(
             str(template.parent)
@@ -134,3 +148,24 @@ class Builder:
             data     = content,
             encoding = "utf-8",
         )
+
+
+###
+# prototype::
+###
+    def _auto_flavour(self, template):
+        flavour_found = FLAVOUR_ASCII
+
+        for flavour, extensions in AUTO_FROM_EXT.items():
+            if flavour == FLAVOUR_ASCII:
+                continue
+
+            for glob_ext in extensions:
+                if template.match(glob_ext):
+                    flavour_found = flavour
+                    break
+
+            if flavour_found != FLAVOUR_ASCII:
+                break
+
+        self.flavour = flavour_found

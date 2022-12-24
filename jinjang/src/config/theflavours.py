@@ -98,7 +98,7 @@ AUTO_FROM_EXT[FLAVOUR_LATEX] = ["*.tex", "*.sty", "*.tkz"]
 WITH_EXTRA_TOOLS[FLAVOUR_LATEX] = True
 
 JINJA_TAGS[FLAVOUR_LATEX] = {
-    TAG_VAR_START: "\\\\JNGVAR{",
+    TAG_VAR_START: "\\JNGVAR{",
     TAG_VAR_END: "}",
     TAG_INLINE_COMMENT: "%_",
     TAG_INLINE_INSTR: "%:",

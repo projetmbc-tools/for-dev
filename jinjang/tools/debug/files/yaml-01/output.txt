@@ -5,3 +5,5 @@ One small example with automatic calculations.
     2) I count using squares: 4.
 
     3) I count using squares: 9.
+
+    4) I count using squares: 16.
