@@ -10,8 +10,16 @@ from cbdevtools import *
 # -- WHAT WE USE -- #
 # ----------------- #
 
-FILES_FOLDER_NAME = "case-01"
-EXTENSION         = "txt"
+FILES_FOLDER_NB = "01"
+
+DATAS_EXT = "yaml"
+DATAS_EXT = "json"
+DATAS_EXT = "py"
+
+SAFEMODE = True
+SAFEMODE = False
+
+TEMPL_EXT = "txt"
 
 
 # ------------------------------------ #
@@ -23,7 +31,7 @@ MODULE_DIR = addfindsrc(
     project = 'jinjaNG',
 )
 
-from src.build import *
+from src.builder import *
 
 
 # -------------- #
@@ -33,13 +41,16 @@ from src.build import *
 THIS_FILE = Path(__file__)
 THIS_DIR  = Path(THIS_FILE).parent
 
-FILES_FOLDER = THIS_DIR / "files" / FILES_FOLDER_NAME
+FILES_FOLDER_NAME = f"{DATAS_EXT}-{FILES_FOLDER_NB}"
+FILES_FOLDER      = THIS_DIR / "files" / FILES_FOLDER_NAME
 
 
-mybuilder = Builder()
+mybuilder = Builder(
+    safemode = SAFEMODE
+)
 
-template = FILES_FOLDER / f"template.{EXTENSION}"
-datas    = FILES_FOLDER / "datas.json"
+template = FILES_FOLDER / f"template.{TEMPL_EXT}"
+datas    = FILES_FOLDER / f"datas.{DATAS_EXT}"
 
 output = mybuilder.render(
     datas    = datas,
@@ -48,6 +59,7 @@ output = mybuilder.render(
 
 print()
 print(
-    f"Rendering from JSON made in the folder ``files/{FILES_FOLDER_NAME}."
+    f"Rendering from {DATAS_EXT} made in "
+    f"the folder ``files/{FILES_FOLDER_NAME}``."
 )
 print()

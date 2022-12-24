@@ -101,14 +101,14 @@ USECASES_DATAS = []
 
 for flavour, usecases in USECASES_FOLDERS.items():
     for ucdir in usecases:
-        datas, template, output = extract_dto(ucdir)
+        jngdatas, template, output = extract_dto(ucdir)
         test_name               = ucdir.name
 
         USECASES_DATAS.append(
             (
                 flavour,
                 test_name,
-                datas,
+                jngdatas,
                 template,
                 output
             )

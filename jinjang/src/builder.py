@@ -2,8 +2,7 @@
 
 from typing import Union
 
-from json    import load as jsonload
-from pathlib import Path
+from runpy import run_path
 
 from jinja2 import (
     BaseLoader,
@@ -12,6 +11,7 @@ from jinja2 import (
 )
 
 from .config import *
+from .jngdatas  import *
 
 
 # ----------------------- #
@@ -42,11 +42,15 @@ class Builder:
 ###
     def __init__(
         self,
-        flavour: str  = FLAVOUR_ASCII,
-        auto   : bool = True,
+        flavour : str  = FLAVOUR_ASCII,
+        auto    : bool = True,
+        safemode: bool = True
     ) -> None:
-        self.flavour = flavour
-        self.auto    = auto
+        self.flavour  = flavour
+        self.auto     = auto
+        self.safemode = safemode
+
+        self._build_datas = JNGDatas(safemode).build
 
 
     @property
@@ -123,13 +127,8 @@ class Builder:
             str(template.name)
         )
 
-        with datas.open(
-            encoding = 'utf-8',
-            mode     = "r",
-        ) as f:
-            dictdata = jsonload(f)
-
-        content = jinja2template.render(dictdata)
+        dictdatas = self._build_datas(datas)
+        content   = jinja2template.render(dictdatas)
 
         output.write_text(
             data     = content,

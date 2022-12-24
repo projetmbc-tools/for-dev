@@ -10,7 +10,7 @@
 --------
 
 [[:update:]]
-File path::``config.flavour.py``: three ¨dicts are proposed to facilitate the internal ¨dev.
+File path::``config.theflavours.py``: three ¨dicts are proposed to facilitate the internal ¨dev.
 
 
 // ---------- //
