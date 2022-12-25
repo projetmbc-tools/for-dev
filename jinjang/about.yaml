@@ -1,6 +1,6 @@
 general:
     project : jinjaNG
-    desc    : Extended jinja2 template engine with specific settings, and wroflows.
+    desc    : Extended jinja2 template engine with specific settings, and workflows.
     author  : Christophe BAL
     licence : gnu 3
     need    :

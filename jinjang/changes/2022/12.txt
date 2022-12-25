@@ -35,7 +35,7 @@ Use cases: ¨yaml files are used for datas instead of ¨json ones.
 
 
 [[:issues:]]
-Unit tests revealed some broken outputs in the contributions due to invisible content, as well as some stupid minor bugs.
+Unit tests revealed some stupid minor bugs, as well as some broken outputs in the contributions due to invisible content.
 
 
 // ---------- //

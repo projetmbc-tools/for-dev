@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from typing import Union
+from typing import Any
 
 from json    import load as json_load
 from pathlib import Path
@@ -8,20 +8,48 @@ from runpy   import run_path
 from yaml    import safe_load as yaml_load
 
 
+# ----------------------------- #
+# -- DATAS TO FEED TEMPLATES -- #
+# ----------------------------- #
+
 JNGDATAS_PYNAME = "JNG_DATAS"
 
-
+###
+# This class produces the internal version of data from different kinds
+# of input.
+###
 class JNGDatas:
+###
+# prototype::
+#     pydatas : this argument with the value ``True`` allows the execution
+#               of ¨python files to build data to feed a template.
+#               Otherwise, no ¨python script will be launched.
+###
     def __init__(
         self,
         pydatas: bool
     ) -> None:
         self.pydatas = pydatas
 
-    def build(self, datas: Union[dict, Path]):
+
+###
+# prototype::
+#     datas : datas to feed a template. If the type used is not a ¨python
+#             ¨dict, then this argument will be transformed into a string
+#             in order to construct a path.
+#           @ type(datas) != dict ==> exists path(str(config))
+#
+#     :return: data to feed a template (no chek is done).
+###
+    def build(
+        self,
+        datas: Any
+    ) -> dict:
+# Just one dictionary.
         if isinstance(datas, dict):
             return datas
 
+# We need a path of one existing file.
         datas = Path(str(datas))
 
         if not datas.is_file():
@@ -29,7 +57,8 @@ class JNGDatas:
                 f"missing file:\n{datas}"
             )
 
-        ext   = datas.suffix[1:]
+# Do we manage this kind of file?
+        ext = datas.suffix[1:]
 
         try:
             builder = getattr(self, f"build_from{ext}")
@@ -39,11 +68,11 @@ class JNGDatas:
                 f"no datas builder for the extension {ext}."
             )
 
-# Builders working one path.
+# Special case of the Python files.
         if ext == 'py':
             dictdatas = builder(datas)
 
-# Builders working one IO content.
+# Other kind of files.
         else:
             with datas.open(
                 encoding = 'utf-8',
@@ -54,29 +83,61 @@ class JNGDatas:
         return dictdatas
 
 
-    def build_fromjson(self, file):
+###
+# prototype::
+#     file: path of a ¨json file.
+#
+#     :return: data to feed a template (no chek is done).
+###
+    def build_fromjson(
+        self,
+        file: Path
+    ) -> dict:
         return json_load(file)
 
 
-    def build_fromyaml(self, file):
+###
+# prototype::
+#     file: path of a ¨yaml file.
+#
+#     :return: data to feed a template (no chek is done).
+###
+    def build_fromyaml(
+        self,
+        file: Path
+    ) -> dict:
         return yaml_load(file)
 
 
-    def build_frompy(self, datas):
+###
+# prototype::
+#     file: path of a ¨python file.
+#
+#     :return: data to feed a template (no chek is done).
+###
+    def build_frompy(
+        self,
+        file: Path
+    ) -> dict:
+# Are we allowed to launch a Python file?
         if not self.pydatas:
             raise Exception(
                 "''pydatas'' disabled, no Python file can't be launched "
                 "to build datas."
             )
 
-        runner    = run_path(datas)
+# Lets's launch the Python file, and then recover the expected value
+# of the special variable.
+        runner    = run_path(file)
         dictdatas = runner.get(JNGDATAS_PYNAME, None)
 
+# The special variable is missing.
         if dictdatas is None:
             raise Exception(
                 f"no ``{JNGDATAS_PYNAME}`` variable found in the Python file :"
                  "\n"
-                f"{datas}"
+                f"{file}"
             )
 
+# The job has been done.
         return dictdatas

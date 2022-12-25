@@ -55,4 +55,4 @@ Ceci se passe via l'option term::``-cfg chemin/vers/ma/config.yaml`` comme dans 
 
 
 info::
-    Dans cf::``spevars`` se trouvent ¨ttes les variables spéciales disponible pour définir des commandes dans un fichier de ¨cfg.
+    Dans cf::``spevars`` se trouvent ¨ttes les variables spéciales disponibles pour définir des commandes dans un fichier de ¨cfg.

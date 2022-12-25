@@ -19,12 +19,12 @@ note::
 
 Imaginons que nous soyons dans la situation suivante.
 
-    1) Dans un dossier path::``my/folder`` se trouve un fichier "patron" path::``template .tex`` qui est de type ¨latex.
+    1) Dans un dossier path::``my/folder`` se trouve un fichier "patron" path::``template.tex`` qui est de type ¨latex.
 
     1) Les données sont indiquées dans le fichier path::``datas.json``.
 
 
-Dans ce cas, pour obtenir un fichier path::``output .tex`` obtenu après peuplement, il suffira de procéder comme suit où l'option term::``-dto`` est pour "[d]atas, [t]emplate, [o]utput", soit  "données, patron, produit" en français (la sortie ¨jinjang a été omise, et d'où la présence de term::``[...]``).
+Dans ce cas, pour obtenir un fichier path::``output.tex`` obtenu après peuplement, il suffira de procéder comme suit où l'option term::``-dto`` est pour "[d]atas, [t]emplate, [o]utput", soit  "données, patron, produit" en français (la sortie ¨jinjang a été omise, et d'où la présence de term::``[...]``).
 
 terminal::
     > cd my/folder
@@ -40,7 +40,7 @@ A titre indicatif, montrons des contenus possibles pour les deux fichiers de dé
 
 latex::
     ---
-    title = Le "patron" path::``template .tex``
+    title = Le "patron" path::``template.tex``
     path  = ?/examples/direct/template.tex
     ---
 
@@ -58,11 +58,11 @@ La commande term::``python -m jinjang -dto ...`` fournit finalement le fichier s
 
 latex::
     ---
-    title = Le produit fini path::``output .tex``
-    path  = ?/examples/direct/output .tex
+    title = Le produit fini path::``output.tex``
+    path  = ?/examples/direct/output.tex
     ---
 
 
 note::
-    La seule obtention du fichier path::``output .tex`` n'est pas forcément satisfaisante : on pourrait souhaiter obtenir aussi le ¨pdf fabriqué via l'appel de ¨pdflatex appliqué à path::``output .tex``.
+    La seule obtention du fichier path::``output.tex`` n'est pas forcément satisfaisante : on pourrait souhaiter obtenir aussi le ¨pdf fabriqué via l'appel de ¨pdflatex appliqué à path::``output.tex``.
     La section cf::``hooks.txt`` explique comment appeler des programmes extérieurs après le travail fait par ¨jinjnag.

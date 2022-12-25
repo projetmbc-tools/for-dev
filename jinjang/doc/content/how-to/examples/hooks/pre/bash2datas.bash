@@ -28,7 +28,7 @@ touch  "$OUTPUT"
 
 cat << EOT >> $OUTPUT
 {
-    "day": "$TODAY",
+    "day" : "$TODAY",
     "time": "$NOW"
 }
 EOT

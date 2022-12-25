@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 
-from typing import Union
+from typing import (
+    Any,
+    Union
+)
 
 from jinja2 import (
     BaseLoader,
@@ -8,62 +11,72 @@ from jinja2 import (
     FileSystemLoader,
 )
 
-from .config import *
+from .config    import *
+from .jngconfig import *
 from .jngdatas  import *
 
 
-# ----------------------- #
-# -- XXXX -- #
-# ----------------------- #
+# ------------------------------- #
+# -- SPECIAL LOADER FOR JINJA2 -- #
+# ------------------------------- #
 
 ###
+# This class is used to allow the use of string templates.
 #
+# ref::
+#     * https://jinja.palletsprojects.com/en/3.0.x/api/#jinja2.BaseLoader
 ###
 class StringLoader(BaseLoader):
     def get_source(self, environment, template):
         return template, None, lambda: True
 
 
-# ----------------------- #
-# -- XXXX -- #
-# ----------------------- #
+# --------------------- #
+# -- JINJANG BUILDER -- #
+# --------------------- #
 
 AUTO_FLAVOUR = ":auto-flavour:"
 AUTO_CONFIG  = ":auto-config:"
 NO_CONFIG    = ":no-config:"
 
+
 ###
-#
+# This class allows to build either string, or file contents from
+# ¨jinjang templates and datas.
 ###
 class JNGBuilder:
     DEFAULT_CONFIG_FILE = "cfg.jng.yaml"
 
 ###
 # prototype::
-#      flavour: ???
+#     flavour : this argument helps to find the dialect of one template.
 #             @ flavour = AUTO_FLAVOUR
-#               or flavour in config.theflavours.ALL_FLAVOURS
-#      pydatas : ???
-#      config : ???
-#             @ config in [AUTO_CONFIG, NO_CONFIG]
-#               or exists path(config)
+#               or
+#               flavour in config.jngflavours.ALL_FLAVOURS
+#     pydatas : this argument with the value ``True`` allows the execution
+#               of ¨python files to build data to feed a template.
+#               Otherwise, no ¨python script will be launched.
+#     config  : ¨configs used to allow extra features
+#             @ type(config) = str  ==> config in [AUTO_CONFIG, NO_CONFIG] ;
+#               type(config) != str ==> exists path(config)
 ###
     def __init__(
         self,
-        flavour: str              = AUTO_FLAVOUR,
-        pydatas: bool             = False,
-        config : Union[str, Path] = NO_CONFIG
+        flavour: str  = AUTO_FLAVOUR,
+        pydatas: bool = False,
+        config : Any  = NO_CONFIG
     ) -> None:
         self.flavour = flavour
         self.config  = config
 
-# The update of ``pydatas`` implies a new instance of
+# The update of ``pydatas`` implies the use of a new instance of
 # ``self._build_datas`` via ``JNGDatas(value).build``.
         self.pydatas = pydatas
 
 
 ###
-# prototype::
+# One getter, and one setter for ``config`` are used to secure the values
+# used for this special attribut.
 ###
     @property
     def config(self):
@@ -77,11 +90,14 @@ class JNGBuilder:
                 "no config features for the moment..."
             )
 
+        # self.DEFAULT_CONFIG_FILE
+
         self._config = value
 
 
 ###
-# prototype::
+# One getter, and one setter for ``pydatas`` are used to secure the values
+# used for this special attribut.
 ###
     @property
     def pydatas(self):
@@ -89,12 +105,13 @@ class JNGBuilder:
 
     @pydatas.setter
     def pydatas(self, value):
-        self._pydatas      = value
+        self._pydatas     = value
         self._build_datas = JNGDatas(value).build
 
 
 ###
-# prototype::
+# One getter, and one setter for ``flavour`` are used to secure the values
+# used for this special attribut.
 ###
     @property
     def flavour(self):
@@ -122,22 +139,29 @@ class JNGBuilder:
 
 ###
 # prototype::
+#     datas    : datas used to feed one template.
+#     template : one template.
+#
+#     :return: the output made by using ``datas`` on ``template``.
 ###
     def render_frompy(
         self,
         datas   : dict,
         template: str
     ) -> str:
+# With ¨python varaiable, we can't detect automatically the flavour.
         if self.flavour == AUTO_FLAVOUR:
             raise ValueError(
                 "no ''auto-flavour'' when working with strings."
             )
 
+# A dict must be used for the values of the ¨jinjang variables.
         if not isinstance(datas, dict):
             raise TypeError(
                 "''datas'' must be a ''dict'' variable."
             )
 
+# Let's wirk!
         jinja2env        = self._build_jinja2env(self.flavour)
         jinja2env.loader = StringLoader()
 
@@ -149,30 +173,41 @@ class JNGBuilder:
 
 ###
 # prototype::
+#     datas    : datas used to feed one template.
+#     template : one template.
+#              @ exists path(str(template))
+#     output   : the file used for the output build after using ``datas``
+#                on ``template``.
+#
+#     :action: an output file is created with a content build after using
+#              ``datas`` on ``template``.
 ###
     def render(
         self,
-        datas   : Union[dict, Path],
-        template: Path,
-        output  : Path,
-        pydatas  = None,
-        config  = None
-    ) -> Path:
+        datas   : Any,
+        template: Any,
+        output  : Any,
+        pydatas : Union[bool, None] = None,
+        config  : Any               = None
+    ) -> None:
+# Can we execute temporarly a ¨python file to build datas?
         if pydatas is not None:
             old_pydatas  = self.pydatas
             self.pydatas = pydatas
 
+# Can we use temporarly specific ¨configs?
         if config is not None:
             old_config  = self.config
             self.config = config
 
-
+# What is the flavour to use?
         if self.flavour == AUTO_FLAVOUR:
             flavour = self._auto_flavour(template)
 
         else:
             flavour = self.flavour
 
+# Let's work!
         jinja2env        = self._build_jinja2env(flavour)
         jinja2env.loader = FileSystemLoader(
             str(template.parent)
@@ -190,6 +225,7 @@ class JNGBuilder:
             encoding = "utf-8",
         )
 
+# Restore previous settings if local ones have been used.
         if pydatas is not None:
             self.pydatas = old_pydatas
 
@@ -199,8 +235,14 @@ class JNGBuilder:
 
 ###
 # prototype::
+#     template : one template.
+#
+#     :return: the flavour to be used on ``template``.
 ###
-    def _auto_flavour(self, template):
+    def _auto_flavour(
+        self,
+        template: Any
+    ) -> str:
         flavour_found = FLAVOUR_ASCII
 
         for flavour, extensions in AUTO_FROM_EXT.items():
@@ -220,6 +262,13 @@ class JNGBuilder:
 
 ###
 # prototype::
+#     flavour : this argument indicates an exiting dialect.
+#             @ flavour in config.jngflavours.ALL_FLAVOURS
+#
+#     :return: a ``jinja2.Environment`` that will create the final output.
 ###
-    def _build_jinja2env(self, flavour):
+    def _build_jinja2env(
+        self,
+        flavour: str
+    ) -> Environment:
         return Environment(**JINJA_TAGS[flavour])
