@@ -2,5 +2,5 @@
 
 __version__ = ""
 
-from .builder import *
+from .jngbuild import *
 from .jngdatas import *

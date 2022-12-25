@@ -1,2 +1,0 @@
-﻿Le naturel {{mynb}} s'écrit en base 2 :
-[{{mynb_base2}}]_2 .

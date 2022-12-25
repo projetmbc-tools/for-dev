@@ -2,6 +2,46 @@
 
 
 ==
+???????  (0.0.0-beta)
+==
+
+
+-----
+:new:
+-----
+
+[[:api:]]
+Builder: the class ``jngbuild.JNGBuilder`` builds outputs from models fed by data.
+
+
+[[::flow:]]
+The project is now on ¨pypi.
+
+
+--------
+:fordev:
+--------
+
+[[:tests:]]
+Unit tests: here are the features implemented.
+
+    1) Examples from the ¨doc, and use cases from the contribition are tested.
+
+    1) Checking for duplicates in extensions to apply flavours automatically.
+
+
+[[:facto:]]
+Use cases: ¨yaml files are used for datas instead of ¨json ones.
+
+
+[[:issues:]]
+Unit tests revealed some broken outputs in the contributions due to invisible content, as well as some stupid minor bugs.
+
+
+// ---------- //
+
+
+==
 21
 ==
 
@@ -10,7 +50,7 @@
 --------
 
 [[:update:]]
-File path::``config.theflavours.py``: three ¨dicts are proposed to facilitate the internal ¨dev.
+File path::``config.jngflavours.py``: three ¨dicts are proposed to facilitate the internal ¨dev.
 
 
 // ---------- //
@@ -25,7 +65,7 @@ File path::``config.theflavours.py``: three ¨dicts are proposed to facilitate t
 -----
 
 [[:doc:]]
-Contribute: the "human", and the ¨tech ¨docs have been made.
+Contribute: the "human", and the ¨tech ¨docs are complete.
 
 
 // ---------- //

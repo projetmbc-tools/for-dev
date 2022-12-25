@@ -1,31 +1,32 @@
-TODAY=$(date "+%d-%m-%y")
+TODAY=$(date "+%d-%m-%Y")
 NOW=$(date   "+%H:%M:%S")
 
 jq --null-input                    \
    --arg today "$TODAY"            \
    --arg now   "$NOW"              \
    '{"day": $today, "time": $now}' \
-> lastchanges.json
+> datas.json
+
 
 # ----------- #
 # -- TESTS -- #
 # ----------- #
 
-TEMPL_OUT="tmpl-test-out.json"
+OUTPUT="output.json"
 
-if [ -f "$TEMPL_OUT" ]
+if [ -f "$OUTPUT" ]
 then
-    rm "$TEMPL_OUT"
+    rm "$OUTPUT"
 fi
 
-touch  "$TEMPL_OUT"
+touch  "$OUTPUT"
 
 # {
 #     "day": {{day}},
 #     "time": {{time}}
 # }
 
-cat << EOT >> $TEMPL_OUT
+cat << EOT >> $OUTPUT
 {
     "day": "$TODAY",
     "time": "$NOW"

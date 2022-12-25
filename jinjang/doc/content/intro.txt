@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-12-10
+    date = 2022-12-25
 
 
 ============================================
@@ -29,6 +29,14 @@ L'ambition de ¨jinjang est de rendre le travail avec ¨jinja plus efficace dans
     ((
         Il est ainsi possible de déboguer un patron sans avoir à lancer le processus de fabrication d'un ¨docu final "test".
     )).
+
+
+warning::
+    Dans ce ¨doc, le vocabulaire suivant est utilisé.
+
+        * Un fichier "patron" designe un fichier utilisant la syntaxe ¨jinja.
+
+        * Un "produit fini" designe un fichier obtenu en peuplant un fichier "patron" avec des données.
 
 
 info::

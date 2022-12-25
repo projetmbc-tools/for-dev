@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-12-17
+    date = 2022-12-25
 
 
 ====================================
@@ -10,8 +10,8 @@ Supposons que pour peupler un "patron", nous voulons obtenir le fichier suivant,
 
 json::
     ---
-    title = Le fichier path::``lastchanges.json``
-    path  = ?/examples/hooks/pre/lastchanges.json
+    title = Le fichier path::``datas.json``
+    path  = ?/examples/hooks/pre/datas.json
     ---
 
 
@@ -21,18 +21,19 @@ bash::
     ---
     title = Le fichier path::``bash2datas.bash``
     path  = ?/examples/hooks/pre/bash2datas.bash
+    keep  = regex: (.*\n)*> datas.json\n
     ---
 
 
 Il reste à voir comment demander à ¨jinjang de lancer le script ¨bash.
-Commençons par une méthode ne nécessitant aucune option lors de l'emploi de term::``python -m jinjang``.
-Pour cela, il suffit d'utiliser un fichier nommé path::``cfg.jng.yaml``, placé dans le même dossier que le fichier "patron", et ayant le contenu suivant (la ligne avec term::``echo``, qui demande juste un affichage, est juste là pour expliquer le comportement de ¨jinjang).
+La ¨1ere méthode nécessite une commande du type term::``python -m jinjang -cfg auto -dto ...`` où est employé term::``-cfg auto``.
+L'option supplémentaire demande la recherche d'un fichier path::``cfg.jng.yaml`` placé dans le même dossier que le fichier "patron".
+Dans notre cas, le contenu de ce fichier de ¨cfg est le suivant (la ligne avec term::``echo``, qui produira un affichage, est juste là pour expliquer le comportement de ¨jinjang).
 
 yaml::
     ---
     title = Le fichier de ¨config path::``cfg.jng.yaml``
     path  = ?/examples/hooks/pre/cfg.jng.yaml
-    keep  = regex: '(.*\n)*> lastchanges.json\n'
     ---
 
 
@@ -46,12 +47,12 @@ Le contenu précédent est analysé comme suit par ¨jinjang.
 
 
 info::
-    Via l'option term::``-nocfg``, il est possible d'interdire l'utilisation ¨auto du fichier path::``cfg.jng.yaml``.
+    Sans term::``-cfg auto``, la recherche du fichier path::``cfg.jng.yaml`` ne sera pas entreprise.
 
 
 Si plusieurs "patrons" sont présents dans un même dossier, ou bien pour pouvoir utiliser des ¨configs de test, il est utile de pouvoir choisir le fichier de ¨config de façon explicite.
-Ceci se passe via l'option term::``-cfg`` comme dans term::``python -m jinjang -cfg myconfig.yaml -dto ...``.
+Ceci se passe via l'option term::``-cfg chemin/vers/ma/config.yaml`` comme dans term::``python -m jinjang -cfg speconfig.yaml -h -dto ...`` par exemple.
 
 
 info::
-    Il est possible d'utiliser quelques variables spéciales relatives au "patron" : voir cf::``spevars`` pour en savoir plus.
+    Dans cf::``spevars`` se trouvent ¨ttes les variables spéciales disponible pour définir des commandes dans un fichier de ¨cfg.

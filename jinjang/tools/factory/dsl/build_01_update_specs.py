@@ -116,7 +116,7 @@ for flavour in sorted(allspecs):
 
     final_pycode += [
         '',
-        build_src(flavour, options),
+        build_src(flavour, options, AUTO_FROM_EXT),
     ]
 
     if options[TAG_TOOLS]:
@@ -125,6 +125,36 @@ for flavour in sorted(allspecs):
         ALL_TOOLS.append(flavour)
 
 SPECS_STATUS[STATUS_OK] = ALL_FLAVOURS
+
+
+# ------------------------------ #
+# -- NO DUPLICATED EXTENSIONS -- #
+# ------------------------------ #
+
+_flavours = list(AUTO_FROM_EXT)
+
+for i_ref, fl_ref in enumerate(_flavours):
+    set_ref = AUTO_FROM_EXT[fl_ref]
+
+    for fl_other in _flavours[i_ref + 1:]:
+        inter = set_ref.intersection(AUTO_FROM_EXT[fl_other])
+
+        if inter:
+            plurial = "" if len(inter) == 1 else "s"
+
+            inter = list(inter)
+            inter.sort()
+            inter = ', '.join(
+                f'"{i}"'
+                for i in inter
+            )
+
+            raise ValueError(
+                f"same extension{plurial} for the flavours "
+                f"''{fl_other}'' and ''{fl_ref}''. See:"
+                 "\n"
+                f"{inter}."
+            )
 
 
 # -------------------- #
@@ -322,20 +352,6 @@ print(f"{TAB_1}* Updating the status of specs (for other builders).")
 # Hack source for good indented YAML code:
 #     * https://github.com/yaml/pyyaml/issues/234#issuecomment-765894586
 
-from yaml import Dumper
-
-class MyDumper(Dumper):
-    def increase_indent(
-        self,
-        flow = False,
-        *args, **kwargs
-    ):
-        return super().increase_indent(
-            flow       = flow,
-            indentless = False
-        )
-
-
 with SPECS_STATUS_YAML.open(
     mode     = "w",
     encoding = "utf-8"
@@ -343,5 +359,5 @@ with SPECS_STATUS_YAML.open(
     yaml_dump(
         data   = SPECS_STATUS,
         stream = f,
-        Dumper = MyDumper
+        Dumper = IndentDumper
     )

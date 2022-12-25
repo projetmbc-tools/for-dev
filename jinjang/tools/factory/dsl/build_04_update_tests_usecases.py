@@ -41,10 +41,12 @@ from src import AUTO_FROM_EXT
 # -- USECASES FOR TESTS -- #
 # ------------------------ #
 
-print(f"{TAB_1}* Updating datas for tests build on the usecases.")
+print(f"{TAB_1}* Updating data for tests built from usecases.")
 
 # We can't update usecases for an evolving flavour, this is why we use
 # ``FLAVOURS_STATUS_YAML``, and not ``config.flavour.SETTINGS``.
+#
+# This implies to not erase last tests!
 
 with FLAVOURS_STATUS_YAML.open(
     mode     = "r",

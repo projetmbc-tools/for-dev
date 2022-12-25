@@ -1,0 +1,25 @@
+﻿this::
+    date = 2022-12-25
+
+
+=========================================
+Travailler avec des chaînes de caractères
+=========================================
+
+Pour ne travailler qu'avec des variables ¨python, il suffit de faire appel à la méthode python::``render_frompy`` comme dans l'exemple suivant qui reprend l'idée de la section précédente.
+
+python::
+    ---
+    path = ?/examples/via-python/str2str/str2str.py
+    ---
+
+
+Avec le code précédent, la variable python::``output_str`` aura le contenu suivant.
+
+verb::
+    Le mot "TEST" se code en ASCII :
+    "084069083084" .
+
+
+warning::
+    La méthode python::``render_frompy`` ne fonctionne pas avec python::``AUTO_FLAVOUR``, et de plus le type de python::``datas`` ne peut être que python::``dict``.

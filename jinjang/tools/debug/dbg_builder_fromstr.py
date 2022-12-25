@@ -14,14 +14,14 @@ MODULE_DIR = addfindsrc(
     project = 'jinjaNG',
 )
 
-from src.build import *
+from src.jngbuild import *
 
 
 # -------------- #
 # -- LET'S GO -- #
 # -------------- #
 
-mybuilder = Builder()
+mybuilder = JNGBuilder(flavour = FLAVOUR_ASCII)
 
 template = """
 One small {{ txt_example }} with automatic calculations.
@@ -35,7 +35,7 @@ datas = {
     "max_i"      : 4,
 }
 
-output = mybuilder.render_fromstr(
+output = mybuilder.render_frompy(
     datas    = datas,
     template = template,
 )

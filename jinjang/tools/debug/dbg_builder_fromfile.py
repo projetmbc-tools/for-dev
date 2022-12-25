@@ -16,8 +16,8 @@ DATAS_EXT = "yaml"
 # DATAS_EXT = "json"
 # DATAS_EXT = "py"
 
-SAFEMODE = True
-# SAFEMODE = False
+PYDATAS = True
+# PYDATAS = False
 
 TEMPL_EXT = "txt"
 
@@ -31,7 +31,7 @@ MODULE_DIR = addfindsrc(
     project = 'jinjaNG',
 )
 
-from src.builder import *
+from src.jngbuild import *
 
 
 # -------------- #
@@ -45,15 +45,15 @@ FILES_FOLDER_NAME = f"{DATAS_EXT}-{FILES_FOLDER_NB}"
 FILES_FOLDER      = THIS_DIR / "files" / FILES_FOLDER_NAME
 
 
-mybuilder = Builder(
-    safemode = SAFEMODE
+mybuilder = JNGBuilder(
+    pydatas = PYDATAS
 )
 
 template = FILES_FOLDER / f"template.{TEMPL_EXT}"
 output   = template.parent / f"output.{TEMPL_EXT}"
 datas    = FILES_FOLDER / f"datas.{DATAS_EXT}"
 
-output = mybuilder.render(
+mybuilder.render(
     datas    = datas,
     template = template,
     output   = output

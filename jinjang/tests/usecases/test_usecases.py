@@ -3,9 +3,10 @@
 from typing import Tuple
 
 from collections import defaultdict
-from pathlib     import Path
 
 from cbdevtools.addfindsrc import addfindsrc
+
+from common import *
 
 
 # -------------------- #
@@ -19,7 +20,7 @@ addfindsrc(
 
 from src import *
 
-MY_BUILDER = Builder()
+MY_BUILDER = JNGBuilder()
 
 
 # ----------------------- #
@@ -65,6 +66,17 @@ for pdir in yielddirs(DATAS_DIR):
 # pprint(dict(USECASES_FOLDERS))
 # ! -- DEBUGGING -- ! #
 
+
+# ----------- #
+# -- TOOLS -- #
+# ----------- #
+
+def message(template):
+    return (
+         "\n"
+        f"See: {template.parent.name}/{template.name}"
+         "\n"
+    )
 
 # -------------------- #
 # -- USECASES DATAS -- #
@@ -118,78 +130,37 @@ for flavour, usecases in USECASES_FOLDERS.items():
         )
 
 
-# ----------- #
-# -- TOOLS -- #
-# ----------- #
-
-def build_output(
-    datas,
-    template
-):
-    output_found = template.parent / f"output_found{template.suffix}"
-
-    MY_BUILDER.render(
-        datas    = datas,
-        template = template,
-        output   = output_found
-    )
-
-    return output_found
-
-
 # -------------------------------------------- #
 # -- USECASES (CONTRIB.) - NON-STRICT TESTS -- #
 # -------------------------------------------- #
 
-# The lines are stripped to the right, and
-# empty lines are ignored.
-
-def minimize_content(path):
-    return [
-        lstripped
-        for l in path.read_text(encoding = 'utf-8').split('\n')
-        if (lstripped:= l.rstrip())
-    ]
-
-def tRRRest_contrib_usecases_non_strict():
+def test_contrib_usecases_non_strict():
     for flavour, test_name, datas, template, output in USECASES_DATAS:
         output_wanted = minimize_content(output)
         output_found  = minimize_content(
             build_output(
+                MY_BUILDER,
                 datas,
                 template
             )
         )
 
-        assert output_wanted == output_found, (
-                "\n"
-               f"See: {template.parent.name}/{template.name}"
-                "\n"
-        )
+        assert output_wanted == output_found, message(template)
 
 
 # ---------------------------------------- #
 # -- USECASES (CONTRIB.) - STRICT TESTS -- #
 # ---------------------------------------- #
 
-# Verbatim equivalences of the contents except for the final empty lines that are striped.
-
-def content(path):
-    return path.read_text(encoding = 'utf-8').rstrip().split('\n')
-
-
 def test_contrib_usecases_strict():
     for flavour, test_name, datas, template, output in USECASES_DATAS:
         output_wanted = content(output)
         output_found  = content(
             build_output(
+                MY_BUILDER,
                 datas,
                 template
             )
         )
 
-        assert output_wanted == output_found, (
-                "\n"
-               f"See: {template.parent.name}/{template.name}"
-                "\n"
-        )
+        assert output_wanted == output_found, message(template)

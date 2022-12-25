@@ -6,7 +6,8 @@ from datetime    import date
 import re
 from yaml import (
     safe_load as yaml_load,
-    dump      as yaml_dump
+    dump      as yaml_dump,
+    Dumper
 )
 
 from cbdevtools.addfindsrc import addfindsrc
@@ -69,6 +70,22 @@ DEFAULT_STATUS_CONTENT = {
         'The author of jinjaNG will contact you later.'
     )
 }
+
+
+# -------------------------- #
+# -- SPECIFIC JSON DUMPER -- #
+# -------------------------- #
+
+class IndentDumper(Dumper):
+    def increase_indent(
+        self,
+        flow = False,
+        *args, **kwargs
+    ):
+        return super().increase_indent(
+            flow       = flow,
+            indentless = False
+        )
 
 
 # ---------------------- #
@@ -240,7 +257,6 @@ def build_all_settings(options):
         TAG_VAR_END  : options[TAG_VAR][1],
     }
 
-
     if not(
         TAG_BLOCK in options
         or
@@ -272,7 +288,7 @@ def build_all_settings(options):
     return forjinja, needtools, autoext
 
 
-def build_src(name, options):
+def build_src(name, options, autofromext):
     date   = options[TAG_DATE]
     author = options[TAG_AUTHOR]
     author = (
@@ -295,6 +311,8 @@ def build_src(name, options):
     """.strip()
 
     forjinja, needtools, autoext = build_all_settings(options)
+
+    autofromext[name] = set(autoext)
 
     pycode = CODE_SETTINGS_TEMPL.format(
         name      = name,

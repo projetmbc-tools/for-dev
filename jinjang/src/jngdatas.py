@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from typing import Union
+
 from json    import load as json_load
 from pathlib import Path
 from runpy   import run_path
@@ -12,12 +14,22 @@ JNGDATAS_PYNAME = "JNG_DATAS"
 class JNGDatas:
     def __init__(
         self,
-        safemode: bool
+        pydatas: bool
     ) -> None:
-        self.safemode = safemode
+        self.pydatas = pydatas
 
-    def build(self, datas: Path):
-        ext = datas.suffix[1:]
+    def build(self, datas: Union[dict, Path]):
+        if isinstance(datas, dict):
+            return datas
+
+        datas = Path(str(datas))
+
+        if not datas.is_file():
+            raise IOError(
+                f"missing file:\n{datas}"
+            )
+
+        ext   = datas.suffix[1:]
 
         try:
             builder = getattr(self, f"build_from{ext}")
@@ -51,9 +63,9 @@ class JNGDatas:
 
 
     def build_frompy(self, datas):
-        if self.safemode:
+        if not self.pydatas:
             raise Exception(
-                "safemode activated, no Python file can't be launched "
+                "''pydatas'' disabled, no Python file can't be launched "
                 "to build datas."
             )
 

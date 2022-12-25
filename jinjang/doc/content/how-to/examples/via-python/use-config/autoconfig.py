@@ -1,3 +1,3 @@
 ﻿mybuilder = JNGBuilder(
-    config = 'myconfig.yaml'
+    config = AUTO_CONFIG
 )
