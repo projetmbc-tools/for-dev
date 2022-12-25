@@ -14,6 +14,10 @@
 Builder: the class ``jngbuild.JNGBuilder`` builds outputs from models fed by data.
 
 
+[[:doc:]]
+??????     path::``README.md``: the project has it path::``README`` file.
+
+
 [[::flow:]]
 The project is now on ¨pypi.
 
