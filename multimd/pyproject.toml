@@ -10,7 +10,7 @@ repository   = "https://github.com/bc-tools/for-dev/tree/main/multimd"
 
 [tool.poetry.dependencies]
 python  = "^3.8"
-natsort = "^7.1.1"
+natsort = "^8.2.0"
 
 [tool.poetry.dev-dependencies]
 
