@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
 def cli():
-    print('Module CLI entry point...')
+    raise NotImplementedError("CLI will be there soon...")
 
 cli()

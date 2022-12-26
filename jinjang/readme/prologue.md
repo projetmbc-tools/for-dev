@@ -1,6 +1,5 @@
-The `Python` module `jinjang`
+The `Python` module `jinjaNG`
 =============================
-
 
 > **I beg your pardon for my english...**
 >

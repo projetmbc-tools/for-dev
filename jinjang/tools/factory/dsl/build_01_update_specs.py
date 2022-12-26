@@ -197,9 +197,9 @@ final_pycode = f"""
 #
 #     + ``{THIS_FILE_REL_SRC_PATH}``
 
-JINJA_TAGS       = dict()
-WITH_EXTRA_TOOLS = dict()
 AUTO_FROM_EXT    = dict()
+WITH_EXTRA_TOOLS = dict()
+JINJA_TAGS       = dict()
 
 
 # -------------- #

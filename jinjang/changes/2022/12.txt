@@ -15,7 +15,7 @@ Builder: the class ``jngbuild.JNGBuilder`` builds outputs from models fed by dat
 
 
 [[:doc:]]
-??????     path::``README.md``: the project has it path::``README`` file.
+path::``README.md``: the project has its path::``README`` file.
 
 
 [[::flow:]]

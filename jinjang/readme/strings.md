@@ -1,30 +1,43 @@
-Working with `Python` strings
------------------------------
+Working with `Python` variables
+-------------------------------
 
-#### ????
-
-~~~python
-datas = {'max_i': 4, 'txt_example': 'example'}
-~~~
+To work directly from `Python` without using any file, you need to produce a dictionary for the data, and a string for the template, so as to get a string for the final output. Let's take an example where the dialect, or flavour, must be specified always.
 
 ~~~python
-template = """
-One small {{ txt_example }} with automatic calculations.
+from jinjang import *
+
+mydatas = {
+    'txt_exa': "small example",
+    'max_i'  : 4
+}
+
+mytemplate = """
+One {{ txt_exa }} with automatic calculations.
 {#: for i in range(1, max_i + 1) :#}
-    {{ i }}) I count using squares: {{ i**2 }}.
+  {{ i }}) I count using squares: {{ i**2 }}.
 {#: endfor :#}
 """.strip()
+
+mybuilder = JNGBuilder(flavour = FLAVOUR_ASCII)
+
+output = mybuilder.render_frompy(
+    datas    = mydatas,
+    template = mytemplate
+)
 ~~~
 
 
-~~~python
-output = """One small example with automatic calculations.
+The content of the string `output` will be the following one.
 
-    1) I count using squares: 1.
+~~~markdown
+One small example with automatic calculations.
 
-    2) I count using squares: 4.
+  1) I count using squares: 1.
 
-    3) I count using squares: 9.
+  2) I count using squares: 4.
 
-    4) I count using squares: 16."""
+  3) I count using squares: 9.
+
+  4) I count using squares: 16.
+
 ~~~
