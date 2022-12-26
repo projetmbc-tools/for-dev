@@ -52,6 +52,8 @@ AFTER = """
 
 
 TEMPL_ONE_FLAVOUR = """
+---
+
 #### Flavour `{flname}`
 
 > **Short description:** {desc}

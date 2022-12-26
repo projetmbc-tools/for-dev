@@ -6,6 +6,8 @@ A flavour indicates a dialect for templates. Here are the technical descriptions
 
 <!-- FLAVOURS - TECH. DESC. - START -->
 
+---
+
 #### Flavour `ascii`
 
 > **Short description:** generic behaviour of `jinjaNG`.
@@ -30,6 +32,8 @@ A flavour indicates a dialect for templates. Here are the technical descriptions
 
       * Block comments are typed `{#_ ... _#}` where `...` symbolizes comments only for the template, on several lines if needed.
 
+---
+
 #### Flavour `html`
 
 > **Short description:** useful settings and tools for HTML templating.
@@ -53,6 +57,8 @@ A flavour indicates a dialect for templates. Here are the technical descriptions
       * No inline comments are available.
 
       * Block comments are typed `<!--_ ... _-->` where `...` symbolizes comments only for the template, on several lines if needed.
+
+---
 
 #### Flavour `latex`
 
