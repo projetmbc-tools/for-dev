@@ -23,7 +23,6 @@ from .toc import *
 # This class finds all the single path::``MD`` files and then builds a final
 # single one.
 ###
-
 class Builder():
 
 ###
@@ -43,8 +42,9 @@ class Builder():
 
 
 ###
-# This method is the great bandleader building the final path::``MD`` file
-# from several single ones.
+# prototype::
+#     :action: this method is the great bandleader building the final
+#              path::``MD`` file from several single ones.
 ###
     def build(self) -> None:
         for name in [
@@ -55,11 +55,12 @@ class Builder():
 
 
 ###
-# This method builds the list of the single path::``MD`` files.
+# prototype::
+#     :action: this method builds the list of the single path::``MD`` files.
 ###
     def build_lof(self) -> None:
-# Do we have an about.peuf file?
-        if (self.content / ABOUT_NAME).is_file():
+# Do we have an ``about.yaml`` file?
+        if (self.content / ABOUT_FILE_NAME).is_file():
             self._lof = TOC(self.content).extract()
 
             return
@@ -78,7 +79,9 @@ class Builder():
 
 
 ###
-# This method simply merges all the ¨md codes in a sigle path::``MD`` file.
+# prototype::
+#     :action: this method simply merges all the ¨md codes in
+#              a single path::``MD`` file.
 ###
     def merge(self) -> None:
 # All the MD code.

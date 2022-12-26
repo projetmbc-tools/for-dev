@@ -21,7 +21,7 @@ Thanks to `multimd`, you can write a `MD` document typing small section like par
 ~~~
 + src2prod
     + readme
-        * about.peuf
+        * about.yaml
         * build.md
         * cli.md
         * example-used.md
@@ -32,16 +32,16 @@ Thanks to `multimd`, you can write a `MD` document typing small section like par
     * README.md
 ~~~
 
-The special file `about.peuf` allows to indicate the order to use to merge the different `MD` files. Its content was the following one.
+The special file `about.yaml` allows to indicate the order to use to merge the different `MD` files. Its content was the following one.
 
-~~~
-toc::
-    + prologue
-    + example-used
-    + build
-    + only-files
-    + readme-splitted
-    + cli
+~~~yaml
+toc:
+  - prologue
+  - example-used
+  - build
+  - only-files
+  - readme-splitted
+  - cli
 ~~~
 
 Here how `README.md` was built. We will suppose the use of the `cd` command to go inside the parent folder of `scr2prod` before launching the following script where we use instances of `Path` from `pathlib`.
@@ -58,7 +58,7 @@ mybuilder.build()
 ~~~
 
 
-Without the special `about.peuf` file
+Without the special `about.yaml` file
 -------------------------------------
 
-If you don't use the `about.peuf` file, the class `Builder` looks for all the `MD` files and then merges. The ordred used is the one given by `natsorted` from the package `natsort`.
+If you don't use the `about.yaml` file, the class `Builder` looks for all the `MD` files and then merges. The ordred used is the one given by `natsorted` from the package `natsort`.

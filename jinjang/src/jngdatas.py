@@ -91,7 +91,7 @@ class JNGDatas:
 ###
     def build_fromjson(
         self,
-        file: Path
+        file
     ) -> dict:
         return json_load(file)
 
@@ -104,7 +104,7 @@ class JNGDatas:
 ###
     def build_fromyaml(
         self,
-        file: Path
+        file
     ) -> dict:
         return yaml_load(file)
 

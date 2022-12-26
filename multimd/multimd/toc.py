@@ -1,27 +1,23 @@
 #!/usr/bin/env python3
 
 ###
-# This module is for extracting paths inside the peuf::``toc`` block of
-# an existing path::``about.peuf`` file of one directory.
+# This module is for extracting paths from an existing path::``about.yaml``
+# file of one directory.
 ###
 
 
 from typing import *
 
 from pathlib import Path
-
-from orpyste.data      import ReadBlock
-from orpyste.parse.ast import ASTError
+from yaml    import safe_load as yaml_load
 
 
 # ----------- #
 # -- ABOUT -- #
 # ----------- #
 
-ABOUT_NAME      = "about.peuf"
-TOC_TAG         = "toc"
-PLACEHOLDER     = "+"
-ABOUT_PEUF_MODE = {"verbatim": TOC_TAG}
+ABOUT_FILE_NAME = "about.yaml"
+TAG_TOC         = "toc"
 
 MD_FILE_EXT    = "md"
 MD_FILE_SUFFIX = f'.{MD_FILE_EXT}'
@@ -32,19 +28,18 @@ MD_FILE_SUFFIX = f'.{MD_FILE_EXT}'
 # -------------------------------------------------- #
 
 ###
-# This class extracts the list of paths from an existing path::``about.peuf``
+# This class extracts the list of paths from an existing path::``about.yaml``
 # file of one directory.
 #
 # warning::
 #     This is not the responsability of this class to test the existence
-#     of the path::``about.peuf`` file.
+#     of the path::``about.yaml`` file.
 ###
-
 class TOC():
 
 ###
 # prototype::
-#     onedir : the path of the directory with the path::``about.peuf`` file.
+#     onedir : the path of the directory with the path::``about.yaml`` file.
 ###
     def __init__(
         self,
@@ -52,26 +47,26 @@ class TOC():
     ) -> None:
         self.onedir = onedir
 
-        self._lines: List[str] = []
+        self._datas: List[str] = []
 
 
 ###
 # prototype::
-#     :return: the list of paths found in the peuf::``toc`` block.
+#     :return: the list of paths found in the yaml::``toc`` block.
 ###
     def extract(self) -> List[Path]:
 # Lines in the TOC block.
-        self.readlines()
+        self.readyaml()
 
 # Paths from the lines of the TOC block.
         pathsfound: List[str] = []
 
-        for nbline, oneline in enumerate(self._lines[TOC_TAG], 1):
-            path = self.pathfound(nbline, oneline)
-
-# Empty line?
+        for path in self._datas[TAG_TOC]:
+# Empty path?
             if not path:
-                continue
+                raise ValueError(
+                    f'an empty path found in ``{ABOUT_FILE_NAME}``.'
+                )
 
 # Complete short names.
             if not '.' in path:
@@ -86,58 +81,25 @@ class TOC():
 
 ###
 # prototype::
-#     nbline  : the relative number of the line read (for message error).
-#     oneline : one line to analyze.
-#
-#     :return: the stripped text after the placeholder peuf::``+``
-#                or an empty string for an empty line.
+#     :action: this method builds the ¨dict ``self._datas`` from
+#              the ¨toc in the path::``about.yaml`` file.
 ###
-    def pathfound(
-        self,
-        nbline : int,
-        oneline: str,
-    ) -> str:
-        oneline = oneline.strip()
-
-        if not oneline:
-            return ""
-
-# We are lazzy... :-)
-        if len(oneline) == 1:
-            oneline += " "
-
-        firstchar, otherchars = oneline[0], oneline[1:].lstrip()
-
-        if firstchar != PLACEHOLDER:
-            raise ValueError(
-                f'missing ``{PLACEHOLDER}`` to indicate a path. '
-                f'See line {nbline} (number relative to the block).'
-            )
-
-        if otherchars == "":
-            raise ValueError(
-                f'an empty path after ``{PLACEHOLDER}``. '
-                f'See line {nbline} (number relative to the block).'
-            )
-
-        return otherchars
-
-
-###
-# This method builds ``self._lines`` the list of lines stored in
-# the path::``about.peuf`` file.
-###
-    def readlines(self) -> None:
+    def readyaml(self) -> None:
         try:
-            with ReadBlock(
-                content = self.onedir / ABOUT_NAME,
-                mode    = ABOUT_PEUF_MODE
-            ) as datas:
-                self._lines = datas.mydict("std nosep nonb")
 
-        except ASTError:
+            with (self.onedir / ABOUT_FILE_NAME).open(
+                encoding = 'utf-8',
+                mode     = "r",
+            ) as f:
+                self._datas = yaml_load(f)
+
+        except Exception as e:
             raise ValueError(
-                f'invalid ``{ABOUT_NAME}`` found ine the following dir:'
+                f'invalid ``{ABOUT_FILE_NAME}`` found in the following dir:'
                  '\n'
                 f'{self.onedir}'
+                 '\n\n'
+                 'Exception from the package ``yaml``:'
+                 '\n'
+                f'{e}'
             )
