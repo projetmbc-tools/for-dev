@@ -9,4 +9,4 @@ The folder `jng-extra-tools`
 What is the content of this folder?
 -----------------------------------
 
-XXXXXX
+This file contains all the tools that can be used to facilitate the drafting of templates.

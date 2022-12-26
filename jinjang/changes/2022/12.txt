@@ -13,13 +13,15 @@
 [[:api:]]
 Builder: the class ``jngbuild.JNGBuilder`` builds outputs from models fed by data.
 
+??? CLI
+
 
 [[:doc:]]
-path::``README.md``: the project has its path::``README`` file.
+path::``README.md``: all the path::``README`` files of the project have been done.
 
 
 [[::flow:]]
-The project is now on ¨pypi.
+????  The project is now on ¨pypi.
 
 
 --------
