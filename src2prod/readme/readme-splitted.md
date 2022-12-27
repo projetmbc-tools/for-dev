@@ -1,50 +1,46 @@
-`README.md` part by part
-------------------------
+`README.md` piece-by-piece
+--------------------------
 
-You can write you `README.md` typing small section like parts as it is the case for the `README.md` you are reading (that is both in the repository and the final project to be distributed). The `src2prod` project had merly the following partial tree structure on August 22, 2021.
+You can write your `README.md` by typing small sections. Let's assume we have done this for our fictitious development project `MockProject` which now has the following tree structure.
 
 ~~~
-+ src2prod
-    + changes
-        * ...
++ MockProject
+    + changes [...]
 
     + readme
-        * about.peuf
-        * build.md
+        * about.md
+        * about.yaml
         * cli.md
-        * example-used.md
-        * only-files.md
+        * escape.md
         * prologue.md
-        * readme-splitted.md
 
-    + src
-        * ...
+    + src [...]
 
-    * README.md
-    * ...
+    + tests [...]
+
+    * pyproject.toml
 ~~~
 
-This section has been written inside the file `readme-splitted.md`. The special file `about.peuf` allows to indicate the order to use to merge the different `MD` files. Its content was the following one.
 
-~~~
-toc::
-    + prologue
-    + example-used
-    + build
-    + only-files
-    + readme-splitted
-    + cli
+The special file `about.yaml` is used to specify the order in which the different `MD` files are merged. Its contents were as follows.
+
+~~~yaml
+toc:
+  - prologue
+  - about
+  - escape
+  - cli
 ~~~
 
-The way used to build the source of `src2prod` is very simple: we just indicate the folder `readme` instead of a file for the argument `readme`. That's all! See the code below.
+The construction of the new final product `mockproject` is very simple: we just specify the folder `readme` instead of a file for the `readme` argument. And that's it! See the code below where the class `Project` guesses that `Path('readme')` is a folder.
 
 ~~~python
 from src2prod import *
 
 project = Project(
-    project = Path('TeXitEasy'),
+    project = Path('mockproject'),
     source  = Path('src'),
-    target  = Path('texiteasy'),
+    target  = Path('mockproject'),
     ignore  = '''
         tool_*/
         tool_*.*

@@ -1,0 +1,2 @@
+﻿Le mot "TEST" se code en ASCII :
+"084069083084" .

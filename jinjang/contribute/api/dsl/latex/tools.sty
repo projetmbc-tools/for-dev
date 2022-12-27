@@ -1,0 +1,29 @@
+\usepackage{color}
+
+%%%
+% prototype::
+%     #1 : something representing one basic ¨jinja instruction like
+%          the name of a variable, some basic calculations...
+%
+%     action : the argument is printed "verbatim" in red inside a red box.
+%%%
+%
+% The following link contains an instructive TeX code.
+%     * https://tex.stackexchange.com/questions/667358/12-catcode-for-underscore-and-character-printed
+\NewDocumentCommand\JNGVAR{v}{%
+    \textcolor{red}{\fbox{\texttt{#1}}}%
+}
+
+
+% PARAMS WILL COME LATER...
+%
+% %%%
+% % prototype::
+% %     #1 : the sequence of characters to be used directly in the template
+% %          (without any action of ¨jinjang).
+% %     #2 : the name of a ¨jinja variable (this variable should be a printable
+% %          formula like text.
+% %
+% %     return : the 1st argument without any change.
+% %%%
+% % \newcommand\JNGPARAM[2]{#1} % PARAMS WILL COME LATER...

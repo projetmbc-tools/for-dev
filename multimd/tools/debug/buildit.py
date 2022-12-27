@@ -25,11 +25,9 @@ for kind in [
     'auto',
     'reverse',
 ]:
-    print(f'-- {kind} --')
+    print(f'    + {kind}')
 
     Builder(
         output  = THIS_DIR / f'build-{kind}-final.md',
         content = THIS_DIR / f'build-{kind}',
     ).build()
-
-    print()

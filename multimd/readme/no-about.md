@@ -1,4 +1,4 @@
-Without the special `about.peuf` file
+Without the special `about.yaml` file
 -------------------------------------
 
-If you don't use the `about.peuf` file, the class `Builder` looks for all the `MD` files and then merges. The ordred used is the one given by `natsorted` from the package `natsort`.
+If you are not using an `about.yaml` file, the `Builder` class looks for all the `MD` files to merge them into one, ordering the files using `natsorted` from the package `natsort`.

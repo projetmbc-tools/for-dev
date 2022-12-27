@@ -1,0 +1,41 @@
+﻿this::
+    date = 2022-12-25
+
+
+=====================
+Des cas d'utilisation
+=====================
+
+Afin de mieux cerner l'utilisation d'une saveur, mais aussi de tester son bon fonctionnement, dans le dossier path il faut fournir des acs d'utilisation
+((
+    Ces cas d'utilisation sont ¨auto^t intégrés dans les tests unitaies du projet.
+)).
+Voici une partie du contenu du dossier path::``usecases`` pour la saveur ¨ascii.
+
+dirtree::
+    + usecases
+        + no-param-1
+            * output.txt
+            * template.txt
+            * datas.yaml
+        + no-param-2
+            * output.txt
+            * template.txt
+            * datas.yaml
+
+
+Chaque cas correspond à un dossier avec un nom court anglais, et parlant
+((
+    Penser aux tests automatisés.
+)).
+Ce dossier doit contenir forcément deux fichiers nommés path::``template``, et path::``output`` avec l'extension attendue, soit ici un simple path::``TXT``, ainsi qu'un fichier path::``datas.yaml`` pour les données de peuplement.
+
+    1) Le fichier nommé path::``template`` est un "patron" court, mais bien choisi. Ne pas cumuler les tests de focntionnalité ! Il vaut mieux utiliser plusieurs cas d'utilisation pour isoler ce qui est testé.
+
+    1) Le fichier path::``datas.yaml`` fournit les données de peuplement au format ¨yaml, un langage avec une syntaxe simple pour un humain.
+
+    1) Le fichier nommé path::``output`` est le rendu attendu.
+
+
+warning::
+    Pour le fichier path::``output``, il faut bien gérer les lignes vides et les espaces, car aucune option de nettoyage des contenus "vides superflus" n'est utilisée lors des tests.

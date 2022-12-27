@@ -1,0 +1,11 @@
+﻿abrev::
+    content = /how-to
+
+
+===================================
+Comment faire travailler ¨jinjang ?
+===================================
+
+content::
+    ¨content/cli.txt
+    ¨content/python.txt

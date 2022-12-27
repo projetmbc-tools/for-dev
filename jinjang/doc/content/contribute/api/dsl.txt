@@ -1,0 +1,29 @@
+﻿this::
+    date = 2022-12-19
+
+
+abrev::
+    content = dsl
+
+
+=====================
+De nouveaux dialectes
+=====================
+
+Il est possible de proposer de nouveaux dialectes. À ce jour, les saveurs proposées sont les suivantes.
+
+// -- ALL FLAVOURS - AUTO LIST - START -- //
+
+    * ¨ascii via python::``FLAVOUR_ASCII = "ascii"``.
+    * ¨html  via python::``FLAVOUR_HTML = "html"``.
+    * ¨latex via python::``FLAVOUR_LATEX = "latex"``.
+
+// -- ALL FLAVOURS - AUTO LIST - END -- //
+
+
+content::
+    ¨content/filesnco.txt
+    ¨content/specs.txt
+    ¨content/usecases.txt
+    ¨content/addit.txt
+

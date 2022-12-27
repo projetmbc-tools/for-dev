@@ -1,0 +1,21 @@
+this::
+    date = 2022-12-04
+
+
+abrev::
+    content = /ascii
+
+
+===============================================
+La saveur ``ascii``, le comportement par défaut
+===============================================
+
+warning::
+    Les habitués de ¨jinja feront attention aux réglages spécifiques choisis par ¨jinjang.
+
+
+content::
+    ¨content/variables.txt
+    ¨content/instructions.txt
+    ¨content/commments.txt
+    ¨content/extensions.txt

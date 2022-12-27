@@ -1,6 +1,6 @@
 [tool.poetry]
 name         = "multimd"
-version      = "0.0.1-beta"
+version      = "0.1.0-beta"
 description  = 'This project makes it possible to write separated pieces of `MD` files that will be merged to produce one single final `MD` file.'
 readme       = "README.md"
 authors      = ["Christophe BAL"]
@@ -10,8 +10,7 @@ repository   = "https://github.com/bc-tools/for-dev/tree/main/multimd"
 
 [tool.poetry.dependencies]
 python  = "^3.8"
-natsort = "^7.1.1"
-orpyste = "^1.3.2-beta"
+natsort = "^8.2.0"
 
 [tool.poetry.dev-dependencies]
 

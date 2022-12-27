@@ -1,0 +1,20 @@
+﻿this::
+    date = 2022-12-25
+
+
+abrev::
+    content = /hooks
+
+
+===================
+Pré et post-actions [Fonctionnalités FUTURES]
+===================
+
+warning::
+    L'appel d'un programme extérieur doit toujours être fait avec prudence. C'est pour cette raison que l'on doit passer via une option autorisant l'usage des pré et post-actions.
+
+
+content::
+    ¨content/pre.txt
+    ¨content/post.txt
+    ¨content/spevars.txt

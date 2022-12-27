@@ -1,0 +1,20 @@
+this::
+    date = 2022-12-03
+
+
+====================
+Commenter son patron
+====================
+
+Deux types de commentaire sont disponibles.
+
+jinjang::
+    ---
+    flavour = latex
+    ---
+
+    %_ Un commentaire sur une seule ligne.
+
+    %%_ Un commentaire
+        sur
+        plusieurs lignes. _%%

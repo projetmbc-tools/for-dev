@@ -59,8 +59,8 @@ class Builder():
 #     :action: this method builds the list of the single path::``MD`` files.
 ###
     def build_lof(self) -> None:
-# Do we have an about.peuf file?
-        if (self.content / ABOUT_NAME).is_file():
+# Do we have an ``about.yaml`` file?
+        if (self.content / ABOUT_FILE_NAME).is_file():
             self._lof = TOC(self.content).extract()
 
             return

@@ -1,0 +1,10 @@
+﻿abrev::
+    content = api
+
+
+======
+L'¨API
+======
+
+content::
+    ¨content/dsl.txt

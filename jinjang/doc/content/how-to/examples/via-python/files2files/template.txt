@@ -1,0 +1,2 @@
+﻿Le mot "{{ word }}" se code en ASCII :
+"{{ ascii_code }}" .

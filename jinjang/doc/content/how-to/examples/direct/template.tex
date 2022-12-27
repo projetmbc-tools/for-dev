@@ -1,0 +1,15 @@
+\documentclass{article}
+%%: if False :%%
+\usepackage{tools}
+%%: endif :%%
+\begin{document}
+
+Un tout petit \JNGVAR{txt_exa}.
+
+\begin{enumerate}
+%: for oneval in values
+    \item Valeur no. \JNGVAR{loop.index} : "\JNGVAR{oneval}".
+%: endfor
+\end{enumerate}
+
+\end{document}

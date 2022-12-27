@@ -1,0 +1,1 @@
+The smallest example in the world.

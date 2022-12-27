@@ -1,0 +1,16 @@
+this::
+    date = 2022-12-04
+
+
+========================
+Variables dans un patron
+========================
+
+Les variables se tapent via une macro fictive latex::``\JNGVAR{ ... }`` qui devient active si l'on utilise les outils présentés dans cf::``tools.txt``.
+
+jinjang::
+    ---
+    flavour = latex
+    ---
+
+    J'utilise une variable : \JNGVAR{une_var}.

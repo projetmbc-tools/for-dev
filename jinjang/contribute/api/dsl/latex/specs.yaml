@@ -1,0 +1,15 @@
+about:
+    author: Christophe, Bal [projetmbc@gmail.com]
+    desc  : Useful settings and tools for LaTeX templating.
+    date  : 2022-12-01
+    tools : yes
+
+ext:
+    - tex
+    - sty
+    - tkz
+
+src-comment:
+    inline: "% ..."
+
+var: \JNGVAR{ ... }

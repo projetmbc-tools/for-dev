@@ -66,9 +66,9 @@ shortdir(1, toignore) =
  'to_bytes']
 
 toignore = [
-    re.compile('imag'),
-    re.compile('real'),
-    re.compile('_.*')
+    re_compile('imag'),
+    re_compile('real'),
+    re_compile('_.*')
 ]
 shortdir(1, toignore) =
 ['as_integer_ratio',
@@ -80,9 +80,9 @@ shortdir(1, toignore) =
  'to_bytes']
 
 toignore = [
-    re.compile('as_.+'),
-    re.compile('from_.+'),
-    re.compile('_.*')
+    re_compile('as_.+'),
+    re_compile('from_.+'),
+    re_compile('_.*')
 ]
 shortdir(1, toignore) =
 ['bit_length',

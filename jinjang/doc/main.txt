@@ -1,0 +1,25 @@
+﻿this::
+    title  = Produire du contenu paramétrable à partir
+             de patrons de conception
+    author = Christophe, BAL [projetmbc@gmail.com]
+    lang   = fr
+
+    licence = by nc sa 4.0
+    out     = html, pdf
+
+//    lexic   =
+
+
+abrev::
+    justcode = cf::``jinjaNG ;
+                     https://github.com/bc-tools/for-dev/tree/dev/jinjang``
+
+    content = content
+
+
+content::
+    ¨content/intro.txt
+    ¨content/jinja-power.txt
+    ¨content/how-to.txt
+    ¨content/specs.txt
+    ¨content/contribute.txt

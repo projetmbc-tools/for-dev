@@ -1,0 +1,16 @@
+this::
+    date = 2022-12-03
+
+
+========================
+Variables dans un patron
+========================
+
+Les variables se tapent via des doubles accolades comme dans l'exemple suivant.
+
+jinjang::
+    ---
+    flavour = html
+    ---
+
+    J'utilise une variable : {{ une_var }}.

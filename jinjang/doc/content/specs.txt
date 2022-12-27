@@ -1,0 +1,14 @@
+abrev::
+    content = /specs
+
+
+==================================
+Réglages et petits outils proposés
+==================================
+
+content::
+    ¨content/ascii.txt
+/* -- AUTO CONTENT - START -- */
+    ¨content/html.txt
+    ¨content/latex.txt
+/* -- AUTO CONTENT - END -- */

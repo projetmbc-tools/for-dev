@@ -1,0 +1,32 @@
+// ---------- //
+
+
+==
+27  (0.1.1-beta)
+==
+
+--------
+:update:
+--------
+
+[[:doc:]]
+path::``README.md``: many errors have been corrected.
+
+
+// ---------- //
+
+
+==
+27  (0.1.0-beta)
+==
+
+-------
+:break:
+-------
+
+[[:api:]]
+Two things have changed.
+
+    1) Changes due to the new version of ¨multimd: the use of path::``about.yaml`` replaces the obsolete path::``about.peuf``.
+
+    1) ¨CLI: the ¨CLI must be used via term::``python -m src2prod``.

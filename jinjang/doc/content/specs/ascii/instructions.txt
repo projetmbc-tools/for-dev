@@ -1,0 +1,27 @@
+this::
+    date = 2022-12-03
+
+
+==============================
+Instructions du langage ¨jinja
+==============================
+
+Voici comment utiliser des intructions ¨jinja sur une ligne, ou dans un bloc
+((
+    On part du principe fictif qu'un fichier verbatim disposent de commentaires sur une ligne du type verb::``#``, et de commentaires sur plusieurs lignes du type verb::``{# ... #}``.
+)).
+
+jinjang::
+    ---
+    flavour = verbatim
+    ---
+
+    #: varloc = 100
+
+    Compte de 10 en 10 de 10 à {{ varlocale }}.
+
+    {#: for i in range(10,
+                       varlocale + 1,
+                       10) :#}
+        * {{ i }}
+    {#: endfor :#}

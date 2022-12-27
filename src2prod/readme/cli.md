@@ -1,23 +1,15 @@
-Using a `CLI`
--------------
+Working in a terminal
+---------------------
 
-The project proposes one `CLI`, aka one "Command Line Interface", to update a project. Let's consider the following script `mycli.py`.
-
-~~~python
-from src2prod import cmdline
-
-cmdline.update()
-~~~
-
-The following `Unix` terminal session shows how to use this basic script to update a project.
+The project provides a `CLI`, aka a `Command Line Interface`, for updating a project. The following `Unix` terminal session shows how to use this feature.
 
 
-### What we have before
+#### What we have before
 
 ~~~
 > ls
 spkpb         src2prod
-ignore.txt    mycli.py
+ignore.txt
 
 > cat ignore.txt
 tool_*/
@@ -29,10 +21,10 @@ changes       tools
 ~~~
 
 
-### How to use the tiny script
+#### How to use `src2prod`
 
 ~~~
-> python mycli.py --usegit --notsafe --readme='README.md' --ignore='ignore.txt' spkpb
+> python -m src2prod --usegit --notsafe --readme='README.md' --ignore='ignore.txt' spkpb
 ---------------
 "spkpb": UPDATE
 ---------------
@@ -58,7 +50,7 @@ changes       tools
 ~~~
 
 
-### What we obtain after
+#### What we obtain after
 
 ~~~
 > ls spkpb
@@ -78,14 +70,13 @@ spk_interface.py
 ~~~
 
 
-### Help
+#### Help
 
 You can have an help as usual in the `Unix` command line world.
 
-
 ~~~
-> python mycli.py --help
-Usage: cmdline.py [OPTIONS] PROJECT
+> python -m src2prod --help
+Usage: __main__.py [OPTIONS] PROJECT
 
   Update your "source-to-product" like projects using the Python module
   src2prod.
@@ -109,6 +100,8 @@ Options:
                  folder. The default value "", an empty string, indicates to
                  not use any external "README" file.
 
-  --notsafe      This flag allows to remove a none empty target folder.
+  --notsafe      TO USE WITH A LOT OF CAUTION! This flag allows to remove a
+                 none empty target folder.
+
   --help         Show this message and exit.
-~~~
+  ~~~

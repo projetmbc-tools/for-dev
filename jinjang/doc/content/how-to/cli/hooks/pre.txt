@@ -1,0 +1,58 @@
+﻿this::
+    date = 2022-12-27
+
+
+====================================
+Agir avant l'utilisation du "patron"
+====================================
+
+Supposons que pour peupler un "patron", nous voulons obtenir le fichier suivant, ce dernier devant être fabriqué ¨auto^t à chaque lancement de ¨jinjang sur le "patron".
+
+json::
+    ---
+    title = Le fichier path::``datas.json``
+    path  = ?/examples/hooks/pre/datas.json
+    ---
+
+
+Pour la fabrication ¨auto, nous obtons pour le fichier ¨bash ci-après (qui ne nécessite aucun commentaire).
+
+bash::
+    ---
+    title = Le fichier path::``bash2datas.bash``
+    path  = ?/examples/hooks/pre/bash2datas.bash
+    keep  = regex: (.*\n)*> datas.json\n
+    ---
+
+
+Il reste à voir comment demander à ¨jinjang de lancer le script ¨bash.
+La ¨1ere méthode nécessite une commande du type term::``python -m jinjang --cfg auto --dto ...`` où est employé term::``--cfg auto``.
+L'option supplémentaire demande la recherche d'un fichier path::``cfg.jng.yaml`` placé dans le même dossier que le fichier "patron".
+Dans notre cas, le contenu de ce fichier de ¨cfg est le suivant (la ligne avec term::``echo``, qui produira un affichage, est juste là pour expliquer le comportement de ¨jinjang).
+
+yaml::
+    ---
+    title = Le fichier de ¨config path::``cfg.jng.yaml``
+    path  = ?/examples/hooks/pre/cfg.jng.yaml
+    ---
+
+
+Le contenu précédent est analysé comme suit par ¨jinjang.
+
+    1) Le bloc yaml::``pre`` dans le bloc yaml::``hooks`` indique des commandes de pré-traitements.
+
+    1) Les commandes sont listées dans leur ordre d'utilisation.
+
+    1) Chaque commande est lancée relativement au dossier du "patron" utilisé. Ceci permet de comprendre la simplicté du fichier ¨bash proposé plus haut qui n'utilise pas term::``cd``.
+
+
+info::
+    Sans term::``--cfg auto``, la recherche du fichier path::``cfg.jng.yaml`` ne sera pas entreprise.
+
+
+Si plusieurs "patrons" sont présents dans un même dossier, ou bien pour pouvoir utiliser des ¨configs de test, il est utile de pouvoir choisir le fichier de ¨config de façon explicite.
+Ceci se passe via l'option term::``--cfg chemin/vers/ma/config.yaml`` comme dans term::``python -m jinjang --cfg speconfig.yaml -h --dto ...`` par exemple.
+
+
+info::
+    Dans cf::``spevars`` se trouvent ¨ttes les variables spéciales disponibles pour définir des commandes dans un fichier de ¨cfg.

@@ -1,0 +1,24 @@
+this::
+    date = 2022-12-03
+
+
+==============================
+Instructions du langage ¨jinja
+==============================
+
+Comme le ¨html ne poropose qu'un type de commentaires, il est juste possible d'utiliser des intructions ¨jinja dans un bloc.
+
+jinjang::
+    ---
+    flavour = html
+    ---
+
+    <!--: varloc = 100 :-->
+
+    Compte de 10 en 10 de 10 à {{ varlocale }}.
+
+    <!--: for i in range(10,
+                         varlocale + 1,
+                         10) :-->
+        * {{ i }}
+    <!--: endfor :-->
