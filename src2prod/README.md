@@ -11,38 +11,38 @@ About `src2prod`
 
 This module allows to develop a project within a source folder and to publish the final product in another folder, this last directory being a "thin" version of the source one. If you use `git`, this module can talk with it to do a better job.
 
+> We give detailed examples using `Python`, and then this document ends with an explanation of how to use `python -m src2prod` in a terminal.
 
-The example used for a short tutorial
--------------------------------------
 
-Let's consider [`TeXitEasy`](https://github.com/projetmbc/tools-for-latex/tree/master/TeXitEasy) which had merly the following tree structure on August 9, 2021 (this was the very begining of this project that used a single small `README.md` file).
+The example used for this short tutorial
+----------------------------------------
+
+We will consider a fictitious development project `MockProject` with the following tree structure.
 
 ~~~
-+ TeXitEasy
++ MockProject
     + changes
-        + 2021
-            * 08.txt
+        + 2022
+            * 12.txt
         * LICENSE.txt
         * x-todo-x.txt
 
     + src
         * __init__.py
-        * escape.py
         * LICENSE.txt
+        * mockthis.py
         + tool_config
-            * escape.peuf
+            * escape.yaml
         * tool_debug.py
         * tool_escape.py
 
     + tests
-        + escape
-            * escape.peuf
-            * fstringit.peuf
-            * test_fstringit.py
+        + mockthis
+            * escape.yaml
             * test_escape.py
-        * about.peuf
-        * pyproject.toml
-        * README.md
+
+    * pyproject.toml
+    * README.md
 ~~~
 
 
@@ -51,37 +51,47 @@ Building a thin copy of the source folder
 
 ### What we want...
 
-In our project above, there are some files only useful for the development of the code.
+In the project `mockproject`, there are some files that are only useful for code development.
 
-  1. Names using the pattern `x-...-x` indicate files or folders to be ignored by `git` (there are no such file or folder in the `src` folder but we could imagine using some of them).
+  1. Names using the pattern `x-...-x` indicate files, or folders that `git` must ignore (there are no such files, or folders in the `src` directory, but we could imagine using some).
 
-  1. Names using the pattern `tool_...` are for files and folders to not copy into the final product, but at the same time to be kept by `git`.
+  1. Names using the pattern `tool_...` are for files, and folders not to be included in the final product, but which `git` must retain.
 
-  1. The `README.md` file used for `git` servers must also be used for the final product.
+  1. The `README.md` file used for `git` servers must also be included in the final product.
 
 
-The final product built from the `src` folder must have the following name and structure.
+By copying files, we wish to add one new folder `mockproject` to obtain the following structure.
 
 ~~~
-+ texiteasy
-    * __init__.py
-    * escape.py
-    * LICENSE.txt
++ MockProject
+    + changes [...]
+
+    + mockproject
+        * __init__.py
+        * mockthis.py
+        * LICENSE.txt
+        * README.md
+
+    + src [...]
+
+    + tests [...]
+
+    * pyproject.toml
     * README.md
 ~~~
 
 
 ### How to do that?
 
-Here is how to acheive a selective copy of the `src` folder to the `texiteasy` one. We will suppose the use of the `cd` command to go inside the parent folder of `TeXitEasy` before launching the following script where we use instances of `Path` from `pathlib`.
+Here is how to make a selective copy from the sub-directory `src` to the sub-folder `mockproject`. We will assume that the `cd` command has been used beforehand, so that running the `Python` scripts is done from the development folder `MockProject` (note the use of instances of `pathlib.Path`).
 
 ~~~python
 from src2prod import *
 
 project = Project(
-    project = Path('TeXitEasy'),
+    project = Path('MockProject'),
     source  = Path('src'),
-    target  = Path('texiteasy'),
+    target  = Path('mockproject'),
     ignore  = '''
         tool_*/
         tool_*.*
@@ -93,49 +103,49 @@ project = Project(
 project.update()
 ~~~
 
-Here are some important points about the code above.
+Here are the important points about the above code.
 
-  1. `project`, `source`, `target` and `readme` follows the rules below.
+  1. `project`, `source`, `target` and `readme` follow the rules below.
 
-      * The values of this arguments can also be strings (that will be converted to instances of `Path`).
+      * The values of these arguments can also be strings (which will be converted to instances `Path`).
 
-      * The argument `readme` is optional contrary to `project`, `source` and `target`.
+      * The argument `readme` is optional unlike `project`, `source` and `target`.
 
-      * `project` is a complete path regarding the working directory when launching the file, but `source`, `target` and `readme` are relative to `project`.
+      * `project` is a full path to the source development directory when the `Python` script is launched, but `source`, `target` and `readme` are relative to `project`.
 
-  1. The argument `ignore` can be used even if the project doesn't use `git`. It can be either a string containing rules, or an absolute `Path` to a file containg rules (an absolute path allows to use the same rules for several projects). Let's see now how to define rules.
+  1. The argument `ignore` can be used even if the project does not use `git`. It can be either a string containing rules, or an absolute `Path` to a file containing rules (an absolute path allows the use of the same rules for multiple projects). Now let's see how to define rules.
 
       * Empty lines are ignored (this allows a basic formatting of rules).
 
-      * Each none empty line is internally stripped. This will indicate one rule for either a file or a folder.
+      * Each none empty line is internally stripped. This will indicate one rule for either a file, or a folder.
 
       * A rule finishing by `/` is for a folder: internally the last `/` is removed such as to store the rule only for folders.
 
-      * Each rule will be used with the method `match` of `pathlib.Path` (this is very basic).
+      * Each rule will be used with the method `match` of `pathlib.Path` (it's very basic, but quite powerful).
 
-  1. `usegit = True` asks also to ignore files and folders as `git` does (this action completes the rules defined in `ignore`). This setting implies that there isn't any uncommited file in the `src` folder (even if that files must be ignored).
+  1. `usegit = True` asks to ignore files, and folders as `git` does, if this feature is activated for the development directory (this action completes the rules defined with the argument `ignore`).
 
-  1. Errors and warnings are printed in the terminal and written verbosely in the file `TeXitEasy.src2prod.log` where `TeXitEasy` is the name extracted from the path `project`.
+  1. Errors and warnings are printed in the terminal, and also written verbatim to the file `mockproject.src2prod.log` where `mockproject` is the name taken from the path specified via `project`.
 
 
 Only the source files to copy
 -----------------------------
 
-Sometimes the final product is not just a "selective clone" of the `src` folder: for example, it can be a melting of several source files in a single final one (the author of `src2prod` uses this technic to develop his `LaTeX` projects). In such a case, you can use the following method and attribut.
+Sometimes, the final product is not just a "selective clone" of the folder `src`: for example, a final file may be the merging of several source files (the author of `src2prod` uses this technique to develop his `LaTeX` projects). In such a case, you can use the following method and attribute.
 
-  1. The method `build` just looks for the files to keep for the `texiteasy` folder.
+  1. The method `build` just looks for files to keep for the product folder without creating anything.
 
-  1. The attribut `lof` is the list of all files to keep in the `src` folder (`lof` is for `list of files`).
+  1. After the use of `build`, the attribute `lof` is the list of all files to be kept for the folder `src` (`lof` is for `list of files`).
 
-Here is an example of code printing the list of only the source files to keep.
+Here is an example of code that prints the list of source files to be kept for the final product.
 
 ~~~python
 from src2prod import *
 
 project = Project(
-    name   = 'TeXitEasy',
+    name   = 'MockProject',
     source = Path('src'),
-    target = Path('texiteasy'),
+    target = Path('mockproject'),
     ignore = '''
         tool_*/
         tool_*.*
@@ -150,62 +160,58 @@ for f in project.lof:
     print(f)
 ~~~
 
-This script gives the following output in a terminal. Note that the list doesn't contain the path of the `README` file, this last one must be manage by hand (see the methods `check_readme` and `copy_readme` of the class `Project`).
+This script run in a terminal gives the following output. Note that the list does not contain the path to the `README` file, this must be handled manually (see the `check_readme` and `copy_readme` methods of the class `Project`).
 
 ~~~
-/full/path/to/TeXitEasy/src/__init__.py
-/full/path/to/TeXitEasy/src/escape.py
-/full/path/to/TeXitEasy/src/LICENSE.txt
+/full/path/to/MockProject/src/__init__.py
+/full/path/to/MockProject/src/escape.py
+/full/path/to/MockProject/src/LICENSE.txt
 ~~~
 
 
-`README.md` part by part
-------------------------
+`README.md` piece-by-piece
+--------------------------
 
-You can write you `README.md` typing small section like parts as it is the case for the `README.md` you are reading (that is both in the repository and the final project to be distributed). The `src2prod` project had merly the following partial tree structure on August 22, 2021.
+You can write your `README.md` by typing small sections. Let's assume we have done this for our fictitious development project `MockProject` which now has the following tree structure.
 
 ~~~
-+ src2prod
-    + changes
-        * ...
++ MockProject
+    + changes [...]
 
     + readme
-        * about.peuf
-        * build.md
+        * about.md
+        * about.yaml
         * cli.md
-        * example-used.md
-        * only-files.md
+        * escape.md
         * prologue.md
-        * readme-splitted.md
 
-    + src
-        * ...
+    + src [...]
 
-    * README.md
-    * ...
+    + tests [...]
+
+    * pyproject.toml
 ~~~
 
-This section has been written inside the file `readme-splitted.md`. The special file `about.peuf` allows to indicate the order to use to merge the different `MD` files. Its content was the following one.
 
-~~~
-toc::
-    + prologue
-    + example-used
-    + build
-    + only-files
-    + readme-splitted
-    + cli
+The special file `about.yaml` is used to specify the order in which the different `MD` files are merged. Its contents were as follows.
+
+~~~yaml
+toc:
+  - prologue
+  - about
+  - escape
+  - cli
 ~~~
 
-The way used to build the source of `src2prod` is very simple: we just indicate the folder `readme` instead of a file for the argument `readme`. That's all! See the code below.
+The construction of the new final product `mockproject` is very simple: we just specify the folder `readme` instead of a file for the `readme` argument. And that's it! See the code below where the class `Project` guesses that `Path('readme')` is a folder.
 
 ~~~python
 from src2prod import *
 
 project = Project(
-    project = Path('TeXitEasy'),
+    project = Path('mockproject'),
     source  = Path('src'),
-    target  = Path('texiteasy'),
+    target  = Path('mockproject'),
     ignore  = '''
         tool_*/
         tool_*.*
@@ -218,26 +224,18 @@ project.update()
 ~~~
 
 
-Using a `CLI`
--------------
+Working in a terminal
+---------------------
 
-The project proposes one `CLI`, aka one "Command Line Interface", to update a project. Let's consider the following script `mycli.py`.
-
-~~~python
-from src2prod import cmdline
-
-cmdline.update()
-~~~
-
-The following `Unix` terminal session shows how to use this basic script to update a project.
+The project provides a `CLI`, aka a `Command Line Interface`, for updating a project. The following `Unix` terminal session shows how to use this feature.
 
 
-### What we have before
+#### What we have before
 
 ~~~
 > ls
 spkpb         src2prod
-ignore.txt    mycli.py
+ignore.txt
 
 > cat ignore.txt
 tool_*/
@@ -249,10 +247,10 @@ changes       tools
 ~~~
 
 
-### How to use the tiny script
+#### How to use `src2prod`
 
 ~~~
-> python mycli.py --usegit --notsafe --readme='README.md' --ignore='ignore.txt' spkpb
+> python -m src2prod --usegit --notsafe --readme='README.md' --ignore='ignore.txt' spkpb
 ---------------
 "spkpb": UPDATE
 ---------------
@@ -278,7 +276,7 @@ changes       tools
 ~~~
 
 
-### What we obtain after
+#### What we obtain after
 
 ~~~
 > ls spkpb
@@ -298,14 +296,13 @@ spk_interface.py
 ~~~
 
 
-### Help
+#### Help
 
 You can have an help as usual in the `Unix` command line world.
 
-
 ~~~
-> python mycli.py --help
-Usage: cmdline.py [OPTIONS] PROJECT
+> python -m src2prod --help
+Usage: __main__.py [OPTIONS] PROJECT
 
   Update your "source-to-product" like projects using the Python module
   src2prod.
@@ -329,6 +326,8 @@ Options:
                  folder. The default value "", an empty string, indicates to
                  not use any external "README" file.
 
-  --notsafe      This flag allows to remove a none empty target folder.
+  --notsafe      TO USE WITH A LOT OF CAUTION! This flag allows to remove a
+                 none empty target folder.
+
   --help         Show this message and exit.
-~~~ 
+  ~~~

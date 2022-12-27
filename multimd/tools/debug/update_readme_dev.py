@@ -4,6 +4,8 @@ from cbdevtools import *
 
 projectname = 'about'
 projectname = 'cleanit'
+projectname = 'multimd'
+projectname = 'src2prod'
 
 
 # ------------------------------------ #

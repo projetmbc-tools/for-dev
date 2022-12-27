@@ -16,6 +16,25 @@ from .project import *
 
 ###
 # prototype::
+#     message : this text indicates one error.
+#
+#     :action: an error message is printed, then the script exits
+#              with a ``1`` error.
+###
+def _exit(message):
+    print(
+f"""
+Try 'python -m src2prod --help' for help.
+
+Error: {message}
+""".strip()
+    )
+
+    exit(1)
+
+
+###
+# prototype::
 #     project : the folder project that will be used to communicate during
 #               the analysis.
 #     src     : the **relative** path of the source dir (regarding the project
@@ -28,7 +47,7 @@ from .project import *
 #     readme  : ``''`` is if you don't need to import an external
 #               path::``README`` file, otherwise give a **relative** path.
 #
-# This function is to update a project from a terminal.
+#     :action: this function allows to update a project from a terminal.
 ###
 @click.command()
 @click.argument('project')
@@ -57,8 +76,9 @@ from .project import *
                         'to not use any external "README" file.')
 @click.option('--notsafe',
               is_flag = True,
-              help    = 'This flag allows to remove a none empty target folder.')
-def update(
+              help    = 'TO USE WITH A LOT OF CAUTION! '
+                        'This flag allows to remove a none empty target folder.')
+def src2prod_CLI(
     project: str,
     src    : str,
     target : str,
@@ -72,6 +92,9 @@ def update(
 
     PROJECT: the path of the project to update.
     """
+    if not notsafe:
+        print('WARNING: Using not ``--notsafe`` can be dangerous.')
+
 # What is the target?
     if target == '':
         project = Path(project)
@@ -86,11 +109,24 @@ def update(
         ignore = Path(ignore)
 
 # Let the class Project does the job.
-    Project(
-        project = project,
-        source  = src,
-        target  = target,
-        ignore  = ignore,
-        usegit  = usegit,
-        readme  = readme,
-    ).update(safemode = not notsafe)
+    try:
+        Project(
+            project = project,
+            source  = src,
+            target  = target,
+            ignore  = ignore,
+            usegit  = usegit,
+            readme  = readme,
+        ).update(
+            safemode = not notsafe
+        )
+
+    except Exception as e:
+        _exit(repr(e))
+
+
+# --------------------------------------------- #
+# --- Entry point for ``python -m src2prod`` -- #
+# --------------------------------------------- #
+
+src2prod_CLI()

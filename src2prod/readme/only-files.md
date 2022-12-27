@@ -1,21 +1,21 @@
 Only the source files to copy
 -----------------------------
 
-Sometimes the final product is not just a "selective clone" of the `src` folder: for example, it can be a melting of several source files in a single final one (the author of `src2prod` uses this technic to develop his `LaTeX` projects). In such a case, you can use the following method and attribut.
+Sometimes, the final product is not just a "selective clone" of the folder `src`: for example, a final file may be the merging of several source files (the author of `src2prod` uses this technique to develop his `LaTeX` projects). In such a case, you can use the following method and attribute.
 
-  1. The method `build` just looks for the files to keep for the `texiteasy` folder.
+  1. The method `build` just looks for files to keep for the product folder without creating anything.
 
-  1. The attribut `lof` is the list of all files to keep in the `src` folder (`lof` is for `list of files`).
+  1. After the use of `build`, the attribute `lof` is the list of all files to be kept for the folder `src` (`lof` is for `list of files`).
 
-Here is an example of code printing the list of only the source files to keep.
+Here is an example of code that prints the list of source files to be kept for the final product.
 
 ~~~python
 from src2prod import *
 
 project = Project(
-    name   = 'TeXitEasy',
+    name   = 'MockProject',
     source = Path('src'),
-    target = Path('texiteasy'),
+    target = Path('mockproject'),
     ignore = '''
         tool_*/
         tool_*.*
@@ -30,10 +30,10 @@ for f in project.lof:
     print(f)
 ~~~
 
-This script gives the following output in a terminal. Note that the list doesn't contain the path of the `README` file, this last one must be manage by hand (see the methods `check_readme` and `copy_readme` of the class `Project`).
+This script run in a terminal gives the following output. Note that the list does not contain the path to the `README` file, this must be handled manually (see the `check_readme` and `copy_readme` methods of the class `Project`).
 
 ~~~
-/full/path/to/TeXitEasy/src/__init__.py
-/full/path/to/TeXitEasy/src/escape.py
-/full/path/to/TeXitEasy/src/LICENSE.txt
+/full/path/to/MockProject/src/__init__.py
+/full/path/to/MockProject/src/escape.py
+/full/path/to/MockProject/src/LICENSE.txt
 ~~~

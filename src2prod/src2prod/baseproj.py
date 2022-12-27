@@ -18,7 +18,6 @@ from spkpb import *
 ###
 # This class contains technical methods used by the class ``project.Project``.
 ###
-
 class BaseProj(BaseCom):
     DIR_TAG  = 'dir'
     FILE_TAG = 'file'
@@ -31,22 +30,20 @@ class BaseProj(BaseCom):
 #               folder).
 #     target  : the **relative** path of the final product dir (regarding the
 #               project folder).
-#     ignore  : if a string is used, this gives the rules for ignoring files
-#               in addition to what ¨git does.
-#               If an instance of ``Path`` is used, we have a file containing
-#               the rules.
+#     ignore  : if a string is used then this gives the rules for ignoring
+#               files in addition to what ¨git does.
+#               If an instance of ``Path`` is used, thent we have a file
+#               containing the rules.
 #     usegit  : ``True`` asks to use ¨git contrary to ``False``.
 #     readme  : ``None`` is if you don't need to import an external
 #               path::``README`` file, otherwise give a **relative** path.
-#
-#     :see: reset
 #
 # warning::
 #     The target folder is totally removed and reconstructed at each new
 #     update.
 #
 # note::
-#     Some additional attributes are created/reseted by the method ``reset``.
+#     Additional attributes are created/reseted by the method ``reset``.
 ###
     def __init__(
         self,
@@ -108,11 +105,11 @@ class BaseProj(BaseCom):
 
 ###
 # prototype::
-#     kind : the kind of making made indicated in the log file
+#     kind : the kind of making made
+#
+#     :action: this method resets everything.
 #
 #     :see: spkpb.problems.Problems.reset
-#
-# This method resets everything with a customisable main title in the log file.
 ###
     def reset(
         self,
@@ -132,8 +129,10 @@ class BaseProj(BaseCom):
 
 
 ###
-# This method builds ``self.ignore_rules`` which is a dictionary looking
-# like the following one.
+# prototype::
+#     :action: this method builds ``self.ignore_rules`` which is a dictionary.
+#
+# Here is how the dictionary looks like.
 #
 # python::
 #     {
@@ -198,6 +197,7 @@ class BaseProj(BaseCom):
 
             self.ignore_rules[context].append(shortrule)
 
+
 ###
 # prototype::
 #     fileordir : the path of a file or a dir.
@@ -220,6 +220,7 @@ class BaseProj(BaseCom):
                 return False
 
         return True
+
 
 ###
 # prototype::
@@ -275,6 +276,8 @@ class BaseProj(BaseCom):
 # prototype::
 #     source : the path of the source file to copy.
 #     target : the path of the target file that will be the copy.
+#
+#     :action: this method copies one file.
 ###
     def copyfile(
         self,
@@ -333,6 +336,7 @@ class BaseProj(BaseCom):
 
 # The work has been done correctly.
         return self.decode(output.stdout).strip()
+
 
 ###
 # prototype::

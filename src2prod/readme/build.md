@@ -3,37 +3,47 @@ Building a thin copy of the source folder
 
 ### What we want...
 
-In our project above, there are some files only useful for the development of the code.
+In the project `mockproject`, there are some files that are only useful for code development.
 
-  1. Names using the pattern `x-...-x` indicate files or folders to be ignored by `git` (there are no such file or folder in the `src` folder but we could imagine using some of them).
+  1. Names using the pattern `x-...-x` indicate files, or folders that `git` must ignore (there are no such files, or folders in the `src` directory, but we could imagine using some).
 
-  1. Names using the pattern `tool_...` are for files and folders to not copy into the final product, but at the same time to be kept by `git`.
+  1. Names using the pattern `tool_...` are for files, and folders not to be included in the final product, but which `git` must retain.
 
-  1. The `README.md` file used for `git` servers must also be used for the final product.
+  1. The `README.md` file used for `git` servers must also be included in the final product.
 
 
-The final product built from the `src` folder must have the following name and structure.
+By copying files, we wish to add one new folder `mockproject` to obtain the following structure.
 
 ~~~
-+ texiteasy
-    * __init__.py
-    * escape.py
-    * LICENSE.txt
++ MockProject
+    + changes [...]
+
+    + mockproject
+        * __init__.py
+        * mockthis.py
+        * LICENSE.txt
+        * README.md
+
+    + src [...]
+
+    + tests [...]
+
+    * pyproject.toml
     * README.md
 ~~~
 
 
 ### How to do that?
 
-Here is how to acheive a selective copy of the `src` folder to the `texiteasy` one. We will suppose the use of the `cd` command to go inside the parent folder of `TeXitEasy` before launching the following script where we use instances of `Path` from `pathlib`.
+Here is how to make a selective copy from the sub-directory `src` to the sub-folder `mockproject`. We will assume that the `cd` command has been used beforehand, so that running the `Python` scripts is done from the development folder `MockProject` (note the use of instances of `pathlib.Path`).
 
 ~~~python
 from src2prod import *
 
 project = Project(
-    project = Path('TeXitEasy'),
+    project = Path('MockProject'),
     source  = Path('src'),
-    target  = Path('texiteasy'),
+    target  = Path('mockproject'),
     ignore  = '''
         tool_*/
         tool_*.*
@@ -45,26 +55,26 @@ project = Project(
 project.update()
 ~~~
 
-Here are some important points about the code above.
+Here are the important points about the above code.
 
-  1. `project`, `source`, `target` and `readme` follows the rules below.
+  1. `project`, `source`, `target` and `readme` follow the rules below.
 
-      * The values of this arguments can also be strings (that will be converted to instances of `Path`).
+      * The values of these arguments can also be strings (which will be converted to instances `Path`).
 
-      * The argument `readme` is optional contrary to `project`, `source` and `target`.
+      * The argument `readme` is optional unlike `project`, `source` and `target`.
 
-      * `project` is a complete path regarding the working directory when launching the file, but `source`, `target` and `readme` are relative to `project`.
+      * `project` is a full path to the source development directory when the `Python` script is launched, but `source`, `target` and `readme` are relative to `project`.
 
-  1. The argument `ignore` can be used even if the project doesn't use `git`. It can be either a string containing rules, or an absolute `Path` to a file containg rules (an absolute path allows to use the same rules for several projects). Let's see now how to define rules.
+  1. The argument `ignore` can be used even if the project does not use `git`. It can be either a string containing rules, or an absolute `Path` to a file containing rules (an absolute path allows the use of the same rules for multiple projects). Now let's see how to define rules.
 
       * Empty lines are ignored (this allows a basic formatting of rules).
 
-      * Each none empty line is internally stripped. This will indicate one rule for either a file or a folder.
+      * Each none empty line is internally stripped. This will indicate one rule for either a file, or a folder.
 
       * A rule finishing by `/` is for a folder: internally the last `/` is removed such as to store the rule only for folders.
 
-      * Each rule will be used with the method `match` of `pathlib.Path` (this is very basic).
+      * Each rule will be used with the method `match` of `pathlib.Path` (it's very basic, but quite powerful).
 
-  1. `usegit = True` asks also to ignore files and folders as `git` does (this action completes the rules defined in `ignore`). This setting implies that there isn't any uncommited file in the `src` folder (even if that files must be ignored).
+  1. `usegit = True` asks to ignore files, and folders as `git` does, if this feature is activated for the development directory (this action completes the rules defined with the argument `ignore`).
 
-  1. Errors and warnings are printed in the terminal and written verbosely in the file `TeXitEasy.src2prod.log` where `TeXitEasy` is the name extracted from the path `project`.
+  1. Errors and warnings are printed in the terminal, and also written verbatim to the file `mockproject.src2prod.log` where `mockproject` is the name taken from the path specified via `project`.

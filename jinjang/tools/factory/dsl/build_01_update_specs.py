@@ -25,7 +25,7 @@ THIS_FILE_REL_SRC_PATH    = Path(__file__) - PROJECT_DIR
 THIS_FILE_REL_PROJECT_DIR = THIS_FILE - PROJECT_DIR
 
 
-SPECS_SRC_FILE = PROJECT_DIR / 'src' / 'config' / 'theflavours.py'
+SPECS_SRC_FILE = PROJECT_DIR / 'src' / 'config' / 'jngflavours.py'
 
 CONTRIB_DSL_DIR   = PROJECT_DIR / 'contribute' / 'api' / 'dsl'
 SPECS_STATUS_YAML = THIS_DIR / 'flavours.yaml'

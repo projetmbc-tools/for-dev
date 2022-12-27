@@ -13,6 +13,13 @@ from .jngbuild import *
 # -- CLI -- #
 # --------- #
 
+###
+# prototype::
+#     message : this text indicates one error.
+#
+#     :action: an error message is printed, then the script exits
+#              with a ``1`` error.
+###
 def _exit(message):
     print(
 f"""
@@ -23,6 +30,7 @@ Error: {message}
     )
 
     exit(1)
+
 
 ###
 # prototype::
@@ -64,10 +72,13 @@ Error: {message}
                         + '.')
 @click.option('--cfg',
               default = '',
-              help    = 'COMING SOON...      '
+              help    = 'COMING SOON... '
                         'TO USE WITH A LOT OF CAUTION! '
-                        'The value ``auto`` authorizes jinjaNG to use a ``cfg.jng.yaml`` file, if it exists. You can also indicate the path of a specific YAML configuration file.')
-def jngcli(
+                        'The value ``auto`` authorizes jinjaNG to use '
+                        'a ``cfg.jng.yaml`` file, if it exists. '
+                        'You can also indicate the path of a specific '
+                        'YAML configuration file.')
+def jng_CLI(
     datas   : str,
     template: str,
     output  : str,
@@ -108,7 +119,11 @@ def jngcli(
             output   = Path(output)
         )
 
-        print(f'File {output} has been built.')
+        print(
+             'Successfully built file:'
+             '\n'
+            f'  + {output}'
+        )
 
     except Exception as e:
         _exit(repr(e))
@@ -118,4 +133,4 @@ def jngcli(
 # --- Entry point for ``python -m jinjang`` -- #
 # -------------------------------------------- #
 
-jngcli()
+jng_CLI()

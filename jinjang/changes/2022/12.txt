@@ -2,7 +2,7 @@
 
 
 ==
-???????  (0.0.0-beta)
+27     ???????  (0.0.0-beta)
 ==
 
 
@@ -13,7 +13,7 @@
 [[:api:]]
 Builder: the class ``jngbuild.JNGBuilder`` builds outputs from models fed by data.
 
-??? CLI
+CLI: .... OK
 
 
 [[:doc:]]

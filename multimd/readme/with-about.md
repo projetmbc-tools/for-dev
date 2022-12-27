@@ -1,7 +1,7 @@
 `README.md` part by part
 ------------------------
 
-Thanks to `multimd`, you can write a `MD` document typing small section like parts that are easy to maintain. Let's consider the `README.md` of the `src2prod` project that was written using the following tree structure on August 22, 2021. Just note that there are only `MD` files directly inside the same folder (the purpose of `multimd` is to ease the writting of realtively small documents and not books).
+With `multimd`, you can write a `MD` document by typing small section-like parts which are easy to maintain. Consider the `README.md` file from the `src2prod` project which was written using the following tree on 22 August 2021. Note that there are only `MD` files present in the same folder (the purpose of `multimd` is to simplify writing relatively small documents, but certainly not books).
 
 ~~~
 + src2prod
@@ -17,7 +17,7 @@ Thanks to `multimd`, you can write a `MD` document typing small section like par
     * README.md
 ~~~
 
-The special file `about.yaml` allows to indicate the order to use to merge the different `MD` files. Its content was the following one.
+The special `about.yaml` file is used to specify the order in which the different `MD` files are merged. Its contents are as follows.
 
 ~~~yaml
 toc:
@@ -29,7 +29,7 @@ toc:
   - cli
 ~~~
 
-Here how `README.md` was built. We will suppose the use of the `cd` command to go inside the parent folder of `scr2prod` before launching the following script where we use instances of `Path` from `pathlib`.
+This is how `README.md` was constructed. We assume the use of the `cd` command to get into the right folder, before running the following script where instances of `pathlib.Path` are used.
 
 ~~~python
 from multimd import Builder
