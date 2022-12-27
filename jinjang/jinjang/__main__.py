@@ -13,7 +13,13 @@ from .jngbuild import *
 # -- CLI -- #
 # --------- #
 
-def _exit(message):
+###
+# prototype::
+#     message : ????
+#
+#     :action: YYY
+###
+def _exit(message: str) -> None:
     print(
 f"""
 Try 'python -m jinjang --help' for help.

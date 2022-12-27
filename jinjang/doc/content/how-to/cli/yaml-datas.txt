@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-12-25
+    date = 2022-12-27
 
 
 ===========================
@@ -29,5 +29,5 @@ Côté génération du produit fini, rien de bien nouveau comme le montre la sec
 
 terminal::
     > cd my/folder
-    > python -m jinjang -dto datas.yaml template.tex output.tex
+    > python -m jinjang --dto datas.yaml template.tex output.tex
     [...]

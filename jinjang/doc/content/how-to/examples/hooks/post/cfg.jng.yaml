@@ -1,4 +1,4 @@
 ﻿hooks:
-    post:
-        - latexmk -pdf {{output}}
-        - latexmk -c   {{output}}
+  post:
+    - latexmk -pdf {{output}}
+    - latexmk -c   {{output}}

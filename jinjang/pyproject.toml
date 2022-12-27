@@ -1,7 +1,7 @@
 [tool.poetry]
-name         = "jinjaNG"
+name         = "jinjang"
 version      = "0.0.0-beta"
-description  = 'This project tries to ameliorate the workflow when working with the template engine [jinja'
+description  = 'This project tries to ameliorate the workflow when working with the template engine Jinja'
 readme       = "README.md"
 authors      = ["Christophe BAL"]
 maintainers  = ["Christophe BAL"]
@@ -9,7 +9,7 @@ license      = "GNU License Version 3"
 repository   = "https://github.com/bc-tools/for-dev/tree/main/jinjaNG"
 
 [tool.poetry.dependencies]
-python  = "^3.9"
+python = "^3.9"
 
 [tool.poetry.dev-dependencies]
 

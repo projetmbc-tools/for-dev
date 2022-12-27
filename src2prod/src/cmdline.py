@@ -57,8 +57,8 @@ from .project import *
                         'to not use any external "README" file.')
 @click.option('--notsafe',
               is_flag = True,
-              help    = 'This flag allows to remove a none empty target folder. '
-                        'USE IT WITH A LOT OF CAUTION!')
+              help    = 'TO USE WITH A LOT OF CAUTION! '
+                        'This flag allows to remove a none empty target folder.')
 def update(
     project: str,
     src    : str,
