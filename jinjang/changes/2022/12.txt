@@ -2,7 +2,7 @@
 
 
 ==
-27     ???????  (0.0.0-beta)
+27  (0.0.0-beta)
 ==
 
 
@@ -11,9 +11,11 @@
 -----
 
 [[:api:]]
-Builder: the class ``jngbuild.JNGBuilder`` builds outputs from models fed by data.
+The project is functional (the hooks are not yet implemented).
 
-CLI: .... OK
+    1) Builder: the class ``jngbuild.JNGBuilder`` builds outputs from templates fed by data.
+
+    1) ¨CLI: it is possible to use term::``python -m jinjang`` in a terminal.
 
 
 [[:doc:]]
@@ -21,7 +23,7 @@ path::``README.md``: all the path::``README`` files of the project have been don
 
 
 [[::flow:]]
-????  The project is now on ¨pypi.
+The project is now on ¨pypi.
 
 
 --------

@@ -1,6 +1,6 @@
 [tool.poetry]
 name        = "src2prod"
-version     = "0.1.0-beta"
+version     = "0.1.1-beta"
 description = 'This module allows to develop a project within a source folder and to publish the final product in another folder, this last directory being a "thin" version of the source one.'
 readme       = "README.md"
 authors      = ["Christophe BAL"]

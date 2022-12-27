@@ -1,7 +1,7 @@
 All the flavours
 ----------------
 
-A flavour indicates a dialect for templates. Here are the technical descriptions of each of this flavours.
+A flavour indicates a dialect for a templates. Here are the minimalist technical descriptions of each of these flavours.
 
 
 <!-- FLAVOURS - TECH. DESC. - START -->
