@@ -18,19 +18,23 @@ To indicate a dialect for templates, a flavour must be indicated. Here are the m
 
       * No tools are available to assist in typing templates.
 
-  1. **Variables** are typed `{{ one_jinja_var }}`.
+  1. **Variables** are typed `{{ one_jinja_var }}` .
 
   1. **Using `jinja` instructions.**
 
-      * Inline instructions are typed `#: ...` where `...` symbolizes some `Jinja` instructions.
+     `...` symbolizes some Jinja instructions.
 
-      * Block instructions are typed `{#: ... :#}` where `...` symbolizes some `Jinja` instructions, on several lines if needed.
+      * For inline instructions, use `#: ...` .
+
+      * For block instructions, use `{#: ... :#}` .
 
   1. **Writing comments.**
 
-      * Inline comments are typed `#_ ...` where `...` symbolizes comments only for the template.
+     `...` symbolizes some comments.
 
-      * Block comments are typed `{#_ ... _#}` where `...` symbolizes comments only for the template, on several lines if needed.
+      * For inline comments, use `#_ ...` .
+
+      * For block comments, use `{#_ ... _#}` .
 
 ---
 
@@ -44,19 +48,23 @@ To indicate a dialect for templates, a flavour must be indicated. Here are the m
 
       * Tools to assist in typing templates are available: see the folder `jng-extra-tools/html`.
 
-  1. **Variables** are typed `{{ one_jinja_var }}`.
+  1. **Variables** are typed `{{ one_jinja_var }}` .
 
   1. **Using `jinja` instructions.**
 
+     `...` symbolizes some Jinja instructions.
+
       * No inline instructions are available.
 
-      * Block instructions are typed `<!--: ... :-->` where `...` symbolizes some `Jinja` instructions, on several lines if needed.
+      * For block instructions, use `<!--: ... :-->` .
 
   1. **Writing comments.**
 
+     `...` symbolizes some comments.
+
       * No inline comments are available.
 
-      * Block comments are typed `<!--_ ... _-->` where `...` symbolizes comments only for the template, on several lines if needed.
+      * For block comments, use `<!--_ ... _-->` .
 
 ---
 
@@ -70,18 +78,22 @@ To indicate a dialect for templates, a flavour must be indicated. Here are the m
 
       * Tools to assist in typing templates are available: see the folder `jng-extra-tools/latex`.
 
-  1. **Variables** are typed `\JNGVAR{ one_jinja_var }`.
+  1. **Variables** are typed `\JNGVAR{ one_jinja_var }` .
 
   1. **Using `jinja` instructions.**
 
-      * Inline instructions are typed `%: ...` where `...` symbolizes some `Jinja` instructions.
+     `...` symbolizes some Jinja instructions.
 
-      * Block instructions are typed `%%: ... :%%` where `...` symbolizes some `Jinja` instructions, on several lines if needed.
+      * For inline instructions, use `%: ...` .
+
+      * For block instructions, use `%%: ... :%%` .
 
   1. **Writing comments.**
 
-      * Inline comments are typed `%_ ...` where `...` symbolizes comments only for the template.
+     `...` symbolizes some comments.
 
-      * Block comments are typed `%%_ ... _%%` where `...` symbolizes comments only for the template, on several lines if needed.
+      * For inline comments, use `%_ ...` .
+
+      * For block comments, use `%%_ ... _%%` .
 
 <!-- FLAVOURS - TECH. DESC. - END -->

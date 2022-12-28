@@ -10,7 +10,7 @@ repository   = "https://github.com/bc-tools/for-dev/tree/main/src2prod"
 
 [tool.poetry.dependencies]
 python  = "^3.8"
-click   = "^7.1.2"
+click   = "^8.1.3"
 multimd = "^0.1.0-beta.0"
 spkpb   = "^0.0.10-beta.0"
 

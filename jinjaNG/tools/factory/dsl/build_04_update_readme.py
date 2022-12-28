@@ -64,15 +64,19 @@ TEMPL_ONE_FLAVOUR = """
 
       * {tools}
 
-  1. **Variables** are typed `{var}`.
+  1. **Variables** are typed `{var}` .
 
   1. **Using `jinja` instructions.**
+
+     `...` symbolizes some Jinja instructions.
 
       * {instr_inline}
 
       * {instr_block}
 
   1. **Writing comments.**
+
+     `...` symbolizes some comments.
 
       * {comment_inline}
 
@@ -87,7 +91,6 @@ TEMPL_ONE_FLAVOUR = """
 def instr_comment_text(
     isinline,
     kind,
-    desc,
     tag_start,
     tag_end = ""
 ):
@@ -98,16 +101,11 @@ def instr_comment_text(
 
     else:
         if tag_end:
-            tag_end       = f' {tag_end}'
-            several_lines = ', on several lines if needed'
-
-        else:
-            several_lines = ''
+            tag_end = f' {tag_end}'
 
         text = (
-            f"{style.title()} {kind} are typed "
-            f"`{tag_start} ...{tag_end}` where "
-            f"`...` symbolizes {desc}{several_lines}."
+            f"For {style} {kind}, use "
+            f"`{tag_start} ...{tag_end}` ."
         )
 
     return text
@@ -180,14 +178,12 @@ for flname, specs in JINJA_TAGS.items():
     instr_inline = instr_comment_text(
         isinline  = True,
         kind      = 'instructions',
-        desc      = 'some `Jinja` instructions',
         tag_start = specs[TAG_INLINE_INSTR]
     )
 
     instr_block = instr_comment_text(
         isinline  = False,
         kind      = 'instructions',
-        desc      = 'some `Jinja` instructions',
         tag_start = specs[TAG_BLOCK_INSTR_START],
         tag_end   = specs[TAG_BLOCK_INSTR_END]
     )
@@ -196,14 +192,12 @@ for flname, specs in JINJA_TAGS.items():
     comment_inline = instr_comment_text(
         isinline  = True,
         kind      = 'comments',
-        desc      = 'comments only for the template',
         tag_start = specs[TAG_INLINE_COMMENT]
     )
 
     comment_block  = instr_comment_text(
         isinline  = False,
         kind      = 'comments',
-        desc      = 'comments only for the template',
         tag_start = specs[TAG_BLOCK_COMMENT_START],
         tag_end   = specs[TAG_BLOCK_COMMENT_END]
     )
