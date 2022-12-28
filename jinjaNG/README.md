@@ -84,7 +84,7 @@ One \JNGVAR{txt_exa}.
 
 This is how the previous template was typed.
 
-  1. Let's start with the content after the `begin{document}`. With `JNGVAR{txt_exa}`, we indicate to use the value associated with the `txt_exa` variable in the `YAML` data file. In our case, `JNGVAR{txt_exa}` corresponds to `example`.
+  1. Let's start with the content after the `\begin{document}`. With `\JNGVAR{txt_exa}`, we indicate to use the value associated with the `txt_exa` variable in the `YAML` data file. In our case, `\JNGVAR{txt_exa}` corresponds to `example`.
 
   1. At the begining of the template, the lines between `%: if False` and `%: endif` will not be in the final output. Here we use `%: some Jinja instructions` with an always-false condition which causes the block to be ignored when making the final file. This allows the `jnglatex` package to be used only in the template file, but not in the final output. This package allows `jinjaNG` variables to be clearly highlighted after the `LaTeX` template is compiled: this small feature greatly simplifies template design.
 
@@ -214,7 +214,7 @@ One small example with automatic calculations.
 All the flavours
 ----------------
 
-A flavour indicates a dialect for a templates. Here are the minimalist technical descriptions of each of these flavours.
+To indicate a dialect for templates, a flavour must be indicated. Here are the minimalist technical descriptions of each of these flavours.
 
 
 <!-- FLAVOURS - TECH. DESC. - START -->

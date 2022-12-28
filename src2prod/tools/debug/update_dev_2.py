@@ -5,10 +5,9 @@ from cbdevtools import *
 # projectname = 'spkpb'
 # projectname = 'cbdevtools'
 projectname = 'monorepo'
-
 # projectname = 'multimd'
-
 projectname = 'src2prod'
+projectname = 'jinjaNG'
 
 
 # ------------------------------------ #
