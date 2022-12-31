@@ -5,7 +5,7 @@ from btools.B01 import *
 
 # ! -- DEBUGGING -- ! #
 # Clear the terminal.
-print("\033c", end="")
+# print("\033c", end="")
 # ! -- DEBUGGING -- ! #
 
 
