@@ -1,3 +1,18 @@
+==
+31
+==
+
+-------
+:break:
+-------
+
+Naming: here are two new rules.
+
+    1) ``JNG_DATAS`` has been replaced by ``JNGDATAS``. No underscore can't be used.
+
+    1) ``JNGVAR`` has been replaced by ``JNGVALOF`` which is more explicit. This has been done for the latex::``jnglatex`` package, but this name will be used by other tools working with named functions.
+
+
 // ---------- //
 
 

@@ -78,7 +78,7 @@ To indicate a dialect for templates, a flavour must be indicated. Here are the m
 
       * Tools to assist in typing templates are available: see the folder `jng-extra-tools/latex`.
 
-  1. **Variables** are typed `\JNGVAR{ one_jinja_var }` .
+  1. **Variables** are typed `\JNGVALOF{ one_jinja_var }` .
 
   1. **Using `jinja` instructions.**
 

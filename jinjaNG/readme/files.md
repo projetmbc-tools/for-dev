@@ -51,11 +51,11 @@ Next, let's type a minimalist `LaTeX` code using special instructions and tags. 
 
 \begin{document}
 
-One \JNGVAR{txt_exa}.
+One \JNGVALOF{txt_exa}.
 
 \begin{enumerate}
 %: for oneval in values
-    \item Value nb. \JNGVAR{loop.index}: "\JNGVAR{oneval}".
+    \item Value nb. \JNGVALOF{loop.index}: "\JNGVALOF{oneval}".
 %: endfor
 \end{enumerate}
 
@@ -64,7 +64,7 @@ One \JNGVAR{txt_exa}.
 
 This is how the previous template was typed.
 
-  1. Let's start with the content after the `\begin{document}`. With `\JNGVAR{txt_exa}`, we indicate to use the value associated with the `txt_exa` variable in the `YAML` data file. In our case, `\JNGVAR{txt_exa}` corresponds to `example`.
+  1. Let's start with the content after the `\begin{document}`. With `\JNGVALOF{txt_exa}`, we indicate to use the value associated with the `txt_exa` variable in the `YAML` data file. In our case, `\JNGVALOF{txt_exa}` corresponds to `example`.
 
   1. At the begining of the template, the lines between `%: if False` and `%: endif` will not be in the final output. Here we use `%: some Jinja instructions` with an always-false condition which causes the block to be ignored when making the final file. This allows the `jnglatex` package to be used only in the template file, but not in the final output. This package allows `jinjaNG` variables to be clearly highlighted after the `LaTeX` template is compiled: this small feature greatly simplifies template design.
 
@@ -106,14 +106,14 @@ File successfully built:
 
 ### Building the data via a `Python` script
 
-In our case, by knowing the existence of [cvnum](https://pypi.org/project/cvnum/), for example, we can be more efficient in constructing the data. Here is one possible `datas.py` file where `JNG_DATAS` is a reserved name for the data that `jinjaNG` will use. We'll see next that producing the final output can no longer be done using the default behaviour of an instance of the `JNGBuilder` class.
+In our case, by knowing the existence of [cvnum](https://pypi.org/project/cvnum/), for example, we can be more efficient in constructing the data. Here is one possible `datas.py` file where `JNGDATAS` is a reserved name for the data that `jinjaNG` will use. We'll see next that producing the final output can no longer be done using the default behaviour of an instance of the `JNGBuilder` class.
 
 ~~~python
 from cvnum.textify import *
 
 nameof = IntName().nameof
 
-JNG_DATAS = {
+JNGDATAS = {
     'txt_exa': "example",
     'values' : [nameof(x) for x in range(1, 6)]
 }

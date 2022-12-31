@@ -126,14 +126,14 @@ File successfully built:
 
 ### Building the data via a `Python` script
 
-In our case, by knowing the existence of [cvnum](https://pypi.org/project/cvnum/), for example, we can be more efficient in constructing the data. Here is one possible `datas.py` file where `JNG_DATAS` is a reserved name for the data that `jinjaNG` will use. We'll see next that producing the final output can no longer be done using the default behaviour of an instance of the `JNGBuilder` class.
+In our case, by knowing the existence of [cvnum](https://pypi.org/project/cvnum/), for example, we can be more efficient in constructing the data. Here is one possible `datas.py` file where `JNGDATAS` is a reserved name for the data that `jinjaNG` will use. We'll see next that producing the final output can no longer be done using the default behaviour of an instance of the `JNGBuilder` class.
 
 ~~~python
 from cvnum.textify import *
 
 nameof = IntName().nameof
 
-JNG_DATAS = {
+JNGDATAS = {
     'txt_exa': "example",
     'values' : [nameof(x) for x in range(1, 6)]
 }

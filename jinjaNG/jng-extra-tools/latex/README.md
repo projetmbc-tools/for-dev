@@ -14,7 +14,7 @@ Here is the miminal way to use the tools from the package `jnglatex`. Note the u
 
 \begin{document}
 
-The smallest \JNGVAR{txt_example} in the world.
+The smallest \JNGVALOF{txt_example} in the world.
 
 \end{document}
 ~~~

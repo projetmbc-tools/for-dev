@@ -12,7 +12,7 @@ from yaml    import safe_load as yaml_load
 # -- DATAS TO FEED TEMPLATES -- #
 # ----------------------------- #
 
-JNGDATAS_PYNAME = "JNG_DATAS"
+JNGDATAS_PYNAME = "JNGDATAS"
 
 ###
 # This class produces the internal version of data from different kinds

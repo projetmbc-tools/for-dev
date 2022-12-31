@@ -28,7 +28,7 @@ terminal::
     [...]
 
 
-Par contre, il faut respecter **une contrainte forte** : le fichier path::``datas.py`` doit obligatoirement fournir les données de peuplement via une variable python::``JNG_DATAS`` avec un contenu analogue à celui qu'il faudrait indiquer via un fichier ¨json. C'est tout ! Voici un code très basique permettant de fixer les idées précédentes.
+Par contre, il faut respecter **une contrainte forte** : le fichier path::``datas.py`` doit obligatoirement fournir les données de peuplement via une variable python::``JNGDATAS`` avec un contenu analogue à celui qu'il faudrait indiquer via un fichier ¨json. C'est tout ! Voici un code très basique permettant de fixer les idées précédentes.
 
 python::
     ---

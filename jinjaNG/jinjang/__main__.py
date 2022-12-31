@@ -69,7 +69,7 @@ Error: {message}
               help    = 'TO USE WITH A LOT OF CAUTION! '
                         "This flag is mandatory if ``--dto`` is not used. "
                         'It is to use datas from a Python file: '
-                        'use a dictionary named ``JNG_DATAS`` for '
+                        'use a dictionary named ``JNGDATAS`` for '
                         'the Jinja variables and their value. ')
 @click.option('--fl',
               default = AUTO_FLAVOUR,

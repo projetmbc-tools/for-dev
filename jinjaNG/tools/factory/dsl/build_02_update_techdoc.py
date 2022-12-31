@@ -8,7 +8,7 @@ addfindsrc(
     project = 'jinjaNG',
 )
 
-from src.config.flavour import *
+from src.config.jngflavours import *
 
 
 # ! -- DEBUGGING -- ! #
