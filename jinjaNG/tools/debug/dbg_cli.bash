@@ -10,7 +10,7 @@ UNSAFE="-u"
 
 error_exit() {
     echo ""
-    echo "ERROR - Following command opens the file that has raised an error."
+    echo "ERROR - The following command opens the folder giving an error."
     echo ""
     echo "  > open ./files/$1"
     exit 1
@@ -30,8 +30,3 @@ echo "\"$DATA\""
 echo "\"$TEMPLATE\""
 
 python -m src $UNSAFE "$DATA" "$TEMPLATE" "$OUTPUTFOUND"  || error_exit "$KIND-$NB"
-
-
-
-
-

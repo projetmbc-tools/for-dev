@@ -7,18 +7,24 @@ cd "$THIS_DIR"
 
 error_exit() {
     echo ""
-    echo "ERROR - Following command opens the file that has raised an error."
+    echo "ERROR - The following command opens the file that has raised an error."
     echo ""
     echo "  > open \"$1/$2\""
     exit 1
 }
 
 
-find . -name 'build_*'  -type f | sort  | while read -r i
+while read -r builderfile  # <(find . -name 'build_*'  -type f | sort)
 do
+    if [[ $(basename "$builderfile") =~ ^build_(1|0[2-9]).* ]]
+    then
+        echo ""
+    fi
+
     echo ""
+    echo "Launching $builderfile"
     echo ""
-    echo "Launching $i"
-    echo ""
-    python "$i" || error_exit "$THIS_DIR" "$i"
-done
+    python "$builderfile" || error_exit "$THIS_DIR" "$builderfile"
+done < <(find . -name 'build_*'  -type f | sort)
+
+echo ""

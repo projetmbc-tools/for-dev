@@ -5,7 +5,7 @@ DATAS_DIR="$THIS_DIR/usecases/datas"
 
 function error_exit() {
     printf "\033[91m\033[1m"
-    echo "  ERROR."
+    echo "  ERROR!"
     echo "    > Data file: \"$1\""
     echo "    > Template : \"$2\""
     exit 1
@@ -41,11 +41,9 @@ do
         outputfound="$DATAS_DIR/$localdir/output_found.$ext"
 
         cd "$JINJANG_DIR"
-        
-        # -------------------- #
+
         # -- COMMAND TESTED -- #
-        # -------------------- #
-        
+
         python3.9 -m src $unsafe "$data" "$template" "$outputfound" > /dev/null || error_exit "$datafile" "$templatefile"
 
         rm "$outputfound"
