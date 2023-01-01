@@ -49,29 +49,29 @@ class JNGBuilder:
 
 ###
 # prototype::
-#     flavour : this argument helps to find the dialect of one template.
-#             @ flavour = AUTO_FLAVOUR
-#               or
-#               flavour in config.jngflavours.ALL_FLAVOURS
-#     pydatas : this argument with the value ``True`` allows the execution
-#               of ¨python files to build data to feed a template.
-#               Otherwise, no ¨python script will be launched.
-#     config  : ¨configs used to allow extra features
-#             @ type(config) = str  ==> config in [AUTO_CONFIG, NO_CONFIG] ;
-#               type(config) != str ==> exists path(config)
+#     flavour   : this argument helps to find the dialect of one template.
+#               @ flavour = AUTO_FLAVOUR
+#                 or
+#                 flavour in config.jngflavours.ALL_FLAVOURS
+#     launch_py : this argument with the value ``True`` allows the execution
+#                 of ¨python files to build data to feed a template.
+#                 Otherwise, no ¨python script will be launched.
+#     config    : ¨configs used to allow extra features
+#               @ type(config) = str  ==> config in [AUTO_CONFIG, NO_CONFIG] ;
+#                 type(config) != str ==> exists path(config)
 ###
     def __init__(
         self,
-        flavour: str  = AUTO_FLAVOUR,
-        pydatas: bool = False,
-        config : Any  = NO_CONFIG
+        flavour  : str  = AUTO_FLAVOUR,
+        launch_py: bool = False,
+        config   : Any  = NO_CONFIG
     ) -> None:
         self.flavour = flavour
         self.config  = config
 
-# The update of ``pydatas`` implies the use of a new instance of
+# The update of ``launch_py`` implies the use of a new instance of
 # ``self._build_datas`` via ``JNGDatas(value).build``.
-        self.pydatas = pydatas
+        self.launch_py = launch_py
 
 
 ###
@@ -96,16 +96,16 @@ class JNGBuilder:
 
 
 ###
-# One getter, and one setter for ``pydatas`` are used to secure the values
+# One getter, and one setter for ``launch_py`` are used to secure the values
 # used for this special attribut.
 ###
     @property
-    def pydatas(self):
-        return self._pydatas
+    def launch_py(self):
+        return self._launch_py
 
-    @pydatas.setter
-    def pydatas(self, value):
-        self._pydatas     = value
+    @launch_py.setter
+    def launch_py(self, value):
+        self._launch_py     = value
         self._build_datas = JNGDatas(value).build
 
 
@@ -187,13 +187,13 @@ class JNGBuilder:
         datas   : Any,
         template: Any,
         output  : Any,
-        pydatas : Union[bool, None] = None,
+        launch_py : Union[bool, None] = None,
         config  : Any               = None
     ) -> None:
 # Can we execute temporarly a ¨python file to build datas?
-        if pydatas is not None:
-            old_pydatas  = self.pydatas
-            self.pydatas = pydatas
+        if launch_py is not None:
+            old_launch_py  = self.launch_py
+            self.launch_py = launch_py
 
 # Can we use temporarly specific ¨configs?
         if config is not None:
@@ -226,8 +226,8 @@ class JNGBuilder:
         )
 
 # Restore previous settings if local ones have been used.
-        if pydatas is not None:
-            self.pydatas = old_pydatas
+        if launch_py is not None:
+            self.launch_py = old_launch_py
 
         if config is not None:
             self.config = old_config

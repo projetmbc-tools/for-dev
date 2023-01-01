@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 
-from pathlib import Path
-from yaml    import safe_load as yaml_load
-
-from cbdevtools.addfindsrc import addfindsrc
-
 from common import *
 
 
@@ -20,7 +15,7 @@ addfindsrc(
 from src import *
 
 MY_BUILDER = JNGBuilder(
-    pydatas = True
+    launch_py = True
 )
 
 
@@ -30,17 +25,9 @@ MY_BUILDER = JNGBuilder(
 
 THIS_DIR = Path(__file__).parent
 
-TO_TEST_YAML = THIS_DIR / 'docexa.yaml'
-
-
-with TO_TEST_YAML.open(
-    encoding = 'utf-8',
-    mode     = 'r'
-) as f:
-    DOCEXA_TOTEST = yaml_load(f)
-
-DOC_CONTENT_DIR = Path(DOCEXA_TOTEST['docdir'])
-DOCEXA_TOTEST   = DOCEXA_TOTEST['totest']
+DOC_CONTENT_DIR, DOCEXA_TOTEST = build_docexas_datas(
+    docexa_yaml = THIS_DIR / 'docexa.yaml'
+)
 
 
 # ----------- #
@@ -64,7 +51,7 @@ def message(subdir, datas, template):
 # -- DOC. EXAMPLES - NON-STRICT TESTS -- #
 # -------------------------------------- #
 
-def test_doc_examples_non_strict():
+def test_doc_examples_NON_STRICT():
     for subdir, datas, template in DOCEXA_TOTEST:
         subdir   = DOC_CONTENT_DIR / subdir
         template = Path(template)
@@ -90,7 +77,7 @@ def test_doc_examples_non_strict():
 # -- DOC. EXAMPLES - STRICT TESTS -- #
 # ---------------------------------- #
 
-def test_doc_examples_strict():
+def test_doc_examples_STRICT():
     for subdir, datas, template in DOCEXA_TOTEST:
         subdir   = DOC_CONTENT_DIR / subdir
         template = Path(template)

@@ -1,0 +1,35 @@
+// ---------- //
+
+
+==
+01
+==
+
+-------
+:break:
+-------
+
+[[:api:]]
+Here are the changes made to simplify the ¨api.
+
+    1) Classe ``JNGBuilder``: the parameter/attribut ``pydatas`` has been renamed ``launch_py`` which is more explicit.
+
+    1) The ¨cli ¨api has been simplified, and made more explicit.
+
+        * The parameters term::``--dto`` and term::``--pydto`` no longer exist.
+
+        * The new parameter term::``--unsafe`` indicates clearly the dangerous use of a ¨python file to build datas is allowed.
+
+        * Each parameter has an abbreviation.
+
+            + term::``-c`` for term::``--cfg``.
+            + term::``-f`` for term::``--fl``.
+            + term::``-u`` for term::``--unsafe``.
+
+
+--------
+:fordev:
+--------
+
+[[:test:]]
+New debugging file: one ¨bash file to test that ¨cli is functional.

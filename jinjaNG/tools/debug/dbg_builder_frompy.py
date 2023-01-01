@@ -9,7 +9,7 @@ from cbdevtools import *
 # -- MODULES IMPORTED FROM SOURCES! -- #
 # ------------------------------------ #
 
-MODULE_DIR = addfindsrc(
+addfindsrc(
     file    = __file__,
     project = 'jinjaNG',
 )

@@ -39,13 +39,8 @@ Error: {message}
 #                files can be used.
 #     template : the template file.
 #     output   : the path for the output built by ¨jinjaNG.
-#     dto      : the value ``True`` indicates to work only with
-#                a path::``YAML`` or path::``JSON`` file (see
-#                the argument ``pydto``).
-#              @ dto != pydto
-#     pydto    : the value ``True`` indicates to work only with
-#                a path::``PY`` file (see the argument ``dto``).
-#              @ dto != pydto
+#     unsafe   : only the value ``True`` allows to launch
+#                a path::``PY`` file to build data.
 #     fl       : this indicates either to use the automatic
 #                detection of the flavour if ``fl = AUTO_FLAVOUR``,
 #                or the flavour of the template.
@@ -58,20 +53,14 @@ Error: {message}
 @click.argument('datas')
 @click.argument('template')
 @click.argument('output')
-@click.option('--dto',
-              is_flag = True,
-              default = False,
-              help    = "This flag is mandatory if ``--pydto`` is not used. "
-                        'It is to work with JSON or YAML datas. ')
-@click.option('--pydto',
+@click.option('--unsafe', '-u',
               is_flag = True,
               default = False,
               help    = 'TO USE WITH A LOT OF CAUTION! '
-                        "This flag is mandatory if ``--dto`` is not used. "
-                        'It is to use datas from a Python file: '
-                        'use a dictionary named ``JNGDATAS`` for '
+                        'This flag allows to use datas from a Python '
+                        'file: use a dictionary named ``JNGDATAS`` for '
                         'the Jinja variables and their value. ')
-@click.option('--fl',
+@click.option('--fl', '-f',
               default = AUTO_FLAVOUR,
               help    = "A flavour to use if you don't want to let "
                         'jinjaNG detect automatically the dialect '
@@ -80,7 +69,7 @@ Error: {message}
                         + ', '.join(ALL_FLAVOURS[:-1])
                         + f', or {ALL_FLAVOURS[-1]}'
                         + '.')
-@click.option('--cfg',
+@click.option('--cfg', '-c',
               default = '',
               help    = 'COMING SOON... '
                         'TO USE WITH A LOT OF CAUTION! '
@@ -92,8 +81,7 @@ def jng_CLI(
     datas   : str,
     template: str,
     output  : str,
-    dto     : bool,
-    pydto   : bool,
+    unsafe  : bool,
     fl      : str,
     cfg     : str,
 ) -> None:
@@ -106,22 +94,15 @@ def jng_CLI(
 
     OUTPUT: the path of the output built by jinjaNG.
     """
-# DTO or PYDTO?
-    if(
-        not(dto or pydto)
-        or
-        (dto and pydto)
-    ):
-        _exit("You must used either ``--dto``, or ``--pydto``.")
-
-    if pydto:
-        print('WARNING: Using a Python file can be dangerous.')
+# Unsafe mode used?
+    if unsafe:
+        print('WARNING! Using a Python file can be dangerous.')
 
 # Lets' work...
     mybuilder = JNGBuilder(
-        flavour = fl,
-        pydatas = pydto,
-        # config  = cfg
+        flavour   = fl,
+        launch_py = unsafe,
+        # config    = cfg
     )
 
     try:

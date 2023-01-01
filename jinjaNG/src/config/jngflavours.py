@@ -90,7 +90,7 @@ JINJA_TAGS[FLAVOUR_HTML] = {
 #
 # Useful settings and tools for LaTeX templating.
 #
-# Last change: 2022-12-01
+# Last change: 2022-12-31
 # Author     : Christophe Bal
 
 AUTO_FROM_EXT[FLAVOUR_LATEX] = ["*.tex", "*.sty", "*.tkz"]

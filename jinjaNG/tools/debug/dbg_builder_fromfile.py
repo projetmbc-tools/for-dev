@@ -16,8 +16,8 @@ DATAS_EXT = "yaml"
 # DATAS_EXT = "json"
 # DATAS_EXT = "py"
 
-PYDATAS = True
-# PYDATAS = False
+LAUNCH_PY = True
+# LAUNCH_PY = False
 
 TEMPL_EXT = "txt"
 
@@ -26,7 +26,7 @@ TEMPL_EXT = "txt"
 # -- MODULES IMPORTED FROM SOURCES! -- #
 # ------------------------------------ #
 
-MODULE_DIR = addfindsrc(
+addfindsrc(
     file    = __file__,
     project = 'jinjaNG',
 )
@@ -46,7 +46,7 @@ FILES_FOLDER      = THIS_DIR / "files" / FILES_FOLDER_NAME
 
 
 mybuilder = JNGBuilder(
-    pydatas = PYDATAS
+    launch_py = LAUNCH_PY
 )
 
 template = FILES_FOLDER / f"template.{TEMPL_EXT}"

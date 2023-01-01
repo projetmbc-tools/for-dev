@@ -21,15 +21,15 @@ JNGDATAS_PYNAME = "JNGDATAS"
 class JNGDatas:
 ###
 # prototype::
-#     pydatas : this argument with the value ``True`` allows the execution
-#               of ¨python files to build data to feed a template.
-#               Otherwise, no ¨python script will be launched.
+#     launch_py : this argument with the value ``True`` allows the execution
+#                 of ¨python files to build data to feed a template.
+#                 Otherwise, no ¨python script will be launched.
 ###
     def __init__(
         self,
-        pydatas: bool
+        launch_py: bool
     ) -> None:
-        self.pydatas = pydatas
+        self.launch_py = launch_py
 
 
 ###
@@ -120,9 +120,9 @@ class JNGDatas:
         file: Path
     ) -> dict:
 # Are we allowed to launch a Python file?
-        if not self.pydatas:
+        if not self.launch_py:
             raise Exception(
-                "''pydatas'' disabled, no Python file can't be launched "
+                "''launch_py'' disabled, no Python file can't be launched "
                 "to build datas."
             )
 

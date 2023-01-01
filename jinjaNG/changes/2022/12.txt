@@ -1,3 +1,6 @@
+// ---------- //
+
+
 ==
 31
 ==
@@ -6,9 +9,10 @@
 :break:
 -------
 
+[[:api:]]
 Naming: here are two new rules.
 
-    1) In ¨python data files, ``JNG_DATAS`` has been replaced by ``JNGDATAS`` which is easier to type. The underscore will no longer be allowed to be used.
+    1) In ¨python data files, ``JNG_DATAS`` has been replaced by ``JNGDATAS`` which is easier to type. The underscore will no longer be allowed for naming purposes.
 
     1) For editing tools, ``JNGVAR`` has been replaced by ``JNGVALOF`` which is more explicit. This has been done for the latex::``jnglatex`` package, but this name will have to be used by other tools working with named functions.
 
