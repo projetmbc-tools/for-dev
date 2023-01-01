@@ -57,6 +57,8 @@ def test_contrib_usecases_NON_STRICT():
 
         assert output_wanted == output_found, message(template)
 
+        remove_output_found(template.parent, Path(template.name))
+
 
 # ---------------------------------------- #
 # -- USECASES (CONTRIB.) - STRICT TESTS -- #
@@ -74,3 +76,5 @@ def test_contrib_usecases_STRICT():
         )
 
         assert output_wanted == output_found, message(template)
+
+        remove_output_found(template.parent, Path(template.name))

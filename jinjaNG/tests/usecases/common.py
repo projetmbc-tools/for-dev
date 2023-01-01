@@ -29,6 +29,10 @@ def build_output(
     return output_found
 
 
+def remove_output_found(subdir, template):
+    (subdir / f"output_found{template.suffix}").unlink()
+
+
 # ------------------------ #
 # -- NON-STRICT CONTENT -- #
 # ------------------------ #

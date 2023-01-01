@@ -34,10 +34,6 @@ DOC_CONTENT_DIR, DOCEXA_TOTEST = build_docexas_datas(
 # -- TOOLS -- #
 # ----------- #
 
-def remove_output_found(subdir, template):
-    (subdir / f"output_found{template.suffix}").unlink()
-
-
 def message(subdir, datas, template):
     return (
         "\n"

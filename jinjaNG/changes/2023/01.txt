@@ -18,7 +18,7 @@ Here are the changes made to simplify the ¨api.
 
         * The parameters term::``--dto`` and term::``--pydto`` no longer exist.
 
-        * The new parameter term::``--unsafe`` indicates clearly the dangerous use of a ¨python file to build datas is allowed.
+        * The new parameter term::``--unsafe`` indicates clearly that the dangerous use of a ¨python file to build datas is allowed.
 
         * Each parameter has an abbreviation.
 
@@ -32,4 +32,8 @@ Here are the changes made to simplify the ¨api.
 --------
 
 [[:test:]]
-New debugging file: one ¨bash file to test that ¨cli is functional.
+Testing the ¨cli.
+
+    1) New debugging file: one ¨bash file to see if the ¨cli is functional.
+
+    1) New test file to just check that ¨cli is functional.
