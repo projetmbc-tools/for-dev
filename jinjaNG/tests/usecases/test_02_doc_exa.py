@@ -30,19 +30,6 @@ DOC_CONTENT_DIR, DOCEXA_TOTEST = build_docexas_datas(
 )
 
 
-# ----------- #
-# -- TOOLS -- #
-# ----------- #
-
-def message(subdir, datas, template):
-    return (
-        "\n"
-        f"See: {datas} and "
-        f"{subdir.relative_to(DOC_CONTENT_DIR)}/{template.name}"
-        "\n"
-    )
-
-
 # -------------------------------------- #
 # -- DOC. EXAMPLES - NON-STRICT TESTS -- #
 # -------------------------------------- #
@@ -50,7 +37,8 @@ def message(subdir, datas, template):
 def test_doc_examples_NON_STRICT():
     for subdir, datas, template in DOCEXA_TOTEST:
         subdir   = DOC_CONTENT_DIR / subdir
-        template = Path(template)
+        datas    = subdir / datas
+        template = subdir / Path(template)
 
         output_wanted = minimize_content(
             subdir / f"output{template.suffix}"
@@ -59,12 +47,12 @@ def test_doc_examples_NON_STRICT():
         output_found  = minimize_content(
             build_output(
                 MY_BUILDER,
-                subdir / datas,
-                subdir / template
+                datas,
+                template
             )
         )
 
-        assert output_wanted == output_found, message(subdir, datas, template)
+        assert output_wanted == output_found, message(template)
 
         remove_output_found(subdir, template)
 
@@ -76,7 +64,8 @@ def test_doc_examples_NON_STRICT():
 def test_doc_examples_STRICT():
     for subdir, datas, template in DOCEXA_TOTEST:
         subdir   = DOC_CONTENT_DIR / subdir
-        template = Path(template)
+        datas    = subdir / datas
+        template = subdir / Path(template)
 
         output_wanted = content(
             subdir / f"output{template.suffix}"
@@ -85,11 +74,11 @@ def test_doc_examples_STRICT():
         output_found  = content(
             build_output(
                 MY_BUILDER,
-                subdir / datas,
-                subdir / template
+                datas,
+                template
             )
         )
 
-        assert output_wanted == output_found, message(subdir, datas, template)
+        assert output_wanted == output_found, message(template)
 
         remove_output_found(subdir, template)

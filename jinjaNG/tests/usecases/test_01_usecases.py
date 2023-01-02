@@ -28,18 +28,6 @@ USECASES_DATAS = build_usecases_datas(
 )
 
 
-# ----------- #
-# -- TOOLS -- #
-# ----------- #
-
-def message(template):
-    return (
-         "\n"
-        f"See: {template.parent.name}/{template.name}"
-         "\n"
-    )
-
-
 # -------------------------------------------- #
 # -- USECASES (CONTRIB.) - NON-STRICT TESTS -- #
 # -------------------------------------------- #

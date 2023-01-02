@@ -4,19 +4,32 @@ DATAS_DIR="$THIS_DIR/usecases/datas"
 
 
 function error_exit() {
+    localdir=$(dirname "$DATAS_DIR/$2")
+
     printf "\033[91m\033[1m"
-    echo "  ERROR!"
-    echo "    > Data file: \"$1\""
-    echo "    > Template : \"$2\""
+    echo ""
+    echo "  ERROR - $1 , see the folder:"
+    echo "  + $localdir"
     exit 1
 }
 
 
 cd "$DATAS_DIR"
 
+# WARNING!
+#
+# We can't use pipes first like below because this will launch
+# subprocesses, and this will make the ``exit 1`` of ``error_exit``
+# inefficient.
+#
+#     find . -name 'datas.*'  -type f | sort | while read -r datafile
+#     do
+#         ...
+#     done
+
 while read -r datafile  # <(find . -name 'datas.*'  -type f | sort)
 do
-    localdir="$(dirname $datafile)"
+    localdir=$(dirname "$datafile")
 
     echo "* Testing ''$localdir''."
 
@@ -38,14 +51,22 @@ do
         ext=${filename##*.}
 
         template="$DATAS_DIR/$templatefile"
+        output="$DATAS_DIR/$localdir/output.$ext"
         outputfound="$DATAS_DIR/$localdir/output_found.$ext"
 
         cd "$JINJANG_DIR"
 
         # -- COMMAND TESTED -- #
+        python3.9 -m src $unsafe "$data" "$template" "$outputfound" > /dev/null || error_exit "BUILDING" "$templatefile"
 
-        python3.9 -m src $unsafe "$data" "$template" "$outputfound" > /dev/null || error_exit "$datafile" "$templatefile"
+        # -- OUTPUT TESTED -- #
+        if cmp -s "$output" "$outputfound"; then
+            ok=0
+        else
+            error_exit "CONTENTS" "$templatefile"
+        fi
 
+        # -- REMOVE THE OUPUT -- #
         rm "$outputfound"
     done < <(find $localdir -name 'template.*'  -type f | sort)
 

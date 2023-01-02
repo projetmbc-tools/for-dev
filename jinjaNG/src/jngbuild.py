@@ -271,4 +271,7 @@ class JNGBuilder:
         self,
         flavour: str
     ) -> Environment:
-        return Environment(**JINJA_TAGS[flavour])
+        return Environment(
+            keep_trailing_newline = True,
+            **JINJA_TAGS[flavour]
+        )

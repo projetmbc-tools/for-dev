@@ -2,6 +2,42 @@
 
 
 ==
+02
+==
+
+--------
+:update:
+--------
+
+[[:api:]]
+Final empty lines: we keep them now (it was a bad idea not to manage them).
+
+
+--------
+:fordev:
+--------
+
+[[:test:]]
+Testing improved.
+
+    1) ¨cli: the automated tests also compare the content constructed with that expected.
+
+    1) The error messages for the use cases, and the examples in the ¨doc give the absolute path to the folder that revealed an error.
+
+
+[[:flow:]]
+Two small important files added.
+
+    1) Launching all: the ¨bash file path::``build-test-all.bash`` launches all builders, and tests to verify that a new version can be delivered (the order of launch is the responsibility of the developer: see the file path::``build-test-all-folders.txt``.).
+
+    1) Building the distributed source: the ¨bash file path::``build-project.bash`` does that.
+
+
+
+// ---------- //
+
+
+==
 01
 ==
 

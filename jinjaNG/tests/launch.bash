@@ -16,18 +16,15 @@ pytest -v ./
 # -- CLI -- #
 # --------- #
 
-printf "\033[1m"
+printf "\033[32m\033[1m"
 
 echo ""
 echo ""
-echo "===== CLI FUNCTIONAL ? ====="
-echo ""
-
-printf "\033[33m"
-
-echo "Warning: the contents are not analyzed (see the tests above for this)."
+echo "===== CLI (via bash) ====="
 echo ""
 
 printf "\033[0m"
 
 bash "$THIS_DIR/test_cli.bash"
+
+echo ""

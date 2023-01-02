@@ -56,36 +56,34 @@ cd "$THIS_DIR"
 
 error_exit() {
     printf "\033[91m\033[1m"
-
     echo "  ERROR , see the file:"
     echo "    + $1/$2"
-
     exit 1
 }
 
-
-print_about() {
-    printf "\033[32m"
-    echo "$1"
-    printf "\033[0m"
-}
-
+echo ""
 
 while read -r builderfile  # <(find . -name 'build_*'  -type f | sort)
 do
     filename=$(basename "$builderfile")
+    ext=${filename##*.}
     
-    echo ""
-
     if [[ $QUICKOPTION == 1 && $filename =~ ^build_.*_slow\..* ]]
     then
-        print_about "Ignoring slow $builderfile"
+        echo "Ignoring slow $builderfile"
     
     else
-        print_about "Launching $builderfile"
+        echo "Launching $builderfile"
         
-        python "$builderfile" || error_exit "$THIS_DIR" "$builderfile"
+        if [ "$ext" == "py" ]
+        then
+            command=python
+        else
+            command=bash
+        fi
+        
+        $command "$builderfile" > /dev/null || error_exit "$THIS_DIR" "$builderfile"
     fi
+    
+    echo ""
 done < <(find . -name 'build_*'  -type f | sort)
-
-echo ""

@@ -9,8 +9,24 @@ from cbdevtools.addfindsrc import addfindsrc
 from mistool.os_use        import PPath as Path
 
 
+# ------------- #
+# -- MESSAGE -- #
+# ------------- #
+
+def message(template):
+    dirpb = template.parent
+
+    return (
+         "\n"
+         "In the source dir, see the folder:"
+         "\n"
+        f"+ {dirpb}"
+         "\n"
+    )
+
+
 # ----------- #
-# -- TOOLS -- #
+# -- OUPUT -- #
 # ----------- #
 
 def build_output(
@@ -52,7 +68,7 @@ def minimize_content(path):
 # Verbatim equivalences of the contents except for the final empty lines that are striped.
 
 def content(path):
-    return path.read_text(encoding = 'utf-8').rstrip().split('\n')
+    return path.read_text(encoding = 'utf-8').split('\n')
 
 
 # -------------------- #
