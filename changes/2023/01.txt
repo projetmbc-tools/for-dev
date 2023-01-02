@@ -1,0 +1,13 @@
+// ---------- //
+
+
+==
+02
+==
+
+--------
+:fordev:
+--------
+
+[[:flow:]]
+The ¨bash file path::``print-loc.bash`` allows you to see the [l]-ist [o]-f [c]-hanges between the current branch and the main one.

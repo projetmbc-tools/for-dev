@@ -58,8 +58,9 @@ Error: {message}
               default = False,
               help    = 'TO USE WITH A LOT OF CAUTION! '
                         'This flag allows to use datas from a Python '
-                        'file: use a dictionary named ``JNGDATAS`` for '
-                        'the Jinja variables and their value. ')
+                        'file to launch: use a dictionary named '
+                        '``JNGDATAS`` for the Jinja variables and '
+                        'their value. ')
 @click.option('--fl', '-f',
               default = AUTO_FLAVOUR,
               help    = "A flavour to use if you don't want to let "
