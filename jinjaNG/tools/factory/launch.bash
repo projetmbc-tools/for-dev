@@ -1,10 +1,11 @@
 #!/bin/bash
 
 THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+THIS_FILE=$(basename "$0")
+THIS_FILE=${THIS_FILE%%.*}
 
-
-USAGE="Usage: bash launch.bash [OPTIONS]"
-TRY="'bash launch.bash --help' for help."
+USAGE="Usage: bash $THIS_FILE.bash [OPTIONS]"
+TRY="'bash $THIS_FILE.bash --help' for help."
 
 HELP="$USAGE
 
@@ -47,6 +48,14 @@ then
         if [[ "$1" == "--help" ]]
         then
             print_cli_info 0 "$HELP"
+
+        else
+            message="$USAGE
+$TRY
+
+Error: No such option: $1"
+
+            print_cli_info 1 "$message"
         fi
     fi
 fi

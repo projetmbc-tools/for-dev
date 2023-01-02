@@ -1,16 +1,18 @@
 #!/bin/bash
 
 THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+THIS_FILE=$(basename "$0")
+THIS_FILE=${THIS_FILE%%.*}
 
-FOLDER_LIST="build-test-all-folders.txt"
+FOLDER_LIST="$THIS_FILE-folders.txt"
 
-USAGE="Usage: bash launch_all.bash [OPTIONS]"
-TRY="'bash launch_all.bash --help' for help."
+USAGE="Usage: bash $THIS_FILE.bash [OPTIONS]"
+TRY="'bash $THIS_FILE.bash --help' for help."
 
 HELP="$USAGE
 
   Launch all 'launch.bash' files in each of the folders given in
-  'launch-all-folders.txt'.
+  '$FOLDER_LIST'.
 
 Options:
   -q, --quick Any builder file named 'build_..._slow' wil be ignored.
@@ -44,11 +46,19 @@ then
     if [[ "$1" == "-q" || "$1" == "--quick" ]]
     then
         QUICKOPTION="-q"
-    
+
     else
         if [[ "$1" == "--help" ]]
         then
             print_cli_info 0 "$HELP"
+
+        else
+            message="$USAGE
+$TRY
+
+Error: No such option: $1"
+
+            print_cli_info 1 "$message"
         fi
     fi
 fi
@@ -68,14 +78,14 @@ do
 
             echo ""
             echo "=====[ $launcherfile ]====="
-            
+
             if [[ "$folder" == "tests" ]]
             then
                 echo ""
             fi
 
             printf "\033[0m"
-            
+
             bash $launcherfile "$QUICKOPTION" || exit 1
         done < <(find "$folder" -name 'launch.bash'  -type f | sort)
     fi
