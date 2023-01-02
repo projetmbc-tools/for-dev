@@ -1,9 +1,9 @@
 ﻿this::
-    date = 2022-12-27
+    date = 2023-01-02
 
 
 ===================
 Imposer un dialecte
 ===================
 
-Si l'on souhaite imposer un dialecte, il suffit d'employer l'option term::``--fl`` pour "flavour", soit "saveur" en français. Par exemple, on utilisera term::``python -m jinjang --fl ascii --dto ...`` pour forcer l'utilisation du dialecte ¨ascii.
+Si l'on souhaite imposer un dialecte, il suffit d'employer l'option term::``--fl`` pour "flavour", soit "saveur" en français. Par exemple, on utilisera term::``python -m jinjang --fl ascii ...`` pour forcer l'utilisation du dialecte ¨ascii.

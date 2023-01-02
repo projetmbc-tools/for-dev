@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-12-27
+    date = 2023-01-02
 
 
 ====================================
@@ -8,7 +8,7 @@ Agir après l'utilisation du "patron"
 
 Imaginons que nous avons produit un fichier ¨tex à l'aide d'un "patron" comme cela a été proposé dans cf::``?/json-datas.txt``.
 L'intérêt des fichiers ¨tex est limité si l'on ne les utilise pas pour produire des contenus mis en forme au format ¨pdf par exemple.
-Obtenir ceci est très simple via term::``python -m jinjang --cfg auto --dto ...``, et la rédaction d'un fichier de ¨config
+Obtenir ceci est très simple via term::``python -m jinjang --cfg auto ...``, et la rédaction d'un fichier de ¨config
 ((
     Nous nous plaçons dans la situation d'utilisation ¨auto d'une ¨config à destination de ¨jinjang.
 ))

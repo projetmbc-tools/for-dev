@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-12-27
+    date = 2023-01-02
 
 
 ===========================
@@ -24,11 +24,11 @@ Imaginons que nous soyons dans la situation suivante.
     1) Les données sont indiquées dans le fichier path::``datas.json``.
 
 
-Dans ce cas, pour obtenir un fichier path::``output.tex`` obtenu après peuplement, il suffira de procéder comme suit où l'option term::``--dto`` est pour "[d]atas, [t]emplate, [o]utput", soit  "données, patron, produit" en français (la sortie ¨jinjang a été omise, et d'où la présence de term::``[...]``).
+Dans ce cas, pour obtenir un fichier path::``output.tex`` obtenu après peuplement, il suffira de procéder comme suit en retenant l'ordre "données-patron-produit" pour les fichiers (la sortie ¨jinjang a été omise d'où la présence de term::``[...]``).
 
 terminal::
     > cd my/folder
-    > python -m jinjang --dto datas.json template.tex output.tex
+    > python -m jinjang datas.json template.tex output.tex
     [...]
 
 
@@ -54,7 +54,7 @@ json::
     ---
 
 
-La commande term::``python -m jinjang --dto ...`` fournit finalement le fichier suivant.
+La commande term::``python -m jinjang ...`` fournit finalement le fichier suivant.
 
 latex::
     ---

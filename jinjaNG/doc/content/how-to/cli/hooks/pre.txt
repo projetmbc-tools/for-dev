@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-12-27
+    date = 2023-01-02
 
 
 ====================================
@@ -26,7 +26,7 @@ bash::
 
 
 Il reste à voir comment demander à ¨jinjang de lancer le script ¨bash.
-La ¨1ere méthode nécessite une commande du type term::``python -m jinjang --cfg auto --dto ...`` où est employé term::``--cfg auto``.
+La ¨1ere méthode nécessite une commande du type term::``python -m jinjang --cfg auto ...`` où est employé term::``--cfg auto``.
 L'option supplémentaire demande la recherche d'un fichier path::``cfg.jng.yaml`` placé dans le même dossier que le fichier "patron".
 Dans notre cas, le contenu de ce fichier de ¨cfg est le suivant (la ligne avec term::``echo``, qui produira un affichage, est juste là pour expliquer le comportement de ¨jinjang).
 
@@ -51,7 +51,7 @@ info::
 
 
 Si plusieurs "patrons" sont présents dans un même dossier, ou bien pour pouvoir utiliser des ¨configs de test, il est utile de pouvoir choisir le fichier de ¨config de façon explicite.
-Ceci se passe via l'option term::``--cfg chemin/vers/ma/config.yaml`` comme dans term::``python -m jinjang --cfg speconfig.yaml -h --dto ...`` par exemple.
+Ceci se passe via l'option term::``--cfg chemin/vers/ma/config.yaml`` comme dans term::``python -m jinjang --cfg speconfig.yaml ...`` par exemple.
 
 
 info::

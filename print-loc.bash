@@ -16,7 +16,6 @@ HELP="$USAGE
 Options:
   -f, --folder  This ask to only print the folders changed.
   -p, --project This ask to only print the projects changed.
-                The changes in the monorepo dir will not be shown.
   --help        Show this message and exit.
 "
 
@@ -119,7 +118,7 @@ do
             projectfolder=$(dirname "$filechanged")
             projectfolder=${projectfolder%${projectfolder#*/}}
 
-            if [[ $projectfolder != "" && "$LASTFOLDER" != "$projectfolder" ]]
+            if [[ $projectfolder != "" && $projectfolder != "changes/" && "$LASTFOLDER" != "$projectfolder" ]]
             then
                 echo "$projectfolder"
                 LASTFOLDER="$projectfolder"

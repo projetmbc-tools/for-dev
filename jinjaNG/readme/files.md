@@ -97,7 +97,7 @@ The commands below have the same effect as the `Python` code in the previous sec
 
 ~~~
 > cd path/to/the/good/folder
-> python -m jinjang --dto datas.yaml template.tex output.tex
+> python -m jinjang datas.yaml template.tex output.tex
 File successfully built:
   + output.tex
 ~~~
@@ -135,11 +135,11 @@ mybuilder.render(
 ~~~
 
 
-To work with a `Python`data file from the terminal, you must use the tag `--pydto` instead of `--dto`. This is because **it can be dangerous to launch a `Python` data file**, so `jinjaNG` must know that you really want to do this. The commands below have the same effect as the `Python` code above.
+To work with a `Python` data file from the terminal, you must use the tag `--unsafe` because **it can be dangerous to launch a `Python` data file**, so `jinjaNG` must know that you really want to do this. The commands below have the same effect as the `Python` code above.
 
 ~~~
 > cd path/to/the/good/folder
-> python -m jinjang --pydto datas.py template.tex output.tex
+> python -m jinjang --unsafe datas.py template.tex output.tex
 WARNING: Using a Python file can be dangerous.
 File successfully built:
   + output.tex
