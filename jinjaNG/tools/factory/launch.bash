@@ -40,24 +40,24 @@ QUICKOPTION=0
 
 if (( $# == 1 ))
 then
-    if [[ "$1" == "-q" || "$1" == "--quick" ]]
-    then
-        QUICKOPTION=1
-    
-    else
-        if [[ "$1" == "--help" ]]
-        then
-            print_cli_info 0 "$HELP"
+    case $1 in
+        "-q"|"--quick")
+            QUICKOPTION=1
+        ;;
 
-        else
+        "--help")
+            print_cli_info 0 "$HELP"
+        ;;
+
+        *)
             message="$USAGE
 $TRY
 
 Error: No such option: $1"
 
             print_cli_info 1 "$message"
-        fi
-    fi
+        ;;
+    esac
 fi
 
 cd "$THIS_DIR"
@@ -83,16 +83,16 @@ print_about() {
 while read -r builderfile  # <(find . -name 'build_*'  -type f | sort)
 do
     filename=$(basename "$builderfile")
-    
+
     echo ""
 
     if [[ $QUICKOPTION == 1 && $filename =~ ^build_.*_slow\..* ]]
     then
         print_about "Ignoring slow $builderfile"
-    
+
     else
         print_about "Launching $builderfile"
-        
+
         python "$builderfile" || error_exit "$THIS_DIR" "$builderfile"
     fi
 done < <(find . -name 'build_*'  -type f | sort)

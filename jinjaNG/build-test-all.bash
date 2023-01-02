@@ -43,24 +43,24 @@ QUICKOPTION=""
 
 if (( $# == 1 ))
 then
-    if [[ "$1" == "-q" || "$1" == "--quick" ]]
-    then
-        QUICKOPTION="-q"
+    case $1 in
+        "-q"|"--quick")
+            QUICKOPTION="-q"
+        ;;
 
-    else
-        if [[ "$1" == "--help" ]]
-        then
+        "--help")
             print_cli_info 0 "$HELP"
+        ;;
 
-        else
+        *)
             message="$USAGE
 $TRY
 
 Error: No such option: $1"
 
             print_cli_info 1 "$message"
-        fi
-    fi
+        ;;
+    esac
 fi
 
 
@@ -86,7 +86,7 @@ do
 
             printf "\033[0m"
 
-            bash $launcherfile "$QUICKOPTION" || exit 1
+            bash $launcherfile $QUICKOPTION || exit 1
         done < <(find "$folder" -name 'launch.bash'  -type f | sort)
     fi
 done < "$FOLDER_LIST"
