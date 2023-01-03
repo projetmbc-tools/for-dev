@@ -1,9 +1,18 @@
 #!/usr/bin/env python3
 
+###
+# This module ???
+###
+
 from typing import (
     Any,
+    List,
     Union
 )
+
+import os
+import shlex
+from subprocess import run, CalledProcessError
 
 from jinja2 import (
     BaseLoader,
@@ -36,8 +45,16 @@ class StringLoader(BaseLoader):
 # --------------------- #
 
 AUTO_FLAVOUR = ":auto-flavour:"
-AUTO_CONFIG  = ":auto-config:"
-NO_CONFIG    = ":no-config:"
+
+TAG_HOOKS = 'hooks'
+TAG_PRE   = 'pre'
+TAG_POST  = 'post'
+
+SPE_VARS = [
+    'datas',
+    'template',
+    'output',
+]
 
 
 ###
@@ -45,8 +62,6 @@ NO_CONFIG    = ":no-config:"
 # ¨jinjang templates and datas.
 ###
 class JNGBuilder:
-    DEFAULT_CONFIG_FILE = "cfg.jng.yaml"
-
 ###
 # prototype::
 #     flavour   : this argument helps to find the dialect of one template.
@@ -56,18 +71,18 @@ class JNGBuilder:
 #     launch_py : this argument with the value ``True`` allows the execution
 #                 of ¨python files to build data to feed a template.
 #                 Otherwise, no ¨python script will be launched.
-#     config    : ¨configs used to allow extra features
-#               @ type(config) = str  ==> config in [AUTO_CONFIG, NO_CONFIG] ;
-#                 type(config) != str ==> exists path(config)
+#     config    : :see: jngconfig.JNGConfig
 ###
     def __init__(
         self,
         flavour  : str  = AUTO_FLAVOUR,
         launch_py: bool = False,
-        config   : Any  = NO_CONFIG
+        config   : Any  = NO_CONFIG,
+        verbose  : bool = False,
     ) -> None:
         self.flavour = flavour
         self.config  = config
+        self.verbose = verbose
 
 # The update of ``launch_py`` implies the use of a new instance of
 # ``self._build_datas`` via ``JNGDatas(value).build``.
@@ -85,13 +100,10 @@ class JNGBuilder:
     @config.setter
     def config(self, value):
 # Case of a path for a specific config file.
-        if not value in [AUTO_CONFIG, NO_CONFIG]:
-            raise NotImplementedError(
-                "no config features for the moment..."
-            )
+        if value not in [AUTO_CONFIG, NO_CONFIG]:
+            value = str(value)
 
-        # self.DEFAULT_CONFIG_FILE
-
+# Nothing left to do.
         self._config = value
 
 
@@ -105,7 +117,7 @@ class JNGBuilder:
 
     @launch_py.setter
     def launch_py(self, value):
-        self._launch_py     = value
+        self._launch_py   = value
         self._build_datas = JNGDatas(value).build
 
 
@@ -178,27 +190,38 @@ class JNGBuilder:
 #              @ exists path(str(template))
 #     output   : the file used for the output build after using ``datas``
 #                on ``template``.
+#     flavour  : :see: self.__init__ if the value is not ``None``.
+#     launch_py: :see: self.__init__ if the value is not ``None``.
+#     config   : :see: self.__init__ if the value is not ``None``.
+#     verbose  : :see: self.__init__ if the value is not ``None``.
 #
 #     :action: an output file is created with a content build after using
 #              ``datas`` on ``template``.
 ###
     def render(
         self,
-        datas   : Any,
-        template: Any,
-        output  : Any,
-        launch_py : Union[bool, None] = None,
-        config  : Any               = None
+        datas    : Any,
+        template : Any,
+        output   : Any,
+        flavour  : Union[str, None]  = None,
+        launch_py: Union[bool, None] = None,
+        config   : Any               = None,
+        verbose  : Union[bool, None] = None,
     ) -> None:
-# Can we execute temporarly a ¨python file to build datas?
-        if launch_py is not None:
-            old_launch_py  = self.launch_py
-            self.launch_py = launch_py
+# Local settings.
+        oldsettings = dict()
 
-# Can we use temporarly specific ¨configs?
-        if config is not None:
-            old_config  = self.config
-            self.config = config
+        for param in [
+            "flavour",
+            "launch_py",
+            "config",
+            "verbose",
+        ]:
+            val = locals()[param]
+
+            if val is not None:
+                oldsettings[param] = getattr(self, param)
+                setattr(self, param, val)
 
 # What is the flavour to use?
         if self.flavour == AUTO_FLAVOUR:
@@ -207,17 +230,33 @@ class JNGBuilder:
         else:
             flavour = self.flavour
 
-# Let's work!
+# `Path` version of the paths.
+        self._datas    = Path(datas)
+        self._template = Path(template)
+        self._output   = Path(output)
+
+        self._template_parent = self._template.parent
+
+# Configs used for hooks.
+        self._dict_config = build_config(
+            config = self.config,
+            parent = self._template_parent
+        )
+
+# Pre-hooks?
+        self._pre_hooks()
+
+# Let's go!
         jinja2env        = self._build_jinja2env(flavour)
         jinja2env.loader = FileSystemLoader(
-            str(template.parent)
+            str(self._template_parent)
         )
 
         jinja2template = jinja2env.get_template(
-            str(template.name)
+            str(self._template.name)
         )
 
-        dictdatas = self._build_datas(datas)
+        dictdatas = self._build_datas(self._datas)
         content   = jinja2template.render(dictdatas)
 
         output.write_text(
@@ -225,12 +264,75 @@ class JNGBuilder:
             encoding = "utf-8",
         )
 
-# Restore previous settings if local ones have been used.
-        if launch_py is not None:
-            self.launch_py = old_launch_py
+# Post-hooks?
+        self._post_hooks()
 
-        if config is not None:
-            self.config = old_config
+# Restore previous settings if local ones have been used.
+        for param, oldval in oldsettings.items():
+            setattr(self, param, oldval)
+
+
+    def _pre_hooks(self):
+        self._some_hooks(TAG_PRE)
+
+    def _post_hooks(self):
+        self._some_hooks(TAG_POST)
+
+    def _some_hooks(self, kind: str):
+        if not TAG_HOOKS in self._dict_config:
+            return None
+
+        self.launch_commands(
+            f"hooks/{kind}",
+            self._dict_config[TAG_HOOKS].get(kind, [])
+        )
+
+    def launch_commands(
+        self,
+        kind: str,
+        loc : List[str]
+    ) -> None:
+        if not loc:
+            return None
+
+        savedwd = os.getcwd()
+        os.chdir(str(self._template_parent))
+
+        tochange = {
+            sv: str(getattr(self, f"_{sv}"))
+            for sv in SPE_VARS
+        }
+
+        for nbcmd, command in enumerate(loc, 1):
+            try:
+                r = run(
+                    shlex.split(
+                        command.format(**tochange)
+                    ),
+                    check          = True,
+                    capture_output = True,
+                    encoding       = "utf8"
+                )
+
+                if self.verbose:
+                    print(r.stdout)
+
+            except CalledProcessError as e:
+                raise Exception(
+f"""
+{e.stderr}
+
+Following command has failed (see the lines above).
+
+  + CONFIG   >  {command}
+  + EXPANDED >  {command.format(**tochange)}")
+
+See the block '{kind}', and the command nb. {nbcmd}.
+""".rstrip()
+                )
+
+
+        os.chdir(savedwd)
 
 
 ###

@@ -2,6 +2,42 @@
 
 
 ==
+????  (0.1.0-beta)
+==
+
+-----
+:new:
+-----
+
+render signature changé !!!
+
++
+
+{output} au lieu de {{output}} : on passe via fr-string donc {{output}} équivaaut réellement à {output}
+
+{datas}  ajouté par coéhrence
+
+test via json et yaml aussi dan conyrib , et ajout de
+
+????   nouveaux usecase via python
+
+[[:api:]]
+¨Cfg files, and hooks: it is now possible to work with ¨cfg files which currently only offer the hooks functionality.
+
+    ---> launch_commands doc ????
+
+    ---> test cfg ?????
+
+
+
+
+
+
+
+// ---------- //
+
+
+==
 02
 ==
 

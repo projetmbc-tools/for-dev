@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-12-16
+    date = 2023-01-03
 
 
 ===================
@@ -8,6 +8,15 @@ Les ¨vars spéciales
 
 Pour faciliter la rédaction des commandes des traitements périphériques, il est possible d'utiliser les ¨vars spéciales suivantes.
 
-    1) jinjang::``{{input}}`` est le nom du fichier "patron", avec son extension.
+    1) jinjang::``{datas}`` est le chemin du fichier des données.
 
-    1) jinjang::``{{output}}`` est le nom du fichier produit, avec son extension.
+    1) jinjang::``{template}`` est le chemin du fichier "patron".
+
+    1) jinjang::``{output}`` est le chemin du fichier produit.
+
+
+note::
+    En coulisse, les ``f-strings``de ¨python sont utilisées. Ceci permet d'utiliser term::``{output}`` tel quel dans une commande en tapant yaml::``{{output}}``dans les commes des traitements périphériques
+    ((
+        Cela aura-t-il une utilité ?
+    )).

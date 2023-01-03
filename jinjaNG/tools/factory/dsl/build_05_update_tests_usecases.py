@@ -91,7 +91,7 @@ for fl in flavours_OK:
             ext = pfile.suffix[1:] if pfile.suffix else ""
 
             if name == 'datas':
-                if ext != 'yaml':
+                if ext not in ['json', 'yaml']:
                     continue
 
             else:
