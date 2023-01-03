@@ -28,7 +28,7 @@ Testing improved.
 [[:flow:]]
 Two small important files added.
 
-    1) Launching all: the ¨bash file path::``build-test-all.bash`` launches all builders, and tests to verify that a new version can be delivered (the order of launch is the responsibility of the developer: see the file path::``build-test-all-folders.txt``.).
+    1) Launching all: the ¨bash file path::``launch-all.bash`` launches all builders, and tests to verify that a new version can be delivered (the order of launch is the responsibility of the developer: see the file path::``launch-all-folders.txt``.).
 
     1) Building the distributed source: the ¨bash file path::``build-project.bash`` does that.
 
@@ -48,7 +48,7 @@ Two small important files added.
 [[:api:]]
 Here are the changes made to simplify the ¨api.
 
-    1) Classe ``JNGBuilder``: the parameter/attribut ``pydatas`` has been renamed ``launch_py`` which is more explicit.
+    1) Classe ``JNGBuilder``: the boolean parameter/attribut ``pydatas`` has been renamed ``launch_py`` which is more explicit.
 
     1) The ¨cli ¨api has been simplified, and made more explicit.
 
@@ -70,6 +70,6 @@ Here are the changes made to simplify the ¨api.
 [[:test:]]
 Testing the ¨cli.
 
-    1) New debugging file: one ¨bash file to see if the ¨cli is functional.
+    1) New debugging file: one ¨bash file to play with the ¨cli.
 
-    1) New test file to just check that ¨cli is functional.
+    1) New test file: one ¨bash file to just check that ¨cli is functional.

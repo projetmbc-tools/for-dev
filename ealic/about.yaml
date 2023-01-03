@@ -1,7 +1,0 @@
-general:
-    project : ealic
-    desc    : Easy ways to add licenses into electronic projects.
-    author  : Christophe BAL
-    licence : gnu 3
-    need    :
-        - python3
