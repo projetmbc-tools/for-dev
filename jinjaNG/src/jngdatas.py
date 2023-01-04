@@ -25,8 +25,8 @@ JNGDATAS_PYNAME = "JNGDATAS"
 class JNGDatas:
 ###
 # prototype::
-#     launch_py : this argument with the value ``True`` allows the execution
-#                 of ¨python files to build data to feed a template.
+#     launch_py : the value ``True`` allows the execution of ¨python files
+#                 to build data to feed a template.
 #                 Otherwise, no ¨python script will be launched.
 ###
     def __init__(

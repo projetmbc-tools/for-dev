@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-03
+    date = 2023-01-04
 
 
 ====================================
@@ -12,7 +12,11 @@ Obtenir ceci est très simple via term::``python -m jinjang --cfg auto ...``, et
 ((
     Nous nous plaçons dans la situation d'utilisation ¨auto d'une ¨config à destination de ¨jinjang.
 ))
-comme le suivant où la ¨1ere commande permet d'obtenir le ¨pdf, et la ¨2nde de ne pas garder les fichiers intermédiaires utilisés pour compiler le fichier ¨tex, ce dernier étant indiqué dans les commandes via la ¨var ¨spe jinjang::``{output}`` (voir cf::``spevars`` à ce sujet).
+comme le suivant où la ¨1ere commande permet d'obtenir le ¨pdf
+((
+    term::``-interaction=nonstopmode`` est une option demandant de ne pas interagir avec l'utilisateur lors de la compilation en cas de blocage.
+)),
+et la ¨2nde de ne pas garder les fichiers intermédiaires utilisés pour compiler le fichier ¨tex, ce dernier étant indiqué dans les commandes via la ¨var ¨spe jinjang::``{output}`` (voir cf::``spevars`` à ce sujet).
 
 yaml::
     ---

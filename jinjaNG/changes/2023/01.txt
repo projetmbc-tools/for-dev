@@ -30,6 +30,8 @@ test via json et yaml aussi dan conyrib , et ajout de
 
 
 
+??? fichiers VERSIONS.TXT et KEYWORDS.txt
+
 
 
 

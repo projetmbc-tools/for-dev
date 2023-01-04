@@ -1,4 +1,4 @@
 ﻿hooks:
   post:
-    - latexmk -pdf "{output}"
-    - latexmk -c   "{output}"
+    - latexmk -interaction=nonstopmode -pdf "{output}"
+    - latexmk -interaction=nonstopmode -c   "{output}"

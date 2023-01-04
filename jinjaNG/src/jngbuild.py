@@ -72,6 +72,7 @@ class JNGBuilder:
 #                 of ¨python files to build data to feed a template.
 #                 Otherwise, no ¨python script will be launched.
 #     config    : :see: jngconfig.JNGConfig
+#     verbose   : ????
 ###
     def __init__(
         self,
@@ -195,7 +196,7 @@ class JNGBuilder:
 #     config   : :see: self.__init__ if the value is not ``None``.
 #     verbose  : :see: self.__init__ if the value is not ``None``.
 #
-#     :action: an output file is created with a content build after using
+#     :action: ???? an output file is created with a content build after using
 #              ``datas`` on ``template``.
 ###
     def render(
@@ -272,25 +273,46 @@ class JNGBuilder:
             setattr(self, param, oldval)
 
 
-    def _pre_hooks(self):
+###
+# prototype::
+#     :action: ????
+###
+    def _pre_hooks(self) -> None:
         self._some_hooks(TAG_PRE)
 
-    def _post_hooks(self):
+    def _post_hooks(self) -> None:
         self._some_hooks(TAG_POST)
 
-    def _some_hooks(self, kind: str):
+
+###
+# prototype::
+#     kind : ????
+#
+#     :action: ????
+###
+    def _some_hooks(self, kind: str) -> None:
         if not TAG_HOOKS in self._dict_config:
             return None
 
         self.launch_commands(
-            f"hooks/{kind}",
+            f"{TAG_HOOKS}/{kind}",
             self._dict_config[TAG_HOOKS].get(kind, [])
         )
 
+
+###
+# prototype::
+#     kind   : ????
+#     loc    : ????
+#     frompy : ????
+#
+#     :action: ????
+###
     def launch_commands(
         self,
         kind: str,
-        loc : List[str]
+        loc : List[str],
+        frompy: bool = False
     ) -> None:
         if not loc:
             return None
@@ -304,11 +326,33 @@ class JNGBuilder:
         }
 
         for nbcmd, command in enumerate(loc, 1):
+            if frompy:
+                xtra = ""
+
+            else:
+                xtra = (
+                    f"\n\nSee the block '{kind}', and "
+                    f"the command nb. {nbcmd}."
+                )
+
             try:
-                r = run(
-                    shlex.split(
+                try:
+                    listcmd = shlex.split(
                         command.format(**tochange)
-                    ),
+                    )
+
+                except KeyError as e:
+                    raise Exception(
+f"""
+Following command has an unused key '{e}'.
+
+  + RAW VERSION >  {command}{xtra}
+""".strip()
+                    )
+
+
+                r = run(
+                    listcmd,
                     check          = True,
                     capture_output = True,
                     encoding       = "utf8"
@@ -324,13 +368,10 @@ f"""
 
 Following command has failed (see the lines above).
 
-  + CONFIG   >  {command}
-  + EXPANDED >  {command.format(**tochange)}")
-
-See the block '{kind}', and the command nb. {nbcmd}.
+  + RAW VERSION >  {command}
+  + EXPANDED    >  {command.format(**tochange)}"){xtra}
 """.rstrip()
                 )
-
 
         os.chdir(savedwd)
 

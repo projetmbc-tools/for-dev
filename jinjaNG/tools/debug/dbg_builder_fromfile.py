@@ -34,8 +34,8 @@ CONFIG = AUTO_CONFIG
 FILES_FOLDER_NB = "01"
 
 
-# DATAS_EXT = "yaml"
-DATAS_EXT = "json"
+DATAS_EXT = "yaml"
+# DATAS_EXT = "json"
 # DATAS_EXT = "py"
 
 KIND = DATAS_EXT
