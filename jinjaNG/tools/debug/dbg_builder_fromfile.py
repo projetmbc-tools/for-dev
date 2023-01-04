@@ -28,7 +28,7 @@ VERBOSE = False
 # VERBOSE = True
 
 CONFIG = NO_CONFIG
-CONFIG = AUTO_CONFIG
+# CONFIG = AUTO_CONFIG
 # CONFIG = "mycfg.yaml"
 
 FILES_FOLDER_NB = "01"
@@ -36,16 +36,16 @@ FILES_FOLDER_NB = "01"
 
 DATA_EXT = "yaml"
 # DATA_EXT = "json"
-# DATA_EXT = "py"
+DATA_EXT = "py"
 
 KIND = DATA_EXT
-KIND = "hooks"
+# KIND = "hooks"
 
 LAUNCH_PY = True
-LAUNCH_PY = False
+# LAUNCH_PY = False
 
 TEMPL_EXT = "txt"
-TEMPL_EXT = "tex"
+# TEMPL_EXT = "tex"
 
 
 # -------------- #
@@ -81,7 +81,7 @@ JNGBuilder(
 
 
 print(
-    f"Rendering from {DATA_EXT} made in "
+    f"Rendering from {DATA_EXT.upper()} made in "
     f"the folder ``files/{FILES_FOLDER_NAME}``."
 )
 

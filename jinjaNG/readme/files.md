@@ -26,6 +26,7 @@ One example.
 As you can see, most of the content follows a repetitive logic. So it may be a good idea to automate the typing. Here is where `jinjaNG` can help us.
 
 
+
 ### What we really type
 
 The first thing we can do is to define the repetitive content. Let's use a `YAML` file (a `JSON` file can be used, but it's less fun to type). If we need to go further into the numbers in the `LaTeX` file, we just have to add new names to the list in the `YAML` file.
@@ -72,6 +73,7 @@ This is how the previous template was typed.
 >  For now, the `jnglatex.sty` file must be in the same folder as the `LaTeX` template, or it must be installed by hand in your `LaTeX` distribution: you will find it in the `jng-extra-tools` folder.
 
 
+
 ### Building the output via a `Python` code
 
 Using a `Python` file, it is easy to produce the desired output. Here are the instructions to use where we assume that the `cd` command has been used beforehand, so that running the `Python` scripts is done from the folder containing our `Python`, `YAML` and `LaTeX` files.
@@ -89,6 +91,7 @@ mybuilder.render(
 ~~~
 
 This code uses one useful default behaviour: `jinjaNG` associates automatically the `LaTeX` dialect, or flavour because the template has the extension `TEX`. The flavours available are given in the last section of this document.
+
 
 
 ### Building the output via command lines
@@ -128,7 +131,7 @@ from jinjang import *
 mybuilder = JNGBuilder(pydata = True)
 
 mybuilder.render(
-    data    = "data.py",
+    data     = "data.py",
     template = "template.tex",
     output   = "output.tex"
 )

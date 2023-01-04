@@ -8,3 +8,5 @@ This small project tries to ameliorate the workflow when working with the templa
   1. Filler data in `JSON`, `YAML`, or `Python` files.
 
   1. Work with either files or strings.
+
+  1. Use of pre and post-processing.

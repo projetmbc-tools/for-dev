@@ -2,12 +2,15 @@
 
 
 ==
-????  (0.1.0-beta)
+05     ????  (0.1.0-rc)
 ==
 
 -----
 :new:
 -----
+
+First release candiadte!
+
 
 render signature changé !!!
 
@@ -17,19 +20,17 @@ render signature changé !!!
 
 {data}  ajouté par coéhrence
 
-test via json et yaml aussi dan conyrib , et ajout de
+test via json et yaml aussi dan contrib
 
-????   nouveaux usecase via python
+
 
 [[:api:]]
 ¨Cfg files, and hooks: it is now possible to work with ¨cfg files which currently only offer the hooks functionality.
 
-    ---> launch_commands doc ????
-
-    ---> test cfg ?????
 
 
-????   hooks dans readmm
+
+hooks.md
 
 
 term::``python -m jinjang``   devient   term::``jinjang``
@@ -49,6 +50,10 @@ fichiers VERSIONS.TXT et KEYWORDS.yaml
 
 
 
+
+
+
+
 // ---------- //
 
 
@@ -61,7 +66,7 @@ fichiers VERSIONS.TXT et KEYWORDS.yaml
 --------
 
 [[:api:]]
-Final empty lines: we keep them now (it was a bad idea not to manage them).
+Final empty lines: from now, they are kept (it was a bad idea not to manage them).
 
 
 --------

@@ -87,7 +87,7 @@ Error: {message}
                         'commands that jinjaNG is asked to run.')
 
 def jng_CLI(
-    data   : str,
+    data    : str,
     template: str,
     output  : str,
     unsafe  : bool,
@@ -118,7 +118,7 @@ def jng_CLI(
 
     try:
         mybuilder.render(
-            data    = Path(data),
+            data     = Path(data),
             template = Path(template),
             output   = Path(output)
         )

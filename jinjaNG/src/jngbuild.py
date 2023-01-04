@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 ###
-# This module implements file construction using templates and data.
+# This module implements file construction using templates, data,
+# and eventually hooks.
 ###
+
 
 from typing import (
     Any,
@@ -30,7 +32,7 @@ from .jngdata   import *
 # ------------------------------- #
 
 ###
-# This class is used to allow the use of string templates.
+# This class is used to work with string templates.
 #
 # ref::
 #     * https://jinja.palletsprojects.com/en/3.0.x/api/#jinja2.BaseLoader
@@ -46,9 +48,6 @@ class StringLoader(BaseLoader):
 
 AUTO_FLAVOUR = ":auto-flavour:"
 
-TAG_HOOKS = 'hooks'
-TAG_PRE   = 'pre'
-TAG_POST  = 'post'
 
 SPE_VARS = [
     'data',
@@ -57,43 +56,47 @@ SPE_VARS = [
 ]
 
 
-_ERROR_KEY_TEMPLATE = """
+TERM_STYLE_DEFAULT = "\033[0m"
+TERM_STYLE_INFO    = "\033[32m\033[1m"
+TERM_STYLE_ERROR   = "\033[91m\033[1m"
+
+
+_ERROR_KEY_TEMPLATE = "KeyError: '{e}'" + TERM_STYLE_ERROR + """
+
 Following command has an unused key '{e}'.
 
-  + RAW VERSION >  {command}{xtra}
-""".strip()
+  + RAW VERSION >  {command}{aboutcmd}
+""".rstrip()
 
 
-_ERROR_PROCESS = """
-{stderr}
-
+_ERROR_PROCESS = "\n{stderr}" + TERM_STYLE_ERROR + """
 Following command has failed (see the lines above).
 
   + RAW VERSION
        > {command}
 
   + EXPANDED ONE
-       > {command_expanded}{xtra}
+       > {command_expanded}{aboutcmd}
 """.rstrip()
 
 
 ###
 # This class allows to build either string, or file contents from ¨jinjang
-# templates and data.
+# templates, data, and eventually hooks.
 ###
 class JNGBuilder:
 ###
 # prototype::
-#     flavour   : this argument helps to find the dialect of one template.
+#     flavour   : this is to choose the dialect of a template.
 #               @ flavour = AUTO_FLAVOUR
 #                 or
 #                 flavour in config.jngflavours.ALL_FLAVOURS
-#     launch_py : this argument with the value ``True`` allows the execution
-#                 of ¨python files to build data to feed a template.
+#     launch_py : the value ``True`` allows the execution of ¨python files
+#                 suchas to build feeding data.
 #                 Otherwise, no ¨python script will be launched.
 #     config    : :see: jngconfig.JNGConfig
-#     verbose   : with value ``True``, the outputs of external commands
-#                 launched will be printed.
+#     verbose   : the value ``True`` asks to show the outputs of external
+#                 commands launched.
 #                 Otherwise, these outputs will be hidden from the user.
 ###
     def __init__(
@@ -140,7 +143,7 @@ class JNGBuilder:
 
     @launch_py.setter
     def launch_py(self, value):
-        self._launch_py   = value
+        self._launch_py  = value
         self._build_data = JNGData(value).build
 
 
@@ -174,14 +177,14 @@ class JNGBuilder:
 
 ###
 # prototype::
-#     data    : data used to feed one template.
+#     data     : data feeding the template.
 #     template : one template.
 #
 #     :return: the output made by using ``data`` on ``template``.
 ###
     def render_frompy(
         self,
-        data   : dict,
+        data    : dict,
         template: str
     ) -> str:
 # With ¨python varaiable, we can't detect automatically the flavour.
@@ -208,7 +211,7 @@ class JNGBuilder:
 
 ###
 # prototype::
-#     data    : data used to feed one template.
+#     data     : data feeding the template.
 #     template : one template.
 #              @ exists path(str(template))
 #     output   : the file used for the output build after using ``data``
@@ -226,13 +229,13 @@ class JNGBuilder:
 #                without deleting the previous one.
 #                :see: self.__init__
 #
-#     :action: the file ``output`` is built using the data and the
-#              model, while respecting any additional behaviour
+#     :action: the file ``output`` is built by using ``data`` on
+#              ``template``, while respecting any additional behaviour
 #              specified.
 ###
     def render(
         self,
-        data    : Any,
+        data     : Any,
         template : Any,
         output   : Any,
         flavour  : Union[str, None]  = None,
@@ -263,9 +266,9 @@ class JNGBuilder:
             flavour = self.flavour
 
 # `Path` version of the paths.
-        self._data    = Path(data)
-        self._template = Path(template)
-        self._output   = Path(output)
+        self._data     = Path(str(data))
+        self._template = Path(str(template))
+        self._output   = Path(str(output))
 
         self._template_parent = self._template.parent
 
@@ -289,7 +292,7 @@ class JNGBuilder:
         )
 
         dictdata = self._build_data(self._data)
-        content   = jinja2template.render(dictdata)
+        content  = jinja2template.render(dictdata)
 
         output.write_text(
             data     = content,
@@ -306,116 +309,13 @@ class JNGBuilder:
 
 ###
 # prototype::
-#     :action: ????
-###
-    def _pre_hooks(self) -> None:
-        self._some_hooks(TAG_PRE)
-
-    def _post_hooks(self) -> None:
-        self._some_hooks(TAG_POST)
-
-
-###
-# prototype::
-#     kind : ????
-#
-#     :action: ????
-###
-    def _some_hooks(self, kind: str) -> None:
-        if not TAG_HOOKS in self._dict_config:
-            return None
-
-        self.launch_commands(
-            f"{TAG_HOOKS}/{kind}",
-            self._dict_config[TAG_HOOKS].get(kind, [])
-        )
-
-
-###
-# prototype::
-#     kind   : ????
-#     loc    : ????
-#     frompy : ????
-#
-#     :action: ????
-###
-    def launch_commands(
-        self,
-        kind: str,
-        loc : List[str],
-        frompy: bool = False
-    ) -> None:
-        if not loc:
-            return None
-
-        savedwd = os.getcwd()
-        os.chdir(str(self._template_parent))
-
-        tochange = {
-            sv: str(getattr(self, f"_{sv}"))
-            for sv in SPE_VARS
-        }
-
-        for nbcmd, command in enumerate(loc, 1):
-            xtra = self._xtra_message(nbcmd, kind, frompy)
-
-            try:
-                try:
-                    listcmd = shlex.split(
-                        command.format(**tochange)
-                    )
-
-                except KeyError as e:
-                    raise Exception(
-                        _ERROR_KEY_TEMPLATE.format(
-                            command = command,
-                            e       = e,
-                            xtra    = xtra
-                        )
-                    )
-
-
-                r = run(
-                    listcmd,
-                    check          = True,
-                    capture_output = True,
-                    encoding       = "utf8"
-                )
-
-                if self.verbose:
-                    print(r.stdout)
-
-            except Exception as e:
-                raise Exception(
-                    _ERROR_PROCESS.format(
-                        command          = command,
-                        command_expanded = command.format(**tochange),
-                        stderr           = getattr(e, 'stderr', e),
-                        xtra             = xtra
-                    )
-                )
-
-        os.chdir(savedwd)
-
-
-    def _xtra_message(self, nbcmd, kind, frompy):
-        if frompy:
-            return ""
-
-        return (
-            f"\n\nSee the block '{kind}', and "
-            f"the command #{nbcmd}."
-        )
-
-###
-# prototype::
-#     template : one template.
+#     template : the path of a template.
 #
 #     :return: the flavour to be used on ``template``.
 ###
     def _auto_flavour(
         self,
-        template: Any
+        template: Path
     ) -> str:
         flavour_found = FLAVOUR_ASCII
 
@@ -436,7 +336,7 @@ class JNGBuilder:
 
 ###
 # prototype::
-#     flavour : this argument indicates an exiting dialect.
+#     flavour : an exiting dialect.
 #             @ flavour in config.jngflavours.ALL_FLAVOURS
 #
 #     :return: a ``jinja2.Environment`` that will create the final output.
@@ -449,3 +349,150 @@ class JNGBuilder:
             keep_trailing_newline = True,
             **JINJA_TAGS[flavour]
         )
+
+
+###
+# prototype::
+#     :action: launching of pre-processing
+###
+    def _pre_hooks(self) -> None:
+        self._some_hooks(TAG_PRE)
+
+
+###
+# prototype::
+#     :action: launching of post-processing
+###
+    def _post_hooks(self) -> None:
+        self._some_hooks(TAG_POST)
+
+
+###
+# prototype::
+#     kind : the kind of external processing.
+#
+#     :action: launching of external processing
+###
+    def _some_hooks(self, kind: str) -> None:
+        if not TAG_HOOKS in self._dict_config:
+            return None
+
+        self.launch_commands(
+            kind = f"{TAG_HOOKS}/{kind}",
+            loc  = self._dict_config[TAG_HOOKS][kind]
+        )
+
+
+###
+# prototype::
+#     kind   : the kind of processing
+#     loc    : [l]-ist [o]-f [c]-ommands to execute
+#     frompy : ``True`` indicates the use of the method within a ¨python
+#              script.
+#              Otherwise, the method is used in a "command line" context.
+#
+#     :action: attempt to execute all commands in ``loc``.
+###
+    def launch_commands(
+        self,
+        kind  : str,
+        loc   : List[str],
+        frompy: bool = False
+    ) -> None:
+        if not loc:
+            return None
+
+# Lets' try to build expanded version of each command, and then execute it.
+        savedwd = os.getcwd()
+        os.chdir(str(self._template_parent))
+
+        tochange = {
+            sv: str(getattr(self, f"_{sv}"))
+            for sv in SPE_VARS
+        }
+
+        for nbcmd, command in enumerate(loc, 1):
+            aboutcmd = self._about_command(nbcmd, kind, frompy)
+
+            try:
+                command_expanded = command.format(**tochange)
+
+            except KeyError as e:
+                raise Exception(
+                    _ERROR_KEY_TEMPLATE.format(
+                        command  = command,
+                        e        = e,
+                        aboutcmd = aboutcmd
+                    )
+                )
+
+            try:
+                self._print_info(
+                     "Launching"
+                     "\n"
+                    f"  > {command_expanded}"
+                )
+
+                listcmd = shlex.split(command_expanded)
+
+                r = run(
+                    listcmd,
+                    check          = True,
+                    capture_output = True,
+                    encoding       = "utf8"
+                )
+
+                if self.verbose:
+                    print(r.stdout)
+
+            except Exception as e:
+                raise Exception(
+                    _ERROR_PROCESS.format(
+                        command          = command,
+                        command_expanded = command_expanded,
+                        stderr           = getattr(e, 'stderr', e),
+                        aboutcmd         = aboutcmd
+                    )
+                )
+
+        os.chdir(savedwd)
+
+# No problem met.
+        howmany = "One" if nbcmd == 1 else nbcmd
+        plurial = ""    if nbcmd == 1 else "s"
+
+        self._print_info(f"{howmany} command{plurial} launched with success.")
+
+
+###
+# prototype::
+#     nbcmd  : the rank of the command
+#     kind   : :see: self.launch_commands
+#     frompy : :see: self.launch_commands
+#
+#     :return: an empty string if ``frompy = True``.
+#              Otherwise, a message indicates the block used in the
+#              path::``YAML`` configuration file, as well as the rank of
+#              the command.
+###
+    def _about_command(
+        self,
+        nbcmd : int,
+        kind  : str,
+        frompy: bool
+    ) -> str:
+        if frompy:
+            return ""
+
+        return f"\n\nSee the block '{kind}', and the command #{nbcmd}."
+
+
+###
+# prototype::
+#     message : one message for the user
+#
+#     :action: display in bold green of the message in the terminal
+###
+    def _print_info(self, message: str) -> None:
+        print(TERM_STYLE_INFO + message + TERM_STYLE_DEFAULT)
+        print()

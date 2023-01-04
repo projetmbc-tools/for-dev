@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 
 ###
-# This module ???
+# This module manages the data that will be used to feed ne template.
 ###
+
 
 from typing import Any
 
+from io      import TextIOWrapper
 from json    import load as json_load
 from pathlib import Path
 from runpy   import run_path
@@ -18,6 +20,7 @@ from yaml    import safe_load as yaml_load
 
 JNGDATA_PYNAME = "JNGDATA"
 
+
 ###
 # This class produces the internal version of data from different kinds
 # of input.
@@ -26,7 +29,7 @@ class JNGData:
 ###
 # prototype::
 #     launch_py : the value ``True`` allows the execution of ¨python files
-#                 to build data to feed a template.
+#                 to build data feeding a template.
 #                 Otherwise, no ¨python script will be launched.
 ###
     def __init__(
@@ -38,12 +41,13 @@ class JNGData:
 
 ###
 # prototype::
-#     data : data to feed a template. If the type used is not a ¨python
-#             ¨dict, then this argument will be transformed into a string
-#             in order to construct a path.
-#           @ type(data) != dict ==> exists path(str(config))
+#     data : data feeding a template.
+#            If the type used is not a ¨python ¨dict, then this argument
+#            will be transformed into a string in order to construct a path
+#            used as the one of the data file.
+#          @ type(data) != dict ==> exists path(str(data))
 #
-#     :return: data to feed a template (no chek is done).
+#     :return: a ¨python ¨dict of the data to feed a template (no chek done).
 ###
     def build(
         self,
@@ -89,35 +93,35 @@ class JNGData:
 
 ###
 # prototype::
-#     file: path of a ¨json file.
+#     file: the ``IO``-like contents of a ¨json file.
 #
-#     :return: data to feed a template (no chek is done).
+#     :return: :see: self.build
 ###
     def build_fromjson(
         self,
-        file
+        file: TextIOWrapper
     ) -> dict:
         return json_load(file)
 
 
 ###
 # prototype::
-#     file: path of a ¨yaml file.
+#     file: the ``IO``-like contents of a ¨yaml file.
 #
-#     :return: data to feed a template (no chek is done).
+#     :return: :see: self.build
 ###
     def build_fromyaml(
         self,
-        file
+        file: TextIOWrapper
     ) -> dict:
         return yaml_load(file)
 
 
 ###
 # prototype::
-#     file: path of a ¨python file.
+#     file: the path of a ¨python file.
 #
-#     :return: data to feed a template (no chek is done).
+#     :return: :see: self.build
 ###
     def build_frompy(
         self,
@@ -126,17 +130,16 @@ class JNGData:
 # Are we allowed to launch a Python file?
         if not self.launch_py:
             raise Exception(
-                "''launch_py'' disabled, no Python file can't be launched "
-                "to build data."
+                "``launch_py`` disabled, no Python file can't "
+                "be launched to build data."
             )
 
 # Lets's launch the Python file, and then recover the expected value
 # of the special variable.
-        runner    = run_path(file)
-        dictdata = runner.get(JNGDATA_PYNAME, None)
+        dictdata = run_path(file)
 
 # The special variable is missing.
-        if dictdata is None:
+        if not JNGDATA_PYNAME in dictdata:
             raise Exception(
                 f"no ``{JNGDATA_PYNAME}`` variable found in the Python file :"
                  "\n"
@@ -144,4 +147,4 @@ class JNGData:
             )
 
 # The job has been done.
-        return dictdata
+        return dictdata[JNGDATA_PYNAME]

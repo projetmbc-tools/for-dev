@@ -50,8 +50,8 @@ info::
     Sans term::``--config auto``, la recherche du fichier path::``cfg.jng.yaml`` ne sera pas entreprise.
 
 
-Si plusieurs "patrons" sont présents dans un même dossier, ou bien pour pouvoir utiliser des ¨configs de test, il est utile de pouvoir choisir le fichier de ¨config de façon explicite.
-Ceci se passe via l'option term::``--config chemin/vers/ma/config.yaml`` comme dans term::``jinjang --config speconfig.yaml ...`` par exemple.
+Si plusieurs "patrons" sont présents dans un même dossier, ou pour utiliser des ¨configs de test, il est utile de pouvoir choisir le fichier de ¨config de façon explicite.
+Dans ce type de situation, il suffit de procéder via term::``jinjang --config chemin/vers/speconfig.yaml ...`` par exemple.
 
 
 info::

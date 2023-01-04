@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
 ###
-# This module ???
+# This module manages the ¨configs of the user.
 ###
+
 
 from typing import Union
 
@@ -20,13 +21,27 @@ NO_CONFIG   = ":no-config:"
 DEFAULT_CONFIG_FILE = "cfg.jng.yaml"
 
 
+TAG_HOOKS = 'hooks'
+TAG_PRE   = 'pre'
+TAG_POST  = 'post'
+
+
 ###
 # prototype::
-#     config : ¨configs used to allow extra features
+#     config : ¨configs used to allow extra features.
+#              ``NO_CONFIG`` prohibits the use of a configuration file.
+#              ``AUTO_CONFIG`` requires the use of a file named
+#              ``DEFAULT_CONFIG_FILE`` in the template directory.
+#              In other cases, the value will be interpreted as a path
+#              to a path::``YAML`` file to be used for configurations.
 #            @ config in [AUTO_CONFIG, NO_CONFIG]
 #              or
 #              exists path(config)
-#     parent : ?????  where we work if we use the autoconf ignored in other cases !
+#     parent : the parent directory of the template which is the folder
+#              where to look for the default ¨config file.
+#              This parameter is ignored if ``config = AUTO_CONFIG``
+#
+#     :return: a ¨python ¨dict of the ¨configs that is ready-to-use
 ###
 def build_config(
     config: str,
@@ -60,4 +75,15 @@ def build_config(
         encoding = 'utf-8',
         mode     = "r",
     ) as f:
-        return yaml_load(f)
+        dictfound = yaml_load(f)
+
+# Default values.
+    if TAG_HOOKS not in dictfound:
+        dictfound[TAG_HOOKS] = {}
+
+    for tag in [TAG_POST, TAG_PRE]:
+        if tag not in dictfound[TAG_HOOKS]:
+            dictfound[TAG_HOOKS][tag] = []
+
+# The dict has been normalized.
+    return dictfound
