@@ -7,7 +7,7 @@ ascii_code = [
     for c in word
 ]
 
-DATAS = {
+DATA = {
     "word"      : word,
     "ascii_code": ascii_code
 }
@@ -25,6 +25,6 @@ mybuilder = JNGBuilder(
 )
 
 output_str = mybuilder.render_fromstr(
-    datas    = DATAS,
+    data     = DATA,
     template = TEMPLATE_STR
 )

@@ -23,8 +23,8 @@ MY_BUILDER = JNGBuilder()
 
 THIS_DIR = Path(__file__).parent
 
-USECASES_DATAS = build_usecases_datas(
-    datas_dir = THIS_DIR / 'datas'
+USECASES_DATA = build_usecases_data(
+    data_dir = THIS_DIR / 'data'
 )
 
 
@@ -33,12 +33,12 @@ USECASES_DATAS = build_usecases_datas(
 # -------------------------------------------- #
 
 def test_contrib_usecases_NON_STRICT():
-    for _, _, datas, template, output in USECASES_DATAS:
+    for _, _, data, template, output in USECASES_DATA:
         output_wanted = minimize_content(output)
         output_found  = minimize_content(
             build_output(
                 MY_BUILDER,
-                datas,
+                data,
                 template
             )
         )
@@ -53,12 +53,12 @@ def test_contrib_usecases_NON_STRICT():
 # ---------------------------------------- #
 
 def test_contrib_usecases_STRICT():
-    for _, _, datas, template, output in USECASES_DATAS:
+    for _, _, data, template, output in USECASES_DATA:
         output_wanted = content(output)
         output_found  = content(
             build_output(
                 MY_BUILDER,
-                datas,
+                data,
                 template
             )
         )

@@ -30,24 +30,24 @@ One small {{ txt_example }} with automatic calculations.
 {#: endfor :#}
 """.strip()
 
-datas = {
+data = {
     "txt_example": 'example',
     "max_i"      : 4,
 }
 
 output = mybuilder.render_frompy(
-    datas    = datas,
+    data    = data,
     template = template,
 )
 
 print("\033c", end="")
 
 for kind in [
-    'datas',
+    'data',
     'template',
     'output',
 ]:
-    if kind != 'datas':
+    if kind != 'data':
         print()
 
     print(f'--- {kind} ---')
@@ -55,6 +55,6 @@ for kind in [
 
     toprint = globals()[kind]
 
-    pprint(toprint) if kind == 'datas' else print(toprint)
+    pprint(toprint) if kind == 'data' else print(toprint)
 
 print()

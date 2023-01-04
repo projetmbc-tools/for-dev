@@ -5,7 +5,7 @@ jq --null-input                    \
    --arg today "$TODAY"            \
    --arg now   "$NOW"              \
    '{"day": $today, "time": $now}' \
-> datas.json
+> data.json
 
 
 # ----------- #

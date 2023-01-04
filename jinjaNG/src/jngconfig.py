@@ -4,10 +4,7 @@
 # This module ???
 ###
 
-from typing import (
-    Any,
-    Union
-)
+from typing import Union
 
 from pathlib import Path
 from yaml    import safe_load as yaml_load

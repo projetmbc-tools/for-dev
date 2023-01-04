@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-02
+    date = 2023-01-04
 
 
 ===========================
@@ -14,21 +14,21 @@ La méthode la plus sûre, en terme de sécurité, consiste à travailler avec d
 
 
 note::
-    Le format ¨json est supporté en lecture, et en écriture, par la majorité des ¨langs de ¨prog. Ceci permet d'envisager la fabrication de données de façon automatisée : voir à ce sujet la section cf::``python-datas.txt`` expliquant comment fabriquer des données via ¨python, ou plus généralement la section cf::``hooks.txt`` pour apprendre à lancer des programmes extérieurs avant le travail fait par ¨jinjnag.
+    Le format ¨json est supporté en lecture, et en écriture, par la majorité des ¨langs de ¨prog. Ceci permet d'envisager la fabrication de données de façon automatisée : voir à ce sujet la section cf::``python-data.txt`` expliquant comment fabriquer des données via ¨python, ou plus généralement la section cf::``hooks.txt`` pour apprendre à lancer des programmes extérieurs avant le travail fait par ¨jinjnag.
 
 
 Imaginons que nous soyons dans la situation suivante.
 
     1) Dans un dossier path::``my/folder`` se trouve un fichier "patron" path::``template.tex`` qui est de type ¨latex.
 
-    1) Les données sont indiquées dans le fichier path::``datas.json``.
+    1) Les données sont indiquées dans le fichier path::``data.json``.
 
 
 Dans ce cas, pour obtenir un fichier path::``output.tex`` obtenu après peuplement, il suffira de procéder comme suit en retenant l'ordre "données-patron-produit" pour les fichiers (la sortie ¨jinjang a été omise d'où la présence de term::``[...]``).
 
 terminal::
     > cd my/folder
-    > python -m jinjang datas.json template.tex output.tex
+    > jinjang data.json template.tex output.tex
     [...]
 
 
@@ -49,12 +49,12 @@ Les données suivantes sont utilisées pour peupler le "patron".
 
 json::
     ---
-    title = Les données dans path::``datas.json``
-    path  = ?/examples/direct/datas.json
+    title = Les données dans path::``data.json``
+    path  = ?/examples/direct/data.json
     ---
 
 
-La commande term::``python -m jinjang ...`` fournit finalement le fichier suivant.
+La commande term::``jinjang ...`` fournit finalement le fichier suivant.
 
 latex::
     ---

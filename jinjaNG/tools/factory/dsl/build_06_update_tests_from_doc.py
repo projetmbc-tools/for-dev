@@ -31,14 +31,14 @@ addfindsrc(
     project = 'jinjaNG',
 )
 
-from src import JNGDatas
+from src import JNGData
 
 
-EXT_DATAS = []
+EXT_DATA = []
 
-for methattr in dir(JNGDatas):
+for methattr in dir(JNGData):
     if methattr.startswith('build_from'):
-        EXT_DATAS.append('.' + methattr.replace('build_from', ''))
+        EXT_DATA.append('.' + methattr.replace('build_from', ''))
 
 
 # ------------------- #
@@ -55,14 +55,14 @@ def testsfrom(pdir, testfiles):
 
 
     for kind in [
-        'datas',
+        'data',
         'template',
     ]:
         for pfile in pdir.glob(f'**/{kind}.*'):
             if (
-                kind == 'datas'
+                kind == 'data'
                 and
-                not pfile.suffix in EXT_DATAS
+                not pfile.suffix in EXT_DATA
             ):
                 continue
 
@@ -75,7 +75,7 @@ def tests2yaml(testfiles):
         'totest': []
     }
 
-    for pdir, datasfiles in testfiles['datas'].items():
+    for pdir, datafiles in testfiles['data'].items():
         if not pdir in testfiles['template']:
             raise Exception(
                     "missing template file! See:"
@@ -83,7 +83,7 @@ def tests2yaml(testfiles):
                 f'{pdir}'
             )
 
-        for dfile in datasfiles:
+        for dfile in datafiles:
             for tfile in testfiles['template'][pdir]:
                 testskept['totest'].append([
                     str(pdir - DOC_CONTENT_DIR),

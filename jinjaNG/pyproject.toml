@@ -9,7 +9,7 @@ license      = "GNU License Version 3"
 repository   = "https://github.com/bc-tools/for-dev/tree/main/jinjaNG"
 
 [tool.poetry.scripts]
-jinjang = "myproject.__main__:jng_CLI"
+jinjang = "jinjang.__main__:jng_CLI"
 
 [tool.poetry.dependencies]
 python = "^3.9"

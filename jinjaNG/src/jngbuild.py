@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ###
-# This module ???
+# This module implements file construction using templates and data.
 ###
 
 from typing import (
@@ -10,9 +10,9 @@ from typing import (
     Union
 )
 
-import os
-import shlex
-from subprocess import run, CalledProcessError
+import                 os
+import                 shlex
+from subprocess import run
 
 from jinja2 import (
     BaseLoader,
@@ -22,7 +22,7 @@ from jinja2 import (
 
 from .config    import *
 from .jngconfig import *
-from .jngdatas  import *
+from .jngdata   import *
 
 
 # ------------------------------- #
@@ -51,15 +51,35 @@ TAG_PRE   = 'pre'
 TAG_POST  = 'post'
 
 SPE_VARS = [
-    'datas',
+    'data',
     'template',
     'output',
 ]
 
 
+_ERROR_KEY_TEMPLATE = """
+Following command has an unused key '{e}'.
+
+  + RAW VERSION >  {command}{xtra}
+""".strip()
+
+
+_ERROR_PROCESS = """
+{stderr}
+
+Following command has failed (see the lines above).
+
+  + RAW VERSION
+       > {command}
+
+  + EXPANDED ONE
+       > {command_expanded}{xtra}
+""".rstrip()
+
+
 ###
-# This class allows to build either string, or file contents from
-# ¨jinjang templates and datas.
+# This class allows to build either string, or file contents from ¨jinjang
+# templates and data.
 ###
 class JNGBuilder:
 ###
@@ -72,7 +92,9 @@ class JNGBuilder:
 #                 of ¨python files to build data to feed a template.
 #                 Otherwise, no ¨python script will be launched.
 #     config    : :see: jngconfig.JNGConfig
-#     verbose   : ????
+#     verbose   : with value ``True``, the outputs of external commands
+#                 launched will be printed.
+#                 Otherwise, these outputs will be hidden from the user.
 ###
     def __init__(
         self,
@@ -86,7 +108,7 @@ class JNGBuilder:
         self.verbose = verbose
 
 # The update of ``launch_py`` implies the use of a new instance of
-# ``self._build_datas`` via ``JNGDatas(value).build``.
+# ``self._build_data`` via ``JNGData(value).build``.
         self.launch_py = launch_py
 
 
@@ -119,7 +141,7 @@ class JNGBuilder:
     @launch_py.setter
     def launch_py(self, value):
         self._launch_py   = value
-        self._build_datas = JNGDatas(value).build
+        self._build_data = JNGData(value).build
 
 
 ###
@@ -152,14 +174,14 @@ class JNGBuilder:
 
 ###
 # prototype::
-#     datas    : datas used to feed one template.
+#     data    : data used to feed one template.
 #     template : one template.
 #
-#     :return: the output made by using ``datas`` on ``template``.
+#     :return: the output made by using ``data`` on ``template``.
 ###
     def render_frompy(
         self,
-        datas   : dict,
+        data   : dict,
         template: str
     ) -> str:
 # With ¨python varaiable, we can't detect automatically the flavour.
@@ -169,9 +191,9 @@ class JNGBuilder:
             )
 
 # A dict must be used for the values of the ¨jinjang variables.
-        if not isinstance(datas, dict):
+        if not isinstance(data, dict):
             raise TypeError(
-                "''datas'' must be a ''dict'' variable."
+                "''data'' must be a ''dict'' variable."
             )
 
 # Let's wirk!
@@ -179,29 +201,38 @@ class JNGBuilder:
         jinja2env.loader = StringLoader()
 
         jinja2template = jinja2env.get_template(template)
-        content        = jinja2template.render(datas)
+        content        = jinja2template.render(data)
 
         return content
 
 
 ###
 # prototype::
-#     datas    : datas used to feed one template.
+#     data    : data used to feed one template.
 #     template : one template.
 #              @ exists path(str(template))
-#     output   : the file used for the output build after using ``datas``
+#     output   : the file used for the output build after using ``data``
 #                on ``template``.
-#     flavour  : :see: self.__init__ if the value is not ``None``.
-#     launch_py: :see: self.__init__ if the value is not ``None``.
-#     config   : :see: self.__init__ if the value is not ``None``.
-#     verbose  : :see: self.__init__ if the value is not ``None``.
+#     flavour  : if the value is not ``None``, a local value is used
+#                without deleting the previous one.
+#                :see: self.__init__
+#     launch_py: if the value is not ``None``, a local value is used
+#                without deleting the previous one.
+#                :see: self.__init__
+#     config   : if the value is not ``None``, a local value is used
+#                without deleting the previous one.
+#                :see: self.__init__
+#     verbose  : if the value is not ``None``, a local value is used
+#                without deleting the previous one.
+#                :see: self.__init__
 #
-#     :action: ???? an output file is created with a content build after using
-#              ``datas`` on ``template``.
+#     :action: the file ``output`` is built using the data and the
+#              model, while respecting any additional behaviour
+#              specified.
 ###
     def render(
         self,
-        datas    : Any,
+        data    : Any,
         template : Any,
         output   : Any,
         flavour  : Union[str, None]  = None,
@@ -232,7 +263,7 @@ class JNGBuilder:
             flavour = self.flavour
 
 # `Path` version of the paths.
-        self._datas    = Path(datas)
+        self._data    = Path(data)
         self._template = Path(template)
         self._output   = Path(output)
 
@@ -257,8 +288,8 @@ class JNGBuilder:
             str(self._template.name)
         )
 
-        dictdatas = self._build_datas(self._datas)
-        content   = jinja2template.render(dictdatas)
+        dictdata = self._build_data(self._data)
+        content   = jinja2template.render(dictdata)
 
         output.write_text(
             data     = content,
@@ -326,14 +357,7 @@ class JNGBuilder:
         }
 
         for nbcmd, command in enumerate(loc, 1):
-            if frompy:
-                xtra = ""
-
-            else:
-                xtra = (
-                    f"\n\nSee the block '{kind}', and "
-                    f"the command nb. {nbcmd}."
-                )
+            xtra = self._xtra_message(nbcmd, kind, frompy)
 
             try:
                 try:
@@ -343,11 +367,11 @@ class JNGBuilder:
 
                 except KeyError as e:
                     raise Exception(
-f"""
-Following command has an unused key '{e}'.
-
-  + RAW VERSION >  {command}{xtra}
-""".strip()
+                        _ERROR_KEY_TEMPLATE.format(
+                            command = command,
+                            e       = e,
+                            xtra    = xtra
+                        )
                     )
 
 
@@ -361,20 +385,27 @@ Following command has an unused key '{e}'.
                 if self.verbose:
                     print(r.stdout)
 
-            except CalledProcessError as e:
+            except Exception as e:
                 raise Exception(
-f"""
-{e.stderr}
-
-Following command has failed (see the lines above).
-
-  + RAW VERSION >  {command}
-  + EXPANDED    >  {command.format(**tochange)}"){xtra}
-""".rstrip()
+                    _ERROR_PROCESS.format(
+                        command          = command,
+                        command_expanded = command.format(**tochange),
+                        stderr           = getattr(e, 'stderr', e),
+                        xtra             = xtra
+                    )
                 )
 
         os.chdir(savedwd)
 
+
+    def _xtra_message(self, nbcmd, kind, frompy):
+        if frompy:
+            return ""
+
+        return (
+            f"\n\nSee the block '{kind}', and "
+            f"the command #{nbcmd}."
+        )
 
 ###
 # prototype::

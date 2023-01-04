@@ -17,22 +17,22 @@ dirtree::
         + no-param-1
             * output.txt
             * template.txt
-            * datas.yaml
+            * data.yaml
         + no-param-2
             * output.txt
             * template.txt
-            * datas.yaml
+            * data.yaml
 
 
 Chaque cas correspond à un dossier avec un nom court anglais, et parlant
 ((
     Penser aux tests automatisés.
 )).
-Ce dossier doit contenir forcément deux fichiers nommés path::``template``, et path::``output`` avec l'extension attendue, soit ici un simple path::``TXT``, ainsi qu'un fichier path::``datas.yaml`` pour les données de peuplement.
+Ce dossier doit contenir forcément deux fichiers nommés path::``template``, et path::``output`` avec l'extension attendue, soit ici un simple path::``TXT``, ainsi qu'un fichier path::``data.yaml`` pour les données de peuplement.
 
     1) Le fichier nommé path::``template`` est un "patron" court, mais bien choisi. Ne pas cumuler les tests de focntionnalité ! Il vaut mieux utiliser plusieurs cas d'utilisation pour isoler ce qui est testé.
 
-    1) Le fichier path::``datas.yaml`` fournit les données de peuplement au format ¨yaml, un langage avec une syntaxe simple pour un humain.
+    1) Le fichier path::``data.yaml`` fournit les données de peuplement au format ¨yaml, un langage avec une syntaxe simple pour un humain.
 
     1) Le fichier nommé path::``output`` est le rendu attendu.
 

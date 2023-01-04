@@ -34,11 +34,11 @@ CONFIG = AUTO_CONFIG
 FILES_FOLDER_NB = "01"
 
 
-DATAS_EXT = "yaml"
-# DATAS_EXT = "json"
-# DATAS_EXT = "py"
+DATA_EXT = "yaml"
+# DATA_EXT = "json"
+# DATA_EXT = "py"
 
-KIND = DATAS_EXT
+KIND = DATA_EXT
 KIND = "hooks"
 
 LAUNCH_PY = True
@@ -60,7 +60,7 @@ FILES_FOLDER      = THIS_DIR / "files" / FILES_FOLDER_NAME
 
 template = FILES_FOLDER / f"template.{TEMPL_EXT}"
 output   = FILES_FOLDER / f"output.{TEMPL_EXT}"
-datas    = FILES_FOLDER / f"datas.{DATAS_EXT}"
+data    = FILES_FOLDER / f"data.{DATA_EXT}"
 
 if CONFIG in [NO_CONFIG, AUTO_CONFIG]:
     config = CONFIG
@@ -74,14 +74,14 @@ JNGBuilder(
     config    = config,
     verbose   = VERBOSE,
 ).render(
-    datas    = datas,
+    data    = data,
     template = template,
     output   = output,
 )
 
 
 print(
-    f"Rendering from {DATAS_EXT} made in "
+    f"Rendering from {DATA_EXT} made in "
     f"the folder ``files/{FILES_FOLDER_NAME}``."
 )
 

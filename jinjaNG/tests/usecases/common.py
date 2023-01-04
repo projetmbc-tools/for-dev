@@ -31,13 +31,13 @@ def message(template):
 
 def build_output(
     builder,
-    datas,
+    data,
     template
 ):
     output_found = template.parent / f"output_found{template.suffix}"
 
     builder.render(
-        datas    = datas,
+        data    = data,
         template = template,
         output   = output_found
     )
@@ -72,7 +72,7 @@ def content(path):
 
 
 # -------------------- #
-# -- USECASES DATAS -- #
+# -- USECASES DATA -- #
 # -------------------- #
 
 def yielddirs(pdir: Path) -> Path:
@@ -95,7 +95,7 @@ def yielddirs(pdir: Path) -> Path:
 def extract_dto(pdir: Path) -> Tuple[Path, Path, Path]:
     dto = {
         n: []
-        for n in ['datas', 'template', 'output']
+        for n in ['data', 'template', 'output']
     }
 
     for pfile in pdir.glob('*'):
@@ -122,12 +122,12 @@ def extract_dto(pdir: Path) -> Tuple[Path, Path, Path]:
     )
 
 
-def build_usecases_datas(
-    datas_dir: Path
+def build_usecases_data(
+    data_dir: Path
 ) -> List[Tuple]:
     usecases_folders = defaultdict(list)
 
-    for pdir in yielddirs(datas_dir):
+    for pdir in yielddirs(data_dir):
         flavour = pdir.name
 
         for ucdir in yielddirs(pdir):
@@ -138,31 +138,31 @@ def build_usecases_datas(
     # pprint(dict(USECASES_FOLDERS))
 # ! -- DEBUGGING -- ! #
 
-    usecases_datas = []
+    usecases_data = []
 
     for flavour, usecases in usecases_folders.items():
         for ucdir in usecases:
-            jngdatas, template, output = extract_dto(ucdir)
+            jngdata, template, output = extract_dto(ucdir)
             test_name                  = ucdir.name
 
-            usecases_datas.append(
+            usecases_data.append(
                 (
                     flavour,
                     test_name,
-                    jngdatas,
+                    jngdata,
                     template,
                     output
                 )
             )
 
-    return usecases_datas
+    return usecases_data
 
 
 # -------------------- #
-# -- USECASES DATAS -- #
+# -- USECASES DATA -- #
 # -------------------- #
 
-def build_docexas_datas(
+def build_docexas_data(
     docexa_yaml : Path
 ) -> Tuple[Path, List]:
     with docexa_yaml.open(

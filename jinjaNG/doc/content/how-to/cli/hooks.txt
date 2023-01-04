@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-12-25
+    date = 2023-01-04
 
 
 abrev::
@@ -7,11 +7,11 @@ abrev::
 
 
 ===================
-Pré et post-actions [Fonctionnalités FUTURES]
+Pré et post-actions
 ===================
 
 warning::
-    L'appel d'un programme extérieur doit toujours être fait avec prudence. C'est pour cette raison que l'on doit passer via une option autorisant l'usage des pré et post-actions.
+    L'appel d'un programme extérieur doit toujours être fait avec prudence. C'est pour cette raison que l'on doit passer via une option spécifique autorisant l'usage des pré et post-actions.
 
 
 content::

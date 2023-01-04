@@ -34,7 +34,7 @@ Error: {message}
 
 ###
 # prototype::
-#     datas    : the file containing the data to feed the template.
+#     data     : the file containing the data to feed the template.
 #                path::``YAML``, path::``JSON``, and path::``PY``
 #                files can be used.
 #     template : the template file.
@@ -50,16 +50,16 @@ Error: {message}
 #              and template while applying any parameters specified.
 ###
 @click.command()
-@click.argument('datas')
+@click.argument('data')
 @click.argument('template')
 @click.argument('output')
 @click.option('--unsafe', '-u',
               is_flag = True,
               default = False,
               help    = 'TO USE WITH A LOT OF CAUTION! '
-                        'This flag allows to use datas from a Python '
+                        'This flag allows to use data from a Python '
                         'file to launch: use a dictionary named '
-                        '``JNGDATAS`` for the Jinja variables and '
+                        '``JNGDATA`` for the Jinja variables and '
                         'their value. ')
 @click.option('--fl', '-f',
               default = AUTO_FLAVOUR,
@@ -79,7 +79,7 @@ Error: {message}
                         'You can also indicate the path of a specific '
                         'YAML configuration file.')
 def jng_CLI(
-    datas   : str,
+    data    : str,
     template: str,
     output  : str,
     unsafe  : bool,
@@ -89,7 +89,7 @@ def jng_CLI(
     """
     Produce a file by filling in a Jinja template.
 
-    DATAS: the path of the file containing the datas.
+    DATA: the path of the file containing the data.
 
     TEMPLATE: the path of the template.
 
@@ -108,7 +108,7 @@ def jng_CLI(
 
     try:
         mybuilder.render(
-            datas    = Path(datas),
+            data     = Path(data),
             template = Path(template),
             output   = Path(output)
         )

@@ -25,7 +25,7 @@ MY_BUILDER = JNGBuilder(
 
 THIS_DIR = Path(__file__).parent
 
-DOC_CONTENT_DIR, DOCEXA_TOTEST = build_docexas_datas(
+DOC_CONTENT_DIR, DOCEXA_TOTEST = build_docexas_data(
     docexa_yaml = THIS_DIR / 'docexa.yaml'
 )
 
@@ -35,9 +35,9 @@ DOC_CONTENT_DIR, DOCEXA_TOTEST = build_docexas_datas(
 # -------------------------------------- #
 
 def test_doc_examples_NON_STRICT():
-    for subdir, datas, template in DOCEXA_TOTEST:
+    for subdir, data, template in DOCEXA_TOTEST:
         subdir   = DOC_CONTENT_DIR / subdir
-        datas    = subdir / datas
+        data    = subdir / data
         template = subdir / Path(template)
 
         output_wanted = minimize_content(
@@ -47,7 +47,7 @@ def test_doc_examples_NON_STRICT():
         output_found  = minimize_content(
             build_output(
                 MY_BUILDER,
-                datas,
+                data,
                 template
             )
         )
@@ -62,9 +62,9 @@ def test_doc_examples_NON_STRICT():
 # ---------------------------------- #
 
 def test_doc_examples_STRICT():
-    for subdir, datas, template in DOCEXA_TOTEST:
+    for subdir, data, template in DOCEXA_TOTEST:
         subdir   = DOC_CONTENT_DIR / subdir
-        datas    = subdir / datas
+        data    = subdir / data
         template = subdir / Path(template)
 
         output_wanted = content(
@@ -74,7 +74,7 @@ def test_doc_examples_STRICT():
         output_found  = content(
             build_output(
                 MY_BUILDER,
-                datas,
+                data,
                 template
             )
         )

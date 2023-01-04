@@ -23,7 +23,7 @@ while(PROJECT_DIR.name != 'jinjaNG'):
 
 
 CONTRIB_DSL_DIR    = PROJECT_DIR / 'contribute' / 'api' / 'dsl'
-TESTS_USECASES_DIR = PROJECT_DIR / 'tests' / 'usecases' / 'datas'
+TESTS_USECASES_DIR = PROJECT_DIR / 'tests' / 'usecases' / 'data'
 
 
 FLAVOURS_STATUS_YAML = THIS_DIR / 'flavours.yaml'
@@ -61,13 +61,13 @@ for fl in flavours_OK:
     usecase_dir   = CONTRIB_DSL_DIR / fl / 'usecases'
     flavours_exts = AUTO_FROM_EXT[fl]
 
-# New flavour datas dir.
+# New flavour data dir.
     flavour_dest_dir = TESTS_USECASES_DIR / fl
 
     if flavour_dest_dir.is_dir():
         flavour_dest_dir.remove()
 
-# Copying the datas.
+# Copying the data.
     for pdir in usecase_dir.glob('*'):
         if(
             not pdir.is_dir()
@@ -84,13 +84,13 @@ for fl in flavours_OK:
             if(
                 not pfile.is_file()
                 or
-                not name in ['datas', 'output', 'template']
+                not name in ['data', 'output', 'template']
             ):
                 continue
 
             ext = pfile.suffix[1:] if pfile.suffix else ""
 
-            if name == 'datas':
+            if name == 'data':
                 if ext not in ['json', 'yaml']:
                     continue
 

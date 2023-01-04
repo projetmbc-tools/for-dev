@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-02
+    date = 2023-01-04
 
 
 ===========================
@@ -12,7 +12,7 @@ A titre de comparaison, redonnons les données de l'exemple de la section préc�
 json::
     ---
     title = Des données au format ¨json
-    path  = ?/examples/direct/datas.json
+    path  = ?/examples/direct/data.json
     ---
 
 
@@ -21,7 +21,7 @@ L'équivalent au format ¨yaml est ce qui suit avec une syntaxe efficace pour un
 yaml::
     ---
     title = Les données précédentes au format ¨yaml
-    path  = ?/examples/direct/datas.yaml
+    path  = ?/examples/direct/data.yaml
     ---
 
 
@@ -29,5 +29,5 @@ Côté génération du produit fini, rien de bien nouveau comme le montre la sec
 
 terminal::
     > cd my/folder
-    > python -m jinjang datas.yaml template.tex output.tex
+    > jinjang data.yaml template.tex output.tex
     [...]

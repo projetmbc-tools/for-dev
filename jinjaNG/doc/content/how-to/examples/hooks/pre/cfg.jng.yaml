@@ -1,4 +1,4 @@
 ﻿hooks:
   pre:
-    - bash bash2datas.bash
+    - bash bash2data.bash
     - echo "Last changes updated."

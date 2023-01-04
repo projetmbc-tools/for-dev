@@ -15,7 +15,7 @@ render signature changé !!!
 
 {output} au lieu de {{output}} : on passe via fr-string donc {{output}} équivaaut réellement à {output}
 
-{datas}  ajouté par coéhrence
+{data}  ajouté par coéhrence
 
 test via json et yaml aussi dan conyrib , et ajout de
 
@@ -29,8 +29,21 @@ test via json et yaml aussi dan conyrib , et ajout de
     ---> test cfg ?????
 
 
+????   hooks dans readmm
 
-??? fichiers VERSIONS.TXT et KEYWORDS.txt
+
+term::``python -m jinjang``   devient   term::``jinjang``
+
+
+datas --> data
+
+--short , -s  et verbose
+--flavour
+--config
+
+[[:flow:]]
+
+fichiers VERSIONS.TXT et KEYWORDS.yaml
 
 
 
@@ -92,7 +105,7 @@ Here are the changes made to simplify the ¨api.
 
         * The parameters term::``--dto`` and term::``--pydto`` no longer exist.
 
-        * The new parameter term::``--unsafe`` indicates clearly that the dangerous use of a ¨python file to build datas is allowed.
+        * The new parameter term::``--unsafe`` indicates clearly that the dangerous use of a ¨python file to build data is allowed.
 
         * Each parameter has an abbreviation.
 

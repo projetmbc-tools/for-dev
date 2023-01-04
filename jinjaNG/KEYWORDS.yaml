@@ -1,0 +1,13 @@
+techology:
+  project:
+    python:
+      - jinja2
+
+  usage:
+    - latex
+    - html [javascript]
+
+
+context:
+  writing:
+    - template

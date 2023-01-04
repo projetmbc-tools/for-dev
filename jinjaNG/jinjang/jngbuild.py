@@ -13,7 +13,7 @@ from jinja2 import (
 
 from .config    import *
 from .jngconfig import *
-from .jngdatas  import *
+from .jngdata   import *
 
 
 # ------------------------------- #
@@ -42,7 +42,7 @@ NO_CONFIG    = ":no-config:"
 
 ###
 # This class allows to build either string, or file contents from
-# ¨jinjang templates and datas.
+# ¨jinjang templates and data.
 ###
 class JNGBuilder:
     DEFAULT_CONFIG_FILE = "cfg.jng.yaml"
@@ -70,7 +70,7 @@ class JNGBuilder:
         self.config  = config
 
 # The update of ``launch_py`` implies the use of a new instance of
-# ``self._build_datas`` via ``JNGDatas(value).build``.
+# ``self._build_data`` via ``JNGData(value).build``.
         self.launch_py = launch_py
 
 
@@ -106,7 +106,7 @@ class JNGBuilder:
     @launch_py.setter
     def launch_py(self, value):
         self._launch_py     = value
-        self._build_datas = JNGDatas(value).build
+        self._build_data = JNGData(value).build
 
 
 ###
@@ -139,14 +139,14 @@ class JNGBuilder:
 
 ###
 # prototype::
-#     datas    : datas used to feed one template.
+#     data    : data used to feed one template.
 #     template : one template.
 #
-#     :return: the output made by using ``datas`` on ``template``.
+#     :return: the output made by using ``data`` on ``template``.
 ###
     def render_frompy(
         self,
-        datas   : dict,
+        data   : dict,
         template: str
     ) -> str:
 # With ¨python varaiable, we can't detect automatically the flavour.
@@ -156,9 +156,9 @@ class JNGBuilder:
             )
 
 # A dict must be used for the values of the ¨jinjang variables.
-        if not isinstance(datas, dict):
+        if not isinstance(data, dict):
             raise TypeError(
-                "''datas'' must be a ''dict'' variable."
+                "''data'' must be a ''dict'' variable."
             )
 
 # Let's wirk!
@@ -166,31 +166,31 @@ class JNGBuilder:
         jinja2env.loader = StringLoader()
 
         jinja2template = jinja2env.get_template(template)
-        content        = jinja2template.render(datas)
+        content        = jinja2template.render(data)
 
         return content
 
 
 ###
 # prototype::
-#     datas    : datas used to feed one template.
+#     data    : data used to feed one template.
 #     template : one template.
 #              @ exists path(str(template))
-#     output   : the file used for the output build after using ``datas``
+#     output   : the file used for the output build after using ``data``
 #                on ``template``.
 #
 #     :action: an output file is created with a content build after using
-#              ``datas`` on ``template``.
+#              ``data`` on ``template``.
 ###
     def render(
         self,
-        datas   : Any,
+        data   : Any,
         template: Any,
         output  : Any,
         launch_py : Union[bool, None] = None,
         config  : Any               = None
     ) -> None:
-# Can we execute temporarly a ¨python file to build datas?
+# Can we execute temporarly a ¨python file to build data?
         if launch_py is not None:
             old_launch_py  = self.launch_py
             self.launch_py = launch_py
@@ -217,8 +217,8 @@ class JNGBuilder:
             str(template.name)
         )
 
-        dictdatas = self._build_datas(datas)
-        content   = jinja2template.render(dictdatas)
+        dictdata = self._build_data(data)
+        content   = jinja2template.render(dictdata)
 
         output.write_text(
             data     = content,

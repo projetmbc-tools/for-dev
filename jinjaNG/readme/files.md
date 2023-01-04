@@ -82,7 +82,7 @@ from jinjang import *
 mybuilder = JNGBuilder()
 
 mybuilder.render(
-    datas    = "datas.yaml",
+    data     = "data.yaml",
     template = "template.tex",
     output   = "output.tex"
 )
@@ -97,7 +97,7 @@ The commands below have the same effect as the `Python` code in the previous sec
 
 ~~~
 > cd path/to/the/good/folder
-> python -m jinjang datas.yaml template.tex output.tex
+> jinjang data.yaml template.tex output.tex
 File successfully built:
   + output.tex
 ~~~
@@ -106,29 +106,29 @@ File successfully built:
 
 ### Building the data via a `Python` script
 
-In our case, by knowing the existence of [cvnum](https://pypi.org/project/cvnum/), for example, we can be more efficient in constructing the data. Here is one possible `datas.py` file where `JNGDATAS` is a reserved name for the data that `jinjaNG` will use. We'll see next that producing the final output can no longer be done using the default behaviour of an instance of the `JNGBuilder` class.
+In our case, by knowing the existence of [cvnum](https://pypi.org/project/cvnum/), for example, we can be more efficient in constructing the data. Here is one possible `data.py` file where `JNGDATA` is a reserved name for the data that `jinjaNG` will use. We'll see next that producing the final output can no longer be done using the default behaviour of an instance of the `JNGBuilder` class.
 
 ~~~python
 from cvnum.textify import *
 
 nameof = IntName().nameof
 
-JNGDATAS = {
+JNGDATA = {
     'txt_exa': "example",
     'values' : [nameof(x) for x in range(1, 6)]
 }
 ~~~
 
 
-The `Python` code producing the final output becomes the following one, where `pydatas = True` allows the class `JNGBuilder` to execute the `Python` file. **This choice can be dangerous with untrusted `Python` scripts!**
+The `Python` code producing the final output becomes the following one, where `pydata = True` allows the class `JNGBuilder` to execute the `Python` file. **This choice can be dangerous with untrusted `Python` scripts!**
 
 ~~~python
 from jinjang import *
 
-mybuilder = JNGBuilder(pydatas = True)
+mybuilder = JNGBuilder(pydata = True)
 
 mybuilder.render(
-    datas    = "datas.py",
+    data    = "data.py",
     template = "template.tex",
     output   = "output.tex"
 )
@@ -139,7 +139,7 @@ To work with a `Python` data file from the terminal, you must use the tag `--uns
 
 ~~~
 > cd path/to/the/good/folder
-> python -m jinjang --unsafe datas.py template.tex output.tex
+> jinjang --unsafe data.py template.tex output.tex
 WARNING: Using a Python file can be dangerous.
 File successfully built:
   + output.tex

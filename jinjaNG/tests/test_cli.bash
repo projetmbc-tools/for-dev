@@ -1,10 +1,10 @@
 THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 JINJANG_DIR="$(cd "$THIS_DIR/.." && pwd)"
-DATAS_DIR="$THIS_DIR/usecases/datas"
+DATA_DIR="$THIS_DIR/usecases/data"
 
 
 function error_exit() {
-    localdir=$(dirname "$DATAS_DIR/$2")
+    localdir=$(dirname "$DATA_DIR/$2")
 
     printf "\033[91m\033[1m"
     echo ""
@@ -14,7 +14,7 @@ function error_exit() {
 }
 
 
-cd "$DATAS_DIR"
+cd "$DATA_DIR"
 
 # WARNING!
 #
@@ -22,12 +22,12 @@ cd "$DATAS_DIR"
 # subprocesses, and this will make the ``exit 1`` of ``error_exit``
 # inefficient.
 #
-#     find . -name 'datas.*'  -type f | sort | while read -r datafile
+#     find . -name 'data.*'  -type f | sort | while read -r datafile
 #     do
 #         ...
 #     done
 
-while read -r datafile  # <(find . -name 'datas.*'  -type f | sort)
+while read -r datafile  # <(find . -name 'data.*'  -type f | sort)
 do
     localdir=$(dirname "$datafile")
 
@@ -43,16 +43,16 @@ do
         unsafe=""
     fi
 
-    data="$DATAS_DIR/$datafile"
+    data="$DATA_DIR/$datafile"
 
     while read -r templatefile  # <(find . -name 'template.*'  -type f | sort)
     do
         filename=$(basename "$templatefile")
         ext=${filename##*.}
 
-        template="$DATAS_DIR/$templatefile"
-        output="$DATAS_DIR/$localdir/output.$ext"
-        outputfound="$DATAS_DIR/$localdir/output_found.$ext"
+        template="$DATA_DIR/$templatefile"
+        output="$DATA_DIR/$localdir/output.$ext"
+        outputfound="$DATA_DIR/$localdir/output_found.$ext"
 
         cd "$JINJANG_DIR"
 
@@ -70,8 +70,8 @@ do
         rm "$outputfound"
     done < <(find $localdir -name 'template.*'  -type f | sort)
 
-    cd "$DATAS_DIR"
-done < <(find . -name 'datas.*'  -type f | sort)
+    cd "$DATA_DIR"
+done < <(find . -name 'data.*'  -type f | sort)
 
 
 printf "\033[92m\033[1m"
