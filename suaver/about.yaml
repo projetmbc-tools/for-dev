@@ -1,7 +1,0 @@
-general:
-    project : suaVER
-    desc    : ???
-    author  : Christophe BAL
-    licence : gnu 3
-    need    :
-        - python3
