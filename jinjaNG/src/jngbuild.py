@@ -187,7 +187,7 @@ class JNGBuilder:
         data    : dict,
         template: str
     ) -> str:
-# With ¨python varaiable, we can't detect automatically the flavour.
+# With Python variable, we can't detect automatically the flavour.
         if self.flavour == AUTO_FLAVOUR:
             raise ValueError(
                 "no ''auto-flavour'' when working with strings."
