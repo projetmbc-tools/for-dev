@@ -1,6 +1,6 @@
 [tool.poetry]
 name         = "jinjang"
-version      = "0.0.0-beta"
+version      = "0.1.0-rc"
 description  = 'This project tries to ameliorate the workflow when working with the template engine Jinja'
 readme       = "README.md"
 authors      = ["Christophe BAL"]
