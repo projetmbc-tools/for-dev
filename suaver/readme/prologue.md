@@ -1,5 +1,5 @@
-The `Python` module `suave`
-===========================
+The `Python` module `suaVER`
+============================
 
 > **I beg your pardon for my english...**
 >

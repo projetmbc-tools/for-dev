@@ -1,5 +1,5 @@
 [tool.poetry]
-name         = "suave"
+name         = "suaver"
 version      = "0.0.0-beta"
 description  = '???'
 readme       = "README.md"
