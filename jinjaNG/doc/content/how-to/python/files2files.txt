@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-04
+    date = 2023-01-05
 
 
 ============================
@@ -41,9 +41,17 @@ Le code s'appuie sur une instance de la classe python::``JNGBuilder`` du package
 
     1) La construction du fichier "produit" se fait via la méthode python::``render`` qui possède les arguments non optionnels, et bien nommés, python::``data``, python::``template`` et python::``output``, pour "données", "patron" et "produit" ¨resp.
 
-    Cette méthode propose aussi les arguments optionnels python::``launch_py`` et python::``config`` en cas de besoin de réglages "locaux".
-    Par défaut, python::``launch_py = None`` et  python::``config = None`` indiquent de garder les valeurs définies à l'initialisation de l'instance de python::``JNGBuilder``.
-    Les valeurs utilisées à l'initialisation sont rétablies en cas d'un usage local lors de l'appel de la méthode python::``render``.
+    Cette méthode propose aussi les arguments optionnels suivants qui valent par défaut ``None`` ; ce choix par défaut indique d'utiliser les attributs éponymes de l'instance de la classe ``JNGBuilder``.
+
+        * python::``flavour``
+
+        * python::``launch_py``
+
+        * python::``config``
+
+        * python::``verbose``
+
+    Pour chacun des ¨args optionnels ci-dessus, si une valeuur est indiquée, alors elle sera employée localement : autrement dit, à la fin de l'exécution de la méthode ``render``, les valeurs des attributs éponymes avant l'appel de la méthode seront rétablies.
 
 
 info::
@@ -51,4 +59,4 @@ info::
 
 
 info::
-    A tout moment, on peut changer les valeurs des attributs python::``flavour``, python::``auto``, python::``launch_py``, et python::``config``, ceci se faisant de façon sûre car des "getters" sont appelées en coulisse.
+    A tout moment, on peut changer les valeurs des attributs python::``flavour``, python::``launch_py``, et python::``config``, ceci se faisant de façon sûre car des "getters" sont appelées en coulisse.

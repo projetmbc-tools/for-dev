@@ -41,7 +41,7 @@ The project is functional (the hooks are not yet implemented).
 path::``README.md``: all the path::``README`` files of the project have been done.
 
 
-[[::flow:]]
+[[:flow:]]
 The project is now on ¨pypi.
 
 

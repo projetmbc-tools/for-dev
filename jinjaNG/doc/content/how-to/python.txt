@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-12-18
+    date = 2023-01-05
 
 
 abrev::
@@ -12,7 +12,7 @@ abrev::
 
 Cette section explique le pilotage de ¨jinjang depuis ¨python directement ; cela permet d'envisager l'usage d'un même patron pour produire plusieurs fichiers "produits"
 ((
-    Ceci n'est pas disponilbe en ligne de commandes pour le moment. Le temps montrera si c'est un manque, ou non.
+    Ceci n'est pas disponible en ligne de commandes pour le moment. Le temps montrera si c'est un manque, ou non.
 )).
 
 

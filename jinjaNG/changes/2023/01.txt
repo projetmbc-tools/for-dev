@@ -2,56 +2,59 @@
 
 
 ==
-05     ????  (0.1.0-rc)
+05  (0.1.0-rc)
 ==
 
 -----
 :new:
 -----
 
-First release candiadte!
+[[:api:]]
+Here are all the new features.
+
+    1) ¨Cfg files, and hooks: it is now possible to work with ¨cfg files which currently only offer the hooks functionality.
+
+    1) ¨CLI: two new things done.
+
+        * An alias allows to use term::``jinjang`` instead of term::``python -m jinjang``.
+
+        * One new option term::``--short``, or term::``-s``, asks to hide the external command output.
+
+    1) Launching external commands: for consistency, a new special ¨var yaml::``{data}`` is available.
 
 
-render signature changé !!!
-
-+
-
-{output} au lieu de {{output}} : on passe via fr-string donc {{output}} équivaaut réellement à {output}
-
-{data}  ajouté par coéhrence
-
-test via json et yaml aussi dan contrib
+[[:doc:]]
+path::``README.md``: a new section explains how to use hooks.
 
 
+-------
+:break:
+-------
 
 [[:api:]]
-¨Cfg files, and hooks: it is now possible to work with ¨cfg files which currently only offer the hooks functionality.
+Here are all the breaking changes.
+
+    1) The method ``JNGBuilder.render``: the new option ``verbose`` allows to disable the printing of the external command output.
+
+    1) ¨CLI: the optins term::``--flavour`` and term::``--config`` replace the obsolete term::``--fl`` and term::``--cfg``.
+
+    1) All classes, functions, methods... named with "datas" know use "data" without the letter "s".
+
+    1) Launching external commands: the special ¨vars yaml::``{output}`` and yaml::``{template}`` replace the obsolete yaml::``{{output}}`` and yaml::``{{template}}``.
 
 
+--------
+:fordev:
+--------
 
+[[:api:]]
+Here are the new features.
 
-hooks.md
+    1) Contributions: the use cases must propose path::``JSON``, and path::``YAML`` data files. No path::``PY`` data file required.
 
+    1) New file path::``VERSIONS.yaml``: this file lists all dated versions. **In the near future, it will be built automatically.**
 
-term::``python -m jinjang``   devient   term::``jinjang``
-
-
-datas --> data
-
---short , -s  et verbose
---flavour
---config
-
-[[:flow:]]
-
-fichiers VERSIONS.TXT et KEYWORDS.yaml
-
-
-
-
-
-
-
+    1) New file path::``KEYWORDS.yaml``: the purpose of this file is to easily provide keywords related to the project.
 
 
 // ---------- //
@@ -66,7 +69,7 @@ fichiers VERSIONS.TXT et KEYWORDS.yaml
 --------
 
 [[:api:]]
-Final empty lines: from now, they are kept (it was a bad idea not to manage them).
+Final empty lines: from now, they are kept (it was a bad idea to ignore them).
 
 
 --------

@@ -17,6 +17,8 @@ This small project tries to ameliorate the workflow when working with the templa
 
   1. Work with either files or strings.
 
+  1. Use of pre and post-processing.
+
 
 Working with files
 ------------------
@@ -44,6 +46,7 @@ One example.
 ~~~
 
 As you can see, most of the content follows a repetitive logic. So it may be a good idea to automate the typing. Here is where `jinjaNG` can help us.
+
 
 
 ### What we really type
@@ -92,6 +95,7 @@ This is how the previous template was typed.
 >  For now, the `jnglatex.sty` file must be in the same folder as the `LaTeX` template, or it must be installed by hand in your `LaTeX` distribution: you will find it in the `jng-extra-tools` folder.
 
 
+
 ### Building the output via a `Python` code
 
 Using a `Python` file, it is easy to produce the desired output. Here are the instructions to use where we assume that the `cd` command has been used beforehand, so that running the `Python` scripts is done from the folder containing our `Python`, `YAML` and `LaTeX` files.
@@ -102,7 +106,7 @@ from jinjang import *
 mybuilder = JNGBuilder()
 
 mybuilder.render(
-    datas    = "datas.yaml",
+    data     = "data.yaml",
     template = "template.tex",
     output   = "output.tex"
 )
@@ -111,13 +115,14 @@ mybuilder.render(
 This code uses one useful default behaviour: `jinjaNG` associates automatically the `LaTeX` dialect, or flavour because the template has the extension `TEX`. The flavours available are given in the last section of this document.
 
 
+
 ### Building the output via command lines
 
 The commands below have the same effect as the `Python` code in the previous section.
 
 ~~~
 > cd path/to/the/good/folder
-> python -m jinjang datas.yaml template.tex output.tex
+> jinjang data.yaml template.tex output.tex
 File successfully built:
   + output.tex
 ~~~
@@ -126,29 +131,29 @@ File successfully built:
 
 ### Building the data via a `Python` script
 
-In our case, by knowing the existence of [cvnum](https://pypi.org/project/cvnum/), for example, we can be more efficient in constructing the data. Here is one possible `datas.py` file where `JNGDATAS` is a reserved name for the data that `jinjaNG` will use. We'll see next that producing the final output can no longer be done using the default behaviour of an instance of the `JNGBuilder` class.
+In our case, by knowing the existence of [cvnum](https://pypi.org/project/cvnum/), for example, we can be more efficient in constructing the data. Here is one possible `data.py` file where `JNGDATA` is a reserved name for the data that `jinjaNG` will use. We'll see next that producing the final output can no longer be done using the default behaviour of an instance of the `JNGBuilder` class.
 
 ~~~python
 from cvnum.textify import *
 
 nameof = IntName().nameof
 
-JNGDATAS = {
+JNGDATA = {
     'txt_exa': "example",
     'values' : [nameof(x) for x in range(1, 6)]
 }
 ~~~
 
 
-The `Python` code producing the final output becomes the following one, where `pydatas = True` allows the class `JNGBuilder` to execute the `Python` file. **This choice can be dangerous with untrusted `Python` scripts!**
+The `Python` code producing the final output becomes the following one, where `pydata = True` allows the class `JNGBuilder` to execute the `Python` file. **This choice can be dangerous with untrusted `Python` scripts!**
 
 ~~~python
 from jinjang import *
 
-mybuilder = JNGBuilder(pydatas = True)
+mybuilder = JNGBuilder(pydata = True)
 
 mybuilder.render(
-    datas    = "datas.py",
+    data     = "data.py",
     template = "template.tex",
     output   = "output.tex"
 )
@@ -159,11 +164,69 @@ To work with a `Python` data file from the terminal, you must use the tag `--uns
 
 ~~~
 > cd path/to/the/good/folder
-> python -m jinjang --unsafe datas.py template.tex output.tex
+> jinjang --unsafe data.py template.tex output.tex
 WARNING: Using a Python file can be dangerous.
 File successfully built:
   + output.tex
 ~~~
+
+
+Hooks: doing pre and post-processing
+------------------------------------
+
+### What we need?
+
+In the previous section, we saw how to produce a `LaTeX` file by feeding a template. It would be handy to be able to compile the resulting file in `PDF` format to make it readable by anyone. To do this easily, `jinjaNG` offers the possibility to work with pre and post-processing, or "hooks".
+
+
+
+### How to do this?
+
+We need to work with a `YAML` configuration file. For simplicity, we use the default settings by working in a directory that looks like this.
+
+~~~
++ myfolder
+    * cfg.jng.yaml
+    * data.json
+    * template.tex
+~~~
+
+
+Writing external commands is done in the `cfg.jng.yaml` file. Here, we just use the `post` block for post-processing, but we could also use a `pre` block for pre-processing. Note the use of `{output}` which will be replaced by the path of the file built by `jinjaNG`.
+
+~~~yaml
+hooks:
+  post:
+    - latexmk -interaction=nonstopmode -pdf "{output}"
+    - latexmk -interaction=nonstopmode -c   "{output}"
+~~~
+
+> One important thing to know is that the commands must be written relative to the parent folder of the template.
+
+
+Once the `cfg.jng.yaml` file has been built, it is sufficient to do the following on the command line (we have omitted the output). The `auto` value of the `--config` option indicates that the configurations are in the `cfg.jng.yaml` file.
+
+~~~
+> cd path/to/the/myfolder
+> jinjang --config auto data.json template.tex output.tex
+[...]
+~~~
+
+
+The contents of `myfolder` have been changed as follows.
+
+~~~
++ myfolder
+    * cfg.jng.yaml
+    * data.json
+    * output.pdf
+    * output.tex
+    * template.tex
+~~~
+
+
+> If there are multiple templates in a folder, or to use test configurations, it is useful to be able to choose the configuration file explicitly.
+> In this type of situation, it is sufficient to proceed via `jinjang --config path/to/speconfig.yaml ...` for example.
 
 
 Working with `Python` variables
@@ -174,7 +237,7 @@ To work directly from `Python` without using any file, you need to produce a dic
 ~~~python
 from jinjang import *
 
-mydatas = {
+mydata = {
     'txt_exa': "small example",
     'max_i'  : 4
 }
@@ -189,7 +252,7 @@ One {{ txt_exa }} with automatic calculations.
 mybuilder = JNGBuilder(flavour = FLAVOUR_ASCII)
 
 output = mybuilder.render_frompy(
-    datas    = mydatas,
+    data     = mydata,
     template = mytemplate
 )
 ~~~

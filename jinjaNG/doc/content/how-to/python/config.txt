@@ -1,16 +1,16 @@
 ﻿this::
-    date = 2022-12-25
+    date = 2023-01-05
 
 
 ========
 ¨Configs
 ========
 
-Par défaut, la classe python::``JNGBuilder`` ne cherche pas de fichier de ¨config path::``cfg.jng.yaml`` de façon ¨auto, et ceci est pour des raisons évidentes de ¨secu.
+Par défaut, la classe python::``JNGBuilder`` ne cherche pas de fichier de ¨config path::``cfg.jng.yaml`` de façon ¨auto pour des raisons évidentes de ¨secu.
 C'est pour cela que la valeur par défaut de python::``config`` lors de l'initilisation de la classe python::``JNGBuilder`` est la constante python::``NO_CONFIG``.
 
 
-Pour une recherche ¨auto de path::``cfg.jng.yaml``, il suffit d'employer la constante python::``AUTO_CONFIG`` comme dans l'exemple ci-dessous.
+Pour une recherche ¨auto de path::``cfg.jng.yaml`` dans le dossier du "patron", il suffit d'employer la constante python::``AUTO_CONFIG`` comme dans l'exemple ci-dessous.
 
 python::
     ---
@@ -21,9 +21,9 @@ python::
 
 Il est aussi possible de choisir un fichier de ¨config spécifique
 ((
-    Ceci permet par exemple, d'user d'un fichier de ¨config en phase de ¨dev bloquant des pré et post-actions chronophages, pour ensuite au final passer via un fichier de ¨config par défaut qui lui appliquera les pré et post-actions chronophages.
+    Ceci permet, par exemple, d'user d'un fichier de ¨config en phase de ¨dev bloquant des pré et post-actions chronophages, pour ensuite au final passer via un fichier de ¨config par défaut qui lui appliquera les pré et post-actions chronophages.
 )).
-Dans ce cas, il suffit de procéder comme suit où la variable python::``config`` correspond au chemin du fichier de ¨config.
+Dans ce cas, il suffit de procéder comme suit où la valeur de python::``config`` correspond au chemin du fichier de ¨config.
 
 python::
     ---
