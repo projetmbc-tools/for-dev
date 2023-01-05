@@ -1,9 +1,20 @@
 #!/usr/bin/env python3
 
+###
+# This module implements file construction using templates, data,
+# and eventually hooks.
+###
+
+
 from typing import (
     Any,
+    List,
     Union
 )
+
+import                 os
+import                 shlex
+from subprocess import run
 
 from jinja2 import (
     BaseLoader,
@@ -13,7 +24,7 @@ from jinja2 import (
 
 from .config    import *
 from .jngconfig import *
-from .jngdatas  import *
+from .jngdata   import *
 
 
 # ------------------------------- #
@@ -21,7 +32,7 @@ from .jngdatas  import *
 # ------------------------------- #
 
 ###
-# This class is used to allow the use of string templates.
+# This class is used to work with string templates.
 #
 # ref::
 #     * https://jinja.palletsprojects.com/en/3.0.x/api/#jinja2.BaseLoader
@@ -36,42 +47,72 @@ class StringLoader(BaseLoader):
 # --------------------- #
 
 AUTO_FLAVOUR = ":auto-flavour:"
-AUTO_CONFIG  = ":auto-config:"
-NO_CONFIG    = ":no-config:"
+
+
+SPE_VARS = [
+    'data',
+    'template',
+    'output',
+]
+
+
+TERM_STYLE_DEFAULT = "\033[0m"
+TERM_STYLE_INFO    = "\033[32m\033[1m"
+TERM_STYLE_ERROR   = "\033[91m\033[1m"
+
+
+_ERROR_KEY_TEMPLATE = "KeyError: '{e}'" + TERM_STYLE_ERROR + """
+
+Following command has an unused key '{e}'.
+
+  + RAW VERSION >  {command}{aboutcmd}
+""".rstrip()
+
+
+_ERROR_PROCESS = "\n{stderr}" + TERM_STYLE_ERROR + """
+Following command has failed (see the lines above).
+
+  + RAW VERSION
+       > {command}
+
+  + EXPANDED ONE
+       > {command_expanded}{aboutcmd}
+""".rstrip()
 
 
 ###
-# This class allows to build either string, or file contents from
-# ¨jinjang templates and datas.
+# This class allows to build either string, or file contents from ¨jinjang
+# templates, data, and eventually hooks.
 ###
 class JNGBuilder:
-    DEFAULT_CONFIG_FILE = "cfg.jng.yaml"
-
 ###
 # prototype::
-#     flavour : this argument helps to find the dialect of one template.
-#             @ flavour = AUTO_FLAVOUR
-#               or
-#               flavour in config.jngflavours.ALL_FLAVOURS
-#     pydatas : this argument with the value ``True`` allows the execution
-#               of ¨python files to build data to feed a template.
-#               Otherwise, no ¨python script will be launched.
-#     config  : ¨configs used to allow extra features
-#             @ type(config) = str  ==> config in [AUTO_CONFIG, NO_CONFIG] ;
-#               type(config) != str ==> exists path(config)
+#     flavour   : this is to choose the dialect of a template.
+#               @ flavour = AUTO_FLAVOUR
+#                 or
+#                 flavour in config.jngflavours.ALL_FLAVOURS
+#     launch_py : the value ``True`` allows the execution of ¨python files
+#                 suchas to build feeding data.
+#                 Otherwise, no ¨python script will be launched.
+#     config    : :see: jngconfig.JNGConfig
+#     verbose   : the value ``True`` asks to show the outputs of external
+#                 commands launched.
+#                 Otherwise, these outputs will be hidden from the user.
 ###
     def __init__(
         self,
-        flavour: str  = AUTO_FLAVOUR,
-        pydatas: bool = False,
-        config : Any  = NO_CONFIG
+        flavour  : str  = AUTO_FLAVOUR,
+        launch_py: bool = False,
+        config   : Any  = NO_CONFIG,
+        verbose  : bool = False,
     ) -> None:
         self.flavour = flavour
         self.config  = config
+        self.verbose = verbose
 
-# The update of ``pydatas`` implies the use of a new instance of
-# ``self._build_datas`` via ``JNGDatas(value).build``.
-        self.pydatas = pydatas
+# The update of ``launch_py`` implies the use of a new instance of
+# ``self._build_data`` via ``JNGData(value).build``.
+        self.launch_py = launch_py
 
 
 ###
@@ -85,28 +126,25 @@ class JNGBuilder:
     @config.setter
     def config(self, value):
 # Case of a path for a specific config file.
-        if not value in [AUTO_CONFIG, NO_CONFIG]:
-            raise NotImplementedError(
-                "no config features for the moment..."
-            )
+        if value not in [AUTO_CONFIG, NO_CONFIG]:
+            value = str(value)
 
-        # self.DEFAULT_CONFIG_FILE
-
+# Nothing left to do.
         self._config = value
 
 
 ###
-# One getter, and one setter for ``pydatas`` are used to secure the values
+# One getter, and one setter for ``launch_py`` are used to secure the values
 # used for this special attribut.
 ###
     @property
-    def pydatas(self):
-        return self._pydatas
+    def launch_py(self):
+        return self._launch_py
 
-    @pydatas.setter
-    def pydatas(self, value):
-        self._pydatas     = value
-        self._build_datas = JNGDatas(value).build
+    @launch_py.setter
+    def launch_py(self, value):
+        self._launch_py  = value
+        self._build_data = JNGData(value).build
 
 
 ###
@@ -139,14 +177,14 @@ class JNGBuilder:
 
 ###
 # prototype::
-#     datas    : datas used to feed one template.
+#     data     : data feeding the template.
 #     template : one template.
 #
-#     :return: the output made by using ``datas`` on ``template``.
+#     :return: the output made by using ``data`` on ``template``.
 ###
     def render_frompy(
         self,
-        datas   : dict,
+        data    : dict,
         template: str
     ) -> str:
 # With ¨python varaiable, we can't detect automatically the flavour.
@@ -156,9 +194,9 @@ class JNGBuilder:
             )
 
 # A dict must be used for the values of the ¨jinjang variables.
-        if not isinstance(datas, dict):
+        if not isinstance(data, dict):
             raise TypeError(
-                "''datas'' must be a ''dict'' variable."
+                "''data'' must be a ''dict'' variable."
             )
 
 # Let's wirk!
@@ -166,39 +204,59 @@ class JNGBuilder:
         jinja2env.loader = StringLoader()
 
         jinja2template = jinja2env.get_template(template)
-        content        = jinja2template.render(datas)
+        content        = jinja2template.render(data)
 
         return content
 
 
 ###
 # prototype::
-#     datas    : datas used to feed one template.
+#     data     : data feeding the template.
 #     template : one template.
 #              @ exists path(str(template))
-#     output   : the file used for the output build after using ``datas``
+#     output   : the file used for the output build after using ``data``
 #                on ``template``.
+#     flavour  : if the value is not ``None``, a local value is used
+#                without deleting the previous one.
+#                :see: self.__init__
+#     launch_py: if the value is not ``None``, a local value is used
+#                without deleting the previous one.
+#                :see: self.__init__
+#     config   : if the value is not ``None``, a local value is used
+#                without deleting the previous one.
+#                :see: self.__init__
+#     verbose  : if the value is not ``None``, a local value is used
+#                without deleting the previous one.
+#                :see: self.__init__
 #
-#     :action: an output file is created with a content build after using
-#              ``datas`` on ``template``.
+#     :action: the file ``output`` is built by using ``data`` on
+#              ``template``, while respecting any additional behaviour
+#              specified.
 ###
     def render(
         self,
-        datas   : Any,
-        template: Any,
-        output  : Any,
-        pydatas : Union[bool, None] = None,
-        config  : Any               = None
+        data     : Any,
+        template : Any,
+        output   : Any,
+        flavour  : Union[str, None]  = None,
+        launch_py: Union[bool, None] = None,
+        config   : Any               = None,
+        verbose  : Union[bool, None] = None,
     ) -> None:
-# Can we execute temporarly a ¨python file to build datas?
-        if pydatas is not None:
-            old_pydatas  = self.pydatas
-            self.pydatas = pydatas
+# Local settings.
+        oldsettings = dict()
 
-# Can we use temporarly specific ¨configs?
-        if config is not None:
-            old_config  = self.config
-            self.config = config
+        for param in [
+            "flavour",
+            "launch_py",
+            "config",
+            "verbose",
+        ]:
+            val = locals()[param]
+
+            if val is not None:
+                oldsettings[param] = getattr(self, param)
+                setattr(self, param, val)
 
 # What is the flavour to use?
         if self.flavour == AUTO_FLAVOUR:
@@ -207,41 +265,57 @@ class JNGBuilder:
         else:
             flavour = self.flavour
 
-# Let's work!
+# `Path` version of the paths.
+        self._data     = Path(str(data))
+        self._template = Path(str(template))
+        self._output   = Path(str(output))
+
+        self._template_parent = self._template.parent
+
+# Configs used for hooks.
+        self._dict_config = build_config(
+            config = self.config,
+            parent = self._template_parent
+        )
+
+# Pre-hooks?
+        self._pre_hooks()
+
+# Let's go!
         jinja2env        = self._build_jinja2env(flavour)
         jinja2env.loader = FileSystemLoader(
-            str(template.parent)
+            str(self._template_parent)
         )
 
         jinja2template = jinja2env.get_template(
-            str(template.name)
+            str(self._template.name)
         )
 
-        dictdatas = self._build_datas(datas)
-        content   = jinja2template.render(dictdatas)
+        dictdata = self._build_data(self._data)
+        content  = jinja2template.render(dictdata)
 
         output.write_text(
             data     = content,
             encoding = "utf-8",
         )
 
-# Restore previous settings if local ones have been used.
-        if pydatas is not None:
-            self.pydatas = old_pydatas
+# Post-hooks?
+        self._post_hooks()
 
-        if config is not None:
-            self.config = old_config
+# Restore previous settings if local ones have been used.
+        for param, oldval in oldsettings.items():
+            setattr(self, param, oldval)
 
 
 ###
 # prototype::
-#     template : one template.
+#     template : the path of a template.
 #
 #     :return: the flavour to be used on ``template``.
 ###
     def _auto_flavour(
         self,
-        template: Any
+        template: Path
     ) -> str:
         flavour_found = FLAVOUR_ASCII
 
@@ -262,7 +336,7 @@ class JNGBuilder:
 
 ###
 # prototype::
-#     flavour : this argument indicates an exiting dialect.
+#     flavour : an exiting dialect.
 #             @ flavour in config.jngflavours.ALL_FLAVOURS
 #
 #     :return: a ``jinja2.Environment`` that will create the final output.
@@ -271,4 +345,154 @@ class JNGBuilder:
         self,
         flavour: str
     ) -> Environment:
-        return Environment(**JINJA_TAGS[flavour])
+        return Environment(
+            keep_trailing_newline = True,
+            **JINJA_TAGS[flavour]
+        )
+
+
+###
+# prototype::
+#     :action: launching of pre-processing
+###
+    def _pre_hooks(self) -> None:
+        self._some_hooks(TAG_PRE)
+
+
+###
+# prototype::
+#     :action: launching of post-processing
+###
+    def _post_hooks(self) -> None:
+        self._some_hooks(TAG_POST)
+
+
+###
+# prototype::
+#     kind : the kind of external processing.
+#
+#     :action: launching of external processing
+###
+    def _some_hooks(self, kind: str) -> None:
+        if not TAG_HOOKS in self._dict_config:
+            return None
+
+        self.launch_commands(
+            kind = f"{TAG_HOOKS}/{kind}",
+            loc  = self._dict_config[TAG_HOOKS][kind]
+        )
+
+
+###
+# prototype::
+#     kind   : the kind of processing
+#     loc    : [l]-ist [o]-f [c]-ommands to execute
+#     frompy : ``True`` indicates the use of the method within a ¨python
+#              script.
+#              Otherwise, the method is used in a "command line" context.
+#
+#     :action: attempt to execute all commands in ``loc``.
+###
+    def launch_commands(
+        self,
+        kind  : str,
+        loc   : List[str],
+        frompy: bool = False
+    ) -> None:
+        if not loc:
+            return None
+
+# Lets' try to build expanded version of each command, and then execute it.
+        savedwd = os.getcwd()
+        os.chdir(str(self._template_parent))
+
+        tochange = {
+            sv: str(getattr(self, f"_{sv}"))
+            for sv in SPE_VARS
+        }
+
+        for nbcmd, command in enumerate(loc, 1):
+            aboutcmd = self._about_command(nbcmd, kind, frompy)
+
+            try:
+                command_expanded = command.format(**tochange)
+
+            except KeyError as e:
+                raise Exception(
+                    _ERROR_KEY_TEMPLATE.format(
+                        command  = command,
+                        e        = e,
+                        aboutcmd = aboutcmd
+                    )
+                )
+
+            try:
+                self._print_info(
+                     "Launching"
+                     "\n"
+                    f"  > {command_expanded}"
+                )
+
+                listcmd = shlex.split(command_expanded)
+
+                r = run(
+                    listcmd,
+                    check          = True,
+                    capture_output = True,
+                    encoding       = "utf8"
+                )
+
+                if self.verbose:
+                    print(r.stdout)
+
+            except Exception as e:
+                raise Exception(
+                    _ERROR_PROCESS.format(
+                        command          = command,
+                        command_expanded = command_expanded,
+                        stderr           = getattr(e, 'stderr', e),
+                        aboutcmd         = aboutcmd
+                    )
+                )
+
+        os.chdir(savedwd)
+
+# No problem met.
+        howmany = "One" if nbcmd == 1 else nbcmd
+        plurial = ""    if nbcmd == 1 else "s"
+
+        self._print_info(f"{howmany} command{plurial} launched with success.")
+
+
+###
+# prototype::
+#     nbcmd  : the rank of the command
+#     kind   : :see: self.launch_commands
+#     frompy : :see: self.launch_commands
+#
+#     :return: an empty string if ``frompy = True``.
+#              Otherwise, a message indicates the block used in the
+#              path::``YAML`` configuration file, as well as the rank of
+#              the command.
+###
+    def _about_command(
+        self,
+        nbcmd : int,
+        kind  : str,
+        frompy: bool
+    ) -> str:
+        if frompy:
+            return ""
+
+        return f"\n\nSee the block '{kind}', and the command #{nbcmd}."
+
+
+###
+# prototype::
+#     message : one message for the user
+#
+#     :action: display in bold green of the message in the terminal
+###
+    def _print_info(self, message: str) -> None:
+        print(TERM_STYLE_INFO + message + TERM_STYLE_DEFAULT)
+        print()

@@ -22,4 +22,4 @@ verb::
 
 
 warning::
-    La méthode python::``render_frompy`` ne fonctionne pas avec python::``AUTO_FLAVOUR``, et de plus le type de python::``datas`` ne peut être que python::``dict``.
+    La méthode python::``render_frompy`` ne fonctionne pas avec python::``AUTO_FLAVOUR``, et de plus le type de python::``data`` ne peut être que python::``dict``.

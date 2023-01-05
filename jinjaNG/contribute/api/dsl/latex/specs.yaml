@@ -1,7 +1,7 @@
 about:
     author: Christophe, Bal [projetmbc@gmail.com]
     desc  : Useful settings and tools for LaTeX templating.
-    date  : 2022-12-01
+    date  : 2022-12-31
     tools : yes
 
 ext:
@@ -12,4 +12,4 @@ ext:
 src-comment:
     inline: "% ..."
 
-var: \JNGVAR{ ... }
+var: \JNGVALOF{ ... }

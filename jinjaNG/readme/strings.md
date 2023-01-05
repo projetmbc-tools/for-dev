@@ -6,7 +6,7 @@ To work directly from `Python` without using any file, you need to produce a dic
 ~~~python
 from jinjang import *
 
-mydatas = {
+mydata = {
     'txt_exa': "small example",
     'max_i'  : 4
 }
@@ -21,7 +21,7 @@ One {{ txt_exa }} with automatic calculations.
 mybuilder = JNGBuilder(flavour = FLAVOUR_ASCII)
 
 output = mybuilder.render_frompy(
-    datas    = mydatas,
+    data     = mydata,
     template = mytemplate
 )
 ~~~

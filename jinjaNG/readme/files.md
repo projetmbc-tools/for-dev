@@ -26,6 +26,7 @@ One example.
 As you can see, most of the content follows a repetitive logic. So it may be a good idea to automate the typing. Here is where `jinjaNG` can help us.
 
 
+
 ### What we really type
 
 The first thing we can do is to define the repetitive content. Let's use a `YAML` file (a `JSON` file can be used, but it's less fun to type). If we need to go further into the numbers in the `LaTeX` file, we just have to add new names to the list in the `YAML` file.
@@ -51,11 +52,11 @@ Next, let's type a minimalist `LaTeX` code using special instructions and tags. 
 
 \begin{document}
 
-One \JNGVAR{txt_exa}.
+One \JNGVALOF{txt_exa}.
 
 \begin{enumerate}
 %: for oneval in values
-    \item Value nb. \JNGVAR{loop.index}: "\JNGVAR{oneval}".
+    \item Value nb. \JNGVALOF{loop.index}: "\JNGVALOF{oneval}".
 %: endfor
 \end{enumerate}
 
@@ -64,12 +65,13 @@ One \JNGVAR{txt_exa}.
 
 This is how the previous template was typed.
 
-  1. Let's start with the content after the `\begin{document}`. With `\JNGVAR{txt_exa}`, we indicate to use the value associated with the `txt_exa` variable in the `YAML` data file. In our case, `\JNGVAR{txt_exa}` corresponds to `example`.
+  1. Let's start with the content after the `\begin{document}`. With `\JNGVALOF{txt_exa}`, we indicate to use the value associated with the `txt_exa` variable in the `YAML` data file. In our case, `\JNGVALOF{txt_exa}` corresponds to `example`.
 
   1. At the begining of the template, the lines between `%: if False` and `%: endif` will not be in the final output. Here we use `%: some Jinja instructions` with an always-false condition which causes the block to be ignored when making the final file. This allows the `jnglatex` package to be used only in the template file, but not in the final output. This package allows `jinjaNG` variables to be clearly highlighted after the `LaTeX` template is compiled: this small feature greatly simplifies template design.
 
 
 >  For now, the `jnglatex.sty` file must be in the same folder as the `LaTeX` template, or it must be installed by hand in your `LaTeX` distribution: you will find it in the `jng-extra-tools` folder.
+
 
 
 ### Building the output via a `Python` code
@@ -82,7 +84,7 @@ from jinjang import *
 mybuilder = JNGBuilder()
 
 mybuilder.render(
-    datas    = "datas.yaml",
+    data     = "data.yaml",
     template = "template.tex",
     output   = "output.tex"
 )
@@ -91,13 +93,14 @@ mybuilder.render(
 This code uses one useful default behaviour: `jinjaNG` associates automatically the `LaTeX` dialect, or flavour because the template has the extension `TEX`. The flavours available are given in the last section of this document.
 
 
+
 ### Building the output via command lines
 
 The commands below have the same effect as the `Python` code in the previous section.
 
 ~~~
 > cd path/to/the/good/folder
-> python -m jinjang --dto datas.yaml template.tex output.tex
+> jinjang data.yaml template.tex output.tex
 File successfully built:
   + output.tex
 ~~~
@@ -106,40 +109,40 @@ File successfully built:
 
 ### Building the data via a `Python` script
 
-In our case, by knowing the existence of [cvnum](https://pypi.org/project/cvnum/), for example, we can be more efficient in constructing the data. Here is one possible `datas.py` file where `JNG_DATAS` is a reserved name for the data that `jinjaNG` will use. We'll see next that producing the final output can no longer be done using the default behaviour of an instance of the `JNGBuilder` class.
+In our case, by knowing the existence of [cvnum](https://pypi.org/project/cvnum/), for example, we can be more efficient in constructing the data. Here is one possible `data.py` file where `JNGDATA` is a reserved name for the data that `jinjaNG` will use. We'll see next that producing the final output can no longer be done using the default behaviour of an instance of the `JNGBuilder` class.
 
 ~~~python
 from cvnum.textify import *
 
 nameof = IntName().nameof
 
-JNG_DATAS = {
+JNGDATA = {
     'txt_exa': "example",
     'values' : [nameof(x) for x in range(1, 6)]
 }
 ~~~
 
 
-The `Python` code producing the final output becomes the following one, where `pydatas = True` allows the class `JNGBuilder` to execute the `Python` file. **This choice can be dangerous with untrusted `Python` scripts!**
+The `Python` code producing the final output becomes the following one, where `pydata = True` allows the class `JNGBuilder` to execute the `Python` file. **This choice can be dangerous with untrusted `Python` scripts!**
 
 ~~~python
 from jinjang import *
 
-mybuilder = JNGBuilder(pydatas = True)
+mybuilder = JNGBuilder(pydata = True)
 
 mybuilder.render(
-    datas    = "datas.py",
+    data     = "data.py",
     template = "template.tex",
     output   = "output.tex"
 )
 ~~~
 
 
-To work with a `Python`data file from the terminal, you must use the tag `--pydto` instead of `--dto`. This is because **it can be dangerous to launch a `Python` data file**, so `jinjaNG` must know that you really want to do this. The commands below have the same effect as the `Python` code above.
+To work with a `Python` data file from the terminal, you must use the tag `--unsafe` because **it can be dangerous to launch a `Python` data file**, so `jinjaNG` must know that you really want to do this. The commands below have the same effect as the `Python` code above.
 
 ~~~
 > cd path/to/the/good/folder
-> python -m jinjang --pydto datas.py template.tex output.tex
+> jinjang --unsafe data.py template.tex output.tex
 WARNING: Using a Python file can be dangerous.
 File successfully built:
   + output.tex

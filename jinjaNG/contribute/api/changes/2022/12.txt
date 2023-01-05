@@ -1,0 +1,12 @@
+// ---------- //
+
+
+==
+31
+==
+
+-------
+:break:
+-------
+
+Naming: ``JNGVAR`` has been replaced by ``JNGVALOF`` which is mor explicit.

@@ -1,0 +1,33 @@
+﻿this::
+    date = 2023-01-04
+
+
+===========================
+Des données au format ¨yaml
+===========================
+
+Pour pouvoir taper les données à la main, ce qui n'est pas rare du tout, il est plus simple de passer via le format ¨yaml au lieu du ¨json.
+A titre de comparaison, redonnons les données de l'exemple de la section précédente.
+
+json::
+    ---
+    title = Des données au format ¨json
+    path  = ?/examples/direct/data.json
+    ---
+
+
+L'équivalent au format ¨yaml est ce qui suit avec une syntaxe efficace pour une saisie à la main.
+
+yaml::
+    ---
+    title = Les données précédentes au format ¨yaml
+    path  = ?/examples/direct/data.yaml
+    ---
+
+
+Côté génération du produit fini, rien de bien nouveau comme le montre la section fictive suivante.
+
+terminal::
+    > cd my/folder
+    > jinjang data.yaml template.tex output.tex
+    [...]

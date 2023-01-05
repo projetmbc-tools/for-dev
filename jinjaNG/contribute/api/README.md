@@ -1,5 +1,5 @@
-Contribute to the `API` of `jinjaNG`
-====================================
+Contribute to the `API` of `ealic`
+==================================
 
 > **I beg your pardon for my english...**
 >
@@ -18,7 +18,7 @@ The contributions made are in the `contribute/api` folder which has the followin
         * README.md
         + changes
             * LICENSE.txt
-        + dsl
+        + licences
 
 <!-- FOLDER STRUCT. AUTO - END -->
 

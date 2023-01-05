@@ -1,0 +1,134 @@
+// ---------- //
+
+
+==
+05  (0.1.0-rc)
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+Here are all the new features.
+
+    1) ¨Cfg files, and hooks: it is now possible to work with ¨cfg files which currently only offer the hooks functionality.
+
+    1) ¨CLI: two new things done.
+
+        * An alias allows to use term::``jinjang`` instead of term::``python -m jinjang``.
+
+        * One new option term::``--short``, or term::``-s``, asks to hide the external command output.
+
+    1) Launching external commands: for consistency, a new special ¨var yaml::``{data}`` is available.
+
+
+[[:doc:]]
+path::``README.md``: a new section explains how to use hooks.
+
+
+-------
+:break:
+-------
+
+[[:api:]]
+Here are all the breaking changes.
+
+    1) The method ``JNGBuilder.render``: the new option ``verbose`` allows to disable the printing of the external command output.
+
+    1) ¨CLI: the optins term::``--flavour`` and term::``--config`` replace the obsolete term::``--fl`` and term::``--cfg``.
+
+    1) All classes, functions, methods... named with "datas" know use "data" without the letter "s".
+
+    1) Launching external commands: the special ¨vars yaml::``{output}`` and yaml::``{template}`` replace the obsolete yaml::``{{output}}`` and yaml::``{{template}}``.
+
+
+--------
+:fordev:
+--------
+
+[[:api:]]
+Here are the new features.
+
+    1) Contributions: the use cases must propose path::``JSON``, and path::``YAML`` data files. No path::``PY`` data file required.
+
+    1) New file path::``VERSIONS.yaml``: this file lists all dated versions. **In the near future, it will be built automatically.**
+
+    1) New file path::``KEYWORDS.yaml``: the purpose of this file is to easily provide keywords related to the project.
+
+
+// ---------- //
+
+
+==
+02
+==
+
+--------
+:update:
+--------
+
+[[:api:]]
+Final empty lines: from now, they are kept (it was a bad idea to ignore them).
+
+
+--------
+:fordev:
+--------
+
+[[:test:]]
+Testing improved.
+
+    1) ¨cli: the automated tests also compare the content constructed with that expected.
+
+    1) The error messages for the use cases, and the examples in the ¨doc give the absolute path to the folder that revealed an error.
+
+
+[[:flow:]]
+Two small important files added.
+
+    1) Launching all: the ¨bash file path::``launch-all.bash`` launches all builders, and tests to verify that a new version can be delivered (the order of launch is the responsibility of the developer: see the file path::``launch-all-folders.txt``.).
+
+    1) Building the distributed source: the ¨bash file path::``build-project.bash`` does that.
+
+
+
+// ---------- //
+
+
+==
+01
+==
+
+-------
+:break:
+-------
+
+[[:api:]]
+Here are the changes made to simplify the ¨api.
+
+    1) Classe ``JNGBuilder``: the boolean parameter/attribut ``pydatas`` has been renamed ``launch_py`` which is more explicit.
+
+    1) The ¨cli ¨api has been simplified, and made more explicit.
+
+        * The parameters term::``--dto`` and term::``--pydto`` no longer exist.
+
+        * The new parameter term::``--unsafe`` indicates clearly that the dangerous use of a ¨python file to build data is allowed.
+
+        * Each parameter has an abbreviation.
+
+            + term::``-c`` for term::``--cfg``.
+            + term::``-f`` for term::``--fl``.
+            + term::``-u`` for term::``--unsafe``.
+
+
+--------
+:fordev:
+--------
+
+[[:test:]]
+Testing the ¨cli.
+
+    1) New debugging file: one ¨bash file to play with the ¨cli.
+
+    1) New test file: one ¨bash file to just check that ¨cli is functional.

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
 ###
-# This module implements a Comand Line Interface.
+# This module implements the [C]-omand [L]-ine [I]-nterface of ¨jinjaNG.
 ###
+
 
 import click
 
@@ -23,7 +24,7 @@ from .jngbuild import *
 def _exit(message):
     print(
 f"""
-Try 'python -m jinjang --help' for help.
+Try 'jinjang --help' for help.
 
 Error: {message}
 """.strip()
@@ -34,44 +35,35 @@ Error: {message}
 
 ###
 # prototype::
-#     datas    : the file containing the data to feed the template.
+#     data     : the path of the file containing the data to feed
+#                the template.
 #                path::``YAML``, path::``JSON``, and path::``PY``
 #                files can be used.
-#     template : the template file.
+#     template : the path of the template file.
 #     output   : the path for the output built by ¨jinjaNG.
-#     dto      : the value ``True`` indicates to work only with
-#                a path::``YAML`` or path::``JSON`` file (see
-#                the argument ``pydto``).
-#              @ dto != pydto
-#     pydto    : the value ``True`` indicates to work only with
-#                a path::``PY`` file (see the argument ``dto``).
-#              @ dto != pydto
-#     fl       : this indicates either to use the automatic
-#                detection of the flavour if ``fl = AUTO_FLAVOUR``,
-#                or the flavour of the template.
-#     cfg      : COMING SOON...
+#     unsafe   : same usage as the attribut/parameter ``launch_py``
+#                of the method ``jngbuild.JNGBuilder.render``,
+#                :see: jngbuild.JNGBuilder.render
+#     flavour  : :see: jngbuild.JNGBuilder.render
+#     config   : :see: jngconfig.build_config.render
+#     short    : opposite usage of the attribut/parameter ``verbose``
+#                of the method ``jngbuild.JNGBuilder.render``,
+#                :see: jngconfig.build_config.render
 #
-#     :action: the ``output`` file is constructed using the data
-#              and template while applying any parameters specified.
+#     :action: :see: :see: jngbuild.JNGBuilder.render
 ###
 @click.command()
-@click.argument('datas')
+@click.argument('data')
 @click.argument('template')
 @click.argument('output')
-@click.option('--dto',
+@click.option('--unsafe', '-u',
               is_flag = True,
               default = False,
-              help    = "This flag is mandatory if ``--pydto`` is not used. "
-                        'It is to work with JSON or YAML datas. ')
-@click.option('--pydto',
-              is_flag = True,
-              default = False,
-              help    = 'TO USE WITH A LOT OF CAUTION! '
-                        "This flag is mandatory if ``--dto`` is not used. "
-                        'It is to use datas from a Python file: '
-                        'use a dictionary named ``JNG_DATAS`` for '
-                        'the Jinja variables and their value. ')
-@click.option('--fl',
+              help    = '** TO USE WITH A LOT OF CAUTION! ** '
+                        'This flag allows Python file to build data: use '
+                        'a dictionary named ``JNGDATA`` for the Jinja '
+                        'variables and their value. ')
+@click.option('--flavour', '-f',
               default = AUTO_FLAVOUR,
               help    = "A flavour to use if you don't want to let "
                         'jinjaNG detect automatically the dialect '
@@ -80,53 +72,53 @@ Error: {message}
                         + ', '.join(ALL_FLAVOURS[:-1])
                         + f', or {ALL_FLAVOURS[-1]}'
                         + '.')
-@click.option('--cfg',
-              default = '',
-              help    = 'COMING SOON... '
-                        'TO USE WITH A LOT OF CAUTION! '
+@click.option('--config', '-c',
+              default = NO_CONFIG,
+              help    = '** TO USE WITH A LOT OF CAUTION! ** '
                         'The value ``auto`` authorizes jinjaNG to use '
-                        'a ``cfg.jng.yaml`` file, if it exists. '
+                        'a ``cfg.jng.yaml`` file detected automatically '
+                        'relatively to the parent folder of the template. '
                         'You can also indicate the path of a specific '
                         'YAML configuration file.')
+@click.option('--short', '-s',
+              is_flag = True,
+              default = False,
+              help    = 'This flag is used to hide the output of external '
+                        'commands that jinjaNG is asked to run.')
+
 def jng_CLI(
-    datas   : str,
+    data    : str,
     template: str,
     output  : str,
-    dto     : bool,
-    pydto   : bool,
-    fl      : str,
-    cfg     : str,
+    unsafe  : bool,
+    flavour : str,
+    config  : str,
+    short   : bool,
 ) -> None:
     """
     Produce a file by filling in a Jinja template.
 
-    DATAS: the path of the file containing the datas.
+    DATA: the path of the file containing the data.
 
     TEMPLATE: the path of the template.
 
     OUTPUT: the path of the output built by jinjaNG.
     """
-# DTO or PYDTO?
-    if(
-        not(dto or pydto)
-        or
-        (dto and pydto)
-    ):
-        _exit("You must used either ``--dto``, or ``--pydto``.")
-
-    if pydto:
-        print('WARNING: Using a Python file can be dangerous.')
+# Unsafe mode used?
+    if unsafe:
+        print('WARNING! Using a Python file can be dangerous.')
 
 # Lets' work...
     mybuilder = JNGBuilder(
-        flavour = fl,
-        pydatas = pydto,
-        # config  = cfg
+        flavour   = flavour,
+        launch_py = unsafe,
+        config    = config,
+        verbose   = not short
     )
 
     try:
         mybuilder.render(
-            datas    = Path(datas),
+            data     = Path(data),
             template = Path(template),
             output   = Path(output)
         )

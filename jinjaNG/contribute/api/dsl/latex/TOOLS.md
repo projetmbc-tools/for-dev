@@ -14,7 +14,7 @@ Here is the miminal way to use the tools from the package `<:TOOLS:>`. Note the 
 
 \begin{document}
 
-The smallest \JNGVAR{txt_example} in the world.
+The smallest \JNGVALOF{txt_example} in the world.
 
 \end{document}
 ~~~

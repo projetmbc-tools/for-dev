@@ -1,26 +1,52 @@
 #!/usr/bin/env python3
 
-from mistool.os_use import PPath as Path
+from typing import Tuple, List
+
+from collections import defaultdict
+from yaml        import safe_load as yaml_load
+
+from cbdevtools.addfindsrc import addfindsrc
+from mistool.os_use        import PPath as Path
+
+
+# ------------- #
+# -- MESSAGE -- #
+# ------------- #
+
+def message(template):
+    dirpb = template.parent
+
+    return (
+         "\n"
+         "In the source dir, see the folder:"
+         "\n"
+        f"+ {dirpb}"
+         "\n"
+    )
 
 
 # ----------- #
-# -- TOOLS -- #
+# -- OUPUT -- #
 # ----------- #
 
 def build_output(
     builder,
-    datas,
+    data,
     template
 ):
     output_found = template.parent / f"output_found{template.suffix}"
 
     builder.render(
-        datas    = datas,
+        data    = data,
         template = template,
         output   = output_found
     )
 
     return output_found
+
+
+def remove_output_found(subdir, template):
+    (subdir / f"output_found{template.suffix}").unlink()
 
 
 # ------------------------ #
@@ -42,4 +68,110 @@ def minimize_content(path):
 # Verbatim equivalences of the contents except for the final empty lines that are striped.
 
 def content(path):
-    return path.read_text(encoding = 'utf-8').rstrip().split('\n')
+    return path.read_text(encoding = 'utf-8').split('\n')
+
+
+# -------------------- #
+# -- USECASES DATA -- #
+# -------------------- #
+
+def yielddirs(pdir: Path) -> Path:
+    if not pdir.is_dir():
+        raise Exception(
+            f"one dir expected, see:\n{pdir}"
+        )
+
+    for subdir in pdir.glob('*'):
+        if(
+            subdir.is_dir()
+            and
+            not subdir.name.startswith('.')
+            and
+            not subdir.name.startswith('x-')
+        ):
+            yield subdir
+
+
+def extract_dto(pdir: Path) -> Tuple[Path, Path, Path]:
+    dto = {
+        n: []
+        for n in ['data', 'template', 'output']
+    }
+
+    for pfile in pdir.glob('*'):
+        name = pfile.stem
+
+        if name in dto:
+            dto[pfile.stem].append(pfile)
+
+    for name, pathsfound in dto.items():
+        if len(pathsfound) != 1:
+            nbpaths = len(pathsfound)
+
+            howmany = 'no' if nbpaths == 0 else nbpaths
+            plural  = ''   if nbpaths == 0 else 's'
+
+            raise Exception(
+                f"one file, and only one, can be named ''{name}'': "
+                f"{howmany} file{plural} found. Look at the folder:\n{pdir}"
+            )
+
+    return tuple(
+        p[0]
+        for _, p in dto.items()
+    )
+
+
+def build_usecases_data(
+    data_dir: Path
+) -> List[Tuple]:
+    usecases_folders = defaultdict(list)
+
+    for pdir in yielddirs(data_dir):
+        flavour = pdir.name
+
+        for ucdir in yielddirs(pdir):
+            usecases_folders[flavour].append(ucdir)
+
+# ! -- DEBUGGING -- ! #
+    # from pprint import pprint
+    # pprint(dict(USECASES_FOLDERS))
+# ! -- DEBUGGING -- ! #
+
+    usecases_data = []
+
+    for flavour, usecases in usecases_folders.items():
+        for ucdir in usecases:
+            jngdata, template, output = extract_dto(ucdir)
+            test_name                  = ucdir.name
+
+            usecases_data.append(
+                (
+                    flavour,
+                    test_name,
+                    jngdata,
+                    template,
+                    output
+                )
+            )
+
+    return usecases_data
+
+
+# -------------------- #
+# -- USECASES DATA -- #
+# -------------------- #
+
+def build_docexas_data(
+    docexa_yaml : Path
+) -> Tuple[Path, List]:
+    with docexa_yaml.open(
+        encoding = 'utf-8',
+        mode     = 'r'
+    ) as f:
+        docexa_totest = yaml_load(f)
+
+    doc_content_dir = Path(docexa_totest['docdir'])
+    docexa_totest   = docexa_totest['totest']
+
+    return doc_content_dir, docexa_totest

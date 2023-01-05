@@ -1,0 +1,17 @@
+# Tree structure giving the project keywords.
+
+last-change: 2023-01-05
+
+techology:
+  project:
+    python:
+      - jinja2
+
+  usage:
+    - latex
+    - html [javascript]
+
+
+context:
+  writing:
+    - template
