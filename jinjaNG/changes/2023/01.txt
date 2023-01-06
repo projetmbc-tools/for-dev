@@ -2,6 +2,21 @@
 
 
 ==
+06
+==
+
+--------
+:fordev:
+--------
+
+[[:flow:]]
+¨Doc: the list of local variables of the method ``JNGBuilder.render`` is automatically constructed.
+
+
+// ---------- //
+
+
+==
 05  (0.1.0-rc)
 ==
 

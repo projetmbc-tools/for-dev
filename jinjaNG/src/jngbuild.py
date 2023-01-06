@@ -85,6 +85,13 @@ Following command has failed (see the lines above).
 # templates, data, and eventually hooks.
 ###
 class JNGBuilder:
+    _RENDER_LOC_VARS = [
+        "flavour",
+        "launch_py",
+        "config",
+        "verbose",
+    ]
+
 ###
 # prototype::
 #     flavour   : this is to choose the dialect of a template.
@@ -187,7 +194,7 @@ class JNGBuilder:
         data    : dict,
         template: str
     ) -> str:
-# With ¨python varaiable, we can't detect automatically the flavour.
+# With ¨python variable, we can't detect automatically the flavour.
         if self.flavour == AUTO_FLAVOUR:
             raise ValueError(
                 "no ''auto-flavour'' when working with strings."
@@ -246,12 +253,7 @@ class JNGBuilder:
 # Local settings.
         oldsettings = dict()
 
-        for param in [
-            "flavour",
-            "launch_py",
-            "config",
-            "verbose",
-        ]:
+        for param in self._RENDER_LOC_VARS:
             val = locals()[param]
 
             if val is not None:

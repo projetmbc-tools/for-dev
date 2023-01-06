@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-05
+    date = 2023-01-06
 
 
 ============================
@@ -43,13 +43,17 @@ Le code s'appuie sur une instance de la classe python::``JNGBuilder`` du package
 
     Cette méthode propose aussi les arguments optionnels suivants qui valent par défaut ``None`` ; ce choix par défaut indique d'utiliser les attributs éponymes de l'instance de la classe ``JNGBuilder``.
 
+// -- RENDER - LOCAL VARS - AUTO LIST - START -- //
+
+        * python::``config``
+
         * python::``flavour``
 
         * python::``launch_py``
 
-        * python::``config``
-
         * python::``verbose``
+
+// -- RENDER - LOCAL VARS - AUTO LIST - END -- //
 
     Pour chacun des ¨args optionnels ci-dessus, si une valeuur est indiquée, alors elle sera employée localement : autrement dit, à la fin de l'exécution de la méthode ``render``, les valeurs des attributs éponymes avant l'appel de la méthode seront rétablies.
 
