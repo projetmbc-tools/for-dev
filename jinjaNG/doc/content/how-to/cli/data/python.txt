@@ -38,4 +38,4 @@ python::
 
 
 warning::
-    A ce jour, les fichiers du type `datat.py` ne peuvent pas faire d'importations relatives de fichiers, ou modules.
+    A ce jour, les fichiers du type `data.py` ne peuvent pas faire d'importations relatives de fichiers, ou modules.

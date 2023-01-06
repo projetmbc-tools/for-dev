@@ -149,4 +149,4 @@ File successfully built:
 ~~~
 
 
-> Scripts like `datat.py` cannot do relative imports.
+> Scripts like `data.py` cannot do relative imports.

@@ -10,7 +10,7 @@
 --------
 
 [[:doc:]]
-¨Doc: a warning indicates that scripts like `datat.py` cannot do relative imports.
+¨Doc: a warning indicates that scripts like `data.py` cannot do relative imports.
 
 
 --------
