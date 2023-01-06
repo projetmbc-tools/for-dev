@@ -6,11 +6,19 @@
 ==
 
 --------
+:update:
+--------
+
+[[:doc:]]
+¨Doc: a warning indicates that scripts like `datat.py` cannot do relative imports.
+
+
+--------
 :fordev:
 --------
 
 [[:flow:]]
-¨Doc: the list of local variables of the method ``JNGBuilder.render`` is automatically constructed.
+¨Doc: the list of local ¨vars of the method ``JNGBuilder.render`` is automatically constructed.
 
 
 // ---------- //

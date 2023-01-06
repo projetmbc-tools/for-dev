@@ -79,10 +79,9 @@ else:
         ]
     )
 
-    now = datetime.now()
-
     last_date = last_date.strip()
     last_date = datetime.strptime(last_date, '%Y-%m-%d')
+    now       = datetime.now()
 
     if now > last_date:
         now = now.strftime('%Y-%m-%d')

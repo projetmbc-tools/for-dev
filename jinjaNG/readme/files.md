@@ -147,3 +147,6 @@ WARNING: Using a Python file can be dangerous.
 File successfully built:
   + output.tex
 ~~~
+
+
+> Scripts like `datat.py` cannot do relative imports.

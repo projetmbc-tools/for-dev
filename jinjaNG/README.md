@@ -171,6 +171,9 @@ File successfully built:
 ~~~
 
 
+> Scripts like `datat.py` cannot do relative imports.
+
+
 Hooks: doing pre and post-processing
 ------------------------------------
 
