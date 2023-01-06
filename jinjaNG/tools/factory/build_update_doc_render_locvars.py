@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from datetime import date
+from datetime import datetime
 from pathlib  import Path
 
 from cbdevtools.addfindsrc import addfindsrc
@@ -70,7 +70,7 @@ if new_content == last_content:
 else:
     print(f'{TAB_2}+ New list added.')
 
-    before, _, after = between(
+    before, last_date, after = between(
         text     = new_content,
         keepseps = True,
         seps     = [
@@ -79,11 +79,17 @@ else:
         ]
     )
 
-    today = date.today()
+    now = datetime.now()
 
-    print(f'{TAB_2}+ New date for the doc file: {today}.')
+    last_date = last_date.strip()
+    last_date = datetime.strptime(last_date, '%Y-%m-%d')
 
-    new_content = before + f" {today}\n\n\n" + after
+    if now > last_date:
+        now = now.strftime('%Y-%m-%d')
+
+        print(f'{TAB_2}+ New date for the doc file: {now}.')
+
+        new_content = before + f" {now}\n\n\n" + after
 
     DOC_FILE.write_text(
         data     = new_content,
