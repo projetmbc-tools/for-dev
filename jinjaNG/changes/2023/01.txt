@@ -2,15 +2,27 @@
 
 
 ==
-07
+08
 ==
+
+--------
+:update:
+--------
+
+[[:api:]]
+Tools for ¨latex ¨DSL: the macro latex::``\JNGVALOF`` can be used inside contents of a latex::``\section`` like title, or inside footnotes.
+
+
+[[:doc:]]
+path::``README.md``: the ¨tech section about all the flavours has been simplified a lot.
+
 
 --------
 :fordev:
 --------
 
 [[:flow:]]
-DSL - Contribute: the status of a flavour has been clarified. It is now possible to update the flavour, without breaking the current ¨src code.
+¨DSL - Contribute: the status of flavours have been clarified. It is now possible to update the flavour, without breaking the current ¨src code.
 
 
 // ---------- //

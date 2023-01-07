@@ -6,24 +6,23 @@
 %          the name of a variable, some basic calculations...
 %
 %     action : the argument is printed "verbatim" in red inside a red box.
-%%%
 %
-% The following link contains an instructive TeX code.
-%     * https://tex.stackexchange.com/questions/667358/12-catcode-for-underscore-and-character-printed
-\NewDocumentCommand\JNGVALOF{v}{%
-    \textcolor{red}{\fbox{\texttt{#1}}}%
+%
+% refs::
+%     + https://tex.stackexchange.com/a/671000/6880
+%%%
+\ExplSyntaxOn
+
+\NewDocumentCommand{\JNGVALOF}{m}{
+  	\textcolor{red}{\fbox{\ttfamily\jnglatex_valof:n{#1}}}
 }
 
+\tl_new:N \l__jnglatex_sanitized
 
-% PARAMS WILL COME LATER...
-%
-% %%%
-% % prototype::
-% %     #1 : the sequence of characters to be used directly in the template
-% %          (without any action of ¨jinjang).
-% %     #2 : the name of a ¨jinja variable (this variable should be a printable
-% %          formula like text.
-% %
-% %     return : the 1st argument without any change.
-% %%%
-% % \newcommand\JNGPARAM[2]{#1} % PARAMS WILL COME LATER...
+\cs_new_protected:Nn \jnglatex_valof:n{
+  	\tl_set:Nn \l__jnglatex_sanitized {#1}
+  	\regex_replace_all:nnN {_}{\c{textunderscore}} \l__jnglatex_sanitized
+  	\tl_use:N \l__jnglatex_sanitized
+}
+
+\ExplSyntaxOff

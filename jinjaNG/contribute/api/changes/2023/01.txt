@@ -1,0 +1,12 @@
+// ---------- //
+
+
+==
+08
+==
+
+--------
+:update:
+--------
+
+¨latex: the macro latex::``\JNGVALOF`` can be used inside contents of a latex::``\section`` like title, or inside footnotes.

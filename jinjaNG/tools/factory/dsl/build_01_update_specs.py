@@ -106,7 +106,7 @@ for flavour in sorted(allspecs):
 # BEING UPDATED: we keep the source vecrsion.
     if status == STATUS_UPDATE:
         print(
-            f"{TAB_2}+ Updating: we use the previous specs."
+            f"{TAB_2}+ Updating: use of the previous specs."
         )
 
         _, prevcode, _ = between(

@@ -12,8 +12,6 @@ ref::
 ***/
 jnghtml = _ =>
     document.body.outerHTML = document.body.outerHTML
-// PARAMS WILL COME LATER...
-        // .replace(/\[\[.*?\]\]/g, "")
 // VARIABLES
         .replace(
             /\{\{\s+(.*?)\s+\}\}/g,

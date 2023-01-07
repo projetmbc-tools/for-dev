@@ -1,7 +1,7 @@
 All the flavours
 ----------------
 
-To indicate a dialect for templates, a flavour must be indicated. Here are the minimalist technical descriptions of each of these flavours.
+To indicate a dialect for templates, a flavour must be given. Here are the minimalist technical descriptions of each of these flavours.
 
 
 <!-- FLAVOURS - TECH. DESC. - START -->
@@ -10,90 +10,101 @@ To indicate a dialect for templates, a flavour must be indicated. Here are the m
 
 #### Flavour `ascii`
 
-> **Short description:** generic behaviour of `jinjaNG`.
+> ***Short description:*** *generic behaviour of `jinjaNG`.*
 
-  1. **Extensions for the auto-detection, and possible tools for the templates.**
+  1. **Extensions for the auto-detection.**
+      * Any extension not associated with another flavour is associated with that flavour (which is like a default one).
 
-      * Any extension not associated to any other flavour is associated to this flavour which is like a default one.
+  1. **Tools to assist in typing templates.**
+      * Nothing available.
 
-      * No tools are available to assist in typing templates.
+  1. **Variables, `jinja` instructions and comments.**
+  Here is a fictive `how-to` code.
 
-  1. **Variables** are typed `{{ one_jinja_var }}` .
+~~~markdown
+In our templates, we use {{variable}} .
 
-  1. **Using `jinja` instructions.**
+It is always possible to work with block jinja instructions, and comments.
 
-     `...` symbolizes some Jinja instructions.
+{#_ Comments: one basic loop. _#}
 
-      * For inline instructions, use `#: ...` .
+{#: for i in range(5) :#}
+We can use {{i + 4}} .
+{#: endfor :#}
 
-      * For block instructions, use `{#: ... :#}` .
+Most of flavours propose inline jinja instructions, and comments.
 
-  1. **Writing comments.**
+#_ Comments: the same loop as above.
 
-     `...` symbolizes some comments.
-
-      * For inline comments, use `#_ ...` .
-
-      * For block comments, use `{#_ ... _#}` .
+#: for i in range(5)
+We can use {{i + 4}} .
+#: endfor
+~~~
 
 ---
 
 #### Flavour `html`
 
-> **Short description:** useful settings and tools for HTML templating.
+> ***Short description:*** *useful settings and tools for HTML templating.*
 
-  1. **Extensions for the auto-detection, and possible tools for the templates.**
+  1. **Extension for the auto-detection.**
+      * `HTML`
 
-      * Files having extensions `HTML` are associated to this flavour.
+  1. **Tools to assist in typing templates.**
+      * See the folder `jng-extra-tools/html`.
 
-      * Tools to assist in typing templates are available: see the folder `jng-extra-tools/html`.
+  1. **Variables, `jinja` instructions and comments.**
+  Here is a fictive `how-to` code.
 
-  1. **Variables** are typed `{{ one_jinja_var }}` .
+~~~markdown
+In our templates, we use {{variable}} .
 
-  1. **Using `jinja` instructions.**
+It is always possible to work with block jinja instructions, and comments.
 
-     `...` symbolizes some Jinja instructions.
+<!--_ Comments: one basic loop. _-->
 
-      * No inline instructions are available.
+<!--: for i in range(5) :-->
+We can use {{i + 4}} .
+<!--: endfor :-->
 
-      * For block instructions, use `<!--: ... :-->` .
-
-  1. **Writing comments.**
-
-     `...` symbolizes some comments.
-
-      * No inline comments are available.
-
-      * For block comments, use `<!--_ ... _-->` .
+This flavour doesn't propose inline jinja instructions, and comments.
+~~~
 
 ---
 
 #### Flavour `latex`
 
-> **Short description:** useful settings and tools for LaTeX templating.
+> ***Short description:*** *useful settings and tools for LaTeX templating.*
 
-  1. **Extensions for the auto-detection, and possible tools for the templates.**
+  1. **Extensions for the auto-detection.**
+      * `STY`
+      * `TEX`
+      * `TKZ`
 
-      * Files having extensions `TEX`, `STY`, or `TKZ` are associated to this flavour.
+  1. **Tools to assist in typing templates.**
+      * See the folder `jng-extra-tools/latex`.
 
-      * Tools to assist in typing templates are available: see the folder `jng-extra-tools/latex`.
+  1. **Variables, `jinja` instructions and comments.**
+  Here is a fictive `how-to` code.
 
-  1. **Variables** are typed `\JNGVALOF{ one_jinja_var }` .
+~~~tex
+In our templates, we use \JNGVALOF{variable} .
 
-  1. **Using `jinja` instructions.**
+It is always possible to work with block jinja instructions, and comments.
 
-     `...` symbolizes some Jinja instructions.
+%%_ Comments: one basic loop. _%%
 
-      * For inline instructions, use `%: ...` .
+%%: for i in range(5) :%%
+We can use \JNGVALOF{i + 4} .
+%%: endfor :%%
 
-      * For block instructions, use `%%: ... :%%` .
+Most of flavours propose inline jinja instructions, and comments.
 
-  1. **Writing comments.**
+%_ Comments: the same loop as above.
 
-     `...` symbolizes some comments.
-
-      * For inline comments, use `%_ ...` .
-
-      * For block comments, use `%%_ ... _%%` .
+%: for i in range(5)
+We can use \JNGVALOF{i + 4} .
+%: endfor
+~~~
 
 <!-- FLAVOURS - TECH. DESC. - END -->
