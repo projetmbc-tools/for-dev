@@ -108,6 +108,10 @@ def jng_CLI(
     if unsafe:
         print('WARNING! Using a Python file can be dangerous.')
 
+# Internal tag for auto config.
+    if config == 'auto':
+        config = AUTO_CONFIG
+
 # Lets' work...
     mybuilder = JNGBuilder(
         flavour   = flavour,

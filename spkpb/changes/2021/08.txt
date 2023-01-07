@@ -81,7 +81,7 @@ path::``README.md`` updated.
 :fordev:
 --------
 
-[[:bug:]]
+[[:fix:]]
 ``Speaker``: the way used to set the attribut `silent` was wrong.
 
 

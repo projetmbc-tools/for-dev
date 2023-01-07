@@ -88,8 +88,8 @@ The module ``lowlevel`` and the class ``LowLevel`` have been renamed ``baseproj`
 :fordev:
 --------
 
-[[:bug:]]
-``baseproj.BaseProj`` previously ``lowlevel.LowLevel``: one stupid bug fixed. Instantiation used the default value ``False`` instead of ``None`` for the argument ``readme``.
+[[:fix:]]
+``baseproj.BaseProj`` previously ``lowlevel.LowLevel``: fixed a stupid bug. Instantiation was using the default value ``False`` instead of ``None`` for the ``readme`` argument.
 
 
 // ---------- //

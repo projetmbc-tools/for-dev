@@ -13,6 +13,10 @@
 ¨Doc: a warning indicates that scripts like `data.py` cannot do relative imports.
 
 
+[[:fix:]]
+¨Cli: the use of ``--config auto`` was not implemented (internally, the value used is ``AUTO_CONFIG = ":auto-config:"``, not ``"auto"``).
+
+
 --------
 :fordev:
 --------
