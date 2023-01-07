@@ -57,9 +57,10 @@ def autoupdate(
 # --------------- #
 
 ALL_STATUS_TAGS = [
-    STATUS_OK      := 'ok',
-    STATUS_KO      := 'ko',
     STATUS_ON_HOLD := 'on hold',
+    STATUS_KO      := 'ko',
+    STATUS_OK      := 'ok',
+    STATUS_UPDATE  := 'update',
 ]
 
 DEFAULT_STATUS_CONTENT = {
@@ -288,6 +289,16 @@ def build_all_settings(options):
     return forjinja, needtools, autoext
 
 
+def asciititle(title):
+    deco = '-'*(2*3 + len(title))
+
+    return f"""
+# {deco} #
+# -- {title.upper()} -- #
+# {deco} #
+    """.strip()
+
+
 def build_src(name, options, autofromext):
     date   = options[TAG_DATE]
     author = options[TAG_AUTHOR]
@@ -297,12 +308,8 @@ def build_src(name, options, autofromext):
           author[TAG_LAST_NAME]
     )
 
-    deco = '-'*(2*3 + len(name))
-
     about = f"""
-# {deco} #
-# -- {name.upper()} -- #
-# {deco} #
+{asciititle(name)}
 #
 # {options[TAG_DESC]}
 #

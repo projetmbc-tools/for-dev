@@ -41,7 +41,7 @@ IMG_EXTS = ['png']
 # -- THE SPECS DEFINED -- #
 # ----------------------- #
 
-SPECS_STATUS = {}
+SPECS_STATUS = defaultdict(list)
 
 allspecs = {}
 
@@ -64,15 +64,13 @@ for specfile in CONTRIB_DSL_DIR.rglob("*/*specs.yaml"):
         mode     = "r",
         encoding = "utf-8"
     ) as f:
-        allspecs[flavour] = {
-            'dir'   : specdir,
-            'status': yaml_load(f)['status'],
-        }
+        allspecs[flavour]        = yaml_load(f)
+        allspecs[flavour]['dir'] = specdir
 
 
-# ------------------------ #
-# -- THE SPECS ACCEPTED -- #
-# ------------------------ #
+# ------------------------------------------ #
+# -- SPECS ACCEPTED / SPECS BEING UPDATED -- #
+# ------------------------------------------ #
 
 final_pycode  = []
 ALL_FLAVOURS  = []
@@ -80,10 +78,15 @@ AUTO_FROM_EXT = {}
 ALL_TOOLS     = []
 not_ok        = defaultdict(list)
 
-for flavour in sorted(allspecs):
-    infos = allspecs[flavour]
 
-    if infos['status'] != STATUS_OK:
+for flavour in sorted(allspecs):
+    infos  = allspecs[flavour]
+    status = infos['status']
+
+    SPECS_STATUS[status].append(flavour)
+
+# NOT OK.
+    if status not in [STATUS_OK, STATUS_UPDATE]:
         if not infos['status'] in ALL_STATUS_TAGS:
             raise Exception(
                 f"invalid status ''{infos['status']}'' "
@@ -95,10 +98,43 @@ for flavour in sorted(allspecs):
 
         continue
 
+# OK or UPDATING.
     print(f"{TAB_1}* {flavour}.")
 
     ALL_FLAVOURS.append(flavour)
 
+# BEING UPDATED: we keep the source vecrsion.
+    if status == STATUS_UPDATE:
+        print(
+            f"{TAB_2}+ Updating: we use the previous specs."
+        )
+
+        _, prevcode, _ = between(
+            text = SPECS_SRC_FILE.read_text(
+                encoding = 'utf-8'
+            ),
+            seps = [
+                f'# -- {flavour.upper()}',
+                 '}\n' # <-- Only one dict used!
+            ],
+        )
+
+        prevcode = prevcode.split('\n')
+        prevcode = prevcode[2:]
+        prevcode.append('}')
+
+        prevcode = "\n".join(prevcode)
+
+        prevcode = f"""
+{asciititle(flavour)}
+{prevcode}
+        """.strip()
+
+        final_pycode += ['', prevcode]
+
+        continue
+
+# NEW SPECS, OR OLD ONES TO KEEP.
     specdir = infos['dir']
 
     with (specdir / 'specs.yaml').open(
@@ -123,6 +159,7 @@ for flavour in sorted(allspecs):
         print(f"{TAB_2}+ Referencing new tools.")
 
         ALL_TOOLS.append(flavour)
+
 
 SPECS_STATUS[STATUS_OK] = ALL_FLAVOURS
 
@@ -313,29 +350,27 @@ if ALL_TOOLS:
                 )
 
 
-# ------------------ #
-# -- SPECS NOT OK -- #
-# ------------------ #
+# ---------------------------- #
+# -- SPECS ON HOLD / NOT OK -- #
+# ---------------------------- #
 
 if not_ok:
-    print(f"{TAB_1}* Specs not accepted.")
+    for status, about in [
+        (STATUS_ON_HOLD, "Specs on hold."     ),
+        (STATUS_KO     , "Specs rejected."),
+    ]:
+        flavours = not_ok[status]
 
-    for kind in sorted(not_ok):
-        if kind == STATUS_OK:
-            raise Exception(
-                f"the tag '{SPECS_STATUS}' is not allowed "
-                 "for the status of one new flavour."
-            )
+        if not flavours:
+            continue
 
-        print(f"{TAB_2}+ Specs tagged ''{kind}''.")
+        print(f"{TAB_1}* {about}")
 
-        flavours = sorted(not_ok[kind])
+        for fl in sorted(flavours):
+            comment = allspecs[fl]['comment']
+            comment = comment.strip()
 
-        SPECS_STATUS[kind] = flavours
-
-        flavours = ' , '.join(flavours)
-
-        print(f"{TAB_3}--> {flavours}")
+            print(f"{TAB_2}+ ''{fl}'' --> {comment}")
 
 
 # ----------------------- #
@@ -351,6 +386,11 @@ print(f"{TAB_1}* Updating the status of specs (for other builders).")
 
 # Hack source for good indented YAML code:
 #     * https://github.com/yaml/pyyaml/issues/234#issuecomment-765894586
+
+SPECS_STATUS = {
+    k: v
+    for k, v in SPECS_STATUS.items()
+}
 
 with SPECS_STATUS_YAML.open(
     mode     = "w",

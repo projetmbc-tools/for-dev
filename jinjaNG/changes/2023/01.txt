@@ -2,6 +2,21 @@
 
 
 ==
+07
+==
+
+--------
+:fordev:
+--------
+
+[[:flow:]]
+DSL - Contribute: the status of a flavour has been clarified. It is now possible to update the flavour, without breaking the current ¨src code.
+
+
+// ---------- //
+
+
+==
 06
 ==
 
@@ -10,11 +25,11 @@
 --------
 
 [[:doc:]]
-¨Doc: a warning indicates that scripts like `data.py` cannot do relative imports.
+¨Doc: a warning indicates that scripts like ``data.py`` cannot yet do relative imports.
 
 
 [[:fix:]]
-¨Cli: the use of ``--config auto`` was not implemented (internally, the value used is ``AUTO_CONFIG = ":auto-config:"``, not ``"auto"``).
+¨Cli: the use of ``--config auto`` was not implemented because internally the value used is ``AUTO_CONFIG = ":auto-config:"``, but not ``"auto"``.
 
 
 --------

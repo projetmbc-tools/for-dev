@@ -1,2 +1,14 @@
+# Possible status.
+#    + on hold
+#    + ko
+#    + ok
+#    + update
 status : ok
-comment: DSL accepted.
+
+# Classical comments.
+#    + [on hold]  New specs not yet analysed.
+#                 Changes to do: ...
+#    + [ko]       Specs rejected because ...
+#    + [ok]       Specs accepted.
+#    + [update]   Working on..
+comment: Specs accepted.

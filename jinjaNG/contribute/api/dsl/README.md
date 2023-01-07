@@ -128,7 +128,7 @@ All flavours, and statuses
 
   * **[ok]** `ascii`
   * **[ok]** `html`
-  * **[ok]** `latex`
+  * **[update]** `latex`
 
 <!-- LIST OF FLAVOURS AND THEIR STATUS - AUTO - END -->
 
@@ -140,6 +140,8 @@ All flavours, and statuses
   * Status **''ok''**
     + `ascii`
     + `html`
+    + `latex`
+  * Status **''update''**
     + `latex`
 
 <!-- LIST OF STATUSES WITH THE RELEVANT FLAVOURS - AUTO - END -->
