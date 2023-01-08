@@ -26,11 +26,11 @@ In our templates, we use {{variable}} .
 
 It is always possible to work with block jinja instructions, and comments.
 
-{#_ Comments: one basic loop. _#}
+##_ Comments: one basic loop. _##
 
-{#: for i in range(5) :#}
+##: for i in range(5) :##
 We can use {{i + 4}} .
-{#: endfor :#}
+##: endfor :##
 
 Most of flavours propose inline jinja instructions, and comments.
 

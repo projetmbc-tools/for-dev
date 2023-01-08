@@ -40,7 +40,7 @@ ALL_FLAVOURS = [
 #
 # Generic behaviour of `jinjaNG`.
 #
-# Last change: 2022-11-28
+# Last change: 2023-01-08
 # Author     : Christophe Bal
 
 AUTO_FROM_EXT[FLAVOUR_ASCII] = ["*"]
@@ -52,10 +52,10 @@ JINJA_TAGS[FLAVOUR_ASCII] = {
     TAG_VAR_END: "}}",
     TAG_INLINE_COMMENT: "#_",
     TAG_INLINE_INSTR: "#:",
-    TAG_BLOCK_COMMENT_START: "{#_",
-    TAG_BLOCK_COMMENT_END: "_#}",
-    TAG_BLOCK_INSTR_START: "{#:",
-    TAG_BLOCK_INSTR_END: ":#}",
+    TAG_BLOCK_COMMENT_START: "##_",
+    TAG_BLOCK_COMMENT_END: "_##",
+    TAG_BLOCK_INSTR_START: "##:",
+    TAG_BLOCK_INSTR_END: ":##",
 }
 
 

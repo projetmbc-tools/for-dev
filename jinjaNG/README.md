@@ -247,9 +247,9 @@ mydata = {
 
 mytemplate = """
 One {{ txt_exa }} with automatic calculations.
-{#: for i in range(1, max_i + 1) :#}
+##: for i in range(1, max_i + 1) :##
   {{ i }}) I count using squares: {{ i**2 }}.
-{#: endfor :#}
+##: endfor :##
 """.strip()
 
 mybuilder = JNGBuilder(flavour = FLAVOUR_ASCII)
@@ -305,11 +305,11 @@ In our templates, we use {{variable}} .
 
 It is always possible to work with block jinja instructions, and comments.
 
-{#_ Comments: one basic loop. _#}
+##_ Comments: one basic loop. _##
 
-{#: for i in range(5) :#}
+##: for i in range(5) :##
 We can use {{i + 4}} .
-{#: endfor :#}
+##: endfor :##
 
 Most of flavours propose inline jinja instructions, and comments.
 

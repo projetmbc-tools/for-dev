@@ -10,7 +10,11 @@
 --------
 
 [[:api:]]
-Tools for ¨latex ¨DSL: the macro latex::``\JNGVALOF`` can be used inside contents of a latex::``\section`` like title, or inside footnotes.
+¨DSL.
+
+    1) ¨latex: the macro latex::``\JNGVALOF`` can be used inside contents of a latex::``\section`` like title, or inside footnotes.
+
+    1) ¨ascii: only fictive inline comments are used to simplify typing.
 
 
 [[:doc:]]
