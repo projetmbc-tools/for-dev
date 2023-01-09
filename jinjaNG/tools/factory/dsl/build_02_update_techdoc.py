@@ -45,7 +45,7 @@ DEFAULT_FILES = {
     (TAG_VARS   := 'variables'   ): FLAVOUR_ASCII,
     (TAG_INSTR  := 'instructions'): FLAVOUR_ASCII,
     (TAG_COMMENT:= 'comments'    ): FLAVOUR_ASCII,
-     TAG_TOOLS                    : FLAVOUR_HTML,
+     TAG_UTILS                    : FLAVOUR_HTML,
     (TAG_LISTEXT:= 'extensions'  ): FLAVOUR_ASCII,
 }
 
@@ -67,6 +67,7 @@ def tnstitle(title):
 
 DATE_PATTERN       = re.compile(r"\s+date\s*=.*")
 DECO_TITLE_PATTERN = re.compile(r"={3,}")
+
 
 def build_predoc(srctext):
     srctext     = srctext.rstrip()
@@ -128,14 +129,15 @@ content::
     {toc}
 """.strip()
 
+
 def build_toc(flavour, specs):
     toc = []
 
     for p in DEFAULT_FILES:
         if(
-            p.stem == TAG_TOOLS
+            p.stem == TAG_UTILS
             and
-            not specs[TAG_TOOLS]
+            specs[TAG_UTILS] != False
         ):
             continue
 
@@ -168,6 +170,7 @@ this::
 ACTION_ADDING   = "adding"
 ACTION_UPDATING = "updating"
 ACTION_NOTHING  = ""
+
 
 def build_ext(flavour, autoext, dest_file):
     today = date.today()
@@ -287,7 +290,7 @@ def same_ext(lastext, newext):
 
 MAIN_TOC = []
 
-for flavour in sorted(AUTO_FROM_EXT):
+for flavour in sorted(ASSOCIATED_EXT):
     if flavour == FLAVOUR_ASCII:
         continue
 
@@ -298,7 +301,7 @@ for flavour in sorted(AUTO_FROM_EXT):
     nothingdone = True
 
 # The contents
-    autoext  = AUTO_FROM_EXT[flavour]
+    autoext  = ASSOCIATED_EXT[flavour]
     dest_dir = SPECS_DOC_DIR / flavour
 
     for df in DEFAULT_FILES:
@@ -316,9 +319,9 @@ for flavour in sorted(AUTO_FROM_EXT):
             continue
 
         if (
-            df.stem == TAG_TOOLS
+            df.stem == TAG_UTILS
             and
-            WITH_EXTRA_TOOLS[flavour] == False
+            WITH_UTILS[flavour] == False
         ):
             continue
 

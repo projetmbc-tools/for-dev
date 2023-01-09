@@ -148,8 +148,8 @@ for flname, specs in JINJA_TAGS.items():
 
 # Tools.
     tools = (
-        f"See the folder `jng-extra-tools/{flname}`."
-        if WITH_EXTRA_TOOLS[flname] else
+        f"See the folder `jngutils/{flname}`."
+        if WITH_UTILS[flname] else
         "Nothing available."
     )
 

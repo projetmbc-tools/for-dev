@@ -1,12 +1,12 @@
 about:
-    author: Christophe, Bal [projetmbc@gmail.com]
-    desc  : Generic behaviour of `jinjaNG`.
-    date  : 2023-01-08
+  author: Christophe, Bal [projetmbc@gmail.com]
+  desc  : Generic behaviour of `jinjaNG`.
+  date  : 2023-01-08
 
 ext:
-    - "*"
+  - "*"
 
 src-comment:
-    inline: "# ..."
+  inline: "# ..."
 
 var: "{{ ... }}"

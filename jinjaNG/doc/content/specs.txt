@@ -2,9 +2,9 @@ abrev::
     content = /specs
 
 
-==================================
-Réglages et petits outils proposés
-==================================
+============================================
+Tous les réglages, et petits outils proposés
+============================================
 
 content::
     ¨content/ascii.txt

@@ -129,6 +129,7 @@ All flavours, and statuses
   * **[ok]** `ascii`
   * **[ok]** `html`
   * **[ok]** `latex`
+  * **[on hold]** `md`
 
 <!-- LIST OF FLAVOURS AND THEIR STATUS - AUTO - END -->
 
@@ -141,6 +142,8 @@ All flavours, and statuses
     + `ascii`
     + `html`
     + `latex`
+  * Status **''on hold''**
+    + `md`
 
 <!-- LIST OF STATUSES WITH THE RELEVANT FLAVOURS - AUTO - END -->
 

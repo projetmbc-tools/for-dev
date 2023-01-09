@@ -5,7 +5,9 @@ from btools.B01 import *
 
 # ! -- DEBUGGING -- ! #
 # Clear the terminal.
-# print("\033c", end="")
+print("\033c", end="")
+
+from pprint import pprint
 # ! -- DEBUGGING -- ! #
 
 
@@ -30,7 +32,7 @@ SPECS_SRC_FILE = PROJECT_DIR / 'src' / 'config' / 'jngflavours.py'
 CONTRIB_DSL_DIR   = PROJECT_DIR / 'contribute' / 'api' / 'dsl'
 SPECS_STATUS_YAML = THIS_DIR / 'flavours.yaml'
 
-EXTRA_TOOLS_DIR = PROJECT_DIR / 'jng-extra-tools'
+EXTRA_TOOLS_DIR = PROJECT_DIR / 'jngutils'
 
 
 IMG_DIR  = 'images'
@@ -43,44 +45,79 @@ IMG_EXTS = ['png']
 
 SPECS_STATUS = defaultdict(list)
 
-allspecs = {}
+specs_status = {}
 
 for specfile in CONTRIB_DSL_DIR.rglob("*/*specs.yaml"):
     specdir = specfile.parent
-    flavour    = specdir.name
+    flavour = specdir.name
 
-    specstatus_yaml = specdir / "status.yaml"
+    specs_status_yaml = specdir / "status.yaml"
 
-    if not specstatus_yaml.is_file():
-        specstatus_yaml.touch()
+    if not specs_status_yaml.is_file():
+        specs_status_yaml.touch()
 
-        with specstatus_yaml.open(
+        with specs_status_yaml.open(
             mode     = "w",
             encoding = "utf-8"
         ) as f:
             yaml_dump(DEFAULT_STATUS_CONTENT, f)
 
-    with specstatus_yaml.open(
+    with specs_status_yaml.open(
         mode     = "r",
         encoding = "utf-8"
     ) as f:
-        allspecs[flavour]        = yaml_load(f)
-        allspecs[flavour]['dir'] = specdir
+        specs_status[flavour]        = yaml_load(f)
+        specs_status[flavour]['dir'] = specdir
+
+
+# ---------------------------- #
+# -- ALL THE SPECS ACCEPTED -- #
+# ---------------------------- #
+
+print(f"{TAB_1}* Specs of the accepted flavours.")
+
+hard_specs_ok     = {}
+some_extend_found = False
+
+for flavour, specs in specs_status.items():
+    if specs[TAG_STATUS] != STATUS_OK:
+        continue
+
+    with (specs['dir'] / 'specs.yaml').open(
+        mode     = "r",
+        encoding = "utf-8"
+    ) as f:
+        hardspec = yaml_load(f)
+
+    if TAG_EXTEND in hardspec[TAG_ABOUT]:
+        some_extend_found = True
+
+    hard_specs_ok[flavour] = hardspec
+
+
+# ---------------------------- #
+# -- ALL THE SPECS ACCEPTED -- #
+# ---------------------------- #
+
+if some_extend_found:
+    print(f"{TAB_1}* Taking care of ''extend''.")
+
+    build_extended_flavours(hard_specs_ok)
 
 
 # ------------------------------------------ #
 # -- SPECS ACCEPTED / SPECS BEING UPDATED -- #
 # ------------------------------------------ #
 
-final_pycode  = []
-ALL_FLAVOURS  = []
-AUTO_FROM_EXT = {}
-ALL_TOOLS     = []
-not_ok        = defaultdict(list)
+final_pycode   = []
+ALL_FLAVOURS   = []
+ASSOCIATED_EXT = {}
+ALL_TOOLS      = []
+not_ok         = defaultdict(list)
 
 
-for flavour in sorted(allspecs):
-    infos  = allspecs[flavour]
+for flavour in sorted(specs_status):
+    infos  = specs_status[flavour]
     status = infos['status']
 
     SPECS_STATUS[status].append(flavour)
@@ -135,27 +172,18 @@ for flavour in sorted(allspecs):
         continue
 
 # NEW SPECS, OR OLD ONES TO KEEP.
-    specdir = infos['dir']
-
-    with (specdir / 'specs.yaml').open(
-        mode     = "r",
-        encoding = "utf-8"
-    ) as f:
-        hardspec = yaml_load(f)
-
-
     print(f"{TAB_2}+ Analyzing the hard specs.")
 
-    options = specs2options(hardspec)
+    options = specs2options(hard_specs_ok[flavour])
 
     print(f"{TAB_2}+ Building the source code.")
 
     final_pycode += [
         '',
-        build_src(flavour, options, AUTO_FROM_EXT),
+        build_src(flavour, options, ASSOCIATED_EXT),
     ]
 
-    if options[TAG_TOOLS]:
+    if options[TAG_UTILS]:
         print(f"{TAB_2}+ Referencing new tools.")
 
         ALL_TOOLS.append(flavour)
@@ -168,13 +196,13 @@ SPECS_STATUS[STATUS_OK] = ALL_FLAVOURS
 # -- NO DUPLICATED EXTENSIONS -- #
 # ------------------------------ #
 
-_flavours = list(AUTO_FROM_EXT)
+_flavours = list(ASSOCIATED_EXT)
 
 for i_ref, fl_ref in enumerate(_flavours):
-    set_ref = AUTO_FROM_EXT[fl_ref]
+    set_ref = ASSOCIATED_EXT[fl_ref]
 
     for fl_other in _flavours[i_ref + 1:]:
-        inter = set_ref.intersection(AUTO_FROM_EXT[fl_other])
+        inter = set_ref.intersection(ASSOCIATED_EXT[fl_other])
 
         if inter:
             plurial = "" if len(inter) == 1 else "s"
@@ -234,9 +262,9 @@ final_pycode = f"""
 #
 #     + ``{THIS_FILE_REL_SRC_PATH}``
 
-AUTO_FROM_EXT    = dict()
-WITH_EXTRA_TOOLS = dict()
-JINJA_TAGS       = dict()
+ASSOCIATED_EXT = dict()
+WITH_UTILS    = dict()
+JINJA_TAGS    = dict()
 
 
 # -------------- #
@@ -367,7 +395,7 @@ if not_ok:
         print(f"{TAB_1}* {about}")
 
         for fl in sorted(flavours):
-            comment = allspecs[fl]['comment']
+            comment = specs_status[fl]['comment']
             comment = comment.strip()
 
             print(f"{TAB_2}+ ''{fl}'' --> {comment}")

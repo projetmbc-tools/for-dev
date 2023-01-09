@@ -70,7 +70,7 @@ This is how the previous template was typed.
   1. At the begining of the template, the lines between `%: if False` and `%: endif` will not be in the final output. Here we use `%: some Jinja instructions` with an always-false condition which causes the block to be ignored when making the final file. This allows the `jnglatex` package to be used only in the template file, but not in the final output. This package allows `jinjaNG` variables to be clearly highlighted after the `LaTeX` template is compiled: this small feature greatly simplifies template design.
 
 
->  For now, the `jnglatex.sty` file must be in the same folder as the `LaTeX` template, or it must be installed by hand in your `LaTeX` distribution: you will find it in the `jng-extra-tools` folder.
+>  For now, the `jnglatex.sty` file must be in the same folder as the `LaTeX` template, or it must be installed by hand in your `LaTeX` distribution: you will find it in the `jngutils` folder.
 
 
 

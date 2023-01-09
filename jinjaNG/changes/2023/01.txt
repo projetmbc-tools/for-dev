@@ -2,6 +2,41 @@
 
 
 ==
+09
+==
+
+    --> ???   md support :
+            + notion dh'éitage à un seul niveau basique de de specs : comme HTML, mais ici pas d'outils
+            + specs.yaml : about nouvelle clé extend avec le nom d'un seul dialecte
+            + besoin de passer d'abord par analyser au mieux toutes les specs, puis quand on a tout on peut téendre
+
+
+    --> ???? CONTRIBUTE - outils plus sans tools !!! utilisation direct du bon nom! et TOOLS.md --> README.md
+
+        Ok   jng-extra-tools ---> jngutils
+        OK   jnglatex.sty ---> jngutils.sty
+        OK   jnghtml.js   ---> jngutils-html.js
+
+
+        ??? specs.yaml :
+
+        OK   tools : yes  ---> utils : jngutils.sty
+        OK   tools : yes  ---> utils : jngutils-html.js
+        OK   tools : yes  ---> utils : nom du script isolé, sinon rien !
+
+
+        OK    WITH_EXTRA_TOOLS --> WITH_UTILS
+
+
+
+
+
+
+
+// ---------- //
+
+
+==
 08
 ==
 

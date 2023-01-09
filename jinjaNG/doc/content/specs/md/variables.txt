@@ -1,0 +1,21 @@
+this::
+    date = ?
+
+
+========================
+Variables dans un patron
+========================
+
+TODO
+
+/* Text already used that can help you for a new doc.
+
+Les variables se tapent via des doubles accolades comme dans l'exemple suivant.
+
+jinjang::
+    ---
+    flavour = verbatim
+    ---
+
+    J'utilise une variable : {{ une_var }}.
+*/

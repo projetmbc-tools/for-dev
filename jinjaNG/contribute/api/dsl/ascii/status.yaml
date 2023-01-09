@@ -3,7 +3,7 @@
 #    + ko
 #    + ok
 #    + update
-status : ok
+status: ok
 
 # Classical comments.
 #    + [on hold]  New specs not yet analysed.

@@ -1,0 +1,32 @@
+\usepackage{color}
+
+%%%
+% prototype::
+%     #1 : something representing one basic ¨jinja instruction like
+%          the name of a variable, some basic calculations...
+%
+%     action : the argument is printed "verbatim" in red inside a red box,
+%              the special character ``_`` beeing made a textual one.
+%
+%
+% refs::
+%     + https://tex.stackexchange.com/a/671000/6880
+%%%
+\ExplSyntaxOn
+
+\NewDocumentCommand{\JNGVALOF}{m}{
+  	\textcolor{red}{ \fbox{ \ttfamily\jngutils_valof:n{#1} } }
+}
+
+    \tl_new:N \l__jngutils_sanitized
+
+    \cs_new_protected:Nn \jngutils_valof:n{
+        \tl_set:Nn \l__jngutils_sanitized {#1}
+
+        \regex_replace_all:nnN { _ }{ \c{textunderscore} }
+                               \l__jngutils_sanitized
+
+        \tl_use:N \l__jngutils_sanitized
+    }
+
+\ExplSyntaxOff

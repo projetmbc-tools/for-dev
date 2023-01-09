@@ -56,6 +56,8 @@ def autoupdate(
 # -- CONSTANTS -- #
 # --------------- #
 
+TAG_STATUS = 'status'
+
 ALL_STATUS_TAGS = [
     STATUS_ON_HOLD := 'on hold',
     STATUS_KO      := 'ko',
@@ -121,7 +123,8 @@ GRP_TAGS = {
         TAG_AUTHOR:= 'author',
         TAG_DESC  := 'desc',
         TAG_DATE  := 'date',
-        TAG_TOOLS := 'tools',
+        TAG_UTILS := 'utils',
+        TAG_EXTEND:= 'extend',
     ],
     (TAG_SRC_COMMENT:= 'src-comment'): [
         TAG_BLOCK := 'block',
@@ -134,6 +137,13 @@ GRP_TAGS = {
     ]
 }
 
+TAGS_EXTENDABLE = [
+    TAG_UTILS,
+    TAG_BLOCK,
+    TAG_INLINE,
+    TAG_VAR,
+]
+
 
 TAG_1ST_NAME  = '1st name'
 TAG_LAST_NAME = 'last name'
@@ -141,6 +151,47 @@ TAG_EMAIL     = 'email'
 
 
 TAG_JINJA = "jinja2"
+
+
+def build_extended_flavours(hard_specs_ok):
+    for flavour, hardspec in hard_specs_ok.items():
+        if not TAG_EXTEND in hardspec[TAG_ABOUT]:
+            continue
+
+        extended_fl = hardspec[TAG_ABOUT][TAG_EXTEND]
+
+        if not extended_fl in hard_specs_ok:
+            raise Exception(
+                f"unknown flavour ''{extended_fl}'' "
+                f"to be extended."
+            )
+
+        hardspec_to_extend = hard_specs_ok[extended_fl]
+
+        for grptag, subtags in GRP_TAGS.items():
+            for tag in subtags:
+                if not tag in TAGS_EXTENDABLE:
+                    continue
+
+                srctags = (
+                    hardspec_to_extend
+                    if grptag is None else
+                    hardspec_to_extend[grptag]
+                )
+
+                if tag in srctags:
+                    if grptag is None:
+                        if not tag in hardspec:
+                            hardspec[tag] = srctags[tag]
+
+                    else:
+                        if not grptag in hardspec:
+                            hardspec[grptag] = {}
+
+                        if not tag in hardspec[grptag]:
+                            hardspec[grptag][tag] = srctags[tag]
+
+        hard_specs_ok[flavour] = hardspec
 
 
 def build_authorinfos(text):
@@ -215,11 +266,11 @@ def specs2options(hardspec):
         if not grptag is None:
             del hardspec[grptag]
 
-    if options.get(TAG_TOOLS, False) == True:
-        options[TAG_TOOLS] = True
+    if options.get(TAG_UTILS, False) == True:
+        options[TAG_UTILS] = True
 
     else:
-        options[TAG_TOOLS] = False
+        options[TAG_UTILS] = False
 
     return options
 
@@ -231,9 +282,9 @@ def specs2options(hardspec):
 CODE_SETTINGS_TEMPL = """
 {about}
 
-AUTO_FROM_EXT[FLAVOUR_{name_up}] = {autoext}
+ASSOCIATED_EXT[FLAVOUR_{name_up}] = {autoext}
 
-WITH_EXTRA_TOOLS[FLAVOUR_{name_up}] = {needtools}
+WITH_UTILS[FLAVOUR_{name_up}] = {withutils}
 
 JINJA_TAGS[FLAVOUR_{name_up}] = {forjinja}
 
@@ -251,7 +302,7 @@ def build_all_settings(options):
         for p in options[TAG_EXT]
     ]
 
-    needtools = options[TAG_TOOLS]
+    withutils = options[TAG_UTILS]
 
     forjinja = {
         TAG_VAR_START: options[TAG_VAR][0],
@@ -286,7 +337,7 @@ def build_all_settings(options):
     forjinja[TAG_BLOCK_INSTR_END]   = SPECHAR_INSTR + block_end
 
 
-    return forjinja, needtools, autoext
+    return forjinja, withutils, autoext
 
 
 def asciititle(title):
@@ -317,7 +368,7 @@ def build_src(name, options, autofromext):
 # Author     : {author}
     """.strip()
 
-    forjinja, needtools, autoext = build_all_settings(options)
+    forjinja, withutils, autoext = build_all_settings(options)
 
     autofromext[name] = set(autoext)
 
@@ -325,7 +376,7 @@ def build_src(name, options, autofromext):
         name      = name,
         name_up   = name.upper(),
         about     = about,
-        needtools = needtools,
+        withutils = withutils,
         forjinja  = forjinja,
         autoext   = autoext,
     )
