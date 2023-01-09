@@ -262,11 +262,7 @@ def specs2options(hardspec):
         if not grptag is None:
             del hardspec[grptag]
 
-    if options.get(TAG_UTILS, False) == True:
-        options[TAG_UTILS] = True
-
-    else:
-        options[TAG_UTILS] = False
+    options[TAG_UTILS] = options.get(TAG_UTILS, False)
 
     return options
 

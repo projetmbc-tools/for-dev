@@ -51,7 +51,7 @@ We can use {{i + 4}} .
       * `HTML`
 
   1. **Tools to assist in typing templates.**
-      * Nothing available.
+      * See the folder `jngutils/html`.
 
   1. **Variables, `jinja` instructions and comments.**
   Here is a fictive `how-to` code.
@@ -83,7 +83,7 @@ inline comments.
       * `TKZ`
 
   1. **Tools to assist in typing templates.**
-      * Nothing available.
+      * See the folder `jngutils/latex`.
 
   1. **Variables, `jinja` instructions and comments.**
   Here is a fictive `how-to` code.

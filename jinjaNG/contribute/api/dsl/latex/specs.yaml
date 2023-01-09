@@ -2,7 +2,7 @@ about:
   author: Christophe, Bal [projetmbc@gmail.com]
   desc  : Useful settings and tools for LaTeX templating.
   date  : 2023-01-08
-  utils : jngutils.sty
+  utils : yes
 
 ext:
   - tex

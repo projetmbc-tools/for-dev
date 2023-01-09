@@ -311,6 +311,8 @@ if ALL_TOOLS:
     print(f"{TAB_1}* Updating the tools.")
 
     for flavour in ALL_TOOLS:
+        print(f"{TAB_2}* Tools for ''{flavour}''.")
+
         contrib_flavour_dir     = CONTRIB_DSL_DIR / flavour
         contrib_flavour_img_dir = contrib_flavour_dir / IMG_DIR
 
@@ -336,46 +338,24 @@ if ALL_TOOLS:
                     safemode = False
                 )
 
-# Tools and README.
-        tools_files = [
-            p
-            for p in contrib_flavour_dir.glob("*")
-            if p.stem.lower() == "tools"
-        ]
+# Tools.
+        for path in contrib_flavour_dir.glob("*"):
+            if path.is_dir():
+                continue
 
-        for path in tools_files:
-            if path.ext != 'md':
-                toolsname      = f'jng{flavour}'
-                toolsname_long = f'{toolsname}.{path.ext}'
-                break
+            if (
+                path.stem.startswith('.')
+                or
+                path.name in ['status.yaml', 'specs.yaml']
+            ):
+                continue
 
-        for path in tools_files:
-            if path.stem.islower():
-                dest = f'{toolsname}.{path.ext}'
-
-            else:
-                dest = 'README.md'
-
-            dest = xtratools_flavour_dir / dest
+            dest = xtratools_flavour_dir / path.name
 
             path.copy_to(
                 dest,
                 safemode = False
             )
-
-            if dest.ext == 'md':
-                content = dest.read_text(encoding = 'utf-8')
-
-                for old, new in [
-                    (README_TOOLS     , toolsname     ),
-                    (README_TOOLS_LONG, toolsname_long),
-                ]:
-                    content = content.replace(old, new)
-
-                dest.write_text(
-                    data     = content,
-                    encoding = 'utf-8'
-                )
 
 
 # ---------------------------- #

@@ -2,8 +2,13 @@
 
 
 ==
-09
+10
 ==
+
+    --> jngutils : OK
+
+        + on garde tout direct au niveau ausf specs.yaml et status.yaml
+
 
     --> md support :
             + notion dh'éitage à un seul niveau basique de de specs : comme HTML, mais ici pas d'outils
