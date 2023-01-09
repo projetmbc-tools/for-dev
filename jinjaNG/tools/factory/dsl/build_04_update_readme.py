@@ -123,7 +123,7 @@ for flname, specs in JINJA_TAGS.items():
     desc = desc[0].lower() + desc[1:]
 
 # Extensions.
-    exts = AUTO_FROM_EXT[flname]
+    exts = ASSOCIATED_EXT[flname]
 
     if exts == ['*']:
         md_code = "markdown"
@@ -156,8 +156,8 @@ for flname, specs in JINJA_TAGS.items():
 # Inline?
     if specs[TAG_INLINE_INSTR] is None:
         inline = (
-            "This flavour doesn't propose inline jinja "
-            "instructions, and comments."
+            "This flavour doesn't propose neither inline jinja "
+            "instructions, nor\ninline comments."
         )
 
     else:

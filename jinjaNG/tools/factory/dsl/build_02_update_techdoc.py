@@ -41,18 +41,118 @@ DOC_DIR               = PROJECT_DIR / 'doc' / 'content'
 SPECS_CONTENT_TNSFILE = DOC_DIR / 'specs.txt'
 SPECS_DOC_DIR         = DOC_DIR / 'specs'
 
-DEFAULT_FILES = {
-    (TAG_VARS   := 'variables'   ): FLAVOUR_ASCII,
-    (TAG_INSTR  := 'instructions'): FLAVOUR_ASCII,
-    (TAG_COMMENT:= 'comments'    ): FLAVOUR_ASCII,
-     TAG_UTILS                    : FLAVOUR_HTML,
-    (TAG_LISTEXT:= 'extensions'  ): FLAVOUR_ASCII,
-}
 
-DEFAULT_FILES = [
-    SPECS_DOC_DIR / p / f'{n}.txt'
-    for n, p in DEFAULT_FILES.items()
-]
+DEFAULT_TEMPLATES = {
+    (TAG_VARS:= 'variables'): """
+this::
+    date = ?
+
+
+========================
+Variables dans un patron
+========================
+
+TODO
+
+/* Contenu de base.
+
+Les variables se tapent comme dans l'exemple suivant.
+
+jinjang::
+    ---
+    flavour = {flavour}
+    ---
+
+    J'utilise une variable : {variable_start_string} une_var {variable_end_string}.
+*/
+    """,
+    (TAG_INSTR:= 'instructions'): """
+this::
+    date = ?
+
+
+==============================
+Instructions du langage ¨jinja
+==============================
+
+TODO
+
+/* Contenu de base.
+
+Voici comment utiliser des intructions ¨jinja sur une ligne, ou dans un bloc.
+
+jinjang::
+    ---
+    flavour = {flavour}
+    ---
+
+    inline::{line_statement_prefix} varloc = 100
+
+    Compte de 10 en 10 de 10 à {variable_start_string} varlocale {variable_end_string}.
+
+    {block_start_string} for i in range(10,
+                       varlocale + 1,
+                       10) {block_end_string}
+        * {{ i }}
+    {block_start_string} endfor {block_end_string}
+*/
+    """,
+    (TAG_COMMENT:= 'comments'): """
+this::
+    date = ?
+
+
+====================
+Commenter son patron
+====================
+
+TODO
+
+/* Contenu de base.
+
+Deux types de commentaire sont disponibles.
+
+jinjang::
+    ---
+    flavour = {flavour}
+    ---
+
+    inline::{line_comment_prefix} Un commentaire sur une seule ligne.
+
+    {block_start_string} Un commentaire
+        sur
+        plusieurs lignes. {block_end_string}
+*/
+    """,
+    TAG_UTILS: """
+this::
+    date = ?
+
+
+=============================
+Outils d'aide à la conception
+=============================
+
+TODO
+
+/* Contenu de base.
+
+EXplications sur les outils proposés... A vous de jouer !
+*/
+    """,
+    (TAG_LISTEXT:= 'extensions'): """
+this::
+    date = {date}
+
+
+{title}
+
+<:explanations:> à la saveur ``{flavour}``<:extra:>.
+
+/* -- AUTO LIST - START -- */
+/* -- AUTO LIST - END -- */
+    """,
+}
 
 
 # ----------- #
@@ -69,53 +169,40 @@ DATE_PATTERN       = re.compile(r"\s+date\s*=.*")
 DECO_TITLE_PATTERN = re.compile(r"={3,}")
 
 
-def build_predoc(srctext):
-    srctext     = srctext.rstrip()
-    newtxt      = []
-    datetofind  = False
-    nbdecotitle = 0
+INLINE_     = f"inline::"
+INLINE_NONE = f"{INLINE_}None "
 
-    for line in srctext.split('\n'):
-        line = line.rstrip()
+def build_predoc(flavour, filename):
+    predoc = DEFAULT_TEMPLATES[filename].format(
+        flavour = flavour,
+        **JINJA_TAGS[flavour]
+    )
 
-# Date
-        if line == "this::":
-            datetofind = True
+# No inline ?
+    if not INLINE_NONE in predoc:
+        predoc = predoc.replace(INLINE_, '')
 
-        elif(
-            datetofind
-            and
-            re.match(DATE_PATTERN, line)
-        ):
-            line = ' '*4 + 'date = ?'
-            datetofind = False
+    else:
+        newpredoc = []
 
-# After the main title
-        elif(
-            nbdecotitle < 2
-            and
-            re.match(DECO_TITLE_PATTERN, line)
-        ):
-            nbdecotitle += 1
+        for line in predoc.split('\n'):
+            if INLINE_NONE in line:
+                before, after = line.split(INLINE_NONE)
 
-            if nbdecotitle == 2:
-                newtxt += [
-                    line,
-                    '',
-                    'TODO',
-                    '',
-                ]
+                line = (
+                      before
+                    + JINJA_TAGS[flavour][TAG_BLOCK_INSTR_START]
+                    + ' '
+                    + after
+                    + ' '
+                    + JINJA_TAGS[flavour][TAG_BLOCK_INSTR_END]
+                )
 
-                line = '/* Text already used that can help you for a new doc.'
+            newpredoc.append(line)
 
-# Keep this line to help the writing of new docs.
-        newtxt.append(line)
+        predoc = '\n'.join(newpredoc)
 
-# Nothin new to do.
-    newtxt.append('*/')
-    newtxt = '\n'.join(newtxt)
-
-    return newtxt
+    return predoc
 
 
 TEMPL_TOC = """
@@ -130,14 +217,14 @@ content::
 """.strip()
 
 
-def build_toc(flavour, specs):
+def build_toc(flavour):
     toc = []
 
     for p in DEFAULT_FILES:
         if(
             p.stem == TAG_UTILS
             and
-            specs[TAG_UTILS] != False
+            not WITH_UTILS[flavour]
         ):
             continue
 
@@ -153,19 +240,6 @@ def build_toc(flavour, specs):
         toc     = toc,
     )
 
-
-TEMPL_EXT = """
-this::
-    date = {date}
-
-
-{title}
-
-<:explanations:> à la saveur ``{flavour}``<:extra:>.
-
-/* -- AUTO LIST - START -- */
-/* -- AUTO LIST - END -- */
-"""
 
 ACTION_ADDING   = "adding"
 ACTION_UPDATING = "updating"
@@ -185,7 +259,7 @@ def build_ext(flavour, autoext, dest_file):
 
         title = f"Fichiers ¨auto^t associés à la saveur ``{flavour}``"
 
-        content = TEMPL_EXT.format(
+        content = DEFAULT_TEMPLATES[TAG_LISTEXT].format(
             date    = today,
             title   = tnstitle(title),
             flavour = flavour,
@@ -304,14 +378,16 @@ for flavour in sorted(ASSOCIATED_EXT):
     autoext  = ASSOCIATED_EXT[flavour]
     dest_dir = SPECS_DOC_DIR / flavour
 
-    for df in DEFAULT_FILES:
-        dest_file = dest_dir / df.name
+    for filename in DEFAULT_TEMPLATES:
+        dest_file = dest_dir / f"{filename}.txt"
 
-        if df.stem == TAG_LISTEXT:
+        if filename == TAG_LISTEXT:
             action = build_ext(flavour, autoext, dest_file)
 
             if action:
-                print(f"{TAB_2}+ {action.title()} the file ``{df.name}``.")
+                print(
+                    f"{TAB_2}+ {action.title()} the file ``{filename}``."
+                )
 
             continue
 
@@ -319,7 +395,7 @@ for flavour in sorted(ASSOCIATED_EXT):
             continue
 
         if (
-            df.stem == TAG_UTILS
+            filename == TAG_UTILS
             and
             WITH_UTILS[flavour] == False
         ):
@@ -327,17 +403,13 @@ for flavour in sorted(ASSOCIATED_EXT):
 
         nothingdone = False
 
-        print(f"{TAB_2}+ Adding the file ``{df.name}``.")
+        print(f"{TAB_2}+ Adding the file ``{filename}``.")
 
-        precontent = build_predoc(
-            df.read_text(
-                encoding = 'utf-8'
-            )
-        )
+        predoc = build_predoc(flavour, filename)
 
         dest_file.create('file')
         dest_file.write_text(
-            data     = precontent,
+            data     = predoc,
             encoding = 'utf-8'
         )
 
@@ -350,7 +422,7 @@ for flavour in sorted(ASSOCIATED_EXT):
 
         print(f"{TAB_2}+ TOC - Adding ``{flavour}.txt``.")
 
-        toc = build_toc(flavour, specs)
+        toc = build_toc(flavour)
 
         tocfile.touch()
         tocfile.write_text(

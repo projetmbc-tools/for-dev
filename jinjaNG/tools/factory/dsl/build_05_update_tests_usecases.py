@@ -34,7 +34,7 @@ addfindsrc(
     project = 'jinjaNG',
 )
 
-from src import AUTO_FROM_EXT
+from src import ASSOCIATED_EXT
 
 
 # ------------------------ #
@@ -59,7 +59,7 @@ for fl in flavours_OK:
     srcfiles = []
 
     usecase_dir   = CONTRIB_DSL_DIR / fl / 'usecases'
-    flavours_exts = AUTO_FROM_EXT[fl]
+    flavours_exts = ASSOCIATED_EXT[fl]
 
 # New flavour data dir.
     flavour_dest_dir = TESTS_USECASES_DIR / fl

@@ -95,10 +95,6 @@ class IndentDumper(Dumper):
 # -- TOOLS FOR SOURCE -- #
 # ---------------------- #
 
-# Placeholders
-README_TOOLS      = "<:TOOLS:>"
-README_TOOLS_LONG = "<:TOOLS_LONG:>"
-
 # Specilas chars.
 SPECHAR_INSTR   = ':'
 SPECHAR_COMMENT = '_'

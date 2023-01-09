@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-03
+    date = 2023-01-09
 
 
 ========================
@@ -10,7 +10,7 @@ Les variables se tapent via des doubles accolades comme dans l'exemple suivant.
 
 jinjang::
     ---
-    flavour = verbatim
+    flavour = ascii
     ---
 
     J'utilise une variable : {{ une_var }}.

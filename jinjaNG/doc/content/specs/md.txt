@@ -1,0 +1,13 @@
+abrev::
+    content = /md
+
+
+================
+La saveur ``md``
+================
+
+content::
+    ¨content/variables.txt
+    ¨content/instructions.txt
+    ¨content/comments.txt
+    ¨content/extensions.txt

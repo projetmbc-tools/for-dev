@@ -11,4 +11,5 @@ content::
 /* -- AUTO CONTENT - START -- */
     ¨content/html.txt
     ¨content/latex.txt
+    ¨content/md.txt
 /* -- AUTO CONTENT - END -- */

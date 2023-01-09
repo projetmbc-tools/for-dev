@@ -51,7 +51,7 @@ We can use {{i + 4}} .
       * `HTML`
 
   1. **Tools to assist in typing templates.**
-      * See the folder `jng-extra-tools/html`.
+      * Nothing available.
 
   1. **Variables, `jinja` instructions and comments.**
   Here is a fictive `how-to` code.
@@ -67,7 +67,8 @@ It is always possible to work with block jinja instructions, and comments.
 We can use {{i + 4}} .
 <!--: endfor :-->
 
-This flavour doesn't propose inline jinja instructions, and comments.
+This flavour doesn't propose neither inline jinja instructions, nor
+inline comments.
 ~~~
 
 ---
@@ -82,7 +83,7 @@ This flavour doesn't propose inline jinja instructions, and comments.
       * `TKZ`
 
   1. **Tools to assist in typing templates.**
-      * See the folder `jng-extra-tools/latex`.
+      * Nothing available.
 
   1. **Variables, `jinja` instructions and comments.**
   Here is a fictive `how-to` code.
@@ -105,6 +106,36 @@ Most of flavours propose inline jinja instructions, and comments.
 %: for i in range(5)
 We can use \JNGVALOF{i + 4} .
 %: endfor
+~~~
+
+---
+
+#### Flavour `md`
+
+> ***Short description:*** *useful settings for Markdown templating.*
+
+  1. **Extension for the auto-detection.**
+      * `MD`
+
+  1. **Tools to assist in typing templates.**
+      * Nothing available.
+
+  1. **Variables, `jinja` instructions and comments.**
+  Here is a fictive `how-to` code.
+
+~~~md
+In our templates, we use {{variable}} .
+
+It is always possible to work with block jinja instructions, and comments.
+
+<!--_ Comments: one basic loop. _-->
+
+<!--: for i in range(5) :-->
+We can use {{i + 4}} .
+<!--: endfor :-->
+
+This flavour doesn't propose neither inline jinja instructions, nor
+inline comments.
 ~~~
 
 <!-- FLAVOURS - TECH. DESC. - END -->

@@ -1,5 +1,5 @@
 this::
-    date = 2023-01-08
+    date = 2023-01-09
 
 
 ==============================
@@ -13,7 +13,7 @@ Voici comment utiliser des intructions ¨jinja sur une ligne, ou dans un bloc
 
 jinjang::
     ---
-    flavour = verbatim
+    flavour = ascii
     ---
 
     #: varloc = 100

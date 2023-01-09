@@ -17,6 +17,7 @@ Il est possible de proposer de nouveaux dialectes. À ce jour, les saveurs propo
     * ¨ascii via python::``FLAVOUR_ASCII = "ascii"``.
     * ¨html  via python::``FLAVOUR_HTML = "html"``.
     * ¨latex via python::``FLAVOUR_LATEX = "latex"``.
+    * ¨md    via python::``FLAVOUR_MD = "md"``.
 
 // -- ALL FLAVOURS - AUTO LIST - END -- //
 

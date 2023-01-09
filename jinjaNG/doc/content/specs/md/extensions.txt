@@ -12,3 +12,4 @@ Un seul type de fichier est automatiquement associé à la saveur ``md``.
 /* -- AUTO LIST - START -- */
     * path::``*.md``
 /* -- AUTO LIST - END -- */
+    

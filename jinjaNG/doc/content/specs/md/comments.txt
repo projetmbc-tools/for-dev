@@ -1,28 +1,20 @@
 this::
-    date = ?
+    date = 2023-01-09
 
 
 ====================
 Commenter son patron
 ====================
 
-TODO
-
-/* Text already used that can help you for a new doc.
-
-Deux types de commentaire sont disponibles
-((
-    Voir la note sur les commentaires "verbatim" fictifs dans la section sur les instructions.
-)).
+Deux types de commentaire sont disponibles.
 
 jinjang::
     ---
-    flavour = verbatim
+    flavour = md
     ---
 
-    #_ Un commentaire sur une seule ligne.
+    <!--: Un commentaire sur une seule ligne. :-->
 
-    {#_ Un commentaire
+    <!--: Un commentaire
         sur
-        plusieurs lignes. _#}
-*/
+        plusieurs lignes. :-->

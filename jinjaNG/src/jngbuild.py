@@ -321,7 +321,7 @@ class JNGBuilder:
     ) -> str:
         flavour_found = FLAVOUR_ASCII
 
-        for flavour, extensions in AUTO_FROM_EXT.items():
+        for flavour, extensions in ASSOCIATED_EXT.items():
             if flavour == FLAVOUR_ASCII:
                 continue
 
