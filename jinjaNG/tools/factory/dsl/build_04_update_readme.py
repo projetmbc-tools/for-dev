@@ -70,7 +70,8 @@ TEMPL_ONE_FLAVOUR = """
 ~~~{md_code}
 In our templates, we use {variable_start_string}variable{variable_end_string} .
 
-It is always possible to work with block jinja instructions, and comments.
+It is always possible to work with block jinja instructions,
+and comments.
 
 {comment_start_string} Comments: one basic loop. {comment_end_string}
 
@@ -85,7 +86,8 @@ We can use {variable_start_string}i + 4{variable_end_string} .
 
 TEMPL_INLINE_FLAVOUR = """
 
-Most of flavours propose inline jinja instructions, and comments.
+Most of flavours propose inline jinja instructions,
+and comments.
 
 {line_comment_prefix} Comments: the same loop as above.
 
@@ -157,7 +159,9 @@ for flname, specs in JINJA_TAGS.items():
     if specs[TAG_INLINE_INSTR] is None:
         inline = (
             "This flavour doesn't propose neither inline jinja "
-            "instructions, nor\ninline comments."
+            "instructions,"
+            "\n"
+            "nor inline comments."
         )
 
     else:

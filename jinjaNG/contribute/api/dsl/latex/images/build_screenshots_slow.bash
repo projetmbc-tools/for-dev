@@ -11,7 +11,7 @@ cd "$UP_THIS_DIR"
 # -- PDF -- #
 # --------- #
 
-cp "tools.sty" "images/tools.sty"
+cp "jngutils.sty" "images/jngutils.sty"
 
 cd images
 
@@ -30,4 +30,4 @@ convert -density 800 "exavar.pdf" -alpha off -resize 14% "exavar.png"
 # -- MINIMIZE OUR FINGERPRINT -- #
 # ------------------------------ #
 
-rm "tools.sty" "exavar.pdf"
+rm "jngutils.sty" "exavar.pdf"

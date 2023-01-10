@@ -24,7 +24,8 @@ To indicate a dialect for templates, a flavour must be given. Here are the minim
 ~~~markdown
 In our templates, we use {{variable}} .
 
-It is always possible to work with block jinja instructions, and comments.
+It is always possible to work with block jinja instructions,
+and comments.
 
 ##_ Comments: one basic loop. _##
 
@@ -32,7 +33,8 @@ It is always possible to work with block jinja instructions, and comments.
 We can use {{i + 4}} .
 ##: endfor :##
 
-Most of flavours propose inline jinja instructions, and comments.
+Most of flavours propose inline jinja instructions,
+and comments.
 
 #_ Comments: the same loop as above.
 
@@ -59,7 +61,8 @@ We can use {{i + 4}} .
 ~~~markdown
 In our templates, we use {{variable}} .
 
-It is always possible to work with block jinja instructions, and comments.
+It is always possible to work with block jinja instructions,
+and comments.
 
 <!--_ Comments: one basic loop. _-->
 
@@ -67,8 +70,8 @@ It is always possible to work with block jinja instructions, and comments.
 We can use {{i + 4}} .
 <!--: endfor :-->
 
-This flavour doesn't propose neither inline jinja instructions, nor
-inline comments.
+This flavour doesn't propose neither inline jinja instructions,
+nor inline comments.
 ~~~
 
 ---
@@ -91,7 +94,8 @@ inline comments.
 ~~~tex
 In our templates, we use \JNGVALOF{variable} .
 
-It is always possible to work with block jinja instructions, and comments.
+It is always possible to work with block jinja instructions,
+and comments.
 
 %%_ Comments: one basic loop. _%%
 
@@ -99,7 +103,8 @@ It is always possible to work with block jinja instructions, and comments.
 We can use \JNGVALOF{i + 4} .
 %%: endfor :%%
 
-Most of flavours propose inline jinja instructions, and comments.
+Most of flavours propose inline jinja instructions,
+and comments.
 
 %_ Comments: the same loop as above.
 
@@ -126,7 +131,8 @@ We can use \JNGVALOF{i + 4} .
 ~~~md
 In our templates, we use {{variable}} .
 
-It is always possible to work with block jinja instructions, and comments.
+It is always possible to work with block jinja instructions,
+and comments.
 
 <!--_ Comments: one basic loop. _-->
 
@@ -134,8 +140,8 @@ It is always possible to work with block jinja instructions, and comments.
 We can use {{i + 4}} .
 <!--: endfor :-->
 
-This flavour doesn't propose neither inline jinja instructions, nor
-inline comments.
+This flavour doesn't propose neither inline jinja instructions,
+nor inline comments.
 ~~~
 
 <!-- FLAVOURS - TECH. DESC. - END -->

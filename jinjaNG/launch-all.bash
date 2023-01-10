@@ -18,7 +18,7 @@ Options:
   -q, --quick Any builder file named 'build_..._slow' wil be ignored.
               This option is useful during the development phase, but
               not when the project has to be published.
-  --help      Show this message and exit.
+  -h, --help  Show this message and exit.
 "
 
 
@@ -48,7 +48,7 @@ then
             QUICKOPTION="-q"
         ;;
 
-        "--help")
+        "-h"|"--help")
             print_cli_info 0 "$HELP"
         ;;
 

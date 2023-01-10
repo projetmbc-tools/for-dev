@@ -1,19 +1,19 @@
 this::
-    date = 2022-12-03
+    date = 2023-01-10
 
 
 =============================
 Outils d'aide à la conception
 =============================
 
-Il existe un script ¨js path::``jnghtml.js`` pour faciliter la conception de patrons : ce script permet de ne pas trop polluer la mise en forme d'un patron avant son utilisation via ¨jinjang. L'essayer, c'est l'adopter.
+Il existe un script ¨js path::``jngutils-html.js`` pour faciliter la conception de patrons : ce script permet de ne pas trop polluer la mise en forme d'un patron avant son utilisation via ¨jinjang. L'essayer, c'est l'adopter.
 
 
-Pour expliquer comment utiliser cet outil, nous allons supposer que le fichier path::``jnghtml.js`` se trouve dans le même dossier que le fichier ¨html dont nous donnons le code ci-dessous
+Pour expliquer comment utiliser cet outil, nous allons supposer que le fichier path::``jngutils-html.js`` se trouve dans le même dossier que le fichier ¨html dont nous donnons le code ci-dessous
 ((
     Il est prévu de fournir ce script via un service ¨cdn.
 )).
-Noter l'utilisation de `<!--: if False :--> ... <!--: endif :-->` afin de ne charger le script `jnghtml.js` que lorsque l'on travaille sur le patron.
+Noter l'utilisation de `<!--: if False :--> ... <!--: endif :-->` afin de ne charger le script `jngutils-html.js` que lorsque l'on travaille sur le patron.
 
 jinjang::
     ---
@@ -25,7 +25,7 @@ jinjang::
     <head>
     <!--: if False :-->
     <script type = "text/javascript"
-            src  = "jnghtml.js">
+            src  = "jngutils-html.js">
     </script>
     <!--: endif :-->
     </head>

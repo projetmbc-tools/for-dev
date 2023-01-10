@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-12-19
+    date = 2023-01-10
 
 
 abrev::
@@ -26,5 +26,5 @@ content::
     ¨content/filesnco.txt
     ¨content/specs.txt
     ¨content/usecases.txt
-    ¨content/addit.txt
+    ¨content/propose.txt
 

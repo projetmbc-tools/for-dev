@@ -5,32 +5,50 @@
 10
 ==
 
-    --> jngutils : OK
+-----
+:new:
+-----
 
-        + on garde tout direct au niveau ausf specs.yaml et status.yaml
+[[:api:]]
+¨DSL.
 
+    1) One new flavour for ¨markdown files.
 
-    --> md support :
-            + notion dh'éitage à un seul niveau basique de de specs : comme HTML, mais ici pas d'outils
-            + specs.yaml : about nouvelle clé extend avec le nom d'un seul dialecte
-            + besoin de passer d'abord par analyser au mieux toutes les specs, puis quand on a tout on peut téendre
+    1) Names for tools follow new rules.
 
+        * The folder for the tools is now path::``jngutils``.
 
-    --> CONTRIBUTE - outils plus sans tools !!! utilisation direct du bon nom! et TOOLS.md --> README.md
+        * The tools path::``jnghtml.js``, and path::``jnglatex.sty`` have been renamed path::``jngutils-html.js`` and path::``jngutils.sty`` ¨resp.
 
-        Ok   jng-extra-tools ---> jngutils
-        OK   jnglatex.sty ---> jngutils.sty
-        OK   jnghtml.js   ---> jngutils-html.js
+    1) Two new names.
 
+        * ``AUTO_FROM_EXT`` is now ``ASSOCIATED_EXT``.
 
-    specs.yaml :
-
-        OK   tools : yes  ---> utils : jngutils.sty
-        OK   tools : yes  ---> utils : jngutils-html.js
-        OK   tools : yes  ---> utils : nom du script isolé, sinon rien !
+        * ``WITH_EXTRA_TOOLS`` is now ``WITH_UTILS``
 
 
-        OK    WITH_EXTRA_TOOLS --> WITH_UTILS
+--------
+:update:
+--------
+
+[[:doc:]]
+¨Specs: sections about inheritance, and tools have been added.
+
+
+--------
+:fordev:
+--------
+
+[[:api:]]
+¨DSL - Contribute.
+
+    1) One flavour can be inherited from another (only one level of inheritance depth is allowed).
+
+    1) Tools: all files directly inside a flavour folder are kept except path::``specs.yaml`` and path::``status.yaml``.
+
+
+[[:flow:]]
+path::``TEX`` files: extra files made by ¨latex compilations are removed by the builder path::``build_only_texfiles_slow.py``.
 
 
 // ---------- //
@@ -80,7 +98,7 @@ path::``README.md``: the ¨tech section about all the flavours has been simplifi
 
 
 [[:fix:]]
-¨Cli: the use of ``--config auto`` was not implemented because internally the value used is ``AUTO_CONFIG = ":auto-config:"``, but not ``"auto"``.
+¨Cli: the use of ``--config auto`` was not functional because internally the value used is ``AUTO_CONFIG = ":auto-config:"``, but not ``"auto"``.
 
 
 --------

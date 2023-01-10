@@ -1,0 +1,17 @@
+﻿this::
+    date = 2023-01-10
+
+
+=============================
+Partir d'une saveur existence
+=============================
+
+La saveur ¨md utilise la même syntaxe que la saveur ¨html sans proposer d'outils. ¨jinjang permet de spécifier très rapidemnt ceci via yaml::``extend: html`` comme dans l'exemple tronqué suivant, où l'emploi de yaml::``utils: no`` efface le réglage indiqué pour la saveur ¨html.
+
+yaml::
+    about:
+        author: ...
+        desc  : ...
+        date  : ...
+        extend: html
+        utils : no
