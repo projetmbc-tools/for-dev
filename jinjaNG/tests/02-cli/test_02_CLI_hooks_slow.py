@@ -10,7 +10,7 @@ from cbdevtools.addfindsrc import addfindsrc
 
 # ! -- DEBUGGING -- ! #
 # Clear the terminal.
-# print("\033c", end="")
+print("\033c", end="")
 # ! -- DEBUGGING -- ! #
 
 
@@ -40,8 +40,11 @@ def test_CLI_hooks():
     runner = CliRunner()
     result = runner.invoke(
         cli = jng_CLI,
+        catch_exceptions=False,
         args =
         [
+            '--config',
+            'auto',
             f'"{data}"',
             f'"{template}"',
             f'"{output}"',
@@ -49,3 +52,6 @@ def test_CLI_hooks():
     )
 
     assert result.exit_code == 0, result.output
+
+
+test_CLI_hooks()

@@ -33,6 +33,15 @@ Error: {message}
     exit(1)
 
 
+def unquotedpath(strpath):
+    if len(strpath) <= 2:
+        return strpath
+
+    if strpath[0] in ['"', "'"] and strpath[0] == strpath[-1]:
+        strpath = strpath[1:-1]
+
+    return strpath
+
 ###
 # prototype::
 #     data     : the path of the file containing the data to feed
@@ -122,9 +131,9 @@ def jng_CLI(
 
     try:
         mybuilder.render(
-            data     = Path(data),
-            template = Path(template),
-            output   = Path(output)
+            data     = Path(unquotedpath(data)),
+            template = Path(unquotedpath(template)),
+            output   = Path(unquotedpath(output))
         )
 
         print(
