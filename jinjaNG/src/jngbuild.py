@@ -441,7 +441,7 @@ class JNGBuilder:
                     listcmd,
                     check          = True,
                     capture_output = True,
-                    encoding       = "utf8"
+                    encoding       = "utf-8"
                 )
 
                 if self.verbose:

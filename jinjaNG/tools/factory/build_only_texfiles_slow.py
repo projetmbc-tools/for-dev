@@ -15,6 +15,13 @@ JINJANG_DIR = addfindsrc(
 )
 
 
+TEX_SUFFIX      = '.tex'
+OUTPUT_TEX_FILE = 'output.tex'
+
+HOOKS_TESTS_SUBDIRNAMES = ['post', 'pre', 'pre-n-post']
+HOOKS_TESTS_MAINDIR     = '02-cli'
+
+
 # -------------- #
 # -- SPEAKING -- #
 # -------------- #
@@ -28,11 +35,37 @@ TAB_3 = TAB_1*3
 # -- TOOLS -- #
 # ----------- #
 
+def testinghooks_file(path):
+    if path.name != OUTPUT_TEX_FILE:
+        return False
+
+    oneparent = path.parent.parent
+
+    if oneparent.name not in HOOKS_TESTS_SUBDIRNAMES:
+        return False
+
+    oneparent = oneparent.parent.parent
+
+    if oneparent.name != HOOKS_TESTS_MAINDIR:
+        return False
+
+    return True
+
+
 def recufiles(folder):
     for path in folder.glob('*'):
-        if path.is_file():
-            yield path
+# We only seek for TEX files.
+        if (
+            path.is_file()
+            and
+            path.suffix == TEX_SUFFIX
+        ):
+# PDFs are kept for test hooks.
+            opt = '-c' if testinghooks_file(path) else '-C'
 
+            yield opt, path
+
+# One folder to explore...
         else:
             yield from recufiles(path)
 
@@ -45,11 +78,8 @@ print(f'{TAB_1}* Just keep TEX files.')
 
 cdir = os.curdir
 
-for p in recufiles(JINJANG_DIR):
-    if p.suffix != '.tex':
-        continue
-
+for opt, p in recufiles(JINJANG_DIR):
     os.chdir (p.parent)
-    os.system(f'latexmk -C "{p.name}" > /dev/null 2>&1')
+    os.system(f'latexmk {opt} "{p.name}" > /dev/null 2>&1')
 
 os.chdir(cdir)
