@@ -1,5 +1,0 @@
-One small {{ txt_example }} with automatic calculations.
-<!--: for i in range(1, max_i + 1) :-->
-  1) I count using squares: {{ i**2 }}.
-<!--: endfor :-->
-That's all!

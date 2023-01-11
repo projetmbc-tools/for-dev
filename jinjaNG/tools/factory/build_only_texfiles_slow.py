@@ -18,8 +18,8 @@ JINJANG_DIR = addfindsrc(
 TEX_SUFFIX      = '.tex'
 OUTPUT_TEX_FILE = 'output.tex'
 
-HOOKS_TESTS_SUBDIRNAMES = ['post', 'pre', 'pre-n-post']
-HOOKS_TESTS_MAINDIR     = '02-cli'
+# HOOKS_TESTS_SUBDIRNAMES = ['post', 'pre', 'pre-n-post']
+# HOOKS_TESTS_MAINDIR     = '02-cli'
 
 
 # -------------- #
@@ -35,21 +35,21 @@ TAB_3 = TAB_1*3
 # -- TOOLS -- #
 # ----------- #
 
-def testinghooks_file(path):
-    if path.name != OUTPUT_TEX_FILE:
-        return False
+# def testinghooks_file(path):
+#     if path.name != OUTPUT_TEX_FILE:
+#         return False
 
-    oneparent = path.parent.parent
+#     # oneparent = path.parent.parent
 
-    if oneparent.name not in HOOKS_TESTS_SUBDIRNAMES:
-        return False
+#     # if oneparent.name not in HOOKS_TESTS_SUBDIRNAMES:
+#     #     return False
 
-    oneparent = oneparent.parent.parent
+#     # oneparent = oneparent.parent.parent
 
-    if oneparent.name != HOOKS_TESTS_MAINDIR:
-        return False
+#     # if oneparent.name != HOOKS_TESTS_MAINDIR:
+#     #     return False
 
-    return True
+#     return True
 
 
 def recufiles(folder):
@@ -61,7 +61,8 @@ def recufiles(folder):
             path.suffix == TEX_SUFFIX
         ):
 # PDFs are kept for test hooks.
-            opt = '-c' if testinghooks_file(path) else '-C'
+            # opt = '-c' if testinghooks_file(path) else '-C'
+            opt = '-C'
 
             yield opt, path
 

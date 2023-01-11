@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ###
-# This module implements the [C]-omand [L]-ine [I]-nterface of ¨jinjaNG.
+# This module implements the [C]-ommand [L]-ine [I]-nterface of ¨jinjaNG.
 ###
 
 
@@ -16,12 +16,12 @@ from .jngbuild import *
 
 ###
 # prototype::
-#     message : this text indicates one error.
+#     message : this text is to indicate one error.
 #
 #     :action: an error message is printed, then the script exits
 #              with a ``1`` error.
 ###
-def _exit(message):
+def _exit(message: str) -> None:
     print(
 f"""
 Try 'jinjang --help' for help.
@@ -33,7 +33,13 @@ Error: {message}
     exit(1)
 
 
-def unquotedpath(strpath):
+###
+# prototype::
+#     strpath : a path that can used quotes
+#
+#     :return: the string version of the path without quotes around.
+###
+def unquotedpath(strpath: str) -> str:
     if len(strpath) <= 2:
         return strpath
 
@@ -41,6 +47,7 @@ def unquotedpath(strpath):
         strpath = strpath[1:-1]
 
     return strpath
+
 
 ###
 # prototype::
@@ -61,7 +68,11 @@ def unquotedpath(strpath):
 #
 #     :action: :see: :see: jngbuild.JNGBuilder.render
 ###
-@click.command()
+@click.command(
+    context_settings = dict(
+        help_option_names = ['--help', '-h']
+    )
+)
 @click.argument('data')
 @click.argument('template')
 @click.argument('output')

@@ -55,6 +55,10 @@ SPE_VARS = [
     'output',
 ]
 
+SPE_VARS += [
+    f'{name}_stem' for name in SPE_VARS
+]
+
 
 TERM_STYLE_DEFAULT = "\033[0m"
 TERM_STYLE_INFO    = "\033[32m\033[1m"
@@ -268,9 +272,16 @@ class JNGBuilder:
             flavour = self.flavour
 
 # `Path` version of the paths.
-        self._data     = Path(str(data))
-        self._template = Path(str(template))
-        self._output   = Path(str(output))
+        for name, val in {
+            'data'    : data,
+            'template': template,
+            'output'  : output,
+        }.items():
+            val = Path(str(val))
+            setattr(self, f"_{name}", val)
+
+            val = val.parent / val.stem
+            setattr(self, f"_{name}_stem", val)
 
         self._template_parent = self._template.parent
 

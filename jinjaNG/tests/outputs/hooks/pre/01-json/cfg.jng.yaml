@@ -1,0 +1,3 @@
+﻿hooks:
+  pre:
+    - bash bash2data.bash
