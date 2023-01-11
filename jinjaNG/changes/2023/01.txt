@@ -1,5 +1,16 @@
 // ---------- //
 
+==
+11
+==
+
+--------
+:fordev:
+--------
+
+[[:flow:]]
+¨latex flavour: the image for the path::``README`` file is only modified if at least one pixel changes. This will stop the pollution of the ¨git log.
+
 
 ==
 11  (0.1.1-rc)
