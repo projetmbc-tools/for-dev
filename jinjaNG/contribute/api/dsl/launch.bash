@@ -1,6 +1,6 @@
 #!/bin/bash
 
-THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+THIS_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 
 USAGE="Usage: bash launch.bash [OPTIONS]"
@@ -42,7 +42,7 @@ then
     if [[ "$1" == "-q" || "$1" == "--quick" ]]
     then
         QUICKOPTION=1
-    
+
     else
         if [[ "$1" == "--help" ]]
         then
@@ -67,23 +67,23 @@ while read -r builderfile  # <(find . -name 'build_*'  -type f | sort)
 do
     filename=$(basename "$builderfile")
     ext=${filename##*.}
-    
+
     if [[ $QUICKOPTION == 1 && $filename =~ ^build_.*_slow\..* ]]
     then
         echo "Ignoring slow $builderfile"
-    
+
     else
         echo "Launching $builderfile"
-        
+
         if [ "$ext" == "py" ]
         then
             command=python
         else
             command=bash
         fi
-        
+
         $command "$builderfile" > /dev/null || error_exit "$THIS_DIR" "$builderfile"
     fi
-    
+
     echo ""
 done < <(find . -name 'build_*'  -type f | sort)

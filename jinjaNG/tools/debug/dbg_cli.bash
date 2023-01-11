@@ -16,7 +16,7 @@ error_exit() {
     exit 1
 }
 
-THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+THIS_DIR="$(cd "$(dirname "$0")" && pwd)"
 JINJANG_DIR="$(cd "$THIS_DIR/../.." && pwd)"
 
 TESTED_FOLDER="$THIS_DIR/files/$KIND-$NB"
