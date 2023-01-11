@@ -49,8 +49,7 @@ for p in recufiles(JINJANG_DIR):
     if p.suffix != '.tex':
         continue
 
-    os.chdir(p.parent)
-
+    os.chdir (p.parent)
     os.system(f'latexmk -C "{p.name}" > /dev/null 2>&1')
 
 os.chdir(cdir)

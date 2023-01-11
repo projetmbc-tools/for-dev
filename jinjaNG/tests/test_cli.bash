@@ -1,6 +1,6 @@
 THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 JINJANG_DIR="$(cd "$THIS_DIR/.." && pwd)"
-DATA_DIR="$THIS_DIR/usecases/data"
+DATA_DIR="$THIS_DIR/01-usecases/data"
 
 
 function error_exit() {
@@ -45,7 +45,7 @@ do
 
     data="$DATA_DIR/$datafile"
 
-    while read -r templatefile  # <(find . -name 'template.*'  -type f | sort)
+    while read -r templatefile  # <(find . -name 'template.*' -type f | sort)
     do
         filename=$(basename "$templatefile")
         ext=${filename##*.}
@@ -68,7 +68,7 @@ do
 
         # -- REMOVE THE OUPUT -- #
         rm "$outputfound"
-    done < <(find $localdir -name 'template.*'  -type f | sort)
+    done < <(find $localdir -name 'template.*' -type f | sort)
 
     cd "$DATA_DIR"
 done < <(find . -name 'data.*'  -type f | sort)

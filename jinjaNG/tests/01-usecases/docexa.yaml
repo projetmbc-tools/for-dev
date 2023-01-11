@@ -1,0 +1,11 @@
+docdir: /Users/projetmbc/Google Drive/git[NEW]/coding/bc-tools/for-dev/jinjaNG/doc/content
+totest:
+  - - how-to/examples/direct
+    - data.json
+    - template.tex
+  - - how-to/examples/direct
+    - data.yaml
+    - template.tex
+  - - how-to/examples/python-data
+    - data.py
+    - template.txt

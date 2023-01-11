@@ -23,7 +23,7 @@ latexmk -c   "exavar.tex"
 # -- PDF --> PNG -- #
 # ----------------- #
 
-convert -density 800 "exavar.pdf" -alpha off -resize 14% "exavar.png"
+convert -density 800 "exavar.pdf" -define png:exclude-chunks=date,time -alpha off -resize 14% "exavar.png"
 
 
 # ------------------------------ #
