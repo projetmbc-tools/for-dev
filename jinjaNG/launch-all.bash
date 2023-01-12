@@ -68,7 +68,7 @@ then
                 message="$USAGE
 $TRY
 
-Error: No such option: $1"
+Error: No such option: $i"
 
                 print_cli_info 1 "$message"
             ;;
