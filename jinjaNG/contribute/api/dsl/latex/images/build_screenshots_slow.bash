@@ -31,7 +31,6 @@ PDF_FILE="exavar.pdf"
 
 IMG_KEPT="exavar.png"
 IMG_CANDIDATE="exavar_candidate.png"
-IMG_DIFF="exavar_diff.png"
 
 if [ -f "exavar.png" ]
 then

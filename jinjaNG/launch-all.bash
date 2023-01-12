@@ -41,11 +41,22 @@ fi
 
 QUICKOPTION=""
 
+ONLY_TESTS=0
+ONLY_BUILD=0
+
 if (( $# == 1 ))
 then
     case $1 in
         "-q"|"--quick")
             QUICKOPTION="-q"
+        ;;
+
+        "-t"|"--test")
+            ONLY_TESTS=1
+        ;;
+
+        "-b"|"--build")
+            ONLY_BUILD=1
         ;;
 
         "-h"|"--help")
@@ -70,23 +81,37 @@ while read -r line
 do
     if [[ $line =~ ^-.* ]]
     then
+        launchthis=1
         folder="${line:2}"
 
-        while read -r launcherfile  # <(find . -name 'build_*'  -type f | sort)
-        do
-            printf "\033[34m\033[1m"
+        if [[ $ONLY_TESTS -eq 1 && $folder != "tests" ]]
+        then
+            launchthis=0
+        fi
 
-            echo ""
-            echo "=====[ $launcherfile ]====="
+        if [[ $ONLY_BUILD -eq 1 && $folder == "tests" ]]
+        then
+            launchthis=0
+        fi
 
-            if [[ "$folder" == "tests" ]]
-            then
+        if [[ $launchthis -eq 1 ]]
+        then
+            while read -r launcherfile  # <(find . -name 'build_*'  -type f | sort)
+            do
+                printf "\033[34m\033[1m"
+
                 echo ""
-            fi
+                echo "=====[ $launcherfile ]====="
 
-            printf "\033[0m"
+                if [[ "$folder" == "tests" ]]
+                then
+                    echo ""
+                fi
 
-            bash $launcherfile $QUICKOPTION || exit 1
-        done < <(find "$folder" -name 'launch.bash'  -type f | sort)
+                printf "\033[0m"
+
+                bash $launcherfile $QUICKOPTION || exit 1
+            done < <(find "$folder" -name 'launch.bash'  -type f | sort)
+        fi
     fi
 done < "$FOLDER_LIST"
