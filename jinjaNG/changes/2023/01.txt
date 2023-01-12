@@ -7,11 +7,13 @@
 --------
 
 [[:flow:]]
-New opions with path::``launch-all.bash``.
+New options for path::``launch-all.bash``.
 
     1) The option term::``--test``, or term::``-t``, only launches tests.
 
-    1) The option term::``--buld``, term::``-b`` only launches all builders, even the slow ones.
+    1) The option term::``--build``, term::``-b`` only launches all builders, even the slow ones.
+
+    1) It is now possible to combine two options (for example, term::``-t -q`` launches only quick tests).
 
 
 // ---------- //

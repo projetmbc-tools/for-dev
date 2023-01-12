@@ -28,7 +28,7 @@ print_cli_info() {
 }
 
 
-if (( $# > 1 ))
+if (( $# > 2 ))
 then
     message="$USAGE
 $TRY
@@ -44,34 +44,36 @@ QUICKOPTION=""
 ONLY_TESTS=0
 ONLY_BUILD=0
 
-if (( $# == 1 ))
+if (( $# <= 2 ))
 then
-    case $1 in
-        "-q"|"--quick")
-            QUICKOPTION="-q"
-        ;;
+    for i; do
+        case $i in
+            "-q"|"--quick")
+                QUICKOPTION="-q"
+            ;;
 
-        "-t"|"--test")
-            ONLY_TESTS=1
-        ;;
+            "-t"|"--test")
+                ONLY_TESTS=1
+            ;;
 
-        "-b"|"--build")
-            ONLY_BUILD=1
-        ;;
+            "-b"|"--build")
+                ONLY_BUILD=1
+            ;;
 
-        "-h"|"--help")
-            print_cli_info 0 "$HELP"
-        ;;
+            "-h"|"--help")
+                print_cli_info 0 "$HELP"
+            ;;
 
-        *)
-            message="$USAGE
+            *)
+                message="$USAGE
 $TRY
 
 Error: No such option: $1"
 
-            print_cli_info 1 "$message"
-        ;;
-    esac
+                print_cli_info 1 "$message"
+            ;;
+        esac
+    done
 fi
 
 
