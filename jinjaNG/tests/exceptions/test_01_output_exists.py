@@ -36,7 +36,7 @@ OUTPUT   = FOLDER_TESTED / 'output.txt'
 # -- OUTPUT CAN NOT BE ERASED -- #
 # ------------------------------ #
 
-def test_output_not_erasable():
+def test_output_erasable_NO():
     with pyt_raises(Exception) as _:
         MY_BUILDER.render(
             data     = DATA,
@@ -49,7 +49,7 @@ def test_output_not_erasable():
 # -- OUTPUT CAN BE ERASED -- #
 # -------------------------- #
 
-def test_output_erasable():
+def test_output_erasable_YES():
     MY_BUILDER.render(
         erase    = True,
         data     = DATA,
