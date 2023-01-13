@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-11
+    date = 2023-01-13
 
 
 =============================
@@ -18,3 +18,7 @@ yaml::
 
     ext:
         - md
+
+
+info::
+    Il est possible de redéfinir la syntaxe pour les commentaires, et celle pour les variables.

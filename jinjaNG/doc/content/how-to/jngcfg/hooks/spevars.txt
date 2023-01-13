@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-11
+    date = 2023-01-13
 
 
 ===================
@@ -23,7 +23,7 @@ Pour faciliter la rédaction des commandes des traitements périphériques, il e
 
 
 note::
-    En coulisse, les ``f-strings``de ¨python sont utilisées. Si besoin, ceci permet d'employer term::``{output}`` tel quel dans une commande en tapant yaml::``{{output}}`` dans une commande de traitement périphérique
+    En coulisse, les ``f-strings``de ¨python sont utilisées. Si besoin, ceci permet d'employer term::``{output}`` tel quel dans une commande en tapant yaml::``{{output}}``
     ((
         Cela aura-t-il une utilité ?
     )).

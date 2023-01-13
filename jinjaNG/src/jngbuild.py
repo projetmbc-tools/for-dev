@@ -107,6 +107,7 @@ class JNGBuilder:
 #               @ flavour = AUTO_FLAVOUR
 #                 or
 #                 flavour in config.jngflavours.ALL_FLAVOURS
+#     erase     : ??????
 #     launch_py : the value ``True`` allows the execution of ¨python files
 #                 suchas to build feeding data.
 #                 Otherwise, no ¨python script will be launched.

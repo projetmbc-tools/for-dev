@@ -37,7 +37,7 @@ while(DOC_DIR.name != 'jinjaNG'):
 DOC_DIR = DOC_DIR / 'doc'
 
 
-SPE_VARS_DOCFILE = DOC_DIR / 'content' / 'how-to' / 'cli' / 'hooks' / 'spevars.txt'
+SPE_VARS_DOCFILE = DOC_DIR / 'content' / 'how-to' / 'jngcfg' / 'hooks' / 'spevars.txt'
 
 
 with(THIS_DIR / "spevars.yaml").open(

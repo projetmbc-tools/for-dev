@@ -33,6 +33,11 @@ Try 'jinjang --help' for help.
     exit(1)
 
 
+# Usage: jinjang [OPTIONS] DATA TEMPLATE OUTPUT
+# Try 'jinjang --help' for help.
+
+# Error: Missing argument 'OUTPUT'.
+
 ###
 # prototype::
 #     data     : the path of the file containing the data to feed
@@ -44,10 +49,11 @@ Try 'jinjang --help' for help.
 #     unsafe   : same usage as the attribut/parameter ``launch_py``
 #                of the method ``jngbuild.JNGBuilder.render``,
 #                :see: jngbuild.JNGBuilder.render
+#     erase    : :see: jngbuild.JNGBuilder.render
 #     flavour  : :see: jngbuild.JNGBuilder.render
 #     config   : :see: jngconfig.build_config.render
-#     short    : opposite usage of the attribut/parameter ``verbose``
-#                of the method ``jngbuild.JNGBuilder.render``,
+#     short    : opposite usage of the argument ``verbose`` of
+#                the method ``jngbuild.JNGBuilder.render``,
 #                :see: jngconfig.build_config.render
 #
 #     :action: :see: :see: jngbuild.JNGBuilder.render

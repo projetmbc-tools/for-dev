@@ -8,18 +8,18 @@ Des données construites via ¨python
 
 Il peut être utile de produire directement des données via un script ¨python, le langage de ¨dev de ¨jinjang
 ((
-    Via des pré-traitements, voir cf::``hooks/pre.txt``, il est possible de faire appel à d'autres langages pour produire les fichiers ¨json de données.
+    Via des pré-traitements, voir cf::``?/hooks/pre.txt``, il est possible de faire appel à d'autres langages pour produire les fichiers ¨json, ou ¨yaml, de données.
 )),
-sans passer via un fichier ¨json. Nous allons voir comment faire ceci dans cette section.
+sans passer via un fichier ¨json, ou ¨yaml. Nous allons voir comment faire ceci dans cette section.
 
 
 warning::
-    L'appel d'un programme extérieur doit toujours être fait avec prudence. Donc, en cas de doute, n'employer que des données de peuplement fournies via un fichier ¨json.
+    L'appel d'un programme extérieur doit toujours être fait avec prudence. Donc, en cas de doute, n'employer que des données de peuplement fournies via un fichier ¨json, ou ¨yaml.
 
 
 Côté lignes de commandes, les choses sont simples car il suffit de faire comme dans la session fictive suivante où l'option term::``--unsafe``, ou term::``-u``, autorise le lancement du fichier ¨python construisant les données
 ((
-    Ceci permet d'éviter d'utiliser un fichier ¨python alors que cela n'était pas prévu, tout en indidquant à ¨jinjang que l'on prend la responsabilité de lancer un script ¨python.
+    Ceci permet d'indiquer à ¨jinjang que l'on prend la responsabilité de lancer un script ¨python.
 )).
 
 terminal::

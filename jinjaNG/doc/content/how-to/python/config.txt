@@ -1,12 +1,15 @@
 ﻿this::
-    date = 2023-01-05
+    date = 2023-01-13
 
 
 ========
 ¨Configs
 ========
 
-Par défaut, la classe python::``JNGBuilder`` ne cherche pas de fichier de ¨config path::``cfg.jng.yaml`` de façon ¨auto pour des raisons évidentes de ¨secu.
+La section cf::``?/jngcfg.txt`` présente comment s'appuyer sur des ¨configs spéciales pour compléter ce que fait ¨jinjang.
+
+
+Par défaut, la classe python::``JNGBuilder`` ne cherche pas de fichier de ¨config pour des raisons évidentes de ¨secu.
 C'est pour cela que la valeur par défaut de python::``config`` lors de l'initilisation de la classe python::``JNGBuilder`` est la constante python::``NO_CONFIG``.
 
 

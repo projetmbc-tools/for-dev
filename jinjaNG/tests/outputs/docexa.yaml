@@ -6,6 +6,9 @@ totest:
   - - how-to/examples/direct
     - data.yaml
     - template.tex
+  - - how-to/examples/via-python/files2files
+    - data.py
+    - template.txt
   - - how-to/examples/python-data
     - data.py
     - template.txt

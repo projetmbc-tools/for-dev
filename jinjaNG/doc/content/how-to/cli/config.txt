@@ -1,0 +1,14 @@
+﻿this::
+    date = 2023-01-13
+
+
+====================================
+Gestions fines de ce qui est produit
+====================================
+
+Il est possible d'obtenir des comportements fins via un fichier ¨yaml de ¨config : la section cf::``?/jngcfg.txt`` présente l'ensemble des fonctionnalités disponibles. En ligne de commandes, il existe deux moyens d'utiliser un fichier ¨yaml de ¨config à la sauce ¨jinjang.
+
+    1) La ¨1ere méthode passe via une commande du type term::``jinjang --config auto ...`` avec l'option term::``--config``, ou term::``-c``, associée à la valeur spéciale term::``auto`` qui demande la recherche d'un fichier path::``cfg.jng.yaml`` placé dans le même dossier que le fichier "patron".
+
+    2) Si plusieurs "patrons" sont présents dans un même dossier, ou pour utiliser des ¨configs de test, il est utile de pouvoir choisir le fichier de ¨config de façon explicite.
+    Dans ce type de situation, il suffit de procéder via term::``jinjang --config chemin/vers/speconfig.yaml ...`` par exemple.

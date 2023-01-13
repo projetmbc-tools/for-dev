@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-12-11
+    date = 2022-12-13
 
 
 abrev::
@@ -17,5 +17,5 @@ content::
     ¨content/data/json.txt
     ¨content/data/yaml.txt
     ¨content/data/python.txt
-    ¨content/hooks.txt
     ¨content/flavour.txt
+    ¨content/config.txt

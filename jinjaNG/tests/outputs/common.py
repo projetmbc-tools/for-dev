@@ -3,6 +3,7 @@
 from typing import Tuple, List, Union
 
 from collections import defaultdict
+from json        import load as json_load
 from yaml        import safe_load as yaml_load
 
 from cbdevtools.addfindsrc import addfindsrc
@@ -35,7 +36,7 @@ def message(template, xtra = ""):
 def build_output(
     builder,
     data,
-    template
+    template,
 ):
     output_found = template.parent / f"output_found{template.suffix}"
 

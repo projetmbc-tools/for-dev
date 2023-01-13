@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-04
+    date = 2023-01-13
 
 
 ===========================
@@ -16,7 +16,7 @@ json::
     ---
 
 
-L'équivalent au format ¨yaml est ce qui suit avec une syntaxe efficace pour une saisie à la main.
+Voici l'équivalent au format ¨yaml. Noter l'efficacité de la syntaxe pour une saisie à la main.
 
 yaml::
     ---
@@ -25,9 +25,9 @@ yaml::
     ---
 
 
-Côté génération du produit fini, rien de bien nouveau comme le montre la section fictive suivante.
+Côté génération du produit fini, rien de bien nouveau comme le montre la session fictive suivante où l'on autorise l'écrasement d'un éventuel fichier path::``output.tex`` existant.
 
 terminal::
     > cd my/folder
-    > jinjang data.yaml template.tex output.tex
+    > jinjang --erase data.yaml template.tex output.tex
     [...]

@@ -1,0 +1,10 @@
+﻿abrev::
+    content = /jngcfg
+
+
+============================================
+Configurer localement le travail de ¨jinjang
+============================================
+
+content::
+    ¨content/hooks.txt

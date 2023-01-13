@@ -1,16 +1,7 @@
 ﻿from jinjang import *
 
 # Les données.
-word       = "TEST"
-ascii_code = [
-    f"{ord(c):0>3}"
-    for c in word
-]
-
-DATA = {
-    "word"      : word,
-    "ascii_code": ascii_code
-}
+DATA_FILE = Path("data.py")
 
 # Les chemines des fichiers "patron" et produit.
 TEMPLATE_FILE = Path("template.txt")
@@ -22,7 +13,8 @@ mybuilder = JNGBuilder(
 )
 
 mybuilder.render(
-    data     = DATA,
-    template = TEMPLATE_FILE,
-    output   = OUTPUT_FILE
+    data      = DATA_FILE,
+    template  = TEMPLATE_FILE,
+    output    = OUTPUT_FILE,
+    launch_py = True
 )

@@ -10,16 +10,19 @@
 -----
 
 [[:api:]]
+What's up, doc?
 
-Output file: whether in interactive mode, or via ¨python, overwriting an output file is forbidden by default, but it is possible to allow it via the ``erase`` argument.
+    1) Output file: whether in interactive mode, or via ¨python, overwriting an output file is forbidden by default, but it is possible to allow it via the ``erase`` argument.
+
+    1) ¨CLI: error messages are better, and help is clearer.
 
 
------
-:new:
------
+[[:doc:]]
+The weather is clearing.
 
-[[:api:]]
-¨CLI: error messages are better, and help is clearer.
+    1) Output file: the "erase" feature has been documented.
+
+    1) A new section is dedicated to the ¨yaml ¨config files.
 
 
 --------
@@ -27,7 +30,7 @@ Output file: whether in interactive mode, or via ¨python, overwriting an output
 --------
 
 [[:test:]]
-Update: the new features about the output file are tested.
+Update: the new "erase" feature for the output file is tested.
 
 
 // ---------- //
