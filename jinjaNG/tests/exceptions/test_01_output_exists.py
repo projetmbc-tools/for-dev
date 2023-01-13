@@ -37,7 +37,7 @@ OUTPUT   = FOLDER_TESTED / 'output.txt'
 # ------------------------------ #
 
 def test_output_not_erasable():
-    with pyt_raises(Exception) as exc_info:
+    with pyt_raises(Exception) as _:
         MY_BUILDER.render(
             data     = DATA,
             template = TEMPLATE,

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+EXEC_START=`date +%s`
+
 THIS_DIR="$(cd "$(dirname "$0")" && pwd)"
 THIS_FILE=$(basename "$0")
 THIS_FILE=${THIS_FILE%%.*}
@@ -118,3 +120,14 @@ do
         fi
     fi
 done < "$FOLDER_LIST"
+
+
+EXEC_END=`date +%s`
+RUNTIME=$( echo "$EXEC_END - $EXEC_START" | bc -l )
+
+printf "\033[34m\033[1m"
+
+echo ""
+echo "TOTAL TIME: $RUNTIME""s."
+
+printf "\033[0m"

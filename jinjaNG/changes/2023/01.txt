@@ -11,7 +11,7 @@
 
 [[:api:]]
 
-Output file: whether in interactive mode, or via ¨python, overwriting an output file is forbidden by default, but it is possible to allow via the erase argument.
+Output file: whether in interactive mode, or via ¨python, overwriting an output file is forbidden by default, but it is possible to allow it via the ``erase`` argument.
 
 
 -----
