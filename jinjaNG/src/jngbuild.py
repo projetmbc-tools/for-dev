@@ -94,10 +94,10 @@ Following command has failed (see the lines above).
 ###
 class JNGBuilder:
     _RENDER_LOC_VARS = [
-        "flavour",
+        "flavour"  ,
         "launch_py",
-        "config",
-        "verbose",
+        "config"   ,
+        "verbose"  ,
     ]
 
 ###

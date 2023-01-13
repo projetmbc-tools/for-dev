@@ -1,7 +1,7 @@
 // ---------- //
 
 ==
-13
+13  (0.1.2-rc)
 ==
 
 --------
@@ -9,7 +9,11 @@
 --------
 
 [[:fix:]]
-Paths as strings: new tests revealed bad behaviour when paths were considered as strings. This has been fixed.
+Two things done.
+
+    1) Paths as strings: new tests revealed bad behaviour when paths were considered as strings. This has been fixed.
+
+    1) path::``data.py``: relative imports can be done.
 
 
 --------

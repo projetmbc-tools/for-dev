@@ -5,17 +5,40 @@
 ###
 
 
-from typing import Any
+from typing import Any, Iterator
 
+
+import              contextlib
 from io      import TextIOWrapper
 from json    import load as json_load
 import              os
 from pathlib import Path
 from runpy   import run_path
+import              sys
 from yaml    import safe_load as yaml_load
 
 
-from mistool.os_use import PPath as Path
+# ----------- #
+# -- TOOLS -- #
+# ----------- #
+
+###
+# prototype::
+#     path : a path to be added temporarily to the system path.
+#
+#     :action: temporarily add ``path`` to the system path.
+###
+@contextlib.contextmanager
+def addpath2sys(path: Path) -> Iterator[None]:
+    path = os.fspath(str(path))
+
+    try:
+        sys.path.insert(0, path)
+        yield
+
+    finally:
+        sys.path.remove(path)
+
 
 # ---------------------------- #
 # -- DATA TO FEED TEMPLATES -- #
@@ -140,9 +163,10 @@ class JNGData:
 # Lets's launch the Python file, and then recover the expected value
 # of the special variable.
 #
-# TODO Suchas to allow relative imports inside a ``data.py`` file, we have
-# to change the working directory.
-        dictdata = run_path(file)
+# Suchas to allow relative imports inside a ``data.py`` file, we have
+# to change ``sys.path`` temporarly.
+        with addpath2sys(file.parent):
+            dictdata = run_path(file)
 
 # The special variable is missing.
         if not JNGDATA_PYNAME in dictdata:
