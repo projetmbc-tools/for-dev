@@ -33,11 +33,6 @@ Try 'jinjang --help' for help.
     exit(1)
 
 
-# Usage: jinjang [OPTIONS] DATA TEMPLATE OUTPUT
-# Try 'jinjang --help' for help.
-
-# Error: Missing argument 'OUTPUT'.
-
 ###
 # prototype::
 #     data     : the path of the file containing the data to feed
@@ -72,14 +67,19 @@ Try 'jinjang --help' for help.
 @click.option('--unsafe', '-u',
               is_flag = True,
               default = False,
-              help    = '** TO USE WITH A LOT OF CAUTION! ** '
+              help    = '\033[91m\033[1m'
+                            '** TO USE WITH A LOT OF CAUTION! ** '
+                        '\033[0m'
                         'This flag allows Python file to build data: use '
                         'a dictionary named ``JNGDATA`` for the Jinja '
                         'variables and their value. ')
 @click.option('--erase', '-e',
               is_flag = True,
               default = False,
-              help    = 'This flag allows the erasing of the output file '
+              help    = '\033[91m\033[1m'
+                            '** TO USE WITH A LOT OF CAUTION! ** '
+                        '\033[0m'
+                        'This flag allows the erasing of the output file '
                         'if it already exists.')
 @click.option('--flavour', '-f',
               default = AUTO_FLAVOUR,
@@ -92,7 +92,9 @@ Try 'jinjang --help' for help.
                       + '.')
 @click.option('--config', '-c',
               default = NO_CONFIG,
-              help    = '** TO USE WITH A LOT OF CAUTION! ** '
+              help    = '\033[91m\033[1m'
+                            '** TO USE WITH A LOT OF CAUTION! ** '
+                        '\033[0m'
                         'The value ``auto`` authorizes jinjaNG to use '
                         'a ``cfg.jng.yaml`` file detected automatically '
                         'relatively to the parent folder of the template. '
