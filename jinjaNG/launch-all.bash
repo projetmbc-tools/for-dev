@@ -46,7 +46,8 @@ ONLY_BUILD=0
 
 if (( $# <= 2 ))
 then
-    for i; do
+    for i in $*
+    do
         case $i in
             "-q"|"--quick")
                 QUICKOPTION="-q"

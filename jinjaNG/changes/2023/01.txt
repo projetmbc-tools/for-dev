@@ -1,3 +1,32 @@
+// ---------- //
+
+==
+13
+==
+
+--------
+:update:
+--------
+
+[[:fix:]]
+Paths as strings: new tests revealed bad behaviour when paths were considered as strings. This has been fixed.
+
+
+--------
+:fordev:
+--------
+
+[[:facto:]]
+¨CLI: two things have been done.
+
+    1) For paths, we now use ``type = click.Path())`` (see why in cf::``this section; https://click.palletsprojects.com/en/8.1.x/arguments/#file-path-arguments``.
+
+    2) The ``unquotedpath`` function has been removed as it was totally unnecessary (indeed, some of the previous tests were not well written).
+
+
+// ---------- //
+
+
 ==
 12
 ==
@@ -17,6 +46,7 @@ New options for path::``launch-all.bash``.
 
 
 // ---------- //
+
 
 ==
 11

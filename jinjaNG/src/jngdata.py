@@ -9,10 +9,13 @@ from typing import Any
 
 from io      import TextIOWrapper
 from json    import load as json_load
+import              os
 from pathlib import Path
 from runpy   import run_path
 from yaml    import safe_load as yaml_load
 
+
+from mistool.os_use import PPath as Path
 
 # ---------------------------- #
 # -- DATA TO FEED TEMPLATES -- #
@@ -136,6 +139,9 @@ class JNGData:
 
 # Lets's launch the Python file, and then recover the expected value
 # of the special variable.
+#
+# TODO Suchas to allow relative imports inside a ``data.py`` file, we have
+# to change the working directory.
         dictdata = run_path(file)
 
 # The special variable is missing.

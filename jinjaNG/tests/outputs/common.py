@@ -40,9 +40,25 @@ def build_output(
     output_found = template.parent / f"output_found{template.suffix}"
 
     builder.render(
-        data    = data,
+        data     = data,
         template = template,
         output   = output_found
+    )
+
+    return output_found
+
+
+def build_output_strpath(
+    builder,
+    data,
+    template
+):
+    output_found = template.parent / f"output_found{template.suffix}"
+
+    builder.render(
+        data     = str(data),
+        template = str(template),
+        output   = str(output_found)
     )
 
     return output_found
