@@ -94,6 +94,7 @@ Following command has failed (see the lines above).
 ###
 class JNGBuilder:
     _RENDER_LOC_VARS = [
+        "erase"    ,
         "flavour"  ,
         "launch_py",
         "config"   ,
@@ -117,13 +118,16 @@ class JNGBuilder:
     def __init__(
         self,
         flavour  : str  = AUTO_FLAVOUR,
+        erase    : bool = False,
         launch_py: bool = False,
         config   : Any  = NO_CONFIG,
         verbose  : bool = False,
     ) -> None:
+        self.erase   = erase
+        self.verbose = verbose
+
         self.flavour = flavour
         self.config  = config
-        self.verbose = verbose
 
 # The update of ``launch_py`` implies the use of a new instance of
 # ``self._build_data`` via ``JNGData(value).build``.
@@ -233,6 +237,9 @@ class JNGBuilder:
 #     output   : the file used for the output build after using ``data``
 #                on ``template``.
 #              @ exists path(str(output))
+#     erase    : if the value is not ``None``, a local value is used
+#                without deleting the previous one.
+#                :see: self.__init__
 #     flavour  : if the value is not ``None``, a local value is used
 #                without deleting the previous one.
 #                :see: self.__init__
@@ -255,6 +262,7 @@ class JNGBuilder:
         data     : Any,
         template : Any,
         output   : Any,
+        erase    : Union[bool, None] = None,
         flavour  : Union[str, None]  = None,
         launch_py: Union[bool, None] = None,
         config   : Any               = None,
@@ -299,6 +307,14 @@ class JNGBuilder:
             config = self.config,
             parent = self._template_parent
         )
+
+# Can we build the output file?
+        if not self.erase and self._output.is_file():
+            raise IOError(
+                f"""Not erasable existing output file.
+  + {output}
+                """.strip()
+            )
 
 # Pre-hooks?
         self._pre_hooks()

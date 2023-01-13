@@ -1,5 +1,38 @@
 // ---------- //
 
+
+==
+13
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+
+Output file: whether in interactive mode, or via ¨python, overwriting an output file is forbidden by default, but it is possible to allow via the erase argument.
+
+
+-----
+:new:
+-----
+
+[[:api:]]
+¨CLI: error messages are better, and help is clearer.
+
+
+--------
+:fordev:
+--------
+
+[[:test:]]
+Update: the new features about the output file are tested.
+
+
+// ---------- //
+
+
 ==
 13  (0.1.2-rc)
 ==
@@ -11,9 +44,9 @@
 [[:fix:]]
 Two things done.
 
-    1) Paths as strings: new tests revealed bad behaviour when paths were considered as strings. This has been fixed.
-
     1) path::``data.py``: relative imports can be done.
+
+    1) Paths as strings: new tests revealed bad behaviour when paths were considered as strings. This has been fixed.
 
 
 --------

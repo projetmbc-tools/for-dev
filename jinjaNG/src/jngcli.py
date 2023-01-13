@@ -16,17 +16,17 @@ from .jngbuild import *
 
 ###
 # prototype::
-#     message : this text is to indicate one error.
+#     err : one exception.
 #
 #     :action: an error message is printed, then the script exits
 #              with a ``1`` error.
 ###
-def _exit(message: str) -> None:
+def _exit(err: Exception) -> None:
     print(
 f"""
 Try 'jinjang --help' for help.
 
-Error: {message}
+\033[91m\033[1m{type(err).__name__}: {err}\033[0m
 """.strip()
     )
 
@@ -70,6 +70,11 @@ Error: {message}
                         'This flag allows Python file to build data: use '
                         'a dictionary named ``JNGDATA`` for the Jinja '
                         'variables and their value. ')
+@click.option('--erase', '-e',
+              is_flag = True,
+              default = False,
+              help    = 'This flag allows the erasing of the output file '
+                        'if it already exists.')
 @click.option('--flavour', '-f',
               default = AUTO_FLAVOUR,
               help    = "A flavour to use if you don't want to let "
@@ -90,14 +95,14 @@ Error: {message}
 @click.option('--short', '-s',
               is_flag = True,
               default = False,
-              help    = 'This flag is used to hide the output of external '
-                        'commands that jinjaNG is asked to run.')
-
+              help    = "This flag asks to hide the output of user's "
+                        "commands runned by jinjaNG.")
 def jng_CLI(
     data    : str,
     template: str,
     output  : str,
     unsafe  : bool,
+    erase   : bool,
     flavour : str,
     config  : str,
     short   : bool,
@@ -126,6 +131,7 @@ def jng_CLI(
 # Lets' work...
     mybuilder = JNGBuilder(
         flavour   = flavour,
+        erase     = erase,
         launch_py = unsafe,
         config    = config,
         verbose   = not short
@@ -145,4 +151,4 @@ def jng_CLI(
         )
 
     except Exception as e:
-        _exit(repr(e))
+        _exit(e)
