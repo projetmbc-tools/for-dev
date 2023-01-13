@@ -35,22 +35,6 @@ Error: {message}
 
 ###
 # prototype::
-#     strpath : a path that can used quotes
-#
-#     :return: the string version of the path without quotes around.
-###
-def unquotedpath(strpath: str) -> str:
-    if len(strpath) <= 2:
-        return strpath
-
-    if strpath[0] in ['"', "'"] and strpath[0] == strpath[-1]:
-        strpath = strpath[1:-1]
-
-    return strpath
-
-
-###
-# prototype::
 #     data     : the path of the file containing the data to feed
 #                the template.
 #                path::``YAML``, path::``JSON``, and path::``PY``
@@ -73,9 +57,12 @@ def unquotedpath(strpath: str) -> str:
         help_option_names = ['--help', '-h']
     )
 )
-@click.argument('data')
-@click.argument('template')
-@click.argument('output')
+@click.argument('data',
+                 type = click.Path())
+@click.argument('template',
+                 type = click.Path())
+@click.argument('output',
+                 type = click.Path())
 @click.option('--unsafe', '-u',
               is_flag = True,
               default = False,
@@ -89,9 +76,9 @@ def unquotedpath(strpath: str) -> str:
                         'jinjaNG detect automatically the dialect '
                         'of the template. '
                         'Possible values: '
-                        + ', '.join(ALL_FLAVOURS[:-1])
-                        + f', or {ALL_FLAVOURS[-1]}'
-                        + '.')
+                      + ', '.join(ALL_FLAVOURS[:-1])
+                      + f', or {ALL_FLAVOURS[-1]}'
+                      + '.')
 @click.option('--config', '-c',
               default = NO_CONFIG,
               help    = '** TO USE WITH A LOT OF CAUTION! ** '
@@ -126,7 +113,11 @@ def jng_CLI(
     """
 # Unsafe mode used?
     if unsafe:
-        print('WARNING! Using a Python file can be dangerous.')
+        print(
+            '\033[91m\033[1m'
+                'WARNING! Using a Python file can be dangerous.'
+            '\033[0m'
+        )
 
 # Internal tag for auto config.
     if config == 'auto':
@@ -142,9 +133,9 @@ def jng_CLI(
 
     try:
         mybuilder.render(
-            data     = Path(unquotedpath(data)),
-            template = Path(unquotedpath(template)),
-            output   = Path(unquotedpath(output))
+            data     = data,
+            template = template,
+            output   = output
         )
 
         print(

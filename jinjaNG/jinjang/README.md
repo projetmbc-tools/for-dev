@@ -171,7 +171,7 @@ File successfully built:
 ~~~
 
 
-> Scripts like `data.py` cannot do relative imports.
+> Scripts like `data.py` can do relative imports.
 
 
 Hooks: doing pre and post-processing
