@@ -7,3 +7,4 @@ One small example with automatic calculations.
     3) I count using squares: 9.
 
     4) I count using squares: 16.
+

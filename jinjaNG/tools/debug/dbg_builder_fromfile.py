@@ -32,6 +32,7 @@ CONFIG = NO_CONFIG
 # CONFIG = "mycfg.yaml"
 
 FILES_FOLDER_NB = "01"
+FILES_FOLDER_NB = "02"
 
 
 DATA_EXT = "yaml"
@@ -60,7 +61,7 @@ FILES_FOLDER      = THIS_DIR / "files" / FILES_FOLDER_NAME
 
 template = FILES_FOLDER / f"template.{TEMPL_EXT}"
 output   = FILES_FOLDER / f"output.{TEMPL_EXT}"
-data    = FILES_FOLDER / f"data.{DATA_EXT}"
+data     = FILES_FOLDER / f"data.{DATA_EXT}"
 
 if CONFIG in [NO_CONFIG, AUTO_CONFIG]:
     config = CONFIG
@@ -69,12 +70,15 @@ else:
     config = FILES_FOLDER / CONFIG
 
 
+print(f"Working on {FILES_FOLDER = }")
+print()
+
 JNGBuilder(
     launch_py = LAUNCH_PY,
     config    = config,
     verbose   = VERBOSE,
 ).render(
-    data    = data,
+    data     = data,
     template = template,
     output   = output,
 )

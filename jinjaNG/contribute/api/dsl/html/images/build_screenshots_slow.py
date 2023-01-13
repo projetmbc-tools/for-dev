@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from PIL import Image, ImageChops
+from PIL import Image
 
 from playwright.sync_api import sync_playwright
 

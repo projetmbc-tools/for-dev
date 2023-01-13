@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2022-12-25
+    date = 2023-01-10
 
 
 =====================
@@ -15,24 +15,24 @@ Voici une partie du contenu du dossier path::``usecases`` pour la saveur ¨ascii
 dirtree::
     + usecases
         + no-param-1
+            * data.yaml
             * output.txt
             * template.txt
-            * data.yaml
         + no-param-2
+            * data.json
             * output.txt
             * template.txt
-            * data.yaml
 
 
 Chaque cas correspond à un dossier avec un nom court anglais, et parlant
 ((
     Penser aux tests automatisés.
 )).
-Ce dossier doit contenir forcément deux fichiers nommés path::``template``, et path::``output`` avec l'extension attendue, soit ici un simple path::``TXT``, ainsi qu'un fichier path::``data.yaml`` pour les données de peuplement.
+Ce dossier doit contenir forcément deux fichiers nommés path::``template``, et path::``output`` avec l'extension attendue, soit ici un simple path::``TXT``, ainsi qu'un fichier path::``data.yaml``, ou path::``data.json`` pour les données de peuplement.
 
     1) Le fichier nommé path::``template`` est un "patron" court, mais bien choisi. Ne pas cumuler les tests de focntionnalité ! Il vaut mieux utiliser plusieurs cas d'utilisation pour isoler ce qui est testé.
 
-    1) Le fichier path::``data.yaml`` fournit les données de peuplement au format ¨yaml, un langage avec une syntaxe simple pour un humain.
+    1) Le fichier path::``data.yaml``, ou path::``data.json``, fournit les données de peuplement.
 
     1) Le fichier nommé path::``output`` est le rendu attendu.
 

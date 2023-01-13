@@ -23,7 +23,7 @@ while(PROJECT_DIR.name != 'jinjaNG'):
 
 
 CONTRIB_DSL_DIR    = PROJECT_DIR / 'contribute' / 'api' / 'dsl'
-TESTS_USECASES_DIR = PROJECT_DIR / 'tests' / 'usecases' / 'data'
+TESTS_USECASES_DIR = PROJECT_DIR / 'tests' / 'outputs' / 'usecases'
 
 
 FLAVOURS_STATUS_YAML = THIS_DIR / 'flavours.yaml'
@@ -34,7 +34,7 @@ addfindsrc(
     project = 'jinjaNG',
 )
 
-from src import AUTO_FROM_EXT
+from src import ASSOCIATED_EXT
 
 
 # ------------------------ #
@@ -59,7 +59,7 @@ for fl in flavours_OK:
     srcfiles = []
 
     usecase_dir   = CONTRIB_DSL_DIR / fl / 'usecases'
-    flavours_exts = AUTO_FROM_EXT[fl]
+    flavours_exts = ASSOCIATED_EXT[fl]
 
 # New flavour data dir.
     flavour_dest_dir = TESTS_USECASES_DIR / fl

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+THIS_DIR="$(cd "$(dirname "$0")" && pwd)"
 THIS_FILE=$(basename "$0")
 THIS_FILE=${THIS_FILE%%.*}
 
@@ -12,10 +12,10 @@ HELP="$USAGE
   Launch all buider files.
 
 Options:
-  -q, --quick Any builder file named 'build_..._slow' wil be ignored.
+  -q, --quick Any builder file named 'build_..._slow' will be ignored.
               This option is useful during the development phase, but
               not when the project has to be published.
-  --help      Show this message and exit.
+  -h, --help  Show this message and exit.
 "
 
 
@@ -45,7 +45,7 @@ then
             QUICKOPTION=1
         ;;
 
-        "--help")
+        "-h"|"--help")
             print_cli_info 0 "$HELP"
         ;;
 
@@ -74,8 +74,8 @@ error_exit() {
 
 
 print_about() {
-    printf "\033[32m"
-    echo "$1"
+    printf "\033[$1"
+    echo "$2"
     printf "\033[0m"
 }
 
@@ -88,10 +88,10 @@ do
 
     if [[ $QUICKOPTION == 1 && $filename =~ ^build_.*_slow\..* ]]
     then
-        print_about "Ignoring slow $builderfile"
+        print_about "33m" "Ignoring slow $builderfile"
 
     else
-        print_about "Launching $builderfile"
+        print_about "32m" "Launching $builderfile"
 
         python "$builderfile" || error_exit "$THIS_DIR" "$builderfile"
     fi

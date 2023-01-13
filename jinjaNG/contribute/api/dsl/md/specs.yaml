@@ -1,0 +1,9 @@
+about:
+  author: Christophe, Bal [projetmbc@gmail.com]
+  desc  : Useful settings for Markdown templating.
+  date  : 2023-01-09
+  extend: html
+  utils : no
+
+ext:
+  - md

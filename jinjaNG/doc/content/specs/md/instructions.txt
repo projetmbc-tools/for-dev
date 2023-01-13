@@ -1,0 +1,24 @@
+this::
+    date = 2023-01-09
+
+
+==============================
+Instructions du langage ¨jinja
+==============================
+
+Voici comment utiliser des intructions ¨jinja sur une ligne, ou dans un bloc.
+
+jinjang::
+    ---
+    flavour = md
+    ---
+
+    <!--: varloc = 100 :-->
+
+    Compte de 10 en 10 de 10 à {{ varlocale }}.
+
+    <!--: for i in range(10,
+                       varlocale + 1,
+                       10) :-->
+        * { i }
+    <!--: endfor :-->

@@ -1,0 +1,20 @@
+this::
+    date = 2023-01-09
+
+
+====================
+Commenter son patron
+====================
+
+Deux types de commentaire sont disponibles.
+
+jinjang::
+    ---
+    flavour = md
+    ---
+
+    <!--: Un commentaire sur une seule ligne. :-->
+
+    <!--: Un commentaire
+        sur
+        plusieurs lignes. :-->

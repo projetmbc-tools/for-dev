@@ -1,5 +1,213 @@
 // ---------- //
 
+==
+13  (0.1.2-rc)
+==
+
+--------
+:update:
+--------
+
+[[:fix:]]
+Two things done.
+
+    1) Paths as strings: new tests revealed bad behaviour when paths were considered as strings. This has been fixed.
+
+    1) path::``data.py``: relative imports can be done.
+
+
+--------
+:fordev:
+--------
+
+[[:facto:]]
+¨CLI: two things have been done.
+
+    1) For paths, we now use ``type = click.Path())`` (see why in cf::``this section; https://click.palletsprojects.com/en/8.1.x/arguments/#file-path-arguments``.
+
+    2) The ``unquotedpath`` function has been removed as it was totally unnecessary (indeed, some of the previous tests were not well written).
+
+
+// ---------- //
+
+
+==
+12
+==
+
+--------
+:fordev:
+--------
+
+[[:flow:]]
+New options for path::``launch-all.bash``.
+
+    1) The option term::``--test``, or term::``-t``, only launches tests.
+
+    1) The option term::``--build``, term::``-b`` only launches all builders, even the slow ones.
+
+    1) It is now possible to combine two options (for example, term::``-t -q`` launches only quick tests).
+
+
+// ---------- //
+
+
+==
+11
+==
+
+--------
+:fordev:
+--------
+
+[[:flow:]]
+¨latex flavour: the image for the path::``README`` file is only modified if at least one pixel changes. This will stop the pollution of the ¨git log.
+
+
+// ---------- //
+
+
+==
+11  (0.1.1-rc)
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+¨CLI.
+
+    1) Added new special variables for hooks to obtain paths without extension.
+
+        * jinjang::``data_stem``
+        * jinjang::``template_stem``
+        * jinjang::``output_stem``
+
+    1) The option term::``-h`` can be used as a shortcut for term::``--help``.
+
+
+--------
+:fordev:
+--------
+
+[[:test:]]
+¨CLI: the tests are build on top of ¨pytest. This has allowed the addition of slow tests for hook functionality.
+
+
+// ---------- //
+
+
+==
+10
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+¨DSL.
+
+    1) One new flavour for ¨markdown files.
+
+    1) Names for tools follow new rules.
+
+        * The folder for the tools is now path::``jngutils``.
+
+        * The tools path::``jnghtml.js``, and path::``jnglatex.sty`` have been renamed path::``jngutils-html.js`` and path::``jngutils.sty`` ¨resp.
+
+    1) Two new names.
+
+        * ``AUTO_FROM_EXT`` is now ``ASSOCIATED_EXT``.
+
+        * ``WITH_EXTRA_TOOLS`` is now ``WITH_UTILS``
+
+
+--------
+:update:
+--------
+
+[[:doc:]]
+¨Specs: sections about inheritance, and tools have been added.
+
+
+--------
+:fordev:
+--------
+
+[[:api:]]
+¨DSL - Contribute.
+
+    1) One flavour can be inherited from another (only one level of inheritance depth is allowed).
+
+    1) Tools: all files directly inside a flavour folder are kept except path::``specs.yaml`` and path::``status.yaml``.
+
+
+[[:flow:]]
+path::``TEX`` files: extra files made by ¨latex compilations are removed by the builder path::``build_only_texfiles_slow.py``.
+
+
+// ---------- //
+
+
+==
+08
+==
+
+--------
+:update:
+--------
+
+[[:api:]]
+¨DSL.
+
+    1) ¨latex: the macro latex::``\JNGVALOF`` can be used inside contents of a latex::``\section`` like title, or inside footnotes.
+
+    1) ¨ascii: only fictive inline comments are used to simplify typing.
+
+
+[[:doc:]]
+path::``README.md``: the ¨tech section about all the flavours has been simplified a lot.
+
+
+--------
+:fordev:
+--------
+
+[[:flow:]]
+¨DSL - Contribute: the status of flavours have been clarified. It is now possible to update the flavour, without breaking the current ¨src code.
+
+
+// ---------- //
+
+
+==
+06
+==
+
+--------
+:update:
+--------
+
+[[:doc:]]
+¨Doc: a warning indicates that scripts like ``data.py`` cannot yet do relative imports.
+
+
+[[:fix:]]
+¨Cli: the use of ``--config auto`` was not functional because internally the value used is ``AUTO_CONFIG = ":auto-config:"``, but not ``"auto"``.
+
+
+--------
+:fordev:
+--------
+
+[[:flow:]]
+¨Doc: the list of local ¨vars of the method ``JNGBuilder.render`` is automatically constructed.
+
+
+// ---------- //
+
 
 ==
 05  (0.1.0-rc)

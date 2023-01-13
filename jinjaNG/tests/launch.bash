@@ -1,7 +1,59 @@
 #!/bin/bash
 
-THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+THIS_DIR="$(cd "$(dirname "$0")" && pwd)"
 
+
+HELP="$USAGE
+
+  Launch all test files.
+
+Options:
+  -q, --quick Any builder file named 'test_..._slow' will be ignored.
+              This option is useful during the development phase, but
+              not when the project has to be published.
+  -h, --help  Show this message and exit.
+"
+
+
+print_cli_info() {
+    echo "$2"
+    exit $1
+}
+
+if (( $# > 1 ))
+then
+    message="$USAGE
+$TRY
+
+Error: Too much options."
+
+    print_cli_info 1 "$message"
+fi
+
+
+QUICKOPTION=0
+
+if (( $# == 1 ))
+then
+    case $1 in
+        "-q"|"--quick")
+            QUICKOPTION=1
+        ;;
+
+        "-h"|"--help")
+            print_cli_info 0 "$HELP"
+        ;;
+
+        *)
+            message="$USAGE
+$TRY
+
+Error: No such option: $1"
+
+            print_cli_info 1 "$message"
+        ;;
+    esac
+fi
 
 # ------------ #
 # -- PYTEST -- #
@@ -9,22 +61,16 @@ THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "$THIS_DIR"
 
-pytest -v ./
+if [[ $QUICKOPTION == 1 ]]
+then
+    printf "\033[33m"
 
+    echo "Slow tests are ignored."
+    echo ""
 
-# --------- #
-# -- CLI -- #
-# --------- #
+    printf "\033[0m"
 
-printf "\033[32m\033[1m"
-
-echo ""
-echo ""
-echo "===== CLI (via bash) ====="
-echo ""
-
-printf "\033[0m"
-
-bash "$THIS_DIR/test_cli.bash"
-
-echo ""
+    pytest -v -k "not slow" ./
+else
+    pytest -v ./
+fi

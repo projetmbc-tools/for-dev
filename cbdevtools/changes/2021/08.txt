@@ -9,7 +9,7 @@
 :fordev:
 --------
 
-[[:bug:]]
+[[:fix:]]
 The line ``from pytest import fixture`` was missing in the test file... Do not laugh please!
 
 
@@ -47,7 +47,7 @@ One fixture added to build and use path::``PEUF`` files very easily.
 :fordev:
 --------
 
-[[:bug:]]
+[[:fix:]]
 A very stupid bug fixed in path::``orpystedata.py``.
 
 

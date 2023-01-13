@@ -1,6 +1,6 @@
 #!/bin/bash
 
-THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+THIS_DIR="$(cd "$(dirname "$0")" && pwd)"
 THIS_FILE=$(basename "$0")
 THIS_FILE=${THIS_FILE%%.*}
 
@@ -18,7 +18,7 @@ Options:
   -q, --quick Any builder file named 'build_..._slow' wil be ignored.
               This option is useful during the development phase, but
               not when the project has to be published.
-  --help      Show this message and exit.
+  -h, --help  Show this message and exit.
 "
 
 
@@ -28,7 +28,7 @@ print_cli_info() {
 }
 
 
-if (( $# > 1 ))
+if (( $# > 2 ))
 then
     message="$USAGE
 $TRY
@@ -41,26 +41,40 @@ fi
 
 QUICKOPTION=""
 
-if (( $# == 1 ))
+ONLY_TESTS=0
+ONLY_BUILD=0
+
+if (( $# <= 2 ))
 then
-    case $1 in
-        "-q"|"--quick")
-            QUICKOPTION="-q"
-        ;;
+    for i in $*
+    do
+        case $i in
+            "-q"|"--quick")
+                QUICKOPTION="-q"
+            ;;
 
-        "--help")
-            print_cli_info 0 "$HELP"
-        ;;
+            "-t"|"--test")
+                ONLY_TESTS=1
+            ;;
 
-        *)
-            message="$USAGE
+            "-b"|"--build")
+                ONLY_BUILD=1
+            ;;
+
+            "-h"|"--help")
+                print_cli_info 0 "$HELP"
+            ;;
+
+            *)
+                message="$USAGE
 $TRY
 
-Error: No such option: $1"
+Error: No such option: $i"
 
-            print_cli_info 1 "$message"
-        ;;
-    esac
+                print_cli_info 1 "$message"
+            ;;
+        esac
+    done
 fi
 
 
@@ -70,23 +84,37 @@ while read -r line
 do
     if [[ $line =~ ^-.* ]]
     then
+        launchthis=1
         folder="${line:2}"
 
-        while read -r launcherfile  # <(find . -name 'build_*'  -type f | sort)
-        do
-            printf "\033[34m\033[1m"
+        if [[ $ONLY_TESTS -eq 1 && $folder != "tests" ]]
+        then
+            launchthis=0
+        fi
 
-            echo ""
-            echo "=====[ $launcherfile ]====="
+        if [[ $ONLY_BUILD -eq 1 && $folder == "tests" ]]
+        then
+            launchthis=0
+        fi
 
-            if [[ "$folder" == "tests" ]]
-            then
+        if [[ $launchthis -eq 1 ]]
+        then
+            while read -r launcherfile  # <(find . -name 'build_*'  -type f | sort)
+            do
+                printf "\033[34m\033[1m"
+
                 echo ""
-            fi
+                echo "=====[ $launcherfile ]====="
 
-            printf "\033[0m"
+                if [[ "$folder" == "tests" ]]
+                then
+                    echo ""
+                fi
 
-            bash $launcherfile $QUICKOPTION || exit 1
-        done < <(find "$folder" -name 'launch.bash'  -type f | sort)
+                printf "\033[0m"
+
+                bash $launcherfile $QUICKOPTION || exit 1
+            done < <(find "$folder" -name 'launch.bash'  -type f | sort)
+        fi
     fi
 done < "$FOLDER_LIST"

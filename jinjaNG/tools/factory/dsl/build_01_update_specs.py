@@ -6,6 +6,8 @@ from btools.B01 import *
 # ! -- DEBUGGING -- ! #
 # Clear the terminal.
 # print("\033c", end="")
+
+# from pprint import pprint
 # ! -- DEBUGGING -- ! #
 
 
@@ -30,7 +32,7 @@ SPECS_SRC_FILE = PROJECT_DIR / 'src' / 'config' / 'jngflavours.py'
 CONTRIB_DSL_DIR   = PROJECT_DIR / 'contribute' / 'api' / 'dsl'
 SPECS_STATUS_YAML = THIS_DIR / 'flavours.yaml'
 
-EXTRA_TOOLS_DIR = PROJECT_DIR / 'jng-extra-tools'
+EXTRA_TOOLS_DIR = PROJECT_DIR / 'jngutils'
 
 
 IMG_DIR  = 'images'
@@ -41,49 +43,87 @@ IMG_EXTS = ['png']
 # -- THE SPECS DEFINED -- #
 # ----------------------- #
 
-SPECS_STATUS = {}
+SPECS_STATUS = defaultdict(list)
 
-allspecs = {}
+specs_status = {}
 
 for specfile in CONTRIB_DSL_DIR.rglob("*/*specs.yaml"):
     specdir = specfile.parent
-    flavour    = specdir.name
+    flavour = specdir.name
 
-    specstatus_yaml = specdir / "status.yaml"
+    specs_status_yaml = specdir / "status.yaml"
 
-    if not specstatus_yaml.is_file():
-        specstatus_yaml.touch()
+    if not specs_status_yaml.is_file():
+        specs_status_yaml.touch()
 
-        with specstatus_yaml.open(
+        with specs_status_yaml.open(
             mode     = "w",
             encoding = "utf-8"
         ) as f:
             yaml_dump(DEFAULT_STATUS_CONTENT, f)
 
-    with specstatus_yaml.open(
+    with specs_status_yaml.open(
         mode     = "r",
         encoding = "utf-8"
     ) as f:
-        allspecs[flavour] = {
-            'dir'   : specdir,
-            'status': yaml_load(f)['status'],
-        }
+        specs_status[flavour]        = yaml_load(f)
+        specs_status[flavour]['dir'] = specdir
 
 
-# ------------------------ #
-# -- THE SPECS ACCEPTED -- #
-# ------------------------ #
+# ---------------------------- #
+# -- ALL THE SPECS ACCEPTED -- #
+# ---------------------------- #
 
-final_pycode  = []
-ALL_FLAVOURS  = []
-AUTO_FROM_EXT = {}
-ALL_TOOLS     = []
-not_ok        = defaultdict(list)
+print(f"{TAB_1}* Specs of the accepted flavours.")
 
-for flavour in sorted(allspecs):
-    infos = allspecs[flavour]
+hard_specs_ok     = {}
+some_extend_found = False
 
-    if infos['status'] != STATUS_OK:
+for flavour, specs in specs_status.items():
+    if specs[TAG_STATUS] != STATUS_OK:
+        continue
+
+    with (specs['dir'] / 'specs.yaml').open(
+        mode     = "r",
+        encoding = "utf-8"
+    ) as f:
+        hardspec = yaml_load(f)
+
+    if TAG_EXTEND in hardspec[TAG_ABOUT]:
+        some_extend_found = True
+
+    hard_specs_ok[flavour] = hardspec
+
+
+# ---------------------------- #
+# -- ALL THE SPECS ACCEPTED -- #
+# ---------------------------- #
+
+if some_extend_found:
+    print(f"{TAB_1}* Taking care of ''extend''.")
+
+    build_extended_flavours(hard_specs_ok)
+
+
+# ------------------------------------------ #
+# -- SPECS ACCEPTED / SPECS BEING UPDATED -- #
+# ------------------------------------------ #
+
+final_pycode   = []
+ALL_FLAVOURS   = []
+ASSOCIATED_EXT = {}
+ALL_TOOLS      = []
+not_ok         = defaultdict(list)
+
+
+for flavour in sorted(specs_status):
+    infos  = specs_status[flavour]
+    status = infos['status']
+
+    SPECS_STATUS[status].append(flavour)
+
+# NOT OK.
+    if status not in [STATUS_OK, STATUS_UPDATE]:
         if not infos['status'] in ALL_STATUS_TAGS:
             raise Exception(
                 f"invalid status ''{infos['status']}'' "
@@ -95,34 +135,59 @@ for flavour in sorted(allspecs):
 
         continue
 
+# OK or UPDATING.
     print(f"{TAB_1}* {flavour}.")
 
     ALL_FLAVOURS.append(flavour)
 
-    specdir = infos['dir']
+# BEING UPDATED: we keep the source vecrsion.
+    if status == STATUS_UPDATE:
+        print(
+            f"{TAB_2}+ Updating: use of the previous specs."
+        )
 
-    with (specdir / 'specs.yaml').open(
-        mode     = "r",
-        encoding = "utf-8"
-    ) as f:
-        hardspec = yaml_load(f)
+        _, prevcode, _ = between(
+            text = SPECS_SRC_FILE.read_text(
+                encoding = 'utf-8'
+            ),
+            seps = [
+                f'# -- {flavour.upper()}',
+                 '}\n' # <-- Only one dict used!
+            ],
+        )
 
+        prevcode = prevcode.split('\n')
+        prevcode = prevcode[2:]
+        prevcode.append('}')
 
+        prevcode = "\n".join(prevcode)
+
+        prevcode = f"""
+{asciititle(flavour)}
+{prevcode}
+        """.strip()
+
+        final_pycode += ['', prevcode]
+
+        continue
+
+# NEW SPECS, OR OLD ONES TO KEEP.
     print(f"{TAB_2}+ Analyzing the hard specs.")
 
-    options = specs2options(hardspec)
+    options = specs2options(hard_specs_ok[flavour])
 
     print(f"{TAB_2}+ Building the source code.")
 
     final_pycode += [
         '',
-        build_src(flavour, options, AUTO_FROM_EXT),
+        build_src(flavour, options, ASSOCIATED_EXT),
     ]
 
-    if options[TAG_TOOLS]:
+    if options[TAG_UTILS]:
         print(f"{TAB_2}+ Referencing new tools.")
 
         ALL_TOOLS.append(flavour)
+
 
 SPECS_STATUS[STATUS_OK] = ALL_FLAVOURS
 
@@ -131,13 +196,13 @@ SPECS_STATUS[STATUS_OK] = ALL_FLAVOURS
 # -- NO DUPLICATED EXTENSIONS -- #
 # ------------------------------ #
 
-_flavours = list(AUTO_FROM_EXT)
+_flavours = list(ASSOCIATED_EXT)
 
 for i_ref, fl_ref in enumerate(_flavours):
-    set_ref = AUTO_FROM_EXT[fl_ref]
+    set_ref = ASSOCIATED_EXT[fl_ref]
 
     for fl_other in _flavours[i_ref + 1:]:
-        inter = set_ref.intersection(AUTO_FROM_EXT[fl_other])
+        inter = set_ref.intersection(ASSOCIATED_EXT[fl_other])
 
         if inter:
             plurial = "" if len(inter) == 1 else "s"
@@ -197,9 +262,9 @@ final_pycode = f"""
 #
 #     + ``{THIS_FILE_REL_SRC_PATH}``
 
-AUTO_FROM_EXT    = dict()
-WITH_EXTRA_TOOLS = dict()
-JINJA_TAGS       = dict()
+ASSOCIATED_EXT = dict()
+WITH_UTILS    = dict()
+JINJA_TAGS    = dict()
 
 
 # -------------- #
@@ -246,6 +311,8 @@ if ALL_TOOLS:
     print(f"{TAB_1}* Updating the tools.")
 
     for flavour in ALL_TOOLS:
+        print(f"{TAB_2}* Tools for ''{flavour}''.")
+
         contrib_flavour_dir     = CONTRIB_DSL_DIR / flavour
         contrib_flavour_img_dir = contrib_flavour_dir / IMG_DIR
 
@@ -271,71 +338,47 @@ if ALL_TOOLS:
                     safemode = False
                 )
 
-# Tools and README.
-        tools_files = [
-            p
-            for p in contrib_flavour_dir.glob("*")
-            if p.stem.lower() == "tools"
-        ]
+# Tools.
+        for path in contrib_flavour_dir.glob("*"):
+            if path.is_dir():
+                continue
 
-        for path in tools_files:
-            if path.ext != 'md':
-                toolsname      = f'jng{flavour}'
-                toolsname_long = f'{toolsname}.{path.ext}'
-                break
+            if (
+                path.stem.startswith('.')
+                or
+                path.name in ['status.yaml', 'specs.yaml']
+            ):
+                continue
 
-        for path in tools_files:
-            if path.stem.islower():
-                dest = f'{toolsname}.{path.ext}'
-
-            else:
-                dest = 'README.md'
-
-            dest = xtratools_flavour_dir / dest
+            dest = xtratools_flavour_dir / path.name
 
             path.copy_to(
                 dest,
                 safemode = False
             )
 
-            if dest.ext == 'md':
-                content = dest.read_text(encoding = 'utf-8')
 
-                for old, new in [
-                    (README_TOOLS     , toolsname     ),
-                    (README_TOOLS_LONG, toolsname_long),
-                ]:
-                    content = content.replace(old, new)
-
-                dest.write_text(
-                    data     = content,
-                    encoding = 'utf-8'
-                )
-
-
-# ------------------ #
-# -- SPECS NOT OK -- #
-# ------------------ #
+# ---------------------------- #
+# -- SPECS ON HOLD / NOT OK -- #
+# ---------------------------- #
 
 if not_ok:
-    print(f"{TAB_1}* Specs not accepted.")
+    for status, about in [
+        (STATUS_ON_HOLD, "Specs on hold."     ),
+        (STATUS_KO     , "Specs rejected."),
+    ]:
+        flavours = not_ok[status]
 
-    for kind in sorted(not_ok):
-        if kind == STATUS_OK:
-            raise Exception(
-                f"the tag '{SPECS_STATUS}' is not allowed "
-                 "for the status of one new flavour."
-            )
+        if not flavours:
+            continue
 
-        print(f"{TAB_2}+ Specs tagged ''{kind}''.")
+        print(f"{TAB_1}* {about}")
 
-        flavours = sorted(not_ok[kind])
+        for fl in sorted(flavours):
+            comment = specs_status[fl]['comment']
+            comment = comment.strip()
 
-        SPECS_STATUS[kind] = flavours
-
-        flavours = ' , '.join(flavours)
-
-        print(f"{TAB_3}--> {flavours}")
+            print(f"{TAB_2}+ ''{fl}'' --> {comment}")
 
 
 # ----------------------- #
@@ -351,6 +394,11 @@ print(f"{TAB_1}* Updating the status of specs (for other builders).")
 
 # Hack source for good indented YAML code:
 #     * https://github.com/yaml/pyyaml/issues/234#issuecomment-765894586
+
+SPECS_STATUS = {
+    k: v
+    for k, v in SPECS_STATUS.items()
+}
 
 with SPECS_STATUS_YAML.open(
     mode     = "w",

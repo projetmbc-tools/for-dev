@@ -1,0 +1,4 @@
+﻿paths:
+  data: "des données"
+  template: '"patron"'
+  output: "produit"

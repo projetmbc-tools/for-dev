@@ -23,7 +23,7 @@ while(PROJECT_DIR.name != 'jinjaNG'):
 
 
 DOC_CONTENT_DIR = PROJECT_DIR / 'doc' / 'content'
-TO_TEST_YAML    = PROJECT_DIR / 'tests' / 'usecases' / 'docexa.yaml'
+TO_TEST_YAML    = PROJECT_DIR / 'tests' / 'outputs' / 'docexa.yaml'
 
 
 addfindsrc(

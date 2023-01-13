@@ -56,59 +56,45 @@ TEMPL_ONE_FLAVOUR = """
 
 #### Flavour `{flname}`
 
-> **Short description:** {desc}
+> ***Short description:*** *{desc}*
 
-  1. **Extensions for the auto-detection, and possible tools for the templates.**
-
+  1. **Extension{exts_plurals} for the auto-detection.**
       * {exts}
 
+  1. **Tools to assist in typing templates.**
       * {tools}
 
-  1. **Variables** are typed `{var}` .
+  1. **Variables, `jinja` instructions and comments.**
+  Here is a fictive `how-to` code.
 
-  1. **Using `jinja` instructions.**
+~~~{md_code}
+In our templates, we use {variable_start_string}variable{variable_end_string} .
 
-     `...` symbolizes some Jinja instructions.
+It is always possible to work with block jinja instructions,
+and comments.
 
-      * {instr_inline}
+{comment_start_string} Comments: one basic loop. {comment_end_string}
 
-      * {instr_block}
+{block_start_string} for i in range(5) {block_end_string}
+We can use {variable_start_string}i + 4{variable_end_string} .
+{block_start_string} endfor {block_end_string}
 
-  1. **Writing comments.**
-
-     `...` symbolizes some comments.
-
-      * {comment_inline}
-
-      * {comment_block}
+{inline}
+~~~
 """.strip()
 
 
-# ----------- #
-# -- TOOLS -- #
-# ----------- #
+TEMPL_INLINE_FLAVOUR = """
 
-def instr_comment_text(
-    isinline,
-    kind,
-    tag_start,
-    tag_end = ""
-):
-    style = 'inline' if isinline else 'block'
+Most of flavours propose inline jinja instructions,
+and comments.
 
-    if tag_start is None:
-        text = f"No {style} {kind} are available."
+{line_comment_prefix} Comments: the same loop as above.
 
-    else:
-        if tag_end:
-            tag_end = f' {tag_end}'
-
-        text = (
-            f"For {style} {kind}, use "
-            f"`{tag_start} ...{tag_end}` ."
-        )
-
-    return text
+{line_statement_prefix} for i in range(5)
+We can use {variable_start_string}i + 4{variable_end_string} .
+{line_statement_prefix} endfor
+""".strip()
 
 
 # ----------------- #
@@ -139,81 +125,61 @@ for flname, specs in JINJA_TAGS.items():
     desc = desc[0].lower() + desc[1:]
 
 # Extensions.
-    exts = AUTO_FROM_EXT[flname]
+    exts = ASSOCIATED_EXT[flname]
 
     if exts == ['*']:
-        exts = (
-            "Any extension not associated to any other flavour is "
-            "associated to this flavour which is like a default one."
+        md_code = "markdown"
+
+        exts_plurals = True
+        exts         = (
+            "Any extension not associated with another flavour is "
+            "associated with that flavour (which is like a default one)."
         )
 
     else:
-        plurals = (len(exts) != 1)
+        md_code = exts[0][2:]
 
-        exts = ", ".join(f"`{e[2:].upper()}`" for e in exts)
+# HTML bug in listing!
+        if md_code == "html":
+            md_code = "markdown"
 
-        if plurals:
-            i    = exts.rfind(',') + 1
-            exts = exts[:i] + ' or' + exts[i:]
-
-        exts = (
-            f"Files having extensions {exts} are "
-             "associated to this flavour."
+        exts_plurals = (len(exts) != 1)
+        exts         = "\n      * ".join(
+            f"`{e[2:].upper()}`" for e in sorted(exts)
         )
 
 # Tools.
     tools = (
-        (
-             "Tools to assist in typing templates are available: "
-            f"see the folder `jng-extra-tools/{flname}`."
+        f"See the folder `jngutils/{flname}`."
+        if WITH_UTILS[flname] else
+        "Nothing available."
+    )
+
+# Inline?
+    if specs[TAG_INLINE_INSTR] is None:
+        inline = (
+            "This flavour doesn't propose neither inline jinja "
+            "instructions,"
+            "\n"
+            "nor inline comments."
         )
-        if WITH_EXTRA_TOOLS[flname] else
-        "No tools are available to assist in typing templates."
-    )
 
-# Variables.
-    var = f"{specs[TAG_VAR_START]} one_jinja_var {specs[TAG_VAR_END]}"
+    else:
+        inline = TEMPL_INLINE_FLAVOUR.format(**specs)
 
-# Instructions.
-    instr_inline = instr_comment_text(
-        isinline  = True,
-        kind      = 'instructions',
-        tag_start = specs[TAG_INLINE_INSTR]
-    )
+# New piece of content.
+    exts_plurals = 's' if exts_plurals else ''
 
-    instr_block = instr_comment_text(
-        isinline  = False,
-        kind      = 'instructions',
-        tag_start = specs[TAG_BLOCK_INSTR_START],
-        tag_end   = specs[TAG_BLOCK_INSTR_END]
-    )
-
-# Comments.
-    comment_inline = instr_comment_text(
-        isinline  = True,
-        kind      = 'comments',
-        tag_start = specs[TAG_INLINE_COMMENT]
-    )
-
-    comment_block  = instr_comment_text(
-        isinline  = False,
-        kind      = 'comments',
-        tag_start = specs[TAG_BLOCK_COMMENT_START],
-        tag_end   = specs[TAG_BLOCK_COMMENT_END]
-    )
-
-# New piec of content.
     content.append(
         TEMPL_ONE_FLAVOUR.format(
-            flname         = flname,
-            desc           = desc,
-            exts           = exts,
-            tools          = tools,
-            var            = var,
-            instr_inline   = instr_inline,
-            instr_block    = instr_block,
-            comment_inline = comment_inline,
-            comment_block  = comment_block
+            flname       = flname,
+            desc         = desc,
+            exts_plurals = exts_plurals,
+            exts         = exts,
+            tools        = tools,
+            md_code      = md_code,
+            inline       = inline,
+            **specs
         )
     )
 

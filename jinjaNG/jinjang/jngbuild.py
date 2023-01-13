@@ -56,6 +56,14 @@ SPE_VARS = [
 ]
 
 
+SPE_VARS_XTRA = ['stem']
+SPE_VARS     += [
+    f'{name}_{xtra}'
+    for name in SPE_VARS
+    for xtra in SPE_VARS_XTRA
+]
+
+
 TERM_STYLE_DEFAULT = "\033[0m"
 TERM_STYLE_INFO    = "\033[32m\033[1m"
 TERM_STYLE_ERROR   = "\033[91m\033[1m"
@@ -85,6 +93,13 @@ Following command has failed (see the lines above).
 # templates, data, and eventually hooks.
 ###
 class JNGBuilder:
+    _RENDER_LOC_VARS = [
+        "flavour"  ,
+        "launch_py",
+        "config"   ,
+        "verbose"  ,
+    ]
+
 ###
 # prototype::
 #     flavour   : this is to choose the dialect of a template.
@@ -187,7 +202,7 @@ class JNGBuilder:
         data    : dict,
         template: str
     ) -> str:
-# With ¨python varaiable, we can't detect automatically the flavour.
+# With ¨python variable, we can't detect automatically the flavour.
         if self.flavour == AUTO_FLAVOUR:
             raise ValueError(
                 "no ''auto-flavour'' when working with strings."
@@ -212,10 +227,12 @@ class JNGBuilder:
 ###
 # prototype::
 #     data     : data feeding the template.
+#              @ exists path(str(data))
 #     template : one template.
 #              @ exists path(str(template))
 #     output   : the file used for the output build after using ``data``
 #                on ``template``.
+#              @ exists path(str(output))
 #     flavour  : if the value is not ``None``, a local value is used
 #                without deleting the previous one.
 #                :see: self.__init__
@@ -246,31 +263,36 @@ class JNGBuilder:
 # Local settings.
         oldsettings = dict()
 
-        for param in [
-            "flavour",
-            "launch_py",
-            "config",
-            "verbose",
-        ]:
+        for param in self._RENDER_LOC_VARS:
             val = locals()[param]
 
             if val is not None:
                 oldsettings[param] = getattr(self, param)
                 setattr(self, param, val)
 
+# `Path` version of the paths.
+        for name, val in {
+            'data'    : data,
+            'template': template,
+            'output'  : output,
+        }.items():
+            if not isinstance(val, Path):
+                val = Path(str(val))
+
+            setattr(self, f"_{name}", val)
+
+            for xtra in SPE_VARS_XTRA:
+                val = val.parent / getattr(val, xtra)
+                setattr(self, f"_{name}_{xtra}", val)
+
+        self._template_parent = self._template.parent
+
 # What is the flavour to use?
         if self.flavour == AUTO_FLAVOUR:
-            flavour = self._auto_flavour(template)
+            flavour = self._auto_flavour()
 
         else:
             flavour = self.flavour
-
-# `Path` version of the paths.
-        self._data     = Path(str(data))
-        self._template = Path(str(template))
-        self._output   = Path(str(output))
-
-        self._template_parent = self._template.parent
 
 # Configs used for hooks.
         self._dict_config = build_config(
@@ -294,7 +316,7 @@ class JNGBuilder:
         dictdata = self._build_data(self._data)
         content  = jinja2template.render(dictdata)
 
-        output.write_text(
+        self._output.write_text(
             data     = content,
             encoding = "utf-8",
         )
@@ -309,22 +331,17 @@ class JNGBuilder:
 
 ###
 # prototype::
-#     template : the path of a template.
-#
-#     :return: the flavour to be used on ``template``.
+#     :return: the flavour to be used on the template.
 ###
-    def _auto_flavour(
-        self,
-        template: Path
-    ) -> str:
+    def _auto_flavour(self) -> str:
         flavour_found = FLAVOUR_ASCII
 
-        for flavour, extensions in AUTO_FROM_EXT.items():
+        for flavour, extensions in ASSOCIATED_EXT.items():
             if flavour == FLAVOUR_ASCII:
                 continue
 
             for glob_ext in extensions:
-                if template.match(glob_ext):
+                if self._template.match(glob_ext):
                     flavour_found = flavour
                     break
 
@@ -439,7 +456,7 @@ class JNGBuilder:
                     listcmd,
                     check          = True,
                     capture_output = True,
-                    encoding       = "utf8"
+                    encoding       = "utf-8"
                 )
 
                 if self.verbose:

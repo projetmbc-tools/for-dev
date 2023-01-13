@@ -25,9 +25,10 @@ mybuilder = JNGBuilder(flavour = FLAVOUR_ASCII)
 
 template = """
 One small {{ txt_example }} with automatic calculations.
-{#: for i in range(1, max_i + 1) :#}
+
+#: for i in range(1, max_i + 1)
     {{ i }}) I count using squares: {{ i**2 }}.
-{#: endfor :#}
+#: endfor
 """.strip()
 
 data = {
