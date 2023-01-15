@@ -23,6 +23,4 @@ abrev::
 
 content::
     ¨content/intro.txt
-    ¨content/write.txt      ?????
-    ¨content/check.txt      ????
-    ¨content/update.txt     ???
+    ¨content/setup.txt     ???????

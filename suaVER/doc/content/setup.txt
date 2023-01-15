@@ -1,0 +1,19 @@
+﻿this::
+    date = 2023-01-16
+
+
+abrev::
+    content = setup
+
+
+=================================
+Configurer : le nerf de la guerre
+=================================
+
+Le point important pour utiliser ¨suaver est la configuration de ce qui doit être fait. Pour cela, il va falloir définir un fichier au format ¨yaml comme expliqué pas à pas dans les sections suivantes.
+
+
+content::
+    ¨content/write.txt
+    ¨content/check.txt      ????
+    ¨content/update.txt     ???

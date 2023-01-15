@@ -11,4 +11,4 @@ Saisir le ¨numver
 
 content::
     ¨content/general.txt
-    ¨content/example.txt    ???
+    ¨content/example.txt

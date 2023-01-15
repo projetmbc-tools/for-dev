@@ -9,6 +9,13 @@ Un exemple pour mieux comprendre
 ???
 
 
+initialement
+
+<!-- VERSION - INFOS - AUTO - START -->
+<!-- VERSION - INFOS - AUTO - END -->
+
+
+
 pour update, templae ? bien si pas de version, et coool pour customization fine, template pour juste version mais à hcerche !
 
 require:
@@ -17,7 +24,11 @@ require:
 update:
   - readme:   <-- nom de la règle (cf meta infos)
     - 'readme/version\.md'    <-- fichiers analysés
-    - besoin de choix de template si pas de version
+    - besoin de choix de template si pas de version , ou d'une bête remplacement, en utilisant tous les groupes nommés disponibles
+
+    - replace: '...'
+    ou
+    - template: nom-du-template
 
 templates:
   - mon_tmpl-1: |
