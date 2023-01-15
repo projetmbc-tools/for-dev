@@ -1,0 +1,11 @@
+﻿abrev::
+    content = write
+
+
+=============================================
+¨Maj du dernier ¨numver à différents endroits
+=============================================
+
+content::
+    ¨content/general.txt    ????
+    ¨content/example.txt    ???

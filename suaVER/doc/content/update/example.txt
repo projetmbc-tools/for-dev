@@ -1,0 +1,31 @@
+﻿this::
+    date = 2023-01-????
+
+
+================================
+Un exemple pour mieux comprendre
+================================
+
+???
+
+
+pour update, templae ? bien si pas de version, et coool pour customization fine, template pour juste version mais à hcerche !
+
+require:
+  - fichier à trouver, contenu aussi ??? cf latex doc utilisateur
+
+update:
+  - readme:   <-- nom de la règle (cf meta infos)
+    - 'readme/version\.md'    <-- fichiers analysés
+    - besoin de choix de template si pas de version
+
+templates:
+  - mon_tmpl-1: |
+      sur
+
+      plusiuers lignes
+
+      simple?
+
+  - mon_tmpl-1:
+  - mon_tmpl-1:

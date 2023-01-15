@@ -98,7 +98,7 @@ do
     case $WHATISPRINTED in
         $ALLFILES)
             echo "$filechanged"
-            let "NBLINES_PRINTED+=1"
+                (( NBLINES_PRINTED+=1 ))
         ;;
 
         $ONLYFOLDER)
@@ -108,7 +108,7 @@ do
             then
                 echo "$folder"
                 LASTFOLDER="$folder"
-                let "NBLINES_PRINTED+=1"
+                (( NBLINES_PRINTED+=1 ))
             fi
         ;;
 
@@ -122,7 +122,7 @@ do
             then
                 echo "$projectfolder"
                 LASTFOLDER="$projectfolder"
-                let "NBLINES_PRINTED+=1"
+                (( NBLINES_PRINTED+=1 ))
             fi
         ;;
     esac
