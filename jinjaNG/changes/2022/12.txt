@@ -24,7 +24,6 @@ Naming: here are two new rules.
 27  (0.0.0-beta)
 ==
 
-
 -----
 :new:
 -----

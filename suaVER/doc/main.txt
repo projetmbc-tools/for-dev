@@ -1,0 +1,21 @@
+﻿this::
+    title  = ?????
+    author = Christophe, BAL [projetmbc@gmail.com]
+    lang   = fr
+
+    licence = by nc sa 4.0
+    out     = html, pdf
+
+//    lexic   =
+
+
+abrev::
+    justcode = cf::``suaVER ;
+                     https://github.com/bc-tools/for-dev/tree/main/suaver``
+
+    content = content
+
+
+content::
+    ¨content/intro.txt
+    ¨content/????
