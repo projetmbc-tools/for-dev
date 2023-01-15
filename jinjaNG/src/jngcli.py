@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ###
-# This module implements the [C]-ommand [L]-ine [I]-nterface of ¨jinjaNG.
+# This module implements the [C]-ommand [L]-ine [I]-nterface of ¨jinjang.
 ###
 
 
@@ -40,7 +40,7 @@ Try 'jinjang --help' for help.
 #                path::``YAML``, path::``JSON``, and path::``PY``
 #                files can be used.
 #     template : the path of the template file.
-#     output   : the path for the output built by ¨jinjaNG.
+#     output   : the path for the output built by ¨jinjang.
 #     unsafe   : same usage as the attribut/parameter ``launch_py``
 #                of the method ``jngbuild.JNGBuilder.render``,
 #                :see: jngbuild.JNGBuilder.render
@@ -51,7 +51,7 @@ Try 'jinjang --help' for help.
 #                the method ``jngbuild.JNGBuilder.render``,
 #                :see: jngconfig.build_config.render
 #
-#     :action: :see: :see: jngbuild.JNGBuilder.render
+#     :action: :see: jngbuild.JNGBuilder.render
 ###
 @click.command(
     context_settings = dict(
