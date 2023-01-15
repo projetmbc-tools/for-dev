@@ -45,8 +45,16 @@ Error: {message}
 )
 @click.argument('config',
                  type = click.Path())
+@click.option('--unsafe', '-u',
+              is_flag = True,
+              default = False,
+              help    = '\033[91m\033[1m'
+                            '** TO USE WITH A LOT OF CAUTION! ** '
+                        '\033[0m'
+                        'This flag allows ????')
 def svr_CLI(
-    config  : str,
+    config: str,
+    unsafe: bool,
 ) -> None:
     """
     ???

@@ -1,6 +1,6 @@
 About `suaVER`
 -------------
 
-This project ???
+`suaVER` allows the version number of a project to be entered almost anywhere, but only once, while making it dynamically usable in different files, and directly accessible in a `YAML` file.
 
-> `suaVER` comes from "Search & Update Automatically Version (numbers)".
+> `suaVER` comes from *"Search, Update & Accept VERsion (numbers)"*.

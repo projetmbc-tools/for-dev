@@ -2,7 +2,7 @@
 
 
 ==
-??
+15
 ==
 
-This project will ???
+The purpose of ¨suaver is to allow the version number of a project to be entered almost anywhere, but only once, while making it dynamically usable in different files, and directly accessible in a ¨yaml file.

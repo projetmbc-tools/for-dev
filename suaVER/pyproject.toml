@@ -1,12 +1,15 @@
 [tool.poetry]
 name         = "suaver"
-version      = "0.0.0-beta"
-description  = '???'
+version      = ""
+description  = 'This project allows to indicate the version number of a project almost everywhere, but only once, while using it easily in different contents.'
 readme       = "README.md"
 authors      = ["Christophe BAL"]
 maintainers  = ["Christophe BAL"]
 license      = "GNU License Version 3"
-repository   = "https://github.com/bc-tools/for-dev/tree/main/suave"
+repository   = "https://github.com/bc-tools/for-dev/tree/main/suaver"
+
+[tool.poetry.scripts]
+suaver = "suaver.__main__:svr_CLI"
 
 [tool.poetry.dependencies]
 python = "^3.9"

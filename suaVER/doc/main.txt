@@ -1,5 +1,5 @@
 ﻿this::
-    title  = ?????
+    title  = Indiquer et utiliser efficacement un numéro de version
     author = Christophe, BAL [projetmbc@gmail.com]
     lang   = fr
 
@@ -10,12 +10,15 @@
 
 
 abrev::
-    justcode = cf::``suaVER ;
-                     https://github.com/bc-tools/for-dev/tree/main/suaver``
+    suaver = cf::``suaVER ;
+                   https://github.com/bc-tools/for-dev/tree/main/suaver``
+
+    numver[s] = numéro de version
+              | numéros de version
 
     content = content
 
 
 content::
     ¨content/intro.txt
-    ¨content/????
+    ¨content/write.txt    ????

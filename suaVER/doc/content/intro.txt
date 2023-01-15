@@ -1,9 +1,15 @@
 ﻿this::
-    date = 2023-01-????
+    date = 2023-01-15
 
 
-============================================
-???
-============================================
+=======================
+Ce qu'apporte ¨suaver ?
+=======================
 
-???
+¨suaver propose les fonctionnalités suivantes.
+
+    1) Pour utiliser le ¨numver d'un projet dans différents fichiers, il suffit de le saisir une seule fois où l'on veut, ou presque.
+
+    1) Le dernier ¨numver peut être mis à jour ¨auto^t dans différents fichiers.
+
+    1) Un fichier ¨yaml est produit contenant à la fois le dernier ¨numver, mais aussi un historique complet de tous les ¨numvers.
