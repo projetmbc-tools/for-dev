@@ -6,19 +6,22 @@
 Principe général
 ================
 
-¨suaver n'étant pas devin, il faut lui indiquer où chercher les ¨numsver. Ceci se fait via un fichier ¨yaml ayant la ¨struct générale suivante où le bloc obligatoire yaml::``search`` est dédié aux règles de ¨rech. Un exemple sera fourni dans la section suivante.
+¨suaver n'étant pas devin, il faut lui indiquer où chercher les ¨numsver. Ceci se fait via un fichier ¨yaml. C'est le bloc obligatoire yaml::``search`` qui donne les règles de ¨rech qui doit avoir la ¨struc suivante (un exemple sera fourni dans la section suivante).
 
 yaml::
     search:
-        - <NOM-RÈGLE>:
-            - '<REGEX-CHEMIN>'
-            - '<REGEX-CONTENU>'
+        - <NOM-RÈGLE-1>:
+            - '<REGEX-CHEMIN-1-A>'
+            - '<REGEX-CONTENU-1-B>'
+        - <NOM-RÈGLE-2>:
+            - '<REGEX-CHEMIN-2-A>'
+            - '<REGEX-CONTENU2-B>'
 
 
-Le nombre de règles n'étant pas limité, pour une flexibilité accrue, il faut nommer ces règles en utilisant un bloc au sein d'une liste de blocs. Ci-dessus, yaml::``<NOM-RÈGLE>`` devra être un nom "textuel" choisi librement, mais valide pour un bloc ¨yaml.
+Le nombre de règles n'est pas limité : ci-dessus il est juste de deux. Il faut nommer ces règles où yaml::``<NOM-RÈGLE>`` devra être un nom "textuel" choisi librement, mais valide pour un bloc ¨yaml.
 
 
-Vient ensuite une liste, de ¨long `2`, contenant une règle pour indiquer les fichiers à analyser, suivie d'une autre pour explorer le contenu des fichiers retenus. Ces règles sont à taper sous forme de ¨regexs_FR, et entre des guillemets simples afin d'utiliser une chaîne de caractères "brutes", ou verbatim du point de vue de ¨yaml.
+Vient ensuite une liste, de ¨long `2` obligatoirment, contenant une règle pour indiquer les fichiers à analyser, suivie d'une autre pour explorer le contenu des fichiers retenus. Ces règles sont à taper sous forme de ¨regexs_FR, et entre des guillemets simples afin d'utiliser une chaîne de caractères "brutes", ou verbatim, du point de vue de ¨yaml.
 
 
 info::

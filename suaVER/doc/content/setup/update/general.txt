@@ -17,6 +17,10 @@ yaml::
             - '<PATRON-OU-REMPLACEMENT>'
 
 
+    templates:
+        - <NOM-PATRON>: <TEXTE-DU-PATRON>
+
+
 
 remplacement pyproject.toml pour en python
 

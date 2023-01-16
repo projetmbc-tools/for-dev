@@ -1,0 +1,29 @@
+﻿this::
+    date = 2023-01-16 ?????
+
+
+=================================
+????
+=================================
+
+????
+
+Il existe aussi les mots clés suaver::``:next-major:`` et suaver::``:next-patch:``, ainsi que suaver::``:same-next-major:``, suaver::``:same-next-minor:`` et suaver::``:same-next-patch:``, ces trois derniers gardant d'éventuels suffixes.
+
+
+
+possibilité de laisser ¨suaver numeroter, on indique par exemple
+
+==
+16   (:next-minor:-beta)
+==
+
+doc ok !
+
+
+suaver::``:same-next-minor:`` pour garder au passage le suffixe ``beta``. Il existe aussi les mots clés suaver::``:same-next-major:``, suaver::``:same-next-patch:``, ainsi que suaver::``:next-major:``, suaver::``:next-minor:`` et suaver::``:next-patch:``, ces trois derniers ignorant un éventuel suffixe.
+
+
+on gère des emplois multiples saufi si même date : on indique dans ce cas une ambiguïté à lever manuellement tout en proposant les nums à utiliser !
+
+    --> sol:  :next-minor++: > :next-minor+: > :next-minor:

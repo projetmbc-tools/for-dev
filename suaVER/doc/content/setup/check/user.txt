@@ -6,7 +6,7 @@
 Des validations "maison"
 ========================
 
-
+Dans ceratins projets, il peut être utile de vérifier
 
 ???? check:  <--- verifier que la version apparait bien : cf change utilisateur ^rojet latex, mais pas utile pour ce qui est updaté !
 

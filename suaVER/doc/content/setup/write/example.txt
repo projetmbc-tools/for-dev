@@ -23,7 +23,7 @@ yaml::
             - '\n?={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)[ \t]*\n={2,}\n?'
 
 
-Des exemples de chemins de fichiers à analyser sont path::``changes/2022/12.txt``, ou encore path::``changes/2023/01.txt``. Pour ces chemins, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, `(2022, 12)` et `(2023, 01)`. Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.
+Des exemples de chemins de fichiers à analyser sont path::``changes/2022/12.txt``, ou encore path::``changes/2023/01.txt``. Pour ces chemins, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, sont `(2022, 12)` et `(2023, 01)`. Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.
 
 verbatim::
     "changes/(?P<year>\d{4})/(?P<month>\d{2})\.txt"
@@ -49,7 +49,7 @@ info::
     Pour les chemins de fichiers, le caractère ``/`` est le "séparateur de dossier", y compris pour le ¨os_FR ¨winOS. Ceci permet en coulisse de rechercher efficacement les fichiers à analyser.
 
 
-Pour extraire des ¨infos dans les fichiers analysés, la ¨2nde ¨regex_FR indique de repérer dans le code fictif suivant les ¨numsver tnschges::``0.1.1-rc`` et tnschges::``0.1.2-rc``, mais aussi de capturer les numéros de jour tnschges::``09`` et tnschges::``13`` qui leur sont associés.
+Pour extraire des ¨infos dans les fichiers analysés, la ¨2nde ¨regex_FR indique de repérer dans le code fictif suivant les ¨numsver tnschges::``0.1.1-rc`` et tnschges::``0.1.2-rc``, mais aussi de capturer les numéros de jour tnschges::``09`` et tnschges::``13`` associés aux ¨numsver repérés.
 
 tnschges::
     ==
@@ -123,11 +123,11 @@ verbatim::
 info::
     L'¨regex_FR regex::``(?P<version>.*)`` est volontairement très vague afin de pouvoir repérer des erreurs de saisie. Pour les ¨nbres associés aux dates, il a été estimé que les fautes de frappe étaient trop rares pour demander à ¨suaver de les repérer.
 
-    Ceci permet aussi de pouvoir demander à ¨suaver de numéroter "en dur" la version pour nous comme dans l'exemple suivant.
+    Ceci permet aussi de pouvoir demander à ¨suaver de numéroter ¨auto^t "en dur" une version comme dans l'exemple suivant qui utilise le mot clé suaver::``:next-minor:``, lequel ignore le suffixe dans version::``0.1.2-rc`` : voir cf::``auto-num.txt`` à ce sujet.
 
     tnschges::
         ==
-        16   (:next_minor:-beta)
+        16   (:next-minor:-beta)
         ==
 
         Bla, bla, ...
@@ -140,7 +140,7 @@ info::
         Bla, bla...
 
 
-    ¨suaver produira le ¨chgt suivant dans le cas précédent.
+    ¨suaver fera la ¨modif suivante car version::``0.2.0`` est la version mineure juste après version::``0.1.2``.
 
     tnschges::
         ==
