@@ -1,0 +1,21 @@
+﻿this::
+    date = 2023-01-16   ????
+
+
+========================
+Des validations "maison"
+========================
+
+
+
+???? check:  <--- verifier que la version apparait bien : cf change utilisateur ^rojet latex, mais pas utile pour ce qui est updaté !
+
+
+
+yaml::
+    check:
+        - exists:
+            - <NOM-RÈGLE>:
+                - versions: all, major, not beta ....
+                - '<REGEX-CHEMIN>'
+                - '<REGEX-CONTENU>'  <-- facultatif

@@ -23,4 +23,6 @@ abrev::
 
 content::
     ¨content/intro.txt
-    ¨content/setup.txt     ???????
+    ¨content/setup.txt          ???????
+    ¨content/via-cli.txt        ?????
+    ¨content/via-python.txt     ??

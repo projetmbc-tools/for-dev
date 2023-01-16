@@ -21,3 +21,6 @@ yaml::
 remplacement pyproject.toml pour en python
 
 templalet pour cas plus avancé comme le about.md par exemple
+
+
+exemple ou tout le contenu est chnagé! proposer exemple fictif liste des versions dans un fchier xt par exemple

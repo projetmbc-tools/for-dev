@@ -14,6 +14,7 @@ suaver = "suaver.__main__:svr_CLI"
 [tool.poetry.dependencies]
 python = "^3.9"
 click  = "^8.1.3"
+semantic-version = "^2.10.0"
 
 [tool.poetry.dev-dependencies]
 

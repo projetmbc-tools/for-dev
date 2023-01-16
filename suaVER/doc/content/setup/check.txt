@@ -1,18 +1,11 @@
-﻿this::
-    date = 2023-01-????
+﻿abrev::
+    content = check
 
 
-==========
-Validation
-==========
+=======
+Valider
+=======
 
-???
-
-
-si acun souci d'extraction
-
-date vérifié en comparant num version via semantic version !!!
-
-
-
-???? check:  <--- verifier que la version apparait bien : cf change utilisateur ^rojet latex, mais pas utile pour ce qui est updaté !
+content::
+    ¨content/dates-n-versnb.txt
+    ¨content/user.txt              ???

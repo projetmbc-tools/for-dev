@@ -121,4 +121,4 @@ verbatim::
 
 
 info::
-    L'¨regex_FR regex::``(?P<version>.*)`` est volontairement très vague afin de pouvoir repérer de erreurs de saisie. Pour les ¨nbres associés aux dates, il a été estimé que les erreurs de saisie étaient trop rare pour demander à ¨suaver de les repérer.
+    L'¨regex_FR regex::``(?P<version>.*)`` est volontairement très vague afin de pouvoir repérer des erreurs de saisie. Pour les ¨nbres associés aux dates, il a été estimé que les fautes de frappe étaient trop rares pour demander à ¨suaver de les repérer.
