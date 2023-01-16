@@ -17,18 +17,26 @@ Dates et numéros cohérents
 ))
 via le package python::``semantic-version``. Voici une utilisation de ce paquet dans la console ¨python.
 
-term-python::
+pyterm::
     >>> import semantic_version
     >>> v_1 = semantic_version.Version('0.1.2')
     >>> v_2 = semantic_version.Version('0.1.2-rc')
     >>> v_3 = semantic_version.Version('0.1.2-beta.3')
     >>> v_3 < v_2 < v_1
     True
-    >>> f"{v_1.major = }", f"{v_1.minor = }", f"{v_1.patch = }"
-    ('v_1.major = 0', 'v_1.minor = 1', 'v_1.patch = 2')
     >>> v_1.prerelease
     ()
     >>> v_2.prerelease
     ('rc',)
     >>> v_3.prerelease
     ('beta', '3')
+    >>> print(f"  {v_1.major = } \n  {v_1.minor = } \n  {v_1.patch = }")
+      v_1.major = 0
+      v_1.minor = 1
+      v_1.patch = 2
+    >>> v_1.next_major()
+    Version('1.0.0')
+    >>> v_1.next_minor()
+    Version('0.2.0')
+    >>> v_1.next_patch()
+    Version('0.1.3')

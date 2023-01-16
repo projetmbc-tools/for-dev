@@ -122,3 +122,36 @@ verbatim::
 
 info::
     L'¨regex_FR regex::``(?P<version>.*)`` est volontairement très vague afin de pouvoir repérer des erreurs de saisie. Pour les ¨nbres associés aux dates, il a été estimé que les fautes de frappe étaient trop rares pour demander à ¨suaver de les repérer.
+
+    Ceci permet aussi de pouvoir demander à ¨suaver de numéroter "en dur" la version pour nous comme dans l'exemple suivant.
+
+    tnschges::
+        ==
+        16   (:next_minor:-beta)
+        ==
+
+        Bla, bla, ...
+
+
+        ==
+        13  (0.1.2-rc)
+        ==
+
+        Bla, bla...
+
+
+    ¨suaver produira le ¨chgt suivant dans le cas précédent.
+
+    tnschges::
+        ==
+        16   (0.2.0-beta)
+        ==
+
+        Bla, bla, ...
+
+
+        ==
+        13  (0.1.2-rc)
+        ==
+
+        Bla, bla...
