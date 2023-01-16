@@ -7,12 +7,12 @@ Un exemple pour mieux comprendre
 ================================
 
 warning::
-    Dasn l'exemple qui suit, nous allons voir que des ¨grpes de capture sont nommés. Afin de pouvoir associer une date à une version, il faut utiliser a minima les noms de ¨grpe ``day``, ``month``, ``year`` et ``version``.
+    Dans l'exemple qui suit, nous allons voir que des ¨grpes de capture nommés sont utilisés. Afin de pouvoir associer une date à une version, il faut obligatoirement utiliser a minima les noms de ¨grpe ``day``, ``month``, ``year`` et ``version``.
 
 
 Voici comment sont gérés les ¨numsver du mono-dépôt ¨monorepo_fordev accueillant ¨suaver. Si vous êtes familier des ¨regexs_FR, vous constaterez la simplicité de ce qui suit. Si vous pensez que la phrase précédente ne peut pas avoir été écrite par un humain
 ((
-    L'auteur de ¨suaver est conscient que la simple évocation du concept de "¨regexs_FR" peut faire fuire certains codeurs.
+    L'auteur de ¨suaver est conscient que la simple évocation du concept de "¨regexs_FR" peut faire fuire certains développeurs.
 )),
 des explications détaillées sont données juste après.
 
@@ -23,7 +23,7 @@ yaml::
             - '\n?={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)[ \t]*\n={2,}\n?'
 
 
-Des exemples de chemins de fichiers à analyser sont path::``changes/2022/12.txt``, ou encore path::``changes/2023/01.txt``. Pour ces chemins, les couples de ¨nbres `(2022, 12)` et `(2023, 01)` sont capturés pour un usage ultérieur. Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.
+Des exemples de chemins de fichiers à analyser sont path::``changes/2022/12.txt``, ou encore path::``changes/2023/01.txt``. Pour ces chemins, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, `(2022, 12)` et `(2023, 01)`. Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.
 
 verbatim::
     "changes/(?P<year>\d{4})/(?P<month>\d{2})\.txt"
@@ -46,10 +46,10 @@ verbatim::
 
 
 info::
-    Pour les chemins de fichiers, le caractère ``/`` est le "séparateur de dossier", y compris pour le ¨os_FR ¨winOS. Ceci permet en coulisse une recherche efficace des fichiers à analyser.
+    Pour les chemins de fichiers, le caractère ``/`` est le "séparateur de dossier", y compris pour le ¨os_FR ¨winOS. Ceci permet en coulisse de rechercher efficacement les fichiers à analyser.
 
 
-Pour extaire des ¨infos dans les fichiers analysés, la ¨2nde ¨regex_FR indique de repérer dans le code fictif suivant les ¨numsver tnschges::``0.1.1-rc`` et tnschges::``0.1.2-rc``, mais aussi de capturer les numéros de jour tnschges::``09`` et tnschges::``13`` qui leur sont associés.
+Pour extraire des ¨infos dans les fichiers analysés, la ¨2nde ¨regex_FR indique de repérer dans le code fictif suivant les ¨numsver tnschges::``0.1.1-rc`` et tnschges::``0.1.2-rc``, mais aussi de capturer les numéros de jour tnschges::``09`` et tnschges::``13`` qui leur sont associés.
 
 tnschges::
     ==
@@ -76,7 +76,7 @@ tnschges::
     Bla, bla...
 
 
-De nouveau, le site ¨regexkit est utile en fournissant les explications suivantes, après traduction en français.
+De nouveau, le site ¨regexkit peut être utilisé pour obtenir les explications suivantes, après traduction en français.
 
 verbatim::
     "\n?={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)[ \t]*\n={2,}\n?"
@@ -95,7 +95,7 @@ verbatim::
 
         [ \t]* correspond à un seul caractère présent dans la liste ci-dessous
             Quantificateur : * Entre zéro et un nombre illimité de fois, autant de fois que possible, en rendant au besoin [gourmand].
-            le caractère littéral
+            le caractère littéral [[sur le site, on visualise un espace]]
             \t Tab (ASCII 9)
 
         \( correspond au caractère ( littéralement
@@ -108,7 +108,7 @@ verbatim::
 
         [ \t]* correspond à un seul caractère présent dans la liste ci-dessous
             Quantificateur : * Entre zéro et un nombre illimité de fois, autant de fois que possible, en rendant au besoin [gourmand].
-            le caractère littéral
+            le caractère littéral [[sur le site, on visualise un espace]]
             \t Tab (ASCII 9)
 
         \n correspond à un caractère de saut de ligne (ASCII 10)
@@ -118,3 +118,7 @@ verbatim::
 
         \n ? correspond à un caractère de saut de ligne (ASCII 10)
             Quantificateur : ? Entre zéro et une fois, autant de fois que possible, en restituant si nécessaire [gourmand].
+
+
+info::
+    L'¨regex_FR regex::``(?P<version>.*)`` est volontairement très vague afin de pouvoir repérer de erreurs de saisie. Pour les ¨nbres associés aux dates, il a été estimé que les erreurs de saisie étaient trop rare pour demander à ¨suaver de les repérer.

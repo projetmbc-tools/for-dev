@@ -6,7 +6,7 @@
 Principe général
 ================
 
-¨suaver n'étant pas devin, il faut lui indiquer où chercher les ¨numsver. Ceci se fait via un fichier ¨yaml ayant la ¨struct générale suivante où le bloc yaml::``search`` est dédié aux règles de ¨rech. Un exemple sera fourni dans la section suivante.
+¨suaver n'étant pas devin, il faut lui indiquer où chercher les ¨numsver. Ceci se fait via un fichier ¨yaml ayant la ¨struct générale suivante où le bloc obligatoire yaml::``search`` est dédié aux règles de ¨rech. Un exemple sera fourni dans la section suivante.
 
 yaml::
     search:
@@ -15,15 +15,15 @@ yaml::
             - '<REGEX-CONTENU>'
 
 
-Le nombre de règles n'étant pas limité, pour une flexibilité accrue, il faut les nommer en utilisant un bloc au sein d'une liste. Ci-dessus, yaml::``<NOM-RÈGLE>`` devra être un nom "textuel" valide pour un bloc ¨yaml.
+Le nombre de règles n'étant pas limité, pour une flexibilité accrue, il faut nommer ces règles en utilisant un bloc au sein d'une liste de blocs. Ci-dessus, yaml::``<NOM-RÈGLE>`` devra être un nom "textuel" choisi librement, mais valide pour un bloc ¨yaml.
 
 
-Vient ensuite une liste, de ¨long `2`, contenant une règle pour indiquer les fichiers à analyser, suivie d'une autre pour explorer le contenu des fichiers retenus. Ces règles sont à taper sous forme de ¨regexs_FR, et entre des guillemets simples pour utiliser une chaîne de caractères "brutes", ou verbatim.
+Vient ensuite une liste, de ¨long `2`, contenant une règle pour indiquer les fichiers à analyser, suivie d'une autre pour explorer le contenu des fichiers retenus. Ces règles sont à taper sous forme de ¨regexs_FR, et entre des guillemets simples afin d'utiliser une chaîne de caractères "brutes", ou verbatim du point de vue de ¨yaml.
 
 
 info::
     Voici deux sites utiles pour travailler avec des ¨regexs_FR ¨python.
 
-        1) ¨debuggex permet de visualiser une ¨regex_FR de son choix.
+        1) ¨debuggex permet de visualiser le fonctionnement d'une ¨regex_FR de son choix.
 
-        1) ¨regexkit opet pour une autre approche en expliquant, en anglais, ce qu'est la ¨regex_FR qu'on lui fournit.
+        1) ¨regexkit opte pour une autre approche en expliquant, en anglais, ce qu'est la ¨regex_FR qui lui est fourni.
