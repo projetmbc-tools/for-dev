@@ -1,10 +1,10 @@
 ﻿abrev::
-    content = check
+    content = require
 
 
-=======
-Valider
-=======
+========
+Vérifier
+========
 
 content::
     ¨content/dates-n-versnb.txt

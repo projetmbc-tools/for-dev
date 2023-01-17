@@ -1,0 +1,41 @@
+﻿this::
+    date = 2023-01- ????
+
+
+=================
+L'¨ens des ¨specs
+=================
+
+Le code suivant réunit tout ce qu'il est permis de configurer.
+
+yaml::
+    # ------------- #
+    # -- TROUVER -- #
+    # ------------- #
+
+    search:
+        - <NOM-RÈGLE-1>:
+            - '<REGEX-CHEMIN-1-A>'
+            - '<REGEX-CONTENU-1-B>'
+
+        - <NOM-RÈGLE-2>:
+            - '<REGEX-CHEMIN-2-A>'
+            - '<REGEX-CONTENU2-B>'
+
+    # -------------- #
+    # -- VÉRIFIER -- #
+    # -------------- #
+
+    require:
+        - <NOM-RÈGLE-1>:
+            - '<VERSIONS-CONCERNÉES-1>'
+            - '<REGEX-CHEMIN-1>'
+
+        - <NOM-RÈGLE-2>:
+            - '<VERSIONS-CONCERNÉES-2>'
+            - '<REGEX-CHEMIN-2>'
+            - '<REGEX-CONTENU-2>'
+
+    # ---------------- #
+    # -- ACTUALISER -- #
+    # ---------------- #

@@ -79,12 +79,13 @@ tnschges::
     Bla, bla...
 
 
-De nouveau, le site ¨regexkit peut être utilisé pour obtenir les explications suivantes, après traduction en français. Il faut en fait savoir que regex::``^`` indique ici un début de ligne, et non le début de la chaîne analysée.
+De nouveau, le site ¨regexkit peut être utilisé pour obtenir les explications suivantes, après traduction en français.
 
 verbatim::
     "^={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)\n={2,}\n"
 
         ^ correspond à la position au début de la chaîne
+          [[non, c'est un début de ligne]]
 
         ={2,} correspond au caractère = littéralement
               Quantificateur : {2,} Entre 2 et un nombre illimité de fois,

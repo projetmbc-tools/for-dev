@@ -6,10 +6,10 @@
 Principe général
 ================
 
-Le bloc yaml::``exists`` permet de tester l'existence de fichiers, et de contenus en lien avec les ¨numsver. De nouveau, les ¨regexs_FR vont permettre une certain flexibilité. Le structure globale de ce blox est la suivante.
+Le bloc yaml::``exists`` permet de tester l'existence de fichiers, et éventuellement de contenus, en lien avec les ¨numsver. La structure globale de ce bloc est la suivante.
 
 yaml::
-    exists:
+    require:
         - <NOM-RÈGLE-1>:
             - '<VERSIONS-CONCERNÉES-1>'
             - '<REGEX-CHEMIN-1>'
@@ -24,17 +24,17 @@ Voici ce qu'il faut indiquer pour chaque règle (le ¨nbre de règles est illimi
 
     1) **Versions concernées :** on commence par indiquer celles-ci via l'un des choix suivants.
 
-        * yaml::``:all:`` demande de considérer toutes les versions exceptées celles de type "prelease" comme version:``0.1.2-rc``, et version::``0.1.2-beta.3`` (voir un peu plus bas à ce sujet). Ce choix est pragmatique car il est d'usage de ne fournir au "grand public" que des ¨infos sur les versions autres que celles du type version:``rc``, ou version::``beta``.
+        * yaml::``:all:`` demande de considérer toutes les versions exceptées celles de type "prelease" comme version:``0.1.2-rc`` et version::``0.1.2-beta.3``. Ce choix est pragmatique, car il est d'usage de ne fournir au "grand public" que des ¨infos sur les versions autres que celles du type version:``rc``, ou version::``beta``.
 
         * yaml::``:major:`` permet de ne garder que les versions avec un ¨chgt majeur de numéro exceptées celles de type "prelease".
 
-        * yaml::``:minor:`` sert à consuider les ¨chgts majeurs et mineurs de version exceptées celles de type "prelease".
+        * yaml::``:minor:`` sert à surveiller les ¨chgts majeurs et mineurs de version exceptées celles de type "prelease".
 
-        * La variable yaml::``versions`` accepte aussi une ¨regex_FR. Ceci peremet d'élargir les choix, si besoin.
+        * La variable yaml::``versions`` accepte aussi une ¨regex_FR. Ceci permet d'élargir les choix, si besoin.
 
     1) **Fichiers attendus :** il faut obligatoirement les indiquer via une règle de type ¨regex_FR, ceci se faisant juste après la variable yaml::``versions``. L'exemple illustratif dans la section suivante va montrer une petite spécificité pour ce type de règle.
 
-    1) **Contenus attendus :** si besoin, une règle optionnelle de type ¨regex_FR permet d'indiquer la prsénec de certaines informations dans le contenu des fichiers attendus. Ici aussi, la section suivante montrera une petite spécificité.
+    1) **Contenus attendus :** si besoin, une règle optionnelle de type ¨regex_FR permet d'indiquer la présence de certaines informations dans le contenu des fichiers attendus. Ici aussi, la section suivante montrera une petite spécificité.
 
 
 info::

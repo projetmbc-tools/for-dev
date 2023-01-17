@@ -2,11 +2,26 @@
     date = 2023-01-????
 
 
+abrev::
+    content = example-splitted
+
+
 ================================
 Un exemple pour mieux comprendre
 ================================
 
 ???
+
+
+
+remplacement pyproject.toml pour en python
+
+templalet pour cas plus avancé comme le about.md par exemple
+
+
+exemple ou tout le contenu est chnagé! proposer exemple fictif liste des versions dans un fchier xt par exemple
+
+
 
 
 initialement
@@ -18,8 +33,6 @@ initialement
 
 pour update, templae ? bien si pas de version, et coool pour customization fine, template pour juste version mais à hcerche !
 
-require:
-  - fichier à trouver, contenu aussi ??? cf latex doc utilisateur
 
 update:
   - readme:   <-- nom de la règle (cf meta infos)

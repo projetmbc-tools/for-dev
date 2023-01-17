@@ -6,6 +6,11 @@
 Principe général
 ================
 
+Une fois le dernier ¨numver repéré, il faut mettre à jour un certains nombres de fichiers pour qu'ils indiquent ce ¨chgt. Voici quelques exemples.
+
+    1) remplacement pyproject.toml pour en python
+
+
 ???
 
 yaml::
@@ -17,12 +22,3 @@ yaml::
 
     templates:
         - <NOM-PATRON>: <TEXTE-DU-PATRON>
-
-
-
-remplacement pyproject.toml pour en python
-
-templalet pour cas plus avancé comme le about.md par exemple
-
-
-exemple ou tout le contenu est chnagé! proposer exemple fictif liste des versions dans un fchier xt par exemple

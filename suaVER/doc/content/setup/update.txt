@@ -8,4 +8,4 @@
 
 content::
     ¨content/general.txt    ????
-    ¨content/example.txt    ???
+    ¨content/example.txt    ??
