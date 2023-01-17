@@ -3,6 +3,9 @@
 
 
 abrev::
+    debuggex = cf::``DebuggexBeta ; https://www.debuggex.com/``
+    regexkit = cf::``regexkit     ; https://regexkit.com/python-regex``
+
     content = setup
 
 
@@ -18,6 +21,6 @@ Les sections suivantes donnent tout ce qu'il est possible d'indiquer dans un fic
 
 content::
     ¨content/write.txt
-    ¨content/check.txt                          ????
+    ¨content/check.txt
     ¨content/update.txt                         ???
     ¨content/fictional-full-example.txt         ?

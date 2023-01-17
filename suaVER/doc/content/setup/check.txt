@@ -8,4 +8,4 @@ Valider
 
 content::
     ¨content/dates-n-versnb.txt
-    ¨content/user.txt              ???
+    ¨content/user.txt

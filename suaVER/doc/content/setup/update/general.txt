@@ -8,8 +8,6 @@ Principe général
 
 ???
 
-???? ¨suaver n'étant pas devin, il faut lui indiquer où chercher les ¨numsver. Ceci se fait via un fichier ¨yaml ayant la ¨struct générale suivante où le bloc yaml::``search`` est dédié aux règles de ¨rech. Un exemple sera fourni dans la section suivante.
-
 yaml::
     update:
         - <NOM-RÈGLE>:

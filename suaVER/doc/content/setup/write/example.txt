@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-16
+    date = 2023-01-17
 
 
 ================================
@@ -8,6 +8,7 @@ Un exemple pour mieux comprendre
 
 warning::
     Dans l'exemple qui suit, nous allons voir que des ¨grpes de capture nommés sont utilisés. Afin de pouvoir associer une date à une version, il faut obligatoirement utiliser a minima les noms de ¨grpe ``day``, ``month``, ``year`` et ``version``.
+    Si d'autres groupes nommés sont utilisés, les captures associées seront utilisables pour les ¨majs, et les vérifications dont nous parlerons un peu plus tard dans ce ¨docu.
 
 
 Voici comment sont gérés les ¨numsver du mono-dépôt ¨monorepo_fordev accueillant ¨suaver. Si vous êtes familier des ¨regexs_FR, vous constaterez la simplicité de ce qui suit. Si vous pensez que la phrase précédente ne peut pas avoir été écrite par un humain
@@ -20,7 +21,7 @@ yaml::
     search:
         - tnschges:
             - 'changes/(?P<year>\d{4})/(?P<month>\d{2})\.txt'
-            - '\n?={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)[ \t]*\n={2,}\n?'
+            - '^={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)\n={2,}\n'
 
 
 Des exemples de chemins de fichiers à analyser sont path::``changes/2022/12.txt``, ou encore path::``changes/2023/01.txt``. Pour ces chemins, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, sont `(2022, 12)` et `(2023, 01)`. Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.
@@ -28,21 +29,23 @@ Des exemples de chemins de fichiers à analyser sont path::``changes/2022/12.txt
 verbatim::
     "changes/(?P<year>\d{4})/(?P<month>\d{2})\.txt"
 
-        changes/ correspond aux caractères changes/ littéralement (sensible à la casse)
+        changes/ correspond aux caractères changes/ littéralement
+                 (sensible à la casse)
 
         (?P<year>\d{4}) correspond à un groupe de capture nommé year
             \d{4} correspond à un chiffre [0-9].
-                Quantificateur : {4} Exactement 4 fois
+                  Quantificateur : {4} Exactement 4 fois
 
         / correspond au caractère / littéralement
 
         (?P<month>\d{2}) Groupe de capture nommé month
             \d{2} correspond à un chiffre [0-9].
-                Quantificateur : {2} Exactement 2 fois
+                  Quantificateur : {2} Exactement 2 fois
 
         \. correspond au caractère . littéralement
 
-        txt correspond aux caractères txt littéralement (sensible à la casse)
+        txt correspond aux caractères txt littéralement
+            (sensible à la casse)
 
 
 info::
@@ -76,48 +79,49 @@ tnschges::
     Bla, bla...
 
 
-De nouveau, le site ¨regexkit peut être utilisé pour obtenir les explications suivantes, après traduction en français.
+De nouveau, le site ¨regexkit peut être utilisé pour obtenir les explications suivantes, après traduction en français. Il faut en fait savoir que regex::``^`` indique ici un début de ligne, et non le début de la chaîne analysée.
 
 verbatim::
-    "\n?={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)[ \t]*\n={2,}\n?"
+    "^={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)\n={2,}\n"
 
-        \n ? correspond à un caractère de saut de ligne (ASCII 10).
-            Quantificateur : ? Entre zéro et une fois, autant de fois que possible, en rendant au besoin [gourmand].
+        ^ correspond à la position au début de la chaîne
 
         ={2,} correspond au caractère = littéralement
-            Quantificateur : {2,} Entre 2 et un nombre illimité de fois, autant de fois que possible, en rendant la pareille si nécessaire [gourmand].
+              Quantificateur : {2,} Entre 2 et un nombre illimité de fois,
+              autant de fois que possible, en rendant la pareille si
+              nécessaire [gourmand].
 
-        \n correspond à un caractère de retour à la ligne (ASCII 10)
+        \n correspond à un caractère de saut de ligne (ASCII 10)
 
-        (?P<day>\d{2}) Groupe de capture nommé day
+        (?P<jour>\d{2}) Groupe de capture nommé jour
             \d{2} correspond à un chiffre [0-9].
-                Quantificateur : {2} Exactement 2 fois
+                  Quantificateur : {2} Exactement 2 fois
 
-        [ \t]* correspond à un seul caractère présent dans la liste ci-dessous
-            Quantificateur : * Entre zéro et un nombre illimité de fois, autant de fois que possible, en rendant au besoin [gourmand].
-            le caractère littéral [[sur le site, on visualise un espace]]
-            \t Tab (ASCII 9)
+        [ \t]* correspond à un seul caractère présent dans la liste
+               ci-dessous
+               Quantificateur : * Entre zéro et un nombre illimité de fois,
+               autant de fois que possible, en rendant au besoin [gourmand].
+               le caractère littéral [[sur le site, on visualise un espace]]
+               \t Tab (ASCII 9)
 
         \( correspond au caractère ( littéralement
 
-        (?P<version>.*) Groupe de capture nommé version
+        (?P<version>.*) Version du groupe de capture nommée
             .* correspond à n'importe quel caractère (sauf le saut de ligne)
-                Quantificateur : * Entre zéro et un nombre illimité de fois, autant de fois que possible, en rendant ce qui est nécessaire [gourmand].
+               Quantificateur : * Entre zéro et un nombre illimité de fois,
+               autant de fois que possible, en rendant ce qui est nécessaire
+               [gourmand].
 
         \) correspond au caractère ) littéralement
-
-        [ \t]* correspond à un seul caractère présent dans la liste ci-dessous
-            Quantificateur : * Entre zéro et un nombre illimité de fois, autant de fois que possible, en rendant au besoin [gourmand].
-            le caractère littéral [[sur le site, on visualise un espace]]
-            \t Tab (ASCII 9)
 
         \n correspond à un caractère de saut de ligne (ASCII 10)
 
         ={2,} correspond au caractère = littéral
-            Quantificateur : {2,} Entre 2 et un nombre illimité de fois, autant de fois que possible, en rendant ce qui est nécessaire [gourmand].
+            Quantificateur : {2,} Entre 2 et un nombre illimité de fois,
+            autant de fois que possible, en rendant ce qui est nécessaire
+            [gourmand].
 
-        \n ? correspond à un caractère de saut de ligne (ASCII 10)
-            Quantificateur : ? Entre zéro et une fois, autant de fois que possible, en restituant si nécessaire [gourmand].
+        \n correspond à un saut de ligne (ASCII 10).
 
 
 info::

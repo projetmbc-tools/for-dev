@@ -1,7 +1,4 @@
 ﻿abrev::
-    debuggex = cf::``DebuggexBeta ; https://www.debuggex.com/``
-    regexkit = cf::``regexkit ; https://regexkit.com/python-regex``
-
     content = write
 
 

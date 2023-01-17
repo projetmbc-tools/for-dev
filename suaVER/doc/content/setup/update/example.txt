@@ -27,6 +27,8 @@ update:
     - besoin de choix de template si pas de version , ou d'une bête remplacement, en utilisant tous les groupes nommés disponibles
      syntaxe à la fstring via {...}
 
+     regex ou between !!!!
+
     - replace: '...'
     ou
     - template: nom-du-template
