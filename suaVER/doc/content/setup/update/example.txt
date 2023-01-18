@@ -37,7 +37,14 @@ pour update, templae ? bien si pas de version, et coool pour customization fine,
 update:
   - readme:   <-- nom de la règle (cf meta infos)
     - 'readme/version\.md'    <-- fichiers analysés
-    - besoin de choix de template si pas de version , ou d'une bête remplacement, en utilisant tous les groupes nommés disponibles
+
+
+    - besoin de
+
+            > choix de template dans config ou via path : cf si pas de version
+            > bête remplacement, en utilisant tous les groupes nommés disponibles
+            > regex aussi
+
      syntaxe à la fstring via {...}
 
      regex ou between !!!!

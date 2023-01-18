@@ -6,7 +6,10 @@
 Principe général
 ================
 
+???
+
 Une fois le dernier ¨numver repéré, il faut mettre à jour un certains nombres de fichiers pour qu'ils indiquent ce ¨chgt. Voici quelques exemples.
+
 
     1) remplacement pyproject.toml pour en python
 
