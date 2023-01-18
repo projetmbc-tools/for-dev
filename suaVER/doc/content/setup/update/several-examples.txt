@@ -3,12 +3,12 @@
 
 
 abrev::
-    content = example-splitted
+    content = several-examples
 
 
-================================
-Un exemple pour mieux comprendre
-================================
+==================================
+Des exemples pour mieux comprendre
+==================================
 
 ???
 

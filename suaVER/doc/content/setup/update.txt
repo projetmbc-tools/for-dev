@@ -7,5 +7,5 @@
 =============================================
 
 content::
-    ¨content/general.txt    ????
-    ¨content/example.txt    ??
+    ¨content/general.txt                ????
+    ¨content/several-examples.txt       ??
