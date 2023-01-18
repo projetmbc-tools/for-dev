@@ -1,29 +1,34 @@
 ﻿this::
-    date = 2023-01-18 ?????
+    date = 2023-01-18
 
 
 ==================
-Nuémrotation ¨auto
+Numérotation ¨auto
 ==================
 
-????
-
-Il existe aussi les mots clés suaver::``:next-major:`` et suaver::``:next-patch:``, ainsi que suaver::``:same-next-major:``, suaver::``:same-next-minor:`` et suaver::``:same-next-patch:``, ces trois derniers gardant d'éventuels suffixes.
-
+warning::
+    Comme ce qui est présenté dans cette section opère des ¨chgts "en dur", il faut utiliser ce type de fonctionnalité avec prudence !
 
 
-possibilité de laisser ¨suaver numeroter, on indique par exemple
+Les règles de ¨rech indiquées à ¨suaver permettent, si souhaité, d'avoir une numérotation ¨auto de versions, à condition d'utiliser une ¨regex_FR capturant les mots clés suivants, ou juste ceux dont vous aurez besoin
+((
+    Nous vous conseillons d'opter pour un motif le plus large possible, car ceci a l'avantage de pouvoir capturer des erreurs de saisie qui seront traitées par ¨suaver.
+)).
 
-==
-16   (:next-minor:-beta)
-==
+    1) suaver::``:next-major:`` demande de passer à la prochaine version majeure, sans tenir compte de la partie "prerelease" après le tiret si elle existe.
+    Par exemple, on passera de version::``0.3.7-beta`` à version::``1.0.0``.
 
-doc ok !
+    1) suaver::``:next-minor:`` demande de passer à la prochaine version mineure, sans tenir compte de la partie "prerelease" après le tiret si elle existe.
+    Par exemple, on passera de version::``0.3.7-beta`` à version::``0.4.0``.
 
+    1) suaver::``:next-patch:`` demande de passer à la prochaine version patchée, sans tenir compte de la partie "prerelease" après le tiret si elle existe.
+    Par exemple, on passera de version::``0.3.7-beta`` à version::``0.3.8``.
 
-suaver::``:same-next-minor:`` pour garder au passage le suffixe ``beta``. Il existe aussi les mots clés suaver::``:same-next-major:``, suaver::``:same-next-patch:``, ainsi que suaver::``:next-major:``, suaver::``:next-minor:`` et suaver::``:next-patch:``, ces trois derniers ignorant un éventuel suffixe.
+    1) Il est aussi possible de faire des choix comme suaver::``:next-minor:-rc`` pour passer par exemple de version::``0.3.7-beta`` à version::``0.4.0-rc``.
 
+    1) En "préfixant" chacun des choix précédents par suaver::``same-``, on gardera la partie "prerelease" après le tiret si elle existe.
+    Par exemple, si la dernière version est version::``0.3.7-beta``, et que l'on utilise suaver::``:same-next-minor:``, alors ¨suaver utilisera version::``0.4.0-beta``.
 
-on gère des emplois multiples saufi si même date : on indique dans ce cas une ambiguïté à lever manuellement tout en proposant les nums à utiliser !
-
-    --> sol:  :next-minor++: > :next-minor+: > :next-minor:
+    1) Il peut arriver, très rarement, mais cela reste possible, que plusieurs ¨chgts du même type soit effectué le même jour.
+    Il faut dans ce cas "ordonner" les mots clés en les suffixant de signe ``+``.
+    Par exemple, suaver::``:next-minor++:`` est plus vieux que suaver::``:next-minor+:``, lui-même plus ancien que suaver::``:next-minor:``.

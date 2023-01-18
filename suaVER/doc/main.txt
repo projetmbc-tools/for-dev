@@ -25,6 +25,6 @@ abrev::
 content::
     ¨content/intro.txt
     ¨content/set-up.txt
-    ¨content/auto-num.txt       ??????
+    ¨content/auto-num.txt
     ¨content/via-cli.txt        ?????
     ¨content/via-python.txt     ??
