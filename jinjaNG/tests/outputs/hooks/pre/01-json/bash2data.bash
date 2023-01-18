@@ -1,3 +1,27 @@
+# -- LAUNCH ME ONLY IF I HAVE CHANGED -- #
+
+THIS_DIR="$(cd "$(dirname "$0")" && pwd)"
+THIS_FILE="$THIS_DIR/$(basename "$0")"
+
+I_HAVE_CHANGED=0
+
+# We don't want to pollute the change log produced by Git.
+while read line
+do
+    if [[ "$THIS_FILE" == *"/$line" ]]
+    then
+        I_HAVE_CHANGED=1
+    fi
+done < <(git a | grep modified: | cut -c11-)
+
+if [[ $I_HAVE_CHANGED -eq 0 ]]
+then
+    exit 0
+fi
+
+
+# -- DOC CODE -- #
+
 TODAY=$(date "+%d-%m-%Y")
 NOW=$(date   "+%H:%M:%S")
 
@@ -8,9 +32,7 @@ jq --null-input                    \
 > data.json
 
 
-# ----------- #
-# -- TESTS -- #
-# ----------- #
+# -- FOR TESTING -- #
 
 OUTPUT="output.json"
 
@@ -32,5 +54,3 @@ cat << EOT >> $OUTPUT
     "time": "$NOW"
 }
 EOT
-
-# iconv -f US-ASCII -t UTF-8  "$OUTPUT"
