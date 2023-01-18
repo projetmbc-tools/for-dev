@@ -9,4 +9,4 @@
 content::
     ¨content/showcase.txt
     ¨content/general.txt
-    ¨content/several-examples.txt       ??
+    ¨content/some-examples.txt

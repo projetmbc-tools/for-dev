@@ -1,0 +1,61 @@
+﻿this::
+    date = 2023-01-18
+
+
+=============================
+Remplacer un morceau de texte
+=============================
+
+Dans l'extrait ci-dessous, nous souhaitons mettre à jour la ligne toml::``version = ...`` à chaque chaque ¨chgt de version hors "release", même juste pour un "patch".
+
+toml::
+    ---
+    title = Le fichier path::``pyproject.toml`` du projet ¨suaver
+    path  = ?/pyproject.toml
+    keep  = regex: .*(?P<code>.*)\[tool\.poetry\.scripts\]
+    ---
+
+
+L'effet souhaité s'indique comme suit via la régle yaml::``pyproject``, un nom de notre choix, dans le bloc yaml::``update`` où le groupe nommé ``version`` permet d'utiliser le ¨numver concerné
+((
+    Tous les groupes nommés indiqués dans le bloc yaml::``search`` sont utilisables.
+)).
+Si besoin, se reporter à cf::``?/require/user/general.txt`` qui explique comment indiquer les versions concernées.
+Enfin, rappelons que le chemin du ficher est une ¨regex_FR, c'est pour cela que l'on tape regex::``\.`` pour échapper le point.
+
+yaml::
+    update:
+        - pyproject:
+            - ':all:'
+            - 'pyproject\.toml'
+            - replace:
+                - '\nversion\s+="(?P<version>.*)"\s'
+
+
+Si besoin, il est possible de demander des explications détaillées à propos de l'¨regex_FR regex::``\nversion\s+="(?P<version>.*)"\s`` au site ¨regexkit. Nous obtenons les ¨infos suivantes, après ¨trad en français.
+
+verbatim::
+    ---
+    title = Comprendre regex::``\nversion\s+="(?P<version>.*)"\s``
+    ---
+
+    \n correspond à un caractère de saut de ligne (ASCII 10)
+
+    version correspond aux caractères version littéralement
+            (sensible à la casse)
+
+    \s+ correspond à tout caractère d'espace blanc [\r\n\t\f ]
+        Quantificateur : + Entre une et un nombre illimité de fois,
+        autant de fois que possible, en rendant au besoin [gourmand].
+
+    =" correspond aux caractères =" littéralement
+
+    (?P<version>.*) Version du groupe de capture nommée
+        .* correspond à n'importe quel caractère (sauf le saut de ligne)
+            Quantificateur : * Entre zéro et un nombre illimité de fois,
+            autant de fois que possible, en restituant autant que
+            nécessaire [gourmand]
+
+    " correspond aux caractères " littéralement
+
+    \s correspond à tout caractère d'espace blanc [\r\n\t\f ]

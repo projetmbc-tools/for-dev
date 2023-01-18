@@ -7,4 +7,12 @@ About `suaVER`
 
 <!-- VERSION - INFOS - AUTO - START -->
 
+***Note:*** *at present, the project does not have any version number.*
+
 <!-- VERSION - INFOS - AUTO - END -->
+
+> **Current version**
+>
+> * *Number: {version}*
+>
+> * *Date: {date}*

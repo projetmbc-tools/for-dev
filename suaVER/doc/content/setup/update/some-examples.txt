@@ -1,5 +1,5 @@
 ﻿abrev::
-    content = several-examples
+    content = some-examples
 
 
 ==================================
@@ -7,5 +7,5 @@ Des exemples pour mieux comprendre
 ==================================
 
 content::
-    ¨content/pyproject.txt              ?????
-    ¨content/template.txt               ????
+    ¨content/pyproject.txt
+    ¨content/template.txt

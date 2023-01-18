@@ -44,12 +44,14 @@ yaml::
     # Trois options disponibles.
     update:
         - <NOM-RÈGLE-1>:
+            - '<VERSIONS-CONCERNÉES>'
             - '<REGEX-CHEMIN>'
             - replace:
                 - '<REGEX-DE-REMPLACEMENT>'
                 - "..."
 
         - <NOM-RÈGLE-2>:
+            - '<VERSIONS-CONCERNÉES>'
             - '<REGEX-CHEMIN>'
             - template:
                 - '<NOM-DU-PATRON>'
@@ -57,6 +59,7 @@ yaml::
                 - '<TEXTE-MAGIQUE-APRÈS>'
 
         - <NOM-RÈGLE-3>:
+            - '<VERSIONS-CONCERNÉES>'
             - '<REGEX-CHEMIN>'
             - template:
                 - '<NOM-DU-PATRON>'
@@ -65,18 +68,13 @@ yaml::
         - "..."
 
     # Deux options disponibles.
-    templats:
+    template:
         - <NOM-PATRON-1>:
-            - external: no
     # Retours à la ligne possibles.
-            - no-nb  : |
-                <TEXTE-DU-PATRON-SANS-VERSION>
-            - with-nb: |
-                <TEXTE-DU-PATRON-AVEC-VERSION>
+            - internal: |
+                <TEXTE-DU-PATRON>
 
         - <NOM-PATRON-2>:
-            - external: yes
-            - no-nb   : '<CHEMIN-DU-PATRON-SANS-VERSION>'
-            - with-nb : '<CHEMIN-DU-PATRON-AVEC-VERSION>'
+            - external: '<CHEMIN-VERS-LE-PATRON>'
 
         - "..."

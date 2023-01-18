@@ -10,10 +10,11 @@
 
 
 abrev::
-    monorepo_fordev = cf::``tools-for-dev ;
-                            https://github.com/bc-tools/for-dev``
     suaver = cf::``suaVER ;
                    https://github.com/bc-tools/for-dev/tree/main/suaver``
+
+    monorepo_fordev = cf::``tools-for-dev ;
+                            https://github.com/bc-tools/for-dev``
 
     num[s]ver = numéro de version
               | numéros de version
@@ -23,7 +24,7 @@ abrev::
 
 content::
     ¨content/intro.txt
-    ¨content/set-up.txt         ???????
+    ¨content/set-up.txt
     ¨content/auto-num.txt       ??????
     ¨content/via-cli.txt        ?????
     ¨content/via-python.txt     ??

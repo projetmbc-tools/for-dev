@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-17
+    date = 2023-01-18
 
 
 ================================
@@ -27,25 +27,27 @@ yaml::
 Des exemples de chemins de fichiers à analyser sont path::``changes/2022/12.txt``, ou encore path::``changes/2023/01.txt``. Pour ces chemins, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, sont `(2022, 12)` et `(2023, 01)`. Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.
 
 verbatim::
-    "changes/(?P<year>\d{4})/(?P<month>\d{2})\.txt"
+    ---
+    title = Comprendre regex::``changes/(?P<year>\d{4})/(?P<month>\d{2})\.txt``
+    ---
 
-        changes/ correspond aux caractères changes/ littéralement
-                 (sensible à la casse)
+    changes/ correspond aux caractères changes/ littéralement
+                (sensible à la casse)
 
-        (?P<year>\d{4}) correspond à un groupe de capture nommé year
-            \d{4} correspond à un chiffre [0-9].
-                  Quantificateur : {4} Exactement 4 fois
+    (?P<year>\d{4}) correspond à un groupe de capture nommé year
+        \d{4} correspond à un chiffre [0-9].
+                Quantificateur : {4} Exactement 4 fois
 
-        / correspond au caractère / littéralement
+    / correspond au caractère / littéralement
 
-        (?P<month>\d{2}) Groupe de capture nommé month
-            \d{2} correspond à un chiffre [0-9].
-                  Quantificateur : {2} Exactement 2 fois
+    (?P<month>\d{2}) Groupe de capture nommé month
+        \d{2} correspond à un chiffre [0-9].
+                Quantificateur : {2} Exactement 2 fois
 
-        \. correspond au caractère . littéralement
+    \. correspond au caractère . littéralement
 
-        txt correspond aux caractères txt littéralement
-            (sensible à la casse)
+    txt correspond aux caractères txt littéralement
+        (sensible à la casse)
 
 
 info::
@@ -82,47 +84,49 @@ tnschges::
 De nouveau, le site ¨regexkit peut être utilisé pour obtenir les explications suivantes, après traduction en français.
 
 verbatim::
-    "^={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)\n={2,}\n"
+    ---
+    title = Comprendre regex::``^={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)\n={2,}\n``
+    ---
 
-        ^ correspond à la position au début de la chaîne
-          [[non, c'est un début de ligne]]
+    ^ correspond à la position au début de la chaîne
+        [[non, c'est un début de ligne]]
 
-        ={2,} correspond au caractère = littéralement
-              Quantificateur : {2,} Entre 2 et un nombre illimité de fois,
-              autant de fois que possible, en rendant la pareille si
-              nécessaire [gourmand].
-
-        \n correspond à un caractère de saut de ligne (ASCII 10)
-
-        (?P<jour>\d{2}) Groupe de capture nommé jour
-            \d{2} correspond à un chiffre [0-9].
-                  Quantificateur : {2} Exactement 2 fois
-
-        [ \t]* correspond à un seul caractère présent dans la liste
-               ci-dessous
-               Quantificateur : * Entre zéro et un nombre illimité de fois,
-               autant de fois que possible, en rendant au besoin [gourmand].
-               le caractère littéral [[sur le site, on visualise un espace]]
-               \t Tab (ASCII 9)
-
-        \( correspond au caractère ( littéralement
-
-        (?P<version>.*) Version du groupe de capture nommée
-            .* correspond à n'importe quel caractère (sauf le saut de ligne)
-               Quantificateur : * Entre zéro et un nombre illimité de fois,
-               autant de fois que possible, en rendant ce qui est nécessaire
-               [gourmand].
-
-        \) correspond au caractère ) littéralement
-
-        \n correspond à un caractère de saut de ligne (ASCII 10)
-
-        ={2,} correspond au caractère = littéral
+    ={2,} correspond au caractère = littéralement
             Quantificateur : {2,} Entre 2 et un nombre illimité de fois,
+            autant de fois que possible, en rendant la pareille si
+            nécessaire [gourmand].
+
+    \n correspond à un caractère de saut de ligne (ASCII 10)
+
+    (?P<jour>\d{2}) Groupe de capture nommé jour
+        \d{2} correspond à un chiffre [0-9].
+                Quantificateur : {2} Exactement 2 fois
+
+    [ \t]* correspond à un seul caractère présent dans la liste
+            ci-dessous
+            Quantificateur : * Entre zéro et un nombre illimité de fois,
+            autant de fois que possible, en rendant au besoin [gourmand].
+            le caractère littéral [[sur le site, on visualise un espace]]
+            \t Tab (ASCII 9)
+
+    \( correspond au caractère ( littéralement
+
+    (?P<version>.*) Version du groupe de capture nommée
+        .* correspond à n'importe quel caractère (sauf le saut de ligne)
+            Quantificateur : * Entre zéro et un nombre illimité de fois,
             autant de fois que possible, en rendant ce qui est nécessaire
             [gourmand].
 
-        \n correspond à un saut de ligne (ASCII 10).
+    \) correspond au caractère ) littéralement
+
+    \n correspond à un caractère de saut de ligne (ASCII 10)
+
+    ={2,} correspond au caractère = littéral
+        Quantificateur : {2,} Entre 2 et un nombre illimité de fois,
+        autant de fois que possible, en rendant ce qui est nécessaire
+        [gourmand].
+
+    \n correspond à un saut de ligne (ASCII 10).
 
 
 info::
@@ -132,7 +136,7 @@ info::
 
     tnschges::
         ==
-        16   (:next-minor:-beta)
+        16  (:next-minor:-beta)
         ==
 
         Bla, bla, ...
@@ -145,7 +149,7 @@ info::
         Bla, bla...
 
 
-    ¨suaver fera la ¨modif suivante car version::``0.2.0`` est la version mineure juste après version::``0.1.2``.
+    Bien paramétré, ¨suaver fera la ¨modif suivante car version::``0.2.0`` est la version mineure juste après version::``0.1.2``.
 
     tnschges::
         ==

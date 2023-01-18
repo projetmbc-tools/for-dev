@@ -6,18 +6,20 @@
 Principe général
 ================
 
-La ¨maj de fichiers par ¨suaver s'indique via le bloc yaml::``update`` qui admet la ¨struc générale donnée ci-dessous où yaml::``"..."`` indique la possibilité d'utiliser des règles similaires à celles qui précèdent au même niveau d'indentation. La section suivante va permettre de savoir comment employer les fonctionnalités disponibles.
+La ¨maj de fichiers par ¨suaver s'indique via les blocs yaml::``autonum`` et  yaml::``update`` qui admet la ¨struc générale donnée ci-dessous où yaml::``"..."`` indique la possibilité d'utiliser des règles similaires à celles qui précèdent au même niveau d'indentation. La section suivante va permettre de savoir comment employer les fonctionnalités disponibles.
 
 yaml::
     # Trois options disponibles.
     update:
         - <NOM-RÈGLE-1>:
+            - '<VERSIONS-CONCERNÉES>'
             - '<REGEX-CHEMIN>'
             - replace:
                 - '<REGEX-DE-REMPLACEMENT>'
                 - "..."
 
         - <NOM-RÈGLE-2>:
+            - '<VERSIONS-CONCERNÉES>'
             - '<REGEX-CHEMIN>'
             - template:
                 - '<NOM-DU-PATRON>'
@@ -25,6 +27,7 @@ yaml::
                 - '<TEXTE-MAGIQUE-APRÈS>'
 
         - <NOM-RÈGLE-3>:
+            - '<VERSIONS-CONCERNÉES>'
             - '<REGEX-CHEMIN>'
             - template:
                 - '<NOM-DU-PATRON>'
@@ -35,16 +38,11 @@ yaml::
     # Deux options disponibles.
     template:
         - <NOM-PATRON-1>:
-            - external: no
     # Retours à la ligne possibles.
-            - no-nb  : |
-                <TEXTE-DU-PATRON-SANS-VERSION>
-            - with-nb: |
-                <TEXTE-DU-PATRON-AVEC-VERSION>
+            - internal: |
+                <TEXTE-DU-PATRON>
 
         - <NOM-PATRON-2>:
-            - external: yes
-            - no-nb   : '<CHEMIN-VERS-LE-PATRON-SANS-VERSION>'
-            - with-nb : '<CHEMIN-VERS-LE-PATRON-AVEC-VERSION>'
+            - external: '<CHEMIN-VERS-LE-PATRON>'
 
         - "..."

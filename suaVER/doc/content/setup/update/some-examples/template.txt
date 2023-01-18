@@ -1,0 +1,82 @@
+﻿this::
+    date = 2023-01-18
+
+
+===================================
+Mettre à jour des lignes de contenu
+===================================
+
+Dans le fichier suivant, nous voulons mettre à jour le texte entre les commentaires "magiques" md::``<!-- VERSION ... -->`` à chaque ¨chgt de version, hors "release", même juste pour un "patch".
+
+markdown::
+    ---
+    title = Le fichier path::``about.md`` du projet ¨suaver
+    path  = ?/readme/about.md
+    ---
+
+
+Commençons par la méthode la plus simple, qui devrait répondre à la majorité des cas. L'effet souhaité peut s'obtenir comme suit où sont utilisés les blocs yaml::``update`` et yaml::``template``
+((
+    Rien n'interdit d'utiliser le nom de patron yaml::``about`` au lieu de yaml::``templ-about``.
+)).
+
+yaml::
+    update:
+        - about:
+            - ':all:'
+            - 'readme/about\.md'
+            - template:
+                - 'templ-about'
+                - '<!-- VERSION - INFOS - AUTO - START -->\n'
+                - '\n<!-- VERSION - INFOS - AUTO - END -->'
+
+    template:
+        - templ-about:
+    # On utilise le langage Markdown pour notre patron, et les variables
+    # entre des accolades sont gérées par suaVER.
+            - internal: |
+                > **Current version**
+                >
+                >   * *Number: {version}*
+                >
+                >   * *Date: {date}*
+
+
+Rien de compliqué. Par contre, cette méthode ne fonctionnera pas si l'on souhaite utiliser le formatage suivant car la ligne ``### Current version`` est ici un commentaire ¨yaml, or nous voulons que cette dernière soit vue comme faisant partie du contenu du patron.
+
+yaml::
+    template:
+        - templ-about:
+            - internal: |
+                ### Current version
+
+                  * **Number:** {version}
+
+                  * **Date:** {date}
+
+
+Dans ce type de situation, il suffit de placer le contenu du patron dans un fichier dédié, puis de changer comme suit la ¨def du patron
+((
+    Cette méthode présente un gros avantage pratique en permettant le stockage à un endroit fixé de patrons utilisables dans divers projets.
+)).
+
+yaml::
+    template:
+        - templ-about:
+            - external: 'chemin/vers/le/fichier/patron'
+
+
+Si la ¨tech de repérage via des textes "encadrant" ne répond pas à un besoin, il est toujours possible de passer via une ¨regex_FR. L'exemple précédent s'écrit alors comme suit
+((
+    Si besoin, le site ¨regexkit vous apportera des éclairciments sur l'regex_FR employée.
+)).
+Noter le manque de pertinence de cette ¨tech ici.
+
+yaml::
+    update:
+        - about:
+            - ':all:'
+            - 'readme/about\.md'
+            - template:
+                - 'templ-about'
+                - '<!--.*START -->\n(?P<template>.*)\n<!--.*END -->'
