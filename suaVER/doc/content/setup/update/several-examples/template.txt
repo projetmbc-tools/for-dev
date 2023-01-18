@@ -1,0 +1,19 @@
+﻿this::
+    date = 2023-01-???
+
+
+================
+????
+================
+
+????
+
+Le projet ¨suaver utilise un fichier path::``about.md`` pour une présentation très succincte de ce qu'il est, tout en indiquant une absence de ¨numver, quand le projet commence tout juste, ou bien le dernier ¨numver. Ce fichier admet le contenu suivant.
+
+markdown::
+    ---
+    title = Le fichier path::``about.md`` du projet ¨suaver
+    path  = ?/readme/about.md
+    ---
+
+Ci-dessus, les commentaires "magiques" du type md::``<!-- VERSION ... -->`` délimitent la zone accueillant un texte généré ¨auto^t par ¨suaver.

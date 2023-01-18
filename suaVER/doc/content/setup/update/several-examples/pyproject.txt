@@ -1,0 +1,56 @@
+﻿this::
+    date = 2023-01-???
+
+
+================
+????
+================
+
+????
+
+Les projets ¨python utilisant l'excellentissime ¨poetry s'appuient sur un fichier path:::``pyproject.toml``. Pour ¨suaver, ce fichier contient la section suivante. Dans ce code, la ligne toml::``version = ...`` permet d'indiquer le ¨numver du projet. Il est facile de changer ce numéro ¨auto^t via ¨suaver.
+
+toml::
+    ---
+    title = Le fichier path::``pyproject.toml`` du projet ¨suaver
+    path  = ?/pyproject.toml
+    keep  = regex: .*(?P<code>.*)\[tool\.poetry\.scripts\]
+    ---
+
+
+pyproject.toml dans le dossier ananlysé !
+
+
+yaml::
+    update:
+        - pyproject:
+            - 'pyproject\.toml'
+            - replace:
+                - '\nversion\s+="(?P<version>.*)"\s'
+
+
+Si besoin, il est possible de demander des explications détaillées à propos de l'¨regex_FR au site ¨regexkit. Nous obtenons les ¨infos suivantes, après ¨trad en français.
+
+verbatim::
+    "\nversion\s+="(?P<version>.*)"\s"
+
+        \n correspond à un caractère de saut de ligne (ASCII 10)
+
+        version correspond aux caractères version littéralement
+                (sensible à la casse)
+
+        \s+ correspond à tout caractère d'espace blanc [\r\n\t\f ]
+            Quantificateur : + Entre une et un nombre illimité de fois,
+            autant de fois que possible, en rendant au besoin [gourmand].
+
+        =" correspond aux caractères =" littéralement
+
+        (?P<version>.*) Version du groupe de capture nommée
+            .* correspond à n'importe quel caractère (sauf le saut de ligne)
+                Quantificateur : * Entre zéro et un nombre illimité de fois,
+                autant de fois que possible, en restituant autant que
+                nécessaire [gourmand]
+
+        " correspond aux caractères " littéralement
+
+        \s correspond à tout caractère d'espace blanc [\r\n\t\f ]

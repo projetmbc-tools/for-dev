@@ -1,23 +1,26 @@
 ﻿this::
-    date = 2023-01-17
+    date = 2023-01-18
 
 
 ================
 Principe général
 ================
 
-Le bloc yaml::``exists`` permet de tester l'existence de fichiers, et éventuellement de contenus, en lien avec les ¨numsver. La structure globale de ce bloc est la suivante.
+Le bloc yaml::``require`` permet de tester l'existence de fichiers, et éventuellement de contenus, en lien avec les ¨numsver. La structure globale de ce bloc est la suivante où yaml::``"..."`` indique la possibilité d'utiliser des règles similaires à celles qui précèdent au même niveau d'indentation.
 
 yaml::
+    # Deux options disponibles.
     require:
         - <NOM-RÈGLE-1>:
-            - '<VERSIONS-CONCERNÉES-1>'
-            - '<REGEX-CHEMIN-1>'
+            - '<VERSIONS-CONCERNÉES>'
+            - '<REGEX-CHEMIN>'
 
         - <NOM-RÈGLE-2>:
-            - '<VERSIONS-CONCERNÉES-2>'
-            - '<REGEX-CHEMIN-2>'
-            - '<REGEX-CONTENU-2>'
+            - '<VERSIONS-CONCERNÉES>'
+            - '<REGEX-CHEMIN>'
+            - '<REGEX-CONTENU>'
+
+        - "..."
 
 
 Voici ce qu'il faut indiquer pour chaque règle (le ¨nbre de règles est illimité).
@@ -28,14 +31,12 @@ Voici ce qu'il faut indiquer pour chaque règle (le ¨nbre de règles est illimi
 
         * yaml::``:major:`` permet de ne garder que les versions avec un ¨chgt majeur de numéro exceptées celles de type "prelease".
 
-        * yaml::``:minor:`` sert à surveiller les ¨chgts majeurs et mineurs de version exceptées celles de type "prelease".
+        * yaml::``:minor:`` sert à surveiller les ¨chgts majeurs et mineurs de version exceptées ceux de type "prelease".
 
         * La variable yaml::``versions`` accepte aussi une ¨regex_FR. Ceci permet d'élargir les choix, si besoin.
 
-    1) **Fichiers attendus :** il faut obligatoirement les indiquer via une règle de type ¨regex_FR, ceci se faisant juste après la variable yaml::``versions``. L'exemple illustratif dans la section suivante va montrer une petite spécificité pour ce type de règle.
+        * En interne, yaml::``:all:``, yaml::``:major:`` et yaml::``:minor:`` sont remplacés par des ¨regexs_FR. Ceci rend possible, par exemple, de ne considérer que les versions majeures, y compris celle de type "futur candidat", via yaml::``:major:(-rc)?`` où regex::``?`` indique zéro, ou une occurence.
+
+    1) **Fichiers attendus :** il faut obligatoirement les indiquer via une règle de type ¨regex_FR, ceci se faisant juste après avoir indiqué les versions visées. L'exemple illustratif de la section suivante va montrer une petite spécificité pour ce type de règle.
 
     1) **Contenus attendus :** si besoin, une règle optionnelle de type ¨regex_FR permet d'indiquer la présence de certaines informations dans le contenu des fichiers attendus. Ici aussi, la section suivante montrera une petite spécificité.
-
-
-info::
-    En interne, yaml::``:all:``, yaml::``:major:`` et yaml::``:minor:`` sont remplacés par des ¨regexs_FR. Ceci rend possible, par exemple, de ne considérer que les versions majeures, y compris celle de type "futur candidat", via yaml::``:major:(-rc)?`` où regex::``?`` indique zéro, ou une occurence.

@@ -1,27 +1,50 @@
 ﻿this::
-    date = 2023-01-????
+    date = 2023-01-18
 
 
 ================
 Principe général
 ================
 
-???
-
-Une fois le dernier ¨numver repéré, il faut mettre à jour un certains nombres de fichiers pour qu'ils indiquent ce ¨chgt. Voici quelques exemples.
-
-
-    1) remplacement pyproject.toml pour en python
-
-
-???
+La ¨maj de fichiers par ¨suaver s'indique via le bloc yaml::``update`` qui admet la ¨struc générale donnée ci-dessous où yaml::``"..."`` indique la possibilité d'utiliser des règles similaires à celles qui précèdent au même niveau d'indentation. La section suivante va permettre de savoir comment employer les fonctionnalités disponibles.
 
 yaml::
+    # Trois options disponibles.
     update:
-        - <NOM-RÈGLE>:
+        - <NOM-RÈGLE-1>:
             - '<REGEX-CHEMIN>'
-            - '<PATRON-OU-REMPLACEMENT>'
+            - replace:
+                - '<REGEX-DE-REMPLACEMENT>'
+                - "..."
 
+        - <NOM-RÈGLE-2>:
+            - '<REGEX-CHEMIN>'
+            - template:
+                - '<NOM-DU-PATRON>'
+                - '<TEXTE-MAGIQUE-AVANT>'
+                - '<TEXTE-MAGIQUE-APRÈS>'
 
-    templates:
-        - <NOM-PATRON>: <TEXTE-DU-PATRON>
+        - <NOM-RÈGLE-3>:
+            - '<REGEX-CHEMIN>'
+            - template:
+                - '<NOM-DU-PATRON>'
+                - '<REGEX-DE-REMPLACEMENT>'
+
+        - "..."
+
+    # Deux options disponibles.
+    template:
+        - <NOM-PATRON-1>:
+            - external: no
+    # Retours à la ligne possibles.
+            - no-nb  : |
+                <TEXTE-DU-PATRON-SANS-VERSION>
+            - with-nb: |
+                <TEXTE-DU-PATRON-AVEC-VERSION>
+
+        - <NOM-PATRON-2>:
+            - external: yes
+            - no-nb   : '<CHEMIN-VERS-LE-PATRON-SANS-VERSION>'
+            - with-nb : '<CHEMIN-VERS-LE-PATRON-AVEC-VERSION>'
+
+        - "..."

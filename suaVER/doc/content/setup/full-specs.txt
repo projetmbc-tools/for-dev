@@ -1,12 +1,12 @@
 ﻿this::
-    date = 2023-01- ????
+    date = 2023-018
 
 
 =================
 L'¨ens des ¨specs
 =================
 
-Le code suivant réunit tout ce qu'il est permis de configurer.
+Le code suivant réunit tout ce qu'il est permis de configurer où yaml::``"..."`` indique la possibilité d'utiliser des règles similaires à celles qui précèdent au même niveau d'indentation.
 
 yaml::
     # ------------- #
@@ -14,28 +14,69 @@ yaml::
     # ------------- #
 
     search:
-        - <NOM-RÈGLE-1>:
-            - '<REGEX-CHEMIN-1-A>'
-            - '<REGEX-CONTENU-1-B>'
+        - <NOM-RÈGLE>:
+            - '<REGEX-CHEMIN>'
+            - '<REGEX-CONTENU>'
 
-        - <NOM-RÈGLE-2>:
-            - '<REGEX-CHEMIN-2-A>'
-            - '<REGEX-CONTENU2-B>'
+        - "..."
 
     # -------------- #
     # -- VÉRIFIER -- #
     # -------------- #
 
+    # Deux options disponibles.
     require:
         - <NOM-RÈGLE-1>:
-            - '<VERSIONS-CONCERNÉES-1>'
-            - '<REGEX-CHEMIN-1>'
+            - '<VERSIONS-CONCERNÉES>'
+            - '<REGEX-CHEMIN>'
 
         - <NOM-RÈGLE-2>:
-            - '<VERSIONS-CONCERNÉES-2>'
-            - '<REGEX-CHEMIN-2>'
-            - '<REGEX-CONTENU-2>'
+            - '<VERSIONS-CONCERNÉES>'
+            - '<REGEX-CHEMIN>'
+            - '<REGEX-CONTENU>'
+
+        - "..."
 
     # ---------------- #
     # -- ACTUALISER -- #
     # ---------------- #
+
+    # Trois options disponibles.
+    update:
+        - <NOM-RÈGLE-1>:
+            - '<REGEX-CHEMIN>'
+            - replace:
+                - '<REGEX-DE-REMPLACEMENT>'
+                - "..."
+
+        - <NOM-RÈGLE-2>:
+            - '<REGEX-CHEMIN>'
+            - template:
+                - '<NOM-DU-PATRON>'
+                - '<TEXTE-MAGIQUE-AVANT>'
+                - '<TEXTE-MAGIQUE-APRÈS>'
+
+        - <NOM-RÈGLE-3>:
+            - '<REGEX-CHEMIN>'
+            - template:
+                - '<NOM-DU-PATRON>'
+                - '<REGEX-DE-REMPLACEMENT>'
+
+        - "..."
+
+    # Deux options disponibles.
+    templats:
+        - <NOM-PATRON-1>:
+            - external: no
+    # Retours à la ligne possibles.
+            - no-nb  : |
+                <TEXTE-DU-PATRON-SANS-VERSION>
+            - with-nb: |
+                <TEXTE-DU-PATRON-AVEC-VERSION>
+
+        - <NOM-PATRON-2>:
+            - external: yes
+            - no-nb   : '<CHEMIN-DU-PATRON-SANS-VERSION>'
+            - with-nb : '<CHEMIN-DU-PATRON-AVEC-VERSION>'
+
+        - "..."

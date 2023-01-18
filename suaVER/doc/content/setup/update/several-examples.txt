@@ -1,8 +1,4 @@
-﻿this::
-    date = 2023-01-????
-
-
-abrev::
+﻿abrev::
     content = several-examples
 
 
@@ -10,56 +6,6 @@ abrev::
 Des exemples pour mieux comprendre
 ==================================
 
-???
-
-
-
-remplacement pyproject.toml pour en python
-
-templalet pour cas plus avancé comme le about.md par exemple
-
-
-exemple ou tout le contenu est chnagé! proposer exemple fictif liste des versions dans un fchier xt par exemple
-
-
-
-
-initialement
-
-<!-- VERSION - INFOS - AUTO - START -->
-<!-- VERSION - INFOS - AUTO - END -->
-
-
-
-pour update, templae ? bien si pas de version, et coool pour customization fine, template pour juste version mais à hcerche !
-
-
-update:
-  - readme:   <-- nom de la règle (cf meta infos)
-    - 'readme/version\.md'    <-- fichiers analysés
-
-
-    - besoin de
-
-            > choix de template dans config ou via path : cf si pas de version
-            > bête remplacement, en utilisant tous les groupes nommés disponibles
-            > regex aussi
-
-     syntaxe à la fstring via {...}
-
-     regex ou between !!!!
-
-    - replace: '...'
-    ou
-    - template: nom-du-template
-
-templates:
-  - mon_tmpl-1: |
-      sur
-
-      plusiuers lignes
-
-      simple?
-
-  - mon_tmpl-1:
-  - mon_tmpl-1:
+content::
+    ¨content/pyproject.txt              ?????
+    ¨content/template.txt               ????

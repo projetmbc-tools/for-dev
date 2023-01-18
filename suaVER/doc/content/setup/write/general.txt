@@ -1,22 +1,20 @@
 ﻿this::
-    date = 2023-01-16
+    date = 2023-01-18
 
 
 ================
 Principe général
 ================
 
-¨suaver n'étant pas devin, il faut lui indiquer où chercher les ¨numsver. Ceci se fait via un fichier ¨yaml. C'est le bloc obligatoire yaml::``search`` qui donne les règles de ¨rech qui doit avoir la ¨struc suivante (un exemple sera fourni dans la section suivante).
+¨suaver n'étant pas devin, il faut lui indiquer où chercher les ¨numsver. Ceci se fait via un fichier ¨yaml. C'est le bloc obligatoire yaml::``search`` qui donne les règles de ¨rech qui doit avoir la ¨struc suivante (un exemple est fourni dans la section suivante). Indiquons que yaml::``"..."`` symbolise la possibilité d'utiliser des règles similaires à celles qui précèdent au même niveau d'indentation.
 
 yaml::
     search:
-        - <NOM-RÈGLE-1>:
-            - '<REGEX-CHEMIN-1-A>'
-            - '<REGEX-CONTENU-1-B>'
+        - <NOM-RÈGLE>:
+            - '<REGEX-CHEMIN>'
+            - '<REGEX-CONTENU>'
 
-        - <NOM-RÈGLE-2>:
-            - '<REGEX-CHEMIN-2-A>'
-            - '<REGEX-CONTENU2-B>'
+        - "..."
 
 
 Le nombre de règles n'est pas limité : ci-dessus il est juste de deux. Il faut nommer ces règles où yaml::``<NOM-RÈGLE>`` devra être un nom "textuel" choisi librement, mais valide pour un bloc ¨yaml.

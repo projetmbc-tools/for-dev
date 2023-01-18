@@ -1,0 +1,32 @@
+﻿this::
+    date = 2023-01-18
+
+
+====================
+Ce que l'on souhaite
+====================
+
+À chaque ¨chgt de ¨numver, il est courant que des fichiers doivent être mis à jour relativement à ce ¨chgt. Pour aider à automatiser en partie ceci, ¨suaver propose un mécanisme basique de ¨verifs du dernier ¨numver. Voici des exemples d'utilisation possibles (la section cf::``several-examples.txt`` expliquera le "comment").
+
+    1) Les projets ¨python utilisant l'excellentissime ¨poetry s'appuient sur un fichier path:::``pyproject.toml``. Pour ¨suaver, ce fichier contient la section suivante.
+
+    toml::
+        ---
+        title = Le fichier path::``pyproject.toml`` du projet ¨suaver
+        path  = ?/pyproject.toml
+        keep  = regex: .*(?P<code>.*)[tool.poetry.scripts]
+        ---
+
+    Dans ce code, la ligne toml::``version = ...`` permet d'indiquer le ¨numver du projet. Il est facile de changer ce numéro ¨auto^t via ¨suaver.
+    Voir cf::``several-examples/pyproject.txt`` à ce sujet.
+
+    1) Le projet ¨suaver utilise un fichier path::``about.md`` pour une présentation très succincte de ce qu'il est, tout en indiquant une absence de ¨numver, quand le projet commence tout juste, ou bien le dernier ¨numver. Ce fichier admet le contenu suivant.
+
+    markdown::
+        ---
+        title = Le fichier path::``about.md`` du projet ¨suaver
+        path  = ?/readme/about.md
+        ---
+
+    Ci-dessus, les commentaires "magiques" du type md::``<!-- VERSION ... -->`` délimitent la zone accueillant un texte généré ¨auto^t par ¨suaver.
+    Se reporter à cf::``several-examples/template.txt`` pour en savoir plus.
