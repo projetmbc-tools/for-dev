@@ -7,28 +7,27 @@ Numérotation ¨auto
 ==================
 
 warning::
-    Comme ce qui est présenté dans cette section opère des ¨chgts "en dur", il faut utiliser ce type de fonctionnalité avec prudence !
+    Comme ce qui est présenté dans cette section opère des ¨chgts "en dur", il faut utiliser ce type de fonctionnalité avec beaucoup de prudence !
 
 
 Les règles de ¨rech indiquées à ¨suaver permettent, si souhaité, d'avoir une numérotation ¨auto de versions, à condition d'utiliser une ¨regex_FR capturant les mots clés suivants, ou juste ceux dont vous aurez besoin
 ((
-    Nous vous conseillons d'opter pour un motif le plus large possible, car ceci a l'avantage de pouvoir capturer des erreurs de saisie qui seront traitées par ¨suaver.
+    IL est conseillé fortement d'opter pour un motif le plus large possible. Ceci a l'avantage de laisser ¨suaver capturer les erreurs de saisie.
 )).
 
-    1) suaver::``:next-major:`` demande de passer à la prochaine version majeure, sans tenir compte de la partie "prerelease" après le tiret si elle existe.
-    Par exemple, on passera de version::``0.3.7-beta`` à version::``1.0.0``.
+    1) suaver::``:next-major:`` demande de passer à la prochaine version majeure, sans tenir compte de la partie "prerelease" après le tiret si elle existe. Par exemple, on passera de version::``0.3.7-beta`` à version::``1.0.0``.
 
-    1) suaver::``:next-minor:`` demande de passer à la prochaine version mineure, sans tenir compte de la partie "prerelease" après le tiret si elle existe.
-    Par exemple, on passera de version::``0.3.7-beta`` à version::``0.4.0``.
+    1) suaver::``:next-minor:`` et suaver::``:next-patch:`` s'utilisent de façon similaire à suaver::``:next-major:``. Voici deux exemples illustratifs.
 
-    1) suaver::``:next-patch:`` demande de passer à la prochaine version patchée, sans tenir compte de la partie "prerelease" après le tiret si elle existe.
-    Par exemple, on passera de version::``0.3.7-beta`` à version::``0.3.8``.
+        * Avec suaver::``:next-minor:``, on passera de version::``0.3.7-beta`` à version::``0.4.0``.
+
+        * Avec suaver::``:next-patch:``, on passera de version::``0.3.7-beta`` à version::``0.3.8``.
 
     1) Il est aussi possible de faire des choix comme suaver::``:next-minor:-rc`` pour passer par exemple de version::``0.3.7-beta`` à version::``0.4.0-rc``.
 
     1) En "préfixant" chacun des choix précédents par suaver::``same-``, on gardera la partie "prerelease" après le tiret si elle existe.
     Par exemple, si la dernière version est version::``0.3.7-beta``, et que l'on utilise suaver::``:same-next-minor:``, alors ¨suaver utilisera version::``0.4.0-beta``.
 
-    1) Il peut arriver, très rarement, mais cela reste possible, que plusieurs ¨chgts du même type soit effectué le même jour.
-    Il faut dans ce cas "ordonner" les mots clés en les suffixant de signe ``+``.
+    1) Il peut arriver, très rarement, mais cela reste possible, que plusieurs ¨chgts du même type soient effectués le même jour.
+    Dans ce type de situation, il faut "ordonner" les mots clés en les suffixant de signes ``+``.
     Par exemple, suaver::``:next-minor++:`` est plus vieux que suaver::``:next-minor+:``, lui-même plus ancien que suaver::``:next-minor:``.
