@@ -1,9 +1,9 @@
 ﻿this::
-    date = 2023-01-???
+    date = 2023-01-21
 
 
-============================================
-????
-============================================
+=======================================================
+Du contenu mis à jour en buvant tranquillement son café
+=======================================================
 
-????
+Lorsque l'on écrit du code, ou un ¨docu, il est très courant que de petits bouts de contenus doivent être mis à jour : typiquement, une date de dernier ¨chgt, ou de version. Le projet ¨cofiup permet cela en proposant la ¨rech de fichiers, et le remplacment de contenus en utilisant des ¨regexs_FR.

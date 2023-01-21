@@ -1,0 +1,32 @@
+# Presentation of the project : talking between human beings.
+general:
+    project : CoFiUp
+    acronym : >
+      Co-ntent Fi-le Up-date
+      (bad play on words: updated content while drinking
+      your coffee)
+    desc    : >
+      This project can update chunks of content from
+      selected files using the powerful regexes.
+    author  : Christophe BAL
+    licence : gnu 3
+    need    :
+        - python3
+    sources :
+      repository : https://github.com/bc-tools/for-dev/tree/main/cofiup
+
+
+# A tree-like organization of the keywords related to this project.
+keywords:
+  last-change: 2023-01-21
+
+  techology:
+    project:
+      - python
+
+    usage:
+      - developpers-tools
+
+
+  context:
+    - coding
