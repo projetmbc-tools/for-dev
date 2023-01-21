@@ -1,3 +1,7 @@
+general:
+  content: "?"
+  author : Christophe BAL
+
 toc:
   - prologue
   - about

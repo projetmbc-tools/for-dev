@@ -1,0 +1,20 @@
+﻿this::
+    title  = Mettre à jour du contenu en ciblant certains fichiers
+    author = Christophe, BAL [projetmbc@gmail.com]
+    lang   = fr
+
+    licence = by nc sa 4.0
+    out     = html, pdf
+
+    lexic   = python
+
+
+abrev::
+    cofiup = cf::``CoFiUp ;
+                   https://github.com/bc-tools/for-dev/tree/main/cofiup``
+
+    content = content
+
+
+content::
+    ¨content/intro.txt

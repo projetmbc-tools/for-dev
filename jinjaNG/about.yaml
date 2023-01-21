@@ -1,7 +1,30 @@
+# Presentation of the project : talking between human beings.
 general:
     project : jinjaNG
-    desc    : Extended jinja2 template engine with specific settings, and workflows.
+    acronym : jinja N-ext G-eneration
+    desc    : >
+      This project tries to ameliorate the workflow when working
+      with the template engine Jinja.
     author  : Christophe BAL
     licence : gnu 3
     need    :
         - python3
+
+
+# A tree-like organization of the keywords related to this project.
+keywords:
+  last-change: 2023-01-05
+
+  techology:
+    project:
+      python:
+        - jinja2
+
+    usage:
+      - latex
+      - html [javascript]
+
+
+  context:
+    writing:
+      - template

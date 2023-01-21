@@ -5,14 +5,9 @@ About `suaVER`
 
 > `suaVER` comes from *"Search / Update / Accept VERsion (numbers)"*.
 
+
 <!-- VERSION - INFOS - AUTO - START -->
 
 ***Note:*** *at present, the project does not have any version number.*
 
 <!-- VERSION - INFOS - AUTO - END -->
-
-> **Current version**
->
-> * *Number: {version}*
->
-> * *Date: {date}*

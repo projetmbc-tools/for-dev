@@ -12,7 +12,7 @@ warning::
 
 Les règles de ¨rech indiquées à ¨suaver permettent, si souhaité, d'avoir une numérotation ¨auto de versions, à condition d'utiliser une ¨regex_FR capturant les mots clés suivants, ou juste ceux dont vous aurez besoin
 ((
-    IL est conseillé fortement d'opter pour un motif le plus large possible. Ceci a l'avantage de laisser ¨suaver capturer les erreurs de saisie.
+    Il est fortement conseillé d'opter pour un motif le plus large possible. Ceci a l'avantage de laisser ¨suaver capturer les erreurs de saisie.
 )).
 
     1) suaver::``:next-major:`` demande de passer à la prochaine version majeure, sans tenir compte de la partie "prerelease" après le tiret si elle existe. Par exemple, on passera de version::``0.3.7-beta`` à version::``1.0.0``.

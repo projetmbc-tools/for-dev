@@ -1,12 +1,12 @@
 ﻿this::
-    title  = Indiquer et utiliser efficacement un numéro de version
-    author = Christophe, BAL [projetmbc@gmail.com]
-    lang   = fr
+    title   = Indiquer et utiliser efficacement un numéro de version
+    author  = Christophe, BAL [projetmbc@gmail.com]
+    lang    = fr
 
     licence = by nc sa 4.0
     out     = html, pdf
 
-//    lexic   =
+    lexic   = python
 
 
 abrev::
