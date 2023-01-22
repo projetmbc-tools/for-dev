@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-18
+    date = 2023-01-22
 
 
 ================================
@@ -7,13 +7,14 @@ Un exemple pour mieux comprendre
 ================================
 
 warning::
-    Dans l'exemple qui suit, nous allons voir que des ¨grpes de capture nommés sont utilisés. Afin de pouvoir associer une date à une version, il faut obligatoirement utiliser a minima les noms de ¨grpe ``day``, ``month``, ``year`` et ``version``.
-    Si d'autres groupes nommés sont utilisés, les captures associées seront utilisables pour les ¨majs, et les vérifications dont nous parlerons un peu plus tard dans ce ¨docu.
+    Dans l'exemple qui suit, nous allons voir que ¨suaver s'appuie sur des ¨grpes de capture nommés. Afin de pouvoir associer une date à une version, il faut obligatoirement utiliser a minima les noms de ¨grpe ``day``, ``month``, ``year`` et ``version``.
+    La section cf::``?/spenames.txt`` donne l'¨ens des noms spéciaux de groupes propres au fonctionnement de ¨suaver.
+    En plus de tous ces noms, rien n'empêche d'en utiliser des supplémentaires : les captures associées seront utilisables pour les ¨majs, ainsi que les ¨verifs dont nous parlerons plus tard dans ce ¨docu.
 
 
-Voici comment sont gérés les ¨numsver du mono-dépôt ¨monorepo_fordev accueillant ¨suaver. Si vous êtes familier des ¨regexs_FR, vous constaterez la simplicité de ce qui suit. Si vous pensez que la phrase précédente ne peut pas avoir été écrite par un humain
+Voici comment sont gérés les ¨numsver du mono-dépôt ¨monorepo_fordev accueillant ¨suaver. Si vous êtes familier des ¨regexs_FR, vous constaterez la simplicité de ce qui suit, et si vous pensez que la phrase précédente ne peut pas avoir été écrite par un humain
 ((
-    L'auteur de ¨suaver est conscient que la simple évocation du concept de "¨regexs_FR" peut faire fuire certains développeurs.
+    L'auteur de ¨suaver est conscient que la simple évocation du concept de "¨regexs_FR" peut faire fuire certains développeurs. Ceci étant noté, 'emploi d'¨regexs_FR es la seule façon efficace, et flexible de rendre ¨suaver utile.
 )),
 des explications détaillées sont données juste après.
 
@@ -24,7 +25,7 @@ yaml::
             - '^={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)\n={2,}\n'
 
 
-Des exemples de chemins de fichiers à analyser sont path::``changes/2022/12.txt``, ou encore path::``changes/2023/01.txt``. Pour ces chemins, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, sont `(2022, 12)` et `(2023, 01)`. Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.
+Avec la ¨1iere règle, ¨suaver analysera par exemple les fichiers de chemins path::``changes/2022/12.txt``, et path::``changes/2023/01.txt``, et pour chacun de ces deux fichiers, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, seront `(2022, 12)` et `(2023, 01)`. Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.
 
 verbatim::
     ---
@@ -32,17 +33,17 @@ verbatim::
     ---
 
     changes/ correspond aux caractères changes/ littéralement
-                (sensible à la casse)
+             (sensible à la casse)
 
     (?P<year>\d{4}) correspond à un groupe de capture nommé year
         \d{4} correspond à un chiffre [0-9].
-                Quantificateur : {4} Exactement 4 fois
+              Quantificateur : {4} Exactement 4 fois
 
     / correspond au caractère / littéralement
 
-    (?P<month>\d{2}) Groupe de capture nommé month
+    (?P<month>\d{2}) correspond à un groupe de capture nommé month
         \d{2} correspond à un chiffre [0-9].
-                Quantificateur : {2} Exactement 2 fois
+              Quantificateur : {2} Exactement 2 fois
 
     \. correspond au caractère . littéralement
 
@@ -54,7 +55,7 @@ info::
     Pour les chemins de fichiers, le caractère ``/`` est le "séparateur de dossier", y compris pour le ¨os_FR ¨winOS. Ceci permet en coulisse de rechercher efficacement les fichiers à analyser.
 
 
-Pour extraire des ¨infos dans les fichiers analysés, la ¨2nde ¨regex_FR indique de repérer dans le code fictif suivant les ¨numsver tnschges::``0.1.1-rc`` et tnschges::``0.1.2-rc``, mais aussi de capturer les numéros de jour tnschges::``09`` et tnschges::``13`` associés aux ¨numsver repérés.
+Pour extraire des ¨infos dans les fichiers analysés, la ¨2nde ¨regex_FR indique de repérer dans le code fictif suivant les ¨numsver version::``0.1.1-rc`` et version::``0.1.2-rc``, mais aussi de capturer les numéros de jour verb::``09`` et verb::``13`` associés aux ¨numsver repérés.
 
 tnschges::
     ==
@@ -89,42 +90,43 @@ verbatim::
     ---
 
     ^ correspond à la position au début de la chaîne
-        [[non, c'est un début de ligne]]
+      [[non, c'est un début de ligne]]
 
     ={2,} correspond au caractère = littéralement
-            Quantificateur : {2,} Entre 2 et un nombre illimité de fois,
-            autant de fois que possible, en rendant la pareille si
-            nécessaire [gourmand].
+          Quantificateur : {2,} Entre 2 et un nombre illimité de fois,
+          autant de fois que possible, en rendant la pareille si
+          nécessaire [gourmand].
 
     \n correspond à un caractère de saut de ligne (ASCII 10)
 
-    (?P<jour>\d{2}) Groupe de capture nommé jour
+    (?P<day>\d{2}) correspond à un groupe de capture nommé day
         \d{2} correspond à un chiffre [0-9].
-                Quantificateur : {2} Exactement 2 fois
+              Quantificateur : {2} Exactement 2 fois
 
     [ \t]* correspond à un seul caractère présent dans la liste
-            ci-dessous
-            Quantificateur : * Entre zéro et un nombre illimité de fois,
-            autant de fois que possible, en rendant au besoin [gourmand].
-            le caractère littéral [[sur le site, on visualise un espace]]
-            \t Tab (ASCII 9)
+           ci-dessous
+           Quantificateur : * Entre zéro et un nombre illimité de fois,
+           autant de fois que possible, en rendant au besoin [gourmand].
+           le caractère littéral
+           [[sur le site, on visualise un espace]]
+           \t Tab (ASCII 9)
 
     \( correspond au caractère ( littéralement
 
-    (?P<version>.*) Version du groupe de capture nommée
+    (?P<version>.*) correspond à un groupe de capture nommé version
         .* correspond à n'importe quel caractère (sauf le saut de ligne)
-            Quantificateur : * Entre zéro et un nombre illimité de fois,
-            autant de fois que possible, en rendant ce qui est nécessaire
-            [gourmand].
+           Quantificateur : * Entre zéro et un nombre illimité de fois,
+           autant de fois que possible, en rendant ce qui est nécessaire
+           [gourmand].
 
     \) correspond au caractère ) littéralement
 
     \n correspond à un caractère de saut de ligne (ASCII 10)
 
     ={2,} correspond au caractère = littéral
-        Quantificateur : {2,} Entre 2 et un nombre illimité de fois,
-        autant de fois que possible, en rendant ce qui est nécessaire
-        [gourmand].
+          Quantificateur : {2,} Entre 2 et un nombre illimité de fois,
+          autant de fois que possible, en rendant ce qui est nécessaire
+          [gourmand].
 
     \n correspond à un saut de ligne (ASCII 10).
 
@@ -132,35 +134,4 @@ verbatim::
 info::
     L'¨regex_FR regex::``(?P<version>.*)`` est volontairement très vague afin de pouvoir repérer des erreurs de saisie. Pour les ¨nbres associés aux dates, il a été estimé que les fautes de frappe étaient trop rares pour demander à ¨suaver de les repérer.
 
-    Ceci permet aussi de pouvoir demander à ¨suaver de numéroter ¨auto^t "en dur" une version comme dans l'exemple suivant qui utilise le mot clé suaver::``:next-minor:``, lequel ignore le suffixe dans version::``0.1.2-rc`` : voir cf::``auto-num.txt`` à ce sujet.
-
-    tnschges::
-        ==
-        16  (:next-minor:-beta)
-        ==
-
-        Bla, bla, ...
-
-
-        ==
-        13  (0.1.2-rc)
-        ==
-
-        Bla, bla...
-
-
-    Bien paramétré, ¨suaver fera la ¨modif suivante car version::``0.2.0`` est la version mineure juste après version::``0.1.2``.
-
-    tnschges::
-        ==
-        16   (0.2.0-beta)
-        ==
-
-        Bla, bla, ...
-
-
-        ==
-        13  (0.1.2-rc)
-        ==
-
-        Bla, bla...
+    Ceci permet aussi de pouvoir demander à ¨suaver de numéroter ¨auto^t "en dur" une version : voir cf::``autonum.txt`` à ce sujet.

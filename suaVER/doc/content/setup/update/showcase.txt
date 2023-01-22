@@ -1,19 +1,23 @@
 ﻿this::
-    date = 2023-01-18
+    date = 2023-01-22
+
+
+abrev::
+    content = showcase
 
 
 ====================
 Ce que l'on souhaite
 ====================
 
-À chaque ¨chgt de ¨numver, il est courant que des fichiers doivent être mis à jour relativement à ce ¨chgt. Pour aider à automatiser en partie ceci, ¨suaver propose un mécanisme basique de ¨verifs du bon emploi du dernier ¨numver.
+À chaque ¨chgt de ¨numver, il est courant que des fichiers doivent être mis à jour relativement à ce ¨chgt. Pour aider à automatiser en partie ceci, ¨suaver propose un mécanisme basique de ¨maj.
 
 
 info::
     Si aucun ¨numver n'est trouvé, aucune ¨maj ne sera faite.
 
 
-Voici quelques exemples d'utilisation possibles qui seront détaillés techniquement dans la section cf::``several-examples.txt``.
+Voici des exemples possibles d'utilisation qui seront détaillés techniquement dans la section cf::``several-examples.txt``.
 
 
 content::

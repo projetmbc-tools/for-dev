@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-17
+    date = 2023-01-22
 
 
 abrev::
@@ -10,10 +10,11 @@ abrev::
 Des validations "maison"
 ========================
 
-Pour certains projets, il peut être utile de vérifier l'existence de certains fichiers donnant des ¨infos sur certaines versions. Par exemple, il est courant de fournir un historique simplifié à destination des utilisateurs, avec beaucoup moins de détails ¨techs que dans un journal des ¨chgts utilisé par des développeurs.
+Pour certains projets, il peut être utile de vérifier l'existence de certains fichiers donnant des ¨infos sur certaines versions.
+Par exemple, il est courant de fournir un historique simplifié à destination des utilisateurs avec beaucoup moins de détails ¨techs que dans un journal des ¨chgts utilisé par des développeurs.
 ¨suaver propose un mécanisme simple pour ce type de situation
 ((
-    L'avenir montrera si ce ¨syst doit se complexifier pour plus de flexibilité.
+    L'avenir montrera si ce ¨syst doit se complexifier, ou non, pour plus de flexibilité.
 )).
 
 

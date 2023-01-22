@@ -16,6 +16,9 @@ abrev::
     monorepo_fordev = cf::``tools-for-dev ;
                             https://github.com/bc-tools/for-dev``
 
+    semver = cf::``semantic versioning ;
+                   https://semver.org/``
+
     num[s]ver = numéro de version
               | numéros de version
 
@@ -24,7 +27,6 @@ abrev::
 
 content::
     ¨content/intro.txt
-    ¨content/set-up.txt
-    ¨content/auto-num.txt
+    ¨content/setup.txt
     ¨content/via-cli.txt        ?????
     ¨content/via-python.txt     ??

@@ -1,12 +1,12 @@
 ﻿this::
-    date = 2023-01-18
+    date = 2023-01-22
 
 
 ===================================
 Mettre à jour des lignes de contenu
 ===================================
 
-Le projet ¨suaver utilise un fichier path::``about.md`` pour une présentation très succincte de ce qu'il est, tout en indiquant le dernier ¨numver. Ce fichier admet le contenu suivant.
+Le projet ¨suaver utilise un fichier path::``about.md`` pour une présentation très succincte de ce qu'il est en indiquant au passage le dernier ¨numver. Ce fichier possède le contenu suivant.
 
 markdown::
     ---

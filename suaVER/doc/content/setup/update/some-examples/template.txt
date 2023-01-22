@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-18
+    date = 2023-01-22
 
 
 ===================================
@@ -23,7 +23,6 @@ Commençons par la méthode la plus simple, qui devrait répondre à la majorit�
 yaml::
     update:
         - about:
-            - ':all:'
             - 'readme/about\.md'
             - template:
                 - 'templ-about'
@@ -31,51 +30,54 @@ yaml::
                 - '\n<!-- VERSION - INFOS - AUTO - END -->'
 
     template:
-        - templ-about:
     # On utilise le langage Markdown pour notre patron, et les variables
     # entre des accolades sont gérées par suaVER.
-            - internal: |
-                > **Current version**
-                >
-                >   * *Number: {version}*
-                >
-                >   * *Date: {date}*
+    #
+    # Remarque: ici nous utilisons des variables spéciales, mais rien
+    # n'empêche de faire appel à des captures vie des groupes nommés
+    # de votre choix.
+        - templ-about [text]: |
+            > **Current version**
+            >
+            >   * *Number: {last}*
+            >
+            >   * *Date: {date}*
 
 
-Rien de compliqué. Par contre, cette méthode ne fonctionnera pas si l'on souhaite utiliser le formatage suivant car la ligne ``### Current version`` est ici un commentaire ¨yaml, or nous voulons que cette dernière soit vue comme faisant partie du contenu du patron.
+Rien de compliqué. Bien noter que yaml::``[text]`` juste après le nom du patron de conception indique que le texte est fourni directement.
+Par contre, cette méthode ne fonctionnera pas si l'on souhaite utiliser le formatage suivant car la ligne ``### Current version`` est ici un commentaire ¨yaml, or nous voulons que cette dernière soit vue comme faisant partie du contenu du patron.
 
 yaml::
     template:
-        - templ-about:
-            - internal: |
-                ### Current version
+        - templ-about [text]: |
+            ### Current version
 
-                  * **Number:** {version}
+                * **Number:** {last}
 
-                  * **Date:** {date}
+                * **Date:** {date}
 
 
-Dans ce type de situation, il suffit de placer le contenu du patron dans un fichier dédié, puis de changer comme suit la ¨def du patron
+Dans ce type de situation, il suffit de placer le contenu du patron dans un fichier dédié
 ((
     Cette méthode présente un gros avantage pratique en permettant le stockage à un endroit fixé de patrons utilisables dans divers projets.
-)).
+)),
+puis de changer comme suit la ¨def du patron où yaml::``[path]`` indique qu'un chemin va être indiqué.
 
 yaml::
     template:
-        - templ-about:
-            - external: 'chemin/vers/le/fichier/patron'
+        - templ-about [path]: >
+            'chemin/vers/le/fichier/patron'
 
 
-Si la ¨tech de repérage via des textes "encadrant" ne répond pas à un besoin, il est toujours possible de passer via une ¨regex_FR. L'exemple précédent s'écrit alors comme suit
+Pour finir, si la ¨tech de repérage via des textes "encadrant" ne répond pas à vos besoins, il est toujours possible de passer via une ¨regex_FR. L'exemple précédent s'écrit alors comme suit
 ((
     Si besoin, le site ¨regexkit vous apportera des éclairciments sur l'regex_FR employée.
 )).
-Noter le manque de pertinence de cette ¨tech ici.
+Noter l'emploi du groupe nommé spécial regex::``template``.
 
 yaml::
     update:
         - about:
-            - ':all:'
             - 'readme/about\.md'
             - template:
                 - 'templ-about'
