@@ -1,0 +1,10 @@
+﻿abrev::
+    content = update
+
+
+=================
+????
+=================
+
+content::
+    ¨content/XXX.txt        ?????

@@ -1,0 +1,22 @@
+﻿this::
+    date = 2023-01-????
+
+
+abrev::
+    debuggex = cf::``DebuggexBeta ; https://www.debuggex.com/``
+    regexkit = cf::``regexkit     ; https://regexkit.com/python-regex``
+
+    content = setup
+
+
+=================================
+????
+=================================
+
+?????
+
+
+content::
+    ¨content/write.txt          ???????
+    ¨content/update.txt         ??????
+    ¨content/fullspecs.txt      ?????

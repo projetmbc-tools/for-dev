@@ -4,8 +4,8 @@ general:
     acronym : >
       Co-ntent Fi-le Up-date
       (bad play on words: updated content while drinking
-      your coffee, and in french "cofi" soudns like "coffee"
-      in english)
+      your coffee, and in french the word "cofi" sounds
+      like "coffee" in english)
     desc    : >
       This project can update chunks of contents from
       selected files using the so powerful regexes.
