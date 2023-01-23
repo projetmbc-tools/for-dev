@@ -14,20 +14,15 @@ general:
     need    :
         - python3
     sources :
-      repository : https://github.com/bc-tools/for-dev/tree/main/cofiup
+      repository : >
+        https://github.com/bc-tools/for-dev/tree/main/cofiup
 
 
 # A tree-like organization of the keywords related to this project.
 keywords:
-  last-change: 2023-01-21
+  last-change: 2023-01-23
 
-  techology:
-    project:
-      - python
-
+  technology:
     usage:
-      - developpers-tools
-
-
-  context:
-    - coding
+      - development tools
+      - content updates
