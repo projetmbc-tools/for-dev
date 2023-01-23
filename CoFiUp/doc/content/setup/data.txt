@@ -7,3 +7,14 @@ Des données prêtes à l'emploi
 =============================
 
 ????
+
+toml , json et yaml par défaut
+
+clés imbriquée via chemin pointés
+
+    {a.b.c}
+    =
+    mydata["a"]["b"]["c"]
+
+
+on ignore valeur de type liste

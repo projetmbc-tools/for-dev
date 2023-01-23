@@ -6,7 +6,7 @@
 L'¨ens des ¨specs
 =================
 
-Le code suivant réunit tout ce qu'il est permis de configurer où yaml::``"..."`` indique un ¨nbre illimité de règles, ou d'regexs_FR.
+Le code suivant réunit tout ce qu'il est permis de configurer où yaml::``"..."`` symbolise la possibilité d'user d'une liste de taille quelconque.
 
 yaml::
     # ----------------- #
@@ -14,7 +14,10 @@ yaml::
     # ----------------- #
 
     data:
-        - '<CHEMIN-FICHIER-GÉRÉ>'
+        - <NOM-RÈGLE>:
+            - '<REGEX-CHEMIN>'
+            - keepas:
+                - '<SPECS-MIMANT-STRUCT-FICHIER>'
         - "..."
 
     search:
@@ -31,8 +34,9 @@ yaml::
     # Mises à jour - Quatre options disponibles.
     update:
         - <NOM-RÈGLE-1> [data]:
-            - '<CHEMIN-FICHIER-GÉRÉ>'
-            - "..."
+            - '<REGEX-CHEMIN>'
+            - usefor:
+                - '<SPECS-MIMANT-STRUCT-FICHIER>'
 
         - <NOM-RÈGLE-2> [replace]:
             - '<REGEX-CHEMIN>'

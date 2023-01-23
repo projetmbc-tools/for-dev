@@ -1,4 +1,8 @@
-﻿abrev::
+﻿this::
+    date = 2023-01-?????
+
+
+abrev::
     content = write
 
 
