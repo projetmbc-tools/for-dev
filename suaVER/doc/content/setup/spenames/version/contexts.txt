@@ -14,4 +14,8 @@ Le bloc yaml::``require`` demande de cibler des types de ¨numver. Voici les cho
 
     1) yaml::``minor`` sert à surveiller les ¨chgts majeurs et mineurs de version exceptées ceux de type "prelease".
 
-    1) Pour aussi accepter des versions avec un suffixe, il suffit d'ajouter yaml::``suffix?` comme dans yaml::``major suffix?`` par exemple.
+    1) Concernant les suffixes, qui rappelons le sont ignorés par défaut, il existe deux ajouts possibles pour tenir compte des ¨infos de type "prelease".
+
+        * Pour accepter éventuellement des versions avec un suffixe, il suffit d'ajouter yaml::``suffix?` comme dans yaml::``major suffix?`` par exemple.
+
+        * Pour ne garder que des versions avec un suffixe, il suffit d'ajouter yaml::``suffix` comme dans yaml::``patch suffix`` par exemple.
