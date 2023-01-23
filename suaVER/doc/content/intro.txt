@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-22
+    date = 2023-01-23
 
 
 =======================
@@ -13,3 +13,7 @@ Pour bien gérer les ¨numsver de projets informatiques, ¨suaver propose les fo
     1) Les ¨numsver repérés sont analysés pour être validés : numéros conformes au ¨semver, dates cohérentes, numérotation ascendante respectée.
 
     1) Un fichier ¨yaml est produit contenant à la fois le dernier ¨numver daté, mais aussi un historique complet de tous les ¨numsver. Ceci est un bon moyen de rendre accessible ces ¨numsver à d'autres développeurs.
+
+
+info::
+    Ce petit projet s'appuie principalement sur les projets ¨semver et ¨cofiup.
