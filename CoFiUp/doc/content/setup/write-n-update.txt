@@ -1,0 +1,18 @@
+﻿this::
+    date = 2023-01-?????
+
+
+abrev::
+    content = write-n-update
+
+
+==================
+Du contenu textuel
+==================
+
+?????
+
+
+content::
+    ¨content/write.txt      ??????????
+    ¨content/update.txt     ?????

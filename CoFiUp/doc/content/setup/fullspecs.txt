@@ -9,15 +9,15 @@ L'¨ens des ¨specs
 Le code suivant réunit tout ce qu'il est permis de configurer où yaml::``"..."`` symbolise la possibilité d'user d'une liste de taille quelconque.
 
 yaml::
-    # ----------------- #
-    # -- LES DONNÉES -- #
-    # ----------------- #
+    # ----------------------- #
+    # -- DONNÉES EXTRAITES -- #
+    # ----------------------- #
 
     data:
         - <NOM-RÈGLE>:
             - '<REGEX-CHEMIN>'
             - keepas:
-                - '<SPECS-MIMANT-STRUCT-FICHIER>'
+                - '<SPECS-MIMANT-LE-FICHIER>'
         - "..."
 
     search:
@@ -27,16 +27,16 @@ yaml::
 
         - "..."
 
-    # ---------------- #
-    # -- ACTUALISER -- #
-    # ---------------- #
+    # -------------------------- #
+    # -- CE QUI EST ACTUALISÉ -- #
+    # -------------------------- #
 
-    # Mises à jour - Quatre options disponibles.
+    # Quatre options disponibles.
     update:
         - <NOM-RÈGLE-1> [data]:
             - '<REGEX-CHEMIN>'
             - usefor:
-                - '<SPECS-MIMANT-STRUCT-FICHIER>'
+                - '<SPECS-MIMANT-LE-FICHIER>'
 
         - <NOM-RÈGLE-2> [replace]:
             - '<REGEX-CHEMIN>'
@@ -56,7 +56,11 @@ yaml::
 
         - "..."
 
-    # Patrons de conception - Deux options disponibles.
+    # --------------------------- #
+    # -- PATRONS DE CONCEPTION -- #
+    # --------------------------- #
+
+    # Deux options disponibles.
     template:
     # Retours à la ligne possibles.
         - <NOM-PATRON-1> [text]: |

@@ -1,20 +1,117 @@
 ﻿this::
-    date = 2023-01-?????
+    date = 2023-01-24
 
 
 =============================
 Des données prêtes à l'emploi
 =============================
 
-????
+Considérons le fichier ¨yaml suivant qui décrit le projet ¨cofiup de façon humaine, mais aussi informatiquement utilisable.
 
-toml , json et yaml par défaut
+yaml::
+    ---
+    title = Le fichir path::``about.yaml`` de ¨cofiup
+    path  = ?/CoFiUp/about.yaml
+    keep  = regex: (?P<code>.*)\n{2}
+    ---
 
-clés imbriquée via chemin pointés
 
-    {a.b.c}
-    =
-    mydata["a"]["b"]["c"]
+La ¨desc du projet indiquée via yaml::``desc : ...`` sert aussi à décrire le projet dans le fichier path::``pyproject.toml`` qui admet le contenu suivant. Noter l'utilisation de toml::``description = '...'`` dans ce fichier.
+
+toml::
+    ---
+    title = Le fichir path::``pyproject.toml`` de ¨cofiup
+    path  = ?/CoFiUp/pyproject.toml
+    keep  = regex: (?P<code>.*)\n{2}
+    ---
 
 
-on ignore valeur de type liste
+Comment faire en sorte que la ¨maj de la ¨desc dans path::``about.yaml`` soit répercutée de façon automatisée dans path::``pyproject.toml`` ?
+Via ¨cofiup, il suffit d'utiliser le fichier de ¨cfg suivant, puis ensuite d'utiliser une ligne de commandes, ou un petit script ¨python (deux sujets qui seront abordés plus tard).
+Nous supposons ici que le fichier de ¨cfg et les deux présentés ci-dessus sont dans le même dossier.
+
+yaml::
+    # ----------------------- #
+    # -- DONNÉES EXTRAITES -- #
+    # ----------------------- #
+
+    data:
+        - about:
+            - about\.yaml
+            - keepas:
+                - general:
+                    - desc: mydesc
+
+    # -------------------------- #
+    # -- CE QUI EST ACTUALISÉ -- #
+    # -------------------------- #
+
+    update:
+        - pyproject [data]:
+            - pyproject\.toml
+            - usefor:
+                - tool:
+                    - poetry:
+                        - description: mydesc
+
+
+Ce fichier est construit comme suit.
+
+    1) Le bloc yaml::``data`` sert à indiquer des fichiers de données du type ¨json, ¨toml ou ¨yaml. Deux ¨infos sont attendues.
+
+        * On doit nommer les règles employées, ici la seule règle nommée yaml::``about`` est définie.
+
+        * On donne alors le moyen de trouver le, ou les fichiers via une ¨regex_FR. Ceci explique la nécessité d'échapper le point dans yaml::``about\.yaml``.
+
+        * Enfin le bloc yaml::``keepas`` permet d'indiquer des "chemins" de clés dont on veut récupérer la ¨val pour une utilisation ultérieure.
+        Ici nous avons la clé yaml::``desc`` qui se trouve dans le bloc yaml::``general`` du fichier path::``about.yaml``.
+        De plus, nous définissions un alias yaml::``mydesc`` pour un usage "interne".
+
+    1) Le bloc yaml::``update`` est organisé de façon similaire au bloc yaml::``data``.
+
+        * Pour la règle, le nom yaml::``pyproject`` est suffixé de yaml::``[data]`` afin d'indiquer que l'on va modifier des fichiers de données.
+
+        * Vient alors yaml::``pyproject\.toml`` pour indiquer de trouver le bon fichier.
+
+        * Pour finir, une fois le "chemin" de la clé yaml::``description``, nous lui associons yaml::``mydesc``, ceci indiquant d'utiliser la valeur de la clé yaml::``desc`` défnie dans le bloc yaml::``data``.
+
+
+Il est possible d'employer une notation pointée limitant le ¨nbre de lignes tapées, un point correspondant à l'ouverture d'un bloc. Concrètement, le fichier précédent peut se taper comme suit.
+
+yaml::
+    data:
+        - about:
+            - about\.yaml
+            - keepas:
+                - general.desc: mydesc
+
+    update:
+        - pyproject [data]:
+            - pyproject\.toml
+            - usefor:
+                - tool.poetry.description: mydesc
+
+
+Il est aussi possible de ne pas indiquer d'alias comme ci-après. Noter que dans ce cas, il faut indiquer le moyen de retrouver la clé via le nom de la règle, soit ici yaml::``about``.
+
+yaml::
+    data:
+        - about:
+            - about\.yaml
+            - keepas:
+                - general.desc
+
+    update:
+        - pyproject [data]:
+            - pyproject\.toml
+            - usefor:
+                - tool.poetry.description: about.general.desc
+
+
+Pour finir, si l'on souhaite extraite ¨ttes les données d'un fichier, il suffit d'utiliser la valeur spéciale yaml::``*`` pour yaml::``keepas``. Dans ce cas, aucune clé ne pourra pêtre associée à un alias.
+
+yaml::
+    data:
+        - about:
+            - about\.yaml
+            - keepas: *

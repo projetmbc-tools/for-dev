@@ -18,7 +18,7 @@ Les sections suivantes donnent tout ce qu'il est possible d'indiquer dans un fic
 
 
 content::
-    ¨content/data.txt           ?????????
-    ¨content/write.txt          ???????
-    ¨content/update.txt         ?????
-    ¨content/fullspecs.txt      ???
+    ¨content/data.txt
+    ¨content/write-n-update.txt     ?????
+    ¨content/mix.txt                ???
+    ¨content/fullspecs.txt

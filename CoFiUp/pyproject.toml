@@ -1,7 +1,7 @@
 [tool.poetry]
 name        = "cofiup"
 version     = ""
-description = 'This project can update chunks of content from selected files using the powerful regexes.'
+description = 'This project can update chunks of contents from selected files.'
 readme      = "README.md"
 authors     = ["Christophe BAL"]
 maintainers = ["Christophe BAL"]
