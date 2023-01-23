@@ -1,0 +1,74 @@
+﻿this::
+    date = 2023-01-????
+
+
+================================
+Un exemple pour mieux comprendre
+================================
+
+Considérons le fichier ¨yaml suivant qui décrit le projet de façon humaine, mais aussi informatiqument utilisable.
+
+yaml::
+    ---
+    title = Le fichir path::``about.yaml`` de ¨cofiup
+    path  = ?/CoFiUp/about.yaml
+    keep  = regex: (?P<code>.*)# A tree-like
+    ---
+
+????
+
+on veut extraire info en ligne de commandes sans python
+((
+    Via ¨python, on peut en faot parser le ficheir yaml, directement
+)).
+
+yaml::
+    search:
+        - about-project:
+            - 'about\.yaml'
+            - '\ndesc[ \t]*=[ \t]*>\s*(?P<desc>[.\n]*)author[ \t]*='
+
+
+Avec la ¨1iere règle, ¨suaver analysera par exemple les fichiers de chemins path::``changes/2022/12.txt``, et path::``changes/2023/01.txt``, et pour chacun de ces deux fichiers, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, seront `(2022, 12)` et `(2023, 01)`. Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.
+
+verbatim::
+    ---
+    title = Comprendre regex::``\ndesc[ \t]*=[ \t]*>\s*(?P<desc>[.\n]*)author[ \t]*=``
+    ---
+
+    \n correspond à un caractère de saut de ligne (ASCII 10).
+
+    desc correspond aux caractères desc littéralement (sensible à la casse)
+
+    [ \t]* correspond à un seul caractère présent dans la liste ci-dessous
+        Quantificateur : * Entre zéro et un nombre illimité de fois, autant de fois que possible, en rendant au besoin [gourmand].
+         le caractère littéral
+        \t Tab (ASCII 9)
+
+    = correspond au caractère = littéral
+
+    [\t]* correspond à un seul caractère présent dans la liste ci-dessous
+          Quantificateur : * Entre zéro et un nombre illimité de fois, autant de fois que possible, en rendant au besoin [gourmand].
+          le caractère littéral
+          [[le site permet de voir un espace]]
+          \t Tab (ASCII 9)
+
+    > correspond aux caractères > littéralement
+
+    \s* correspond à tout caractère d'espace blanc [\r\n\t\f ]
+        Quantificateur : * Entre zéro et un nombre illimité de fois, autant de fois que possible, en rendant au besoin [gourmand].
+
+    (?P<desc>[.\n]*) Groupe de capture nommé desc
+        [.\n]* correspond à un seul caractère présent dans la liste ci-dessous
+               Quantificateur : * Entre zéro et un nombre illimité de fois, autant de fois que possible, en rendant au besoin [gourmand].
+               . le caractère littéral .
+               \n correspond à un caractère de saut de ligne (ASCII 10)
+
+    auteur correspond au caractère littéral auteur (sensible à la casse)
+
+    [ \t]* correspond à un seul caractère présent dans la liste ci-dessous
+           Quantificateur : * Entre zéro et un nombre illimité de fois, autant de fois que possible, en rendant au besoin [gourmand].
+           le caractère littéral
+           \t Tab (ASCII 9)
+
+    = correspond au caractère = littéral

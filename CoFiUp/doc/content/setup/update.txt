@@ -8,3 +8,19 @@
 
 content::
     ¨content/XXX.txt        ?????
+
+
+toml::
+    ---
+    title = Le fichier path::``pyproject.toml`` du projet ¨cofiup
+    path  = ?/pyproject.toml
+    keep  = regex: (?P<code>.*)[tool.poetry.scripts]
+    ---
+
+
+
+yaml::
+    search:
+        - about-project:    description
+            - 'about\.yaml'
+            - '\nversion[ \t]*=[ \t]*"(?P<last>.*)"\n'

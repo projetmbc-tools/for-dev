@@ -2,9 +2,10 @@
     content = write
 
 
-=================
-????
-=================
+============================
+Saisir du contenu à capturer
+============================
 
 content::
-    ¨content/XXX.txt        ?????
+    ¨content/general.txt
+    ¨content/example.txt        ??????

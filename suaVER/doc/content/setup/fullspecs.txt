@@ -1,12 +1,12 @@
 ﻿this::
-    date = 2023-01-22
+    date = 2023-01-23
 
 
 =================
 L'¨ens des ¨specs
 =================
 
-Le code suivant réunit tout ce qu'il est permis de configurer où yaml::``"..."`` un ¨nbre illimité de règles, ou d'regexs_FR.
+Le code suivant réunit tout ce qu'il est permis de configurer où yaml::``"..."`` indique un ¨nbre illimité de règles, ou d'regexs_FR.
 
 yaml::
     # ------------- #

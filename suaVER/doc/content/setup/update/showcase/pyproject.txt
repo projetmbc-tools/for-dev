@@ -12,7 +12,7 @@ toml::
     ---
     title = Le fichier path::``pyproject.toml`` du projet ¨suaver
     path  = ?/pyproject.toml
-    keep  = regex: .*(?P<code>.*)[tool.poetry.scripts]
+    keep  = regex: (?P<code>.*)[tool.poetry.scripts]
     ---
 
 Dans ce code, la ligne toml::``version = ...`` permet d'indiquer le ¨numver du projet. Il est facile de changer ce numéro ¨auto^t via ¨suaver.
