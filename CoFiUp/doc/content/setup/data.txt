@@ -108,10 +108,16 @@ yaml::
                 - tool.poetry.description: about.general.desc
 
 
-Pour finir, si l'on souhaite extraite ¨ttes les données d'un fichier, il suffit d'utiliser la valeur spéciale yaml::``*`` pour yaml::``keepas``. Dans ce cas, aucune clé ne pourra pêtre associée à un alias.
+Pour finir, si l'on souhaite extraite ¨ttes les données d'un fichier, il suffit d'utiliser la valeur spéciale yaml::``*``.
+Ci-dessous, nous gardons ¨ttes les clés du bloc yaml::``general``, aucune de ces clés n'ayant d'alias.
 
 yaml::
     data:
         - about:
             - about\.yaml
-            - keepas: *
+            - keepas:
+                - general: *
+
+
+info::
+    Il est aussi autorisé d'employer yaml::``keepas: *`` afin de garder absoluement ¨ttes les clés.
