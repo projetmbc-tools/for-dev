@@ -1,5 +1,5 @@
 ﻿this::
-    title  = Mettre à jour du contenu en ciblant certains fichiers
+    title  = Mises à jour ciblées de contenus
     author = Christophe, BAL [projetmbc@gmail.com]
     lang   = fr
 
@@ -12,6 +12,9 @@
 abrev::
     cofiup = cf::``CoFiUp ;
                    https://github.com/bc-tools/for-dev/tree/main/cofiup``
+
+    debuggex = cf::``DebuggexBeta ; https://www.debuggex.com/``
+    regexkit = cf::``regexkit     ; https://regexkit.com/python-regex``
 
     content = content
 

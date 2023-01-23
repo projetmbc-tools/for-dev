@@ -19,17 +19,17 @@ yaml::
 
 on veut extraire info en ligne de commandes sans python
 ((
-    Via ¨python, on peut en faot parser le ficheir yaml, directement
+    Via ¨python, on peut en faot parser le ficheir yaml, directement ce qui est cii plus sûr vis à vis de la structure non fichier ¨yaml
 )).
 
 yaml::
     search:
         - about-project:
             - 'about\.yaml'
-            - '\ndesc[ \t]*=[ \t]*>\s*(?P<desc>[.\n]*)author[ \t]*='
+            - '\ndesc[ \t]*=[ \t]*>\s*(?P<desc>[.\n]*)\nauthor[ \t]*='
 
 
-Avec la ¨1iere règle, ¨suaver analysera par exemple les fichiers de chemins path::``changes/2022/12.txt``, et path::``changes/2023/01.txt``, et pour chacun de ces deux fichiers, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, seront `(2022, 12)` et `(2023, 01)`. Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.
+Avec la ¨1iere règle, ¨cofiup analysera par exemple les fichiers de chemins path::``changes/2022/12.txt``, et path::``changes/2023/01.txt``, et pour chacun de ces deux fichiers, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, seront `(2022, 12)` et `(2023, 01)`. Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.
 
 verbatim::
     ---
@@ -64,7 +64,9 @@ verbatim::
                . le caractère littéral .
                \n correspond à un caractère de saut de ligne (ASCII 10)
 
-    auteur correspond au caractère littéral auteur (sensible à la casse)
+    \n correspond à un caractère de saut de ligne (ASCII 10).
+
+    author correspond au caractère littéral auteur (sensible à la casse)
 
     [ \t]* correspond à un seul caractère présent dans la liste ci-dessous
            Quantificateur : * Entre zéro et un nombre illimité de fois, autant de fois que possible, en rendant au besoin [gourmand].

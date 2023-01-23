@@ -4,11 +4,11 @@ general:
     acronym : >
       Co-ntent Fi-le Up-date
       (bad play on words: updated content while drinking
-      your coffee, and in french the word "cofi" sounds
+      your coffee, indeed in french the word "cofi" sounds
       like "coffee" in english)
     desc    : >
       This project can update chunks of contents from
-      selected files using the so powerful regexes.
+      selected files.
     author  : Christophe BAL
     licence : gnu 3
     need    :

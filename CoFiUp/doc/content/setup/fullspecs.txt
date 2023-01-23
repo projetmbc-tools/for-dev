@@ -9,9 +9,13 @@ L'¨ens des ¨specs
 Le code suivant réunit tout ce qu'il est permis de configurer où yaml::``"..."`` indique un ¨nbre illimité de règles, ou d'regexs_FR.
 
 yaml::
-    # ------------- #
-    # -- TROUVER -- #
-    # ------------- #
+    # ----------------- #
+    # -- LES DONNÉES -- #
+    # ----------------- #
+
+    data:
+        - '<CHEMIN-FICHIER-GÉRÉ>'
+        - "..."
 
     search:
         - <NOM-RÈGLE>:
@@ -24,30 +28,31 @@ yaml::
     # -- ACTUALISER -- #
     # ---------------- #
 
-    # Trois options disponibles.
+    # Mises à jour - Quatre options disponibles.
     update:
-        - <NOM-RÈGLE-1>:
-            - '<REGEX-CHEMIN>'
-            - replace:
-                - '<REGEX-DE-REMPLACEMENT>'
-                - "..."
+        - <NOM-RÈGLE-1> [data]:
+            - '<CHEMIN-FICHIER-GÉRÉ>'
+            - "..."
 
-        - <NOM-RÈGLE-2>:
+        - <NOM-RÈGLE-2> [replace]:
             - '<REGEX-CHEMIN>'
-            - template:
-                - '<NOM-DU-PATRON>'
-                - '<TEXTE-MAGIQUE-AVANT>'
-                - '<TEXTE-MAGIQUE-APRÈS>'
+            - '<REGEX-DE-REMPLACEMENT>'
+            - "..."
 
-        - <NOM-RÈGLE-3>:
+        - <NOM-RÈGLE-3> [template]:
             - '<REGEX-CHEMIN>'
-            - template:
-                - '<NOM-DU-PATRON>'
-                - '<REGEX-DE-REMPLACEMENT>'
+            - '<NOM-DU-PATRON>'
+            - '<TEXTE-MAGIQUE-AVANT>'
+            - '<TEXTE-MAGIQUE-APRÈS>'
+
+        - <NOM-RÈGLE-4> [template]:
+            - '<REGEX-CHEMIN>'
+            - '<NOM-DU-PATRON>'
+            - '<REGEX-DE-REMPLACEMENT>'
 
         - "..."
 
-    # Deux options disponibles.
+    # Patrons de conception - Deux options disponibles.
     template:
     # Retours à la ligne possibles.
         - <NOM-PATRON-1> [text]: |
