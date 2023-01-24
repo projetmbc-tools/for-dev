@@ -1,0 +1,117 @@
+﻿this::
+    date = 2023-01-????
+
+
+===================================
+Mettre à jour des blocs de contenus
+===================================
+
+Dans le fichier suivant, nous voulons mettre à jour le texte entre les commentaires "magiques" md::``<!-- VERSION ... -->`` pour ¨tjrs utiliser le ¨numver le plus récent obtenu via ¨cofiup en utilisant la ¨cfg présentée dans cf::``?/exa/update/tnschanges.txt``.
+
+markdown::
+    ---
+    title = Le fichier path::``about.md`` du projet ¨cofiup
+    path  = ?/readme/about.md
+    ---
+
+
+Le problème que nous rencontrons est que nous récupérons beaucoup d'¨infos représentables sous la forme du fichier ¨csv suivant (incomplet).
+
+csv::
+    year , month , day , version
+    2022 , 03    , 13  , 0.1.2-rc
+    2022 , 03    , 09  , 0.1.1-rc
+
+
+
+
+
+?????
+
+
+Il est important de savoir qu'en interne, ????
+
+tnschges.... si amiguÎté  contexte
+
+
+
+
+
+
+
+
+Commençons par la méthode la plus simple, qui devrait répondre à la majorité des cas. L'effet souhaité peut s'obtenir comme suit où sont utilisés les blocs yaml::``update`` et yaml::``template``
+((
+    Rien n'interdit d'utiliser le nom de patron yaml::``about`` au lieu de yaml::``templ-about``.
+)).
+
+
+
+????
+
+
+yaml::
+    update:
+        - about:
+            - 'readme/about\.md'
+            - template:
+                - 'templ-about'
+                - '<!-- VERSION - INFOS - AUTO - START -->\n'
+                - '\n<!-- VERSION - INFOS - AUTO - END -->'
+
+    template:
+    # On utilise le langage Markdown pour notre patron, et les variables
+    # entre des accolades sont gérées par CoFiUp.
+        - templ-about [text]: |
+            > **Current version**
+            >
+            >   * *Number: {last}*
+            >
+            >   * *Date: {date}*
+
+
+
+
+
+
+
+
+
+Rien de compliqué. Bien noter que yaml::``[text]`` juste après le nom du patron de conception indique que le texte est fourni directement.
+Par contre, cette méthode ne fonctionnera pas si l'on souhaite utiliser le formatage suivant car la ligne ``### Current version`` sera interprétée ici comme un commentaire ¨yaml, et non comme faisant partie du contenu du patron.
+
+yaml::
+    template:
+        - templ-about [text]: |
+            ### Current version
+
+                * **Number:** {last}
+
+                * **Date:** {date}
+
+
+Dans ce type de situation, il suffit de placer le contenu du patron dans un fichier dédié
+((
+    Cette méthode présente un gros avantage pratique en permettant le stockage à un endroit fixé de patrons utilisables dans divers projets.
+)),
+puis de changer comme suit la ¨def du patron où yaml::``[path]`` indique qu'un chemin va être indiqué.
+
+yaml::
+    template:
+        - templ-about [path]: >
+            'chemin/vers/le/fichier/patron'
+
+
+Pour finir, si la ¨tech de repérage via des textes "encadrant" ne répond pas à vos besoins, il est toujours possible de passer via une ¨regex_FR. L'exemple précédent s'écrit alors comme suit
+((
+    Si besoin, le site ¨regexkit vous apportera des éclaircissements sur l'regex_FR employée.
+)).
+Noter l'emploi du groupe nommé spécial regex::``template``.
+
+yaml::
+    update:
+        - about:
+            - 'readme/about\.md'
+            - template:
+                - 'templ-about'
+                - '<!--.*START -->\n(?P<template>.*)\n<!--.*END -->'

@@ -1,23 +1,19 @@
-﻿abrev::
+﻿this::
+    date = 2023-01-24
+
+
+abrev::
     content = update
 
 
-=================
-????
-=================
+===========================
+¨Maj de différents contenus
+===========================
+
+warning::
+    Comme ce qui est présenté dans cette section explique comment opérer des ¨chgts "en dur", il faut utiliser avec beaucoup de prudence ce qui va être présenté ci-après !
+
 
 content::
-    ¨content/XXX.txt        ?????
-
-
-
-
-
-    Il est important de savoir qu'en interne, ????
-
-    tnschges contexte
-
-    csv like !!!
-        year, month, day, version
-        2022, 03   , 13 , 0.1.2-rc
-        2022, 03   , 09 , 0.1.1-rc
+    ¨content/general.txt
+    ¨content/exa/about.txt          ?????

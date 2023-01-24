@@ -8,4 +8,4 @@ Saisir du contenu à capturer
 
 content::
     ¨content/general.txt
-    ¨content/example.txt
+    ¨content/exa/tnschges.txt

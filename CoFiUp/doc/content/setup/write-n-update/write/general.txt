@@ -9,6 +9,10 @@ Principe général
 Via le bloc yaml::``search``, on indique où chercher du contenu à capturer en s'appuyant sur la ¨struc indiquée ci-dessous (un exemple concret est fourni dans la section suivante). Indiquons que yaml::``"..."`` symbolise le fait que le nombre de règles n'est pas limité.
 
 yaml::
+    # ----------------------- #
+    # -- DONNÉES EXTRAITES -- #
+    # ----------------------- #
+
     search:
         - <NOM-RÈGLE>:
             - '<REGEX-CHEMIN>'
