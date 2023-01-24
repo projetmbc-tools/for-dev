@@ -19,9 +19,6 @@ abrev::
     semver = cf::``semantic versioning ;
                    https://semver.org/``
 
-    num[s]ver = numéro de version
-              | numéros de version
-
     content = content
 
 

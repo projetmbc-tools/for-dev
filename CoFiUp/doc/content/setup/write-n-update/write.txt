@@ -1,8 +1,4 @@
-﻿this::
-    date = 2023-01-?????
-
-
-abrev::
+﻿abrev::
     content = write
 
 
@@ -11,5 +7,5 @@ Saisir du contenu à capturer
 ============================
 
 content::
-    ¨content/general.txt        ????????????
-    ¨content/example.txt        ??????
+    ¨content/general.txt
+    ¨content/example.txt

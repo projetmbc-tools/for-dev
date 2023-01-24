@@ -57,23 +57,23 @@ yaml::
 
 Ce fichier est construit comme suit.
 
-    1) Le bloc yaml::``data`` sert à indiquer des fichiers de données du type ¨json, ¨toml ou ¨yaml. Deux ¨infos sont attendues.
+    1) Le bloc yaml::``data`` sert à indiquer des fichiers de données du type ¨json, ¨toml ou ¨yaml.
 
-        * On doit nommer les règles employées, ici la seule règle nommée yaml::``about`` est définie.
+        * On doit nommer les règles employées, ici seule la règle yaml::``about`` est définie.
 
         * On donne alors le moyen de trouver le, ou les fichiers via une ¨regex_FR. Ceci explique la nécessité d'échapper le point dans yaml::``about\.yaml``.
 
         * Enfin le bloc yaml::``keepas`` permet d'indiquer des "chemins" de clés dont on veut récupérer la ¨val pour une utilisation ultérieure.
         Ici nous avons la clé yaml::``desc`` qui se trouve dans le bloc yaml::``general`` du fichier path::``about.yaml``.
-        De plus, nous définissions un alias yaml::``mydesc`` pour un usage "interne".
+        De plus, nous définissions un alias yaml::``mydesc`` pour un usage "interne" (ceci est optionnel).
 
     1) Le bloc yaml::``update`` est organisé de façon similaire au bloc yaml::``data``.
 
-        * Pour la règle, le nom yaml::``pyproject`` est suffixé de yaml::``[data]`` afin d'indiquer que l'on va modifier des fichiers de données.
+        * Pour la règle indiquée, le nom yaml::``pyproject`` est suffixé de yaml::``[data]`` afin d'indiquer que l'on va modifier des fichiers de données de type ¨json, ¨toml ou ¨yaml.
 
-        * Vient alors yaml::``pyproject\.toml`` pour indiquer de trouver le bon fichier.
+        * Vient alors yaml::``pyproject\.toml`` pour indiquer le fichier à modifier.
 
-        * Pour finir, une fois le "chemin" de la clé yaml::``description``, nous lui associons yaml::``mydesc``, ceci indiquant d'utiliser la valeur de la clé yaml::``desc`` défnie dans le bloc yaml::``data``.
+        * Pour finir, une fois le "chemin" de la clé yaml::``description`` indiqué, nous lui associons yaml::``mydesc`` afin d'utiliser la valeur de cette clé "interne" définie dans le bloc yaml::``data``.
 
 
 Il est possible d'employer une notation pointée limitant le ¨nbre de lignes tapées, un point correspondant à l'ouverture d'un bloc. Concrètement, le fichier précédent peut se taper comme suit.
@@ -92,7 +92,7 @@ yaml::
                 - tool.poetry.description: mydesc
 
 
-Il est aussi possible de ne pas indiquer d'alias comme ci-après. Noter que dans ce cas, il faut indiquer le moyen de retrouver la clé via le nom de la règle, soit ici yaml::``about``.
+Il est aussi possible de ne pas indiquer d'alias comme ci-après. Noter que dans ce cas, pour le bloc yaml::``update``, il faut indiquer le moyen de retrouver la clé via le nom de la règle, soit ici yaml::``about``.
 
 yaml::
     data:
@@ -108,7 +108,7 @@ yaml::
                 - tool.poetry.description: about.general.desc
 
 
-Pour finir, si l'on souhaite extraite ¨ttes les données d'un fichier, il suffit d'utiliser la valeur spéciale yaml::``*``.
+Pour finir, si l'on souhaite extraite un ¨ens complet de sous-clés, il suffit d'utiliser la valeur spéciale yaml::``*``.
 Ci-dessous, nous gardons ¨ttes les clés du bloc yaml::``general``, aucune de ces clés n'ayant d'alias.
 
 yaml::
@@ -120,4 +120,4 @@ yaml::
 
 
 info::
-    Il est aussi autorisé d'employer yaml::``keepas: *`` afin de garder absoluement ¨ttes les clés.
+    L'emploi de yaml::``keepas: *`` permet de garder absoluement ¨ttes les clés.
