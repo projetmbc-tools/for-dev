@@ -1,20 +1,28 @@
 ﻿this::
-    date = 2023-01-24
+    date = 2023-01-28
 
 
 abrev::
     content = :this.name:
 
 
-=================================
-Configurer : le nerf de la guerre
-=================================
+=======================================
+Configurer : partir sur de bonnes bases
+=======================================
 
-Pour une utilisation en lignes de commandes de ¨cofiup, voir cf::``?/via-cli.txt``, il faut indiquer un ensemble de règles de lecture et d'écriture via un fichier au format ¨yaml
+Avant d'utiliser ¨cofiup en lignes de commandes dans des cas simples
 ((
-     Pour un usage directement via ¨python, voir cf::``via-python.txt``, il sera aussi possible de passer via un ¨dict calquant la structure des fichiers ¨yaml de ¨cfg : voir cf::``via-python.txt``.
+    Voir cf::``?/via-cli.txt``.
+)),
+ou directement via ¨python pour des cas plus complexes
+((
+    Voir cf::``via-python.txt``.
+)),
+il est nécessaire d'indiquer un ensemble de règles de lecture et d'écriture via un fichier au format ¨yaml
+((
+     En faot, pour un usage via ¨python, il est aussi possible de passer via un ¨dict calquant la structure des fichiers ¨yaml de ¨cfg.
 )).
-Les sections suivantes donnent tout ce qu'il est possible d'indiquer dans un fichier de ¨cfg à la sauce ¨cofiup.
+Les sections suivantes vont présenter les possibilités offertes pour la ¨cfg initiale de ¨cofiup.
 
 
 content::

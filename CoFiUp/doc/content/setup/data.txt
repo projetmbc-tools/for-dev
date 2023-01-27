@@ -1,19 +1,37 @@
-﻿abrev::
+﻿this::
+    date = 2023-01-????
+
+
+abrev::
     content = :this.name:
 
-============================================
-Des données structurées et prêtes à l'emploi
-============================================
+
+============================
+Avec des données structurées
+============================
+
+Commençons par ???
+
 
 content::
     ¨content/1file-to-1file.txt         ????????
-    ¨content/morethan1.txt              ??????
+    ¨content/typing.txt                 ??????
+    ¨content/morethan1to1.txt           ????
 
 
 
-PB des types de donnés : support de liste/tupe et string
+
+PB des types de donnés :
+    support de liste/tupe et string
+    typage de base proposé
+
+besoin aussi de clés "uniques" ou au contraire agrégante...
+
 
 block
 
 handlers::
-    laà on fait des ransfo
+    laà on fait des ransfo sur de plusiseus données récupérés uniquement
+
+
+jinjang pour template afin de manipuelr données standardisés avant !!!!

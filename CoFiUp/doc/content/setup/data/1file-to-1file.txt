@@ -1,9 +1,9 @@
 ﻿this::
-    date = 2023-01-27
+    date = 2023-01-????
 
 
 =======================
-D'un fichier à un autre
+D'un fichier à un autre    FAKE EXAMPLE !
 =======================
 
 Considérons le fichier ¨yaml suivant qui décrit le projet ¨cofiup de façon humaine, mais aussi informatiquement utilisable.
@@ -11,7 +11,7 @@ Considérons le fichier ¨yaml suivant qui décrit le projet ¨cofiup de façon 
 yaml::
     ---
     title = Le fichir path::``about.yaml`` de ¨cofiup
-    path  = ?/CoFiUp/about.yaml
+    path  = ?/examples/about2pyproj-nohandler/about.yaml
     keep  = regex: (?P<code>.*)\n{2}
     ---
 
@@ -21,14 +21,14 @@ La ¨desc du projet indiquée via yaml::``desc : ...`` sert aussi à décrire le
 toml::
     ---
     title = Le fichir path::``pyproject.toml`` de ¨cofiup
-    path  = ?/CoFiUp/pyproject.toml
+    path  = ?/examples/about2pyproj-nohandler/pyproject.toml
     keep  = regex: (?P<code>.*)\n{2}
     ---
 
 
 Comment faire en sorte que la ¨maj de la ¨desc dans path::``about.yaml`` soit répercutée de façon automatisée dans path::``pyproject.toml`` ?
 Via ¨cofiup, il suffit d'utiliser le fichier de ¨cfg suivant, puis ensuite d'utiliser une ligne de commandes, ou un petit script ¨python (deux sujets qui seront abordés plus tard).
-Nous supposons ici que le fichier de ¨cfg et les deux présentés ci-dessus sont dans le même dossier.
+Nous supposons ici que le fichier de ¨cfg et les deux fichiers de données présentés ci-dessus sont dans le même dossier.
 
 yaml::
     # ----------------------- #
