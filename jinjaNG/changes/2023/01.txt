@@ -2,6 +2,21 @@
 
 
 ==
+27
+==
+
+--------
+:update:
+--------
+
+[[:doc:]]
+The purpose of the ¨jinjang has been clarified: for example, ¨yaml, json and ¨toml files should just use the default settings as these file types are not formatted.
+
+
+// ---------- //
+
+
+==
 13
 ==
 

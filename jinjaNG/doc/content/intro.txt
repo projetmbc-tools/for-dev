@@ -1,19 +1,19 @@
 ﻿this::
-    date = 2022-12-25
+    date = 2023-01-27
 
 
 ============================================
 ¨jinja c'est bien, mais ¨jinjang c'est mieux
 ============================================
 
-L'ambition de ¨jinjang est de rendre le travail avec ¨jinja plus efficace dans certaines situations. Considérons par exemple la rédaction de projets écrits via ¨latex (les détails arriveront dans les sections suivantes).
+L'ambition principale de ¨jinjang est de rendre le travail avec ¨jinja plus efficace quant on travaille avec des fichiers devant être visualisés par un humain ; considérons par exemple la rédaction de projets écrits via ¨latex (les détails arriveront dans les sections suivantes).
 
     1) ¨jinja permet de rédiger un fichier "patron"
     ((
         En anglais, on parle de "templates". Nous utiliserons "patron" comme raccourci de "patron de conception".
     ))
     contenant des instructions, et des variables à utiliser dynamiquement afin d'obtenir des fichiers finaux personnalisés.
-    ¨jinjang rend le processus de fabrication de tels fichiers finaux très simple soit en utilisant des données fournies au format ¨json, soit via un script ¨python fabriquant les données attendues
+    ¨jinjang rend le processus de fabrication de tels fichiers finaux très simple soit en utilisant des données fournies au format ¨yaml ou ¨json, soit via un script ¨python fabriquant les données attendues
     ((
         Le concepteur du "patron" devra fournir un script ¨python respectant quelques règles très simples à suivre.
     )),
@@ -24,8 +24,8 @@ L'ambition de ¨jinjang est de rendre le travail avec ¨jinja plus efficace dans
     ((
         La conception de patron reste aussi pénible en ¨html qui est pourtant le langage ciblé principalement par ¨jinja.
     )).
-    Pour remédier à cela, ¨jinjang redéfinit les réglages de ¨jinja pour travailler avec des balises ne perturbant plus ¨latex : par exemple, des instructions s'indiquent dans un bloc jinjang::``%: ... :%``.
-    De plus, un package ¨latex dédié latex::``jinjang`` permet d'obtenir un aperçu permettant d'imaginer facilement ce que sera le ¨docu final
+    Pour remédier à cela, ¨jinjang redéfinit les réglages de ¨jinja pour travailler avec des balises ne perturbant plus ¨latex : par exemple, des instructions s'indiquent dans un bloc jinjang::``%%: ... :%%``.
+    De plus, un package ¨latex dédié latex::``jngutils`` permet d'obtenir un aperçu permettant d'imaginer facilement ce que sera le ¨docu final
     ((
         Il est ainsi possible de déboguer un patron sans avoir à lancer le processus de fabrication d'un ¨docu final "test".
     )).
