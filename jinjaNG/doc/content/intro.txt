@@ -6,7 +6,7 @@
 ¨jinja c'est bien, mais ¨jinjang c'est mieux
 ============================================
 
-L'ambition principale de ¨jinjang est de rendre le travail avec ¨jinja plus efficace quant on travaille avec des fichiers devant être visualisés par un humain ; considérons par exemple la rédaction de projets écrits via ¨latex (les détails arriveront dans les sections suivantes).
+L'ambition principale de ¨jinjang est de rendre le travail avec ¨jinja plus efficace quand on travaille avec des fichiers devant être visualisés par un humain ; considérons par exemple la rédaction de projets écrits via ¨latex (les détails arriveront dans les sections suivantes).
 
     1) ¨jinja permet de rédiger un fichier "patron"
     ((
