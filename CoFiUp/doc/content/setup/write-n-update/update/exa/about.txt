@@ -1,4 +1,25 @@
-﻿this::
+﻿From the accepted answer to this question, you can write your own filter
+
+import operator
+
+def sort_multi(L,*operators):
+    L.sort(key=operator.itemgetter(*operators))
+    return L
+
+Register it in your application environment. So for pyramid, you would do something like
+
+env = config.get_jinja2_environment()
+env.filters['sort_multi'] = sort_multi
+
+And finally in your templates
+
+{{item_list|sort_multi('value','color')}}
+
+
+
+
+
+this::
     date = 2023-01-????
 
 
@@ -14,14 +35,32 @@ markdown::
     path  = ?/readme/about.md
     ---
 
+??????
 
-Le problème que nous rencontrons est que nous récupérons beaucoup d'¨infos représentables sous la forme du fichier ¨csv suivant (incomplet).
+Le problème que nous rencontrons ici
 
-csv::
-    year , month , day , version
-    2022 , 03    , 13  , 0.1.2-rc
-    2022 , 03    , 09  , 0.1.1-rc
+est que nous récupérons beaucoup d'¨infos représentables sous la forme du fichier ¨yaml suivant.
 
+yaml::
+    - year   : 2023
+      month  : 01
+      day    : 24
+      version: 0.2.1-beta
+
+    - year   : 2022
+      month  : 08
+      day    : 18
+      version: 0.2.0
+
+    - year   : 2022
+      month  : 03
+      day    : 13
+      version: 0.1.2-rc
+
+    - year   : 2022
+      month  : 03
+      day    : 09
+      version: 0.1.1-rc
 
 
 
@@ -52,17 +91,16 @@ Commençons par la méthode la plus simple, qui devrait répondre à la majorit�
 
 yaml::
     update:
-        - about:
-            - 'readme/about\.md'
-            - template:
-                - 'templ-about'
-                - '<!-- VERSION - INFOS - AUTO - START -->\n'
-                - '\n<!-- VERSION - INFOS - AUTO - END -->'
+        about [template]:
+            'readme/about\.md'
+            'templ-about'
+            '\n<!-- VERSION - INFOS - AUTO - START -->\n'
+            '\n<!-- VERSION - INFOS - AUTO - END -->\n'
 
     template:
     # On utilise le langage Markdown pour notre patron, et les variables
     # entre des accolades sont gérées par CoFiUp.
-        - templ-about [text]: |
+        templ-about [text]: |
             > **Current version**
             >
             >   * *Number: {last}*
@@ -82,7 +120,7 @@ Par contre, cette méthode ne fonctionnera pas si l'on souhaite utiliser le form
 
 yaml::
     template:
-        - templ-about [text]: |
+        templ-about [text]: |
             ### Current version
 
                 * **Number:** {last}
@@ -98,7 +136,7 @@ puis de changer comme suit la ¨def du patron où yaml::``[path]`` indique qu'un
 
 yaml::
     template:
-        - templ-about [path]: >
+        templ-about [path]: >
             'chemin/vers/le/fichier/patron'
 
 
@@ -110,8 +148,7 @@ Noter l'emploi du groupe nommé spécial regex::``template``.
 
 yaml::
     update:
-        - about:
-            - 'readme/about\.md'
-            - template:
-                - 'templ-about'
-                - '<!--.*START -->\n(?P<template>.*)\n<!--.*END -->'
+        about [template]:
+            'readme/about\.md'
+            'templ-about'
+            '<!--.*START -->\n(?P<template>.*)\n<!--.*END -->'

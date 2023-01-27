@@ -3,7 +3,7 @@
 
 
 abrev::
-    content = setup
+    content = :this.name:
 
 
 =================================
@@ -18,7 +18,7 @@ Les sections suivantes donnent tout ce qu'il est possible d'indiquer dans un fic
 
 
 content::
-    ¨content/data.txt
+    ¨content/data.txt               ???????
     ¨content/write-n-update.txt     ?????
     ¨content/mixing.txt             ???
     ¨content/fullspecs.txt

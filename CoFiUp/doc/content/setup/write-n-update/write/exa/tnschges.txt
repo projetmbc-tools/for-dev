@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-24
+    date = 2023-01-25
 
 
 ================================
@@ -147,4 +147,4 @@ verbatim::
 
 
 info::
-    Dans la section suivant cf::``?/update.txt``, nous verrons comment sont stockées en interne les valeurs. Ceci permettra de comprendre, par exemple, comment utiliser la version la plus récente pour modifier du contenu.
+    Dans la section suivante cf::``?/update.txt``, nous verrons comment les valeurs sont stockées en interne. Ceci permettra de comprendre, par exemple, comment utiliser la version la plus récente pour modifier du contenu.

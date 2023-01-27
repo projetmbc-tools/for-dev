@@ -3,7 +3,7 @@
 
 
 abrev::
-    content = update
+    content = :this.name:
 
 
 ===========================
@@ -15,5 +15,5 @@ warning::
 
 
 content::
-    ¨content/general.txt
+    ¨content/general.txt            ??????????
     ¨content/exa/about.txt          ?????

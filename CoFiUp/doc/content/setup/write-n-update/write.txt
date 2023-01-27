@@ -1,5 +1,5 @@
 ﻿abrev::
-    content = write
+    content = :this.name:
 
 
 ============================
@@ -8,4 +8,4 @@ Saisir du contenu à capturer
 
 content::
     ¨content/general.txt
-    ¨content/exa/tnschges.txt
+    ¨content/exa/tnschges.txt           ?????

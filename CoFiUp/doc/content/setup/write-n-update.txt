@@ -3,7 +3,7 @@
 
 
 abrev::
-    content = write-n-update
+    content = :this.name:
 
 
 ==================
@@ -14,5 +14,5 @@ Pour les fichiers "textuels" qui ne sont pas du type ¨json, ¨toml ou ¨yaml, i
 
 
 content::
-    ¨content/write.txt
-    ¨content/update.txt     ?????
+    ¨content/write.txt      ?????
+    ¨content/update.txt     ??
