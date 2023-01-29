@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-27
+    date = 2023-01-29
 
 
 =================
@@ -30,6 +30,11 @@ yaml::
             - "..."
 
         - "..."
+
+    # Gestion des données non structurées capturées.
+    handlers:
+        - <NOM-RÈGLE-DE-TYPE-SEARCH>:
+            - '<SPECS-DE-TYPE-DONNÉES-STRUCTURÉES>'
 
     # -------------------------- #
     # -- CE QUI EST ACTUALISÉ -- #
