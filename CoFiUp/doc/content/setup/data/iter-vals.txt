@@ -8,6 +8,22 @@
 
 ????
 
+ok ici car ¨numver sans release, si release à géré on devra passer via traotement python car trop évolué ! par contre dans config, on peut indiquer des fonction maison pour ajourer des filters comme avec jinjang !!!!
+
+  allversions:
+    - dt_version
+    - ...
+
+équivuat à
+
+  allversions: [dt_version, ...]
+
+si besoin de garder dates au lieu de _ pour ifnore et dans ce cas le reste continue tout de même à fonctionner !!!
+
+      - history:
+        - date @ dt_date: version @ dt_version ...
+
+
 yaml::
     ---
     title = Le fichier path::``VERSIONS.yaml``

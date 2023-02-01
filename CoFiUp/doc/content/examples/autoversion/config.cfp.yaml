@@ -1,15 +1,24 @@
 ﻿# -- DONNÉES EXTRAITES -- #
 data:
-  allversions: # Juste un nom...
+  allversions:
     path: about.yaml
     keep:
       - history:
-        - date @ dt_date: version @ dt_version ...
+        - _ : version @ dt_version ...
+
+# -- PRÉ-GESTION DES DONNÉES CAPTURÉES -- #
+handlers:
+  allversions:
+    build:
+      - dt_version
+      - ...
+  last_version:
+    jinjang: "{allversions} | sort | last"
 
 # -- CE QUI EST ACTUALISÉ -- #
 update:
-  pyproject: # Juste un nom...
+  pyproject:
     data:
       path  : pyproject.toml
       change:
-        - version = ????
+        - version = last_version

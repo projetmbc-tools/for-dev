@@ -5,25 +5,31 @@
 # Données structurées supportées : YAML, JSON et TOML.
 data:
   <NOM-RÈGLE>:
-    path: '<CHEMIN-MOTIF-A-LA-UNIX>'
+    path: <CHEMIN-MOTIF-A-LA-UNIX>
     keep:
-      - '<SPECS-MIMANT-LE-FICHIER>'
+      - <SPECS-MIMANT-LE-FICHIER>
 
   ...
 
 # Données non supportées.
 search:
   <NOM-RÈGLE>:
-    path : '<CHEMIN-MOTIF-A-LA-UNIX>'
+    path : <CHEMIN-MOTIF-A-LA-UNIX>
     regex:
-      - '<REGEX-CONTENU>'
+      - <REGEX-CONTENU>
       - ...
 
   ...
 
-# Pré-gestion des données capturées.
+
+# --------------------------------------- #
+# -- PRÉ-GESTION DES DONNÉES CAPTURÉES -- #
+# --------------------------------------- #
+
 handlers:
-  - '<SPECS-DE-TYPE-DONNÉES-STRUCTURÉES>'
+  <NELLE-CLÉ> : <INSTRUCTIONS-SUR-DONNÉES-EXISTANTES>
+
+  ...
 
 
 # -------------------------- #
@@ -34,30 +40,30 @@ handlers:
 update:
   data:
     <NOM-RÈGLE>:
-      path  : '<CHEMIN-MOTIF-A-LA-UNIX>'
+      path  : <CHEMIN-MOTIF-A-LA-UNIX>
       change:
-        - '<SPECS-MIMANT-LE-FICHIER>'
+        - <SPECS-MIMANT-LE-FICHIER>
 
     ...
 
   replace:
     <NOM-RÈGLE-1>:
-      path : '<CHEMIN-MOTIF-A-LA-UNIX>'
+      path : <CHEMIN-MOTIF-A-LA-UNIX>
       regex:
-        - '<REGEX-DE-REMPLACEMENT>'
+        - <REGEX-DE-REMPLACEMENT>
         - ...
 
     <NOM-RÈGLE-2>:
-      path    : '<CHEMIN-MOTIF-A-LA-UNIX>'
-      template: '<NOM-DU-PATRON>'
+      path    : <CHEMIN-MOTIF-A-LA-UNIX>
+      template: <NOM-DU-PATRON>
       between :
-        - '<TEXTE-MAGIQUE-AVANT>'
-        - '<TEXTE-MAGIQUE-APRÈS>'
+        - <TEXTE-MAGIQUE-AVANT>
+        - <TEXTE-MAGIQUE-APRÈS>
 
     <NOM-RÈGLE-3>:
-      path    : '<CHEMIN-MOTIF-A-LA-UNIX>'
-      template: '<NOM-DU-PATRON>'
-      regex   : '<REGEX-DE-REMPLACEMENT>'
+      path    : <CHEMIN-MOTIF-A-LA-UNIX>
+      template: <NOM-DU-PATRON>
+      regex   : <REGEX-DE-REMPLACEMENT>
 
     ...
 
@@ -76,6 +82,6 @@ template:
         <TEXTE-DU-PATRON>
 
     <NOM-PATRON-2>:
-      path: '<CHEMIN-VERS-LE-PATRON>'
+      path: <CHEMIN-VERS-LE-PATRON>
 
     ...
