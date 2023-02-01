@@ -1,0 +1,15 @@
+﻿# -- DONNÉES EXTRAITES -- #
+data:
+  allversions: # Juste un nom...
+    path: about.yaml
+    keep:
+      - history:
+        - date @ dt_date: version @ dt_version ...
+
+# -- CE QUI EST ACTUALISÉ -- #
+update:
+  pyproject: # Juste un nom...
+    data:
+      path  : pyproject.toml
+      change:
+        - version = ????

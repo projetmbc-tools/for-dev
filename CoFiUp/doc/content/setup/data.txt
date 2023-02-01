@@ -1,6 +1,5 @@
 ﻿this::
-    date = 2023-01-????
-
+    date = 2023-02-01
 
 abrev::
     content = :this.name:
@@ -10,28 +9,9 @@ abrev::
 Avec des données structurées
 ============================
 
-Commençons par ???
+Commençons par le plus simple, à savoir partir de données structurées pour modifier d'autres données structurées (des exemples fictifs vont servir à illustrer les différentes fonctionnalités disponibles).
 
 
 content::
-    ¨content/1-to-1.txt                 ????????
-    ¨content/typing.txt                 ??????
-    ¨content/morethan1to1.txt           ????
-
-
-
-
-PB des types de donnés :
-    support de liste/tupe et string
-    typage de base proposé
-
-besoin aussi de clés "uniques" ou au contraire agrégante...
-
-
-block
-
-handlers::
-    laà on fait des ransfo sur de plusiseus données récupérés uniquement
-
-
-jinjang pour template afin de manipuelr données standardisés avant !!!!
+    ¨content/same-vals.txt
+    ¨content/iter-vals.txt               ????

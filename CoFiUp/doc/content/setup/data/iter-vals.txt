@@ -1,0 +1,29 @@
+﻿this::
+    date = 2023-01-???
+
+
+=======================
+???
+=======================
+
+????
+
+yaml::
+    ---
+    title = Le fichier path::``VERSIONS.yaml``
+    path  = ?/examples/autoversion/VERSIONS.yaml
+    ---
+
+idéé de récupérrer dernier nuémro de version, mais on idnique que ceci n'est qu'un travail prépa car on verra comment obtenir efficvement le bon remplace plus tard !
+
+toml::
+    ---
+    title = Le fichier path::``pyproject.toml`` de ¨cofiup
+    path  = ?/examples/about2pyproj/pyproject.toml
+    ---
+
+cofiup::
+    ---
+    title = Le fichier path::``config.cfp.yaml``
+    path  = ?/examples/autoversion/config.cfp.yaml
+    ---

@@ -1,91 +1,16 @@
 ﻿this::
-    date = 2023-01-29
+    date = 2023-02-01
 
 
 =================
 L'¨ens des ¨specs
 =================
 
-Le code suivant réunit tout ce qu'il est permis de configurer avec la convention suivante : yaml::``"..."`` symbolise la possibilité d'user d'une liste de taille quelconque.
+Le code suivant réunit tout ce qu'il est permis de configurer avec la convention suivante : yaml::``...`` symbolise la possibilité d'user d'une liste de taille quelconque.
 
 yaml::
-    # ----------------------- #
-    # -- DONNÉES EXTRAITES -- #
-    # ----------------------- #
-
-    # Données structurées supportées.
-    data:
-        - <NOM-RÈGLE>:
-            - '<REGEX-CHEMIN>'
-            - keepas:
-                - '<SPECS-MIMANT-LE-FICHIER>'
-
-        - "..."
-
-    # Données non supportées.
-    search:
-        - <NOM-RÈGLE>:
-            - '<REGEX-CHEMIN>'
-            - '<REGEX-CONTENU-1>'
-            - "..."
-
-        - "..."
-
-    # Gestion des données non structurées capturées.
-    handlers:
-        - <NOM-RÈGLE-DE-TYPE-SEARCH>:
-            - '<SPECS-DE-TYPE-DONNÉES-STRUCTURÉES>'
-
-    # -------------------------- #
-    # -- CE QUI EST ACTUALISÉ -- #
-    # -------------------------- #
-
-    # Trois options disponibles.
-    update:
-        - data:
-            - <NOM-RÈGLE>:
-                - '<REGEX-CHEMIN>'
-                - usefor:
-                    - '<SPECS-MIMANT-LE-FICHIER>'
-
-            - "..."
-
-        - replace:
-            - <NOM-RÈGLE>:
-                - '<REGEX-CHEMIN>'
-                - '<REGEX-DE-REMPLACEMENT>'
-                - "..."
-
-            - "..."
-
-        - template:
-            - <NOM-RÈGLE-1>:
-                - '<NOM-DU-PATRON>'
-                - '<REGEX-CHEMIN>'
-                - '<TEXTE-MAGIQUE-AVANT>'
-                - '<TEXTE-MAGIQUE-APRÈS>'
-
-            - <NOM-RÈGLE-2>:
-                - '<NOM-DU-PATRON>'
-                - '<REGEX-CHEMIN>'
-                - '<REGEX-DE-REMPLACEMENT>'
-
-            - "..."
-
-        - "..."
-
-    # --------------------------- #
-    # -- PATRONS DE CONCEPTION -- #
-    # --------------------------- #
-
-    # Deux options disponibles.
-    template:
-        - <NOM-PATRON-1>:
-    # Retours à la ligne possibles.
-            - text: |
-                <TEXTE-DU-PATRON>
-
-        - <NOM-PATRON-2>:
-            - path: '<CHEMIN-VERS-LE-PATRON>'
-
-        - "..."
+    ---
+    title  = Version du date(fr)::``:this.date:``
+    path   = :this.name:.yaml
+    ignore = syntax errors
+    ---
