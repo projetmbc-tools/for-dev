@@ -64,7 +64,7 @@ TEMPL_ONE_FLAVOUR = """
   1. **Tools to assist in typing templates.**
       * {tools}
 
-  1. **Variables, `jinja` instructions and comments.**
+  1. **Variables, comments and `jinja` instructions.**
   Here is a fictive `how-to` code.
 
 ~~~{md_code}

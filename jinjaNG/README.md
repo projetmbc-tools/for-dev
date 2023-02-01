@@ -300,7 +300,7 @@ To indicate a dialect for templates, a flavour must be given. Here are the minim
   1. **Tools to assist in typing templates.**
       * Nothing available.
 
-  1. **Variables, `jinja` instructions and comments.**
+  1. **Variables, comments and `jinja` instructions.**
   Here is a fictive `how-to` code.
 
 ~~~markdown
@@ -337,7 +337,7 @@ We can use {{i + 4}} .
   1. **Tools to assist in typing templates.**
       * See the folder `jngutils/html`.
 
-  1. **Variables, `jinja` instructions and comments.**
+  1. **Variables, comments and `jinja` instructions.**
   Here is a fictive `how-to` code.
 
 ~~~markdown
@@ -370,7 +370,7 @@ nor inline comments.
   1. **Tools to assist in typing templates.**
       * See the folder `jngutils/latex`.
 
-  1. **Variables, `jinja` instructions and comments.**
+  1. **Variables, comments and `jinja` instructions.**
   Here is a fictive `how-to` code.
 
 ~~~tex
@@ -407,7 +407,7 @@ We can use \JNGVALOF{i + 4} .
   1. **Tools to assist in typing templates.**
       * Nothing available.
 
-  1. **Variables, `jinja` instructions and comments.**
+  1. **Variables, comments and `jinja` instructions.**
   Here is a fictive `how-to` code.
 
 ~~~md
