@@ -6,8 +6,8 @@ data:
       - general:
         - desc    @ dt_desc
         - authors @ dt_devs
-        - sources:
-          - repository @ dt_repo
+      - general.sources:
+        - repository @ dt_repo
 
 # -- CE QUI EST ACTUALISÉ -- #
 update:

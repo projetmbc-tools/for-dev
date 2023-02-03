@@ -1,6 +1,7 @@
 ﻿this::
     date = 2023-02-01
 
+
 abrev::
     content = :this.name:
 
@@ -14,4 +15,4 @@ Commençons par le plus simple, à savoir partir de données structurées pour m
 
 content::
     ¨content/same-vals.txt
-    ¨content/iter-vals.txt               ????
+    ¨content/handlers.txt

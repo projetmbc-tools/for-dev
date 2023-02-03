@@ -22,12 +22,13 @@ search:
   ...
 
 
-# --------------------------------------- #
-# -- PRÉ-GESTION DES DONNÉES CAPTURÉES -- #
-# --------------------------------------- #
+# ----------------------------------------------- #
+# -- PRÉ-GESTION BASIQUE DES DONNÉES CAPTURÉES -- #
+# ----------------------------------------------- #
 
-handlers:
-  <NELLE-CLÉ> : <INSTRUCTIONS-SUR-DONNÉES-EXISTANTES>
+handler:
+  <NELLE-CLÉ>:
+    jinjang: <INSTRUCTIONS-JINJANG-SUR-DONNÉES-EXISTANTES>
 
   ...
 

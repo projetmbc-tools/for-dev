@@ -1,5 +1,9 @@
 ﻿this::
-    date = 2023-02-01
+    date = 2023-02-03
+
+
+abrev::
+    examples = ?/examples/about2pyproj
 
 
 ===========================
@@ -11,7 +15,7 @@ Considérons le fichier ¨yaml suivant qui décrit le projet ¨cofiup de façon 
 yaml::
     ---
     title = Le fichier path::``about.yaml`` de ¨cofiup
-    path  = ?/examples/about2pyproj/about.yaml
+    path  = ¨examples/about.yaml
     ---
 
 
@@ -20,7 +24,7 @@ Pour utiliser l'excellentissime ¨poetry, il faut aussi produire un fichier path
 toml::
     ---
     title = Le fichier path::``pyproject.toml`` de ¨cofiup
-    path  = ?/examples/about2pyproj/pyproject.toml
+    path  = ¨examples/pyproject.toml
     ---
 
 
@@ -39,7 +43,7 @@ Nous supposons ici que le fichier de ¨cfg et les deux fichiers de données pré
 cofiup::
     ---
     title = Le fichier path::``config.cfp.yaml``
-    path  = ?/examples/about2pyproj/config.cfp.yaml
+    path  = ¨examples/config.cfp.yaml
     ---
 
 
@@ -49,7 +53,7 @@ Ce fichier s'appuie sur les deux blocs cofiup::``data`` et cofiup::``update`` en
 
         * Les règles définies doivent être nommées : ici, il y a juste la règle cofiup::``about``.
 
-        * Vient ensuite le moyen de trouver le, ou les fichiers via un motif à la ¨unix relativement au dossier du fichier de ¨cfg. Ici, cofiup::``path: about.yaml`` pointe juste vers le fichier ¨src.
+        * Vient ensuite le moyen de trouver le, ou les fichiers via un motif à la ¨unix, la recherche se faisant relativement au dossier du fichier de ¨cfg. Ici, cofiup::``path: about.yaml`` pointe juste vers le fichier ¨src.
 
         * Enfin le bloc cofiup::``keep`` permet d'indiquer des "chemins" de clés dont on veut récupérer la ¨val pour une utilisation ultérieure. Bien noter que l'on utilise une liste de spécifications, d'où les tirets.
         Ici, par exemple, nous avons la clé cofiup::``repository`` qui se trouve dans le sous-bloc cofiup::``sources`` du bloc cofiup::``general`` dans le fichier path::``about.yaml``.
@@ -62,13 +66,13 @@ Ce fichier s'appuie sur les deux blocs cofiup::``data`` et cofiup::``update`` en
 
         * Pour finir, les valeurs à modifier sont indiquées dans le bloc cofiup::``change`` via les "chemins" des clés concernées en utilisant une liste de spécifications mimant la ¨struc du fichier cible. Indiquons deux particularités.
 
-            + cofiup::``description = desc`` indique que la valeur de la clè ciblée cofiup::``description`` est égale à la valeur de la clé cofiup::``desc`` du fichier ¨src.
+            i) cofiup::``description = desc`` indique que la valeur de la clè ciblée cofiup::``description`` est égale à la valeur de la clé cofiup::``desc`` du fichier ¨src.
 
-            + cofiup::``repository`` est un raccourci très pratique pour cofiup::``repository = repository``.
+            i) cofiup::``repository`` est un raccourci très pratique pour cofiup::``repository = repository``.
 
 
 Finissons avec deux fonctionnalités bien utiles.
-Tout d'abord, il est possible d'employer une notation "pointée" limitant le ¨nbre de lignes tapées, voir cofiup::``tool.poetry`` ci-dessous : un point correspond à l'ouverture d'un bloc.
+Tout d'abord, il est possible d'employer une notation "pointée" limitant le ¨nbre de lignes tapées, voir cofiup::``tool.poetry`` et cofiup::``general.sources`` ci-dessous : un point correspond à l'ouverture d'un bloc.
 De plus, il est possible de définir des alias pour les données "¨srcs" comme dans cofiup::``desc @ dt_desc`` ci-après, l'alias étant ici cofiup::``dt_desc``
 ((
     Le cofiup::``dt`` est pour "data".
@@ -78,7 +82,7 @@ Retenir que cofiup::``@`` vient de "@-lias".
 cofiup::
     ---
     title = Le fichier path::``config-alias.cfp.yaml``
-    path  = ?/examples/about2pyproj/config-alias.cfp.yaml
+    path  = ¨examples/config-alias.cfp.yaml
     ---
 
 

@@ -1,6 +1,6 @@
 [tool.poetry]
 name        = "fafipro"
-version     = "0.1.2-rc"
+version     = "0.1.2"
 description = "The Famous Fictive Project is used to explain some concepts."
 repository  = "https://github.com/montypython/fafipro"
 authors     = [
