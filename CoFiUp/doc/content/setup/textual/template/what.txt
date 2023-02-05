@@ -1,0 +1,45 @@
+﻿this::
+    date = 2023-02-05
+
+
+=======================
+Ce que l'on souhaite...
+=======================
+
+Dans le mono-dépôt ¨monorepo_fordev accueillant ¨cofiup, chaque projet indique ses ¨chgts mois par mois dans un dossier path::``changes`` utilisant une structure comme celle de l'exemple fictif suivant.
+
+dirtree::
+    + fictional-project
+        + changes
+            + 2022
+                * 03.txt
+                * 09.txt
+            + 2023
+                * 01.txt
+
+        + readme
+            * about.md
+            * ...
+
+        + [...]
+
+
+Dans chaque fichier du dossier path::``changes``, les ¨numsver sont datés au jour près, et indiqués comme suit.
+
+tnschges::
+    ---
+    title = Contenu fictif du fichier path::``changes/2022/03.txt``
+    path  = ¨examples/changes-2022-03.txt
+    ---
+
+
+Voici le contenu du fichier path::``about.md``.
+
+md::
+    ---
+    title = Contenu fictif du fichier path::``readme/about.md``
+    path  = ¨examples/about.md
+    ---
+
+
+Notre but va être de mettre à jour le texte ci-dessus entre les commentaires "magiques" md::``<!-- VERSION ... -->`` pour ¨tjrs utiliser le ¨numver le plus récent.

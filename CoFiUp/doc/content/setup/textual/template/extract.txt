@@ -1,72 +1,33 @@
 ﻿this::
-    date = 2023-01-25
+    date = 2023-02-05
 
 
-================================
-Un exemple pour mieux comprendre
-================================
+=====================================
+Extractions des ¨numsver et des dates
+=====================================
 
-Dans le mono-dépôt ¨monorepo_fordev accueillant ¨cofiup, chaque projet indique ses ¨chgts mois par mois dans un dossier path::``changes`` utilisant une structure comme celle de l'exemple fictif suivant.
-
-dirtree::
-    + fictive-project
-        + changes
-            + 2022
-                * 03.txt
-                * 09.txt
-            + 2023
-                * 01.txt
-
-        + [...]
-
-
-Dans chaque fichier, les ¨numsver sont datés au jour près, et indiqués comme suit.
-
-tnschges::
-    ---
-    title = Contenu fictif du fichier path::``changes/2022/03.txt``
-    ---
-
-    ==
-    13  (0.1.2-rc)
-    ==
-
-    Bla, bla...
-
-
-    ==
-    10
-    ==
-
-    Blo, blo...
-
-
-    // ---------- //
-
-
-    ==
-    09  (0.1.1-rc)
-    ==
-
-    Bli, bli...
-
-
-Voyons comment extraire les dates et les ¨numsver dans les fichiers utilisés. Ceci se passe comme suit via le bloc yaml::``search``.
-Si vous êtes familier des ¨regexs_FR, vous constaterez la simplicité de ce qui suit où les valeurs capturées sont associées aux noms internes yaml::``year``, yaml::``month``, yaml::``date`` et yaml::``version``.
+Pour indiquer à ¨cofiup comment extraire les dates et les ¨numsver dans les fichiers du dossier path::``changes``, il faut passer via le bloc cofiup::``search`` comme ci-après.
+Si vous êtes familier des ¨regexs_FR, vous constaterez la simplicité de ce qui suit où les valeurs capturées sont associées aux noms internes cofiup::``year``, cofiup::``month``, cofiup::``date`` et cofiup::``version``.
 Par contre, si vous pensez que la phrase précédente ne peut pas avoir été écrite par un humain
 ((
     L'auteur de ¨cofiup est conscient que la simple évocation du concept de "¨regexs_FR" peut faire fuire certains développeurs. Ceci étant noté, l'emploi d'¨regexs_FR est la seule façon efficace, et flexible de rendre ¨cofiup utile.
 )),
 des explications détaillées sont données juste après.
 
-yaml::
-    search:
-        - tnschges:
-            - 'changes/(?P<year>\d{4})/(?P<month>\d{2})\.txt'
-            - '^={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)\n={2,}\n'
+cofiup::
+    ---
+    title  = Le fichier path::``config.cfp.yaml``
+    path   = ¨examples/config.cfp.yaml
+    before = # -- CE QUI EST ACTUALISÉ -- #
+    ---
 
 
-Avec la ¨1iere règle, ¨cofiup analysera par exemple les fichiers de chemins path::``changes/2022/03.txt``, et path::``changes/2023/01.txt``, et pour chacun de ces fichiers, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, seront `(2022, 03)` et `(2023, 01)`. Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.
+warning::
+    Nous supposons ici que le fichier de ¨cfg se trouve à la racine du dossier du projet fictif.
+
+
+Avec la ¨1iere règle, pour repérer les fichiers à analyser, ¨cofiup analysera par exemple les fichiers de chemins path::``changes/2022/03.txt``, et path::``changes/2023/01.txt``, et pour chacun de ces fichiers, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, seront `(2022, 03)` et `(2023, 01)`.
+Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.
 
 verbatim::
     ---
@@ -96,7 +57,7 @@ info::
     Pour les chemins de fichiers, le caractère ``/`` est le "séparateur de dossier", y compris pour le ¨os_FR ¨winOS. Ceci permet en coulisse de rechercher efficacement les fichiers à analyser.
 
 
-Pour extraire des ¨infos dans les fichiers analysés, la ¨2nde ¨regex_FR indique de repérer dans le code fictif donné plus haut les ¨numsver version::``0.1.1-rc`` et version::``0.1.2-rc``, tout en les associant aux numéros de jour verb::``09`` et verb::``13``.
+Pour extraire des ¨infos dans les fichiers analysés, la ¨2nde ¨regex_FR indique de repérer les ¨numsver version::``0.1.1-rc`` et version::``0.1.2-rc`` dans le code fictif donné plus haut dans cf::``what.txt``, tout en les associant aux numéros de jour verb::``09`` et verb::``13``.
 De nouveau, le site ¨regexkit peut être utilisé pour obtenir les explications suivantes, après traduction en français.
 
 verbatim::
@@ -147,4 +108,5 @@ verbatim::
 
 
 info::
-    Dans la section suivante cf::``?/update.txt``, nous verrons comment les valeurs sont stockées en interne. Ceci permettra de comprendre, par exemple, comment utiliser la version la plus récente pour modifier du contenu.
+    En interne, ¨cofiup stocke les valeurs capturées dans une table ¨sqlite. Ici cette table contiendra les attributs sql::``year``, sql::``month``, sql::``day`` et sql::``version``.
+    Savoir cela nous aidera à comprendre comment mettre à jour le fichier path::``readme/about.md``.

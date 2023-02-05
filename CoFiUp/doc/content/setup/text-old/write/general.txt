@@ -28,11 +28,3 @@ Pour nommer les règles, il faut faire en sorte que yaml::``<NOM-RÈGLE>`` soit 
     1) Vient ensuite une autre ¨regex_FR servant à explorer le contenu des fichiers retenus.
 
     1) Chacune de ces règles peut utiliser des groupes de capture nommés : ceci permet de réutiliser plus tard les textes capturés pour modifier d'autres contenus.
-
-
-info::
-    Voici deux sites utiles pour travailler avec des ¨regexs_FR ¨python.
-
-        1) ¨debuggex permet de visualiser le fonctionnement d'une ¨regex_FR de son choix.
-
-        1) ¨regexkit opte pour une autre approche en expliquant, en anglais, ce qu'est la ¨regex_FR qui lui est fourni.

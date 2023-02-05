@@ -37,30 +37,7 @@ markdown::
 
 ??????
 
-Le problème que nous rencontrons ici
 
-est que nous récupérons beaucoup d'¨infos représentables sous la forme du fichier ¨yaml suivant.
-
-yaml::
-    - year   : 2023
-      month  : 01
-      day    : 24
-      version: 0.2.1-beta
-
-    - year   : 2022
-      month  : 08
-      day    : 18
-      version: 0.2.0
-
-    - year   : 2022
-      month  : 03
-      day    : 13
-      version: 0.1.2-rc
-
-    - year   : 2022
-      month  : 03
-      day    : 09
-      version: 0.1.1-rc
 
 
 
@@ -87,31 +64,6 @@ Commençons par la méthode la plus simple, qui devrait répondre à la majorit�
 
 
 ????
-
-
-yaml::
-    update:
-        about [template]:
-            'readme/about\.md'
-            'templ-about'
-            '\n<!-- VERSION - INFOS - AUTO - START -->\n'
-            '\n<!-- VERSION - INFOS - AUTO - END -->\n'
-
-    template:
-    # On utilise le langage Markdown pour notre patron, et les variables
-    # entre des accolades sont gérées par CoFiUp.
-        templ-about [text]: |
-            > **Current version**
-            >
-            >   * *Number: {last}*
-            >
-            >   * *Date: {date}*
-
-
-
-
-
-
 
 
 

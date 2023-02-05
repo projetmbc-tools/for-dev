@@ -27,7 +27,10 @@ search:
 # ----------------------------------------------- #
 
 handler:
-  <NELLE-CLÉ>:
+  <NELLE-CLÉ-1>:
+    sql: <INSTRUCTIONS-SQLITE-SUR-DONNÉES-EXISTANTES>
+
+  <NELLE-CLÉ-2>:
     jinjang: <INSTRUCTIONS-JINJANG-SUR-DONNÉES-EXISTANTES>
 
   ...
@@ -78,9 +81,7 @@ update:
 # Deux options disponibles.
 template:
     <NOM-PATRON-1>:
-# La barre veticale permet l'emploi de retours à la ligne.
-      text: |
-        <TEXTE-DU-PATRON>
+      jinjang: <TEXTE-DU-PATRON>
 
     <NOM-PATRON-2>:
       path: <CHEMIN-VERS-LE-PATRON>

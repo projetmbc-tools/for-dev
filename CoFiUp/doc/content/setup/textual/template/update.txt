@@ -1,0 +1,30 @@
+﻿this::
+    date = 2023-02-05    ????
+
+
+===============================
+????
+===============================
+
+
+?????
+
+    En interne, ¨cofiup stocke les valeurs capturées dans une table ¨sqlite. Ici cette table contiendra les attributs sql::``year``, sql::``month``, sql::``day`` et sql::``version``.
+
+
+Voyons comment indiquer à ¨cofiup de mettre à jour, de façon semi-automatisée, les valeurs des clés "communes" de path::``about.yaml`` vers path::``pyproject.toml``.
+Pour ce faire, il suffit d'utiliser le fichier de ¨cfg suivant, puis ensuite d'utiliser une ligne de commandes, ou un petit script ¨python (deux sujets qui seront abordés plus tard).
+
+
+
+
+cofiup::
+    ---
+    title = Le fichier path::``config.cfp.yaml``
+    path  = ¨examples/config.cfp.yaml
+    from  = # -- CE QUI EST ACTUALISÉ -- #
+    ---
+
+
+warning::
+    Rappelons que le fichier de ¨cfg est supposé être à la racine du dossier du projet fictif.

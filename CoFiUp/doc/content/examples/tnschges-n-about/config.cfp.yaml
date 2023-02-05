@@ -1,0 +1,40 @@
+﻿# -- DONNÉES EXTRAITES -- #
+search:
+  - tnschges:
+    - 'changes/(?P<year>\d{4})/(?P<month>\d{2})\.txt'
+    - '^={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)\n={2,}\n'
+
+# -- PRÉ-GESTION BASIQUE DES DONNÉES CAPTURÉES -- #
+handler:
+  about_last:
+    sql: |
+      SELECT *
+      FROM dt_table
+      ORDER BY year DESC, month DESC, day DESC
+      LIMIT 1;
+
+  last_version:
+    jinjang: "{{ about_last['version'] }}"
+
+  last_version_date:
+    jinjang: "{{ about_last['year'] }}-{{ about_last['month'] }}-{{ about_last['day'] }}"
+
+# -- CE QUI EST ACTUALISÉ -- #
+update:
+  about:
+    path    : readme/about.md
+    template: templ-about
+    between :
+      - '\n<!-- VERSION - INFOS - AUTO - START -->\n'
+      - '\n<!-- VERSION - INFOS - AUTO - END -->\n'
+
+# -- PATRONS DE CONCEPTION -- #
+template:
+  templ-about:
+# La barre veticale permet l'emploi de retours à la ligne.
+    jinjang: |
+      > **Current version**
+      >
+      >   * *Number: {{ last_version }}*
+      >
+      >   * *Date: {{ last_version_date }}*
