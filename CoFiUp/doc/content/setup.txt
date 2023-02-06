@@ -27,6 +27,6 @@ Les sections suivantes vont présenter les possibilités offertes pour la ¨cfg 
 
 content::
     ¨content/data.txt
-    ¨content/textual.txt            ?????
+    ¨content/textual.txt
     ¨content/mixing.txt             ???
     ¨content/fullspecs.txt

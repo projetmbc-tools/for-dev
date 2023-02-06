@@ -11,4 +11,5 @@ Avec des patrons de conceptions
 content::
     ¨content/what.txt
     ¨content/extract.txt
-    ¨content/update.txt     ???????
+    ¨content/handler.txt
+    ¨content/update.txt

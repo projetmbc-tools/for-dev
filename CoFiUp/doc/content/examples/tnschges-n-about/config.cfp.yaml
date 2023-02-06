@@ -1,32 +1,39 @@
 ﻿# -- DONNÉES EXTRAITES -- #
 search:
-  - tnschges:
-    - 'changes/(?P<year>\d{4})/(?P<month>\d{2})\.txt'
-    - '^={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)\n={2,}\n'
+  tnschges:
+    regpath: 'changes/(?P<year>\d{4})/(?P<month>\d{2})\.txt'
+    regex  :
+      - '^={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)\n={2,}\n'
 
 # -- PRÉ-GESTION BASIQUE DES DONNÉES CAPTURÉES -- #
 handler:
-  about_last:
+  last_version:
     sql: |
       SELECT *
       FROM dt_table
-      ORDER BY year DESC, month DESC, day DESC
+      ORDER BY year    DESC,
+               month   DESC,
+               day     DESC,
+               version DESC
       LIMIT 1;
 
-  last_version:
-    jinjang: "{{ about_last['version'] }}"
+    jinjang: "{{ last_version[0] }}"
+
+  last_version_nb:
+    jinjang: "{{ last_version['version'] }}"
 
   last_version_date:
-    jinjang: "{{ about_last['year'] }}-{{ about_last['month'] }}-{{ about_last['day'] }}"
+    jinjang: "{{ last_version['year'] }}-{{ last_version['month'] }}-{{ last_version['day'] }}"
 
 # -- CE QUI EST ACTUALISÉ -- #
 update:
   about:
-    path    : readme/about.md
-    template: templ-about
-    between :
-      - '\n<!-- VERSION - INFOS - AUTO - START -->\n'
-      - '\n<!-- VERSION - INFOS - AUTO - END -->\n'
+    replace:
+      path    : readme/about.md
+      template: templ-about
+      between :
+        - '\n<!-- VERSION - INFOS - AUTO - START -->\n'
+        - '\n<!-- VERSION - INFOS - AUTO - END -->\n'
 
 # -- PATRONS DE CONCEPTION -- #
 template:
@@ -35,6 +42,6 @@ template:
     jinjang: |
       > **Current version**
       >
-      >   * *Number: {{ last_version }}*
+      >   * *Number: {{ last_version_nb }}*
       >
       >   * *Date: {{ last_version_date }}*

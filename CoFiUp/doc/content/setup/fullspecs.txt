@@ -1,14 +1,14 @@
 ﻿this::
-    date = 2023-02-05
+    date = 2023-02-06
 
 
 =================
 L'¨ens des ¨specs
 =================
 
-Le code suivant réunit tout ce qu'il est permis de configurer avec la convention suivante : yaml::``...`` symbolise la possibilité d'user d'une liste de taille quelconque.
+Le code suivant réunit tout ce qu'il est permis de configurer. Par convention, cofiup::``...`` symbolise la possibilité de répéter un usage autant de fois que nécessaire.
 
-yaml::
+cofiup::
     ---
     title  = Version du date(fr)::``:this.date:``
     path   = :this.name:.yaml

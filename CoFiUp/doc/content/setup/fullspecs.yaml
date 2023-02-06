@@ -13,9 +13,15 @@ data:
 
 # Données non supportées.
 search:
-  <NOM-RÈGLE>:
+  <NOM-RÈGLE-1>:
     path : <CHEMIN-MOTIF-A-LA-UNIX>
     regex:
+      - <REGEX-CONTENU>
+      - ...
+
+  <NOM-RÈGLE-2>:
+    regpath: <REGEX-CHEMIN>
+    regex  :
       - <REGEX-CONTENU>
       - ...
 
@@ -26,11 +32,10 @@ search:
 # -- PRÉ-GESTION BASIQUE DES DONNÉES CAPTURÉES -- #
 # ----------------------------------------------- #
 
+# Des manipulations de concert ou en solo.
 handler:
-  <NELLE-CLÉ-1>:
-    sql: <INSTRUCTIONS-SQLITE-SUR-DONNÉES-EXISTANTES>
-
-  <NELLE-CLÉ-2>:
+  <NELLE-CLÉ>:
+    sql    : <INSTRUCTIONS-SQLITE-SUR-DONNÉES-EXISTANTES>
     jinjang: <INSTRUCTIONS-JINJANG-SUR-DONNÉES-EXISTANTES>
 
   ...
@@ -67,6 +72,7 @@ update:
     <NOM-RÈGLE-3>:
       path    : <CHEMIN-MOTIF-A-LA-UNIX>
       template: <NOM-DU-PATRON>
+# Un groupe nommé ``template`` indique où faire le remplacement.
       regex   : <REGEX-DE-REMPLACEMENT>
 
     ...

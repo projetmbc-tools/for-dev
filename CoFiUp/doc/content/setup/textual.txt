@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-02-05
+    date = 2023-02-06
 
 
 abrev::
@@ -10,7 +10,7 @@ abrev::
 Du contenu textuel
 ==================
 
-Pour les fichiers "textuels" qui ne sont pas du type ¨json, ¨toml ou ¨yaml, il reste possible d'extraire du contenu pour le réinjecter à divers endroits via des mécanismes simples s'appuyant principalement sur les ¨regexs_FR.
+Pour les fichiers "textuels" qui ne sont pas du type ¨json, ¨toml ou ¨yaml, il reste possible d'extraire du contenu pour le réinjecter à divers endroits via des mécanismes simples s'appuyant principalement sur les ¨regexs_FR, et le langage ¨sql.
 
 
 info::
@@ -22,8 +22,5 @@ info::
 
 
 content::
-    ¨content/template.txt      ?????
-    ¨content/????.txt      ?????
-    ¨content/????.txt      ?????
-    ¨content/????.txt      ?????
-    ¨content/????.txt      ?????
+    ¨content/template.txt
+    ¨content/no-template.txt

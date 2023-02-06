@@ -1,12 +1,14 @@
 ﻿this::
-    date = 2023-02-05
+    date = 2023-02-06
 
 
 =======================
 Ce que l'on souhaite...
 =======================
 
-Dans le mono-dépôt ¨monorepo_fordev accueillant ¨cofiup, chaque projet indique ses ¨chgts mois par mois dans un dossier path::``changes`` utilisant une structure comme celle de l'exemple fictif suivant.
+¨cofiup fait partie du mono-dépôt ¨monorepo_fordev dans lequel certaines règles communes de développement sont utilisées.
+L'une d'elles permet de rédiger les ¨chgts ¨techs en anglais, et une fois ceci fait, une ¨maj ¨auto d'une partie du contenu d'un fichier path::``readme/about.md`` permet de ¨tjrs indiquer le dernier ¨numver.
+Pour voir comment faire cela, nous allons considérer un project fictif avec la structure suivante.
 
 dirtree::
     + fictional-project
@@ -33,7 +35,7 @@ tnschges::
     ---
 
 
-Voici le contenu du fichier path::``about.md``.
+Quant au contenu du fichier path::``about.md``, c'est le suivant.
 
 md::
     ---
@@ -42,4 +44,4 @@ md::
     ---
 
 
-Notre but va être de mettre à jour le texte ci-dessus entre les commentaires "magiques" md::``<!-- VERSION ... -->`` pour ¨tjrs utiliser le ¨numver le plus récent.
+Notre but va être de mettre à jour dans le texte ci-dessus la partie entre les commentaires "magiques" md::``<!-- VERSION ... -->`` afin de ¨tjrs indiquer le ¨numver le plus récent.
