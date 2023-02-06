@@ -6,4 +6,4 @@
 De petites ¨cfgs
 ================
 
-Il est conseillé de multiplier les fichiers de ¨cfg pour les cantonner à des rôle bien ciblés. Ne surtout pas produire de monstrueux fichiers durs à analyser et maintenir !
+Il est conseillé de multiplier les fichiers de ¨cfg pour les cantonner à des rôles bien ciblés. Ne surtout pas produire de monstrueux fichiers durs à analyser et maintenir !

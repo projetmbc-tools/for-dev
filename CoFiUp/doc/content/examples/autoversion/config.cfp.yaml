@@ -8,7 +8,7 @@ data:
 # -- PRÉ-GESTION BASIQUE DES DONNÉES CAPTURÉES -- #
 handler:
   dt_last_version:
-    jinjang: "{{ history }} | list | sort | last"
+    - jinjang: "{{ history }} | list | sort | last"
 
 # -- CE QUI EST ACTUALISÉ -- #
 update:

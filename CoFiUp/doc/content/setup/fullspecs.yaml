@@ -6,8 +6,7 @@
 data:
   <NOM-RÈGLE>:
     path: <CHEMIN-MOTIF-A-LA-UNIX>
-    keep:
-      - <SPECS-MIMANT-LE-FICHIER>
+    keep: <SPECS-MIMANT-LE-FICHIER>
 
   ...
 
@@ -35,8 +34,9 @@ search:
 # Des manipulations de concert ou en solo.
 handler:
   <NELLE-CLÉ>:
-    sql    : <INSTRUCTIONS-SQLITE-SUR-DONNÉES-EXISTANTES>
-    jinjang: <INSTRUCTIONS-JINJANG-SUR-DONNÉES-EXISTANTES>
+    - sql    : <INSTRUCTIONS-SQLITE-SUR-DONNÉES-EXISTANTES>
+    - jinjang: <INSTRUCTIONS-JINJANG-SUR-DONNÉES-EXISTANTES>
+    - ...
 
   ...
 
@@ -50,8 +50,7 @@ update:
   data:
     <NOM-RÈGLE>:
       path  : <CHEMIN-MOTIF-A-LA-UNIX>
-      change:
-        - <SPECS-MIMANT-LE-FICHIER>
+      change: <SPECS-MIMANT-LE-FICHIER>
 
     ...
 

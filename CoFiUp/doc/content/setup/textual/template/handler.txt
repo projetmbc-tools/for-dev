@@ -34,19 +34,19 @@ cofiup::
 Voici comment tout cela fonctionne.
 
     1) La donnée fabriquée cofiup::``last_version`` utilise deux mécanismes de fabrication, l'un via ¨sqlite, puis ensuite un second via ¨jinjang. L'ordre d'utilisation est ici essentiel comme nous allons le voir.
+    Si besoin nous aurions pu cumuler d'autres traitements, ¨cad employer une liste de taille supérieure à `2`.
 
-        * Le sous-bloc cofiup::``sql`` de cofiup::``last_version`` permet de manipuler de façon classique la table sqlite::``dt_table``. Ici, nous obtenons une liste de taille `1` contenant un dictionnaire donnant les ¨infos sur la version la plus ancienne
+        * Le ¨1er elt cofiup::``sql: ...`` de la liste cofiup::``last_version`` permet d'employer une requête ¨sqlite classique portant sur la table sqlite::``dt_table`` : ici, nous extrayons une liste de taille `1` contenant un dictionnaire donnant les ¨infos sur la version la plus ancienne
         ((
             La requête proposée est fragile car elle ne prend pas en compte les ¨numsver de type ¨semver. Voir à ce propos l'¨info donnée plus bas dans cette section.
         )).
 
-        * Il reste à comprende comment fonctionne cofiup::``jinjang: "{{ last_version[0] }}"`` au sein du bloc cofiup::``last_version``. Pas d'auto-référence ici !
-        En fait, ¨cofiup fabrique de ¨nelles données pas à pas, donc au moment de l'emploi du sous-bloc cofiup::``jinjang``, ¨cofiup a connaissance de la variable cofiup::``last_version`` obtenue juste avant via la requête ¨sqlite.
-        Ceci permet ici de travailler par la suite avec un dictionnaire, et non une liste de taille `1`.
+        * Il reste à comprende comment fonctionne ensuite le ¨2nd ¨elt cofiup::``jinjang: "{{ last_version[0] }}"``. Pas d'auto-référence ici ! En fait, ¨cofiup fabrique les ¨nelles données pas à pas, donc au moment de l'emploi de cofiup::``jinjang``, ¨cofiup a connaissance de la variable cofiup::``last_version`` qui a pour valeur le résultat obtenu juste avant via la requête ¨sqlite.
+        Ceci permet d'obtenir un simple ¨dict, et non une liste de taille `1`, qui sera facile à employer pour les ¨majs du contenu.
 
     1) Rien de nouveau à dire pour les blocs cofiup::``last_version_nb`` et cofiup::``last_version_date`` une fois que l'on a compris que cofiup::``last_version`` est un dictionnaire.
 
 
 info::
-    Via ¨python, il est possible d'ajouter des fonctions de tri "maison" pour personnaliser certaines requêtes ¨sqlite.
+    Via ¨python, il est possible d'ajouter des fonctions de comparaison "maison" pour personnaliser des requêtes ¨sqlite de tri.
     Dans le cas de notre exemple, ceci permet de gérer les ¨numsver de type ¨semver ; par contre, ceci demande de passer via l'¨api ¨python.
