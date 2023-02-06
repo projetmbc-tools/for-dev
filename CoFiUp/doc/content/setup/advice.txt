@@ -1,0 +1,9 @@
+﻿this::
+    date = 2023-02-06
+
+
+================
+De petites ¨cfgs
+================
+
+Il est conseillé de multiplier les fichiers de ¨cfg pour les cantonner à des rôle bien ciblés. Ne surtout pas produire de monstrueux fichiers durs à analyser et maintenir !
