@@ -71,6 +71,10 @@ Ce fichier s'appuie sur les deux blocs cofiup::``data`` et cofiup::``update`` en
             i) cofiup::``repository`` est un raccourci très pratique pour cofiup::``repository = repository``.
 
 
+info::
+    Pour garder absoluement ¨ttes les données, il suffit de passer via yaml::``keep: *``.
+
+
 Finissons avec deux fonctionnalités bien utiles.
 Tout d'abord, il est possible d'employer une notation "pointée" limitant le ¨nbre de lignes tapées, voir cofiup::``tool.poetry`` et cofiup::``general.sources`` ci-dessous : un point correspond à l'ouverture d'un bloc.
 De plus, il est possible de définir des alias pour les données "¨srcs" comme dans cofiup::``desc @ dt_desc`` ci-après, l'alias étant ici cofiup::``dt_desc``
