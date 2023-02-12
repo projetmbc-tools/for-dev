@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-02-06
+    date = 2023-02-12
 
 
 ===============================
@@ -33,7 +33,7 @@ cofiup::
 
 Voici comment tout cela fonctionne.
 
-    1) La donnée fabriquée cofiup::``last_version`` utilise deux mécanismes de fabrication, l'un via ¨sqlite, puis ensuite un second via ¨jinjang. L'ordre d'utilisation est ici essentiel comme nous allons le voir.
+    1) La donnée fabriquée cofiup::``last_version`` utilise deux mécanismes de fabrication, le premier via ¨sqlite, puis ensuite un second via ¨jinjang. L'ordre d'utilisation est ici essentiel comme nous allons le voir.
     Si besoin nous aurions pu cumuler d'autres traitements, ¨cad employer une liste de taille supérieure à `2`.
 
         * Le ¨1er elt cofiup::``sql: ...`` de la liste cofiup::``last_version`` permet d'employer une requête ¨sqlite classique portant sur la table sqlite::``dt_table`` : ici, nous extrayons une liste de taille `1` contenant un dictionnaire donnant les ¨infos sur la version la plus ancienne

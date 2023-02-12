@@ -4,9 +4,13 @@
 
 # Données structurées supportées : YAML, JSON et TOML.
 data:
-  <NOM-RÈGLE>:
+  <NOM-RÈGLE-1>:
     path: <CHEMIN-MOTIF-A-LA-UNIX>
     keep: <SPECS-MIMANT-LE-FICHIER>
+
+  <NOM-RÈGLE-2>:
+    regpath: <REGEX-CHEMIN>
+    keep   : <SPECS-MIMANT-LE-FICHIER>
 
   ...
 

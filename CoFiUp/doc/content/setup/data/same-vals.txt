@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-02-05
+    date = 2023-02-12
 
 
 abrev::
@@ -92,3 +92,8 @@ warning::
 
 info::
     En interne, ¨cofiup stocke les données extraites via le bloc cofiup::``data`` d'une façon similiaire à celles manipulées en utilisant des ¨dicts, des listes, ¨etou juste des "chaînes de caractères" ¨python (pas de nombres, pas de dates, ...).
+
+
+info::
+    Nous verrons dans cf::``?/textual/template/extract.txt`` la possibilité de choisir des fichiers tout en extrayant des ¨infos dans les chemins de tels fichiers.
+    Ceci peut aussi être mixé avec ce qui vient d'être vu : voir cf::``?/mixing.txt`` à ce sujet.
