@@ -30,14 +30,14 @@ update:
   about:
     replace:
       path    : readme/about.md
-      template: templ-about
+      template: templ_about
       between :
         - '\n<!-- VERSION - INFOS - AUTO - START -->\n'
         - '\n<!-- VERSION - INFOS - AUTO - END -->\n'
 
 # -- PATRONS DE CONCEPTION -- #
 template:
-  templ-about:
+  templ_about:
 # La barre veticale permet l'emploi de retours à la ligne.
     jinjang: |
       > **Current version**
