@@ -29,6 +29,8 @@ DOC_CONTENT_DIR = PROJECT_DIR / 'doc' / 'content'
 TEST_DIR        = PROJECT_DIR / 'tests' / 'outputs'
 TEST_EXA_DIR    = TEST_DIR / 'exadoc'
 
+DEFAULT_CONFIG_NAME = "cfg.cfup.yaml"
+
 
 # -------------- #
 # -- SPEAKING -- #
@@ -128,6 +130,10 @@ if TEST_EXA_DIR.is_dir():
 
 for destdir, paths in testfiles.items():
     for srcpath, reldetspath in paths:
+# We normalize the name of the config file!
+        if reldetspath.name.endswith('.cfup.yaml'):
+            reldetspath = reldetspath.parent / DEFAULT_CONFIG_NAME
+
         destpath = destdir / reldetspath
         destpath = TEST_EXA_DIR / destpath
 
