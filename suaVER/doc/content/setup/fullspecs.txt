@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-22
+    date = 2023-02-13
 
 
 =================
@@ -14,11 +14,11 @@ yaml::
     # ------------- #
 
     search:
-        - <NOM-RÈGLE>:
-            - '<REGEX-CHEMIN>'
-            - '<REGEX-CONTENU>'
+      - <NOM-RÈGLE>:
+        - '<REGEX-CHEMIN>'
+        - '<REGEX-CONTENU>'
 
-        - "..."
+      - "..."
 
     # -------------- #
     # -- VÉRIFIER -- #
@@ -26,17 +26,17 @@ yaml::
 
     # Deux options disponibles.
     require:
-        - <NOM-RÈGLE-1>:
-            - '<VERSIONS-CONCERNÉES>'
-            - '<REGEX-CHEMIN>'
+      - <NOM-RÈGLE-1>:
+        - '<VERSIONS-CONCERNÉES>'
+        - '<REGEX-CHEMIN>'
 
-        - <NOM-RÈGLE-2>:
-            - '<VERSIONS-CONCERNÉES>'
-            - '<REGEX-CHEMIN>'
-            - '<REGEX-CONTENU>'
-            - "..."
-
+      - <NOM-RÈGLE-2>:
+        - '<VERSIONS-CONCERNÉES>'
+        - '<REGEX-CHEMIN>'
+        - '<REGEX-CONTENU>'
         - "..."
+
+      - "..."
 
     # ---------------- #
     # -- ACTUALISER -- #
@@ -44,34 +44,34 @@ yaml::
 
     # Trois options disponibles.
     update:
-        - <NOM-RÈGLE-1>:
-            - '<REGEX-CHEMIN>'
-            - replace:
-                - '<REGEX-DE-REMPLACEMENT>'
-                - "..."
+      - <NOM-RÈGLE-1>:
+        - '<REGEX-CHEMIN>'
+        - replace:
+          - '<REGEX-DE-REMPLACEMENT>'
+          - "..."
 
-        - <NOM-RÈGLE-2>:
-            - '<REGEX-CHEMIN>'
-            - template:
-                - '<NOM-DU-PATRON>'
-                - '<TEXTE-MAGIQUE-AVANT>'
-                - '<TEXTE-MAGIQUE-APRÈS>'
+      - <NOM-RÈGLE-2>:
+        - '<REGEX-CHEMIN>'
+        - template:
+          - '<NOM-DU-PATRON>'
+          - '<TEXTE-MAGIQUE-AVANT>'
+          - '<TEXTE-MAGIQUE-APRÈS>'
 
-        - <NOM-RÈGLE-3>:
-            - '<REGEX-CHEMIN>'
-            - template:
-                - '<NOM-DU-PATRON>'
-                - '<REGEX-DE-REMPLACEMENT>'
+      - <NOM-RÈGLE-3>:
+        - '<REGEX-CHEMIN>'
+        - template:
+          - '<NOM-DU-PATRON>'
+          - '<REGEX-DE-REMPLACEMENT>'
 
-        - "..."
+      - "..."
 
     # Deux options disponibles.
     template:
     # Retours à la ligne possibles.
-        - <NOM-PATRON-1> [text]: |
-            <TEXTE-DU-PATRON>
+      - <NOM-PATRON-1> [text]: |
+        <TEXTE-DU-PATRON>
 
-        - <NOM-PATRON-2> [path]: >
-            '<CHEMIN-VERS-LE-PATRON>'
+      - <NOM-PATRON-2> [path]: >
+        '<CHEMIN-VERS-LE-PATRON>'
 
-        - "..."
+      - "..."

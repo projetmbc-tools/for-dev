@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-22
+    date = 2023-02-13
 
 
 ===================================
@@ -22,12 +22,12 @@ Commençons par la méthode la plus simple, qui devrait répondre à la majorit�
 
 yaml::
     update:
-        - about:
-            - 'readme/about\.md'
-            - template:
-                - 'templ-about'
-                - '<!-- VERSION - INFOS - AUTO - START -->\n'
-                - '\n<!-- VERSION - INFOS - AUTO - END -->'
+      - about:
+        - 'readme/about\.md'
+        - template:
+          - 'templ-about'
+          - '<!-- VERSION - INFOS - AUTO - START -->\n'
+          - '\n<!-- VERSION - INFOS - AUTO - END -->'
 
     template:
     # On utilise le langage Markdown pour notre patron, et les variables
@@ -36,12 +36,12 @@ yaml::
     # Remarque: ici nous utilisons des variables spéciales, mais rien
     # n'empêche de faire appel à des captures vie des groupes nommés
     # de votre choix.
-        - templ-about [text]: |
-            > **Current version**
-            >
-            >   * *Number: {last}*
-            >
-            >   * *Date: {date}*
+      - templ-about [text]: |
+        > **Current version**
+        >
+        >   * *Number: {last}*
+        >
+        >   * *Date: {date}*
 
 
 Rien de compliqué. Bien noter que yaml::``[text]`` juste après le nom du patron de conception indique que le texte est fourni directement.
@@ -49,12 +49,12 @@ Par contre, cette méthode ne fonctionnera pas si l'on souhaite utiliser le form
 
 yaml::
     template:
-        - templ-about [text]: |
-            ### Current version
+      - templ-about [text]: |
+        ### Current version
 
-                * **Number:** {last}
+            * **Number:** {last}
 
-                * **Date:** {date}
+            * **Date:** {date}
 
 
 Dans ce type de situation, il suffit de placer le contenu du patron dans un fichier dédié
@@ -65,8 +65,8 @@ puis de changer comme suit la ¨def du patron où yaml::``[path]`` indique qu'un
 
 yaml::
     template:
-        - templ-about [path]: >
-            'chemin/vers/le/fichier/patron'
+      - templ-about [path]: >
+        'chemin/vers/le/fichier/patron'
 
 
 Pour finir, si la ¨tech de repérage via des textes "encadrant" ne répond pas à vos besoins, il est toujours possible de passer via une ¨regex_FR. L'exemple précédent s'écrit alors comme suit
@@ -77,8 +77,8 @@ Noter l'emploi du groupe nommé spécial regex::``template``.
 
 yaml::
     update:
-        - about:
-            - 'readme/about\.md'
-            - template:
-                - 'templ-about'
-                - '<!--.*START -->\n(?P<template>.*)\n<!--.*END -->'
+      - about:
+        - 'readme/about\.md'
+        - template:
+          - 'templ-about'
+          - '<!--.*START -->\n(?P<template>.*)\n<!--.*END -->'

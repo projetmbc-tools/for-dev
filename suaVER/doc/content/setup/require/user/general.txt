@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-22
+    date = 2023-02-13
 
 
 ================
@@ -11,17 +11,17 @@ Le bloc yaml::``require`` permet de tester l'existence de fichiers, et éventuel
 yaml::
     # Deux options disponibles.
     require:
-        - <NOM-RÈGLE-1>:
-            - '<VERSIONS-CONCERNÉES>'
-            - '<REGEX-CHEMIN>'
+      - <NOM-RÈGLE-1>:
+        - '<VERSIONS-CONCERNÉES>'
+        - '<REGEX-CHEMIN>'
 
-        - <NOM-RÈGLE-2>:
-            - '<VERSIONS-CONCERNÉES>'
-            - '<REGEX-CHEMIN>'
-            - '<REGEX-CONTENU>'
-            - "..."
-
+      - <NOM-RÈGLE-2>:
+        - '<VERSIONS-CONCERNÉES>'
+        - '<REGEX-CHEMIN>'
+        - '<REGEX-CONTENU>'
         - "..."
+
+      - "..."
 
 
 Voici ce qu'il faut indiquer pour chaque règle.

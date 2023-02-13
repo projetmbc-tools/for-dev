@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-22
+    date = 2023-02-13
 
 
 ================
@@ -10,11 +10,11 @@ Principe général
 
 yaml::
     search:
-        - <NOM-RÈGLE>:
-            - '<REGEX-CHEMIN>'
-            - '<REGEX-CONTENU>'
+      - <NOM-RÈGLE>:
+        - '<REGEX-CHEMIN>'
+        - '<REGEX-CONTENU>'
 
-        - "..."
+      - "..."
 
 
 Pour nommer les règles, il faut faire en sorte que yaml::``<NOM-RÈGLE>`` soit un nom "textuel" valide pour un bloc ¨yaml.

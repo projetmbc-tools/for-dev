@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-22
+    date = 2023-02-13
 
 
 ================================
@@ -20,9 +20,9 @@ des explications détaillées sont données juste après.
 
 yaml::
     search:
-        - tnschges:
-            - 'changes/(?P<year>\d{4})/(?P<month>\d{2})\.txt'
-            - '^={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)\n={2,}\n'
+      - tnschges:
+        - 'changes/(?P<year>\d{4})/(?P<month>\d{2})\.txt'
+        - '^={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)\n={2,}\n'
 
 
 Avec la ¨1iere règle, ¨suaver analysera par exemple les fichiers de chemins path::``changes/2022/12.txt``, et path::``changes/2023/01.txt``, et pour chacun de ces deux fichiers, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, seront `(2022, 12)` et `(2023, 01)`. Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.

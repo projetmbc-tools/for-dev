@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-22
+    date = 2023-02-13
 
 
 ================================
@@ -28,9 +28,9 @@ dirtree::
 
 yaml::
     require:
-        - all-changes-user:
-            - minor
-            - 'src/main-changes/{year}/{month}/{day}\.txt'
+      - all-changes-user:
+        - minor
+        - 'src/main-changes/{year}/{month}/{day}\.txt'
 
 
 En coulisse, ce sont des "f-strings" ¨python qui sont employées pour injecter les bonnes valeurs dans yaml::``'src/main-changes/{year}/{month}/{day}\.txt'``, pour ensuite employer le résultat obtenu comme une ¨regex_FR.
@@ -40,10 +40,10 @@ Imaginons de plus que des lignes du type verbatim::``VERSION : 0.4.0`` doivent a
 
 yaml::
     require:
-        - all-changes-user:
-            - minor
-            - 'src/main-changes/{year}/{month}/{day}\.txt'
-            - '^VERSION : {version}$'
+      - all-changes-user:
+        - minor
+        - 'src/main-changes/{year}/{month}/{day}\.txt'
+        - '^VERSION : {version}$'
 
 
 info::

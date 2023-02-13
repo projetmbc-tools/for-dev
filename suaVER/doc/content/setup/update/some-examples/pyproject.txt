@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-22
+    date = 2023-02-13
 
 
 =============================
@@ -24,10 +24,10 @@ Au passage, rappelons que le chemin du ficher étant une ¨regex_FR, nous devons
 
 yaml::
     update:
-        - pyproject:
-            - 'pyproject\.toml'
-            - replace:
-                - '\nversion[ \t]*=[ \t]*"(?P<last>.*)"\n'
+      - pyproject:
+        - 'pyproject\.toml'
+        - replace:
+          - '\nversion[ \t]*=[ \t]*"(?P<last>.*)"\n'
 
 
 Si besoin, il est possible de demander des explications détaillées à propos de l'¨regex_FR regex::``\nversion[ \t]*=[ \t]*"(?P<last>.*)"\n`` au site ¨regexkit. Nous obtenons les ¨infos suivantes, après ¨trad en français.
