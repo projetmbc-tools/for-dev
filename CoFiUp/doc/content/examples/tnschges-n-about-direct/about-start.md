@@ -6,6 +6,6 @@ About `FaFiPro`
 
 > **Current version**
 >
->   * *Number: 0.1.2-rc*
+>   * *Number: not yet!*
 >
->   * *Date: 2022-03-13*
+>   * *Date: not yet!*

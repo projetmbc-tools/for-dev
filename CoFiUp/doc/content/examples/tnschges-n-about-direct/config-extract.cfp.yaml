@@ -1,8 +1,0 @@
-﻿# -- CE QUI EST ACTUALISÉ -- #
-update:
-  about:
-    replace:
-      path : readme/about.md
-      regex:
-        - '\*Number: (?P<last_version_nb>.*)\*'
-        - '\*Date: (?P<last_version_date>.*)\*'

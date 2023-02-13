@@ -1,0 +1,35 @@
+﻿# -- DONNÉES EXTRAITES -- #
+search:
+  tnschges:
+    regpath: 'changes/(?P<year>\d{4})/(?P<month>\d{2})\.txt'
+    regex  :
+      - '^={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)\n={2,}\n'
+
+# -- PRÉ-GESTION BASIQUE DES DONNÉES CAPTURÉES -- #
+handler:
+  last_version:
+    - sql: |
+        SELECT *
+        FROM dt_table
+        ORDER BY year    DESC,
+                 month   DESC,
+                 day     DESC,
+                 version DESC
+        LIMIT 1;
+
+    - jinjang: "{{ last_version[0] }}"
+
+  last_version_nb:
+    jinjang: "{{ last_version['version'] }}"
+
+  last_version_date:
+    jinjang: "{{ last_version['year'] }}-{{ last_version['month'] }}-{{ last_version['day'] }}"
+
+# -- CE QUI EST ACTUALISÉ -- #
+update:
+  about:
+    replace:
+      path : readme/about.md
+      regex:
+        - '\*Number: (?P<last_version_nb>.*)\*'
+        - '\*Date: (?P<last_version_date>.*)\*'

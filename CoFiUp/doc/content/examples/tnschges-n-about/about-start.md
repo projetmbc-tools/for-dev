@@ -6,10 +6,6 @@ About `FaFiPro`
 
 <!-- VERSION - INFOS - AUTO - START -->
 
-> **Current version**
->
->   * *Number: 0.1.2-r*
->
->   * *Date: 2022-13-02*
+***Note:*** *at present, the project does not have any version number.*
 
 <!-- VERSION - INFOS - AUTO - END -->

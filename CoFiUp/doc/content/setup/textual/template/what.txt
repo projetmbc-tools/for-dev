@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-02-06
+    date = 2023-02-13
 
 
 =======================
@@ -31,7 +31,7 @@ Dans chaque fichier du dossier path::``changes``, les ¨numsver sont datés au j
 tnschges::
     ---
     title = Contenu fictif du fichier path::``changes/2022/03.txt``
-    path  = ¨examples/changes-2022-03.txt
+    path  = ¨examples/changes/2022/03.txt
     ---
 
 
@@ -39,9 +39,15 @@ Quant au contenu du fichier path::``about.md``, c'est le suivant.
 
 md::
     ---
-    title = Contenu fictif du fichier path::``readme/about.md``
-    path  = ¨examples/about.md
+    title = Contenu initial du fichier path::``readme/about.md``
+    path  = ¨examples/about-start.md
     ---
 
 
-Notre but va être de mettre à jour dans le texte ci-dessus la partie entre les commentaires "magiques" md::``<!-- VERSION ... -->`` afin de ¨tjrs indiquer le ¨numver le plus récent.
+Notre but va être de mettre à jour dans le texte ci-dessus la partie entre les commentaires "magiques" md::``<!-- VERSION ... -->`` afin de ¨tjrs indiquer le ¨numver le plus récent pour obtenir le contenui suivant.
+
+md::
+    ---
+    title = Contenu souhaité pour le fichier path::``readme/about.md``
+    path  = ¨examples/about.md
+    ---

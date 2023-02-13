@@ -42,8 +42,8 @@ Nous supposons ici que le fichier de ¨cfg et les deux fichiers de données pré
 
 cofiup::
     ---
-    title = Le fichier path::``config.cfp.yaml``
-    path  = ¨examples/config.cfp.yaml
+    title = Le fichier path::``cfg.cfup.yaml``
+    path  = ¨examples/cfg.cfup.yaml
     ---
 
 
@@ -85,8 +85,8 @@ Retenir que cofiup::``@`` vient de "@-lias".
 
 cofiup::
     ---
-    title = Le fichier path::``config-alias.cfp.yaml``
-    path  = ¨examples/config-alias.cfp.yaml
+    title = Le fichier path::``cfg-alias.cfup.yaml``
+    path  = ¨examples/cfg-alias.cfup.yaml
     ---
 
 

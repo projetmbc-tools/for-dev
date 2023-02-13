@@ -8,7 +8,7 @@ Mettre à jour des lignes de contenu
 
 Dans le fichier suivant, nous voulons mettre à jour le texte entre les commentaires "magiques" md::``<!-- VERSION ... -->`` à chaque ¨chgt de version, hors "release", même juste pour un "patch".
 
-markdown::
+md::
     ---
     title = Le fichier path::``about.md`` du projet ¨suaver
     path  = ?/readme/about.md

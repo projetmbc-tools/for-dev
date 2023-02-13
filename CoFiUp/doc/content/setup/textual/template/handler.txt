@@ -24,8 +24,8 @@ Heureusement, grâce au bloc cofiup::``handler``, nous allons pouvoir fabriquer 
 
 cofiup::
     ---
-    title  = Extrait du fichier path::``config.cfp.yaml``
-    path   = ¨examples/config.cfp.yaml
+    title  = Extrait du fichier path::``cfg.cfup.yaml``
+    path   = ¨examples/cfg.cfup.yaml
     from   = # -- PRÉ-GESTION BASIQUE DES DONNÉES CAPTURÉES -- #
     before = # -- CE QUI EST ACTUALISÉ -- #
     ---
