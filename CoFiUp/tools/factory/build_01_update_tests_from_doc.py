@@ -59,7 +59,11 @@ def testsfrom(pdir, testfiles):
         testdir_name = testdir.name
 
 # Several config for the same data?
-        if testdir_name not in testfiles:
+        if(
+            testdir_name not in testfiles
+            and
+            testdir_name not in SUFFIXES
+        ):
             dirtouse = testdir_name
 
         else:
