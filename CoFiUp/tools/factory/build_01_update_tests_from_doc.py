@@ -8,7 +8,7 @@ from mistool.os_use import PPath as Path
 
 # ! -- DEBUGGING -- ! #
 # Clear the terminal.
-print("\033c", end="")
+# print("\033c", end="")
 # ! -- DEBUGGING -- ! #
 
 

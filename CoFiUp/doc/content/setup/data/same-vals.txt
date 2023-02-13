@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-02-12
+    date = 2023-02-14
 
 
 abrev::
@@ -48,40 +48,38 @@ cofiup::
 
 
 Ce fichier s'appuie sur les deux blocs cofiup::``data`` et cofiup::``update`` en suivant les règles suivantes.
+Commençons par le bloc cofiup::``data`` qui sert à analyser des fichiers de données structurées du type ¨json, ¨toml ou ¨yaml.
 
-    1) Le bloc cofiup::``data`` sert à indiquer des fichiers de données structurées du type ¨json, ¨toml ou ¨yaml.
+    1) Les règles définies doivent être nommées : ici, il y a juste la règle cofiup::``about``.
 
-        * Les règles définies doivent être nommées : ici, il y a juste la règle cofiup::``about``.
+    1) Vient ensuite le moyen de trouver le, ou les fichiers via un motif à la ¨unix, la recherche se faisant relativement au dossier du fichier de ¨cfg. Ici, cofiup::``path: about.yaml`` pointe juste vers le fichier ¨src.
+    Il est aussi possible de passer via une ¨regex_FR. Ceci permet aussi, si besoin, d'extraire des ¨infos dans les chemins des fichiers analysés : voir cf::``?/textual/template/extract.txt`` à ce sujet.
 
-        * Vient ensuite le moyen de trouver le, ou les fichiers via un motif à la ¨unix, la recherche se faisant relativement au dossier du fichier de ¨cfg. Ici, cofiup::``path: about.yaml`` pointe juste vers le fichier ¨src.
-
-        * Enfin le bloc cofiup::``keep`` permet d'indiquer des "chemins" de clés dont on veut récupérer la ¨val pour une utilisation ultérieure. Bien noter que l'on utilise une liste de spécifications, d'où les tirets.
-        Ici, par exemple, nous avons la clé cofiup::``repository`` qui se trouve dans le sous-bloc cofiup::``sources`` du bloc cofiup::``general`` dans le fichier path::``about.yaml``.
-
-    1) Le bloc cofiup::``update`` est organisé de façon similaire au bloc cofiup::``data``.
-
-        * Pour la règle indiquée, de nom cofiup::``pyproject``, nous utilisons le sous-bloc cofiup::``data`` car le fichier à modifier est de type ¨json, ¨toml ou ¨yaml (nous ferons connaissance plus tard avec d'autres sous-blocs).
-
-        * Vient alors cofiup::``path: pyproject.toml`` pour indiquer le fichier cible à modifier, de nouveau via un motif à la ¨unix relativement au dossier du fichier de ¨cfg.
-
-        * Pour finir, les valeurs à modifier sont indiquées dans le bloc cofiup::``change`` via les "chemins" des clés concernées en utilisant une liste de spécifications mimant la ¨struc du fichier cible. Indiquons deux particularités.
-
-            i) cofiup::``description = desc`` indique que la valeur de la clè ciblée cofiup::``description`` est égale à la valeur de la clé cofiup::``desc`` du fichier ¨src.
-
-            i) cofiup::``repository`` est un raccourci très pratique pour cofiup::``repository = repository``.
+    1) Enfin le bloc cofiup::``keep`` permet d'indiquer des "chemins de clés" mimant la ¨struc du fichier ¨src afin d'indiquer ce qui doit être extrait pour une utilisation ultérieure. Bien noter que l'on utilise une liste de "chemins", d'où les tirets : par exemple, nous avons ici la clé cofiup::``repository`` qui se trouve dans le sous-bloc cofiup::``sources`` du bloc cofiup::``general`` dans le fichier path::``about.yaml``.
 
 
 info::
     Pour garder absoluement ¨ttes les données, il suffit de passer via yaml::``keep: *``.
 
 
-Finissons avec deux fonctionnalités bien utiles.
-Tout d'abord, il est possible d'employer une notation "pointée" limitant le ¨nbre de lignes tapées, voir cofiup::``tool.poetry`` et cofiup::``general.sources`` ci-dessous : un point correspond à l'ouverture d'un bloc.
-De plus, il est possible de définir des alias pour les données "¨srcs" comme dans cofiup::``desc @ dt_desc`` ci-après, l'alias étant ici cofiup::``dt_desc``
-((
-    Le cofiup::``dt`` est pour "data".
-)).
-Retenir que cofiup::``@`` vient de "@-lias".
+Passons maintenant au bloc cofiup::``update`` qui est organisé de façon similaire au bloc cofiup::``data``, et qui sert à mettre à jour des fichiers cibles.
+
+    1) Pour la règle indiquée, de nom cofiup::``pyproject``, nous utilisons le sous-bloc cofiup::``data`` car le fichier à modifier est de type ¨json, ¨toml ou ¨yaml (nous ferons connaissance plus tard avec d'autres types de sous-blocs).
+
+    1) Vient alors cofiup::``path: pyproject.toml`` pour indiquer le fichier cible à modifier, de nouveau via un motif à la ¨unix relativement au dossier du fichier de ¨cfg.
+
+    1) Pour finir, les valeurs à modifier sont indiquées dans le bloc cofiup::``change`` via une liste de "chemins de clés" mimant la ¨struc du fichier cible. Indiquons deux particularités.
+
+        * cofiup::``description = desc`` indique que la valeur de la clé ciblée cofiup::``description`` est égale à la valeur de la clé cofiup::``desc`` du fichier ¨src.
+
+        * cofiup::``repository`` est un raccourci très pratique pour cofiup::``repository = repository``.
+
+
+info::
+    En interne, ¨cofiup stocke les données extraites via le bloc cofiup::``data`` en utilisant des ¨dicts, des listes, ¨etou juste des "chaînes de caractères" ¨python (pas de nombres, pas de dates, ...).
+
+
+Finissons avec deux fonctionnalités bien utiles présentes dans le fichier suivant.
 
 cofiup::
     ---
@@ -90,14 +88,16 @@ cofiup::
     ---
 
 
-warning::
-    Ce que nous venons de voir est immédiat à mettre en place car les valeurs communiquées du fichier ¨src au fichier cible sont du même type.
+Voici ce qui est utilisé dans le code ci-dessus.
+
+    1) cofiup::``tool.poetry`` et cofiup::``general.sources`` utilisent une notation "pointée" permettant de limiter le ¨nbre de lignes tapées : un point correspond à l'ouverture d'un bloc comme c'est l'usage dans les fichiers de type ¨toml.
+
+    1) cofiup::``repository @ dt_repo`` sert à définir l'alias cofiup::``dt_repo``
+    ((
+        Le cofiup::``dt`` est pour "data".
+    ))
+    pour un usage ultérieur au lieu de cofiup::``desc``. Retenir que cofiup::``@`` vient de "@-lias".
 
 
-info::
-    En interne, ¨cofiup stocke les données extraites via le bloc cofiup::``data`` d'une façon similiaire à celles manipulées en utilisant des ¨dicts, des listes, ¨etou juste des "chaînes de caractères" ¨python (pas de nombres, pas de dates, ...).
-
-
-info::
-    Nous verrons dans cf::``?/textual/template/extract.txt`` la possibilité de choisir des fichiers tout en extrayant des ¨infos dans les chemins de tels fichiers.
-    Ceci peut aussi être mixé avec ce qui vient d'être vu : voir cf::``?/mixing.txt`` à ce sujet.
+tip::
+    Les alias permettent de ne pas dépendre de la ¨struct des fichiers ¨src. Il est vivement conseillé de les employer même si cela semble très verbeux.

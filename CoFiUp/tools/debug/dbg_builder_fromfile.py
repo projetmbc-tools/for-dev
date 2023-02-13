@@ -16,11 +16,12 @@ print("\033c", end="")
 
 addfindsrc(
     file    = __file__,
-    project = 'jinjaNG',
+    project = 'CoFiUp',
 )
 
-from src.jngbuild import *
+from src import *
 
+exit()
 
 # ----------------- #
 # -- WHAT WE USE -- #
@@ -34,11 +35,12 @@ CONFIG = NO_CONFIG
 # CONFIG = "mycfg.yaml"
 
 FILES_FOLDER_NB = "01"
+FILES_FOLDER_NB = "02"
 
 
 DATA_EXT = "yaml"
 # DATA_EXT = "json"
-# DATA_EXT = "py"
+DATA_EXT = "py"
 
 KIND = DATA_EXT
 # KIND = "hooks"
@@ -79,9 +81,9 @@ JNGBuilder(
     config    = config,
     verbose   = VERBOSE,
 ).render(
-    data     = str(data),
-    template = str(template),
-    output   = str(output),
+    data     = data,
+    template = template,
+    output   = output,
 )
 
 

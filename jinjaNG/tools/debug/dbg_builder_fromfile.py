@@ -5,6 +5,8 @@ from pprint  import pprint
 
 from cbdevtools import *
 
+
+# Clear the terminal.
 print("\033c", end="")
 
 
