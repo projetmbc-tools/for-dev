@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-01-13
+    date = 2023-02-13
 
 
 =============================
@@ -10,14 +10,14 @@ La saveur ¨md utilise la même syntaxe que la saveur ¨html, mais sans proposer
 
 yaml::
     about:
-        author: ...
-        desc  : ...
-        date  : ...
-        extend: html
-        utils : no
+      author: ...
+      desc  : ...
+      date  : ...
+      extend: html
+      utils : no
 
     ext:
-        - md
+      - md
 
 
 info::

@@ -1,5 +1,5 @@
 this::
-    date = 2023-01-10
+    date = 2023-02-13
 
 
 ======================
@@ -10,17 +10,17 @@ Pour indiquer les ¨specs d'une saveur, sans s'appuyer sur une autre saveur, on 
 
 yaml::
     about:
-        author: <AUTHOR>
-        desc  : <DESCRIPTION>
-        date  : <DATE>
+      author: <AUTHOR>
+      desc  : <DESCRIPTION>
+      date  : <DATE>
 
     ext:
-        - <EXT-1>
-        - <EXT-2>
+      - <EXT-1>
+      - <EXT-2>
 
     src-comment:
-        block : <BLOCK-COMMENT>
-        inline: <INLINE-COMMENT>
+      block : <BLOCK-COMMENT>
+      inline: <INLINE-COMMENT>
 
     var: <VARIABLE>
 
@@ -39,9 +39,9 @@ Par exemple, pour la saveur ¨latex, le bloc suivant est utilisé.
 
 yaml::
     ext:
-        - tex
-        - sty
-        - tkz
+      - tex
+      - sty
+      - tkz
 
 
 La particularité de ¨jinjang est de considérer que les patrons utilisés ont un ¨syst de commentaires sur lequel s'appuyer pour proposer différentes façons d'utiliser des instructions ¨jinja.
@@ -49,14 +49,14 @@ Par exemple, pour la saveur ¨ascii, le bloc suivant est utilisé où les points
 
 yaml::
     src-comment:
-        inline: "# ..."
+      inline: "# ..."
 
 
 Pour la saveur ¨html, c'est ce qui suit qui est employé.
 
 yaml::
     src-comment:
-        block: <!-- ... -->
+      block: <!-- ... -->
 
 
 info::
