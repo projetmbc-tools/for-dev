@@ -48,5 +48,5 @@ Voici comment tout cela fonctionne.
 
 
 info::
-    Via ¨python, il est possible d'ajouter des fonctions de comparaison "maison" pour personnaliser des requêtes ¨sqlite de tri.
-    Dans le cas de notre exemple, ceci permet de gérer les ¨numsver de type ¨semver ; par contre, ceci demande de passer via l'¨api ¨python : voir cf::``?/via-python.txt``.
+    La langage ¨python permet l'ajout de fonctions de comparaison "maison" pour personnaliser des requêtes ¨sqlite de tri: dans le cas de notre exemple, ceci permettrait de gérer les ¨numsver de type ¨semver.
+    Cette fonctionnalité est disponible uniquement via l'¨api ¨python : voir cf::``?/via-python.txt``.
