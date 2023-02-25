@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-02-06
+    date = 2023-02-25
 
 
 abrev::
@@ -28,7 +28,7 @@ yaml::
     ---
 
 
-Comment faire pour mettre à jour path::``pyproject.toml`` relativement à l'historique ci-dessus ?
+Comment faire pour mettre à jour path::``pyproject.toml`` relativement à chaque ¨chgt de l'historique ci-dessus ?
 Ceci est faisable via le fichier de ¨cfg suivant.
 
 cofiup::

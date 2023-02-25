@@ -92,11 +92,7 @@ def testsfrom(pdir, testfiles):
         ))
 
         for dpath in pfile.parent.glob('*'):
-            if(
-                dpath.name.endswith('.cfup.yaml')
-                or
-                dpath.stem.endswith('-start')
-            ):
+            if dpath.name.endswith('.cfup.yaml'):
                 continue
 
             testfiles[dirtouse].append((
