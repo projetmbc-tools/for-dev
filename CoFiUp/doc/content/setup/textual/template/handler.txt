@@ -1,23 +1,22 @@
 ﻿this::
-    date = 2023-02-12
+    date = 2023-02-25
 
 
 ===============================
 Obtenir des données utilisables
 ===============================
 
-Les données extraites via le bloc cofiup::``search`` sont stockées dans une table ¨sqlite nommée sqlite::``dt_table``
+Les données extraites via le bloc cofiup::``search`` sont stockées dans des tables ¨sqlite nommées comme les règles employées : dans le cas de notre exemple, nous disposons d'une table sqlite::``tnschges`` ayant pour attributs "naturels" sqlite::``year``, sqlite::``month``, sqlite::``day`` et sqlite::``version``
 ((
-    sqlite::``dt`` est pour "data".
-))
-ayant pour attributs sqlite::``year``, sqlite::``month``, sqlite::``day`` et sqlite::``version``.
+    Si plusieurs règles d'extraction sont utilisées, la table associée agrége ¨ttes les ¨vals.
+)).
+
+
 L'utilisation directe de cette table, bien que possible, souffre des écueils suivants.
 
     1) La lecture des valeurs se fait en itérant sur une liste de ¨dicts, ¨cad en lisant la table ligne par ligne.
 
     1) L'ordre d'insertion des données dans la table n'étant pas pas prévisible, on ne maitrise pas l'ordre d'utilisation.
-
-    1) Si plusieurs règles d'extraction sont utilisées, la table agrége ¨ttes les ¨vals : ceci peut vite rendre sqlite::``dt_table`` très "large".
 
 
 Heureusement, grâce au bloc cofiup::``handler``, nous allons pouvoir fabriquer des données exploitables pour des ¨majs de fichiers. Voici ce que cela donne avec notre exemple fictif.
@@ -33,20 +32,21 @@ cofiup::
 
 Voici comment tout cela fonctionne.
 
-    1) La donnée fabriquée cofiup::``last_version`` utilise deux mécanismes de fabrication, le premier via ¨sqlite, puis ensuite un second via ¨jinjang. L'ordre d'utilisation est ici essentiel comme nous allons le voir.
+    1) La donnée fabriquée cofiup::``last_version`` utilise deux mécanismes de fabrication, le premier via ¨sqlite, puis ensuite un second via ¨jinjang.
+    L'ordre d'utilisation est ici essentiel comme nous allons le voir.
     Si besoin nous aurions pu cumuler d'autres traitements, ¨cad employer une liste de taille supérieure à `2`.
 
-        * Le ¨1er elt cofiup::``sql: ...`` de la liste cofiup::``last_version`` permet d'employer une requête ¨sqlite classique portant sur la table sqlite::``dt_table`` : ici, nous extrayons une liste de taille `1` contenant un dictionnaire donnant les ¨infos sur la version la plus ancienne
+        * Le ¨1er elt cofiup::``sql: ...`` de la liste cofiup::``last_version`` permet d'employer une requête ¨sqlite classique portant sur la table sqlite::``tnschges`` : ici, nous extrayons une liste de taille `1` contenant un dictionnaire donnant les ¨infos sur la version la plus ancienne
         ((
             La requête proposée est fragile car elle ne prend pas en compte les ¨numsver de type ¨semver. Voir à ce propos l'¨info donnée plus bas dans cette section.
         )).
 
         * Il reste à comprende comment fonctionne ensuite le ¨2nd ¨elt cofiup::``jinjang: "{{ last_version[0] }}"``. Pas d'auto-référence ici ! En fait, ¨cofiup fabrique les ¨nelles données pas à pas, donc au moment de l'emploi de cofiup::``jinjang``, ¨cofiup a connaissance de la variable cofiup::``last_version`` qui a pour valeur le résultat obtenu juste avant via la requête ¨sqlite.
-        Ceci permet d'obtenir un simple ¨dict, et non une liste de taille `1`, qui sera facile à employer pour les ¨majs du contenu.
+        Ceci permet d'obtenir un simple ¨dict, et non une liste de taille `1` ; ceci va simplifier les règles de ¨maj du contenu.
 
     1) Rien de nouveau à dire pour les blocs cofiup::``last_version_nb`` et cofiup::``last_version_date`` une fois que l'on a compris que cofiup::``last_version`` est un dictionnaire.
 
 
 info::
     Via ¨python, il est possible d'ajouter des fonctions de comparaison "maison" pour personnaliser des requêtes ¨sqlite de tri.
-    Dans le cas de notre exemple, ceci permet de gérer les ¨numsver de type ¨semver ; par contre, ceci demande de passer via l'¨api ¨python.
+    Dans le cas de notre exemple, ceci permet de gérer les ¨numsver de type ¨semver ; par contre, ceci demande de passer via l'¨api ¨python : voir cf::``?/via-python.txt``.

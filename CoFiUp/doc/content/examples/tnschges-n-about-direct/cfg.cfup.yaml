@@ -10,7 +10,7 @@ handler:
   last_version:
     - sql: |
         SELECT *
-        FROM dt_table
+        FROM tnschges
         ORDER BY year    DESC,
                  month   DESC,
                  day     DESC,
