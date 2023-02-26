@@ -2,5 +2,4 @@
 
 __version__ = ""
 
-from .structdata import *
-from .tabledata  import *
+from .extract import *

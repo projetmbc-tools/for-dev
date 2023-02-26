@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-02-25
+    date = 2023-02-26
 
 
 ===============================
@@ -10,16 +10,14 @@ Les données extraites via le bloc cofiup::``search`` sont stockées dans des ta
 ((
     Si plusieurs règles d'extraction sont utilisées, la table associée agrége ¨ttes les ¨vals.
 )).
+Malheureusement, l'utilisation directe de ces tables n'est pas possible pour les raisons suivantes.
+
+    1) La lecture des valeurs se ferait en itérant sur des listes de ¨dicts, ¨cad en lisant chaque table ligne par ligne.
+
+    1) L'ordre d'insertion des données dans les tables n'étant pas prévisible, on ne maitriserait pas l'ordre d'utilisation.
 
 
-L'utilisation directe de cette table, bien que possible, souffre des écueils suivants.
-
-    1) La lecture des valeurs se fait en itérant sur une liste de ¨dicts, ¨cad en lisant la table ligne par ligne.
-
-    1) L'ordre d'insertion des données dans la table n'étant pas pas prévisible, on ne maitrise pas l'ordre d'utilisation.
-
-
-Heureusement, grâce au bloc cofiup::``handler``, nous allons pouvoir fabriquer des données exploitables pour des ¨majs de fichiers. Voici ce que cela donne avec notre exemple fictif.
+C'est via le bloc cofiup::``handler`` que nous allons pouvoir fabriquer des données exploitables pour des ¨majs de fichiers. Voici ce que cela donne avec notre exemple fictif.
 
 cofiup::
     ---

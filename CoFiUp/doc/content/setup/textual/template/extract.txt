@@ -28,7 +28,7 @@ Par contre, si vous pensez que la phrase précédente ne peut pas avoir été é
 des explications détaillées arrivent tout de suite.
 
 
-Avec la ¨1iere règle pour repérer les fichiers à analyser, ¨cofiup analysera par exemple les fichiers de chemins path::``changes/2022/03.txt``, et path::``changes/2023/01.txt``, et pour chacun de ces fichiers, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, seront `(2022, 03)` et `(2023, 01)`.
+Avec la ¨1ere règle pour repérer les fichiers à analyser, ¨cofiup analysera par exemple les fichiers de chemins path::``changes/2022/03.txt``, et path::``changes/2023/01.txt``, et pour chacun de ces fichiers, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, seront `(2022, 03)` et `(2023, 01)`.
 Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.
 
 verbatim::
