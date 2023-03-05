@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-02-26
+    date = 2023-03-05
 
 
 ===============================
@@ -17,7 +17,7 @@ Malheureusement, l'utilisation directe de ces tables n'est pas possible pour les
     1) L'ordre d'insertion des données dans les tables n'étant pas prévisible, on ne maitriserait pas l'ordre d'utilisation.
 
 
-C'est via le bloc cofiup::``handler`` que nous allons pouvoir fabriquer des données exploitables pour des ¨majs de fichiers. Voici ce que cela donne avec notre exemple fictif.
+C'est pour ces raisons qu'il faut passer par le bloc cofiup::``handler`` afin de fabriquer des données exploitables pour des ¨majs de fichiers. Voici ce que cela donne avec notre exemple fictif.
 
 cofiup::
     ---
@@ -28,7 +28,7 @@ cofiup::
     ---
 
 
-Voici comment tout cela fonctionne.
+Expliquons comment cela fonctionne.
 
     1) La donnée fabriquée cofiup::``last_version`` utilise deux mécanismes de fabrication, le premier via ¨sqlite, puis ensuite un second via ¨jinjang.
     L'ordre d'utilisation est ici essentiel comme nous allons le voir.
@@ -40,11 +40,11 @@ Voici comment tout cela fonctionne.
         )).
 
         * Il reste à comprende comment fonctionne ensuite le ¨2nd ¨elt cofiup::``jinjang: "{{ last_version[0] }}"``. Pas d'auto-référence ici ! En fait, ¨cofiup fabrique les ¨nelles données pas à pas, donc au moment de l'emploi de cofiup::``jinjang``, ¨cofiup a connaissance de la variable cofiup::``last_version`` qui a pour valeur le résultat obtenu juste avant via la requête ¨sqlite.
-        Ceci permet d'obtenir un simple ¨dict, et non une liste de taille `1` ; ceci va simplifier les règles de ¨maj du contenu.
+        Ceci permet d'obtenir un simple ¨dict, et non une liste de taille `1` ; ceci va simplifier les règles de ¨maj du contenu. Se reporter à la ¨doc de ¨jinjang pour des traitements plus avancés en cas de besoin.
 
     1) Rien de nouveau à dire pour les blocs cofiup::``last_version_nb`` et cofiup::``last_version_date`` une fois que l'on a compris que cofiup::``last_version`` est un dictionnaire.
 
 
 info::
     Le langage ¨python permet l'ajout de fonctions de comparaison "maison" pour personnaliser des requêtes ¨sqlite de tri: dans le cas de notre exemple, ceci permettrait de gérer les ¨numsver de type ¨semver.
-    Cette fonctionnalité est disponible uniquement via l'¨api ¨python : voir cf::``?/via-python.txt``.
+    Cette fonctionnalité est disponible uniquement via l'¨api ¨python présentée dans cf::``?/via-python.txt``.
