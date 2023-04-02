@@ -1,16 +1,16 @@
 ﻿this::
-    date = 2023-02-14
+    date = 2023-04-02
 
 
 abrev::
     examples = ?/examples/about2pyproj
 
 
-===========================
-Avec des valeurs identiques
-===========================
+================================
+Reprendre des valeurs identiques
+================================
 
-Considérons le fichier ¨yaml suivant qui décrit le projet ¨cofiup de façon humaine, mais aussi informatiquement utilisable. Ce fichier est mis à jour manuellement par le développeur.
+Considérons le fichier ¨yaml suivant qui décrit le projet ¨cofiup de façon humaine, mais aussi informatiquement utilisable. Ce fichier est géré manuellement par le développeur.
 
 yaml::
     ---

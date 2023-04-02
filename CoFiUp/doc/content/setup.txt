@@ -18,7 +18,7 @@ ou directement via ¨python pour des cas plus complexes
 ((
     Voir cf::``via-python.txt``.
 )),
-il est nécessaire d'indiquer un ensemble de règles de lecture et d'écriture via un fichier au format ¨yaml
+il est nécessaire d'indiquer à ¨cofiup un ensemble de règles de lecture et d'écriture via un fichier au format ¨yaml
 ((
     Pour un usage via ¨python, il est possible de passer via un ¨dict calquant la structure des fichiers ¨yaml de ¨cfg.
 )).

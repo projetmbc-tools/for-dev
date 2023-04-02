@@ -1,6 +1,7 @@
 ﻿# -- DONNÉES EXTRAITES -- #
-data:
-  about: # Juste un nom...
+data:    # Analyse(s) de données structurées.
+  about: # Nom caractérisant l'analyse faite.
+         # Viennent ensuite les règles à appliquer.
     path: about.yaml
     keep:
       - general:
@@ -10,9 +11,10 @@ data:
           - repository
 
 # -- CE QUI EST ACTUALISÉ -- #
-update:
-  pyproject: # Juste un nom...
-    data:
+update:      # Mise(s) à jour.
+  pyproject: # Nom caractérisant la modification faite.
+    data:    # Modification(s) de données structurées.
+             # Viennent ensuite les règles à appliquer.
       path  : pyproject.toml
       change:
         - tool:
