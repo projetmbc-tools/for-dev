@@ -8,7 +8,7 @@ About `FaFiPro`
 
 > **Current version**
 >
->   * *Number: 0.1.2-r*
+>   * *Number: 0.1.2-rc*
 >
 >   * *Date: 2022-13-02*
 

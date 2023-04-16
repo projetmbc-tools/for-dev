@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-04-02
+    date = 2023-04-15
 
 
 abrev::
@@ -38,7 +38,10 @@ Certaines clés ont des valeurs identiques.
 
 Voyons comment indiquer à ¨cofiup de mettre à jour, de façon semi-automatisée, les valeurs des clés "communes" de path::``about.yaml`` vers path::``pyproject.toml``.
 Pour ce faire, il suffit d'utiliser le fichier de ¨cfg suivant, puis ensuite d'utiliser une ligne de commandes, ou un petit script ¨python (deux sujets qui seront abordés plus tard).
-Nous supposons ici que le fichier de ¨cfg et les deux fichiers de données présentés ci-dessus sont tous dans le même dossier.
+Nous supposons ici que le fichier de ¨cfg et les deux fichiers de données présentés ci-dessus sont tous dans le même dossier
+((
+    Cette hypothèse simplifie les chemins relatifs utilisés, mais n'est en rien une contrainte ¨tech.
+)).
 
 cofiup::
     ---
@@ -47,13 +50,19 @@ cofiup::
     ---
 
 
-Ce fichier s'appuie sur les deux blocs cofiup::``data`` et cofiup::``update`` en suivant les règles suivantes.
-Commençons par le bloc cofiup::``data`` qui sert à analyser des fichiers de données structurées du type ¨json, ¨toml ou ¨yaml.
+Ce fichier s'appuie sur les deux blocs cofiup::``data`` et cofiup::``update``.
+Commençons par expliquer le contenu du bloc cofiup::``data`` servant à analyser, au choix, des fichiers de données structurées du type ¨json, ¨toml ou ¨yaml
+((
+    Le support d'autres types de fichiers structurés est envisageable à la demande.
+)).
 
-    1) Les règles définies doivent être nommées : ici, il y a juste la règle cofiup::``about``.
+    1) Les règles définies doivent ¨tjrs être nommées : ici, il y a juste la règle cofiup::``about``.
 
-    1) Vient ensuite le moyen de trouver le, ou les fichiers via un motif à la ¨unix, la recherche se faisant relativement au dossier du fichier de ¨cfg. Ici, cofiup::``path: about.yaml`` pointe juste vers le fichier ¨src.
-    Il est aussi possible de passer via une ¨regex_FR. Ceci permet aussi, si besoin, d'extraire des ¨infos dans les chemins des fichiers analysés : voir cf::``?/textual/template/extract.txt`` à ce sujet.
+    1) L'extraction de données se fait ensuite en indiquant comment stocker ce qui est découvert : ici, cofiup::``storein: dict`` demande d'user d'un dictonnaire ¨python.
+    Il est aussi possible d'utiliser une ¨struct de type base de données via cofiup::``storein: database`` : voir cf::``?/textual/template/extract.txt`` à ce sujet.
+
+    1) Vient alors le moyen de trouver le, ou les fichiers à analyser via un motif à la ¨unix, la recherche se faisant relativement au dossier du fichier de ¨cfg. Ici, cofiup::``path: about.yaml`` pointe juste vers le fichier ¨src.
+    Il est aussi possible de passer via une ¨regex_FR. Ceci permet aussi, si besoin, d'extraire des ¨infos dans les chemins des fichiers analysés : voir de nouveau cf::``?/textual/template/extract.txt`` à ce sujet.
 
     1) Enfin le bloc cofiup::``keep`` permet d'indiquer des "chemins de clés" mimant la ¨struc du fichier ¨src afin d'indiquer ce qui doit être extrait pour une utilisation ultérieure. Bien noter que l'on utilise une liste de "chemins", d'où les tirets : par exemple, nous avons ici la clé cofiup::``repository`` qui se trouve dans le sous-bloc cofiup::``sources`` du bloc cofiup::``general`` dans le fichier path::``about.yaml``.
 
@@ -76,7 +85,7 @@ Passons maintenant au bloc cofiup::``update`` qui est organisé de façon simila
 
 
 info::
-    En interne, ¨cofiup stocke les données extraites via le bloc cofiup::``data`` en utilisant des ¨dicts, des listes, ¨etou juste des "chaînes de caractères" ¨python (pas de nombres, pas de dates, ...).
+    En interne, les données utilisables pour les ¨majs se trouvent dans un dictionnaire dont les valeurs seront des ¨dicts, des listes, ¨etou juste des "chaînes de caractères" ¨python (pas de nombres, pas de dates, ...).
 
 
 Finissons avec deux fonctionnalités bien utiles présentes dans le fichier suivant.
@@ -96,7 +105,7 @@ Voici ce qui est utilisé dans le code ci-dessus.
     ((
         Le cofiup::``dt`` est pour "data".
     ))
-    pour un usage ultérieur au lieu de cofiup::``desc``. Retenir que cofiup::``@`` vient de "@-lias".
+    pour un usage ultérieur. Retenir que cofiup::``@`` vient de "@-lias".
 
 
 tip::

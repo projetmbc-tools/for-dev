@@ -5,10 +5,12 @@
 # Données structurées supportées : YAML, JSON et TOML.
 data:
   <NOM-RÈGLE-1>:
-    path: <CHEMIN-MOTIF-A-LA-UNIX>
-    keep: <SPECS-MIMANT-LE-FICHIER>
+    storein: dict / database
+    path   : <CHEMIN-MOTIF-A-LA-UNIX>
+    keep   : <SPECS-MIMANT-LE-FICHIER>
 
   <NOM-RÈGLE-2>:
+    storein: dict / database
     regpath: <REGEX-CHEMIN>
     keep   : <SPECS-MIMANT-LE-FICHIER>
 
@@ -17,12 +19,14 @@ data:
 # Données non supportées.
 search:
   <NOM-RÈGLE-1>:
-    path : <CHEMIN-MOTIF-A-LA-UNIX>
-    regex:
+    storein: dict / database
+    path   : <CHEMIN-MOTIF-A-LA-UNIX>
+    regex  :
       - <REGEX-CONTENU>
       - ...
 
   <NOM-RÈGLE-2>:
+    storein: dict / database
     regpath: <REGEX-CHEMIN>
     regex  :
       - <REGEX-CONTENU>

@@ -22,7 +22,7 @@ import click
 def _exit(message: str) -> None:
     print(
 f"""
-Try 'jinjang --help' for help.
+Try 'cofiup --help' for help.
 
 Error: {message}
 """.strip()

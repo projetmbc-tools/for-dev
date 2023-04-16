@@ -2,8 +2,9 @@
 data:    # Analyse(s) de données structurées.
   about: # Nom caractérisant l'analyse faite.
          # Viennent ensuite les règles à appliquer.
-    path: about.yaml
-    keep:
+    storein: dict
+    path   : about.yaml
+    keep   :
       - general:
         - desc
         - authors

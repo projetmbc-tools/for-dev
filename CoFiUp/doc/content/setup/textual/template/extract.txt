@@ -1,5 +1,5 @@
 ﻿this::
-    date = 2023-02-06
+    date = 2023-04-16
 
 
 =====================================
@@ -7,6 +7,7 @@ Extractions des ¨numsver et des dates
 =====================================
 
 Pour indiquer à ¨cofiup comment extraire les dates et les ¨numsver dans les fichiers du dossier path::``changes``, il faut passer via le bloc cofiup::``search`` comme ci-après où nous cherchons aussi à capturer des ¨infos dans les chemins des fichiers annalysés : ceci explique l'emploi de cofiup::``regpath``. Sans ce besoin, on peut utiliser un motif de chemin à la ¨unix via la clé cofiup::``path``.
+Noter qu'ici, du fait de la multiplivction des valeurs pour une même variable, le stockage des données extraites ne peut se faire que via une table d'une base de données : ce explique l'emploi de cofiup::``storein: database``. Ici la table aura pour attributs sql::``year``, sql::``month``, sql::``day`` et sql::``version``, et elle sera nommée sql::``tnschges``.
 
 cofiup::
     ---
@@ -23,12 +24,12 @@ warning::
 Si vous êtes familier des ¨regexs_FR, vous constaterez la simplicité de ce qui précède : les valeurs capturées sont associées aux noms internes cofiup::``year``, cofiup::``month``, cofiup::``date`` et cofiup::``version``.
 Par contre, si vous pensez que la phrase précédente ne peut pas avoir été écrite par un humain
 ((
-    L'auteur de ¨cofiup est conscient que la simple évocation du concept de "¨regexs_FR" peut faire fuire certains développeurs. Ceci étant noté, l'emploi d'¨regexs_FR est la seule façon efficace, et flexible de rendre ¨cofiup utile.
+    L'auteur de ¨cofiup est conscient que la simple évocation du concept de "¨regexs_FR" peut faire fuire certains développeurs. Ceci étant noté, l'emploi d'¨regexs_FR est la seule façon efficace, et flexible, de rendre ¨cofiup utile.
 )),
 des explications détaillées arrivent tout de suite.
 
 
-Avec la ¨1ere règle pour repérer les fichiers à analyser, ¨cofiup analysera par exemple les fichiers de chemins path::``changes/2022/03.txt``, et path::``changes/2023/01.txt``, et pour chacun de ces fichiers, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, seront `(2022, 03)` et `(2023, 01)`.
+Avec la ¨1ere règle pour repérer les fichiers à analyser, ¨cofiup analysera par exemple les fichiers de chemins path::``changes/2022/03.txt``, et path::``changes/2023/01.txt``, et pour chacun de ces fichiers, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, seront `(2022, 03)`, `(2022, 09)` et `(2023, 01)`.
 Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.
 
 verbatim::

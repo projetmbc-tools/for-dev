@@ -2,6 +2,7 @@
 search:     # Recherche(s) ciblée(s) de contenus.
   tnschges: # Nom caractérisant la recherche faite.
             # Viennent ensuite les règles à appliquer.
+    storein: database
     regpath: 'changes/(?P<year>\d{4})/(?P<month>\d{2})\.txt'
     regex  :
       - '^={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)\n={2,}\n'

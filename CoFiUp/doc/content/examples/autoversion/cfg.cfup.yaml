@@ -2,8 +2,9 @@
 data:       # Analyse(s) de données structurées.
   versions: # Nom caractérisant l'analyse faite.
             # Viennent ensuite les règles à appliquer.
-    path: VERSIONS.yaml
-    keep:
+    storein: dict
+    path   : VERSIONS.yaml
+    keep   :
       - history
 
 # -- PRÉ-GESTION BASIQUE DES DONNÉES CAPTURÉES -- #

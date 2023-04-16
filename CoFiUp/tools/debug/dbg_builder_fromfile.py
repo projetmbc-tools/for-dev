@@ -57,3 +57,8 @@ cfg_cfup = folder_tested / "cfg.cfup.yaml"
 
 print("Playing with...")
 print(f"{cfg_cfup}")
+
+with open(cfg_cfup, mode='r') as file:
+    yaml_data = yaml.load(file, Loader=yaml.BaseLoader)
+
+print(yaml_data)
