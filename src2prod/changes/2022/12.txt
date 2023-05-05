@@ -25,8 +25,12 @@ path::``README.md``: many errors have been corrected.
 -------
 
 [[:api:]]
-Two things have changed.
+¨CLI: direct use of term::``python -m src2prod`` is now possible.
 
-    1) Changes due to the new version of ¨multimd: the use of path::``about.yaml`` replaces the obsolete path::``about.peuf``.
 
-    1) ¨CLI: the ¨CLI must be used via term::``python -m src2prod``.
+-------
+:fordev:
+-------
+
+[[:update:]]
+Changes due to the new version of ¨multimd: the use of path::``about.yaml`` replaces the obsolete path::``about.peuf``.
