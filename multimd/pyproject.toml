@@ -8,9 +8,14 @@ maintainers  = ["Christophe BAL"]
 license      = "GNU License Version 3"
 repository   = "https://github.com/bc-tools/for-dev/tree/main/multimd"
 
+[tool.poetry.scripts]
+jinjang = "multimd.__main__:jng_CLI"
+
 [tool.poetry.dependencies]
 python  = "^3.8"
-natsort = "^8.2.0"
+natsort = "^8.2"
+rich    = "^13.3.5"
+typer   = "^0.9"
 
 [tool.poetry.dev-dependencies]
 

@@ -12,7 +12,7 @@ from pathlib import Path
 
 from natsort import natsorted
 
-from .toc import *
+from .mmdtoc import *
 
 
 # ------------------------------------ #
