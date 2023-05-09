@@ -9,7 +9,6 @@
 from typing import *
 
 from pathlib import Path
-
 from natsort import natsorted
 
 from .mmdtoc import *
@@ -23,20 +22,20 @@ from .mmdtoc import *
 # This class finds all the single path::``MD`` files and then builds a final
 # single one.
 ###
-class Builder():
+class MMDBuilder():
 
 ###
 # prototype::
-#     output  : the path of the single final path::``MD`` file.
-#     content : the path of the directory with the path::``MD`` files.
+#     src  : the path of the directory with the path::``MD`` chunks.
+#     dest : the path of the single final path::``MD`` file.
 ###
     def __init__(
         self,
-        output : Path,
-        content: Path,
+        src : Path,
+        dest: Path,
     ) -> None:
-        self.output  = output
-        self.content = content
+        self.dest = dest
+        self.src  = src
 
         self._lof: List[Path] = []
 
@@ -60,15 +59,15 @@ class Builder():
 ###
     def build_lof(self) -> None:
 # Do we have an ``about.yaml`` file?
-        if (self.content / ABOUT_FILE_NAME).is_file():
-            self._lof = TOC(self.content).extract()
+        if (self.src / ABOUT_FILE_NAME).is_file():
+            self._lof = MMDTOC(self.src).extract()
 
             return
 
 # Find all the MD files.
         self._lof = []
 
-        for fileordir in self.content.iterdir():
+        for fileordir in self.src.iterdir():
             if not fileordir.is_file():
                 continue
 
@@ -97,7 +96,7 @@ class Builder():
         mdcode = ('\n'*3).join(mdcode)
 
 # We can build the file.
-        with self.output.open(
+        with self.dest.open(
             encoding = 'utf-8',
             mode     = 'w',
         ) as f:

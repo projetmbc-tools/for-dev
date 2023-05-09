@@ -1,0 +1,27 @@
+// ---------- //
+
+
+==
+09
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+¨CLI: direct use of the command term::``multimd`` is now possible.
+
+
+-------
+:break:
+-------
+
+[[:api:]]
+Name changes.
+
+    1) path::``toc.py`` and ``TOC`` have been renamed to path::``mmdtoc.py`` and ``MMDTOC`` respectively.
+
+    1) path::``build.py`` and ``Builder`` have been changed to path::``mmdbuild.py`` and ``MMDBuilder`` respectively.
+
+    1) The class ``mmdbuild.MMDBuilder`` must be initiated with the arguments ``dest`` and ``src`` instead of ``output`` and ``content`` previously.

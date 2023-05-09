@@ -4,33 +4,62 @@
 # This module implements the [C]-ommand [L]-ine [I]-nterface of ¨multimd.
 ###
 
+from pathlib import Path
+
 import                        typer
 from typing_extensions import Annotated
-import                        rich
 
-# from .multimdbuild import *
+from .mmdbuild import MMDBuilder
 
 
 # --------- #
 # -- CLI -- #
 # --------- #
 
-app = typer.Typer()
+mmd_CLI = typer.Typer()
 
 ###
 # prototype::
-#     ...
+#     src  : the path of the source directory with the MD chunks to be merged.
+#     dest : the path of the final MD file to build.
+#
+#     :action: :see: mmdbuild.MMDBuilder
 ###
-
-@app.command(
-    help = "Awesome CLI user manager."
+@mmd_CLI.command(
+    context_settings = dict(
+        help_option_names = ['--help', '-h']
+    ),
+    help = "Merging MD chunks into a single MD file."
 )
-def multimd_CLI(
-    name: Annotated[
-        str,
+def _mmd_CLI(
+    src: Annotated[
+        Path,
         typer.Option(
-            '-n',
-            help = "The name to say hi to.")
-    ] = "World",
+            '--src', '-s',
+            help = "Path of the source directory with "
+                   "the MD chunks to be merged."
+    )],
+    dest: Annotated[
+        Path,
+        typer.Option(
+            '--dest', '-d',
+            help = "Path of the final MD file to build."
+    )],
 ) -> None:
-    rich.print({"a": f"Hello {name}"})
+    kwargs = {
+        "src" : src,
+        "dest": dest,
+    }
+
+# Relative to absolute?
+    cwd = Path.cwd()
+
+    for k, p in kwargs.items():
+        if not p.is_absolute():
+            kwargs[k] = cwd / p
+
+# Let's call our worker.
+    MMDBuilder(
+        src  = src,
+        dest = dest,
+    ).build()

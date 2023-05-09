@@ -6,4 +6,4 @@
 
 from .mmdcli import *
 
-app()
+mmd_CLI()

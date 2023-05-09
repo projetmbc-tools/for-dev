@@ -9,7 +9,7 @@ license      = "GNU License Version 3"
 repository   = "https://github.com/bc-tools/for-dev/tree/main/multimd"
 
 [tool.poetry.scripts]
-jinjang = "multimd.__main__:jng_CLI"
+multimd = "multimd.__main__:mmd_CLI"
 
 [tool.poetry.dependencies]
 python  = "^3.8"

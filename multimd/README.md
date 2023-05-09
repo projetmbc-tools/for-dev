@@ -1,3 +1,19 @@
+The `Python` module `multimd`
+=============================
+
+> **I beg your pardon for my english...**
+>
+> English is not my native language, so be nice if you notice misunderstandings, misspellings, or grammatical errors in my documents and codes.
+
+This document is a short tutorial showing the most useful features without being exhaustive.
+
+
+About `multimd`
+---------------
+
+Working with moderate sized `MD` documents in a single file can quickly become tedious. This project allows you to go through separate small `MD` files to be merged into a final single `MD` file.
+
+
 `README.md` part by part
 ------------------------
 
@@ -48,3 +64,9 @@ from multimd import MMDBuilder
 mybuilder = MMDBuilder()
 mybuilder.build()
 ~~~
+
+
+Without the special `about.yaml` file
+-------------------------------------
+
+Without an `about.yaml` file, all the `MD` files will be merged into one after sorting them in a "natural" order.
