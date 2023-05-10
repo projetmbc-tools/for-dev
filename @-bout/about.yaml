@@ -1,0 +1,8 @@
+general:
+    project : "@-bout"
+    desc    : This project allows to define and use very easy-to-write
+              `YAML` files containing customisable metadatas about projects.
+    author  : Christophe BAL
+    licence : gnu 3
+    require :
+      - python3
