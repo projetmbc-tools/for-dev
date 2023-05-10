@@ -2,7 +2,7 @@
 
 
 ==
-09
+10  (0.2.0-beta)
 ==
 
 -----
@@ -10,7 +10,13 @@
 -----
 
 [[:api:]]
-¨CLI: direct use of the command term::``multimd`` is now possible.
+Features added.
+
+    1) Recursive search of path::``MD`` chunks in subfolders is now possible.
+
+    1) Erasing an existing final path::``MD`` file is not allowed by default now.
+
+    1) ¨CLI: direct use of the command term::``multimd`` is now possible.
 
 
 -------
@@ -18,10 +24,22 @@
 -------
 
 [[:api:]]
-Name changes.
+Changes made.
 
     1) path::``toc.py`` and ``TOC`` have been renamed to path::``mmdtoc.py`` and ``MMDTOC`` respectively.
 
     1) path::``build.py`` and ``Builder`` have been changed to path::``mmdbuild.py`` and ``MMDBuilder`` respectively.
 
-    1) The class ``mmdbuild.MMDBuilder`` must be initiated with the arguments ``dest`` and ``src`` instead of ``output`` and ``content`` previously.
+    1) The classes ``mmdbuild.MMDBuilder`` and ``mmdtoc.MMDTOC`` have been factorised such to manage recursive searchs.
+
+
+--------
+:update:
+--------
+
+[[:doc:]]
+Changes made in the path::``README`` file.
+
+    1) The use of command lines is indicated.
+
+    1) The non-inclusion of resources is indicated.

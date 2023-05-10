@@ -6,10 +6,7 @@
 ###
 
 
-from typing import *
-
 from pathlib import Path
-from natsort import natsorted
 
 from .mmdtoc import *
 
@@ -20,84 +17,56 @@ from .mmdtoc import *
 
 ###
 # This class finds all the single path::``MD`` files and then builds a final
-# single one.
+# single one with all the chunks found.
 ###
 class MMDBuilder():
 
 ###
 # prototype::
-#     src  : the path of the directory with the path::``MD`` chunks.
-#     dest : the path of the single final path::``MD`` file.
+#     src   : the path of the directory containing the path::``MD`` chunks.
+#     dest  : the path of the single final path::``MD`` file to build.
+#     erase : set to ``True``, this argument allows to erase an existing
+#             final file to build a new one.
 ###
     def __init__(
         self,
-        src : Path,
-        dest: Path,
+        src  : Path,
+        dest : Path,
+        erase: bool = False
     ) -> None:
-        self.dest = dest
-        self.src  = src
-
-        self._lof: List[Path] = []
+        self.src   = src
+        self.dest  = dest
+        self.erase = erase
 
 
 ###
 # prototype::
-#     :action: this method is the great bandleader building the final
-#              path::``MD`` file from several single ones.
+#     :action: this method finds the single path::``MD`` files, and then merges
+#              all the ¨md codes found to build the final path::``MD`` file.
 ###
     def build(self) -> None:
-        for name in [
-            'build_lof',
-            'merge',
-        ]:
-            getattr(self, name)()
-
-
-###
-# prototype::
-#     :action: this method builds the list of the single path::``MD`` files.
-###
-    def build_lof(self) -> None:
-# Do we have an ``about.yaml`` file?
-        if (self.src / ABOUT_FILE_NAME).is_file():
-            self._lof = MMDTOC(self.src).extract()
-
-            return
-
-# Find all the MD files.
-        self._lof = []
-
-        for fileordir in self.src.iterdir():
-            if not fileordir.is_file():
-                continue
-
-            if fileordir.suffix == MD_FILE_SUFFIX:
-                self._lof.append(fileordir)
-
-        self._lof = natsorted(self._lof)
-
-
-###
-# prototype::
-#     :action: this method simply merges all the ¨md codes in
-#              a single path::``MD`` file.
-###
-    def merge(self) -> None:
-# All the MD code.
+# All the MD codes.
         mdcode = []
 
-        for onefile in self._lof:
-            with onefile.open(
-                encoding = 'utf-8',
-                mode     = 'r',
-            ) as f:
-                mdcode.append(f.read().strip())
+        for onefile in MMDTOC(self.src).extract():
+            mdcode.append(
+                onefile.read_text(encoding = 'utf-8')
+                       .strip()
+            )
 
         mdcode = ('\n'*3).join(mdcode)
 
-# We can build the file.
-        with self.dest.open(
-            encoding = 'utf-8',
-            mode     = 'w',
-        ) as f:
-            f.write(mdcode)
+# Can we erase an existing final file?
+        if self.dest.is_file() and not self.erase:
+            raise IOError(
+                f"the class {type(self).__name__} is not allowed "
+                 "to erase the final file:"
+                 "\n"
+                f"{self.dest}"
+            )
+
+# We can build the file, so let's do it.
+        self.dest.write_text(
+            data     = mdcode,
+            encoding = 'utf-8'
+        )

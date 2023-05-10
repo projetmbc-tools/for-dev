@@ -4,6 +4,8 @@
 # This module implements the [C]-ommand [L]-ine [I]-nterface of ¨multimd.
 ###
 
+from typing import Tuple
+
 from pathlib import Path
 
 import                        typer
@@ -20,8 +22,11 @@ mmd_CLI = typer.Typer()
 
 ###
 # prototype::
-#     src  : the path of the source directory with the MD chunks to be merged.
-#     dest : the path of the final MD file to build.
+#     src_dest : a 2 dimensional tuple giving the path of the source
+#                directory with the MD chunks to be merged, and
+#                the path of the final MD file to build.
+#     erase    : set to ``True``, this argument allows to erase
+#                an existing final file before building the new one.
 #
 #     :action: :see: mmdbuild.MMDBuilder
 ###
@@ -32,34 +37,52 @@ mmd_CLI = typer.Typer()
     help = "Merging MD chunks into a single MD file."
 )
 def _mmd_CLI(
-    src: Annotated[
-        Path,
-        typer.Option(
-            '--src', '-s',
+    src_dest: Annotated[
+        Tuple[Path,Path],
+        typer.Argument(
             help = "Path of the source directory with "
-                   "the MD chunks to be merged."
+                   "the MD chunks to be merged, followed "
+                   "by the path of the final MD file to build."
     )],
-    dest: Annotated[
-        Path,
+    erase: Annotated[
+        bool,
         typer.Option(
-            '--dest', '-d',
-            help = "Path of the final MD file to build."
-    )],
+            '--erase', '-e',
+            help = "Erase an existing final MD file before "
+                   "building the new one."
+    )] = False,
 ) -> None:
-    kwargs = {
-        "src" : src,
-        "dest": dest,
-    }
-
 # Relative to absolute?
     cwd = Path.cwd()
 
-    for k, p in kwargs.items():
+    src_dest     = list(src_dest)
+    dest_message = src_dest[1]
+
+    for i, p in enumerate(src_dest):
         if not p.is_absolute():
-            kwargs[k] = cwd / p
+            src_dest[i] = cwd / p
 
 # Let's call our worker.
     MMDBuilder(
-        src  = src,
-        dest = dest,
+        erase = erase,
+        *src_dest
     ).build()
+
+# Let's talk to the user.
+    if Path(dest_message).is_absolute():
+        message = f"""
+Successfully built file.
+  + Full path given:
+    {dest_message}
+        """
+
+    else:
+        message = f"""
+Successfully built file.
+  + Path given:
+    {dest_message}
+  + Full path used:
+    {src_dest[1]}
+        """
+
+    print(message.strip())
