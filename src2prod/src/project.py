@@ -169,9 +169,10 @@ class Project(BaseProj):
             readme_src = self.project / 'README.md'
 
 # Let ``multimd.buil.Builder`` does all the thankless job...
-            Builder(
-                output  = readme_src,
-                content = self.readme,
+            MMDBuilder(
+                src   = readme_src,
+                dest  = self.readme,
+                erase = True,
             ).build()
 
 # Now we just have a file to copy.
