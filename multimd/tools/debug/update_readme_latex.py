@@ -27,7 +27,7 @@ PROJECT_DIR  = MONOREPO_DIR / Path(projectname)
 
 from src import *
 
-Builder(
-    output  = PROJECT_DIR / 'README.md',
-    content = PROJECT_DIR / 'readme',
+MMDBuilder(
+    dest  = PROJECT_DIR / 'README.md',
+    src = PROJECT_DIR / 'readme',
 ).build()

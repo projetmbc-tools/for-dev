@@ -1,4 +1,7 @@
 Without the special `about.yaml` file
 -------------------------------------
 
-If you are not using an `about.yaml` file, the `Builder` class looks for all the `MD` files to merge them into one, ordering the files using `natsorted` from the package `natsort`.
+Without an `about.yaml` file, all the `MD` files will be merged into one after sorting them in a "natural" order.
+
+
+> ***WARNING!*** *Without an `about.yaml` file, it is impossible to work with subfolders containing `MD` files.*

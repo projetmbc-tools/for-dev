@@ -27,7 +27,7 @@ for kind in [
 ]:
     print(f'    + {kind}')
 
-    Builder(
-        output  = THIS_DIR / f'build-{kind}-final.md',
-        content = THIS_DIR / f'build-{kind}',
+    MMDBuilder(
+        dest  = THIS_DIR / f'build-{kind}-final.md',
+        src = THIS_DIR / f'build-{kind}',
     ).build()

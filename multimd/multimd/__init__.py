@@ -2,5 +2,5 @@
 
 from typing import *
 
-from .build import *
-from .toc   import *
+from .mmdbuild import *
+from .mmdtoc   import *
