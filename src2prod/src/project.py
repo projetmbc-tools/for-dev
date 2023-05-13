@@ -7,7 +7,7 @@
 
 from shutil import rmtree
 
-from multimd import *
+from multimd import MMDBuilder as MMDBuilder
 from spkpb   import *
 
 from .baseproj import *

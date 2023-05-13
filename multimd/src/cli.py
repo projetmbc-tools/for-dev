@@ -7,8 +7,6 @@
 
 from typing import Tuple
 
-from pathlib import Path
-
 import                        typer
 from typing_extensions import Annotated
 
