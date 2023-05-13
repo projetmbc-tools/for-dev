@@ -11,9 +11,9 @@ from subprocess import run
 from spkpb import *
 
 
-# ------------------------------------------------------- #
-# -- TECHNICAL CLASS ABSTRACTION FOR LOW LEVEL ACTIONS -- #
-# ------------------------------------------------------- #
+# ------------------------------------------ #
+# -- ABSTRACT CLASS FOR LOW LEVEL ACTIONS -- #
+# ------------------------------------------ #
 
 ###
 # This class contains technical methods used by the class ``project.Project``.
@@ -35,8 +35,8 @@ class BaseProj(BaseCom):
 #               If an instance of ``Path`` is used, thent we have a file
 #               containing the rules.
 #     usegit  : ``True`` asks to use ¨git contrary to ``False``.
-#     readme  : ``None`` is if you don't need to import an external
-#               path::``README`` file, otherwise give a **relative** path.
+#     readme  : ``None`` is to import an external path::``README`` file,
+#               otherwise give a **relative** path.
 #
 # warning::
 #     The target folder is totally removed and reconstructed at each new
@@ -77,7 +77,7 @@ class BaseProj(BaseCom):
         if not readme is None:
             readme = self.project / self.pathify(readme)
 
-        self.readme                = readme
+        self.readme_src                = readme
         self._readme_is_file: bool = True
         self._readme_target : Path = self.target / 'README.md'
 

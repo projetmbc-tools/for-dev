@@ -8,7 +8,7 @@
 
 from pathlib import Path
 
-from .mmdtoc import *
+from .toc import *
 
 
 # ------------------------------------ #
@@ -19,7 +19,7 @@ from .mmdtoc import *
 # This class finds all the single path::``MD`` files and then builds a final
 # single one with all the chunks found.
 ###
-class MMDBuilder():
+class Builder():
 
 ###
 # prototype::
@@ -48,7 +48,7 @@ class MMDBuilder():
 # All the MD codes.
         mdcode = []
 
-        for onefile in MMDTOC(self.src).extract():
+        for onefile in TOC(self.src).extract():
             mdcode.append(
                 onefile.read_text(encoding = 'utf-8')
                        .strip()

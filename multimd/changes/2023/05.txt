@@ -2,6 +2,25 @@
 
 
 ==
+13  (0.3.0-beta)
+==
+
+-------
+:break:
+-------
+
+[[:api:]]
+What a mess! Using prefixes was a very bad good idea.
+
+    1) path::``toc.py`` and ``TOC`` are coming back instead of path::``mmdtoc.py`` and ``MMDTOC`` respectively.
+
+    1) path::``build.py`` and ``Builder`` make also their coming back, and kill path::``mmdbuild.py`` and ``MMDBuilder`` respectively.
+
+
+// ---------- //
+
+
+==
 10  (0.2.0-beta)
 ==
 

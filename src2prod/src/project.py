@@ -158,20 +158,20 @@ class Project(BaseProj):
 ###
     def build_readme(self) -> None:
 # No README to copy.
-        if self.readme is None:
+        if self.readme_src is None:
             return
 
 # A folder with small `MD` files or a single file?
         if self._readme_is_file:
-            readme_src = self.readme
+            readme_src = self.readme_src
 
         else:
             readme_src = self.project / 'README.md'
 
 # Let ``multimd.buil.Builder`` does all the thankless job...
             MMDBuilder(
-                src   = readme_src,
-                dest  = self.readme,
+                src   = self.readme_src,
+                dest  = readme_src,
                 erase = True,
             ).build()
 
@@ -245,14 +245,14 @@ class Project(BaseProj):
 ###
     def check_readme(self) -> None:
 # No external README.
-        if self.readme is None:
+        if self.readme_src is None:
             return
 
 # Do we have an external README file?
-        if self.readme.suffix:
-            if not self.readme.is_file():
+        if self.readme_src.suffix:
+            if not self.readme_src.is_file():
                 self.new_error(
-                    what  = self.readme,
+                    what  = self.readme_src,
                     info  = '"README" file not found.',
                     level = 1
                 )
@@ -262,9 +262,9 @@ class Project(BaseProj):
 
 # Do we have an external readme dir?
         else:
-            if not self.readme.is_dir():
+            if not self.readme_src.is_dir():
                 self.new_error(
-                    what  = self.readme,
+                    what  = self.readme_src,
                     info  = '"readme" folder not found.',
                     level = 1
                 )
@@ -279,7 +279,7 @@ class Project(BaseProj):
             {VAR_STEP_INFO:
                 f'External {kind} to use:'
                  '\n'
-                 f'"{self.readme}".'}
+                 f'"{self.readme_src}".'}
         )
 
 

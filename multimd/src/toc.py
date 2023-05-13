@@ -46,7 +46,7 @@ MD_FILE_SUFFIX = f'.{MD_FILE_EXT}'
 # warning::
 #     Unlike the 1st mode, the 2nd one doesn't do searches in subfolders.
 ###
-class MMDTOC():
+class TOC():
 
 ###
 # prototype::
