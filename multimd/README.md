@@ -71,9 +71,9 @@ Successfully built file.
 There is also an easy-to-use `Python` API.
 
 ~~~python
-from multimd import MMDBuilder, Path
+from multimd import Builder, Path
 
-mybuilder = MMDBuilder(
+mybuilder = Builder(
     src   = Path("/full/path/to/readme"),
     dest  = Path("/full/path/to/README.md"),
     erase = True

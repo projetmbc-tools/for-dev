@@ -50,4 +50,3 @@ print('---')
 
 for f in project.lof:
     print(f)
-

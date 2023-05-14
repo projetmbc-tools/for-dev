@@ -17,6 +17,11 @@ MODULE_DIR = addfindsrc(
 # -- LET'S GO -- #
 # -------------- #
 
+import src
+print(sorted(dir(src)))
+
+exit()
+
 from src import *
 
 PROJECT_DIR = Path("/Users/projetmbc/Google Drive/git[NEW]/coding/tools/for-latex") / 'bdoc'
