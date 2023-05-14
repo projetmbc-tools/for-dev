@@ -5,8 +5,8 @@ from cbdevtools import *
 projectname = 'about'
 projectname = 'cleanit'
 projectname = 'multimd'
-projectname = 'src2prod'
-projectname = 'jinjaNG'
+# projectname = 'src2prod'
+# projectname = 'jinjaNG'
 
 
 # ------------------------------------ #
@@ -29,6 +29,7 @@ PROJECT_DIR  = MONOREPO_DIR / Path(projectname)
 from src import *
 
 Builder(
+    src   = PROJECT_DIR / 'readme',
     dest  = PROJECT_DIR / 'README.md',
-    src = PROJECT_DIR / 'readme',
+    erase = True,
 ).build()

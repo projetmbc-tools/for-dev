@@ -96,7 +96,7 @@ class TOC():
                     continue
 
                 if fileordir.suffix == MD_FILE_SUFFIX:
-                    strpaths.append(str(fileordir))
+                    strpaths.append(fileordir)
 
             strpaths = natsorted(strpaths)
 

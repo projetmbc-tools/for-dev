@@ -28,6 +28,7 @@ PROJECT_DIR  = MONOREPO_DIR / Path(projectname)
 from src import *
 
 Builder(
+    src   = PROJECT_DIR / 'readme',
     dest  = PROJECT_DIR / 'README.md',
-    src = PROJECT_DIR / 'readme',
+    erase = True,
 ).build()

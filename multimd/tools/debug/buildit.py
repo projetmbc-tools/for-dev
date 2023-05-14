@@ -28,6 +28,7 @@ for kind in [
     print(f'    + {kind}')
 
     Builder(
+        src   = THIS_DIR / f'build-{kind}',
         dest  = THIS_DIR / f'build-{kind}-final.md',
-        src = THIS_DIR / f'build-{kind}',
+        erase = True,
     ).build()
