@@ -7,3 +7,5 @@ NEXT STEPS
 ----------
 
     1) src2prod + multimd : 1st rc (so tests are needed)
+
+    2) suaver : 1st rc as soon as possible!
