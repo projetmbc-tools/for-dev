@@ -19,12 +19,12 @@ MODULE_DIR = addfindsrc(
 
 from src import *
 
-PROJECT_DIR = Path("/Users/projetmbc/Google Drive/git[NEW]/coding/tools/for-latex") / 'bdoc'
+PROJECT_DIR = Path("/Users/projetmbc/Google Drive/git[NEW]/coding/bc-tools/for-latex") / 'bdoc'
 
 project = Project(
     project = PROJECT_DIR,
-    source  = PROJECT_DIR / 'src',
-    target  = '',
+    src  = PROJECT_DIR / 'src',
+    dest  = '',
     ignore  = '''
         tool_*/
         tool_*.*

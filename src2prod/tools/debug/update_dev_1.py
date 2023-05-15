@@ -30,8 +30,8 @@ PROJECT_DIR  = Path(projectname)
 
 project = Project(
     project = MONOREPO_DIR,
-    source  = PROJECT_DIR / 'src',
-    target  = PROJECT_DIR / projectname.lower(),
+    src  = PROJECT_DIR / 'src',
+    dest  = PROJECT_DIR / projectname.lower(),
     ignore  = '''
         tool_*/
         tool_*.*
@@ -43,4 +43,4 @@ project = Project(
     readme = PROJECT_DIR / 'README.md'
 )
 
-project.update(safemode = False)
+project.update(erase = False)

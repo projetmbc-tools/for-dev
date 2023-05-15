@@ -5,6 +5,8 @@
 ###
 
 
+from typing import Union
+
 from shutil     import copyfile
 from subprocess import run
 
@@ -26,9 +28,9 @@ class BaseProj(BaseCom):
 # prototype::
 #     project : the folder project that will be used to communicate during
 #               the analysis.
-#     source  : the **relative** path of the source dir (regarding the project
+#     src     : the **relative** path of the src dir (regarding the project
 #               folder).
-#     target  : the **relative** path of the final product dir (regarding the
+#     dest    : the **relative** path of the final product dir (regarding the
 #               project folder).
 #     ignore  : if a string is used then this gives the rules for ignoring
 #               files in addition to what ¨git does.
@@ -39,7 +41,7 @@ class BaseProj(BaseCom):
 #               otherwise give a **relative** path.
 #
 # warning::
-#     The target folder is totally removed and reconstructed at each new
+#     The dest folder is totally removed and reconstructed at each new
 #     update.
 #
 # note::
@@ -47,12 +49,12 @@ class BaseProj(BaseCom):
 ###
     def __init__(
         self,
-        project: Union[str, Path],
-        source : Union[str, Path],
-        target : Union[str, Path],
-        ignore : Union[str, Path]       = '',
-        usegit : bool                   = False,
-        readme : Union[None, str, Path] = None,
+        project: Path,
+        src    : Path,
+        dest   : Path,
+        ignore : Union[str, Path]  = '',
+        usegit : bool              = False,
+        readme : Union[None, Path] = None,
     ) -> None:
 # To communicate.
         self.logfile = project / f'{project.name}.src2prod.log'
@@ -67,40 +69,19 @@ class BaseProj(BaseCom):
         )
 
 # User's choices.
-        self.project = self.pathify(project)
-        self.source  = self.project / self.pathify(source)
-        self.target  = self.project / self.pathify(target)
+        self.project = project
+        self.src     = self.project / src
+        self.dest    = self.project / dest
 
         self.ignore = ignore
         self.usegit = usegit
 
         if not readme is None:
-            readme = self.project / self.pathify(readme)
+            readme = self.project / readme
 
-        self.readme_src                = readme
+        self.readme_src            = readme
         self._readme_is_file: bool = True
-        self._readme_target : Path = self.target / 'README.md'
-
-
-###
-# prototype::
-#     value : a path.
-#
-#     :return: the path converted to an instance of ``pathlib.Path``.
-###
-    def pathify(self, value: Union[str, Path]) -> Path:
-        valtype = type(value)
-
-        if valtype == str:
-            value = Path(value)
-
-        elif not isinstance(value, Path):
-            raise ValueError(
-                f'type {valtype} unsupported to indicate '
-                 'the source and the target.'
-            )
-
-        return value
+        self._readme_dest   : Path = self.dest / 'README.md'
 
 
 ###
@@ -113,7 +94,7 @@ class BaseProj(BaseCom):
 ###
     def reset(
         self,
-        kind: str = 'SOURCE --> FINAL PRODUCT'
+        kind: str = 'SRC --> FINAL PRODUCT'
     ) -> None:
         super().reset()
 
@@ -274,22 +255,22 @@ class BaseProj(BaseCom):
 
 ###
 # prototype::
-#     source : the path of the source file to copy.
-#     target : the path of the target file that will be the copy.
+#     src : the path of the src file to copy.
+#     dest : the path of the dest file that will be the copy.
 #
 #     :action: this method copies one file.
 ###
     def copyfile(
         self,
-        source: Path,
-        target: Path,
+        src: Path,
+        dest: Path,
     ) -> None:
-        target.parent.mkdir(
+        dest.parent.mkdir(
             parents  = True,
             exist_ok = True
         )
 
-        copyfile(source, target)
+        copyfile(src, dest)
 
 
 ###
@@ -317,7 +298,7 @@ class BaseProj(BaseCom):
             cmd = " ".join(cmd)
 
             self.new_error(
-                what = self.source,
+                what = self.src,
                 info = f'can\'t use "{cmd}".',
             )
             return
@@ -325,7 +306,7 @@ class BaseProj(BaseCom):
 # Command launched throws an error.
         if output.stderr:
             self.new_error(
-                what = self.source,
+                what = self.src,
                 info = (
                     f'error throwed by "{cmd}":'
                      '\n'

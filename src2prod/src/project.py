@@ -19,7 +19,7 @@ from .baseproj import *
 
 ###
 # This class is the main one to use such as to easily manage a project
-# following the "source-to-final-product" workflow.
+# following the "src-to-final-product" workflow.
 ###
 class Project(BaseProj):
     MD_SUFFIX = '.md'
@@ -30,8 +30,8 @@ class Project(BaseProj):
 #                    and ``False`` starts directly the work.
 #     closesession : ``True`` is to close the communication and
 #                    ``False`` otherwise.
-#     safemode     : ``True`` asks to never remove a none empty target folder
-#                    contrary to ``False``.
+#     erase        : ``True`` asks to remove a none empty dest folder
+#                    contrary to ``True``.
 #
 #     :action: this method updates the ¨src code of the final product.
 #
@@ -44,7 +44,7 @@ class Project(BaseProj):
         self,
         opensession : bool = True,
         closesession: bool = True,
-        safemode    : bool = True
+        erase       : bool = False
     ) -> None:
 # Do we open the session?
         if opensession:
@@ -65,14 +65,14 @@ class Project(BaseProj):
 
 # Safe mode?
         if (
-            safemode
+            not erase
             and
-            not self.isempty(self.target)
+            not self.isempty(self.dest)
         ):
             self.new_error(
-                what = self.target,
+                what = self.dest,
                 info = (
-                    'target folder exists and is not empty '
+                    'dest folder exists and is not empty '
                     '(safe mode used).'
                 )
             )
@@ -81,10 +81,10 @@ class Project(BaseProj):
 
             return
 
-# We can update the target folder.
+# We can update the dest folder.
         for name in [
-            'empty_target',
-            'copy_src2target',
+            'empty_dest',
+            'copy_src2dest',
             'build_readme',
         ]:
             getattr(self, name)()
@@ -92,7 +92,7 @@ class Project(BaseProj):
 # Every copies has been made.
         self.recipe(
             {VAR_STEP_INFO:
-                f'Target folder updated.'}
+                f'Dest folder updated.'}
         )
 
 # Do we clode the session?
@@ -102,52 +102,52 @@ class Project(BaseProj):
 
 ###
 # prototype::
-#     :action: this method creates or empties the target folder.
+#     :action: this method creates or empties the dest folder.
 ###
-    def empty_target(self) -> None:
-# The target folder must be deletted.
-        if self.target.is_dir():
+    def empty_dest(self) -> None:
+# The dest folder must be deletted.
+        if self.dest.is_dir():
             action = 'emptied'
 
-            rmtree(self.target)
+            rmtree(self.dest)
 
         else:
             action = 'created'
 
-# Create a new version of the target folder.
-        self.target.mkdir()
+# Create a new version of the dest folder.
+        self.dest.mkdir()
 
 # We are so happy to talk about our exploit...
         self.recipe(
             {VAR_STEP_INFO:
-                f'Target folder has been {action}:'
+                f'Dest folder has been {action}:'
                  '\n'
-                f'"{self.target}".'},
+                f'"{self.dest}".'},
         )
 
 
 ###
 # prototype::
-#     :action: this method copies the files kept from the source
-#              to the target.
+#     :action: this method copies the files kept from the src
+#              to the dest.
 ###
-    def copy_src2target(self) -> None:
+    def copy_src2dest(self) -> None:
 # Indicating the start of the copying.
         nb_files = len(self.lof)
         plurial  = '' if nb_files == 1 else 's'
 
         self.recipe(
             {VAR_STEP_INFO:
-                f'Copying {nb_files} file{plurial} from source to target.'}
+                f'Copying {nb_files} file{plurial} from src to dest.'}
         )
 
 # Let's copy each files.
         for srcfile in self.lof:
-            targetfile = self.target / srcfile.relative_to(self.source)
+            destfile = self.dest / srcfile.relative_to(self.src)
 
             self.copyfile(
-                source = srcfile,
-                target = targetfile
+                src = srcfile,
+                dest = destfile
             )
 
 
@@ -172,13 +172,13 @@ class Project(BaseProj):
             MMDBuilder(
                 src   = self.readme_src,
                 dest  = readme_src,
-                erase = True,
+                erase = self.erase,
             ).build()
 
 # Now we just have a file to copy.
         self.copyfile(
-            source = readme_src,
-            target = self._readme_target
+            src = readme_src,
+            dest = self._readme_dest
         )
 
 # Let's talk...
@@ -186,7 +186,7 @@ class Project(BaseProj):
 
         self.recipe(
             {VAR_STEP_INFO:
-                f'"{readme_rel}" added to the target.'}
+                f'"{readme_rel}" added to the dest.'}
         )
 
 
@@ -198,7 +198,7 @@ class Project(BaseProj):
 #                    ``False`` otherwise.
 #
 #     :action: this method is the great bandleader building the list of files
-#              to be copied to the target dir.
+#              to be copied to the dest dir.
 ###
     def build(
         self,
@@ -305,7 +305,7 @@ class Project(BaseProj):
         for kind, options in [
 # Current branch.
             ('branch', ['branch']),
-# We don't want uncommitted files in our source folder!
+# We don't want uncommitted files in our src folder!
             ('uncommitted', ['a']),
         ]:
             infos[kind] = self.rungit(options)
@@ -323,8 +323,8 @@ class Project(BaseProj):
             {VAR_STEP_INFO: f'Working in the branch "{branch}".'}
         )
 
-# Uncommitted changes in our source?
-        tosearch = f'{self.project.name}/{self.source.name}/'
+# Uncommitted changes in our src?
+        tosearch = f'{self.project.name}/{self.src.name}/'
 
         if (
             "Changes to be committed" in infos['uncommitted']
@@ -352,9 +352,9 @@ class Project(BaseProj):
             gitinfos    = fictive_tab.join(gitinfos)
 
             self.new_error(
-                what = self.source,
+                what = self.src,
                 info = (
-                    f'{howmany} uncommitted file{plurial} found in the source folder. '
+                    f'{howmany} uncommitted file{plurial} found in the src folder. '
                     f'See{whichuncommitted} below.'
                     f'{fictive_tab}{gitinfos}'
                 ),
@@ -375,29 +375,29 @@ class Project(BaseProj):
 # Let's talk.
         self.recipe(
             {VAR_STEP_INFO:
-                 'Starting the analysis of the source folder:'
+                 'Starting the analysis of the src folder:'
                  '\n'
-                f'"{self.source}".'},
+                f'"{self.src}".'},
         )
 
-# Does the source dir exist?
-        if not self.source.is_dir():
+# Does the src dir exist?
+        if not self.src.is_dir():
             self.new_error(
-                what = self.source,
-                info = 'source folder not found.',
+                what = self.src,
+                info = 'src folder not found.',
             )
             return
 
 # List all the files.
         self.lof = [
-            f for f in self.iterfiles(self.source)
+            f for f in self.iterfiles(self.src)
         ]
 
 # An empty list stops the process.
         if not self.lof:
             self.new_critical(
-                what = self.source,
-                info = 'empty source folder.',
+                what = self.src,
+                info = 'empty src folder.',
             )
             return
 

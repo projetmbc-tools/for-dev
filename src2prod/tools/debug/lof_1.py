@@ -17,10 +17,7 @@ MODULE_DIR = addfindsrc(
 # -- LET'S GO -- #
 # -------------- #
 
-import src
 
-print(dir(src))
-exit()
 from src import *
 
 MONOREPO_DIR = MODULE_DIR.parent
@@ -30,8 +27,8 @@ projectname = 'src2prod'
 
 project = Project(
     project = MONOREPO_DIR,
-    source  = Path(projectname) / 'src',
-    target  = '',
+    src  = Path(projectname) / 'src',
+    dest  = '',
     ignore  = '''
         tool_*/
         tools_*/

@@ -43,7 +43,7 @@ def _CLI(
                    "the MD chunks to be merged, followed "
                    "by the path of the final MD file to build."
     )],
-    erase: Annotated[
+    erase   : Annotated[
         bool,
         typer.Option(
             '--erase', '-e',

@@ -31,12 +31,12 @@ PROJECT_DIR  = Path(projectname)
 
 project = Project(
     project = MONOREPO_DIR / PROJECT_DIR,
-    source  = 'src',
-    target  = projectname.lower(),
+    src  = 'src',
+    dest  = projectname.lower(),
     ignore  = MONOREPO_DIR / 'ignore-for-prod.txt',
     usegit  = True,
     # readme  = 'README.md',
     readme  = 'readme',
 )
 
-project.update(safemode = False)
+project.update(erase = False)
