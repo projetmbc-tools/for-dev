@@ -17,6 +17,10 @@ MODULE_DIR = addfindsrc(
 # -- LET'S GO -- #
 # -------------- #
 
+import src
+
+print(dir(src))
+exit()
 from src import *
 
 MONOREPO_DIR = MODULE_DIR.parent
