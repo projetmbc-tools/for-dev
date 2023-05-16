@@ -1,0 +1,22 @@
+﻿project:
+    name:
+        real   : vraiNom ou nom du dossier parent si pas indiqué
+        why    : explication du nom
+        distas : nom du package distribué
+    desc    : courte description
+    author  : ...
+    licence : ...
+    urls :
+      repo : url
+      doc  : url
+      site : url
+    lang:
+      doc:
+        - user : fr
+        - tech : fr
+    require :
+      - lang de code 1
+      - ...
+    optional :
+      - lang de code 1
+      - ...

@@ -95,7 +95,7 @@ def _CLI(
 ) -> None:
 # We take care of the user...
     if not erase:
-        print('WARNING: Using not ``--erase`` can be dangerous.')
+        print('WARNING: Using ``--erase`` can be dangerous.')
 
 # What is the target?
     if dest == None:
