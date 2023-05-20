@@ -1,0 +1,34 @@
+﻿project:
+  name   : vraiNom ou nom du dossier parent si pas indiqué
+  why    : explication du nom
+  desc   : courte description
+  author : ...
+  authors:
+    - ...
+    - ...
+  licence: ...
+  repo   : url
+  doc    : url
+  home   : url
+  lang:
+    doc:
+      - user: fr, en  avec en par défaut
+      - tech: fr
+  require:
+    - lang de code 1
+    - ...
+  optional:
+    - lang de code 1
+    - ...
+
+
+dist:
+  name: nom du package distribué (si pas indiqué on prend une version auto à partir du nom du projet)
+  src : dossier avec source pour coder etn non pour distribuer
+  readme:
+    folder: readme par défaut
+    file  : README.md par défaut
+  git : true par défaut
+  ignore: |
+    rule_1
+    rule_2

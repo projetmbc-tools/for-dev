@@ -1,9 +1,20 @@
-general:
-    project : src2prod
-    desc    : This module allows to develop a project within a source folder
-              and to publish the final product in another folder, this last
-              directory being a "thin" version of the source one.
-    author  : Christophe BAL
-    licence : gnu 3
-    need    :
-        - python3
+project:
+  name   : src2prod
+  why    : From Source development To Production environment
+  desc   : This module allows you to develop a project in a source folder
+           and then publish the final product via another directory,
+           the latter being a "thinned" version of the source folder.
+  author : Christophe BAL
+  licence: gnu 3
+  repo   : https://github.com/bc-tools/for-dev/tree/main/src2prod
+  require:
+      - python3
+
+
+dist:
+  ignore: |
+    test_*/
+    test_*.*
+
+    tool_*/
+    tool_*.*
