@@ -1,34 +1,40 @@
-﻿project:
-  name   : vraiNom ou nom du dossier parent si pas indiqué
-  why    : explication du nom
-  desc   : courte description
-  author : ...
-  authors:
-    - ...
-    - ...
-  licence: ...
-  repo   : url
-  doc    : url
-  home   : url
-  lang:
-    doc:
-      - user: fr, en  avec en par défaut
-      - tech: fr
+﻿# Noms étoilés --> clés faculattives
+
+project:
+  name*   : vraiNom
+            Si non utilisé, on prend nom du dossier parent
+  why*    : explication du nom
+  desc*   : courte description
+  author* : Prénom 1, Prénom 2, Nom [mail]
+  authors*:
+    - author_1 comme ci-dessus
+    - author_2 comme ci-dessus
+  licence*: un ID
+           ou
+           path = path/to/my/licence-file.txt
+  repo    : url (prendre PyPI si pas de git)
+  home*   : url
+  doc*    : url
+  lang*:
+    doc*:
+      - user*: [fr, es]  # avec en par défaut
+      - tech*: fr        # avec en par défaut
   require:
     - lang de code 1
     - ...
-  optional:
+  optional*:
     - lang de code 1
     - ...
 
 
 dist:
-  name: nom du package distribué (si pas indiqué on prend une version auto à partir du nom du projet)
-  src : dossier avec source pour coder etn non pour distribuer
-  readme:
-    folder: readme par défaut
-    file  : README.md par défaut
-  git : true par défaut
-  ignore: |
+  name*  : nom du package distribué
+         Si pas indiqué on prend une version auto à partir du nom du projet
+  src    : dossier avec source pour coder etn non pour distribuer
+  readme*: path/to/file/README.md
+           ou
+           path/to/dir/readme
+  git*   : true par défaut
+  ignore*: |
     rule_1
     rule_2

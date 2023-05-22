@@ -1,3 +1,5 @@
 ﻿toc:
-  - path/to/onefile
-  - path/to/onedir/
+  - path/to/file_1
+  - path/to/file_2
+  - path/to/dir_A/
+  - path/to/dir_B/
