@@ -1,30 +1,18 @@
-# Presentation of the project : talking between human beings.
-general:
-    project : jinjaNG
-    acronym : jinja N-ext G-eneration
-    desc    : >
-      This project tries to ameliorate the workflow when working
-      with the template engine Jinja.
-    author  : Christophe BAL
-    licence : gnu 3
-    need    :
-        - python3
+project:
+  acronym: jinja N-ext G-eneration
+  desc   : This project tries to ameliorate the workflow when
+           working with the template engine Jinja.
+  author : Christophe BAL
+  licence: gnu 3
+  repo   : https://github.com/bc-tools/for-dev/tree/main/jinjang
+  require:
+      - python3
 
 
-# A tree-like organization of the keywords related to this project.
-keywords:
-  last-change: 2023-01-05
+dist:
+  ignore: |
+    test_*/
+    test_*.*
 
-  techology:
-    project:
-      python:
-        - jinja2
-
-    usage:
-      - latex
-      - html [javascript]
-
-
-  context:
-    writing:
-      - template
+    tool_*/
+    tool_*.*

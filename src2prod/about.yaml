@@ -1,6 +1,5 @@
 project:
-  name   : src2prod
-  why    : From Source development To Production environment
+  acronym: From Source development To Production environment
   desc   : This module allows you to develop a project in a source folder
            and then publish the final product via another directory,
            the latter being a "thinned" version of the source folder.

@@ -1,0 +1,16 @@
+project:
+  desc   : "???"
+  author : Christophe BAL
+  licence: gnu 3
+  repo   : https://github.com/bc-tools/for-dev/tree/main/about
+  require:
+      - python3
+
+
+dist:
+  ignore: |
+    test_*/
+    test_*.*
+
+    tool_*/
+    tool_*.*

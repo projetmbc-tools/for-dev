@@ -20,7 +20,8 @@ MODULE_DIR = addfindsrc(
 # -- LET'S GO -- #
 # -------------- #
 
-from src import *
+from src_OLD import *
+from src     import *
 
 MONOREPO_DIR = MODULE_DIR.parent.parent / 'for-latex'
 PROJECT_DIR  = MONOREPO_DIR / Path(projectname)

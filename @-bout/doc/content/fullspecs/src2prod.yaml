@@ -3,7 +3,7 @@
 project:
   name*   : vraiNom
             Si non utilisé, on prend nom du dossier parent
-  why*    : explication du nom
+  acronym*: explication du nom
   desc*   : courte description
   author* : Prénom 1, Prénom 2, Nom [mail]
   authors*:

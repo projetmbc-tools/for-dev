@@ -18,7 +18,8 @@ MODULE_DIR = addfindsrc(
 # -------------- #
 
 
-from src import *
+from src_OLD import *
+from src     import *
 
 MONOREPO_DIR = MODULE_DIR.parent
 
