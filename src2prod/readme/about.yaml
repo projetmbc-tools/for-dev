@@ -2,7 +2,7 @@ toc:
   - prologue
   - about
   - example-used
-  - build
-  - only-files
-  - readme-splitted
-  - cli
+  - buildit/          ????
+  - only-files        ???
+  - readme-splitted   ??
+  - cli               ?

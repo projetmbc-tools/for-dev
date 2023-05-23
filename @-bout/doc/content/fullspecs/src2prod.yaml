@@ -30,7 +30,7 @@ project:
 dist:
   name*  : nom du package distribué
          Si pas indiqué on prend une version auto à partir du nom du projet
-  src    : dossier avec source pour coder etn non pour distribuer
+  src    : dossier avec source pour coder etn non pour distribuer valant src par défaut
   readme*: path/to/file/README.md
            ou
            path/to/dir/readme

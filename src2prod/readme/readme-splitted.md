@@ -22,7 +22,7 @@ You can write your `README.md` by typing small sections. Let's assume we have do
 ~~~
 
 
-The special file `about.yaml` is used to specify the order in which the different `MD` files are merged. Its contents were as follows.
+The special file `about.yaml` is used here to specify the order in which the different `MD` files are merged. Its contents were as follows.
 
 ~~~yaml
 toc:

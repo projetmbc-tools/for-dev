@@ -1,38 +1,3 @@
-Building a thin copy of the source folder
------------------------------------------
-
-### What we want...
-
-In the project `mockproject`, there are some files that are only useful for code development.
-
-  1. Names using the pattern `x-...-x` indicate files, or folders that `git` must ignore (there are no such files, or folders in the `src` directory, but we could imagine using some).
-
-  1. Names using the pattern `tool_...` are for files, and folders not to be included in the final product, but which `git` must retain.
-
-  1. The `README.md` file used for `git` servers must also be included in the final product.
-
-
-By copying files, we wish to add one new folder `mockproject` to obtain the following structure.
-
-~~~
-+ MockProject
-    + changes [...]
-
-    + mockproject
-        * __init__.py
-        * mockthis.py
-        * LICENSE.txt
-        * README.md
-
-    + src [...]
-
-    + tests [...]
-
-    * pyproject.toml
-    * README.md
-~~~
-
-
 ### How to do that?
 
 Here is how to make a selective copy from the sub-directory `src` to the sub-folder `mockproject`. We will assume that the `cd` command has been used beforehand, so that running the `Python` scripts is done from the development folder `MockProject` (note the use of instances of `pathlib.Path`).

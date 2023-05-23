@@ -1,5 +1,7 @@
 project:
-  desc   : "???"
+  desc   : This project allows you to easily define YAML sepcifications
+           to allow the use of YAML files describing electronic projects
+           such as code or writing.
   author : Christophe BAL
   licence: gnu 3
   repo   : https://github.com/bc-tools/for-dev/tree/main/about
@@ -8,6 +10,7 @@ project:
 
 
 dist:
+  name  : a_bout
   ignore: |
     test_*/
     test_*.*
