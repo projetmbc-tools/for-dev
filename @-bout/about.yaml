@@ -1,5 +1,5 @@
 project:
-  desc   : This project allows you to easily define YAML sepcifications
+  desc   : This project allows you to easily define YAML specifications
            to allow the use of YAML files describing electronic projects
            such as code or writing.
   author : Christophe BAL
