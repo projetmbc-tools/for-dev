@@ -5,12 +5,20 @@
 ###
 
 
-from typing import Union
+from typing import Union, List
 
 from shutil     import copyfile
 from subprocess import run
 
-from spkpb import *
+from spkpb import (
+    GLOBAL_STYLE_COLOR,
+    FORLOG,
+    VAR_TITLE,
+    BaseCom,
+    Problems,
+    Speaker,
+    Path
+)
 
 
 # ------------------------------------------ #
@@ -26,36 +34,18 @@ class BaseProj(BaseCom):
 
 ###
 # prototype::
-#     project : the folder project that will be used to communicate during
-#               the analysis.
-#     src     : the **relative** path of the src dir (regarding the project
-#               folder).
-#     dest    : the **relative** path of the final product dir (regarding the
-#               project folder).
-#     ignore  : if a string is used then this gives the rules for ignoring
-#               files in addition to what ¨git does.
-#               If an instance of ``Path`` is used, thent we have a file
-#               containing the rules.
-#     usegit  : ``True`` asks to use ¨git contrary to ``False``.
-#     readme  : ``None`` is to import an external path::``README`` file,
-#               otherwise give a **relative** path.
-#
-# warning::
-#     The dest folder is totally removed and reconstructed at each new
-#     update.
-#
-# note::
-#     Additional attributes are created/reseted by the method ``reset``.
+#     project : the folder project.
+#     erase   : ``True`` value allows to remove a none empty target folder.
 ###
     def __init__(
         self,
         project: Path,
-        src    : Path,
-        dest   : Path,
-        ignore : Union[str, Path]  = '',
-        usegit : bool              = False,
-        readme : Union[None, Path] = None,
+        erase  : bool = False,
     ) -> None:
+# User's choices.
+        self.project = project
+        self.erase   = erase
+
 # To communicate.
         self.logfile = project / f'{project.name}.src2prod.log'
 
@@ -67,21 +57,6 @@ class BaseProj(BaseCom):
                 )
             )
         )
-
-# User's choices.
-        self.project = project
-        self.src     = self.project / src
-        self.dest    = self.project / dest
-
-        self.ignore = ignore
-        self.usegit = usegit
-
-        if not readme is None:
-            readme = self.project / readme
-
-        self.readme_src            = readme
-        self._readme_is_file: bool = True
-        self._readme_dest   : Path = self.dest / 'README.md'
 
 
 ###
@@ -107,6 +82,13 @@ class BaseProj(BaseCom):
 # Extra attributs.
         self.success         = True
         self.lof: List[Path] = []
+
+
+###
+# prototype::
+###
+    def yamlconfig(self):
+        TODO
 
 
 ###
@@ -179,28 +161,10 @@ class BaseProj(BaseCom):
             self.ignore_rules[context].append(shortrule)
 
 
-###
-# prototype::
-#     fileordir : the path of a file or a dir.
-#     kind      : the kind of ¨io object.
-#               @ kind in [self.DIR_TAG, self.FILE_TAG]
-#
-#     :return: ``True`` if the ¨io object must be kept regarding the ignore
-#              rules, and ``False`` otherwise.
-#
-# note::
-#     ¨git is not used here.
-###
-    def keepthis(
-        self,
-        fileordir: Path,
-        kind     : str
-    ) -> bool:
-        for onerule in self.ignore_rules[kind]:
-            if fileordir.match(onerule):
-                return False
 
-        return True
+
+
+
 
 
 ###
@@ -228,6 +192,30 @@ class BaseProj(BaseCom):
                 kind      = self.FILE_TAG
             ):
                 yield fileordir
+
+
+###
+# prototype::
+#     fileordir : the path of a file or a dir.
+#     kind      : the kind of ¨io object.
+#               @ kind in [self.DIR_TAG, self.FILE_TAG]
+#
+#     :return: ``True`` if the ¨io object must be kept regarding the ignore
+#              rules, and ``False`` otherwise.
+#
+# note::
+#     ¨git is not used here.
+###
+    def keepthis(
+        self,
+        fileordir: Path,
+        kind     : str
+    ) -> bool:
+        for onerule in self.ignore_rules[kind]:
+            if fileordir.match(onerule):
+                return False
+
+        return True
 
 
 ###
@@ -317,6 +305,7 @@ class BaseProj(BaseCom):
 
 # The work has been done correctly.
         return self.decode(output.stdout).strip()
+
 
 
 ###

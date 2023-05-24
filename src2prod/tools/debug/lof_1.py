@@ -46,7 +46,7 @@ project = Project(
     usegit = True
 )
 
-project.build()
+project.check()
 
 print('---')
 

@@ -32,4 +32,4 @@ This script run in a terminal gives the following output.
 ~~~
 
 
-> ***Note:*** *the list does not contain the path to a `README` file or a `readme` folder: if needed, see the `check_readme` and `copy_readme` methods of the class `Project`.*
+> ***Note:*** *the list does not contain the path to a `README.md` file or a `readme` folder: if needed, see the `check_readme` and `copy_readme` methods of the class `Project`.*

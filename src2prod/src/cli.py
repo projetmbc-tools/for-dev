@@ -109,4 +109,4 @@ def _CLI(
         ignore = ignore,
         usegit = usegit,
         readme = readme,
-    ).update(erase)
+    ).build(erase)

@@ -33,14 +33,14 @@ class Project(BaseProj):
 #     erase        : ``True`` asks to remove a none empty dest folder
 #                    contrary to ``True``.
 #
-#     :action: this method updates the ¨src code of the final product.
+#     :action: this method builds the final product from the ¨src code.
 #
 # note::
-#     The argument ``safemode`` is here to leave the responsability of
-#     removing a none empty folder to the user (my lawyers forced me to
-#     add this feature).
+#     The argument ``erase`` is here to leave the responsability of
+#     removing a none empty folder to the user (my lawyers forced me
+#     to add this feature).
 ###
-    def update(
+    def build(
         self,
         opensession : bool = True,
         closesession: bool = True,
@@ -54,7 +54,7 @@ class Project(BaseProj):
             )
 
 # Build the l.o.f.
-        self.build(
+        self.check(
             opensession  = False,
             closesession = False,
         )
@@ -161,7 +161,7 @@ class Project(BaseProj):
         if self.readme_src is None:
             return
 
-# A folder with small `MD` files or a single file?
+# A folder with `MD` chuncks or a single file?
         if self._readme_is_file:
             readme_src = self.readme_src
 
@@ -200,7 +200,7 @@ class Project(BaseProj):
 #     :action: this method is the great bandleader building the list of files
 #              to be copied to the dest dir.
 ###
-    def build(
+    def check(
         self,
         opensession : bool = True,
         closesession: bool = True,

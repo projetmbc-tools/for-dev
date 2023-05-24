@@ -10,7 +10,7 @@ from typing import Tuple
 import                        typer
 from typing_extensions import Annotated
 
-from .build import Builder
+from .build import Builder, Path
 
 
 # --------- #

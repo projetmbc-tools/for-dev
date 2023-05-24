@@ -35,4 +35,4 @@ project = Project(
     readme  = 'readme'
 )
 
-project.update(erase = False)
+project.build(erase = False)

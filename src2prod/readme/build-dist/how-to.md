@@ -13,7 +13,7 @@ dist:
     tool_*.*
 ```
 
-> ***NOTE:*** *it is possible to make finer settings. See the documentation for more information.*
+> ***NOTE:*** *it is possible to use finer settings. See the documentation for more information.*
 
 Here is how to make a selective copy from the sub-directory `src` to the sub-folder `mockproject`. We will assume that the `cd` command has been used beforehand, so that running the `Python` scripts is done from the development folder `MockProject`.
 

@@ -44,4 +44,4 @@ project = Project(
     readme = PROJECT_DIR / 'README.md'
 )
 
-project.update(erase = False)
+project.build(erase = False)
