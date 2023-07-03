@@ -1,14 +1,11 @@
-# Presentation of the project : talking between human beings.
 monorepo:
-  desc  : This project ????
-  author: Christophe BAL
-  repo  : https://github.com/bc-tools/for-dev
+  acronym: FOR DEV-elopment
+  desc   : This project offers generalist tools that attempt to simplify
+           the development cycle.
+  author : Christophe BAL
+  repo   : https://github.com/bc-tools/for-dev
 
 
-# ????
 projects:
-  - inipro
-  - src2prod
-  - spkpb
-  - multimd
-  - cbdevtools
+  - not = changes
+  - not = monorepo-utils

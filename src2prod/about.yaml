@@ -1,5 +1,5 @@
 project:
-  acronym: From Source development To Production environment
+  acronym: from S-ou-RC-e development TO PROD-uct delivered
   desc   : This module allows you to develop a project in a source folder
            and then publish the final product via another directory,
            the latter being a "thinned" version of the source folder.
@@ -7,10 +7,7 @@ project:
   licence: gnu 3
   repo   : https://github.com/bc-tools/for-dev/tree/main/src2prod
   require:
-      - python3
-
-
-dist:
+    - python3
   ignore: |
     test_*/
     test_*.*

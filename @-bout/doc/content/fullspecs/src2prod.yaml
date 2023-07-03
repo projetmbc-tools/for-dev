@@ -28,8 +28,8 @@ SPEC_ID:
   #
   # NOTES.
   #     1) For authors, only the NAME is mandatory.
-  #     2) Several first names can be indicated.
-  #     3) Several mails can be used.
+  #     2) Several FIRST NAMES can be indicated.
+  #     3) Several MAILS can be used.
   author* : First Name 1 ,
             ... ,
             Name
@@ -40,7 +40,7 @@ SPEC_ID:
 
   # NOTES.
   #     1) For institutes, only the NAME is mandatory.
-  #     2) Several mails can be used.
+  #     2) Several MAILS can be used.
   institute* : Adress ,
                Name
                [inst_email_1@inst_provider.abc , ...]
@@ -107,7 +107,10 @@ SPEC_ID:
 # By default, all sub-folders are considered to be those of projects
 # belonging to the monorepo.
 #
-# NOTE: mixing keeping and disgarding rules is allowed.
+# NOTES.
+#     1) Mixing keeping and disgarding rules is allowed.
+#     2) If only the disgard rules are used, any folder that does not
+#        comply with one of these rules will be retained.
 projects*:
   - One folder kept is indicated via ``project_1`` or ``rule_1``.
   - One folder disgarded is indicated via ``not = project_1`` or

@@ -1,5 +1,5 @@
 project:
-  acronym: Speaking, Problems
+  acronym: SP-ea-K-ing, P-ro-B-lems
   desc   : A module to write programs which have to be verbose about
            a specific on files and directories, and that have to emit
            informations, warnings and errors.
@@ -7,10 +7,7 @@ project:
   licence: gnu 3
   repo   : https://github.com/bc-tools/for-dev/tree/main/spkpb
   require:
-      - python3
-
-
-dist:
+    - python3
   ignore: |
     test_*/
     test_*.*

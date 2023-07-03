@@ -6,10 +6,7 @@ project:
   licence: gnu 3
   repo   : https://github.com/bc-tools/for-dev/tree/main/multimd
   require:
-      - python3
-
-
-dist:
+    - python3
   ignore: |
     test_*/
     test_*.*
