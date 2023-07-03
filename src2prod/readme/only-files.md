@@ -5,7 +5,7 @@ Sometimes, the final product is not just a "selective clone" of the folder `src`
 
   1. The method `check` just looks for files to keep for the product folder without creating anything.
 
-  1. After the use of `check`, the attribute `lof` is the list of all files to be kept from the `src` folder (`lof` is for *"list of files"*).
+  1. After the use of `check`, the attribute `lof` is the list of all files to be kept from the `src` folder (`lof` means *"list of files "* and not *"laugh out frankly"*).
 
 Here is an example of code that prints the list of source files to be kept for the final product.
 

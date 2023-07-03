@@ -7,7 +7,7 @@
 # == KIND OF PRODUCT == #
 # ===================== #
 
-#: SPEC_ID :in: [project, monorepo]
+#: SPEC_ID in: [project, monorepo]
 SPEC_ID:
   # ----------------------- #
   # -- SHORT DESCRIPTION -- #
@@ -26,20 +26,24 @@ SPEC_ID:
   # -- ABOUT THE CREATOR(S) -- #
   # -------------------------- #
   #
-  # NOTE: for authors, only the NAME is mandatory, and you can use
-  # several first names.
+  # NOTES.
+  #     1) For authors, only the NAME is mandatory.
+  #     2) Several first names can be indicated.
+  #     3) Several mails can be used.
   author* : First Name 1 ,
             ... ,
             Name
-            [auth_email@auth_provider.abc]
+            [auth_email_1@auth_provider.abc , ...]
   authors*:
     - author_1 defined as above
     - ...
 
-  # NOTE: for institutes, only the NAME is mandatory.
+  # NOTES.
+  #     1) For institutes, only the NAME is mandatory.
+  #     2) Several mails can be used.
   institute* : Adress ,
                Name
-               [inst_email@inst_provider.abc]
+               [inst_email_1@inst_provider.abc , ...]
   institutes*:
     - institute_1 defined as above
     - ...
@@ -47,41 +51,48 @@ SPEC_ID:
   # --------------- #
   # -- RESOURCES -- #
   # --------------- #
+  repo  : The url of the product repository.
+  home* : The url of a dedicated website for the product.
   readme: |
-    You can use two kinds of path for the README file of the product.
-      1) path/to/file/README.md indicates an existing file.
-      2) path/to/dir/readme allows to use a directory following
-         the specifications of the Python project ``multimd`` such as
-         to write the README file part by part.
-  repo : The url of the product repository.
-  home*: The url of a dedicated website for the product.
-  doc* : The url of a dedicated website for the product documentation.
-  lang*:
+          You can use two kinds of path for the ``README`` file of the
+          product.
+            1) ``path/to/file/README.md`` indicates an existing file.
+            2) ``path/to/dir/readme`` allows to use a directory following
+               the specifications of the Python project ``multimd`` such
+               as to write the ``README`` file part by part.
+  doc*  : The url of a dedicated website for the product documentation.
+  lang* :
+    readme*: This indicates the language(s) of the ``README`` file which
+             can be given as a single language ID like ``fr`` or ``en``
+             for example, or as a comma separated list of IDs like
+             ``fr, en, es``.
     doc*:
-      - user*: This is for the language of the user documentation which
-               can be given as a single language ID like ``fr`` or ``en``
-               for example, or as a comma seprated list of IDs like
-               ``fr, en, es``.
-      - tech*: Same specifications as for the user documentation.
-    readme*  : Same specifications as for the documentations.
+      - user*: See the specifications above for the ``README`` file.
+      - tech*: See the specifications above for the ``README`` file.
 
   # ------------------------ #
   # -- TECHNICAL SETTINGS -- #
   # ------------------------ #
-
-
-  # TODO
-
-  licence: The licence of the product can be given either as an ID
-           managed by the Python project ``ealic``, or by giving directly the path of one file containing the full text of the licence
-           like in ``path = path/to/my/licence.txt [My special licence]``
-           where we also have to give the name of the licence.
-  require:
+  licence*: |
+            There is two ways to give the licence of the product.
+              1) You can use an ID managed by the Python project ``ealic``.
+              2) You can give the path of one file containing the full
+                 text of the licence like in ``path/to/my/licence.txt
+                 [My special licence]`` where we also have to indicate
+                 the name of the licence inside square brackets.
+  # You can specify several coding languages required for the use of
+  # your product.
+  require*:
     - coding language 1
     - ...
+  # You can specify several optional coding languages for your product.
   optional*:
     - coding language 1
     - ...
+  # You can complete locally the ``git`` list of paths to ignore when
+  # producing the final product.
+  #
+  # WARNING! The pipe symbol allows you to define one rule per line.
   ignore*: |
     rule_1
     ...
@@ -91,9 +102,16 @@ SPEC_ID:
 # == ONLY FOR MONOREPOS == #
 # ======================== #
 
-#: :if: SPEC_ID == monorepo
+#: if: SPEC_ID == monorepo
+#
+# By default, all sub-folders are considered to be those of projects
+# belonging to the monorepo.
+#
+# NOTE: mixing keeping and disgarding rules is allowed.
 projects*:
-  - project_1
+  - One folder kept is indicated via ``project_1`` or ``rule_1``.
+  - One folder disgarded is indicated via ``not = project_1`` or
+    ``not = rule_1``.
   - ...
 
 
@@ -101,8 +119,8 @@ projects*:
 # == ONLY FOR PROJECTS == #
 # ======================= #
 
-#: :else:
+#: else:
 dist*:
-  src*: Source code folder used during the coding phase which will
-        not be distributed in its entirety. By default, the ``src``
-        value is used.
+  src*: This is the source code folder used during the development process
+        which will not be distributed in its entirety. By default, the value
+        ``src`` is used.

@@ -1,12 +1,12 @@
 ﻿# NOTES.
 #     1) Names folowed by one star indicates an optional setting.
-#     2) Special comments ``#:`` allows to use one small DSL to
-#        indicate some constraints.
+#     2) Special comments ``#:`` allows to use one small DSL to indicate
+#        some constraints.
 
-# The paths follows the UNIX syntax with a slash instead of one
-# backslash.
+# The paths follows the UNIX syntax with a slash instead of one backslash.
 #
-# NOTE: the order of the list is respected.
+# NOTE: the order of the list is respected and mixing folders and files
+#       is allowed.
 toc:
   # Path of a file does not finished by a slash.
   - path/to/file_1

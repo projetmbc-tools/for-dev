@@ -1,4 +1,4 @@
-Contribute to the `API` of `cofiup`
+Contribute to the `API` of `CoFiUp`
 ===================================
 
 > **I beg your pardon for my english...**
@@ -18,7 +18,6 @@ The contributions made are in the `contribute/api` folder which has the followin
         * README.md
         + changes
             * LICENSE.txt
-        + licences
 
 <!-- FOLDER STRUCT. AUTO - END -->
 
