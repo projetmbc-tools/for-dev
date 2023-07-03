@@ -1,7 +1,7 @@
 The example used for this short tutorial
 ----------------------------------------
 
-We will consider a fictitious development project `MockProject` with the following tree structure where the `about.yaml` file is important to talk to `src2prod`.
+We will consider a fictitious development project `MockProject` with the following tree structure where the optional `about.yaml` file is important to talk to `src2prod`.
 
 ~~~
 + MockProject

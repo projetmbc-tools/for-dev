@@ -1,40 +1,108 @@
-﻿# Noms étoilés --> clés faculattives
+﻿# NOTES.
+#     1) Names followed by one star indicates an optional setting.
+#     2) Special comments ``#:`` allow to use one small DSL to indicate
+#        some constraints.
 
-project:
-  name*   : vraiNom
-            Si non utilisé, on prend nom du dossier parent
-  acronym*: explication du nom
-  desc*   : courte description
-  author* : Prénom 1, Prénom 2, Nom [mail]
+# ===================== #
+# == KIND OF PRODUCT == #
+# ===================== #
+
+#: SPEC_ID :in: [project, monorepo]
+SPEC_ID:
+  # ----------------------- #
+  # -- SHORT DESCRIPTION -- #
+  # ----------------------- #
+  name*   : This allows you to give the name of the distributed product
+            instead of the name automatically generated from the name of
+            the folder containing this YAML file (in some cases, product
+            names must follow specific naming rules).
+  acronym*: Most names follow hidden schemas that you can explain here.
+            For example, you can just type "MY Hidden Acronym" for
+            a product named is ``myha``.
+  desc    : You must always give one small description of your product,
+            or monorepo.
+
+  # -------------------------- #
+  # -- ABOUT THE CREATOR(S) -- #
+  # -------------------------- #
+  #
+  # NOTE: for authors, only the NAME is mandatory, and you can use
+  # several first names.
+  author* : First Name 1 ,
+            ... ,
+            Name
+            [auth_email@auth_provider.abc]
   authors*:
-    - author_1 comme ci-dessus
-    - author_2 comme ci-dessus
-  licence*: un ID
-           ou
-           path = path/to/my/licence-file.txt
-  repo    : url (prendre PyPI si pas de git)
-  home*   : url
-  doc*    : url
+    - author_1 defined as above
+    - ...
+
+  # NOTE: for institutes, only the NAME is mandatory.
+  institute* : Adress ,
+               Name
+               [inst_email@inst_provider.abc]
+  institutes*:
+    - institute_1 defined as above
+    - ...
+
+  # --------------- #
+  # -- RESOURCES -- #
+  # --------------- #
+  readme: |
+    You can use two kinds of path for the README file of the product.
+      1) path/to/file/README.md indicates an existing file.
+      2) path/to/dir/readme allows to use a directory following
+         the specifications of the Python project ``multimd`` such as
+         to write the README file part by part.
+  repo : The url of the product repository.
+  home*: The url of a dedicated website for the product.
+  doc* : The url of a dedicated website for the product documentation.
   lang*:
     doc*:
-      - user*: [fr, es]  # avec en par défaut
-      - tech*: fr        # avec en par défaut
+      - user*: This is for the language of the user documentation which
+               can be given as a single language ID like ``fr`` or ``en``
+               for example, or as a comma seprated list of IDs like
+               ``fr, en, es``.
+      - tech*: Same specifications as for the user documentation.
+    readme*  : Same specifications as for the documentations.
+
+  # ------------------------ #
+  # -- TECHNICAL SETTINGS -- #
+  # ------------------------ #
+
+
+  # TODO
+
+  licence: The licence of the product can be given either as an ID
+           managed by the Python project ``ealic``, or by giving directly the path of one file containing the full text of the licence
+           like in ``path = path/to/my/licence.txt [My special licence]``
+           where we also have to give the name of the licence.
   require:
-    - lang de code 1
+    - coding language 1
     - ...
   optional*:
-    - lang de code 1
+    - coding language 1
     - ...
-
-
-dist:
-  name*  : nom du package distribué
-         Si pas indiqué on prend une version auto à partir du nom du projet
-  src    : dossier avec source pour coder etn non pour distribuer valant src par défaut
-  readme*: path/to/file/README.md
-           ou
-           path/to/dir/readme
-  git*   : true par défaut
   ignore*: |
     rule_1
-    rule_2
+    ...
+
+
+# ======================== #
+# == ONLY FOR MONOREPOS == #
+# ======================== #
+
+#: :if: SPEC_ID == monorepo
+projects*:
+  - project_1
+  - ...
+
+
+# ======================= #
+# == ONLY FOR PROJECTS == #
+# ======================= #
+
+#: :else:
+dist*:
+  src*: Source code folder used during the coding phase which will
+        not be distributed in its entirety. By default, the ``src``
+        value is used.

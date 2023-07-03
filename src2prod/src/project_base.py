@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 ###
-# This module is just a factorization of technical and stupid methods.
+# This module provides the tools used to implement the monitoring of
+# projects.
 ###
 
 
@@ -9,15 +10,17 @@ from typing import Union, List
 
 from shutil     import copyfile
 from subprocess import run
+from yaml       import safe_load as yaml_load
 
 from spkpb import (
-    GLOBAL_STYLE_COLOR,
     FORLOG,
+    GLOBAL_STYLE_COLOR,
     VAR_TITLE,
+    VAR_STEP_INFO,
     BaseCom,
+    Path,
     Problems,
     Speaker,
-    Path
 )
 
 
@@ -26,16 +29,18 @@ from spkpb import (
 # ------------------------------------------ #
 
 ###
-# This class contains technical methods used by the class ``project.Project``.
+# This class implements basic technical methods which will be used by
+# the ``project.Project`` class.
 ###
-class BaseProj(BaseCom):
+class ProjectBase(BaseCom):
     DIR_TAG  = 'dir'
     FILE_TAG = 'file'
 
 ###
 # prototype::
-#     project : the folder project.
-#     erase   : ``True`` value allows to remove a none empty target folder.
+#     project : the project folder.
+#     erase   : ``True`` value allows to remove a none empty existing
+#               target folder, whereas ``False`` doesn't.
 ###
     def __init__(
         self,
@@ -43,11 +48,11 @@ class BaseProj(BaseCom):
         erase  : bool = False,
     ) -> None:
 # User's choices.
-        self.project = project
-        self.erase   = erase
+        self.project: Path = project
+        self.erase  : bool = erase
 
 # To communicate.
-        self.logfile = project / f'{project.name}.src2prod.log'
+        self.logfile: Path = project / f'{project.name}.src2prod.log'
 
         super().__init__(
             Problems(
@@ -59,15 +64,31 @@ class BaseProj(BaseCom):
         )
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ###
 # prototype::
-#     kind : the kind of making made
+#     kind : the making kind
 #
 #     :action: this method resets everything.
 #
 #     :see: spkpb.problems.Problems.reset
 ###
-    def reset(
+    def reset_basecom(
         self,
         kind: str = 'SRC --> FINAL PRODUCT'
     ) -> None:
@@ -86,8 +107,35 @@ class BaseProj(BaseCom):
 
 ###
 # prototype::
+#     :return: ???
 ###
-    def yamlconfig(self):
+    @property
+    def project(self):
+        return self._project
+
+
+###
+# prototype::
+#     value :
+#
+#     :action: ???
+###
+    @project.setter
+    def project(self, value: Path):
+        if not isinstance(value, Path):
+            raise TypeError("`project` must be a `Path` value")
+
+        if not value.is_dir():
+            raise IOError("`project` is not an existing folder")
+
+        self._project = value
+
+
+###
+# prototype::
+#     :acton: ????
+###
+    def yaml2config(self) -> None:
         TODO
 
 
@@ -111,7 +159,7 @@ class BaseProj(BaseCom):
 #         ],
 #     }
 ###
-    def build_ignore(self) -> None:
+    def _build_ignore(self) -> None:
 # A file to read?
         if not isinstance(self.ignore, Path):
             ignorerules = self.ignore
@@ -243,7 +291,7 @@ class BaseProj(BaseCom):
 
 ###
 # prototype::
-#     src : the path of the src file to copy.
+#     src  : the path of the src file to copy.
 #     dest : the path of the dest file that will be the copy.
 #
 #     :action: this method copies one file.

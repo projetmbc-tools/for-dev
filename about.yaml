@@ -1,11 +1,8 @@
 # Presentation of the project : talking between human beings.
-general:
-  monorepo: for-dev
-  desc    : >
-    This project ????
-  author  : Christophe BAL
-  sources :
-    repository: https://github.com/bc-tools/for-dev
+monorepo:
+  desc  : This project ????
+  author: Christophe BAL
+  repo  : https://github.com/bc-tools/for-dev
 
 
 # ????

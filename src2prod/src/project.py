@@ -10,7 +10,7 @@ from shutil import rmtree
 from multimd import Builder as MMDBuilder
 from spkpb import *
 
-from .baseproj import *
+from .project_base import *
 
 
 # ------------------------ #
@@ -21,7 +21,7 @@ from .baseproj import *
 # This class is the main one to use such as to easily manage a project
 # following the "src-to-final-product" workflow.
 ###
-class Project(BaseProj):
+class Project(ProjectBase):
     MD_SUFFIX = '.md'
 
 ###
@@ -515,7 +515,7 @@ class Project(BaseProj):
         title      : str,
         timer_title: str
     ) -> None:
-        self.reset()
+        self.reset_speaker()
 
         self.timestamp(f'{timer_title} - start')
 
