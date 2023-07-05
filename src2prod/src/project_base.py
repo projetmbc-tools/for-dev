@@ -223,7 +223,7 @@ class ProjectBase(BaseCom):
 #             of the ignore rules.
 #
 # note::
-#     ¨git is not used here.
+#     \git is not used here.
 ###
     def iterfiles(self, onedir: Path) -> Path:
         for fileordir in onedir.iterdir():
@@ -245,14 +245,14 @@ class ProjectBase(BaseCom):
 ###
 # prototype::
 #     fileordir : the path of a file or a dir.
-#     kind      : the kind of ¨io object.
+#     kind      : the kind of \io object.
 #               @ kind in [self.DIR_TAG, self.FILE_TAG]
 #
-#     :return: ``True`` if the ¨io object must be kept regarding the ignore
+#     :return: ``True`` if the \io object must be kept regarding the ignore
 #              rules, and ``False`` otherwise.
 #
 # note::
-#     ¨git is not used here.
+#     \git is not used here.
 ###
     def keepthis(
         self,
@@ -360,7 +360,7 @@ class ProjectBase(BaseCom):
 # prototype::
 #     bytedatas : a byte content.
 #
-#     :return: the string obtained by decoding with the ¨utf8 encoding.
+#     :return: the string obtained by decoding with the \utf8 encoding.
 ###
     def decode(self, bytedatas: bytes) -> str:
         return bytedatas.decode('utf-8')

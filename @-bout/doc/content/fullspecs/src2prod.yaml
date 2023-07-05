@@ -8,6 +8,7 @@
 # ===================== #
 
 #: SPEC_ID in: [project, monorepo]
+
 SPEC_ID:
   # ----------------------- #
   # -- SHORT DESCRIPTION -- #
@@ -103,7 +104,7 @@ SPEC_ID:
 # ======================== #
 
 #: if: SPEC_ID == monorepo
-#
+
 # By default, all sub-folders are considered to be those of projects
 # belonging to the monorepo.
 #
@@ -125,5 +126,5 @@ projects*:
 #: else:
 dist*:
   src*: This is the source code folder used during the development process
-        which will not be distributed in its entirety. By default, the value
-        ``src`` is used.
+        which will not be distributed in its entirety. The default value
+        is ``src``.

@@ -33,10 +33,10 @@ class BaseProj(BaseCom):
 #     dest    : the **relative** path of the final product dir (regarding the
 #               project folder).
 #     ignore  : if a string is used then this gives the rules for ignoring
-#               files in addition to what ¨git does.
+#               files in addition to what \git does.
 #               If an instance of ``Path`` is used, thent we have a file
 #               containing the rules.
-#     usegit  : ``True`` asks to use ¨git contrary to ``False``.
+#     usegit  : ``True`` asks to use \git contrary to ``False``.
 #     readme  : ``None`` is to import an external path::``README`` file,
 #               otherwise give a **relative** path.
 #
@@ -182,14 +182,14 @@ class BaseProj(BaseCom):
 ###
 # prototype::
 #     fileordir : the path of a file or a dir.
-#     kind      : the kind of ¨io object.
+#     kind      : the kind of \io object.
 #               @ kind in [self.DIR_TAG, self.FILE_TAG]
 #
-#     :return: ``True`` if the ¨io object must be kept regarding the ignore
+#     :return: ``True`` if the \io object must be kept regarding the ignore
 #              rules, and ``False`` otherwise.
 #
 # note::
-#     ¨git is not used here.
+#     \git is not used here.
 ###
     def keepthis(
         self,
@@ -211,7 +211,7 @@ class BaseProj(BaseCom):
 #             of the ignore rules.
 #
 # note::
-#     ¨git is not used here.
+#     \git is not used here.
 ###
     def iterfiles(self, onedir: Path) -> Path:
         for fileordir in onedir.iterdir():
@@ -323,7 +323,7 @@ class BaseProj(BaseCom):
 # prototype::
 #     bytedatas : a byte content.
 #
-#     :return: the string obtained by decoding with the ¨utf8 encoding.
+#     :return: the string obtained by decoding with the \utf8 encoding.
 ###
     def decode(self, bytedatas: bytes) -> str:
         return bytedatas.decode('utf-8')

@@ -33,7 +33,7 @@ class Project(ProjectBase):
 #     erase        : ``True`` asks to remove a none empty dest folder
 #                    contrary to ``True``.
 #
-#     :action: this method builds the final product from the ¨src code.
+#     :action: this method builds the final product from the \src code.
 #
 # note::
 #     The argument ``erase`` is here to leave the responsability of
@@ -285,10 +285,10 @@ class Project(ProjectBase):
 
 ###
 # prototype::
-#     :action: this method checks that ¨git can be used,
+#     :action: this method checks that \git can be used,
 #              finds the branch on which we are working,
 #              and verifies that there isn't any uncommitted changes in
-#              the ¨src files.
+#              the \src files.
 #
 # warning::
 #     We do not want any uncommitted changes even on the ignored files because this
@@ -369,7 +369,7 @@ class Project(ProjectBase):
 #              the ignore rules.
 #
 # note::
-#     ¨git is not used here.
+#     \git is not used here.
 ###
     def files_without_git(self) -> None:
 # Let's talk.
@@ -422,7 +422,7 @@ class Project(ProjectBase):
 ###
 # prototype::
 #     :action: this method shrinks the list of files by using the ignore
-#              rules used by ¨git.
+#              rules used by \git.
 #
 # note::
 #     The method ``rungit`` fails with ``options = ['check-ignore', '**/*'])``,
