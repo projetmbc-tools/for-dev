@@ -10,14 +10,14 @@
 
 
 abrev::
-    suaver = cf::``suaVER ;
-                   https://github.com/bc-tools/for-dev/tree/main/suaver``
+    suaver = cf::''suaVER ;
+                   https://github.com/bc-tools/for-dev/tree/main/suaver''
 
-    monorepo_fordev = cf::``tools-for-dev ;
-                            https://github.com/bc-tools/for-dev``
+    monorepo_fordev = cf::''tools-for-dev ;
+                            https://github.com/bc-tools/for-dev''
 
-    semver = cf::``semantic versioning ;
-                   https://semver.org/``
+    semver = cf::''semantic versioning ;
+                   https://semver.org/''
 
     content = content
 

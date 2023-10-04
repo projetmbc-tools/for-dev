@@ -27,7 +27,7 @@
 [[:doc:]]
 ¨Doc before code: the first ¨specs look good and sufficient.
 
-    1) path::``cfg.svr.yaml``: full ¨specs done, but some clarifications about the ¨regexs will surely come soon...
+    1) path::''cfg.svr.yaml'': full ¨specs done, but some clarifications about the ¨regexs will surely come soon...
 
     1) Automatic version numbering.
 

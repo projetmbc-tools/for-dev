@@ -11,7 +11,7 @@ Les noms spéciaux pour modifier les patrons via des captures
 ============================================================
 
 info::
-    Voir aussi cf::``autonum.txt`` qui liste d'autres noms spéciaux.
+    Voir aussi cf::''autonum.txt'' qui liste d'autres noms spéciaux.
 
 
 content::

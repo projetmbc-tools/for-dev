@@ -10,11 +10,11 @@
 
 
 abrev::
-    cofiup = cf::``CoFiUp ;
-                   https://github.com/bc-tools/for-dev/tree/main/cofiup``
+    cofiup = cf::''CoFiUp ;
+                   https://github.com/bc-tools/for-dev/tree/main/cofiup''
 
-    debuggex = cf::``DebuggexBeta ; https://www.debuggex.com/``
-    regexkit = cf::``regexkit     ; https://regexkit.com/python-regex``
+    debuggex = cf::''DebuggexBeta ; https://www.debuggex.com/''
+    regexkit = cf::''regexkit     ; https://regexkit.com/python-regex''
 
     content = content
 

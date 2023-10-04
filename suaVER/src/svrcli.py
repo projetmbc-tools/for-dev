@@ -18,7 +18,7 @@ import click
 #     message : this text is to indicate one error.
 #
 #     :action: an error message is printed, then the script exits
-#              with a ``1`` error.
+#              with a ''1'' error.
 ###
 def _exit(message: str) -> None:
     print(

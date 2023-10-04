@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ###
-# This module allows to make a single path::``MD`` file from several single
+# This module allows to make a single path::''MD'' file from several single
 # ones (using or not an "automatic" merging).
 ###
 
@@ -16,16 +16,16 @@ from .toc import *
 # ------------------------------------ #
 
 ###
-# This class finds all the single path::``MD`` files and then builds a final
+# This class finds all the single path::''MD'' files and then builds a final
 # single one with all the chunks found.
 ###
 class Builder():
 
 ###
 # prototype::
-#     src   : the path of the directory containing the path::``MD`` chunks.
-#     dest  : the path of the single final path::``MD`` file to build.
-#     erase : set to ``True``, this argument allows to erase an existing
+#     src   : the path of the directory containing the path::''MD'' chunks.
+#     dest  : the path of the single final path::''MD'' file to build.
+#     erase : set to ''True'', this argument allows to erase an existing
 #             final file to build a new one.
 ###
     def __init__(
@@ -41,8 +41,8 @@ class Builder():
 
 ###
 # prototype::
-#     :action: this method finds the single path::``MD`` files, and then merges
-#              all the ¨md codes found to build the final path::``MD`` file.
+#     :action: this method finds the single path::''MD'' files, and then merges
+#              all the ¨md codes found to build the final path::''MD'' file.
 ###
     def build(self) -> None:
 # All the MD codes.

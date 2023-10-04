@@ -17,7 +17,7 @@ info::
     Si aucun ¨numver n'est trouvé, aucune ¨maj ne sera faite.
 
 
-Voici des exemples possibles d'utilisation qui seront détaillés techniquement dans la section cf::``several-examples.txt``.
+Voici des exemples possibles d'utilisation qui seront détaillés techniquement dans la section cf::''several-examples.txt''.
 
 
 content::

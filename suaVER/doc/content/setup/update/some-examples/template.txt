@@ -6,18 +6,18 @@
 Mettre à jour des lignes de contenu
 ===================================
 
-Dans le fichier suivant, nous voulons mettre à jour le texte entre les commentaires "magiques" md::``<!-- VERSION ... -->`` à chaque ¨chgt de version, hors "release", même juste pour un "patch".
+Dans le fichier suivant, nous voulons mettre à jour le texte entre les commentaires "magiques" md::''<!-- VERSION ... -->'' à chaque ¨chgt de version, hors "release", même juste pour un "patch".
 
 md::
     ---
-    title = Le fichier path::``about.md`` du projet ¨suaver
+    title = Le fichier path::''about.md'' du projet ¨suaver
     path  = ?/readme/about.md
     ---
 
 
-Commençons par la méthode la plus simple, qui devrait répondre à la majorité des cas. L'effet souhaité peut s'obtenir comme suit où sont utilisés les blocs yaml::``update`` et yaml::``template``
+Commençons par la méthode la plus simple, qui devrait répondre à la majorité des cas. L'effet souhaité peut s'obtenir comme suit où sont utilisés les blocs yaml::''update'' et yaml::''template''
 ((
-    Rien n'interdit d'utiliser le nom de patron yaml::``about`` au lieu de yaml::``templ-about``.
+    Rien n'interdit d'utiliser le nom de patron yaml::''about'' au lieu de yaml::''templ-about''.
 )).
 
 yaml::
@@ -44,8 +44,8 @@ yaml::
             >   * *Date: {date}*
 
 
-Rien de compliqué. Bien noter que yaml::``[text]`` juste après le nom du patron de conception indique que le texte est fourni directement.
-Par contre, cette méthode ne fonctionnera pas si l'on souhaite utiliser le formatage suivant car la ligne ``### Current version`` est ici un commentaire ¨yaml, or nous voulons que cette dernière soit vue comme faisant partie du contenu du patron.
+Rien de compliqué. Bien noter que yaml::''[text]'' juste après le nom du patron de conception indique que le texte est fourni directement.
+Par contre, cette méthode ne fonctionnera pas si l'on souhaite utiliser le formatage suivant car la ligne ''### Current version'' est ici un commentaire ¨yaml, or nous voulons que cette dernière soit vue comme faisant partie du contenu du patron.
 
 yaml::
     template:
@@ -61,7 +61,7 @@ Dans ce type de situation, il suffit de placer le contenu du patron dans un fich
 ((
     Cette méthode présente un gros avantage pratique en permettant le stockage à un endroit fixé de patrons utilisables dans divers projets.
 )),
-puis de changer comme suit la ¨def du patron où yaml::``[path]`` indique qu'un chemin va être indiqué.
+puis de changer comme suit la ¨def du patron où yaml::''[path]'' indique qu'un chemin va être indiqué.
 
 yaml::
     template:
@@ -73,7 +73,7 @@ Pour finir, si la ¨tech de repérage via des textes "encadrant" ne répond pas 
 ((
     Si besoin, le site ¨regexkit vous apportera des éclairciments sur l'regex_FR employée.
 )).
-Noter l'emploi du groupe nommé spécial regex::``template``.
+Noter l'emploi du groupe nommé spécial regex::''template''.
 
 yaml::
     update:

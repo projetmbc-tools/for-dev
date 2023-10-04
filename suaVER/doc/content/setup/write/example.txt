@@ -7,8 +7,8 @@ Un exemple pour mieux comprendre
 ================================
 
 warning::
-    Dans l'exemple qui suit, nous allons voir que ¨suaver s'appuie sur des ¨grpes de capture nommés. Afin de pouvoir associer une date à une version, il faut obligatoirement utiliser a minima les noms de ¨grpe ``day``, ``month``, ``year`` et ``version``.
-    La section cf::``?/spenames.txt`` donne l'¨ens des noms spéciaux de groupes propres au fonctionnement de ¨suaver.
+    Dans l'exemple qui suit, nous allons voir que ¨suaver s'appuie sur des ¨grpes de capture nommés. Afin de pouvoir associer une date à une version, il faut obligatoirement utiliser a minima les noms de ¨grpe ''day'', ''month'', ''year'' et ''version''.
+    La section cf::''?/spenames.txt'' donne l'¨ens des noms spéciaux de groupes propres au fonctionnement de ¨suaver.
     En plus de tous ces noms, rien n'empêche d'en utiliser des supplémentaires : les captures associées seront utilisables pour les ¨majs, ainsi que les ¨verifs dont nous parlerons plus tard dans ce ¨docu.
 
 
@@ -25,11 +25,11 @@ yaml::
             - '^={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)\n={2,}\n'
 
 
-Avec la ¨1iere règle, ¨suaver analysera par exemple les fichiers de chemins path::``changes/2022/12.txt``, et path::``changes/2023/01.txt``, et pour chacun de ces deux fichiers, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, seront `(2022, 12)` et `(2023, 01)`. Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.
+Avec la ¨1iere règle, ¨suaver analysera par exemple les fichiers de chemins path::''changes/2022/12.txt'', et path::''changes/2023/01.txt'', et pour chacun de ces deux fichiers, les couples de ¨nbres `(year, month)` capturés, pour un usage ultérieur, seront `(2022, 12)` et `(2023, 01)`. Le site ¨regexkit donne les explications détaillées suivantes, après traduction en français.
 
 verbatim::
     ---
-    title = Comprendre regex::``changes/(?P<year>\d{4})/(?P<month>\d{2})\.txt``
+    title = Comprendre regex::''changes/(?P<year>\d{4})/(?P<month>\d{2})\.txt''
     ---
 
     changes/ correspond aux caractères changes/ littéralement
@@ -52,10 +52,10 @@ verbatim::
 
 
 info::
-    Pour les chemins de fichiers, le caractère ``/`` est le "séparateur de dossier", y compris pour le ¨os_FR ¨winOS. Ceci permet en coulisse de rechercher efficacement les fichiers à analyser.
+    Pour les chemins de fichiers, le caractère ''/'' est le "séparateur de dossier", y compris pour le ¨os_FR ¨winOS. Ceci permet en coulisse de rechercher efficacement les fichiers à analyser.
 
 
-Pour extraire des ¨infos dans les fichiers analysés, la ¨2nde ¨regex_FR indique de repérer dans le code fictif suivant les ¨numsver version::``0.1.1-rc`` et version::``0.1.2-rc``, mais aussi de capturer les numéros de jour verb::``09`` et verb::``13`` associés aux ¨numsver repérés.
+Pour extraire des ¨infos dans les fichiers analysés, la ¨2nde ¨regex_FR indique de repérer dans le code fictif suivant les ¨numsver version::''0.1.1-rc'' et version::''0.1.2-rc'', mais aussi de capturer les numéros de jour verb::''09'' et verb::''13'' associés aux ¨numsver repérés.
 
 tnschges::
     ==
@@ -86,7 +86,7 @@ De nouveau, le site ¨regexkit peut être utilisé pour obtenir les explications
 
 verbatim::
     ---
-    title = Comprendre regex::``^={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)\n={2,}\n``
+    title = Comprendre regex::''^={2,}\n(?P<day>\d{2})[ \t]*\((?P<version>.*)\)\n={2,}\n''
     ---
 
     ^ correspond à la position au début de la chaîne
@@ -132,6 +132,6 @@ verbatim::
 
 
 info::
-    L'¨regex_FR regex::``(?P<version>.*)`` est volontairement très vague afin de pouvoir repérer des erreurs de saisie. Pour les ¨nbres associés aux dates, il a été estimé que les fautes de frappe étaient trop rares pour demander à ¨suaver de les repérer.
+    L'¨regex_FR regex::''(?P<version>.*)'' est volontairement très vague afin de pouvoir repérer des erreurs de saisie. Pour les ¨nbres associés aux dates, il a été estimé que les fautes de frappe étaient trop rares pour demander à ¨suaver de les repérer.
 
-    Ceci permet aussi de pouvoir demander à ¨suaver de numéroter ¨auto^t "en dur" une version : voir cf::``autonum.txt`` à ce sujet.
+    Ceci permet aussi de pouvoir demander à ¨suaver de numéroter ¨auto^t "en dur" une version : voir cf::''autonum.txt'' à ce sujet.

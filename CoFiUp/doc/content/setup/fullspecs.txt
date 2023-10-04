@@ -10,16 +10,16 @@ Le code donné un peu plus bas réunit tout ce qu'il est permis de configurer.
 
 
 note::
-    Par convention, cofiup::``...`` symbolise la possibilité de répéter un usage autant de fois que nécessaire, autrement dit que l'on a un ¨dict ou une liste de taille ¨qcq.
+    Par convention, cofiup::''...'' symbolise la possibilité de répéter un usage autant de fois que nécessaire, autrement dit que l'on a un ¨dict ou une liste de taille ¨qcq.
 
 
 warning::
-    Dans le code suivant, cofiup::``storein: dict / database`` indique l'usage au choix de cofiup::``storein: dict``, ou  cofiup::``storein: database``. Il faut savoir que cofiup::``storein: dict`` n'est utilisable que si chaque variable capturée admet une ¨val unique.
+    Dans le code suivant, cofiup::''storein: dict / database'' indique l'usage au choix de cofiup::''storein: dict'', ou  cofiup::''storein: database''. Il faut savoir que cofiup::''storein: dict'' n'est utilisable que si chaque variable capturée admet une ¨val unique.
 
 
 cofiup::
     ---
-    title  = Version du date(fr)::``:this.date:``
+    title  = Version du date(fr)::'':this.date:''
     path   = :this.name:.yaml
     render = no syntax errors
     ---

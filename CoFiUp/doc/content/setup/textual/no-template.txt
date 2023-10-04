@@ -10,21 +10,21 @@ abrev::
 Et sans patron de conception ?
 ==============================
 
-Il est des situations où l'emploi d'un patron de conception ne fait pas sens. En modifiant l'exemple vu dans cf::``template.txt``, nous allons voir comment se passer des patrons de conception.
-La fabrication des données à utiliser reste identique à ce qui était vu dans cf::``template.txt``. Concentrons-nous donc sur ce que l'on souhaite mettre à jour : le contenu initial du fichier path::``about.md`` est maintenant le suivant.
+Il est des situations où l'emploi d'un patron de conception ne fait pas sens. En modifiant l'exemple vu dans cf::''template.txt'', nous allons voir comment se passer des patrons de conception.
+La fabrication des données à utiliser reste identique à ce qui était vu dans cf::''template.txt''. Concentrons-nous donc sur ce que l'on souhaite mettre à jour : le contenu initial du fichier path::''about.md'' est maintenant le suivant.
 
 md::
     ---
-    title = Contenu initial du fichier path::``readme/about.md``
+    title = Contenu initial du fichier path::''readme/about.md''
     path  = ¨examples/about-start.md
     ---
 
 
-Dans les deux bouts de texte md::``*Number: not yet!*`` et md::``*Date: not yet!*``, nous cherchons à mettre à jour ce qui se trouve entre les deux points et l'astérisque afin d'obtenir ce qui suit.
+Dans les deux bouts de texte md::''*Number: not yet!*'' et md::''*Date: not yet!*'', nous cherchons à mettre à jour ce qui se trouve entre les deux points et l'astérisque afin d'obtenir ce qui suit.
 
 md::
     ---
-    title = Contenu souhaité pour le fichier path::``readme/about.md``
+    title = Contenu souhaité pour le fichier path::''readme/about.md''
     path  = ¨examples/about.md
     ---
 
@@ -37,7 +37,7 @@ Bien noter l'emploi de groupes de capture nommés avec les noms des données à 
 
 cofiup::
     ---
-    title = Extrait du fichier path::``cfg.cfup.yaml``
+    title = Extrait du fichier path::''cfg.cfup.yaml''
     path  = ¨examples/cfg-extract.cfup.yaml
     from  = # -- CE QUI EST ACTUALISÉ -- #
     ---

@@ -28,9 +28,9 @@ CLI = typer.Typer()
 #               project folder).
 #     ignore  : the rules for ignoring files in addition to what ¨git does.
 #               You can use this argument even if you don't work with
-#     usegit  : ``True`` asks to use ¨git contrary to ``False``.
-#     readme  : ``''`` is if you don't need to import an external
-#               path::``README`` file, otherwise give a **relative** path.
+#     usegit  : ''True'' asks to use ¨git contrary to ''False''.
+#     readme  : '''''' is if you don't need to import an external
+#               path::''README'' file, otherwise give a **relative** path.
 #
 #     :action: this function allows to update a project from a terminal.
 ###
@@ -58,7 +58,7 @@ def _CLI(
         typer.Option(
             '--dest', '-d',
             help = 'Relative path of the product folder of the project. '
-                   'The default value ``None`` indicates  to use '
+                   'The default value ''None'' indicates  to use '
                    'the lower case name of the project.'
     )] = None,
     ignore : Annotated[
@@ -67,7 +67,7 @@ def _CLI(
             '--ignore', '-i',
             help = 'Path to a file with the rules for ignoring files '
                    'in addition to what git does. '
-                   'The default value ``''`` indicates to not use '
+                   'The default value '''''' indicates to not use '
                    'any rule.'
     )] = '',
     usegit : Annotated[
@@ -82,7 +82,7 @@ def _CLI(
             '--readme', '-r',
             help = 'Relative path of an external "README" file, or '
                    'a "readme" folder. '
-                   'The default value ``None`` indicates to not use '
+                   'The default value ''None'' indicates to not use '
                    'any external "README" file.'
     )] = None,
     erase  : Annotated[
@@ -95,7 +95,7 @@ def _CLI(
 ) -> None:
 # We take care of the user...
     if not erase:
-        print('WARNING: Using ``--erase`` can be dangerous.')
+        print('WARNING: Using ''--erase'' can be dangerous.')
 
 # What is the target?
     if dest == None:

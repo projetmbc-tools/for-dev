@@ -24,7 +24,7 @@ CLI = typer.Typer()
 #     src_dest : a couple of paths giving the source directory with
 #                the MD chunks to be merged, and the final MD file
 #                to build.
-#     erase    : set to ``True``, this argument allows to erase
+#     erase    : set to ''True'', this argument allows to erase
 #                an existing final file before building the new one.
 #
 #     :action: :see: mmdbuild.MMDBuilder

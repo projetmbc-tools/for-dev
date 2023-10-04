@@ -1,6 +1,6 @@
 ﻿# NOTES.
 #     1) Names folowed by one star indicates an optional setting.
-#     2) Special comments ``#:`` allows to use one small DSL to indicate
+#     2) Special comments ''#:'' allows to use one small DSL to indicate
 #        some constraints.
 
 # The paths follows the UNIX syntax with a slash instead of one backslash.

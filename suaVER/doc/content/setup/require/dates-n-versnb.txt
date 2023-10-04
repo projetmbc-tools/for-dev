@@ -10,7 +10,7 @@ Dates et numéros cohérents
 ((
     Le "¨semver" tente de rationnaliser la numérotation des projets. Certaines règles sémantiques sont tout de même trop strictes pour être suivies à la lettre. Ceci étant indiqué, la façon d'ordonner les ¨numsver est très logique, c'est pour cette raison que ¨suaver s'appuie sur ce système de numérotation.
 ))
-via le package python::``semantic-version``. Voici une utilisation de ce paquet dans la console ¨python qui donne un aperçu du fonctionnemnt du "¨semver".
+via le package python::''semantic-version''. Voici une utilisation de ce paquet dans la console ¨python qui donne un aperçu du fonctionnemnt du "¨semver".
 
 pyterm::
     >>> import semantic_version

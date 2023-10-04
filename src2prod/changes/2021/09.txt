@@ -10,7 +10,7 @@
 -----
 
 [[:api:]]
-The method ``BaseProj.reset`` has an optional argument ``kind`` to indicate the kind of method used to build a project (this is used by ¨texfactory).
+The method ''BaseProj.reset'' has an optional argument ''kind'' to indicate the kind of method used to build a project (this is used by \texfactory).
 
 
 // ---------- //
@@ -25,4 +25,4 @@ The method ``BaseProj.reset`` has an optional argument ``kind`` to indicate the 
 -----
 
 [[:api:]]
-The method ``Project.update`` has two new arguments ``opensession`` and ``closesession``.
+The method ''Project.update'' has two new arguments ''opensession'' and ''closesession''.

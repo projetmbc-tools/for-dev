@@ -6,8 +6,8 @@
 Principe général
 ================
 
-La ¨maj de fichiers par ¨suaver s'indique via le bloc yaml::``autonum`` qui est présnté dans cf::``?/autonum.txt``, et le bloc yaml::``update`` qui nous intéresse ici.
-Ce dernier admet la ¨struc générale donnée ci-dessous où yaml::``"..."`` indique un nombre illimité de règles. La section suivante va permettre de savoir comment employer les fonctionnalités disponibles.
+La ¨maj de fichiers par ¨suaver s'indique via le bloc yaml::''autonum'' qui est présnté dans cf::''?/autonum.txt'', et le bloc yaml::''update'' qui nous intéresse ici.
+Ce dernier admet la ¨struc générale donnée ci-dessous où yaml::''"..."'' indique un nombre illimité de règles. La section suivante va permettre de savoir comment employer les fonctionnalités disponibles.
 
 yaml::
     # Trois options disponibles.

@@ -12,11 +12,11 @@ Configurer : partir sur de bonnes bases
 
 Avant d'utiliser ¨cofiup en lignes de commandes dans des cas simples
 ((
-    Voir cf::``?/via-cli.txt``.
+    Voir cf::''?/via-cli.txt''.
 )),
 ou directement via ¨python pour des cas plus complexes
 ((
-    Voir cf::``via-python.txt``.
+    Voir cf::''via-python.txt''.
 )),
 il est nécessaire d'indiquer à ¨cofiup un ensemble de règles de lecture et d'écriture via un fichier au format ¨yaml
 ((

@@ -6,4 +6,4 @@
 Pour les patrons de conception
 ==============================
 
-Pour utiliser des patrons de conception, il faut passer via ``template``.
+Pour utiliser des patrons de conception, il faut passer via ''template''.

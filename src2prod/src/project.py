@@ -26,17 +26,17 @@ class Project(ProjectBase):
 
 ###
 # prototype::
-#     opensession  : ``True`` is to reset eveything and open the communication
-#                    and ``False`` starts directly the work.
-#     closesession : ``True`` is to close the communication and
-#                    ``False`` otherwise.
-#     erase        : ``True`` asks to remove a none empty dest folder
-#                    contrary to ``True``.
+#     opensession  : ''True'' is to reset eveything and open the communication
+#                    and ''False'' starts directly the work.
+#     closesession : ''True'' is to close the communication and
+#                    ''False'' otherwise.
+#     erase        : ''True'' asks to remove a none empty dest folder
+#                    contrary to ''True''.
 #
 #     :action: this method builds the final product from the \src code.
 #
 # note::
-#     The argument ``erase`` is here to leave the responsability of
+#     The argument ''erase'' is here to leave the responsability of
 #     removing a none empty folder to the user (my lawyers forced me
 #     to add this feature).
 ###
@@ -154,7 +154,7 @@ class Project(ProjectBase):
 ###
 # prototype::
 #     :action: this method writes the content into the final
-#              path::``README`` file.
+#              path::''README'' file.
 ###
     def build_readme(self) -> None:
 # No README to copy.
@@ -168,7 +168,7 @@ class Project(ProjectBase):
         else:
             readme_src = self.project / 'README.md'
 
-# Let ``multimd.buil.Builder`` does all the thankless job...
+# Let ''multimd.buil.Builder'' does all the thankless job...
             MMDBuilder(
                 src   = self.readme_src,
                 dest  = readme_src,
@@ -192,10 +192,10 @@ class Project(ProjectBase):
 
 ###
 # prototype::
-#     opensession  : ``True`` is to reset eveything and open the communication
-#                    and ``False`` starts directly the work.
-#     closesession : ``True`` is to close the communication and
-#                    ``False`` otherwise.
+#     opensession  : ''True'' is to reset eveything and open the communication
+#                    and ''False'' starts directly the work.
+#     closesession : ''True'' is to close the communication and
+#                    ''False'' otherwise.
 #
 #     :action: this method is the great bandleader building the list of files
 #              to be copied to the dest dir.
@@ -240,8 +240,8 @@ class Project(ProjectBase):
 
 ###
 # prototype::
-#     :action: this method checks the existence of a path::``README`` file
-#              if the user has given such one, or a path::``readme`` folder.
+#     :action: this method checks the existence of a path::''README'' file
+#              if the user has given such one, or a path::''readme'' folder.
 ###
     def check_readme(self) -> None:
 # No external README.
@@ -425,7 +425,7 @@ class Project(ProjectBase):
 #              rules used by \git.
 #
 # note::
-#     The method ``rungit`` fails with ``options = ['check-ignore', '**/*'])``,
+#     The method ''rungit'' fails with ''options = ['check-ignore', '**/*'])'',
 #     so we must test directly each path.
 ###
     def removed_by_git(self) -> None:

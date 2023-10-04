@@ -79,7 +79,7 @@ update:
     <NOM-RÈGLE-3>:
       path    : <CHEMIN-MOTIF-A-LA-UNIX>
       template: <NOM-DU-PATRON>
-# Un groupe nommé ``template`` indique où faire le remplacement.
+# Un groupe nommé ''template'' indique où faire le remplacement.
       regex   : <REGEX-DE-REMPLACEMENT>
 
     ...

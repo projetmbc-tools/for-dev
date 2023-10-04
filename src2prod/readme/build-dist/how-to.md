@@ -2,7 +2,7 @@
 
 The parameters are specified in the `about.yaml` file where the `dist` key is the one that talks to `src2prod` (the `YAML` file can use other main keys). For our fictitious project, we use the `ignore` subkey to indicate which files and folders to ignore that are still kept by `git` (a rule ending by `/` is for folders). We also specify the `README.md` file to put in the output code.
 
-```yaml
+''`yaml
 dist:
   # We use a relative path.
   readme: README.md
@@ -11,7 +11,7 @@ dist:
   ignore: |
     tool_*/
     tool_*.*
-```
+''`
 
 > ***NOTE:*** *it is possible to use finer settings. See the documentation for more information.*
 

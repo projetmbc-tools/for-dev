@@ -31,7 +31,7 @@ toc:
 
 The construction of the new final product `mockproject` is very simple: we just specify the folder `readme` instead of a file in the `MockProject/about.yaml` file which is now the following one.
 
-```yaml
+''`yaml
 dist:
   # We use a relative path with the character /
   # at the end to say that we give a folder.
@@ -39,7 +39,7 @@ dist:
   ignore: |
     tool_*/
     tool_*.*
-```
+''`
 
 
 That's all folks!

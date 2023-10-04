@@ -2,7 +2,7 @@
 
 ###
 # This module is the entry point for the standard classical command
-# ``python -m jinjang``.
+# ''python -m jinjang''.
 ###
 
 from .svrcli import *

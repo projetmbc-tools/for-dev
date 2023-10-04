@@ -10,7 +10,7 @@
 --------
 
 [[:doc:]]
-path::``README.md``: many errors have been corrected.
+path::''README.md'': many errors have been corrected.
 
 
 // ---------- //
@@ -25,12 +25,12 @@ path::``README.md``: many errors have been corrected.
 -------
 
 [[:api:]]
-¨CLI: direct use of term::``python -m src2prod`` is now possible.
+\Cli: direct use of term::''python -m src2prod'' is now possible.
 
 
--------
+--------
 :fordev:
--------
+--------
 
 [[:update:]]
-Changes due to the new version of ¨multimd: the use of path::``about.yaml`` replaces the obsolete path::``about.peuf``.
+Changes due to the new version of \multimd: the use of path::''about.yaml'' replaces the obsolete path::''about.peuf''.

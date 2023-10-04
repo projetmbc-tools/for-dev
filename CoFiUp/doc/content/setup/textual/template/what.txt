@@ -7,7 +7,7 @@ Ce que l'on souhaite...
 =======================
 
 ¨cofiup fait partie du mono-dépôt ¨monorepo_fordev dans lequel certaines règles communes de développement sont utilisées.
-L'une d'elles permet de rédiger les ¨chgts ¨techs en anglais, et une fois ceci fait, une ¨maj ¨auto d'une partie du contenu d'un fichier path::``readme/about.md`` permet de ¨tjrs indiquer le dernier ¨numver.
+L'une d'elles permet de rédiger les ¨chgts ¨techs en anglais, et une fois ceci fait, une ¨maj ¨auto d'une partie du contenu d'un fichier path::''readme/about.md'' permet de ¨tjrs indiquer le dernier ¨numver.
 Pour voir comment faire cela, nous allons considérer un project fictif ayant la structure suivante.
 
 dirtree::
@@ -26,28 +26,28 @@ dirtree::
         + [...]
 
 
-Dans chaque fichier du dossier path::``changes``, les ¨numsver sont datés au jour près, et indiqués comme suit.
+Dans chaque fichier du dossier path::''changes'', les ¨numsver sont datés au jour près, et indiqués comme suit.
 
 tnschges::
     ---
-    title = Contenu fictif du fichier path::``changes/2022/03.txt``
+    title = Contenu fictif du fichier path::''changes/2022/03.txt''
     path  = ¨examples/changes/2022/03.txt
     ---
 
 
-Quant au contenu du fichier path::``about.md``, c'est le suivant.
+Quant au contenu du fichier path::''about.md'', c'est le suivant.
 
 md::
     ---
-    title = Contenu initial du fichier path::``readme/about.md``
+    title = Contenu initial du fichier path::''readme/about.md''
     path  = ¨examples/about-start.md
     ---
 
 
-Notre but va être de mettre à jour dans le texte ci-dessus la partie entre les commentaires "magiques" md::``<!-- VERSION ... -->`` afin de ¨tjrs indiquer le ¨numver le plus récent pour obtenir le contenu suivant.
+Notre but va être de mettre à jour dans le texte ci-dessus la partie entre les commentaires "magiques" md::''<!-- VERSION ... -->'' afin de ¨tjrs indiquer le ¨numver le plus récent pour obtenir le contenu suivant.
 
 md::
     ---
-    title = Contenu souhaité pour le fichier path::``readme/about.md``
+    title = Contenu souhaité pour le fichier path::''readme/about.md''
     path  = ¨examples/about.md
     ---

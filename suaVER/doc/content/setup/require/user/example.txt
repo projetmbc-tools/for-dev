@@ -6,7 +6,7 @@
 Un exemple pour mieux comprendre
 ================================
 
-Imaginons que nous souhaitions développer un projet nommé ``the-project`` ayant la structure suivante où le dossier path::``src/main-changes`` doit contenir des ¨infos non ¨techs sur les versions mineures et majeures, hors "prelease". Ces explications sont à placer dans des fichiers de chemin du type path::``src/main-changes/year/month/day.txt`` faisant référence à la date de la version expliquée. L'¨ens de tous les ¨chgts est quant à lui situé dans le dossier path::``all-changes``.
+Imaginons que nous souhaitions développer un projet nommé ''the-project'' ayant la structure suivante où le dossier path::''src/main-changes'' doit contenir des ¨infos non ¨techs sur les versions mineures et majeures, hors "prelease". Ces explications sont à placer dans des fichiers de chemin du type path::''src/main-changes/year/month/day.txt'' faisant référence à la date de la version expliquée. L'¨ens de tous les ¨chgts est quant à lui situé dans le dossier path::''all-changes''.
 
 dirtree::
     + the-project
@@ -24,7 +24,7 @@ dirtree::
         + [...]
 
 
-¨suaver associe une date à un ¨numver via la connaissance de groupes de capture nommés regex::``year``, regex::``month``, et regex::``day``, et pour faire ¨ref à ces valeurs dans une valeur de type ¨regex_FR, il suffit d'employer ``{year}``, ``{month}``, et ``{day}`` comme suit. Noter l'échappement du point de l'extension via regex::``\.`` car nous travaillons avec des ¨regexs_FR.
+¨suaver associe une date à un ¨numver via la connaissance de groupes de capture nommés regex::''year'', regex::''month'', et regex::''day'', et pour faire ¨ref à ces valeurs dans une valeur de type ¨regex_FR, il suffit d'employer ''{year}'', ''{month}'', et ''{day}'' comme suit. Noter l'échappement du point de l'extension via regex::''\.'' car nous travaillons avec des ¨regexs_FR.
 
 yaml::
     require:
@@ -33,10 +33,10 @@ yaml::
             - 'src/main-changes/{year}/{month}/{day}\.txt'
 
 
-En coulisse, ce sont des "f-strings" ¨python qui sont employées pour injecter les bonnes valeurs dans yaml::``'src/main-changes/{year}/{month}/{day}\.txt'``, pour ensuite employer le résultat obtenu comme une ¨regex_FR.
+En coulisse, ce sont des "f-strings" ¨python qui sont employées pour injecter les bonnes valeurs dans yaml::'''src/main-changes/{year}/{month}/{day}\.txt''', pour ensuite employer le résultat obtenu comme une ¨regex_FR.
 
 
-Imaginons de plus que des lignes du type verbatim::``VERSION : 0.4.0`` doivent apparaître au moins une fois dans les fichiers visés. Pour ce faire, il suffit de procéder comme suit où regex::``^`` et regex::``$`` indiquent ¨resp le début et la fin d'une ligne.
+Imaginons de plus que des lignes du type verbatim::''VERSION : 0.4.0'' doivent apparaître au moins une fois dans les fichiers visés. Pour ce faire, il suffit de procéder comme suit où regex::''^'' et regex::''$'' indiquent ¨resp le début et la fin d'une ligne.
 
 yaml::
     require:
@@ -47,4 +47,4 @@ yaml::
 
 
 info::
-    Voir cf::``?/spenames.txt`` pour avoir la liste complète des noms spéciaux proposés par ¨suaver, en plus de ceux que vous utiliserez éventuellement.
+    Voir cf::''?/spenames.txt'' pour avoir la liste complète des noms spéciaux proposés par ¨suaver, en plus de ceux que vous utiliserez éventuellement.

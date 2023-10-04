@@ -3,7 +3,7 @@ abrev::
 
 
 ===================
-La saveur ``latex``
+La saveur ''latex''
 ===================
 
 content::

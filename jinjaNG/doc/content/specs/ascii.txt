@@ -7,7 +7,7 @@ abrev::
 
 
 ===============================================
-La saveur ``ascii``, le comportement par défaut
+La saveur ''ascii'', le comportement par défaut
 ===============================================
 
 warning::

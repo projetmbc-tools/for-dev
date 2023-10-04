@@ -18,7 +18,7 @@ from spkpb import *
 # ------------------------------------------ #
 
 ###
-# This class contains technical methods used by the class ``project.Project``.
+# This class contains technical methods used by the class ''project.Project''.
 ###
 class BaseProj(BaseCom):
     DIR_TAG  = 'dir'
@@ -34,10 +34,10 @@ class BaseProj(BaseCom):
 #               project folder).
 #     ignore  : if a string is used then this gives the rules for ignoring
 #               files in addition to what \git does.
-#               If an instance of ``Path`` is used, thent we have a file
+#               If an instance of ''Path'' is used, thent we have a file
 #               containing the rules.
-#     usegit  : ``True`` asks to use \git contrary to ``False``.
-#     readme  : ``None`` is to import an external path::``README`` file,
+#     usegit  : ''True'' asks to use \git contrary to ''False''.
+#     readme  : ''None'' is to import an external path::''README'' file,
 #               otherwise give a **relative** path.
 #
 # warning::
@@ -45,7 +45,7 @@ class BaseProj(BaseCom):
 #     update.
 #
 # note::
-#     Additional attributes are created/reseted by the method ``reset``.
+#     Additional attributes are created/reseted by the method ''reset''.
 ###
     def __init__(
         self,
@@ -111,7 +111,7 @@ class BaseProj(BaseCom):
 
 ###
 # prototype::
-#     :action: this method builds ``self.ignore_rules`` which is a dictionary.
+#     :action: this method builds ''self.ignore_rules'' which is a dictionary.
 #
 # Here is how the dictionary looks like.
 #
@@ -185,8 +185,8 @@ class BaseProj(BaseCom):
 #     kind      : the kind of \io object.
 #               @ kind in [self.DIR_TAG, self.FILE_TAG]
 #
-#     :return: ``True`` if the \io object must be kept regarding the ignore
-#              rules, and ``False`` otherwise.
+#     :return: ''True'' if the \io object must be kept regarding the ignore
+#              rules, and ''False'' otherwise.
 #
 # note::
 #     \git is not used here.
@@ -207,7 +207,7 @@ class BaseProj(BaseCom):
 # prototype::
 #     onedir : a dir to analyze.
 #
-#     :yield: the files in the folder ``onedir`` kept after the application
+#     :yield: the files in the folder ''onedir'' kept after the application
 #             of the ignore rules.
 #
 # note::
@@ -234,8 +234,8 @@ class BaseProj(BaseCom):
 # prototype::
 #     onedir : a dir.
 #
-#     :return: ``True`` if the folder doesn't exist yet or is empty and
-#              ``False`` otherwise.
+#     :return: ''True'' if the folder doesn't exist yet or is empty and
+#              ''False'' otherwise.
 ###
     def isempty(self, onedir: Path) -> bool:
 # The folder doesn't exist.
@@ -279,8 +279,8 @@ class BaseProj(BaseCom):
 #
 #     :return: the stripped standard output sent by the command.
 #
-# This method launches the command terminal::``git`` with the options given
-# in the list ``options``.
+# This method launches the command terminal::''git'' with the options given
+# in the list ''options''.
 ###
     def rungit(self, options: List[str]) -> str:
         cmd = ['git'] + options

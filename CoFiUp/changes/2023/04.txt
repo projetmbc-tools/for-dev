@@ -10,7 +10,7 @@
 -----
 
 [[:api:]]
-¨Config file: a new mandatory key cofiup::``storein`` has been added to explicitly indicate whether the data will be stored either in a ¨python ¨dict, or in an in-memory database.
+¨Config file: a new mandatory key cofiup::''storein'' has been added to explicitly indicate whether the data will be stored either in a ¨python ¨dict, or in an in-memory database.
 
 
 --------

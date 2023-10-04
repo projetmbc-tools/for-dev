@@ -30,7 +30,7 @@ from spkpb import (
 
 ###
 # This class implements basic technical methods which will be used by
-# the ``project.Project`` class.
+# the ''project.Project'' class.
 ###
 class ProjectBase(BaseCom):
     DIR_TAG  = 'dir'
@@ -39,8 +39,8 @@ class ProjectBase(BaseCom):
 ###
 # prototype::
 #     project : the project folder.
-#     erase   : ``True`` value allows to remove a none empty existing
-#               target folder, whereas ``False`` doesn't.
+#     erase   : ''True'' value allows to remove a none empty existing
+#               target folder, whereas ''False'' doesn't.
 ###
     def __init__(
         self,
@@ -141,7 +141,7 @@ class ProjectBase(BaseCom):
 
 ###
 # prototype::
-#     :action: this method builds ``self.ignore_rules`` which is a dictionary.
+#     :action: this method builds ''self.ignore_rules'' which is a dictionary.
 #
 # Here is how the dictionary looks like.
 #
@@ -219,7 +219,7 @@ class ProjectBase(BaseCom):
 # prototype::
 #     onedir : a dir to analyze.
 #
-#     :yield: the files in the folder ``onedir`` kept after the application
+#     :yield: the files in the folder ''onedir'' kept after the application
 #             of the ignore rules.
 #
 # note::
@@ -248,8 +248,8 @@ class ProjectBase(BaseCom):
 #     kind      : the kind of \io object.
 #               @ kind in [self.DIR_TAG, self.FILE_TAG]
 #
-#     :return: ``True`` if the \io object must be kept regarding the ignore
-#              rules, and ``False`` otherwise.
+#     :return: ''True'' if the \io object must be kept regarding the ignore
+#              rules, and ''False'' otherwise.
 #
 # note::
 #     \git is not used here.
@@ -270,8 +270,8 @@ class ProjectBase(BaseCom):
 # prototype::
 #     onedir : a dir.
 #
-#     :return: ``True`` if the folder doesn't exist yet or is empty and
-#              ``False`` otherwise.
+#     :return: ''True'' if the folder doesn't exist yet or is empty and
+#              ''False'' otherwise.
 ###
     def isempty(self, onedir: Path) -> bool:
 # The folder doesn't exist.
@@ -315,8 +315,8 @@ class ProjectBase(BaseCom):
 #
 #     :return: the stripped standard output sent by the command.
 #
-# This method launches the command terminal::``git`` with the options given
-# in the list ``options``.
+# This method launches the command terminal::''git'' with the options given
+# in the list ''options''.
 ###
     def rungit(self, options: List[str]) -> str:
         cmd = ['git'] + options
