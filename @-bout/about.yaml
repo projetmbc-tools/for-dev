@@ -1,4 +1,7 @@
 project:
+  acronym: >
+    @-bout --> about (something...)
+    @ : ref au web car on propose un fichier facile à lire mais utilisable dans différents contexte
   desc   : This project allows you to easily define YAML specifications
            to allow the use of YAML files describing electronic projects
            such as code or writing.

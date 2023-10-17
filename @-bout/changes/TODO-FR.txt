@@ -1,0 +1,90 @@
+======
+@-bout - TODO
+======
+
+
+> ---------------------------- <
+
+contribution : les specs yaml s'auto-doc donc on foit pouvoir les traduire !
+
+
+> ---------------------------- <
+
+on valide struct de type str-key et str-val, mais on propose aussi un syst de validateur à appliqué sur les valeurs
+
+ceci permet de rendre les choses très flexibles!
+
+
+> ---------------------------- <
+
+spéc via YAML mais avec un mini DSL pour présicer certains choses : voir src2prod.yaml par exemple
+
+#: SPEC_ID in: [project, monorepo]
+
+SPEC_ID utilisable tel quel ensuite
+
+#: if: SPEC_ID == monorepo
+
+#: else:
+
+
+> ---------------------------- <
+
+keywords:
+  last-change: 2023-01-05
+
+  techology:
+    project:
+      - python
+
+    usage:
+      - developpers-tools
+
+
+  context:
+    - coding
+
+
+> ---------------------------- <
+
+pydantic pour model yaml attendu en plus de ceux supportés par défaut qui sont
+
+
+> ---------------------------- <
+
+on reprend princps géénraliste de suaver via des regex !
+
+ici juste besoin d'indiquer quoi remplir !
+
+
+> ---------------------------- <
+
+pour clé non utilisé, on met la valeur None
+
+préciser le fait qu'ici on ne fait que lire au ieux des about, charge aux utilisateur de gérer les cas problématiques
+
+
+> ---------------------------- <
+
+about vide ok pour mettre des commentaires descriptifs pour par exemple exi-pliquer une structure de dossiers
+
+
+> ---------------------------- <
+
+dialects par défaut
+    ---> src2prod
+    ---> TeXfacto via texfacto
+    ---> multimd
+    ---> monorepo
+
+
+dialect en plus via plugin
+    ---> faire un sytsème de chargement dynamique via des méthodes
+
+gérere l'absence de doublon et la cohérence!
+
+????
+
+
+plugin OK ????
+    --> https://www.guidodiepen.nl/2019/02/implementing-a-simple-plugin-framework-in-python/
