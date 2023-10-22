@@ -1,5 +1,5 @@
 # ------------------------------ #
-# -- Last update : 2023-09-22 -- #
+# -- Last update : 2023-10-17 -- #
 # ------------------------------ #
 
 
@@ -9,11 +9,8 @@
 
 .*
 
-x-misc-x/
 x-*-x.*
 x-*-x/
-
-*.texfactory.log
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode
