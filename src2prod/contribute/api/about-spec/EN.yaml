@@ -53,13 +53,15 @@ SPEC_ID:
   # --------------- #
   # -- RESOURCES -- #
   # --------------- #
-  repo* : The url of the product repository.
-  home* : The url of a dedicated website for the product.
-  readme: |
-          You can use two kinds of path for the ''README'' file of the
-          product.
-            1) ''path/to/file/README.md'' indicates an existing file.
-            2) ''path/to/dir/readme/'' allows to use a directory following
+  repo*  : The url of the product repository.
+  home*  : The url of a dedicated website for the product.
+  readme*: |
+           By default, a ''readme'' folder is searched first, and then
+           a ''README.md'' file in the project folder, and not its
+           source directory, but you can use two kinds of path for
+           the ''README'' file of the product.
+             1) ''path/to/file/README.md'' indicates an existing file.
+             2) ''path/to/dir/readme/'' allows to use a directory following
                the specifications of the Python project ''multimd'' such
                as to write the ''README'' file part by part.
   doc*  : The url of a dedicated website for the product documentation.
