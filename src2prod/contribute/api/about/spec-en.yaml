@@ -15,17 +15,17 @@
 # ----------------------- #
 # -- SHORT DESCRIPTION -- #
 # ----------------------- #
-  name*   : This allows you to give the name of the distributed
+  name*   : "This allows you to give the name of the distributed
             product instead of the name automatically generated from
             the name of the folder containing this YAML file (in some
-            cases, product names must follow specific naming rules).
+            cases, product names must follow specific naming rules)."
 
-  acronym*: Most names follow hidden schemas that you can explain here.
-            For example, you can just type "MY Hidden Acronym" for
-            a product named is ''myha''.
+  acronym*: "Most names follow hidden schemas that you can explain here.
+            For example, you can just type \"MY Hidden Acronym\" for
+            a product named is ''myha''."
 
-  desc    : You must always give one small description of your product,
-            or monorepo.
+  desc    : "You must always give one small description of your product,
+            or monorepo."
 
 # ---------------- #
 # -- CREATOR(S) -- #
@@ -35,21 +35,21 @@
 #     1) For authors, only the NAME is mandatory.
 #     2) Several FIRST NAMES can be indicated.
 #     3) Several MAILS can be used.
-  author* : First Name 1 ,
+  author* : "First Name 1 ,
             ... ,
             Name
-            [auth_email_1@auth_provider.abc , ...]
+            [auth_email_1@auth_provider.abc , ...]"
 
   authors*:
-    - author_1 defined as above
+    - "author_1 defined as above"
     - ...
 
 # NOTES.
 #     1) For institutes, only the NAME is mandatory.
 #     2) Several MAILS can be used.
-  institute* : Adress ,
+  institute* : "Adress ,
                Name
-               [inst_email_1@inst_provider.abc , ...]
+               [inst_email_1@inst_provider.abc , ...]"
 
   institutes*:
     - institute_1 defined as above
@@ -58,8 +58,7 @@
 # --------------- #
 # -- RESOURCES -- #
 # --------------- #
-  readme*: |
-           By default, a ''readme'' folder is searched first, and then
+  readme*: "By default, a ''readme'' folder is searched first, and then
            a ''README.md'' file in the project folder, and not its
            source directory, but you can use two kinds of path for
            the ''README'' file of the product.
@@ -67,43 +66,42 @@
              2) ''path/to/dir/readme/'' allows to use a directory
                 following the specifications of the Python project
                 ''multimd'' such  s to write the ''README'' file part
-                by part.
+                by part."
 
   url:
-    repo*: The url of the product repository.
-    home*: The url of a dedicated website for the product.
-    doc* : The url of a dedicated website for the product documentation.
+    repo*: "The url of the product repository."
+    home*: "The url of a dedicated website for the product."
+    doc* : "The url of a dedicated website for the product documentation."
 
   lang*:
-    readme*: This indicates the language(s) of the ''README'' file(s)
+    readme*: "This indicates the language(s) of the ''README'' file(s)
              which can be given as a single language ID like ''fr'' or
              ''en'' for example, or as a comma separated list of IDs like
-             ''fr, en, es''.
+             ''fr, en, es''."
 
     doc*:
-      manual*: See the specifications above for the ''README'' file.
-      code*  : See the specifications above for the ''README'' file.
+      manual*: "See the specifications above for the ''README'' file."
+      code*  : "See the specifications above for the ''README'' file."
 
 # ------------------------ #
 # -- TECHNICAL SETTINGS -- #
 # ------------------------ #
-  licence*: |
-            There is two ways to give the licence of the product.
+  licence*: "There is two ways to give the licence of the product.
               1) You can use an ID managed by the Python project ''ealic''.
               2) You can give the path of one file containing the full
                  text of the licence like in ''path/to/my/licence.txt
                  [My special licence]'' where we also have to indicate
-                 the name of the licence inside square brackets.
+                 the name of the licence inside square brackets."
 
 # You can specify several coding languages required for the use of
 # your product.
   require*:
-    - coding language 1
+    - "coding language 1"
     - ...
 
 # You can specify several optional coding languages for your product.
   optional*:
-    - coding language 1
+    - "coding language 1"
     - ...
 
 # You can complete locally the ''git'' list of paths to ignore when
@@ -131,8 +129,8 @@
 
 - SPEC_ID:
   projects*:
-    - One folder kept is indicated via ''project_1'' or ''rule_1''.
-    - One folder disgarded is indicated via ''!project_1'' or ''!rule_1''.
+    - "One folder kept is indicated via ''project_1'' or ''rule_1''."
+    - "One folder disgarded is indicated via ''!project_1'' or ''!rule_1''."
     - ...
 
 
@@ -144,6 +142,6 @@
 
 - SPEC_ID:
   dist*:
-    src*: This is the source code folder used during the development
+    src*: "This is the source code folder used during the development
           process which will not be distributed in its entirety. The
-          default value is ''src''.
+          default value is ''src''."
