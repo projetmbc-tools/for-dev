@@ -11,14 +11,14 @@
 
 #: if SPEC_ID in [project, monorepo] :#
 
-SPEC_ID:
-  # ----------------------- #
-  # -- SHORT DESCRIPTION -- #
-  # ----------------------- #
-  name*   : This allows you to give the name of the distributed product
-            instead of the name automatically generated from the name of
-            the folder containing this YAML file (in some cases, product
-            names must follow specific naming rules).
+- SPEC_ID:
+# ----------------------- #
+# -- SHORT DESCRIPTION -- #
+# ----------------------- #
+  name*   : This allows you to give the name of the distributed
+            product instead of the name automatically generated from
+            the name of the folder containing this YAML file (in some
+            cases, product names must follow specific naming rules).
 
   acronym*: Most names follow hidden schemas that you can explain here.
             For example, you can just type "MY Hidden Acronym" for
@@ -27,14 +27,14 @@ SPEC_ID:
   desc    : You must always give one small description of your product,
             or monorepo.
 
-  # ---------------- #
-  # -- CREATOR(S) -- #
-  # ---------------- #
-  #
-  # NOTES.
-  #     1) For authors, only the NAME is mandatory.
-  #     2) Several FIRST NAMES can be indicated.
-  #     3) Several MAILS can be used.
+# ---------------- #
+# -- CREATOR(S) -- #
+# ---------------- #
+#
+# NOTES.
+#     1) For authors, only the NAME is mandatory.
+#     2) Several FIRST NAMES can be indicated.
+#     3) Several MAILS can be used.
   author* : First Name 1 ,
             ... ,
             Name
@@ -44,9 +44,9 @@ SPEC_ID:
     - author_1 defined as above
     - ...
 
-  # NOTES.
-  #     1) For institutes, only the NAME is mandatory.
-  #     2) Several MAILS can be used.
+# NOTES.
+#     1) For institutes, only the NAME is mandatory.
+#     2) Several MAILS can be used.
   institute* : Adress ,
                Name
                [inst_email_1@inst_provider.abc , ...]
@@ -55,18 +55,19 @@ SPEC_ID:
     - institute_1 defined as above
     - ...
 
-  # --------------- #
-  # -- RESOURCES -- #
-  # --------------- #
+# --------------- #
+# -- RESOURCES -- #
+# --------------- #
   readme*: |
            By default, a ''readme'' folder is searched first, and then
            a ''README.md'' file in the project folder, and not its
            source directory, but you can use two kinds of path for
            the ''README'' file of the product.
              1) ''path/to/file/README.md'' indicates an existing file.
-             2) ''path/to/dir/readme/'' allows to use a directory following
-               the specifications of the Python project ''multimd'' such
-               as to write the ''README'' file part by part.
+             2) ''path/to/dir/readme/'' allows to use a directory
+                following the specifications of the Python project
+                ''multimd'' such  s to write the ''README'' file part
+                by part.
 
   url:
     repo*: The url of the product repository.
@@ -74,18 +75,18 @@ SPEC_ID:
     doc* : The url of a dedicated website for the product documentation.
 
   lang*:
-    readme*: This indicates the language(s) of the ''README'' file(s) which
-             can be given as a single language ID like ''fr'' or ''en''
-             for example, or as a comma separated list of IDs like
+    readme*: This indicates the language(s) of the ''README'' file(s)
+             which can be given as a single language ID like ''fr'' or
+             ''en'' for example, or as a comma separated list of IDs like
              ''fr, en, es''.
 
     doc*:
       manual*: See the specifications above for the ''README'' file.
       code*  : See the specifications above for the ''README'' file.
 
-  # ------------------------ #
-  # -- TECHNICAL SETTINGS -- #
-  # ------------------------ #
+# ------------------------ #
+# -- TECHNICAL SETTINGS -- #
+# ------------------------ #
   licence*: |
             There is two ways to give the licence of the product.
               1) You can use an ID managed by the Python project ''ealic''.
@@ -94,21 +95,21 @@ SPEC_ID:
                  [My special licence]'' where we also have to indicate
                  the name of the licence inside square brackets.
 
-  # You can specify several coding languages required for the use of
-  # your product.
+# You can specify several coding languages required for the use of
+# your product.
   require*:
     - coding language 1
     - ...
 
-  # You can specify several optional coding languages for your product.
+# You can specify several optional coding languages for your product.
   optional*:
     - coding language 1
     - ...
 
-  # You can complete locally the ''git'' list of paths to ignore when
-  # producing the final product.
-  #
-  # WARNING! The pipe symbol allows you to define one rule per line.
+# You can complete locally the ''git'' list of paths to ignore when
+# producing the final product.
+#
+# WARNING! The pipe symbol allows you to define one rule per line.
   ignore*: |
     rule_1
     ...
@@ -118,8 +119,6 @@ SPEC_ID:
 # == JUST FOR MONOREPOS == #
 # ======================== #
 
-#: elif SPEC_ID == monorepo :#
-
 # By default, all sub-folders are considered to be those of projects
 # belonging to the monorepo.
 #
@@ -127,10 +126,14 @@ SPEC_ID:
 #     1) Mixing keeping-and-disgarding rules is allowed.
 #     2) If only the disgard rules are used, any folder that does not
 #        comply with any of these rules will be retained.
-projects*:
-  - One folder kept is indicated via ''project_1'' or ''rule_1''.
-  - One folder disgarded is indicated via ''!project_1'' or ''!rule_1''.
-  - ...
+
+#: elif SPEC_ID == monorepo :#
+
+- SPEC_ID:
+  projects*:
+    - One folder kept is indicated via ''project_1'' or ''rule_1''.
+    - One folder disgarded is indicated via ''!project_1'' or ''!rule_1''.
+    - ...
 
 
 # =========================== #
@@ -138,7 +141,9 @@ projects*:
 # =========================== #
 
 #: else :#
-dist*:
-  src*: This is the source code folder used during the development process
-        which will not be distributed in its entirety. The default value
-        is ''src''.
+
+- SPEC_ID:
+  dist*:
+    src*: This is the source code folder used during the development
+          process which will not be distributed in its entirety. The
+          default value is ''src''.
