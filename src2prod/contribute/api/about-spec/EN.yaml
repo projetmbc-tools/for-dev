@@ -4,11 +4,14 @@
 #        some constraints in the specifications but not the YAML file
 #        that will be used.
 
-# ===================== #
-# == KIND OF PRODUCT == #
-# ===================== #
+#: assert SPEC_ID in [project, monorepo]
 
-#: SPEC_ID in: [project, monorepo]
+
+# ================= #
+# == THE PROJECT == #
+# ================= #
+
+#: if SPEC_ID in [project, monorepo] :#
 
 SPEC_ID:
   # ----------------------- #
@@ -18,15 +21,17 @@ SPEC_ID:
             instead of the name automatically generated from the name of
             the folder containing this YAML file (in some cases, product
             names must follow specific naming rules).
+
   acronym*: Most names follow hidden schemas that you can explain here.
             For example, you can just type "MY Hidden Acronym" for
             a product named is ''myha''.
+
   desc    : You must always give one small description of your product,
             or monorepo.
 
-  # -------------------------- #
-  # -- ABOUT THE CREATOR(S) -- #
-  # -------------------------- #
+  # ---------------- #
+  # -- CREATOR(S) -- #
+  # ---------------- #
   #
   # NOTES.
   #     1) For authors, only the NAME is mandatory.
@@ -36,6 +41,7 @@ SPEC_ID:
             ... ,
             Name
             [auth_email_1@auth_provider.abc , ...]
+
   authors*:
     - author_1 defined as above
     - ...
@@ -46,6 +52,7 @@ SPEC_ID:
   institute* : Adress ,
                Name
                [inst_email_1@inst_provider.abc , ...]
+
   institutes*:
     - institute_1 defined as above
     - ...
@@ -53,8 +60,6 @@ SPEC_ID:
   # --------------- #
   # -- RESOURCES -- #
   # --------------- #
-  repo*  : The url of the product repository.
-  home*  : The url of a dedicated website for the product.
   readme*: |
            By default, a ''readme'' folder is searched first, and then
            a ''README.md'' file in the project folder, and not its
@@ -64,15 +69,21 @@ SPEC_ID:
              2) ''path/to/dir/readme/'' allows to use a directory following
                the specifications of the Python project ''multimd'' such
                as to write the ''README'' file part by part.
-  doc*  : The url of a dedicated website for the product documentation.
-  lang* :
+
+  url:
+    repo*: The url of the product repository.
+    home*: The url of a dedicated website for the product.
+    doc* : The url of a dedicated website for the product documentation.
+
+  lang*:
     readme*: This indicates the language(s) of the ''README'' file(s) which
              can be given as a single language ID like ''fr'' or ''en''
              for example, or as a comma separated list of IDs like
              ''fr, en, es''.
+
     doc*:
-      - user*: See the specifications above for the ''README'' file.
-      - tech*: See the specifications above for the ''README'' file.
+      manual*: See the specifications above for the ''README'' file.
+      code*  : See the specifications above for the ''README'' file.
 
   # ------------------------ #
   # -- TECHNICAL SETTINGS -- #
@@ -84,15 +95,18 @@ SPEC_ID:
                  text of the licence like in ''path/to/my/licence.txt
                  [My special licence]'' where we also have to indicate
                  the name of the licence inside square brackets.
+
   # You can specify several coding languages required for the use of
   # your product.
   require*:
     - coding language 1
     - ...
+
   # You can specify several optional coding languages for your product.
   optional*:
     - coding language 1
     - ...
+
   # You can complete locally the ''git'' list of paths to ignore when
   # producing the final product.
   #
@@ -103,16 +117,16 @@ SPEC_ID:
 
 
 # ======================== #
-# == ONLY FOR MONOREPOS == #
+# == JUST FOR MONOREPOS == #
 # ======================== #
 
-#: if: SPEC_ID == monorepo
+#: if SPEC_ID == monorepo :#
 
 # By default, all sub-folders are considered to be those of projects
 # belonging to the monorepo.
 #
 # NOTES.
-#     1) Mixing keeping and disgarding rules is allowed.
+#     1) Mixing keeping-and-disgarding rules is allowed.
 #     2) If only the disgard rules are used, any folder that does not
 #        comply with any of these rules will be retained.
 projects*:
@@ -121,11 +135,11 @@ projects*:
   - ...
 
 
-# ======================= #
-# == ONLY FOR PROJECTS == #
-# ======================= #
+# =========================== #
+# == JUST FOR FOR PROJECTS == #
+# =========================== #
 
-#: else:
+#: else :#
 dist*:
   src*: This is the source code folder used during the development process
         which will not be distributed in its entirety. The default value
