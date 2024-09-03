@@ -1,5 +1,6 @@
 general:
     project : "@-bout"
+    name    : about
     desc    : This project allows to define and use very easy-to-write
               `YAML` files containing customisable metadatas about projects.
     author  : Christophe BAL

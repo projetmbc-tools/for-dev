@@ -1,0 +1,25 @@
+======
+@-bout - TODO
+======
+
+---
+NOW
+---
+
+> ---------------------------- <
+
+création d'un code clé en main à partir de psec avec tnsdoc automatiquement proposé.
+
+
+> ---------------------------- <
+
+comparaison de specs pour rehercher d'evntuels doublons strcts ou large : rapport au format HTML
+
+
+-----
+LATER
+-----
+
+> ---------------------------- <
+
+XXX
