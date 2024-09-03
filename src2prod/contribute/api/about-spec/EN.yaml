@@ -1,10 +1,8 @@
 ﻿# NOTES.
 #     1) Names followed by one star indicates an optional setting.
-#     2) Special comments ''#:'' allow to use one small DSL to indicate
-#        some constraints in the specifications but not the YAML file
-#        that will be used.
-
-#: assert SPEC_ID in [project, monorepo]
+#     2) Special comments ''#: ... :#'' allow to use one small DSL
+#        to indicate some constraints in the specifications but not
+#        the YAML file that will be used.
 
 
 # ================= #
@@ -120,7 +118,7 @@ SPEC_ID:
 # == JUST FOR MONOREPOS == #
 # ======================== #
 
-#: if SPEC_ID == monorepo :#
+#: elif SPEC_ID == monorepo :#
 
 # By default, all sub-folders are considered to be those of projects
 # belonging to the monorepo.
