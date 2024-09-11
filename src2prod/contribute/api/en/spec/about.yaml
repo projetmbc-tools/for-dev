@@ -3,16 +3,15 @@
 #     2) Special comments ''#: ... :#'' allow to use one small DSL
 #        to indicate some constraints in the specifications.
 
-
-# ================= #
-# == THE PROJECT == #
-# ================= #
-
 #: assert SPEC_ID in ["project", "monorepo"] :#
 
-#: if SPEC_ID in ["project", "monorepo"] :#
 
-- SPEC_ID:
+# ========================= #
+# == MONOREPO OR PROJECT == #
+# ========================= #
+
+#: if SPEC_ID_ANY in ["project", "monorepo"] :#
+SPEC_ID_ANY:
 # ----------------------- #
 # -- SHORT DESCRIPTION -- #
 # ----------------------- #
@@ -130,7 +129,7 @@
 #     2) If only the disgard rules are used, any folder that does not
 #        comply with any of these rules will be retained.
 
-- monorepo:
+monorepo:
   projects*:
     - "One folder kept is indicated via ''project_1'' or ''rule_1''."
     - "One folder disgarded is indicated via ''!project_1'' or ''!rule_1''."
@@ -141,7 +140,7 @@
 # == JUST FOR FOR PROJECTS == #
 # =========================== #
 
-- project:
+project:
   dist*:
     src*: "This is the source code folder used during the development
           process which will not be distributed in its entirety. The
