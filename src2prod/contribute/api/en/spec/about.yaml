@@ -129,7 +129,8 @@ SPEC_ID_ANY:
 #     2) If only the disgard rules are used, any folder that does not
 #        comply with any of these rules will be retained.
 
-monorepo:
+#: JUST_FOR_MONOREPO_ID = "monorepo" :#
+JUST_FOR_MONOREPO_ID:
   projects*:
     - "One folder kept is indicated via ''project_1'' or ''rule_1''."
     - "One folder disgarded is indicated via ''!project_1'' or ''!rule_1''."
@@ -140,7 +141,8 @@ monorepo:
 # == JUST FOR FOR PROJECTS == #
 # =========================== #
 
-project:
+#: JUST_FOR_PROJECT_ID = "project" :#
+JUST_FOR_PROJECT_ID:
   dist*:
     src*: "This is the source code folder used during the development
           process which will not be distributed in its entirety. The
