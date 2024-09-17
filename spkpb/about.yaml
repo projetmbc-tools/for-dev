@@ -1,16 +1,11 @@
 project:
-  acronym: SP-ea-K-ing, P-ro-B-lems
   desc   : A module to write programs which have to be verbose about
-           a specific on files and directories, and that have to emit
            informations, warnings and errors.
-  author : Christophe BAL
+  acronym: "[SP]ea[K]ing, [P]ro[B]lems"
+  author : Christophe, BAL
   licence: gnu 3
+
   repo   : https://github.com/bc-tools/for-dev/tree/main/spkpb
+
   require:
     - python3
-  ignore: |
-    test_*/
-    test_*.*
-
-    tool_*/
-    tool_*.*

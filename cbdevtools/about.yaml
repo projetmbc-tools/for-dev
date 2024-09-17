@@ -1,16 +1,11 @@
 project:
-  acronym: >
-    C-ommon B-ox of DEV TOOLS
-    (bad play on words: Christophe Bal Dev. Tools)
   desc   : Small scripts that can be helpful.
-  author : Christophe BAL
+  acronym: "[C]ommon [B]ox of [DEV. TOOLS]
+            (bad play on words: Christophe Bal Dev. Tools)"
+  author : Christophe, BAL
   licence: gnu 3
+
   repo   : https://github.com/bc-tools/for-dev/tree/main/cbdevtools
+
   require:
     - python3
-  ignore: |
-    test_*/
-    test_*.*
-
-    tool_*/
-    tool_*.*

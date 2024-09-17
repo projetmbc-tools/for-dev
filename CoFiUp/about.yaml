@@ -1,19 +1,14 @@
 project:
-  acronym: >
-    Co-ntent Fi-le Up-date
-    (bad play on words: updated content while drinking
-    your coffee "up", indeed in french the word "cofi"
-    sounds like "coffee")
   desc   : This project can update chunks of contents from
            selected files.
-  author : Christophe BAL
+  acronym: "[CO]ntent [FI]le [UP]date
+            (bad play on words: updated content while drinking
+            your coffee ''up'', indeed in french the word ''cofi''
+            sounds like ''coffee'')"
+  author : Christophe, BAL
   licence: gnu 3
+
   repo   : https://github.com/bc-tools/for-dev/tree/main/cofiup
+
   require:
     - python3
-  ignore: |
-    test_*/
-    test_*.*
-
-    tool_*/
-    tool_*.*

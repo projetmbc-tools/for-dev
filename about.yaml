@@ -1,11 +1,11 @@
-monorepo:
-  acronym: FOR DEV-elopment
-  desc   : This project offers generalist tools that attempt to simplify
-           the development cycle.
-  author : Christophe BAL
-  repo   : https://github.com/bc-tools/for-dev
+project:
+  desc   : This project allows you to analyze YAML files in detail,
+           defining their structure via YAML files.
+  acronym: "[Y]et [A]nother [V]ersatile [Y]AML [A]nalyzer"
+  author : Christophe, BAL
+  licence: gnu 3
 
+  repo   : https://github.com/bc-tools/for-dev/tree/main/yaya
 
-projects:
-  - not = changes
-  - not = monorepo-utils
+  require:
+    - python3

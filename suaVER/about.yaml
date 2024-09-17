@@ -1,18 +1,13 @@
 project:
-  acronym: >
-    S-earch / U-pdate / A-ccept VER-sion numbers
-    (play on words: more suave)
   desc   : This project allows to indicate the version number of
            a project almost everywhere, but only once, while using
            it easily in different contents.
-  author : Christophe BAL
+  acronym: "[S]earch / [U]pdate / [A]ccept [VER]-sion numbers
+            (there is a play on words: more suave)"
+  author : Christophe, BAL
   licence: gnu 3
+
   repo   : https://github.com/bc-tools/for-dev/tree/main/suaver
+
   require:
     - python3
-  ignore: |
-    test_*/
-    test_*.*
-
-    tool_*/
-    tool_*.*

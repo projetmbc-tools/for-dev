@@ -1,15 +1,11 @@
 project:
-  acronym: JINJA N-ext G-eneration
   desc   : This project tries to ameliorate the workflow when
            working with the template engine Jinja.
-  author : Christophe BAL
+  acronym: "[JINJA] [N]ext [G]eneration"
+  author : Christophe, BAL
   licence: gnu 3
+
   repo   : https://github.com/bc-tools/for-dev/tree/main/jinjang
+
   require:
     - python3
-  ignore: |
-    test_*/
-    test_*.*
-
-    tool_*/
-    tool_*.*

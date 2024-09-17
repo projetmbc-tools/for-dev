@@ -28,4 +28,6 @@ NEXT STEPS
 
     5) ealic   : next major step!
 
-    6) all tests launchable to verify interoperability of the packages: this needs to work with virtual env
+    6) yavya   : next major step!
+
+    7) all tests launchable to verify interoperability of the packages: this needs to work with virtual env
