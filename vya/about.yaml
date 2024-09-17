@@ -1,0 +1,11 @@
+project:
+  desc   : This project allows you to analyze YAML files in detail,
+           defining their structure via YAML files.
+  acronym: "[V]ersatile [Y]AML [A]nalyzer"
+  author : Christophe, BAL
+  licence: gnu 3
+
+  repo   : https://github.com/bc-tools/for-dev/tree/main/yaya
+
+  require:
+    - python3

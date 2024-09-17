@@ -1,11 +1,16 @@
-project:
-  desc   : This project allows you to analyze YAML files in detail,
-           defining their structure via YAML files.
-  acronym: "[Y]et [A]nother [V]ersatile [Y]AML [A]nalyzer"
-  author : Christophe, BAL
-  licence: gnu 3
+# Presentation of the project : talking between human beings.
+general:
+  monorepo: for-dev
+  desc    : This project ????
+  author  : Christophe BAL
+  sources :
+    repository: https://github.com/bc-tools/for-dev
 
-  repo   : https://github.com/bc-tools/for-dev/tree/main/yaya
 
-  require:
-    - python3
+# ????
+projects:
+  - inipro
+  - src2prod
+  - spkpb
+  - multimd
+  - cbdevtools
