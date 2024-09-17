@@ -1,7 +1,7 @@
 project:
   desc   : This project allows you to analyze YAML files in detail,
            defining their structure via YAML files.
-  acronym: "[V]ersatile [Y]AML [A]nalyzer"
+  acronym: "[V]ersatile [Y]AML [A]nalyzer [M]arkup [L]angage"
   author : Christophe, BAL
   licence: gnu 3
 
