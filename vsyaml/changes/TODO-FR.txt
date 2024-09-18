@@ -147,7 +147,8 @@ desc will be dded in autogrenerated code : in Python; we defined a class with me
 
 vs.yaml a ses headers dans vs.hd.yaml : plus simple à gérer et poermet de la verbosté dans les desc
 
-\VSYAML-HEADER/:
+myfile.vs.hd.yaml
+
   myvalid_1: >
     Validated data: ...
 
