@@ -52,6 +52,13 @@ fournis en plus car assez generaliste
 
         + pour avoir author mais pas authors en même temps via author |> not(exist(this.keyname))
 
+    --> si juste ANY_KIND |> in("project", "monorepo") , on ne peut pas utiliser not(exist(...))
+        Que faire ?
+        ANY_KIND |> one_in("project", "monorepo")
+
+        cette cmd n'empêche que monorepo et project apparaise dans le reste de la spec, TOP !
+
+    --> url via regex en interne
     --> std_id et gene_id
 
         + std_id: noms de var à la python

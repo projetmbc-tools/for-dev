@@ -2,7 +2,13 @@
 # == MONOREPO OR PROJECT == #
 # ========================= #
 
-MONOREPO_OR_PROJECT |> in("project", "monorepo"):
+###
+# TODO: tnsdoc
+###
+ANY_KIND |> one_in("project", "monorepo"):
+###
+# TODO: tnsdoc
+###
 # ----------------------- #
 # -- SHORT DESCRIPTION -- #
 # ----------------------- #
@@ -22,6 +28,9 @@ MONOREPO_OR_PROJECT |> in("project", "monorepo"):
   desc    : str
 
 
+###
+# TODO: tnsdoc
+###
 # ---------------- #
 # -- CREATOR(S) -- #
 # ---------------- #
@@ -30,51 +39,68 @@ MONOREPO_OR_PROJECT |> in("project", "monorepo"):
 #     1) For authors, only the NAME is mandatory.
 #     2) Several FIRST NAMES can be indicated.
 #     3) Using comas, several MAILS can be given.
-  author* |> not(exist(this.MONOREPO_OR_PROJECT.authors)) : >
+  author* |> not(exist(this.ANY_KIND.authors)) : >
     author
 
-  authors* |> not(exist(this.MONOREPO_OR_PROJECT.author)): >
+  authors* |> not(exist(this.ANY_KIND.author)): >
     list(author)
 
 # NOTES.
 #     1) For institutes, only the NAME is mandatory.
 #     2) Several MAILS can be used.
 #     3) Using comas, several MAILS can be given.
-  institute* |> not(exist(this.MONOREPO_OR_PROJECT.institutes)): >
+  institute* |> not(exist(this.ANY_KIND.institutes)): >
     institute
 
-  institutes* |> not(exist(this.MONOREPO_OR_PROJECT.institute)): >
+  institutes* |> not(exist(this.ANY_KIND.institute)): >
     list(institute)
 
 
+###
+# TODO: tnsdoc
+###
 # --------------- #
 # -- RESOURCES -- #
 # --------------- #
-  readme*: "By default, a ''readme'' folder is searched first, and then
-           a ''README.md'' file in the project folder, and not its
-           source directory, but you can use two kinds of path for
-           the ''README'' file of the product.
-             1) ''path/to/file/README.md'' indicates an existing file.
-             2) ''path/to/dir/readme/'' allows to use a directory
-                following the specifications of the Python project
-                ''multimd'' such  s to write the ''README'' file part
-                by part."
+  # readme*: "By default, a ''readme'' folder is searched first, and then
+  #          a ''README.md'' file in the project folder, and not its
+  #          source directory, but you can use two kinds of path for
+  #          the ''README'' file of the product.
+  #            1) ''path/to/file/README.md'' indicates an existing file.
+  #            2) ''path/to/dir/readme/'' allows to use a directory
+  #               following the specifications of the Python project
+  #               ''multimd'' such  s to write the ''README'' file part
+  #               by part."
 
+  readme*: XXXX
+
+
+###
+# TODO: tnsdoc
+###
+  # url:
+  #   repo*: "The url of the product repository."
+  #   home*: "The url of a dedicated website for the product."
+  #   doc* : "The url of a dedicated website for the product documentation."
   url:
-    repo*: "The url of the product repository."
-    home*: "The url of a dedicated website for the product."
-    doc* : "The url of a dedicated website for the product documentation."
+    repo*: url
+    home*: url
+    doc* : url
 
   lang*:
-    readme*: "This indicates the language(s) of the ''README'' file(s)
-             which can be given as a single language ID like ''fr'' or
-             ''en'' for example, or as a comma separated list of IDs like
-             ''fr, en, es''."
+    # readme*: "This indicates the language(s) of the ''README'' file(s)
+    #          which can be given as a single language ID like ''fr'' or
+    #          ''en'' for example, or as a comma separated list of IDs like
+    #          ''fr, en, es''."
+    readme*: lang
 
     doc*:
-#: assert DOC_KIND in ["manual", "code"] :#
-      DOC_KIND*: "See the specifications above for the ''README'' file."
+      DOC_KIND* |> in("manual", "code"): lang
 
+
+###
+# TODO: tnsdoc
+###
 # ------------------------ #
 # -- TECHNICAL SETTINGS -- #
 # ------------------------ #
@@ -103,6 +129,9 @@ MONOREPO_OR_PROJECT |> in("project", "monorepo"):
   ignore*: str
 
 
+###
+# TODO: tnsdoc
+###
 # ======================== #
 # == JUST FOR MONOREPOS == #
 # ======================== #
@@ -122,6 +151,9 @@ monorepo:
     - "etc."
 
 
+###
+# TODO: tnsdoc
+###
 # =========================== #
 # == JUST FOR FOR PROJECTS == #
 # =========================== #
