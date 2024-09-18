@@ -4,6 +4,12 @@ src2prod - TODO
 
 > ---------------------------- <
 
+api about.yaml
+
+    --> on passe vi vsyaml et els desc longues sont de la doc tnsdoc tout simplement !
+
+> ---------------------------- <
+
 treeview en plus de lof car bien plus pratique de
 
     ---> on fait un min outil dédié utilisable en ligen de commande pour des sorties à la tee

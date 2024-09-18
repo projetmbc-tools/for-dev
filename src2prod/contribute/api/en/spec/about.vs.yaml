@@ -10,8 +10,7 @@
 # == MONOREPO OR PROJECT == #
 # ========================= #
 
-#: if SPEC_ID_ANY in ["project", "monorepo"] :#
-SPEC_ID_ANY:
+MONOREPO_PROJECT |> in("project", "monorepo"):
 # ----------------------- #
 # -- SHORT DESCRIPTION -- #
 # ----------------------- #
@@ -35,14 +34,10 @@ SPEC_ID_ANY:
 #     1) For authors, only the NAME is mandatory.
 #     2) Several FIRST NAMES can be indicated.
 #     3) Using comas, several MAILS can be given.
-  author* : "First Name 1 ,
-             Name
-             [auth_email_1@auth_provider.abc]"
-
-  authors*:
-    - "author_1 defined as above"
-    - "author_2 defined as above"
-    - "etc."
+  author* |> XXXX: >
+    author
+  authors* |> XXXX: >
+    list(author)
 
 # NOTES.
 #     1) For institutes, only the NAME is mandatory.
@@ -129,8 +124,7 @@ SPEC_ID_ANY:
 #     2) If only the disgard rules are used, any folder that does not
 #        comply with any of these rules will be retained.
 
-#: JUST_FOR_MONOREPO_ID = "monorepo" :#
-JUST_FOR_MONOREPO_ID:
+monorepo:
   projects*:
     - "One folder kept is indicated via ''project_1'' or ''rule_1''."
     - "One folder disgarded is indicated via ''!project_1'' or ''!rule_1''."
@@ -141,8 +135,7 @@ JUST_FOR_MONOREPO_ID:
 # == JUST FOR FOR PROJECTS == #
 # =========================== #
 
-#: JUST_FOR_PROJECT_ID = "project" :#
-JUST_FOR_PROJECT_ID:
+project:
   dist*:
     src*: "This is the source code folder used during the development
           process which will not be distributed in its entirety. The

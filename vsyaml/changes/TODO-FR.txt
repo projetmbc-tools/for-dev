@@ -35,6 +35,36 @@ note: \|> échapper |>           (utile ????)
 
 > ---------------------------- <
 
+les psecs permettent de produire des psecs avec une doc complète om chaque valideur est doc via sa doc utilisateur ou du projet vsyaml !!!
+
+
+> ---------------------------- <
+
+fournis en plus car assez generaliste
+
+    --> std_id et gene_id
+
+        + std_id: noms de var à la python
+        + gene_id: std_id pouvant commencer par un chiffre
+
+    --> author
+
+        Validated data.
+
+            + "Name 1, Name 2, Last Name [auth_email_1@provider.abc]"
+            + "Name , Last Name [auth_email_1@provider.abc]"
+            + "Last Name [auth_email_1@provider.abc]"
+            + "Name , Last Name"
+            + "Last Name"
+
+        Returned value: a key-val structure with the following signature.
+
+            + Key "names" is for the list of names.
+            + Key "last-name" is for the last names.
+            + Key "email" is for the email.
+
+> ---------------------------- <
+
 un valideur
 
     --> si écgec, on lève une xcpetion, tout est stoppé !
