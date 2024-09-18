@@ -144,8 +144,8 @@ les valideuyrs recoivent un arg et en renvoie un autre, charge au codeur d'utili
 
 
 \VSYAML-HEADER/:
-  - myvalid_1: short desc
-  - myvalid_2: short desc
+  myvalid_1: short desc
+  myvalid_2: short desc
 
 
 sans HEADER, c'est opened bar !
