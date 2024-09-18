@@ -6,3 +6,39 @@ POC dans clalog !
 
 
 > ---------------------------- <
+
+valider une clé (majuscule par convenition mais pas obligatoire) : l'opérateur spécial |> indique l'usage d'un cél de noms non fixé à passer à al moulinette
+
+KEY_NAME |> mon_valideur:
+    ....
+
+
+> ---------------------------- <
+
+Plusieurs validations
+
+    --> DISJONCTION: any(valid_1 , valid_2, valid_3)
+
+    --> CONJONCTION: all(valid_1 , valid_2, valid_3)
+
+    --> EN SÉRIE:  chain(valid_1 , valid_2, valid_3)
+
+        Ici, valid_1 s'il résussit renvoie une donnée obtenue via la donnée initiale afin de poursuivre une autre validation...
+
+        Par exemple, on peut avoir (cf clalog)
+
+            (1h) Ma séuence chronométré (mon commentaire)
+
+            |
+            | validation de 1h stocké côté métier
+            |
+            v
+
+            Ma séuence chronométré (mon commentaire)
+
+            |
+            | valiséuence validée
+            |
+            v
+
+            STOP !

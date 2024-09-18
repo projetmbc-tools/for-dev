@@ -3,7 +3,7 @@ project:
            defining their structure via YAML files.
   acronym: "[V]ersatile [Y]AML [A]nalyzer [M]arkup [L]angage
             or
-            [V]alidate [YAML] files"
+            [V]alidate your [YAML] files"
   author : Christophe, BAL
   licence: gnu 3
 
