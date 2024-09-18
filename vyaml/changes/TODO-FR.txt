@@ -15,7 +15,7 @@ KEY_NAME |> mon_valideur:
 
 > ---------------------------- <
 
-Plusieurs validations
+Plusieurs validations pout ne pas avoir qu des fonctions dédiées faisant à cahque fois tout, on éclate ainsi les valdiations pour uen utilisation à diféfrents endroits
 
     --> DISJONCTION: any(valid_1 , valid_2, valid_3)
 
