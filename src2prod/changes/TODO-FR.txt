@@ -6,7 +6,10 @@ src2prod - TODO
 
 api about.yaml
 
-    --> on passe vi vsyaml et els desc longues sont de la doc tnsdoc tout simplement !
+    --> on passe via vsyaml et els desc longues sont de la doc tnsdoc tout simplement !
+
+    --> ce n'est plus une contribution car on la garde c$ote code, on proposera une version tarduisible plus tard quand la doc sera effectivement fabriquée
+
 
 > ---------------------------- <
 

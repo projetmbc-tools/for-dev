@@ -29,6 +29,8 @@ valider une clé (majuscule par convenition mais pas obligatoire) : l'opérateur
 KEY_NAME |> mon_valideur:
     ....
 
+KEY_NAME réutilisable ensuite (c'est une var dynamique)
+
 
 note: \|> échapper |>           (utile ????)
 
@@ -46,9 +48,9 @@ fournis en plus car assez generaliste
 
     --> path_dir , path_file
 
-    --> XXX
+    --> exist(this.keyname)
 
-        + pour avoir author mais pas authors en même temps
+        + pour avoir author mais pas authors en même temps via author |> not(exist(this.keyname))
 
     --> std_id et gene_id
 
@@ -70,6 +72,9 @@ fournis en plus car assez generaliste
             + Key "names" is for the list of names.
             + Key "last-name" is for the last names.
             + Key "email" is for the email.
+
+    --> institute : "Adress , Name [inst_email_1@inst_provider.abc]"
+
 
 > ---------------------------- <
 
@@ -197,9 +202,7 @@ myfile.vs.hd.yaml
 
 > ---------------------------- <
 
-XXX
+UTILE ????
 
-
-> ---------------------------- <
-
-XXX
+    --> \MACROS/:
+        on y déf des séquencs de validation trop longue (utile pour les clés)

@@ -1,30 +1,26 @@
-﻿# NOTES.
-#     1) Names followed by one star indicates an optional setting.
-#     2) Special comments ''#: ... :#'' allow to use one small DSL
-#        to indicate some constraints in the specifications.
-
-#: assert SPEC_ID in ["project", "monorepo"] :#
-
-
-# ========================= #
+﻿# ========================= #
 # == MONOREPO OR PROJECT == #
 # ========================= #
 
-MONOREPO_PROJECT |> in("project", "monorepo"):
+MONOREPO_OR_PROJECT |> in("project", "monorepo"):
 # ----------------------- #
 # -- SHORT DESCRIPTION -- #
 # ----------------------- #
-  name*   : "This allows you to give the name of the distributed
-            product instead of the name automatically generated from
-            the name of the folder containing this YAML file (in some
-            cases, product names must follow specific naming rules)."
+  # name*   : "This allows you to give the name of the distributed
+  #           product instead of the name automatically generated from
+  #           the name of the folder containing this YAML file (in some
+  #           cases, product names must follow specific naming rules)."
 
-  acronym*: "Most names follow hidden schemas that you can explain here.
-            For example, you can just type \"MY Hidden Acronym\" for
-            a product named is ''myha''."
+  # acronym*: "Most names follow hidden schemas that you can explain here.
+  #           For example, you can just type \"MY Hidden Acronym\" for
+  #           a product named is ''myha''."
 
-  desc    : "You must always give one small description of your product,
-            or monorepo."
+  # desc    : "You must always give one small description of your product,
+  #           or monorepo."
+  name*   : str
+  acronym*: str
+  desc    : str
+
 
 # ---------------- #
 # -- CREATOR(S) -- #
@@ -34,23 +30,22 @@ MONOREPO_PROJECT |> in("project", "monorepo"):
 #     1) For authors, only the NAME is mandatory.
 #     2) Several FIRST NAMES can be indicated.
 #     3) Using comas, several MAILS can be given.
-  author* |> XXXX: >
+  author* |> not(exist(this.MONOREPO_OR_PROJECT.authors)) : >
     author
-  authors* |> XXXX: >
+
+  authors* |> not(exist(this.MONOREPO_OR_PROJECT.author)): >
     list(author)
 
 # NOTES.
 #     1) For institutes, only the NAME is mandatory.
 #     2) Several MAILS can be used.
 #     3) Using comas, several MAILS can be given.
-  institute* : "Adress ,
-                Name
-                [inst_email_1@inst_provider.abc]"
+  institute* |> not(exist(this.MONOREPO_OR_PROJECT.institutes)): >
+    institute
 
-  institutes*:
-    - "institute_1 defined as above"
-    - "institute_2 defined as above"
-    - "etc."
+  institutes* |> not(exist(this.MONOREPO_OR_PROJECT.institute)): >
+    list(institute)
+
 
 # --------------- #
 # -- RESOURCES -- #
