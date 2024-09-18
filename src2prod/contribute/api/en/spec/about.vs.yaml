@@ -91,25 +91,21 @@ MONOREPO_PROJECT |> in("project", "monorepo"):
                  the name of the licence inside square brackets."
 
 # You can specify the coding languages required by the product.
-  require*:
-    - "coding language 1"
-    - "coding language 2"
-    - "etc."
+  require*: list(str)
 
 # You can specify several optional coding languages for the product.
-  optional*:
-    - "coding language 1"
-    - "coding language 2"
-    - "etc."
+  optional*: list(str)
 
 # You can complete locally the ''git'' list of paths to ignore when
 # producing the final product.
 #
 # TIP: the pipe symbol allows you to define one rule per line.
-  ignore*: |
-    rule_1
-    rule_2
-    etc.
+# yaml::
+#   ignore*: |
+#     rule_1
+#     rule_2
+#     etc.
+  ignore*: str
 
 
 # ======================== #
@@ -137,6 +133,5 @@ monorepo:
 
 project:
   dist*:
-    src*: "This is the source code folder used during the development
-          process which will not be distributed in its entirety. The
-          default value is ''src''."
+# This is the source code folder used during the development process which will not be distributed in its entirety. The default value is ''src''."
+    src*: path_dir

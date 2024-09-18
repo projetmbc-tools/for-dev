@@ -42,6 +42,14 @@ les psecs permettent de produire des psecs avec une doc complète om chaque vali
 
 fournis en plus car assez generaliste
 
+    --> lang en version courte fr, en, ...
+
+    --> path_dir , path_file
+
+    --> XXX
+
+        + pour avoir author mais pas authors en même temps
+
     --> std_id et gene_id
 
         + std_id: noms de var à la python
