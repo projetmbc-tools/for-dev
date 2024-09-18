@@ -12,6 +12,11 @@ on travaille sur des chaînes et non des valeurs modifiés pour sécuriser
 
 > ---------------------------- <
 
+cgf.vs.yaml spéc pour valider un futur cgf.yaml
+
+
+> ---------------------------- <
+
 cle_optionnelle*
 
 cle_astérisque\*                (utile ????)
@@ -72,7 +77,7 @@ Plusieurs validations pout ne pas avoir qu des fonctions dédiées faisant à ca
 
 in("cor", "done", "out")
 
-in(\./cgf.v.yaml\.group.key) pour clé d'un autre YAML, lui mêem sépcifié, le test d'appratennace se fera bien entendu côté métier
+in(\./cgf.vs.yaml\.group.key) pour clé d'un autre YAML, lui mêem sépcifié, le test d'appratennace se fera bien entendu côté métier
 
 noter usage de \chemin_relatif\
 
@@ -90,19 +95,25 @@ dict(valid_this | valid_that)
         Côté métier,
         valid_this et valid_that recoivent une clé et sa valeur
 
-ldict(... , ...) = list(dict(... , ...))
-    --> une sort de dictionnaire avec clé répétable
+l_dict(... , ...) = list(dict(... , ...))
+    --> une sorte de multi-dicto avec clé répétable
 
 
 > ---------------------------- <
 
-re(r"uneReGeX.*CodeMétier")
-    --> CodeMétier: Python, Lua, .... Pb du codeur final !
+re("uneReGeX.*")
+
+avec aussi pour paryiculairise suivant le langage qui fera les valdiations: lang par défaut étant python donc re seul équivaut à case("python", re("..."))
+
+implement(
+    "python": re("uneReGeX-python.*"),
+    "lua"   : re("uneReGeX-lua.*")
+)
 
 
 > ---------------------------- <
 
-le pérécdoe construit prend en charge certains validateurs
+le pérécdoe construit prend en charge certains valideurs
 
     --> str pour string, int...
 
@@ -111,7 +122,7 @@ le pérécdoe construit prend en charge certains validateurs
 
 > ---------------------------- <
 
-un bloc initial spéciacle de type comentaire permet d'indiquer les noms des validateurs afin de répérer des errurs de saisie
+un bloc initial spécial pour les noms des valideurs afin de répérer des erreurs de saisie
 
 #: NAMES
 
