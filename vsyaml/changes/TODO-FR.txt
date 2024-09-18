@@ -105,9 +105,11 @@ re("uneReGeX.*")
 
 avec aussi pour paryiculairise suivant le langage qui fera les valdiations: lang par défaut étant python donc re seul équivaut à case("python", re("..."))
 
+le nom des kangages est en minuscules et doit être pris en compte, donc pour moi ce sera juste lua, l3=latex3 et python à long terme, et voir si d'autres rejoignent l'aventure
+
 implement(
-    "python": re("uneReGeX-python.*"),
-    "lua"   : re("uneReGeX-lua.*")
+    python: re("uneReGeX-python.*"),
+    lua   : re("uneReGeX-lua.*")
 )
 
 
@@ -122,9 +124,20 @@ le pérécdoe construit prend en charge certains valideurs
 
 > ---------------------------- <
 
-un bloc initial spécial pour les noms des valideurs afin de répérer des erreurs de saisie
+un bloc initial spécial pour les noms des valideurs afin de répérer des erreurs de saisie;, ou les noms des variables sont juste là pour la sign impércise$
 
-#: NAMES
+les valideuyrs recoivent un arg et en renvoie un autre, charge au codeur d'utiliser des struct avancés pour multiplier les infos
+
+
+#:VS-HEADER
+
+myvalid_1
+myvalid_2
+
+VS-HEADER:#
+
+
+sans HEADER, c'est opened bar !
 
 
 > ---------------------------- <
