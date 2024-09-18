@@ -145,6 +145,8 @@ les valideuyrs recoivent un arg et en renvoie un autre, charge au codeur d'utili
 desc will be dded in autogrenerated code : in Python; we defined a class with metho to be im^lemnted, on surcalsse pour autoriser des me plsu tard; garder cela pour tout les langages pris en compte dans la mesuer du possible
 
 
+vs.yaml a ses headers dans vs.hd.yaml : plus simple à gérer et poermet de la verbosté dans les desc
+
 \VSYAML-HEADER/:
   myvalid_1: >
     Validated data: ...
