@@ -46,6 +46,8 @@ un valideur
 
 Plusieurs validations pout ne pas avoir qu des fonctions dédiées faisant à cahque fois tout, on éclate ainsi les valdiations pour uen utilisation à diféfrents endroits
 
+    --> NEGATION: not(...)
+
     --> DISJONCTION: any(valid_1 , valid_2, valid_3)
 
     --> CONJONCTION: all(valid_1 , valid_2, valid_3)
@@ -77,9 +79,15 @@ Plusieurs validations pout ne pas avoir qu des fonctions dédiées faisant à ca
 
 in("cor", "done", "out")
 
-in(\./cgf.vs.yaml\.group.key) pour clé d'un autre YAML, lui mêem sépcifié, le test d'appratennace se fera bien entendu côté métier
+in(this.abbrev.key)
 
-noter usage de \chemin_relatif\
+    --> this fait ref au fichier YAML en cours de pséc, donc ici on veut une clée du bloc abbrev du yaml spécifié
+
+in(\./cgf.vs.yaml\.group.key)
+
+    --> pour clé d'un autre YAML, lui mêem sépcifié, le test d'appratennace se fera bien entendu côté métier
+
+        noter usage de \chemin_relatif\
 
 
 > ---------------------------- <
