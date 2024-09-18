@@ -142,17 +142,16 @@ un bloc initial spécial OBLIGATOIRE pour les noms des valideurs afin de répér
 
 les valideuyrs recoivent un arg et en renvoie un autre, charge au codeur d'utiliser des struct avancés pour multiplier les infos
 
+desc will be dded in autogrenerated code : in Python; we defined a class with metho to be im^lemnted, on surcalsse pour autoriser des me plsu tard; garder cela pour tout les langages pris en compte dans la mesuer du possible
+
 
 \VSYAML-HEADER/:
   myvalid_1: >
     Validated data: ...
 
-    Value returned: ...
+    Returned value: ...
 
-  myvalid_2: >
-    Validated data: ...
-
-    Value returned: ...
+  myvalid_2: \path.other.psec.reused\
 
 
 > ---------------------------- <
