@@ -1,0 +1,117 @@
+======
+vsyaml - TODO
+======
+
+POC dans clalog !
+
+
+> ---------------------------- <
+
+on travaille sur des chaînes et non des valeurs modifiés pour sécuriser
+
+
+> ---------------------------- <
+
+cle_optionnelle*
+
+cle_astérisque\*                (utile ????)
+
+
+> ---------------------------- <
+
+valider une clé (majuscule par convenition mais pas obligatoire) : l'opérateur spécial |> indique l'usage d'un cél de noms non fixé à passer à al moulinette
+
+KEY_NAME |> mon_valideur:
+    ....
+
+
+note: \|> échapper |>           (utile ????)
+
+
+> ---------------------------- <
+
+Plusieurs validations pout ne pas avoir qu des fonctions dédiées faisant à cahque fois tout, on éclate ainsi les valdiations pour uen utilisation à diféfrents endroits
+
+    --> DISJONCTION: any(valid_1 , valid_2, valid_3)
+
+    --> CONJONCTION: all(valid_1 , valid_2, valid_3)
+
+    --> EN SÉRIE:  chain(valid_1 , valid_2, valid_3)
+
+        Ici, valid_1 s'il résussit renvoie une donnée obtenue via la donnée initiale afin de poursuivre une autre validation...
+
+        Par exemple, on peut avoir (cf clalog)
+
+            (1h) Ma séuence chronométré (mon commentaire)
+
+            |
+            | validation de 1h stocké côté métier
+            |
+            v
+
+            Ma séuence chronométré (mon commentaire)
+
+            |
+            | valiséuence validée
+            |
+            v
+
+            STOP !
+
+
+> ---------------------------- <
+
+in("cor", "done", "out")
+
+in(\./cgf.v.yaml\.group.key) pour clé d'un autre YAML, lui mêem sépcifié, le test d'appratennace se fera bien entendu côté métier
+
+noter usage de \chemin_relatif\
+
+
+> ---------------------------- <
+
+list(valid_this)
+    --> liste d'objets validé par valid_this
+        Côté métier,
+        valid_this recoit un item
+
+
+dict(valid_this | valid_that)
+    --> dico de clé validée par valid_this et de valeurs validées par valid_that
+        Côté métier,
+        valid_this et valid_that recoivent une clé et sa valeur
+
+ldict(... , ...) = list(dict(... , ...))
+    --> une sort de dictionnaire avec clé répétable
+
+
+> ---------------------------- <
+
+re(r"uneReGeX.*CodeMétier")
+    --> CodeMétier: Python, Lua, .... Pb du codeur final !
+
+
+> ---------------------------- <
+
+le pérécdoe construit prend en charge certains validateurs
+
+    --> str pour string, int...
+
+    --> sin on pris en compte, cela apparaitra clairemnt en commentaire de début de code
+
+
+> ---------------------------- <
+
+un bloc initial spéciacle de type comentaire permet d'indiquer les noms des validateurs afin de répérer des errurs de saisie
+
+#: NAMES
+
+
+> ---------------------------- <
+
+XXX
+
+
+> ---------------------------- <
+
+XXX
