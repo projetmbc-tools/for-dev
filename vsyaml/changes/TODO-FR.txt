@@ -2,7 +2,13 @@
 vsyaml - TODO
 ======
 
+
 POC dans clalog !
+
+
+> ---------------------------- <
+
+remplace @-bout ! en effet, bien plus puissant.
 
 
 > ---------------------------- <
@@ -199,12 +205,15 @@ vs.yaml a ses headers dans vs.hd.yaml : plus simple à gérer et poermet de la v
 
 myfile.vs.hd.yaml
 
-  myvalid_1: >
-    Validated data: ...
+# création
+myvalid_1: >
+  \accept: ...
 
-    Returned value: ...
+  \return: ...
 
-  myvalid_2: \path.other.psec.reused\
+# réutilistion
+myvalid_2: >
+  \from: \./path.other.spec/to.reuse.vs.hd.yaml\
 
 
 > ---------------------------- <

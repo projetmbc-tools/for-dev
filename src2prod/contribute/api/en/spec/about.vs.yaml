@@ -1,13 +1,9 @@
-﻿# ========================= #
-# == MONOREPO OR PROJECT == #
-# ========================= #
-
-###
-# TODO: tnsdoc
+﻿### ??
+#
 ###
 ANY_KIND |> one_in("project", "monorepo"):
-###
-# TODO: tnsdoc
+### ??
+#
 ###
 # ----------------------- #
 # -- SHORT DESCRIPTION -- #
@@ -28,8 +24,8 @@ ANY_KIND |> one_in("project", "monorepo"):
   desc    : str
 
 
-###
-# TODO: tnsdoc
+### ??
+#
 ###
 # ---------------- #
 # -- CREATOR(S) -- #
@@ -56,8 +52,8 @@ ANY_KIND |> one_in("project", "monorepo"):
     list(institute)
 
 
-###
-# TODO: tnsdoc
+### ??
+#
 ###
 # --------------- #
 # -- RESOURCES -- #
@@ -75,8 +71,8 @@ ANY_KIND |> one_in("project", "monorepo"):
   readme*: XXXX
 
 
-###
-# TODO: tnsdoc
+### ??
+#
 ###
   # url:
   #   repo*: "The url of the product repository."
@@ -98,8 +94,8 @@ ANY_KIND |> one_in("project", "monorepo"):
       DOC_KIND* |> in("manual", "code"): lang
 
 
-###
-# TODO: tnsdoc
+### ??
+#
 ###
 # ------------------------ #
 # -- TECHNICAL SETTINGS -- #
@@ -129,8 +125,8 @@ ANY_KIND |> one_in("project", "monorepo"):
   ignore*: str
 
 
-###
-# TODO: tnsdoc
+### ??
+#
 ###
 # ======================== #
 # == JUST FOR MONOREPOS == #
@@ -151,8 +147,8 @@ monorepo:
     - "etc."
 
 
-###
-# TODO: tnsdoc
+### ??
+#
 ###
 # =========================== #
 # == JUST FOR FOR PROJECTS == #
