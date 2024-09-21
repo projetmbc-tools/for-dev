@@ -106,7 +106,9 @@ fournis en plus car assez generaliste
 
 > ---------------------------- <
 
-chain(timed_seq, auto_refs(in.txt)) car
+in déjà utilisé en tant que valideur donc on évite confusion via input même si plus long que in
+
+chain(timed_seq, auto_refs(input.txt)) car
 
     + timed_seq renvoie {"time": ..., "txt": ...}
     + auto_refs attend just du texte
@@ -115,7 +117,7 @@ ce choix permet de limiter lien entre logique de vs.yaml et implementation : VER
 
 on propose just in pour le moment
 
-    + in.txt pour clé txt du dict in
+    + input.txt pour clé txt du dict in
     + in[0] pour le 1iere elt de la list ou du uplet in
 
 
