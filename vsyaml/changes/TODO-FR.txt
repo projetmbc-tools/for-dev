@@ -119,6 +119,17 @@ on propose just in pour le moment
     + in[0] pour le 1iere elt de la list ou du uplet in
 
 
+MIEUX !
+
+tout valideur doit renvoyer struct de type dict avec au minimum txt comme clé avec pour valeur un text dont on a extrait ce que l'on voualit et que l'on redonne à la suite de la chapine de valaidation
+
+    + pour une date, on aura une clé "adte" avec une version de la date directement utilisable, idem pour un nbre via "val", et on a tout de meêm accès pour taritement local si justifié
+
+    + dans les cas précédents, on renvoie ce qui a été donnée
+
+    + pour une séquence avec tmps , dans ce cas, plus besoin de renvoyer dans le text le tmps car la valuideur a fait son boulot
+
+
 > ---------------------------- <
 
 un valideur
