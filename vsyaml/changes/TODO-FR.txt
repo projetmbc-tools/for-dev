@@ -8,7 +8,11 @@ POC dans clalog !
 
 > ---------------------------- <
 
-remplace @-bout ! en effet, bien plus puissant.
+TOP !!!
+
+    + @-bout s'ppuieera sur vsyaml : une sorte de catalogue de config yaml, que l'on pourra eteindre à d'autres situations
+
+    + on gardera nom historique about même si le catalogue s'loigne du cas d'utilsiation initiale
 
 
 > ---------------------------- <
@@ -87,6 +91,32 @@ fournis en plus car assez generaliste
             + Key "email" is for the email.
 
     --> institute : "Adress , Name [inst_email_1@inst_provider.abc]"
+
+
+    --> date qui est un valideur paramétré qui sera tjrs avec val par défaut, pas d'im^plment ici !
+
+        date : par défaut YYYY-MM-DD
+
+        date("...") : std à al Python https://docs.python.org/fr/3/library/datetime.html#examples-of-usage-date
+
+            + date("%d/%m/%y") = 'DD/MM/YY'
+
+            + date("%A %d. %B %Y") = 'Dayname DD. Montname YYYY'
+
+
+> ---------------------------- <
+
+chain(timed_seq, auto_refs(in.txt)) car
+
+    + timed_seq renvoie {"time": ..., "txt": ...}
+    + auto_refs attend just du texte
+
+ce choix permet de limiter lien entre logique de vs.yaml et implementation : VERBEUX = FACILE
+
+on propose just in pour le moment
+
+    + in.txt pour clé txt du dict in
+    + in[0] pour le 1iere elt de la list ou du uplet in
 
 
 > ---------------------------- <
@@ -214,6 +244,20 @@ myvalid_1: >
 # réutilistion
 myvalid_2: >
   \from: \./path.other.spec/to.reuse.vs.hd.yaml\
+
+
+pour sequence repétitive, on a un blic spécial, on évitera de manger les valideurs stds tq list ou dict
+
+\abbrev: ????
+    \nom: code de rempkavement
+
+
+
+conseil: \abbrev au début suivi des valideurs rangés par ordre alphabétique
+
+
+
+vamideur paramétré même pour "maison"
 
 
 > ---------------------------- <
