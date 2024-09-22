@@ -62,11 +62,13 @@ fournis en plus car assez generaliste
 
     --> lang en version courte fr, en, ...
 
-    --> path_dir , path_file
+    --> path
+        path("is_dir") le dir doit exoster
+        path("is_file") le fichier  doit exoster
 
-    --> exist(this.keyname)
+    --> exist(\this.keyname)
 
-        + pour avoir author mais pas authors en même temps via author | not(exist(this.keyname))
+        + pour avoir author mais pas authors en même temps via author | not(exist(\this.keyname))
 
     --> si juste ANY_KIND | in("project", "monorepo") , on ne peut pas utiliser not(exist(...))
         Que faire ?
@@ -103,18 +105,39 @@ fournis en plus car assez generaliste
 
     --> date qui est un valideur paramétré qui sera tjrs avec val par défaut, pas d'im^plment ici !
 
-        date : par défaut YYYY-MM-DD
+        date : par défaut Y-M-D
 
-        date("...") : std à al Python https://docs.python.org/fr/3/library/datetime.html#examples-of-usage-date
+        date("...") : format maison simple à prendre en main même si plus restreind
 
-            + date("%d/%m/%y") = 'DD/MM/YY'
+            + date("DD/MM/YY") = 'DD/MM/YY'
 
-            + date("%A %d. %B %Y") = 'Dayname DD. Montname YYYY'
+            + date("D_n D. M_n Y") = 'Day_name DD. Month_name YYYY'
+
+            + D_sn pour short name
+
+            + si beoisn de d ou D, on échappe !
+
+
+    --> time similaire à date mais pour
+
+    --> map(validator, iterable)
+
+    --> range pour XX .. YY qui extrait XX et YY en verbatim pour usage divers (time date ranges)
+
+        chain(range, map(date, input:keys))
 
 
 > ---------------------------- <
 
 in déjà utilisé en tant que valideur donc on évite confusion via input même si plus long que in
+
+
+keys utilisable car input:keys et input.keys sont différents
+
+    --> dangeruex toyt de mêm donc déconseillé !
+
+    --> de même on propose input:vals
+
 
 chain(timed_seq, auto_refs(input.txt)) car
 
@@ -189,12 +212,12 @@ in("cor", "done", "out")
     --> list de chaîne uniquement
 
 
-in(this.abbrev.key)
+in(\this.abbrev:keys)
 
     --> this fait ref au fichier YAML en cours de pséc, donc ici on veut une clée du bloc abbrev du yaml spécifié
 
 
-in(\./cgf.vs.yaml\.group.key)
+in(\./cgf.vs.yaml\.group:keys)
 
     --> pour clé d'un autre YAML, lui mêem sépcifié, le test d'appratennace se fera bien entendu côté métier
 
@@ -270,8 +293,10 @@ myvalid_2: >
 pour sequence repétitive, on a un blic spécial, on évitera de manger les valideurs stds tq list ou dict
 
 \abbrev: ????
-    \nom: code de rempkavement
+    nom: code de rempkavement utilisé via \nom
 
+
+le nom this est réservé !
 
 
 conseil: \abbrev au début suivi des valideurs rangés par ordre alphabétique
@@ -283,7 +308,22 @@ vamideur paramétré même pour "maison"
 
 > ---------------------------- <
 
-UTILE ????
+TROP VERBAUX donc on vire
 
-    --> \MACROS/:
-        on y déf des séquencs de validation trop longue (utile pour les clés)
+\timed_seq: >
+  \from: \./day.vs.hd.yaml\
+
+\versatile_date: >
+  \from: \./day.vs.hd.yaml\
+
+on founrit le raccorucis
+
+
+A LA PLACE : une liste d'importation qui a l'aventage de rendre visible les actions d'importation !
+
+
+\import:
+  - \from: \./day.vs.hd.yaml\
+    \what:
+      - \timed_seq
+      - \versatile_date

@@ -25,9 +25,10 @@ ANY_KIND | one_in("project", "monorepo"):
 
   # desc    : "You must always give one small description of your product,
   #           or monorepo."
-  name*   : str
-  acronym*: str
-  desc    : str
+  KIND* | in("name", "acronym"): >
+    str
+
+  desc: str
 
 
 ### ??
@@ -41,20 +42,20 @@ ANY_KIND | one_in("project", "monorepo"):
 #     1) For authors, only the NAME is mandatory.
 #     2) Several FIRST NAMES can be indicated.
 #     3) Using comas, several MAILS can be given.
-  author* | not(exist(this.ANY_KIND.authors)) : >
+  author* | not(exist(\this.ANY_KIND.authors)): >
     author
 
-  authors* | not(exist(this.ANY_KIND.author)): >
+  authors* | not(exist(\this.ANY_KIND.author)): >
     list(author)
 
 # NOTES.
 #     1) For institutes, only the NAME is mandatory.
 #     2) Several MAILS can be used.
 #     3) Using comas, several MAILS can be given.
-  institute* | not(exist(this.ANY_KIND.institutes)): >
+  institute* | not(exist(\this.ANY_KIND.institutes)): >
     institute
 
-  institutes* | not(exist(this.ANY_KIND.institute)): >
+  institutes* | not(exist(\this.ANY_KIND.institute)): >
     list(institute)
 
 
@@ -85,9 +86,8 @@ ANY_KIND | one_in("project", "monorepo"):
   #   home*: "The url of a dedicated website for the product."
   #   doc* : "The url of a dedicated website for the product documentation."
   url:
-    repo*: url
-    home*: url
-    doc* : url
+    KIND* | in("repo", "home", "doc"): >
+      url
 
   lang*:
     # readme*: "This indicates the language(s) of the ''README'' file(s)
@@ -97,7 +97,8 @@ ANY_KIND | one_in("project", "monorepo"):
     readme*: lang
 
     doc*:
-      DOC_KIND* | in("manual", "code"): lang
+      DOC_KIND* | in("manual", "code"): >
+        lang
 
 
 ### ??
@@ -106,18 +107,19 @@ ANY_KIND | one_in("project", "monorepo"):
 # ------------------------ #
 # -- TECHNICAL SETTINGS -- #
 # ------------------------ #
-  licence*: "There is two ways to give the licence of the product.
-              1) You can use an ID managed by the Python project ''ealic''.
-              2) You can give the path of one file containing the full
-                 text of the licence like in ''path/to/my/licence.txt
-                 [My special licence]'' where we also have to indicate
-                 the name of the licence inside square brackets."
+# "There is two ways to give the licence of the product.
+#               1) You can use an ID managed by the Python project ''ealic''.
+#               2) You can give the path of one file containing the full
+#                  text of the licence like in ''path/to/my/licence.txt
+#                  [My special licence]'' where we also have to indicate
+#                  the name of the licence inside square brackets."
+  licence*: XXX
 
 # You can specify the coding languages required by the product.
-  require*: list(str)
 
 # You can specify several optional coding languages for the product.
-  optional*: list(str)
+  KIND* | in("require", "optional"): >
+    list(str)
 
 # You can complete locally the ''git'' list of paths to ignore when
 # producing the final product.
