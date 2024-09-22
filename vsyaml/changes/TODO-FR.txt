@@ -10,9 +10,9 @@ POC dans clalog !
 
 TOP !!!
 
-    + @-bout s'ppuieera sur vsyaml : une sorte de catalogue de config yaml, que l'on pourra eteindre à d'autres situations
+    + @-bout s'ppuieera sur vsyaml : une sorte de catalogue de config yaml, que l'on pourra etendre à d'autres situations
 
-    + on gardera nom historique about même si le catalogue s'loigne du cas d'utilsiation initiale
+    + on gardera le nom historique @-bout même si le catalogue s'éloigne du cadre d'utilisation initial
 
 
 > ---------------------------- <
