@@ -9,7 +9,7 @@
     lexic   = python
 
 
-abrev::
+abbrev::
     cofiup = cf::''CoFiUp ;
                    https://github.com/bc-tools/for-dev/tree/main/cofiup''
 

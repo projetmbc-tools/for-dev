@@ -2,7 +2,7 @@ this::
     date = 2022-12-04
 
 
-abrev::
+abbrev::
     content = /ascii
 
 

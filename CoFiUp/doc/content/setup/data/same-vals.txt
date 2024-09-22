@@ -2,7 +2,7 @@
     date = 2023-04-15
 
 
-abrev::
+abbrev::
     examples = ?/examples/about2pyproj
 
 

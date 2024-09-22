@@ -1,7 +1,7 @@
 ﻿### ??
 #
 ###
-ANY_KIND |> one_in("project", "monorepo"):
+ANY_KIND | one_in("project", "monorepo"):
 ### ??
 #
 ###
@@ -35,20 +35,20 @@ ANY_KIND |> one_in("project", "monorepo"):
 #     1) For authors, only the NAME is mandatory.
 #     2) Several FIRST NAMES can be indicated.
 #     3) Using comas, several MAILS can be given.
-  author* |> not(exist(this.ANY_KIND.authors)) : >
+  author* | not(exist(this.ANY_KIND.authors)) : >
     author
 
-  authors* |> not(exist(this.ANY_KIND.author)): >
+  authors* | not(exist(this.ANY_KIND.author)): >
     list(author)
 
 # NOTES.
 #     1) For institutes, only the NAME is mandatory.
 #     2) Several MAILS can be used.
 #     3) Using comas, several MAILS can be given.
-  institute* |> not(exist(this.ANY_KIND.institutes)): >
+  institute* | not(exist(this.ANY_KIND.institutes)): >
     institute
 
-  institutes* |> not(exist(this.ANY_KIND.institute)): >
+  institutes* | not(exist(this.ANY_KIND.institute)): >
     list(institute)
 
 
@@ -91,7 +91,7 @@ ANY_KIND |> one_in("project", "monorepo"):
     readme*: lang
 
     doc*:
-      DOC_KIND* |> in("manual", "code"): lang
+      DOC_KIND* | in("manual", "code"): lang
 
 
 ### ??

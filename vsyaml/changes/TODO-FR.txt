@@ -23,6 +23,12 @@ on travaille sur des chaînes et non des valeurs modifiés pour sécuriser
 > ---------------------------- <
 
 cgf.vs.yaml spéc pour valider un futur cgf.yaml
+cgf.vs.hd.yaml : header à la C pour indiquer les valideurs maison disponibles + utilsation de raccorucis
+
+
+> ---------------------------- <
+
+authors non car list(author) : indiquer de tjrs faire ainsi !
 
 
 > ---------------------------- <
@@ -34,15 +40,15 @@ cle_astérisque\*                (utile ????)
 
 > ---------------------------- <
 
-valider une clé (majuscule par convenition mais pas obligatoire) : l'opérateur spécial |> indique l'usage d'un cél de noms non fixé à passer à al moulinette
+valider une clé (majuscule par convenition mais pas obligatoire) : l'opérateur pipe | (penser au pipe de unix et de jinja) indique l'usage d'un cél de noms non fixé à passer à al moulinette
 
-KEY_NAME |> mon_valideur:
+KEY_NAME | mon_valideur:
     ....
 
 KEY_NAME réutilisable ensuite (c'est une var dynamique)
 
 
-note: \|> échapper |>           (utile ????)
+note: \| échapper |           (utile ????)
 
 
 > ---------------------------- <
@@ -60,13 +66,15 @@ fournis en plus car assez generaliste
 
     --> exist(this.keyname)
 
-        + pour avoir author mais pas authors en même temps via author |> not(exist(this.keyname))
+        + pour avoir author mais pas authors en même temps via author | not(exist(this.keyname))
 
-    --> si juste ANY_KIND |> in("project", "monorepo") , on ne peut pas utiliser not(exist(...))
+    --> si juste ANY_KIND | in("project", "monorepo") , on ne peut pas utiliser not(exist(...))
         Que faire ?
-        ANY_KIND |> one_in("project", "monorepo")
+        ANY_KIND | one_in("project", "monorepo")
 
-        cette cmd n'empêche que monorepo et project apparaise dans le reste de la spec, TOP !
+        cette cmd empêche que monorepo et project apparaise dans le reste de la spec, TOP !
+
+        par contre si ensuite proect réutilisé, on cumule les specs, ceci factorise les codes avec specs communes
 
     --> url via regex en interne
     --> std_id et gene_id

@@ -1,4 +1,4 @@
-﻿abrev::
+﻿abbrev::
     examples = ?/examples/tnschges-n-about
 
     content = :this.name:

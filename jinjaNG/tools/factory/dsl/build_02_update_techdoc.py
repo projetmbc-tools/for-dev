@@ -206,7 +206,7 @@ def build_predoc(flavour, filename):
 
 
 TEMPL_TOC = """
-abrev::
+abbrev::
     content = /{flavour}
 
 

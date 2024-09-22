@@ -9,7 +9,7 @@
     lexic   = python
 
 
-abrev::
+abbrev::
     suaver = cf::''suaVER ;
                    https://github.com/bc-tools/for-dev/tree/main/suaver''
 
